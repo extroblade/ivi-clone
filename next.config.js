@@ -3,19 +3,36 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'lh3.googleusercontent.com',
-      'sun6-22.userapi.com',
-      'vk.com',
-      'thumbs.dfs.ivi.ru',
-      'www.kinopoisk.ru',
-    ],
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '3001',
         pathname: '/photo/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.userapi.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'kinopoisk.ru',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'thumbs.dfs.ivi.ru',
+        port: '',
+        pathname: '/**',
       },
     ],
   },
