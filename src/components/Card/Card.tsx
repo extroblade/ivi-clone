@@ -30,11 +30,14 @@ const Card: FC<CardProps> = ({
     countries,
     genres,
     year,
+    name,
+    enName,
     duration,
     originalTitle,
     title,
   } = card;
-  const i18nTitle = i18next.language == 'en' ? originalTitle || title : title || '';
+  const i18nTitle =
+    i18next.language == 'en' ? originalTitle || enName || title || name : title || name || '';
   const rate = rating?.length ? rating[0] : 9.0;
   return (
     <Link href={`/watch/${id}`} className={styles.card} draggable="false" {...props}>

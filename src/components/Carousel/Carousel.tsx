@@ -93,14 +93,13 @@ const Carousel: FC<CarouselProps> = ({
   return (
     <div className={styles.carousel}>
       {title && (
-        <div>
-          <Link href={route || ''} className={styles.title}>
+        <div className={styles.title}>
+          <Link href={route || ''} className={styles.title_container}>
             <div title={title}>
               <Htag tag={'h4'}>{title}</Htag>
             </div>
             <MdArrowForwardIos />
           </Link>
-          <div />
         </div>
       )}
       <Slider {...settings}>
