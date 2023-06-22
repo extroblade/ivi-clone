@@ -20,7 +20,6 @@ import { usePreventScroll } from '@/hooks/usePreventScroll';
 import { selectModal, setShowFooterModal } from '@/store/reducers/modals.slice';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { BtnA, BtnS } from '@/components/Button/Button.props';
 
 const FooterModal: FC = (): JSX.Element => {
   const { t } = useTranslation();
@@ -33,11 +32,11 @@ const FooterModal: FC = (): JSX.Element => {
       {showFooterModal && (
         <div className={styles.modal}>
           <div className={cn(styles.menuItem, styles.buttons)}>
-            <Button size={BtnS.L} className={cn(styles.buttonSubscribe, styles.button)}>
+            <Button size={'L'} className={cn(styles.buttonSubscribe, styles.button)}>
               <SlDiamond />
               {t('buttons.get-subscription')}
             </Button>
-            <Button size={BtnS.L} className={styles.button}>
+            <Button size={'L'} className={styles.button}>
               <FiAward />
               {t('footer.cert')}
             </Button>
@@ -152,10 +151,10 @@ const FooterModal: FC = (): JSX.Element => {
                   <Link href={'https://www.ivi.ru/profile'}>
                     <Button className={styles.button}>{t('footer.chat-us')}</Button>
                   </Link>
-                  <Button appearance={BtnA.square}>
+                  <Button appearance={'square'}>
                     <IoMailOutline />
                   </Button>
-                  <Button appearance={BtnA.square}>
+                  <Button appearance={'square'}>
                     <HiPhone />
                   </Button>
                 </div>
@@ -170,22 +169,22 @@ const FooterModal: FC = (): JSX.Element => {
           </div>
           <div className={styles.menuItem}>
             <div className={styles.social}>
-              <Button appearance={BtnA.circle}>
+              <Button appearance={'circle'}>
                 <FaVk />
               </Button>
-              <Button appearance={BtnA.circle}>
+              <Button appearance={'circle'}>
                 <FaOdnoklassniki />
               </Button>
-              <Button appearance={BtnA.circle}>
+              <Button appearance={'circle'}>
                 <FaTwitter />
               </Button>
-              <Button appearance={BtnA.circle}>
+              <Button appearance={'circle'}>
                 <CgPhone />
               </Button>
-              <Button appearance={BtnA.circle}>
+              <Button appearance={'circle'}>
                 <FaLinkedinIn />
               </Button>
-              <Button appearance={BtnA.circle}>
+              <Button appearance={'circle'}>
                 <FaTelegramPlane />
               </Button>
             </div>

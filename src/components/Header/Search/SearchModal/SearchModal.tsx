@@ -10,7 +10,6 @@ import { usePreventScroll } from '@/hooks/usePreventScroll';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
 import { Button } from '@/components/Button/Button';
-import { BtnA } from '@/components/Button/Button.props';
 import { useRouter } from 'next/navigation';
 import { P } from '@/components/P/P';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
@@ -108,11 +107,7 @@ const SearchModal: FC = (): JSX.Element => {
           <div className={styles.result}>
             {movieMatch?.length
               ? movieMatch.slice(0, 15).map((movie) => (
-                  <Button
-                    onClick={() => redirect(movie)}
-                    appearance={BtnA.transparent}
-                    key={movie.id}
-                  >
+                  <Button onClick={() => redirect(movie)} appearance={'transparent'} key={movie.id}>
                     <BiMoviePlay />
                     <P>{movie.name || movie.title}</P>
                   </Button>
@@ -122,7 +117,7 @@ const SearchModal: FC = (): JSX.Element => {
               ? personMatch.slice(0, 15).map((person) => (
                   <Button
                     onClick={() => redirect(person)}
-                    appearance={BtnA.transparent}
+                    appearance={'transparent'}
                     key={person.id}
                   >
                     <BsPersonCircle />

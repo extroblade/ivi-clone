@@ -6,9 +6,9 @@ import Dropdown from '@/components/Filters/Dropdown/Dropdown';
 
 interface iChooseDropdown {
   state: boolean;
-  plank: unknown[];
-  chosen: unknown[];
-  change: unknown;
+  plank: any;
+  chosen: any;
+  change: any;
 }
 
 const ChooseDropdown: FC<iChooseDropdown> = ({ state, plank, chosen, change }): JSX.Element => {

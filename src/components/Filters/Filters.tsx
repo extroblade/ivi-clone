@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './Filters.module.scss';
-import Plank, { Planks } from '@/components/Filters/Plank/Plank';
+import Plank from '@/components/Filters/Plank/Plank';
 import { Button } from '@/components/Button/Button';
 import { RxCross2 } from 'react-icons/rx';
 import { planks } from '@/mock/filters';
@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import InputRange from '@/components/Filters/Plank/InputRange';
 import { GoSettings } from 'react-icons/go';
 import SortDropdown from '@/components/Filters/SortDropdown/SortDropdown';
-import { BtnA } from '@/components/Button/Button.props';
 
 //todo: add framer-motion filter animation
 
@@ -30,7 +29,7 @@ const Filters: FC = (): JSX.Element => {
   return (
     <>
       <div className={styles.openers}>
-        <Button appearance={BtnA.transparent} onClick={() => setOpenedFilter(!openedFilter)}>
+        <Button appearance={'transparent'} onClick={() => setOpenedFilter(!openedFilter)}>
           <div className={styles.filters__icon}>
             <GoSettings />
             <div className={styles.open_filter}>
@@ -45,16 +44,16 @@ const Filters: FC = (): JSX.Element => {
         <div className={styles.filters}>
           <div className={styles.plank_list}>
             <div className={styles.plank_item}>
-              <Plank plank={planks[0]} chosen={chosen} setChosen={setChosen} type={Planks.choose} />
+              <Plank plank={planks[0]} chosen={chosen} setChosen={setChosen} type={'choose'} />
             </div>
             <div className={styles.plank_item}>
-              <Plank plank={planks[1]} chosen={chosen} setChosen={setChosen} type={Planks.find} />
+              <Plank plank={planks[1]} chosen={chosen} setChosen={setChosen} type={'find'} />
             </div>
             <div className={styles.plank_item}>
-              <Plank plank={planks[2]} chosen={chosen} setChosen={setChosen} type={Planks.find} />
+              <Plank plank={planks[2]} chosen={chosen} setChosen={setChosen} type={'find'} />
             </div>
             <div className={styles.plank_item}>
-              <Plank plank={planks[3]} chosen={chosen} setChosen={setChosen} type={Planks.choose} />
+              <Plank plank={planks[3]} chosen={chosen} setChosen={setChosen} type={'choose'} />
             </div>
             <div className={styles.plank_item}>
               <InputRange minLimit={6.7} maxLimit={10} range={0.1}>
@@ -68,7 +67,7 @@ const Filters: FC = (): JSX.Element => {
             </div>
           </div>
           <Button
-            appearance={BtnA.transparent}
+            appearance={'transparent'}
             className={styles.reset}
             onClick={reset}
             disabled={!active}

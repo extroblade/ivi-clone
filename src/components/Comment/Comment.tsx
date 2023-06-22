@@ -7,7 +7,6 @@ import CommentInput from '@/components/Comment/CommentInput';
 import LikeButton from '@/components/Comment/Buttons/LikeButton';
 import DisLikeButton from '@/components/Comment/Buttons/DisLikeButton';
 import { useTranslation } from 'react-i18next';
-import { BtnA, BtnS } from '@/components/Button/Button.props';
 import { IComment } from '@/types/types';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
@@ -55,7 +54,7 @@ const Comment: FC<iCommentComp> = ({ comment }): JSX.Element => {
         </div>
       </div>
       <div className={styles.interactions}>
-        <Button size={BtnS.S} appearance={BtnA.transparent} onClick={switcher}>
+        <Button size={'S'} appearance={'transparent'} onClick={switcher}>
           {answer ? t('buttons.collapse') : t('buttons.answer')}
         </Button>
       </div>

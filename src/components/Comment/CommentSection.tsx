@@ -11,15 +11,15 @@ interface ICommentSection {
 
 const CommentSection: FC<ICommentSection> = ({ id }): JSX.Element => {
   const { data: comments, isLoading, error } = useFetchCommentsQuery({ id });
-  const coms = comments?.commentsData || null;
+  const commentsData = comments?.commentsData || null;
   return (
     <div className={styles.comment_section}>
       <div>!!!warn: answers works with only first level children!!!</div>
       <CommentInput id={id} />
       <ul>
         {isLoading && <Loader />}
-        {!error && coms?.length
-          ? [...coms]
+        {!error && commentsData?.length
+          ? [...commentsData]
               .sort((a, b) => a.id - b.id)
               .map((comment) => <Comment comment={comment} key={comment.id} />)
           : ''}

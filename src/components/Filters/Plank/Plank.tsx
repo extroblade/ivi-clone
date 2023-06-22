@@ -4,15 +4,12 @@ import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 import ChooseDropdown from '@/components/Filters/Dropdown/ChooseDropdown';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import SearchDropdown from '@/components/Filters/Dropdown/SearchDropdown';
-export enum Planks {
-  choose = 'choose',
-  find = 'find',
-}
+
 interface iPlank {
   plank: unknown;
   chosen: unknown;
   setChosen: (p: (ch) => unknown[]) => void;
-  type: Planks;
+  type: 'choose' | 'find';
 }
 
 const Plank: FC<iPlank> = ({ plank, chosen, setChosen, type }): JSX.Element => {
@@ -52,7 +49,7 @@ const Plank: FC<iPlank> = ({ plank, chosen, setChosen, type }): JSX.Element => {
   };
   return (
     <span ref={ref}>
-      {type == Planks.choose ? (
+      {type == 'choose' ? (
         <ChooseDropdown state={dropDownOpen} chosen={chosen} plank={plank} change={changePressed} />
       ) : (
         <SearchDropdown state={dropDownOpen} chosen={chosen} plank={plank} change={changePressed} />
