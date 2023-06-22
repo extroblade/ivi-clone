@@ -1,4 +1,4 @@
-import { IMovie } from '@/types/types';
+import { IMovie, IMovieOld } from '@/types/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export type QueryParams = {
@@ -19,7 +19,7 @@ export const movieApi = createApi({
   }),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
-    fetchOneFilm: build.query<IMovie, string | number>({
+    fetchOneFilm: build.query<IMovie | IMovieOld, string | number>({
       query: ({ id }) => ({
         url: `/${id}`,
       }),
@@ -28,7 +28,7 @@ export const movieApi = createApi({
           ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
           : [{ type: 'Movies', id: 'LIST' }],
     }),
-    fetchAllFilms: build.query<IMovie[], unknown>({
+    fetchAllFilms: build.query<IMovie[] | IMovieOld[], unknown>({
       query: ({ genres, limit = 15, page }) => ({
         url: '/',
         params: {
@@ -42,7 +42,7 @@ export const movieApi = createApi({
           ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
           : [{ type: 'Movies', id: 'LIST' }],
     }),
-    addOneFilm: build.mutation<IMovie, IMovie>({
+    addOneFilm: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
       query: (movie) => ({
         url: '/',
         method: 'POST',
@@ -50,7 +50,7 @@ export const movieApi = createApi({
       }),
       invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
     }),
-    updateMovie: build.mutation<IMovie, IMovie>({
+    updateMovie: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
       query: (movie) => ({
         url: `/${movie.id}`,
         method: 'PUT',
@@ -58,7 +58,7 @@ export const movieApi = createApi({
       }),
       invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
     }),
-    deleteOneFilm: build.mutation<IMovie, string>({
+    deleteOneFilm: build.mutation<IMovie | IMovieOld, string>({
       query: (id) => ({
         url: `/${id}`,
         method: 'DELETE',
