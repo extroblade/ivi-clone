@@ -1,0 +1,82 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.body {
+  overflow: hidden;
+  * {
+    z-index: inherit;
+  }
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: rem(72);
+  background-color: transparent;
+}
+
+.logo {
+  margin-right: rem(10);
+  z-index: 10;
+}
+
+.watch_free {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: flex;
+  button {
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media (max-width: $mobile) {
+      font-size: 10px;
+    }
+  }
+}
+
+.zindex {
+  z-index: 10;
+}
+.menu {
+  flex: 1 1 auto;
+  @media (max-width: $pc) {
+    display: none;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+  &__item a {
+    position: relative;
+    z-index: 10;
+    //margin-left: rem(10);
+    padding: rem(5) 0;
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+    font-size: rem(15);
+    line-height: rem(20);
+    font-weight: 500;
+    white-space: nowrap;
+    transition: $time-main;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &__link {
+    margin-left: rem(15);
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  @media (max-width: $mobile) {
+  }
+}

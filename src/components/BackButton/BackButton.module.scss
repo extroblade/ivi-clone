@@ -1,0 +1,27 @@
+@import '@/styles/variables.scss';
+@import '@/styles/mixins.scss';
+.back {
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: $time-main;
+  margin: rem(15) 0;
+  &__icon {
+    margin-left: rem(-10);
+    width: rem(35);
+    height: rem(35);
+  }
+  & span {
+    font-size: rem(15);
+  }
+  &:hover {
+    opacity: 1;
+    margin: rem(15) 0;
+  }
+  &:hover .back__icon {
+    transform: scale(1.1);
+  }
+}

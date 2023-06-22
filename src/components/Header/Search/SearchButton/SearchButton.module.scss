@@ -1,0 +1,25 @@
+@import '../../../../styles/variables';
+@import '@/styles/mixins.scss';
+
+.search {
+  cursor: pointer;
+  margin-left: rem(20);
+  display: flex;
+  align-items: center;
+  font-size: rem(14);
+  opacity: 0.5;
+  transition: $time-main;
+  z-index: 10;
+  @media (max-width: $pc) {
+    display: none;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icon {
+  margin-right: rem(5);
+  width: rem(20);
+  height: rem(20);
+}

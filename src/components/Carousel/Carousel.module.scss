@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+
+.carousel {
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: 20px;
+  .title {
+    max-width: 30%;
+    display: flex;
+    align-items: center;
+    svg {
+      min-width: 25px;
+    }
+  }
+}
