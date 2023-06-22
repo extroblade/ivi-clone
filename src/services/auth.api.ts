@@ -50,7 +50,7 @@ export const authApi = createApi({
           body,
         };
       },
-      providesTags: (result) => ['Auth'],
+      providesTags: () => ['Auth'],
     }),
     login: build.mutation({
       query: (body: iAuth) => {
@@ -60,7 +60,7 @@ export const authApi = createApi({
           body: body,
         };
       },
-      providesTags: (result) => ['Auth'],
+      providesTags: () => ['Auth'],
     }),
     googleLogin: build.query({
       query: () => {
@@ -68,7 +68,7 @@ export const authApi = createApi({
           url: '/auth/google/login',
         };
       },
-      providesTags: (result) => ['Auth'],
+      providesTags: () => ['Auth'],
     }),
     logout: build.mutation({
       query: () => {
@@ -76,7 +76,7 @@ export const authApi = createApi({
           url: '/auth/logout', ///////
         };
       },
-      providesTags: (result) => ['Auth'],
+      providesTags: () => ['Auth'],
     }),
   }),
 });

@@ -12,13 +12,13 @@ export const personApi = createApi({
       query: () => ({
         url: '/',
       }),
-      providesTags: (result) => ['Person'],
+      providesTags: () => ['Person'],
     }),
     fetchOnePerson: build.query<IPersonOld, number | string>({
       query: (id) => ({
         url: `/${id}`,
       }),
-      providesTags: (result) => ['Person'],
+      providesTags: () => ['Person'],
     }),
   }),
 });

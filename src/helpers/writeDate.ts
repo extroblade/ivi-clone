@@ -1,4 +1,5 @@
-export const writeDate = (date: number): string => {//DD.MM.YYYY
+export const writeDate = (date: number): string => {
+  //DD.MM.YYYY
   const now: Date = new Date(date);
   const day = now.getDate();
   const month = now.getMonth() + 1;

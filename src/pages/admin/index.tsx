@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NotFoundPage from '@/pages/404';
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
@@ -8,7 +8,6 @@ import { Htag } from '@/components/Htag/Htag';
 import { useDeleteOneFilmMutation, useFetchAllFilmsQuery } from '@/services/movie.api';
 import Card from '@/components/Card/Card';
 import { Button } from '@/components/Button/Button';
-import { BtnA } from '@/components/Button/Button.props';
 import { BsTrash } from 'react-icons/bs';
 import { useSearchParamsState } from '@/hooks/useSearchParamsState';
 import AddNewMovie from '@/components/AdminPage/AddNewMovie';
@@ -62,7 +61,7 @@ const Admin = () => {
                 <Card card={movie} />
                 {!movies?.length && <div>mock data, unable to change</div>}
                 <Button
-                  appearance={BtnA.circle}
+                  appearance={'circle'}
                   style={{ margin: '3px' }}
                   onClick={() => del(movie.id)}
                 >

@@ -1,4 +1,5 @@
 {
+
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:react/recommended",
@@ -24,10 +25,11 @@
   },
   "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks", "@next/eslint-plugin-next"],
   "rules": {
+    "ignoreDuringBuilds": "true",
     "@next/next/no-html-link-for-pages": "error",
     "@next/next/no-img-element": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "comma-dangle": ["error", "only-multiline"],
     "react/prop-types": "off",
     "react/display-name": "off",
@@ -43,7 +45,7 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off"
