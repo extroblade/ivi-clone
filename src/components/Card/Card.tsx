@@ -22,8 +22,21 @@ const Card: FC<CardProps> = ({
   ...props
 }): JSX.Element => {
   if (!card?.id) return <CardLoader />;
-  const { id, card_image, country, countries, genres, year, duration, originalTitle, title } = card;
-  const i18nTitle = i18next.language == 'en' ? originalTitle || title : title || '';
+  const {
+    id,
+    card_image,
+    country,
+    countries,
+    genres,
+    name,
+    enName,
+    year,
+    duration,
+    originalTitle,
+    title,
+  } = card;
+  const i18nTitle =
+    i18next.language == 'en' ? originalTitle || enName || title : title || name || '';
   const rate = 9;
   return (
     <Link href={`/watch/${id}`} className={styles.card} draggable="false" {...props}>

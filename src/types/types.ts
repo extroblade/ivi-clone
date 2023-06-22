@@ -7,14 +7,14 @@ export interface ILink {
 
 export interface IMovieOld {
   id: number | string;
-  title: string;
-  originalTitle: string;
+  name: string;
+  enName: string;
   slogan: string;
   originalSlogan: string;
   trailer: string;
   card_image: string;
   year: string;
-  countries: string[]; //всегда массив (иначе лишняя проверка типа), в карточках используем первое значение
+  countries: string[];
   rating: string;
   genres: string[];
   duration: string;
