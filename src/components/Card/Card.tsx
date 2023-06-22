@@ -19,13 +19,14 @@ const Card: FC<CardProps> = ({
   book = false,
   find = false,
   block = false,
+  ...props
 }): JSX.Element => {
   if (!card?.id) return <CardLoader />;
   const { id, card_image, country, countries, genres, year, duration, originalTitle, title } = card;
   const i18nTitle = i18next.language == 'en' ? originalTitle || title : title || '';
   const rate = 9;
   return (
-    <Link href={`/watch/${id}`} className={styles.card} draggable="false">
+    <Link href={`/watch/${id}`} className={styles.card} draggable="false" {...props}>
       <div className={`${styles.imageSection} ${hover && styles.hover}`}>
         <Image
           src={card_image}
