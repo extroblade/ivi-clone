@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import Carousel from '../../src/components/Carousel/Carousel';
+import Carousel from '@/components/Carousel/Carousel';
 
 const testArray = [1, 2, 3, 4, 5];
 

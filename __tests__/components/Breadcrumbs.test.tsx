@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import Breadcrumbs from '../../src/components/Breadcrumbs/Breadcrumbs';
-import MovieBreadcrumbs from '../../src/components/Breadcrumbs/MovieBreadcrumbs';
+import Breadcrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import MovieBreadcrumbs from '@/components/Breadcrumbs/MovieBreadcrumbs';
 
 describe('breadcrumbs', () => {
   it('should be correct with 3 breadcrumbs', () => {

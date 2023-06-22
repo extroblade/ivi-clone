@@ -1,4 +1,4 @@
-import BarGraph from '../../src/components/BarGraph/BarGraph';
+import BarGraph from '@/components/BarGraph/BarGraph';
 import { cleanup, render, screen } from '@testing-library/react';
 import React from 'react';
 

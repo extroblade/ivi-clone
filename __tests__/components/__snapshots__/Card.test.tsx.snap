@@ -105,6 +105,7 @@ exports[`card card object empty card  1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -226,6 +227,7 @@ exports[`card card object empty card  1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
@@ -495,6 +497,7 @@ exports[`card params all 1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -707,6 +710,7 @@ exports[`card params all 1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
@@ -907,6 +911,7 @@ exports[`card params block 1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -1050,6 +1055,7 @@ exports[`card params block 1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
@@ -1246,6 +1252,7 @@ exports[`card params book 1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -1385,6 +1392,7 @@ exports[`card params book 1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
@@ -1599,6 +1607,7 @@ exports[`card params find 1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -1756,6 +1765,7 @@ exports[`card params find 1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
@@ -1934,6 +1944,7 @@ exports[`card params no hover 1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -2055,6 +2066,7 @@ exports[`card params no hover 1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
@@ -2251,6 +2263,7 @@ exports[`card params star 1`] = `
                   class="info__row"
                 >
                   2011, 
+                  С, 
                   Фэнтези
                 </div>
                 <div
@@ -2390,6 +2403,7 @@ exports[`card params star 1`] = `
                 class="info__row"
               >
                 2011, 
+                С, 
                 Фэнтези
               </div>
               <div
