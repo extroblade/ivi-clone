@@ -19,7 +19,6 @@ const Card: FC<CardProps> = ({
   book = false,
   find = false,
   block = false,
-  ...props
 }): JSX.Element => {
   if (!card?.id) return <CardLoader />;
   const {
@@ -40,7 +39,7 @@ const Card: FC<CardProps> = ({
     i18next.language == 'en' ? originalTitle || enName || title || name : title || name || '';
   const rate = rating?.length ? rating[0] : 9.0;
   return (
-    <Link href={`/watch/${id}`} className={styles.card} draggable="false" {...props}>
+    <Link href={`/watch/${id}`} className={styles.card} draggable="false">
       <div className={`${styles.imageSection} ${hover && styles.hover}`}>
         <Image
           src={card_image}
