@@ -87,7 +87,9 @@ const Header: FC = () => {
                 </Button>
               </div>
             </div>
-            <SearchButton />
+            <div className={styles.zindex}>
+              <SearchButton />
+            </div>
           </div>
           <div className={styles.actions}>
             <Submenu icon={MdNotificationsNone} link={'/notifications'}>
