@@ -1,19 +1,33 @@
-# IVI
+# Online Cinema Clone - ivi.ru
 
 ---
 
 ## Getting Started
 
-First, run the development server:
+Run the client side: http://localhost:3000
 
 ```bash
-npm run dev => starts the client on http://localhost:3000
-npm run server => starts json-server on http://localhost:3001
+npm run dev
+```
 
-npm run storybook => starts storybook
-npm run test => starts tests
+Start the json-server with mock data: http://localhost:3001
+
+```bash
+npm run server
 ```
 
 ---
 
-### Next.js, Redux Toolkit, RTK Query, SCSS, TypeScript, Jest, Storybook
+## Stack
+
+Next.js, Typescript, Redux Toolkit, RTK Query, SCSS, TypeScript, Jest, Storybook
+
+---
+
+#### Other commands:
+
+```bash
+npm run storybook
+npm run test
+npm run coverage
+```
