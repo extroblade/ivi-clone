@@ -42,7 +42,7 @@ const Grid: FC<iGrid> = ({ array }) => {
         (isLoading ? (
           <div className={`${styles.open} loader`}></div>
         ) : (
-          <Button className={styles.open} onClick={() => showMore()}>
+          <Button appearance={'outline'} className={styles.open} onClick={showMore}>
             {t('buttons.show-more')}
           </Button>
         ))}

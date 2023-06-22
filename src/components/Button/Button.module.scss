@@ -8,7 +8,6 @@
   gap: 5px;
   cursor: pointer;
   transition: $time-main;
-  height: 40px;
   padding: 0 12px;
   background-color: #1f1b2e;
   border-color: #1f1b2e;
@@ -33,14 +32,23 @@
 
 .square {
   width: 40px;
-  height: 40px;
   border-radius: 8px;
 }
 
 .circle {
   width: 40px;
-  height: 40px;
   border-radius: 20px;
+}
+.outline {
+  background-color: transparent;
+  transition-duration: .4s;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.32);
+  padding: 9px 15px;
+  &:hover {
+    background-color: transparent;
+    border-color: rgba(255,255,255,.72);
+  }
 }
 
 .red {

@@ -8,9 +8,11 @@ exports[`carousel number array 1`] = `
       <div
         class="carousel"
       >
-        <div>
+        <div
+          class="title"
+        >
           <a
-            class="title"
+            class="title_container"
             href=""
           >
             <div
@@ -40,7 +42,6 @@ exports[`carousel number array 1`] = `
               />
             </svg>
           </a>
-          <div />
         </div>
         <div
           class="slick-slider slick-initialized"
@@ -77,9 +78,11 @@ exports[`carousel number array 1`] = `
     <div
       class="carousel"
     >
-      <div>
+      <div
+        class="title"
+      >
         <a
-          class="title"
+          class="title_container"
           href=""
         >
           <div
@@ -109,7 +112,6 @@ exports[`carousel number array 1`] = `
             />
           </svg>
         </a>
-        <div />
       </div>
       <div
         class="slick-slider slick-initialized"
@@ -203,9 +205,11 @@ exports[`carousel number array show all 1`] = `
       <div
         class="carousel"
       >
-        <div>
+        <div
+          class="title"
+        >
           <a
-            class="title"
+            class="title_container"
             href=""
           >
             <div
@@ -235,7 +239,6 @@ exports[`carousel number array show all 1`] = `
               />
             </svg>
           </a>
-          <div />
         </div>
         <div
           class="slick-slider slick-initialized"
@@ -301,9 +304,11 @@ exports[`carousel number array show all 1`] = `
     <div
       class="carousel"
     >
-      <div>
+      <div
+        class="title"
+      >
         <a
-          class="title"
+          class="title_container"
           href=""
         >
           <div
@@ -333,7 +338,6 @@ exports[`carousel number array show all 1`] = `
             />
           </svg>
         </a>
-        <div />
       </div>
       <div
         class="slick-slider slick-initialized"
@@ -456,9 +460,11 @@ exports[`carousel number array show all 2`] = `
       <div
         class="carousel"
       >
-        <div>
+        <div
+          class="title"
+        >
           <a
-            class="title"
+            class="title_container"
             href=""
           >
             <div
@@ -488,7 +494,6 @@ exports[`carousel number array show all 2`] = `
               />
             </svg>
           </a>
-          <div />
         </div>
         <div
           class="slick-slider slick-initialized"
@@ -554,9 +559,11 @@ exports[`carousel number array show all 2`] = `
     <div
       class="carousel"
     >
-      <div>
+      <div
+        class="title"
+      >
         <a
-          class="title"
+          class="title_container"
           href=""
         >
           <div
@@ -586,7 +593,6 @@ exports[`carousel number array show all 2`] = `
             />
           </svg>
         </a>
-        <div />
       </div>
       <div
         class="slick-slider slick-initialized"

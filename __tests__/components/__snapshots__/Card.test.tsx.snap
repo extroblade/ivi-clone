@@ -117,11 +117,13 @@ exports[`card card object empty card  1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -239,11 +241,13 @@ exports[`card card object empty card  1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -509,11 +513,13 @@ exports[`card params all 1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -722,11 +728,13 @@ exports[`card params all 1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -923,11 +931,13 @@ exports[`card params block 1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -1067,11 +1077,13 @@ exports[`card params block 1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -1264,11 +1276,13 @@ exports[`card params book 1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -1404,11 +1418,13 @@ exports[`card params book 1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -1619,11 +1635,13 @@ exports[`card params find 1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -1777,11 +1795,13 @@ exports[`card params find 1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -1956,11 +1976,13 @@ exports[`card params no hover 1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -2078,11 +2100,13 @@ exports[`card params no hover 1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -2275,11 +2299,13 @@ exports[`card params star 1`] = `
         </div>
         <div
           class="textSection"
-          title=""
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -2415,11 +2441,13 @@ exports[`card params star 1`] = `
       </div>
       <div
         class="textSection"
-        title=""
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
