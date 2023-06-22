@@ -10,16 +10,17 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import ProfileSelector from '@/components/Profile/ProfileSelector/ProfileSelector';
 import LoginButton from '@/components/Profile/LoginButton/LoginButton';
-import { useAppDispatch } from '@/hooks/redux';
-import { logout } from '@/store/reducers/auth.slice';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const User: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { data: session } = useSession();
-  const dispatch = useAppDispatch();
+  const router = useRouter();
   const logoutFunc = () => {
-    dispatch(logout());
+    signOut().then(() => {
+      router.push('/profile').then(() => {});
+    });
   };
 
   return (

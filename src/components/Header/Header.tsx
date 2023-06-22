@@ -22,7 +22,6 @@ const Header: FC = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   const photo = session?.user?.image || null;
-  console.log(session);
   return (
     <header className="header">
       <div className="container">

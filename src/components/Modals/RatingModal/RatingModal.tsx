@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { selectModal, setShowRating } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
-import { BtnA } from '@/components/Button/Button.props';
 const rates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const RatingModal: FC = (): JSX.Element => {
@@ -23,13 +22,9 @@ const RatingModal: FC = (): JSX.Element => {
   const rate = (rating: number) => {
     setActive(() => rating);
   };
-  const send = () => {
-    dispatch(setShowRating(false));
-    setActive(null);
-  };
   usePreventScroll(showRating);
   return (
-    <FullScreenModal isOpen={showRating} closeModal={() => close()}>
+    <FullScreenModal isOpen={showRating} closeModal={close}>
       <div className={styles.body}>
         <Htag tag={'h2'}>{t('descriptions.your-rate')}</Htag>
         <P>{t('descriptions.rates-improvements')}</P>
@@ -37,7 +32,7 @@ const RatingModal: FC = (): JSX.Element => {
           {rates.map((rating) => (
             <Button
               key={rating}
-              appearance={BtnA.transparent}
+              appearance={'transparent'}
               onClick={() => rate(rating)}
               className={rating === active ? styles.active : ''}
             >
@@ -53,7 +48,7 @@ const RatingModal: FC = (): JSX.Element => {
             <P>{t('buttons.great')}</P>
           </div>
         </div>
-        <Button appearance={BtnA.red} disabled={!active} onClick={() => send()}>
+        <Button appearance={'red'} disabled={!active} onClick={close}>
           {t('buttons.rate')}
         </Button>
       </div>

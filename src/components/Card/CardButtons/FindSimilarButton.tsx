@@ -3,7 +3,6 @@ import { IoColorWandOutline } from 'react-icons/io5';
 import styles from '@/components/Card/Card.module.scss';
 import { Button } from '@/components/Button/Button';
 import { useRouter } from 'next/navigation';
-import { BtnA } from '@/components/Button/Button.props';
 
 const FindSimilarButton = () => {
   const router = useRouter();
@@ -14,7 +13,7 @@ const FindSimilarButton = () => {
     router.push('/movies');
   };
   return (
-    <Button appearance={BtnA.square} onClick={(e) => findSimilar(e)}>
+    <Button appearance={'square'} onClick={(e) => findSimilar(e)}>
       <IoColorWandOutline className={styles.mirrored} />
     </Button>
   );

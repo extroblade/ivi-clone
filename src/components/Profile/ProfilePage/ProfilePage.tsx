@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './ProfilePage.module.scss';
 import { Button } from '@/components/Button/Button';
 import { P } from '@/components/P/P';
-import { iCardEnum } from '@/components/Profile/ProfileButton/ProfileButtons.props';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import SubscriptionsButton from '@/components/Profile/ProfilePage/ProfileBtns/SubscriptionsButton';
 import CertificatesButton from '@/components/Profile/ProfilePage/ProfileBtns/CertificatesButton';
@@ -50,7 +49,7 @@ const ProfilePage = () => {
           <SubscriptionsButton />
         </li>
         <li className={`${styles.list__item} ${styles.certificate}`}>
-          <CertificatesButton type={iCardEnum.rect_text} />
+          <CertificatesButton type={'rect_text'} />
         </li>
         <li className={`${styles.list__item} ${styles.fund}`}>
           <BalanceButton />
@@ -58,7 +57,7 @@ const ProfilePage = () => {
       </ul>
       <ul className={styles.list}>
         <li className={`${styles.list__item} ${styles.subscription_present}`}>
-          <PresentSubscriptionButton type={iCardEnum.rect_icon_light} />
+          <PresentSubscriptionButton type={'rect_icon_light'} />
         </li>
       </ul>
       <ul className={styles.list}>

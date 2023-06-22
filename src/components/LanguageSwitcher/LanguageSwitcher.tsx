@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import styles from './LanguageSwitcher.module.scss';
 import { Button } from '@/components/Button/Button';
-import { BtnA } from '@/components/Button/Button.props';
 
 const LanguageSwitcher = () => {
   useEffect(() => {
@@ -19,14 +18,14 @@ const LanguageSwitcher = () => {
       <div className={styles.switcher}>
         <Button
           className={styles.switcher_item}
-          appearance={i18next.language == 'ru' ? BtnA.red : BtnA.rectangle}
+          appearance={i18next.language == 'ru' ? 'red' : 'rectangle'}
           onClick={(e) => changeLanguage(e, 'ru')}
         >
           Ru
         </Button>
         <Button
           className={styles.switcher_item}
-          appearance={i18next.language == 'en' ? BtnA.red : BtnA.rectangle}
+          appearance={i18next.language == 'en' ? 'red' : 'rectangle'}
           onClick={(e) => changeLanguage(e, 'en')}
         >
           En

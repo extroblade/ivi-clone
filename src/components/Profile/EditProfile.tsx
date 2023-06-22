@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Button } from '@/components/Button/Button';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { BsEnvelope, BsPhone } from 'react-icons/bs';
-import { BtnA, BtnS } from '@/components/Button/Button.props';
 import { useTranslation } from 'react-i18next';
 import { useSession } from 'next-auth/react';
 
@@ -46,18 +45,14 @@ const EditProfile = () => {
           {user?.email ? (
             <P size={'S'}>{user?.email}</P>
           ) : (
-            <Button
-              appearance={BtnA.transparent}
-              size={BtnS.S}
-              title={t('buttons.add-email') || ''}
-            >
+            <Button appearance={'transparent'} size={'S'} title={t('buttons.add-email') || ''}>
               {t('buttons.add-email')}
             </Button>
           )}
         </div>
         <div className={styles.info}>
           <BsPhone />
-          <Button appearance={BtnA.transparent} size={BtnS.S} title={t('buttons.add-phone') || ''}>
+          <Button appearance={'transparent'} size={'S'} title={t('buttons.add-phone') || ''}>
             {t('buttons.add-phone')}
           </Button>
         </div>

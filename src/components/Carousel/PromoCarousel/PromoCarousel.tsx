@@ -9,11 +9,9 @@ import { Button } from '@/components/Button/Button';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import PromotionButton from '@/components/Profile/ProfilePage/ProfileBtns/PromotionButton';
-import { iCardEnum } from '@/components/Profile/ProfileButton/ProfileButtons.props';
 import ActivateCertificateButton from '@/components/Profile/ProfilePage/ProfileBtns/ActivateCertificateButton';
 import i18next from 'i18next';
 import Image from 'next/image';
-import { BtnA } from '@/components/Button/Button.props';
 import { P } from '@/components/P/P';
 import { FastAverageColor } from 'fast-average-color';
 import { Htag } from '@/components/Htag/Htag';
@@ -75,7 +73,7 @@ const PromoCarouselSlide: FC<iSlide> = ({ slide }): JSX.Element => {
               {i18next.language == 'ru' ? slide.description : slide.enDescription}
             </P>
           </div>
-          <Button appearance={BtnA.red} title={slide.btn}>
+          <Button appearance={'red'} title={slide.btn}>
             {slide.btn}
           </Button>
         </div>
@@ -179,8 +177,8 @@ const PromoCarousel: FC = () => {
         </Slider>
       </div>
       <div className={styles.promo_buttons}>
-        <PromotionButton type={iCardEnum.rect_icon_purple} />
-        <ActivateCertificateButton type={iCardEnum.rect_icon} />
+        <PromotionButton type={'rect_icon_purple'} />
+        <ActivateCertificateButton type={'rect_icon'} />
       </div>
     </>
   );

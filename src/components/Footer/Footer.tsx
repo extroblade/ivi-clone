@@ -18,7 +18,6 @@ import { BiDevices } from 'react-icons/bi';
 import { CgPhone } from 'react-icons/cg';
 import FooterMobile from './FooterMobile/FooterMobile';
 import { useTranslation } from 'react-i18next';
-import { BtnA } from '@/components/Button/Button.props';
 
 const Footer: FC = (): JSX.Element => {
   const { t } = useTranslation();
@@ -122,10 +121,10 @@ const Footer: FC = (): JSX.Element => {
                 <Link href={'https://www.ivi.ru/profile'}>
                   <Button className={styles.button}>{t('footer.chat-us')}</Button>
                 </Link>
-                <Button appearance={BtnA.square}>
+                <Button appearance={'square'}>
                   <IoMailOutline />
                 </Button>
-                <Button appearance={BtnA.square}>
+                <Button appearance={'square'}>
                   <HiPhone />
                 </Button>
               </li>
@@ -179,22 +178,22 @@ const Footer: FC = (): JSX.Element => {
                 </Button>
               </div>
               <div className={styles.flex}>
-                <Button appearance={BtnA.circle}>
+                <Button appearance={'circle'}>
                   <FaVk />
                 </Button>
-                <Button appearance={BtnA.circle}>
+                <Button appearance={'circle'}>
                   <FaOdnoklassniki />
                 </Button>
-                <Button appearance={BtnA.circle}>
+                <Button appearance={'circle'}>
                   <FaTwitter />
                 </Button>
-                <Button appearance={BtnA.circle}>
+                <Button appearance={'circle'}>
                   <CgPhone />
                 </Button>
-                <Button appearance={BtnA.circle}>
+                <Button appearance={'circle'}>
                   <FaLinkedinIn />
                 </Button>
-                <Button appearance={BtnA.circle}>
+                <Button appearance={'circle'}>
                   <FaTelegramPlane />
                 </Button>
               </div>

@@ -14,7 +14,6 @@ import { SlSocialVkontakte, SlSocialGoogle } from 'react-icons/sl';
 import { selectModal, setShowAuth } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
-import { BtnA } from '../Button/Button.props';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { selectAuth } from '@/store/reducers/auth.slice';
@@ -70,7 +69,7 @@ const AuthModal: FC = (): JSX.Element => {
         setProgress(75);
 
         handleAuth()
-          .then((res) => {
+          .then(() => {
             setProgress(100);
             close();
             setPassword(() => '');
@@ -152,7 +151,7 @@ const AuthModal: FC = (): JSX.Element => {
                 </div>
               ) : (
                 <div className={styles.chat__row}>
-                  <Button appearance={BtnA.circle} onClick={previousStep}>
+                  <Button appearance={'circle'} onClick={previousStep}>
                     <BsPencil />
                   </Button>
                   <div className={styles.chat__answer}>

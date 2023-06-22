@@ -2,7 +2,6 @@ import React, { FC, useState } from 'react';
 import CommentAvatar from '@/components/Comment/CommentAvatar';
 import { Button } from '@/components/Button/Button';
 import styles from './Comment.module.scss';
-import { BtnA } from '@/components/Button/Button.props';
 import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '@/hooks/redux';
@@ -88,7 +87,7 @@ const CommentInput: FC = ({ id, parentId }): JSX.Element => {
             : ''}
         </div>
       </div>
-      <Button appearance={BtnA.red} disabled={!!(validate() || !query?.length)}>
+      <Button appearance={'red'} disabled={!!(validate() || !query?.length)}>
         {t('buttons.send')}
       </Button>
     </form>

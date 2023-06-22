@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './LoginButton.module.scss';
 import { Button } from '@/components/Button/Button';
-import { BtnA, BtnS } from '@/components/Button/Button.props';
 import { TiUserOutline } from 'react-icons/ti';
 import { useAppDispatch } from '@/hooks/redux';
 import { setShowAuth } from '@/store/reducers/modals.slice';
@@ -18,8 +17,8 @@ const LoginButton = () => {
     <div className={styles.login} data-testid={'login-button'}>
       <Button
         onClick={() => openLoginModal()}
-        size={BtnS.S}
-        appearance={BtnA.red}
+        size={'S'}
+        appearance={'red'}
         title={t('buttons.login-signup') || 'Войти или зарегистрироваться'}
       >
         <TiUserOutline />
