@@ -21,17 +21,7 @@ const Card: FC<CardProps> = ({
   block = false,
 }): JSX.Element => {
   if (!card?.id) return <CardLoader />;
-  const {
-    id,
-    card_image,
-    country,
-    countries,
-    genres,
-    year,
-    duration,
-    originalTitle,
-    title,
-  } = card;
+  const { id, card_image, country, countries, genres, year, duration, originalTitle, title } = card;
   const i18nTitle = i18next.language == 'en' ? originalTitle || title : title || '';
   const rate = 9;
   return (
