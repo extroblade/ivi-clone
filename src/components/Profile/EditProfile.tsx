@@ -8,22 +8,19 @@ import { HiOutlinePencil } from 'react-icons/hi';
 import { BsEnvelope, BsPhone } from 'react-icons/bs';
 import { BtnA, BtnS } from '@/components/Button/Button.props';
 import { useTranslation } from 'react-i18next';
-import { useAppSelector } from '@/hooks/redux';
-import { selectAuth } from '@/store/reducers/auth.slice';
+import { useSession } from 'next-auth/react';
 
 const EditProfile = () => {
   const { t } = useTranslation();
-  const { user } = useAppSelector(selectAuth);
+  const { data: session } = useSession();
+  const user = session?.user || null;
 
   const finalName = () => {
-    if (user?.name) {
-      if (user?.surname) {
-        return `${user.name} ${user.surname}`;
-      } else {
-        return user.name;
-      }
-    } else if (user?.nickname) {
-      return user.nickname;
+    const { name, nickname, surname } = user;
+    if (name) {
+      return `${name} ${surname || ''}`;
+    } else if (nickname) {
+      return nickname;
     } else {
       return t('sections.profile');
     }

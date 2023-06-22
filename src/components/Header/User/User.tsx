@@ -10,12 +10,13 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import ProfileSelector from '@/components/Profile/ProfileSelector/ProfileSelector';
 import LoginButton from '@/components/Profile/LoginButton/LoginButton';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { logout, selectAuth } from '@/store/reducers/auth.slice';
+import { useAppDispatch } from '@/hooks/redux';
+import { logout } from '@/store/reducers/auth.slice';
+import { useSession } from 'next-auth/react';
 
 const User: FC = (): JSX.Element => {
   const { t } = useTranslation();
-  const { user } = useAppSelector(selectAuth);
+  const { data: session } = useSession();
   const dispatch = useAppDispatch();
   const logoutFunc = () => {
     dispatch(logout());
@@ -44,16 +45,16 @@ const User: FC = (): JSX.Element => {
           <LinkCard icon={GoCreditCard} title={t('buttons.payment')} link="/purchases" />
         </div>
         <div className={styles.content__auth}>
-          {user ? <ProfileSelector /> : <LoginButton />}
+          {session?.user ? <ProfileSelector /> : <LoginButton />}
           <div className={styles.content__links}>
-            {user && (
+            {session?.user && (
               <Link href="https://www.ivi.tv/profile/profile_info">
                 {t('buttons.edit-profile')}
               </Link>
             )}
             <Link href={'https://www.ivi.tv/profile/settings'}>{t('buttons.settings')}</Link>
             <Link href={'/admin'}>{t('buttons.support')}</Link>
-            {user && <span onClick={logoutFunc}>{t('buttons.logout')}</span>}
+            {session?.user && <span onClick={logoutFunc}>{t('buttons.logout')}</span>}
           </div>
         </div>
       </div>

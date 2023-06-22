@@ -15,14 +15,14 @@ import { seriesCategories } from '@/mock/seriesCategories';
 import { cartoonCategories } from '@/mock/cartoonCategories';
 import logo from '@/../public/iviLogo.svg';
 import { useTranslation } from 'react-i18next';
-import { BtnA, BtnS } from '@/components/Button/Button.props';
 import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
-import { useAppSelector } from '@/hooks/redux';
-import { selectAuth } from '@/store/reducers/auth.slice';
+import { useSession } from 'next-auth/react';
 
 const Header: FC = () => {
   const { t } = useTranslation();
-  const { photo } = useAppSelector(selectAuth);
+  const { data: session } = useSession();
+  const photo = session?.user?.image || null;
+  console.log(session);
   return (
     <header className="header">
       <div className="container">
@@ -83,7 +83,7 @@ const Header: FC = () => {
 
             <div className={styles.zindex}>
               <div className={styles.watch_free}>
-                <Button size={BtnS.S} appearance={BtnA.red}>
+                <Button size={'S'} appearance={'red'}>
                   {t('header.watch-free')}
                 </Button>
               </div>
@@ -94,7 +94,7 @@ const Header: FC = () => {
             <Submenu icon={MdNotificationsNone} link={'/notifications'}>
               <Alerts />
             </Submenu>
-            <Submenu icon={BiUser} user={photo || null} link={'/profile'} outline>
+            <Submenu icon={BiUser} user={photo} link={'/profile'} outline>
               <User />
             </Submenu>
           </div>

@@ -3,7 +3,6 @@ import styles from './ProfilePage.module.scss';
 import { Button } from '@/components/Button/Button';
 import { P } from '@/components/P/P';
 import { iCardEnum } from '@/components/Profile/ProfileButton/ProfileButtons.props';
-import { BtnA } from '@/components/Button/Button.props';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import SubscriptionsButton from '@/components/Profile/ProfilePage/ProfileBtns/SubscriptionsButton';
 import CertificatesButton from '@/components/Profile/ProfilePage/ProfileBtns/CertificatesButton';
@@ -23,23 +22,15 @@ import EditProfile from '@/components/Profile/EditProfile';
 import ChecksButton from '@/components/Profile/ProfilePage/ProfileBtns/ChecksButton';
 import LoginButton from '@/components/Profile/LoginButton/LoginButton';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { logout, selectAuth } from '@/store/reducers/auth.slice';
-import RegisterForm from '@/components/Auth/RegisterForm/RegisterForm';
-import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
 
-const ProfilePage = ({ ...props }) => {
+const ProfilePage = () => {
   const { t } = useTranslation();
-  const { user } = useAppSelector(selectAuth);
-
-  const dispatch = useAppDispatch();
-
-  const logoutFunc = () => {
-    dispatch(logout());
-  };
+  const { data: session } = useSession();
+  const user = session?.user || null;
 
   return (
-    <div className={styles.profile__btns} {...props}>
+    <div className={styles.profile__btns}>
       {user && (
         <div className={styles.select_profile}>
           <div className={styles.select_container}>
@@ -47,7 +38,6 @@ const ProfilePage = ({ ...props }) => {
           </div>
         </div>
       )}
-      <RegisterForm />
       {user ? (
         <EditProfile />
       ) : (
@@ -55,9 +45,6 @@ const ProfilePage = ({ ...props }) => {
           <LoginButton />
         </div>
       )}
-      <Link href={'/admin'}>
-        <Button>admin</Button>{' '}
-      </Link>
       <ul className={styles.list}>
         <li className={`${styles.list__item} ${styles.subscription}`}>
           <SubscriptionsButton />
@@ -114,8 +101,8 @@ const ProfilePage = ({ ...props }) => {
         {user ? (
           <>
             <Button
-              appearance={BtnA.transparent}
-              onClick={logoutFunc}
+              appearance={'transparent'}
+              onClick={() => signOut()}
               title={t('buttons.logout') || 'Выйти'}
             >
               <RiLogoutBoxRLine />

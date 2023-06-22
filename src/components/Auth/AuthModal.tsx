@@ -5,7 +5,7 @@ import { BiUser } from 'react-icons/bi';
 import FullScreenModal from '@/components/Modals/FullScreenModal/FullScreenModal';
 import { P } from '../P/P';
 import BarGraph from '@/components/BarGraph/BarGraph';
-import { useSession, signIn, signOut } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
 import { Button } from '../Button/Button';
 import { BsPencil } from 'react-icons/bs';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
@@ -16,9 +16,8 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
 import { BtnA } from '../Button/Button.props';
 import Link from 'next/link';
-import { useGoogleLoginQuery, useLoginMutation } from '@/services/auth.api';
 import { useRouter } from 'next/router';
-import { logout, selectAuth, setUser } from '@/store/reducers/auth.slice';
+import { selectAuth } from '@/store/reducers/auth.slice';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants/Constants';
 
 const AuthModal: FC = (): JSX.Element => {
@@ -38,13 +37,8 @@ const AuthModal: FC = (): JSX.Element => {
   };
   const { user } = useAppSelector(selectAuth);
 
-  const { data: session } = useSession();
-  const [loginFunc] = useLoginMutation();
-  const { data: googleLogin } = useGoogleLoginQuery();
-
-  const logoutFunc = () => {
+  const handleLogout = () => {
     signOut().then(() => {
-      dispatch(logout());
       router.push('/profile').then(() => {});
     });
   };
@@ -75,11 +69,9 @@ const AuthModal: FC = (): JSX.Element => {
       case 3:
         setProgress(75);
 
-        loginFunc({ email: login, password })
-          .unwrap()
+        handleAuth()
           .then((res) => {
             setProgress(100);
-            dispatch(setUser(res));
             close();
             setPassword(() => '');
             setLogin(() => '');
@@ -98,7 +90,6 @@ const AuthModal: FC = (): JSX.Element => {
 
   async function handleAuth() {
     const credentials = { email: login, password };
-    console.log('handleAuth', login, password);
     signIn('credentials', {
       ...credentials,
       // redirect: false,
@@ -136,7 +127,7 @@ const AuthModal: FC = (): JSX.Element => {
         <div className={styles.chat__body}>
           {user ? (
             <div className={styles.chat__message}>
-              <h1 onClick={() => logoutFunc()} title={'Нажмите, чтобы выйти из аккаунта'}>
+              <h1 onClick={handleLogout} title={'Нажмите, чтобы выйти из аккаунта'}>
                 {t('sections.already-signed')}
               </h1>
             </div>
@@ -161,7 +152,7 @@ const AuthModal: FC = (): JSX.Element => {
                 </div>
               ) : (
                 <div className={styles.chat__row}>
-                  <Button appearance={BtnA.circle} onClick={() => previousStep()}>
+                  <Button appearance={BtnA.circle} onClick={previousStep}>
                     <BsPencil />
                   </Button>
                   <div className={styles.chat__answer}>
@@ -187,7 +178,6 @@ const AuthModal: FC = (): JSX.Element => {
                     {!showPassword ? (
                       <AiOutlineEye
                         className={`${styles.input__show} ${
-                          //todo: менять цвет при невалидных данных (!login.match(REGEX_EMAIL))
                           !!password && styles.input__showActive
                         }`}
                         onClick={toggleShowPassword}
@@ -223,19 +213,11 @@ const AuthModal: FC = (): JSX.Element => {
               {step < 2 ? (
                 <>
                   <div className={styles.chat__oauth}>
-                    <Link
-                      href={'http://localhost:3001/auth/google/login'}
-                      target={'_blank'}
-                      className={styles.button}
-                    >
-                      <span>{t('buttons.login-with')} Google backend</span>
-                      <SlSocialGoogle />
-                    </Link>
-                    <button className={styles.button} onClick={() => handleGoogleSingIn()}>
-                      <span>{t('buttons.login-with')} Google nextauth</span>
+                    <button className={styles.button} onClick={handleGoogleSingIn}>
+                      <span>{t('buttons.login-with')} Google</span>
                       <SlSocialGoogle />
                     </button>
-                    <button className={styles.button} onClick={() => handleVkSingIn()}>
+                    <button className={styles.button} onClick={handleVkSingIn}>
                       <span>{t('buttons.login-with')} VK</span>
                       <SlSocialVkontakte />
                     </button>
