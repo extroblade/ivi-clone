@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IComment } from '@/types/types';
 
 interface fetchedComment {
-  id: number;
+  id: number | string;
   commentsData: IComment[];
 }
 

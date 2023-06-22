@@ -1,7 +1,7 @@
-import { IMovie } from '@/types/types';
+import { IMovie, IMovieOld } from '@/types/types';
 
 export interface CardProps {
-  card: IMovie;
+  card: IMovie & IMovieOld;
   hover?: boolean;
   star?: boolean;
   book?: boolean;

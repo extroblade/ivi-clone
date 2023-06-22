@@ -24,20 +24,16 @@ const Card: FC<CardProps> = ({
   const {
     id,
     card_image,
-    rating,
     country,
     countries,
     genres,
     year,
-    name,
-    enName,
     duration,
     originalTitle,
     title,
   } = card;
-  const i18nTitle =
-    i18next.language == 'en' ? originalTitle || enName || title || name : title || name || '';
-  const rate = rating?.length ? rating[0] : 9.0;
+  const i18nTitle = i18next.language == 'en' ? originalTitle || title : title || '';
+  const rate = 9;
   return (
     <Link href={`/watch/${id}`} className={styles.card} draggable="false">
       <div className={`${styles.imageSection} ${hover && styles.hover}`}>
@@ -60,7 +56,7 @@ const Card: FC<CardProps> = ({
           </div>
           <div className={styles.info}>
             <div className={styles.ratings}>
-              {rate % 1 ? rate : `${rate}.0`}
+              {`${rate}.0`}
               <div className={styles.graphs}>
                 <BarGraph width={rate * 0.7 * 10 - 0.2} />
                 <BarGraph width={rate * 0.9 * 10 - 0.2} />
@@ -70,7 +66,7 @@ const Card: FC<CardProps> = ({
             </div>
             <div className={styles.singleGraph}>
               <span>{i18next.language == 'en' ? 'actors' : 'актёры'}</span>
-              <BarGraph width={(rate || 9.0) * 10 - 0.2} />
+              <BarGraph width={rate * 10 - 0.2} />
             </div>
             <section className={styles.info__text}>
               <div className={styles.info__row}>

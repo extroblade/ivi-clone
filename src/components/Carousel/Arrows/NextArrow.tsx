@@ -2,20 +2,17 @@ import styles from './Arrows.module.scss';
 import { Button } from '@/components/Button/Button';
 import { MdArrowForwardIos } from 'react-icons/md';
 import React, { FC } from 'react';
+import { ArrowProps } from '@/components/Carousel/Arrows/Arrow.props';
 
-export type NextArrowProps = {
-  variant?: 'promo';
-};
-
-const NextArrow: FC<NextArrowProps> = ({ variant, ...props }): JSX.Element => {
-  const { className, onClick } = props;
+const NextArrow: FC<ArrowProps> = ({ variant, ...props }): JSX.Element => {
+  const { onClick, className } = props;
   return (
     <div onClick={onClick} className={styles.arrow_container}>
       <div className={`${styles.arrow} ${variant === 'promo' ? styles.nextPromo : styles.next}`}>
         <Button
           size={'L'}
           appearance={'transparent'}
-          disabled={className.split(' ')[2] === 'slick-disabled'}
+          disabled={className ? className.split(' ')[2] === 'slick-disabled' : false}
         >
           <MdArrowForwardIos size={30} />
         </Button>

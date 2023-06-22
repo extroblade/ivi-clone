@@ -6,7 +6,7 @@ import { setShowRating } from '@/store/reducers/modals.slice';
 
 const RateButton = () => {
   const dispatch = useDispatch();
-  const openRatingModal = (e) => {
+  const openRatingModal = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
     dispatch(setShowRating(true));

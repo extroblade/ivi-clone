@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 const FindSimilarButton = () => {
   const router = useRouter();
 
-  const findSimilar = (e) => {
+  const findSimilar = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
     router.push('/movies');

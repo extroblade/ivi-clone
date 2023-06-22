@@ -1,13 +1,13 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 interface iAuth {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
 interface iRegister {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
   url?: string;
   name?: string;
   surname?: string;
@@ -43,7 +43,7 @@ export const authApi = createApi({
   tagTypes: ['Auth'],
   endpoints: (build) => ({
     register: build.mutation({
-      query: (body: iRegister) => {
+      query: (body: iRegister | any) => {
         return {
           url: '/registration',
           method: 'POST',
@@ -53,7 +53,7 @@ export const authApi = createApi({
       providesTags: () => ['Auth'],
     }),
     login: build.mutation({
-      query: (body: iAuth) => {
+      query: (body: iAuth | any) => {
         return {
           url: '/auth/login',
           method: 'POST',
