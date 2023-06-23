@@ -7,6 +7,7 @@ import MovieCard from './MovieCard/MovieCard';
 import { MovieListProps } from './MovieList.props';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
 
 const MovieList: FC<MovieListProps> = ({ list }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
         {!isOpen && list?.length > 8 ? (
           <P onClick={() => setIsOpen(true)} className={styles.link}>
             {t('buttons.more')} {list?.length - 8}
-            {i18next.language == 'en' ? ' movies' : ` фильм${list?.length < 1 ? 'а' : ''}`}
+            {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list)}
           </P>
         ) : (
           list?.slice(8, list?.length).map((card) => {

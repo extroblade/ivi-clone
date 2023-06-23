@@ -2,15 +2,21 @@ import { PersonInfo } from '@/components/Person/Person';
 import NotFoundPage from '@/pages/404';
 import Head from 'next/head';
 import i18next from 'i18next';
-import { useFetchOnePersonQuery } from '@/services/person.api';
+import { useFetchAllPersonsQuery } from '@/services/person.api';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader/Loader';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Person = () => {
   const router = useRouter();
   const pid = router.query.pid;
-  const { data: person, isLoading } = useFetchOnePersonQuery(pid);
+  const { data: persons, isLoading } = useFetchAllPersonsQuery();
+  const [person, setPerson] = useState();
+  useEffect(() => {
+    if (persons?.length) {
+      setPerson(() => persons.find((pers) => pers.id == pid));
+    }
+  }, [persons?.length]);
   if (!person?.id) return <NotFoundPage />;
 
   const { fullNameEn, fullName, name, enName } = person;
