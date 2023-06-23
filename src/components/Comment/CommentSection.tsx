@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import CommentInput from '@/components/Comment/CommentInput';
 import Comment from '@/components/Comment/Comment';
 import styles from './Comment.module.scss';
-import { useFetchCommentsQuery } from '@/services/comments.api';
+import { useFetchAllCommentsQuery } from '@/services/comments.api';
 import Loader from '@/components/Loader/Loader';
 
 interface ICommentSection {
@@ -10,8 +10,14 @@ interface ICommentSection {
 }
 
 const CommentSection: FC<ICommentSection> = ({ id }): JSX.Element => {
-  const { data: comments, isLoading, error } = useFetchCommentsQuery({ id });
-  const commentsData = comments?.commentsData || null;
+  const { data: comments, isLoading, error } = useFetchAllCommentsQuery();
+  const [commentsData, setCommentsData] = useState([]);
+  useEffect(() => {
+    if (comments?.length) {
+      const temp = comments?.find((comment) => comment.id == id - 1)?.commentsData || [];
+      setCommentsData(() => temp);
+    }
+  }, [comments?.length]);
   return (
     <div className={styles.comment_section}>
       <div>!!!warn: answers works with only first level children!!!</div>

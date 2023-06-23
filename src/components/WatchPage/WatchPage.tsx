@@ -26,8 +26,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
       const temp = persons.filter((person) => set.has(person.id));
       setPersonsData(() => temp);
     }
-    console.log(personsData);
-  }, [persons.length]);
+  }, [persons?.length]);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');

@@ -13,6 +13,18 @@ export const commentsApi = createApi({
   }),
   tagTypes: ['Comments'],
   endpoints: (build) => ({
+    fetchAllComments: build.query<fetchedComment>({
+      query: () => ({
+        url: `/`,
+      }),
+      providesTags: (result) =>
+        result?.length
+          ? [
+              ...result.map(({ id }) => ({ type: 'Comments', id })),
+              { type: 'Comments', id: 'LIST' },
+            ]
+          : [{ type: 'Comments', id: 'LIST' }],
+    }),
     fetchComments: build.query<fetchedComment, string | number>({
       query: ({ id }) => ({
         url: `/${id}`,
@@ -53,6 +65,7 @@ export const commentsApi = createApi({
 
 export const {
   useFetchCommentsQuery,
+  useFetchAllCommentsQuery,
   useCreateCommentsMutation,
   useDeleteCommentMutation,
   useAddCommentMutation,
