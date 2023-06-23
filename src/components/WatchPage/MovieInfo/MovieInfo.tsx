@@ -4,13 +4,14 @@ import { Htag } from '@/components/Htag/Htag';
 import i18next from 'i18next';
 import { P } from '@/components/P/P';
 import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
-import { IMovie } from '@/types/types';
+import { IMovie, IMovieOld, IPersonOld, IPersonsInFilm } from '@/types/types';
 
 interface iInfo {
-  movie: IMovie;
+  movie: IMovie | IMovieOld;
+  persons: IPersonOld[] | IPersonsInFilm[];
 }
 
-const MovieInfo: FC<iInfo> = ({ movie }) => {
+const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
   const {
     title,
     originalTitle,
@@ -23,7 +24,6 @@ const MovieInfo: FC<iInfo> = ({ movie }) => {
     rating,
     genres,
     duration,
-    persons,
     name,
     enName,
   } = movie;

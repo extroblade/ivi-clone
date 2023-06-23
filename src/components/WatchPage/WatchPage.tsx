@@ -14,9 +14,20 @@ import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import CommentSection from '@/components/Comment/CommentSection';
 import { useTranslation } from 'react-i18next';
 import { Htag } from '@/components/Htag/Htag';
+import { useFetchAllPersonsQuery } from '@/services/person.api';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
+  const { data: persons } = useFetchAllPersonsQuery();
+  const [personsData, setPersonsData] = useState([]);
+  useEffect(() => {
+    if (persons?.length) {
+      const set = new Set(movie.persons);
+      const temp = persons.filter((person) => set.has(person.id));
+      setPersonsData(() => temp);
+    }
+    console.log(personsData);
+  }, [persons.length]);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
@@ -34,7 +45,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     }
   }, [dispatch, movie]);
 
-  const { id, title, originalTitle, name, enName, trailer, persons: personsData } = movie;
+  const { id, title, originalTitle, name, enName, trailer } = movie;
   const filmName = title || name || null;
   const enFilmName = originalTitle || enName || null;
 
@@ -52,7 +63,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
             <div className={styles.watch__player}>
               <Player url={trailer || 'https://www.youtube.com/watch?v=ysz5S6PUM-U'} />
             </div>
-            <MovieInfo movie={movie} />
+            <MovieInfo movie={movie} persons={personsData} />
           </div>
         </div>
         <Carousel
@@ -66,13 +77,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         >
           {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
         </Carousel>
-        <PersonsGallery
-          list={
-            personsData?.actor && personsData?.director
-              ? [...personsData.actor, ...personsData.director]
-              : personsData
-          }
-        />
+        <PersonsGallery list={personsData} />
         <div className={styles.comments}>
           <Htag tag={'h4'}>{t('categories.comments')}</Htag>
         </div>

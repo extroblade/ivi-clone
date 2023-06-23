@@ -7,6 +7,7 @@ import MovieBreadcrumbs from '@/components/Breadcrumbs/MovieBreadcrumbs';
 import { useFetchOneFilmQuery } from '@/services/movie.api';
 import { useRouter } from 'next/router';
 import Loader from '@/components/Loader/Loader';
+
 const Movie = () => {
   const router = useRouter();
   const id = router?.query?.id;

@@ -1,5 +1,5 @@
-import { IMovie } from '@/types/types';
+import { IMovie, IMovieOld } from '@/types/types';
 
 export interface WatchPageProps {
-  movie: IMovie;
+  movie: IMovie | IMovieOld;
 }

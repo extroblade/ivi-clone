@@ -9,7 +9,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   env: {
-    SERVER: 'http://localhost:3001',
+    SERVER: 'https://api.npoint.io/f2d0fa5466639d1b194e',
     CLIENT: 'http://localhost:3000',
   },
   images: {

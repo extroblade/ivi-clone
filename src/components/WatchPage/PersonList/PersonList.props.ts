@@ -1,6 +1,6 @@
-import { IPersonOld } from '@/types/types';
+import { IPersonOld, IPersonsInFilm } from '@/types/types';
 
 export interface PersonListProps {
-  list: IPersonOld[];
+  list: IPersonOld[] | IPersonsInFilm[];
   rating: string;
 }
