@@ -4,7 +4,7 @@ import { IPersonOld } from '@/types/types';
 export const personApi = createApi({
   reducerPath: 'personApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001/persons',
+    baseUrl: process.env.SERVER + '/persons',
   }),
   tagTypes: ['Person'],
   endpoints: (build) => ({

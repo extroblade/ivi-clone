@@ -9,7 +9,7 @@ interface fetchedComment {
 export const commentsApi = createApi({
   reducerPath: 'commentsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001' + '/comments',
+    baseUrl: process.env.SERVER + '/comments',
   }),
   tagTypes: ['Comments'],
   endpoints: (build) => ({

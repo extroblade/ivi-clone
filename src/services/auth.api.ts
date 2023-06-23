@@ -27,7 +27,7 @@ interface iRegister {
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001',
+    baseUrl: process.env.SERVER,
     credentials: 'same-origin',
     prepareHeaders: (headers) => {
       const accessToken = localStorage.getItem('token');

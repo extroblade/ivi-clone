@@ -8,6 +8,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  env: {
+    SERVER: 'http://localhost:3001',
+    CLIENT: 'http://localhost:3000',
+  },
   images: {
     remotePatterns: [
       {

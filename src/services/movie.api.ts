@@ -15,7 +15,7 @@ export type QueryParams = {
 export const movieApi = createApi({
   reducerPath: 'movieApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3001' + '/film',
+    baseUrl: process.env.SERVER + '/film',
   }),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
