@@ -31,24 +31,6 @@
     line-height: 16px;
     font-style: normal;
   }
-  .vote {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-  }
-  .value {
-    color: rgba($color-gray-text,.72);
-    min-width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &.success {
-      color: rgba($color-success,.9);
-    }
-    &.danger {
-      color: rgba($color-danger,.9);
-    }
-  }
   .buttonUp, .buttonDown {
     color: rgba($color-gray-text,.72);
     transition: color 400ms;

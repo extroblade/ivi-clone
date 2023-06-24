@@ -1,7 +1,7 @@
-import { IMovieOld } from '@/types/types';
+import { IMovie, IMovieOld } from '@/types/types';
 import { persons } from './persons';
 
-export const moviesData: IMovieOld[] = [
+export const moviesData: IMovieOld[] | IMovie[] = [
   {
     id: 1,
     title: 'Гарри Поттер и Дары Смерти: Часть I',

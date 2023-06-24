@@ -1,15 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styles from '@/components/Comment/Comment.module.scss';
 import { AiFillDislike, AiOutlineDislike } from 'react-icons/ai';
 import { Button } from '@/components/Button/Button';
 
-const DisLikeButton: FC = (): JSX.Element => {
-  const [dislike, setDislike] = useState(false);
+const DisLikeButton: FC = ({ dislike, ...props }): JSX.Element => {
   return (
     <Button
       appearance={'transparent'}
       className={`${styles.buttonDown} ${dislike ? styles.active : ''}`}
-      onClick={() => setDislike((l) => !l)}
+      {...props}
     >
       {dislike ? <AiFillDislike /> : <AiOutlineDislike />}
     </Button>

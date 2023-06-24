@@ -1,13 +1,12 @@
 import { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
-import styles from './PersonsModal.module.scss';
+import styles from './WatchPageModal.module.scss';
 import { Htag } from '@/components/Htag/Htag';
 import { P } from '@/components/P/P';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { Button } from '@/components/Button/Button';
 import { HiChevronLeft } from 'react-icons/hi';
-import BarGraph from '@/components/BarGraph/BarGraph';
 import { selectModal, setShowPersonsModal } from '@/store/reducers/modals.slice';
 import { useTranslation } from 'react-i18next';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
@@ -18,8 +17,10 @@ import Image from 'next/image';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
 import Loader from '@/components/Loader/Loader';
 import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
+import Sup from '@/components/Sup/Sup';
+import WatchModalInfoCard from '@/components/Modals/WatchPageModal/WatchModalInfoCard';
 
-const PersonsModal: FC = () => {
+const WatchPageModal: FC = () => {
   const dispatch = useAppDispatch();
   const { personModalItem, showPersonsModal } = useAppSelector(selectModal);
   const { data: personsList } = useFetchAllPersonsQuery();
@@ -37,6 +38,7 @@ const PersonsModal: FC = () => {
       setPersons(() => personsList.filter((pers) => set.has(pers.id)));
     }
   }, [personsList?.length, personModalItem]);
+
   return (
     <>
       {showPersonsModal && (
@@ -52,10 +54,10 @@ const PersonsModal: FC = () => {
               </Htag>
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.creators')}
+                  {t('categories.creators')} {persons?.length ? <Sup text={persons?.length} /> : ''}
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.comments')}
+                  {t('categories.comments')} <Sup text={3} />
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   {t('categories.trailers')}
@@ -72,7 +74,6 @@ const PersonsModal: FC = () => {
                   <div className={styles.cards} onClick={close}>
                     {persons.map((person) => {
                       const { id, url, enName, name, films } = person;
-                      console.log(person);
                       return (
                         <Link href={`/person/${id}`} key={person.id + 'id'} className={styles.link}>
                           <div className={styles.card}>
@@ -110,31 +111,7 @@ const PersonsModal: FC = () => {
                 <h2>{t('categories.awards')}</h2>
               </TabPanel>
             </Tabs>
-            <div className={styles.movie}>
-              <Image
-                width={128}
-                height={196}
-                onClick={() => close()}
-                className={styles.movie__img}
-                src={personModalItem.card_image}
-                alt=""
-              />
-              <div className={styles.movie__info}>
-                <div className={styles.graphs}>
-                  <span>9,1</span>
-                  <div className={styles.graphs__wrap}>
-                    <BarGraph width={80} />
-                    <BarGraph width={73} />
-                    <BarGraph width={62} />
-                    <BarGraph width={98} />
-                  </div>
-                </div>
-                <P size="S" className={styles.movie__descr}>
-                  2011, США, Фэнтези
-                </P>
-                <P size="S">130 минут</P>
-              </div>
-            </div>
+            <WatchModalInfoCard />
           </div>
         </div>
       )}
@@ -142,4 +119,4 @@ const PersonsModal: FC = () => {
   );
 };
 
-export default PersonsModal;
+export default WatchPageModal;

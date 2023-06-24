@@ -1,15 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styles from '@/components/Comment/Comment.module.scss';
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
 import { Button } from '@/components/Button/Button';
 
-const LikeButton: FC = (): JSX.Element => {
-  const [like, setLike] = useState(false);
+const LikeButton: FC = ({ like, ...props }): JSX.Element => {
   return (
     <Button
       appearance={'transparent'}
       className={`${styles.buttonUp} ${like ? styles.active : ''}`}
-      onClick={() => setLike((l) => !l)}
+      {...props}
     >
       {like ? <AiFillLike /> : <AiOutlineLike />}
     </Button>

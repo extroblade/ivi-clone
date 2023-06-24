@@ -1,0 +1,14 @@
+@import '@/styles/variables.scss';
+
+.sup {
+  box-sizing: border-box;
+  color: $color-secondary;
+  display: inline-block;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+  line-height: 16px;
+  padding-left: 4px;
+  vertical-align: top;
+}

@@ -1,0 +1,80 @@
+@import '@/styles/variables.scss';
+
+.comment_card {
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+  .ugcTile {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    &:hover {
+      .ugcTile_inner {
+        background-color: #231f34;
+      }
+    }
+    &_vote {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      bottom: 20px;
+      position: absolute;
+      right: 20px;
+    }
+    &_inner {
+      background-color: $color-input-text;
+      transition: background-color .4s,background-color .4s;
+      box-sizing: border-box;
+      padding: 20px 20px 52px;
+      text-decoration: none;
+      vertical-align: baseline;
+    }
+    &_author {
+      color: $color-secondary;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 16px;
+      margin-bottom: 8px;
+      min-height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    &_textBlock{
+      -webkit-line-clamp: 3;
+      font-size: 15px;
+      font-weight: 400;
+      height: 66px;
+      line-height: 22px;
+      white-space: normal;
+      -webkit-box-orient: vertical;
+      color: #fff;
+      display: block;
+      display: -webkit-box;
+      font-style: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &_date {
+      bottom: 20px;
+      color: $color-secondary;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      left: 20px;
+      line-height: 16px;
+      position: absolute;
+    }
+  }
+}

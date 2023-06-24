@@ -1,0 +1,20 @@
+@import '@/styles/variables.scss';
+
+.vote {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.value {
+  color: rgba($color-gray-text,.72);
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.success {
+    color: rgba($color-success,.9);
+  }
+  &.danger {
+    color: rgba($color-danger,.9);
+  }
+}

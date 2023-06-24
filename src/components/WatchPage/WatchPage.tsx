@@ -15,6 +15,9 @@ import CommentSection from '@/components/Comment/CommentSection';
 import { useTranslation } from 'react-i18next';
 import { Htag } from '@/components/Htag/Htag';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
+import CommentCard from '@/components/Comment/CommentCard/CommentCard';
+import { useFetchAllCommentsQuery } from '@/services/comments.api';
+import Sup from '@/components/Sup/Sup';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -57,6 +60,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { title, originalTitle, name, enName, trailer } = movie;
   const filmName = title || name || null;
   const enFilmName = originalTitle || enName || null;
+  const { data: comments } = useFetchAllCommentsQuery();
 
   return (
     <>
@@ -88,10 +92,11 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         </Carousel>
         <PersonsGallery list={personsData} />
         <div className={styles.comments} onClick={openComments}>
-          <Htag tag={'h4'}>{t('categories.comments')}</Htag>
+          <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={3} />
         </div>
         <CommentSection id={personModalItem?.id} />
       </section>
+      <CommentCard comment={comments?.length && comments[0]?.commentsData[0]} />
     </>
   );
 };
