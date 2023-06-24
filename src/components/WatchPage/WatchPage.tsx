@@ -68,7 +68,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     if (comments?.length) {
       setComment(() => comments.find((com) => com?.id == movie?.id).commentsData);
     }
-  }, [comments?.length]);
+  }, [comments?.length, movie?.id]);
 
   return (
     <>
@@ -99,12 +99,18 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
         </Carousel>
         <PersonsGallery list={personsData} />
-        <div className={styles.comments_container}>
-          <div className={styles.comments} onClick={openComments}>
-            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
-          </div>
-        </div>
-        <CommentCarousel comments={comment} />
+        {comment?.length ? (
+          <>
+            <div className={styles.comments_container}>
+              <div className={styles.comments} onClick={openComments}>
+                <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
+              </div>
+            </div>
+            <CommentCarousel comments={comment} />
+          </>
+        ) : (
+          ''
+        )}
       </section>
     </>
   );
