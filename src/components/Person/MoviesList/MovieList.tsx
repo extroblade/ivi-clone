@@ -18,7 +18,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
       <div className={styles.title}>
         <Htag tag={'h3'}>{t('descriptions.complete-filmography')}</Htag>
         <P>
-          {list?.length} {i18next.language == 'en' ? 'movies' : 'фильмов'}
+          {list?.length} {i18next.language == 'en' ? 'movies' : getRemainingFilmAmount(list)}
         </P>
       </div>
       <div className={styles.line}></div>
@@ -29,7 +29,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
         {!isOpen && list?.length > 8 ? (
           <P onClick={() => setIsOpen(true)} className={styles.link}>
             {t('buttons.more')} {list?.length - 8}
-            {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list)}
+            {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list, 8)}
           </P>
         ) : (
           list?.slice(8, list?.length).map((card) => {
