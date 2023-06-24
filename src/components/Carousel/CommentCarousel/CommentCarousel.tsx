@@ -44,7 +44,7 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
   };
   return (
     <div style={{ marginBottom: '40px' }}>
-      {comments?.length ? (
+      {comments ? (
         <Slider {...settings}>
           {comments.map((comment) => (
             <CommentCard comment={comment} key={comment.id} />

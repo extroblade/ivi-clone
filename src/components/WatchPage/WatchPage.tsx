@@ -17,7 +17,6 @@ import { useFetchAllPersonsQuery } from '@/services/person.api';
 import { useFetchAllCommentsQuery } from '@/services/comments.api';
 import Sup from '@/components/Sup/Sup';
 import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
-import Loader from '@/components/Loader/Loader';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -37,7 +36,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
     dispatch(setPersonItems({ ...movie, index: 0 }));
-  }, [dispatch, movie]);
+  }, [dispatch, movie.id]);
 
   useEffect(() => {
     const fac = new FastAverageColor();
@@ -100,10 +99,12 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
         </Carousel>
         <PersonsGallery list={personsData} />
-        <div className={styles.comments} onClick={openComments}>
-          <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
+        <div className={styles.comments_container}>
+          <div className={styles.comments} onClick={openComments}>
+            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
+          </div>
         </div>
-        {comments?.length ? <CommentCarousel comments={comment} /> : <Loader />}
+        <CommentCarousel comments={comment} />
       </section>
     </>
   );

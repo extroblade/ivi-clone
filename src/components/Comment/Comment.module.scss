@@ -31,38 +31,15 @@
     line-height: 16px;
     font-style: normal;
   }
-  .buttonUp, .buttonDown {
-    color: rgba($color-gray-text,.72);
-    transition: color 400ms;
-    cursor: pointer;
-    font-size: 0;
-    position: relative;
-    background-color: transparent!important;
-    stroke-width: 10px!important;
-    padding: 0 10px;
-    height: 100%;
-    &:hover {
-      transition: color 80ms;
-      color: $color-gray-text;
-    }
-    svg {
-      width: 16px;
-      height: 16px;
-      font-size: 16px;
-      line-height: 16px;
-      background-color: transparent;
+
+  .interactions {
+    display: flex;
+    justify-content: space-between;
+    button {
+      color: $color-gray-text
     }
   }
-  .buttonUp {
-    &.active{
-      color: $color-success!important;
-    }
-  }
-  .buttonDown {
-    &.active{
-      color: $color-danger!important;
-    }
-  }
+
   .clause {
     padding-right: 104px;
     padding-left: 0;
@@ -82,13 +59,6 @@
       font-size: 15px;
       line-height: 22px;
       font-style: normal;
-    }
-  }
-  .interactions {
-    display: flex;
-    justify-content: space-between;
-    button {
-      color: $color-gray-text
     }
   }
 }

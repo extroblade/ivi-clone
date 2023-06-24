@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { PersonsGalleryProps } from './PersonsGallery.props';
 import cn from 'classnames';
 import styles from './PersonsGallery.module.scss';
@@ -10,6 +10,7 @@ import { selectModal, setPersonItems, setShowPersonsModal } from '@/store/reduce
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { useAppSelector } from '@/hooks/redux';
+import Sup from '@/components/Sup/Sup';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
@@ -23,8 +24,10 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
     <>
       {list.length > 0 && (
         <div className={styles.wrap}>
-          <div className={styles.title} onClick={open}>
-            <Htag tag={'h4'}>{t('sections.actors-creators')}</Htag>
+          <div className={styles.title_container}>
+            <div className={styles.title} onClick={open}>
+              <Htag tag={'h4'}>{t('sections.actors-creators')}</Htag> <Sup text={list?.length} />
+            </div>
           </div>
           <div className={styles.list}>
             <div className={styles.list__wrap}>

@@ -38,8 +38,9 @@ const Vote = () => {
     }
   };
 
-  const prevent = (e: React.MouseEvent<HTMLElement>) => {
+  const prevent = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
   };
 

@@ -3,6 +3,9 @@
 .wrap {
 }
 
+.title_container {
+  display: flex;
+}
 .title {
   h4 {
     border-bottom: 1px solid rgba($color-main, 0.16);
