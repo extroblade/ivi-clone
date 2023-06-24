@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import styles from './PersonsModal.module.scss';
@@ -15,16 +15,27 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import CommentSection from '@/components/Comment/CommentSection';
 import { usePreventScrollFixed } from '@/hooks/usePreventScrollFixed';
 import Image from 'next/image';
+import { useFetchAllPersonsQuery } from '@/services/person.api';
+import Loader from '@/components/Loader/Loader';
 
 const PersonsModal: FC = () => {
   const dispatch = useAppDispatch();
   const { personModalItem, showPersonsModal } = useAppSelector(selectModal);
+  const { data: personsList } = useFetchAllPersonsQuery();
   const { t, i18n } = useTranslation();
   usePreventScrollFixed(showPersonsModal);
   const close = () => {
     dispatch(setShowPersonsModal(false));
   };
   useEscapeKey(close);
+
+  const [persons, setPersons] = useState([]);
+  useEffect(() => {
+    if (personsList?.length) {
+      const set = new Set(personModalItem?.persons);
+      setPersons(() => personsList.filter((pers) => set.has(pers.id)));
+    }
+  }, [personsList?.length]);
 
   return (
     <>
@@ -56,36 +67,36 @@ const PersonsModal: FC = () => {
 
               <TabPanel className={styles.tabs__content}>
                 <Htag tag="h3">{t('categories.actors')}</Htag>
-                <div className={styles.cards} onClick={close}>
-                  {personModalItem?.persons.length &&
-                    personModalItem?.persons.map((person) => {
-                      return (
-                        <Link
-                          href={`/person/${person.id}`}
-                          key={person.id + 'id'}
-                          className={styles.link}
-                        >
+
+                {persons?.length ? (
+                  persons.map((person) => {
+                    const { id, url, enName, name } = person;
+                    return (
+                      <div className={styles.cards} onClick={close} key={person.id + 'id'}>
+                        <Link href={`/person/${id}`} className={styles.link}>
                           <div className={styles.card}>
-                            <Image width={120} height={144} src={person.url} alt="" />
+                            <Image width={120} height={144} src={url} alt="" />
                           </div>
                           <div>
-                            {(i18n.language == 'en' ? person.enName : person.name)
-                              .split(' ')
-                              .map((n) => (
-                                <p key={Math.random() * person.id} className={styles.name}>
+                            {(enName || name) &&
+                              (i18n.language == 'en' ? enName : name).split(' ').map((n) => (
+                                <p key={Math.random() * id} className={styles.name}>
                                   {n}
                                 </p>
                               ))}
                             <P size="S">3 {i18n.language == 'en' ? 'movies' : 'фильма'}</P>
                           </div>
                         </Link>
-                      );
-                    })}
-                </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  <Loader />
+                )}
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
-                <div style={{ maxWidth: '30vw' }}>
-                  <CommentSection />
+                <div style={{ maxWidth: '70vw', minWidth: '30vw' }}>
+                  <CommentSection id={personModalItem?.id} />
                 </div>
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
