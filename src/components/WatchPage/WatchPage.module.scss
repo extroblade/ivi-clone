@@ -60,10 +60,16 @@
 
 .comments_container {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  .open {
+    display: flex;
+  }
 }
 
+
 .comments {
-  margin-bottom: 20px;
   h4 {
     border-bottom: 1px solid rgba($color-main, 0.16);
     display: inline;
