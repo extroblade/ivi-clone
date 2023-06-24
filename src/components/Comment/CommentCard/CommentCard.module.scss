@@ -25,6 +25,12 @@
         background-color: #231f34;
       }
     }
+    &:active {
+      .ugcTile_inner {
+        background-color: #191524;
+
+      }
+    }
     &_vote {
       align-items: center;
       display: flex;

@@ -17,7 +17,7 @@ import { useFetchAllPersonsQuery } from '@/services/person.api';
 import { useFetchAllCommentsQuery } from '@/services/comments.api';
 import Sup from '@/components/Sup/Sup';
 import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
-import { Button } from "@/components/Button/Button";
+import { Button } from '@/components/Button/Button';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -107,9 +107,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
                 <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
               </div>
               <div className={styles.open} onClick={openComments}>
-                <Button appearance={'outline'}>
-                  {t('buttons.leave-a-comment')}
-                </Button>
+                <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
               </div>
             </div>
             <CommentCarousel comments={comment} />
