@@ -69,32 +69,31 @@ const PersonsModal: FC = () => {
                 <Htag tag="h3">{t('categories.actors')}</Htag>
 
                 {persons?.length ? (
-                  persons.map((person) => {
-                    const { id, url, enName, name, films } = person;
-                    console.log(person);
-                    return (
-                      <div className={styles.cards} onClick={close} key={person.id + 'id'}>
-                        <Link href={`/person/${id}`} className={styles.link}>
+                  <div className={styles.cards} onClick={close}>
+                    {persons.map((person) => {
+                      const { id, url, enName, name, films } = person;
+                      console.log(person);
+                      return (
+                        <Link href={`/person/${id}`} key={person.id + 'id'} className={styles.link}>
                           <div className={styles.card}>
                             <Image width={120} height={144} src={url} alt="" />
                           </div>
                           <div>
                             {(enName || name) &&
-                              (i18n.language == 'en' ? enName : name).split(' ').map((n) => (
+                              (i18n.language == 'en' ? enName : name).split(' ').map((letter) => (
                                 <p key={Math.random() * id} className={styles.name}>
-                                  {n}
+                                  {letter}
                                 </p>
                               ))}
                             <P size="S">
-                              {' '}
                               {films?.length}{' '}
                               {i18n.language == 'en' ? 'movies' : getRemainingFilmAmount(films)}
                             </P>
                           </div>
                         </Link>
-                      </div>
-                    );
-                  })
+                      );
+                    })}
+                  </div>
                 ) : (
                   <Loader />
                 )}
