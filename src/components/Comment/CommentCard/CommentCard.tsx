@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import Vote from '@/components/Comment/Buttons/Vote';
 import { writeDate } from '@/helpers/writeDate';
 import { IComment } from '@/types/types';
-import Loader from '@/components/Loader/Loader';
 
 interface iCommentComp {
   comment: IComment;
@@ -18,7 +17,6 @@ const CommentCard: FC<iCommentComp> = ({ comment }) => {
   const stringDate = useMemo(() => {
     return writeDate(comment?.date);
   }, [comment?.date]);
-  if (!comment?.clause) return <Loader />;
 
   const open = () => {
     dispatch(setPersonItems({ ...personModalItem, index: 1 }));
@@ -29,7 +27,7 @@ const CommentCard: FC<iCommentComp> = ({ comment }) => {
 
   return (
     <div className={styles.comment_card}>
-      <button onClick={open} className={styles.ugcTile}>
+      <div onClick={open} className={styles.ugcTile}>
         <div className={styles.ugcTile_vote}>
           <Vote />
         </div>
@@ -38,7 +36,7 @@ const CommentCard: FC<iCommentComp> = ({ comment }) => {
           <div className={styles.ugcTile_textBlock}>{clause}</div>
           <div className={styles.ugcTile_date}>{stringDate}</div>
         </div>
-      </button>
+      </div>
     </div>
   );
 };

@@ -11,13 +11,13 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import MovieInfo from '@/components/WatchPage/MovieInfo/MovieInfo';
 import { FastAverageColor } from 'fast-average-color';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
-import CommentSection from '@/components/Comment/CommentSection';
 import { useTranslation } from 'react-i18next';
 import { Htag } from '@/components/Htag/Htag';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
-import CommentCard from '@/components/Comment/CommentCard/CommentCard';
 import { useFetchAllCommentsQuery } from '@/services/comments.api';
 import Sup from '@/components/Sup/Sup';
+import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
+import Loader from '@/components/Loader/Loader';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -60,7 +60,16 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { title, originalTitle, name, enName, trailer } = movie;
   const filmName = title || name || null;
   const enFilmName = originalTitle || enName || null;
+
   const { data: comments } = useFetchAllCommentsQuery();
+
+  const [comment, setComment] = useState([]);
+
+  useEffect(() => {
+    if (comments?.length) {
+      setComment(() => comments.find((com) => com?.id == movie?.id).commentsData);
+    }
+  }, [comments?.length]);
 
   return (
     <>
@@ -92,11 +101,10 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         </Carousel>
         <PersonsGallery list={personsData} />
         <div className={styles.comments} onClick={openComments}>
-          <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={3} />
+          <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
         </div>
-        <CommentSection id={personModalItem?.id} />
+        {comments?.length ? <CommentCarousel comments={comment} /> : <Loader />}
       </section>
-      <CommentCard comment={comments?.length && comments[0]?.commentsData[0]} />
     </>
   );
 };
