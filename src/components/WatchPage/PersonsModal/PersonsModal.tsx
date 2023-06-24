@@ -36,7 +36,6 @@ const PersonsModal: FC = () => {
       setPersons(() => personsList.filter((pers) => set.has(pers.id)));
     }
   }, [personsList?.length, personModalItem]);
-
   return (
     <>
       {showPersonsModal && (
@@ -107,16 +106,14 @@ const PersonsModal: FC = () => {
               </TabPanel>
             </Tabs>
             <div className={styles.movie}>
-              {personModalItem.card_image && (
-                <Image
-                  width={128}
-                  height={196}
-                  onClick={() => close()}
-                  className={styles.movie__img}
-                  src={personModalItem.card_image}
-                  alt=""
-                />
-              )}
+              <Image
+                width={128}
+                height={196}
+                onClick={() => close()}
+                className={styles.movie__img}
+                src={personModalItem.card_image}
+                alt=""
+              />
               <div className={styles.movie__info}>
                 <div className={styles.graphs}>
                   <span>9,1</span>

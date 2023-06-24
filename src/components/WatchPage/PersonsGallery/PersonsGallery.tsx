@@ -14,10 +14,10 @@ import { useAppSelector } from '@/hooks/redux';
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
-  const { personsModalItem } = useAppSelector(selectModal);
+  const { personModalItem } = useAppSelector(selectModal);
   const open = () => {
     dispatch(setShowPersonsModal(true));
-    dispatch(setPersonItems({ ...personsModalItem, index: 0 }));
+    dispatch(setPersonItems({ ...personModalItem, index: 0 }));
   };
   return (
     <>

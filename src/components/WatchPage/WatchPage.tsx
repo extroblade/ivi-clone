@@ -35,6 +35,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   useEffect(() => {
     dispatch(setPersonItems({ ...movie, index: 0 }));
   }, [dispatch, movie]);
+
   useEffect(() => {
     const fac = new FastAverageColor();
     if (movie.card_image) {
