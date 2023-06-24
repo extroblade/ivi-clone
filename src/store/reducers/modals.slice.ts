@@ -1,7 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { IMovie } from '@/types/types';
+import { IComment, IMovie } from '@/types/types';
 import { HYDRATE } from 'next-redux-wrapper';
+
+interface IPersonModal extends IMovie {
+  index?: number;
+  comments?: IComment[];
+}
 
 interface iModal {
   showAuth: boolean;
@@ -10,7 +15,7 @@ interface iModal {
   showPersonsModal: boolean;
   showFooterModal: boolean;
   showEditProfile: boolean;
-  personModalItem: IMovie | null;
+  personModalItem: IPersonModal | null;
 }
 
 const initialState: iModal = {
@@ -27,7 +32,7 @@ export const modalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
-    setPersonItems: (state, action: PayloadAction<IMovie>) => {
+    setPersonItems: (state, action: PayloadAction<IPersonModal>) => {
       state.personModalItem = action.payload;
     },
     setShowAuth: (state, action: PayloadAction<boolean>) => {

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useMemo, useState } from 'react';
 import styles from './MovieList.module.scss';
 
 import { P } from '@/components/P/P';
@@ -11,6 +11,13 @@ import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
 
 const MovieList: FC<MovieListProps> = ({ list }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const allAmount = useMemo(() => {
+    return getRemainingFilmAmount(list);
+  }, [list?.length]);
+  const remainingAmount = useMemo(() => {
+    return getRemainingFilmAmount(list, 8);
+  }, [list?.length]);
   const { t } = useTranslation();
 
   return (
@@ -18,7 +25,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
       <div className={styles.title}>
         <Htag tag={'h3'}>{t('descriptions.complete-filmography')}</Htag>
         <P>
-          {list?.length} {i18next.language == 'en' ? 'movies' : getRemainingFilmAmount(list)}
+          {list?.length} {i18next.language == 'en' ? 'movies' : allAmount}
         </P>
       </div>
       <div className={styles.line}></div>
@@ -29,7 +36,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
         {!isOpen && list?.length > 8 ? (
           <P onClick={() => setIsOpen(true)} className={styles.link}>
             {t('buttons.more')} {list?.length - 8}
-            {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list, 8)}
+            {i18next.language == 'en' ? ' movies' : remainingAmount}
           </P>
         ) : (
           list?.slice(8, list?.length).map((card) => {

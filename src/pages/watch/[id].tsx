@@ -11,7 +11,7 @@ import Loader from '@/components/Loader/Loader';
 const Movie = () => {
   const router = useRouter();
   const id = router?.query?.id;
-  const { data: movie, isLoading, error } = useFetchOneFilmQuery({ id });
+  const { data: movie, isLoading, error } = useFetchOneFilmQuery({ id: id - 1 });
   const { t, i18n } = useTranslation();
   if (error) return <NotFoundPage />;
   const genres = movie?.genres?.length ? movie?.genres[0] : '';

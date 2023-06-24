@@ -6,8 +6,8 @@ import { WatchPageProps } from './WatchPage.props';
 import Card from '@/components/Card/Card';
 import { PersonsGallery } from '@/components/WatchPage/PersonsGallery/PersonsGallery';
 import i18next from 'i18next';
-import { setPersonItems } from '@/store/reducers/modals.slice';
-import { useAppDispatch } from '@/hooks/redux';
+import { selectModal, setPersonItems, setShowPersonsModal } from '@/store/reducers/modals.slice';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import MovieInfo from '@/components/WatchPage/MovieInfo/MovieInfo';
 import { FastAverageColor } from 'fast-average-color';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
@@ -19,7 +19,9 @@ import { useFetchAllPersonsQuery } from '@/services/person.api';
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
   const { data: persons } = useFetchAllPersonsQuery();
+  const { personModalItem } = useAppSelector(selectModal);
   const [personsData, setPersonsData] = useState([]);
+
   useEffect(() => {
     if (persons?.length) {
       const set = new Set(movie.persons);
@@ -31,7 +33,9 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
-    dispatch(setPersonItems(movie));
+    dispatch(setPersonItems({ ...movie, index: 0 }));
+  }, [dispatch, movie]);
+  useEffect(() => {
     const fac = new FastAverageColor();
     if (movie.card_image) {
       fac
@@ -44,7 +48,12 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     }
   }, [dispatch, movie]);
 
-  const { id, title, originalTitle, name, enName, trailer } = movie;
+  const openComments = () => {
+    dispatch(setPersonItems({ ...personModalItem, index: 1 }));
+    dispatch(setShowPersonsModal(true));
+  };
+
+  const { title, originalTitle, name, enName, trailer } = movie;
   const filmName = title || name || null;
   const enFilmName = originalTitle || enName || null;
 
@@ -77,10 +86,10 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
         </Carousel>
         <PersonsGallery list={personsData} />
-        <div className={styles.comments}>
+        <div className={styles.comments} onClick={openComments}>
           <Htag tag={'h4'}>{t('categories.comments')}</Htag>
         </div>
-        <CommentSection id={id} />
+        <CommentSection id={personModalItem?.id} />
       </section>
     </>
   );

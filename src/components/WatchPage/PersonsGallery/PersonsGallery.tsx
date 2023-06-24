@@ -6,15 +6,18 @@ import Link from 'next/link';
 import { Htag } from '@/components/Htag/Htag';
 import { P } from '@/components/P/P';
 import { useTranslation } from 'react-i18next';
-import { setShowPersonsModal } from '@/store/reducers/modals.slice';
+import { selectModal, setPersonItems, setShowPersonsModal } from '@/store/reducers/modals.slice';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
+import { useAppSelector } from '@/hooks/redux';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+  const { personsModalItem } = useAppSelector(selectModal);
   const open = () => {
     dispatch(setShowPersonsModal(true));
+    dispatch(setPersonItems({ ...personsModalItem, index: 0 }));
   };
   return (
     <>

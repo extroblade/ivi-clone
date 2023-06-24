@@ -14,10 +14,10 @@ const CommentSection: FC<ICommentSection> = ({ id }): JSX.Element => {
   const [commentsData, setCommentsData] = useState([]);
   useEffect(() => {
     if (comments?.length) {
-      const temp = comments?.find((comment) => comment.id == id - 1)?.commentsData || [];
+      const temp = comments?.find((comment) => comment.id == id)?.commentsData || [];
       setCommentsData(() => temp);
     }
-  }, [comments?.length]);
+  }, [comments?.length, id]);
   return (
     <div className={styles.comment_section}>
       <div>!!!warn: answers works with only first level children!!!</div>

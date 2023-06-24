@@ -35,7 +35,7 @@ const PersonsModal: FC = () => {
       const set = new Set(personModalItem?.persons);
       setPersons(() => personsList.filter((pers) => set.has(pers.id)));
     }
-  }, [personsList?.length]);
+  }, [personsList?.length, personModalItem]);
 
   return (
     <>
@@ -46,7 +46,7 @@ const PersonsModal: FC = () => {
             <span>{t('buttons.to-movie')}</span>
           </Button>
           <div className={styles.wrap}>
-            <Tabs className={styles.tabs}>
+            <Tabs className={styles.tabs} defaultIndex={personModalItem.index}>
               <Htag tag={'h2'}>
                 {i18n.language == 'en' ? personModalItem?.enName : personModalItem?.name}
               </Htag>
@@ -113,7 +113,7 @@ const PersonsModal: FC = () => {
                   height={196}
                   onClick={() => close()}
                   className={styles.movie__img}
-                  src={personModalItem.card_image} //"https://thumbs.dfs.ivi.ru/storage2/contents/5/b/1a320c6f0240982ad3f287e19afa91.jpg/128x196/?q=85"
+                  src={personModalItem.card_image}
                   alt=""
                 />
               )}
