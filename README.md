@@ -4,16 +4,8 @@
 
 ## Getting Started
 
-Run the client side: http://localhost:3000
-
 ```bash
 npm run dev
-```
-
-Start the json-server with mock data: http://localhost:3001
-
-```bash
-npm run server
 ```
 
 ---
