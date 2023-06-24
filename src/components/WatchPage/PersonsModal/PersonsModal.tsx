@@ -17,6 +17,7 @@ import { usePreventScrollFixed } from '@/hooks/usePreventScrollFixed';
 import Image from 'next/image';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
 import Loader from '@/components/Loader/Loader';
+import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
 
 const PersonsModal: FC = () => {
   const dispatch = useAppDispatch();
@@ -69,7 +70,8 @@ const PersonsModal: FC = () => {
 
                 {persons?.length ? (
                   persons.map((person) => {
-                    const { id, url, enName, name } = person;
+                    const { id, url, enName, name, films } = person;
+                    console.log(person);
                     return (
                       <div className={styles.cards} onClick={close} key={person.id + 'id'}>
                         <Link href={`/person/${id}`} className={styles.link}>
@@ -83,7 +85,11 @@ const PersonsModal: FC = () => {
                                   {n}
                                 </p>
                               ))}
-                            <P size="S">3 {i18n.language == 'en' ? 'movies' : 'фильма'}</P>
+                            <P size="S">
+                              {' '}
+                              {films?.length}{' '}
+                              {i18n.language == 'en' ? 'movies' : getRemainingFilmAmount(films)}
+                            </P>
                           </div>
                         </Link>
                       </div>
