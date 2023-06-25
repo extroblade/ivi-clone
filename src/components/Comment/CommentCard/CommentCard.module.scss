@@ -1,11 +1,20 @@
 @import '@/styles/variables.scss';
 
 .comment_card {
-  display: inline-block;
+  display: block;
   vertical-align: top;
   white-space: normal;
-  max-width: 25vw;
-  padding: 0 30px;
+  max-width: calc(100vw/4);
+  @media screen and (max-width: 1160px) {
+    max-width: calc(100vw/3);
+  }
+  @media screen and (max-width: 880px) {
+    max-width: calc(100vw/2);
+  }
+  @media screen and (max-width: 390px) {
+    max-width: calc(100vw/1);
+  }
+  padding: 0 10px;
   .ugcTile {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

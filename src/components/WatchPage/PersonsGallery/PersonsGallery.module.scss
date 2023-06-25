@@ -19,10 +19,7 @@
 }
 
 .list {
-  display: flex;
   padding: 20px 0;
-  justify-content: flex-start;
-  gap: 20px;
 
   &__wrap {
     overflow: hidden;

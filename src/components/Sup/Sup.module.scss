@@ -11,4 +11,10 @@
   line-height: 16px;
   padding-left: 4px;
   vertical-align: top;
+  @media screen and (max-width: 1160px) {
+    font-size: 0.8rem;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 0.6rem;
+  }
 }

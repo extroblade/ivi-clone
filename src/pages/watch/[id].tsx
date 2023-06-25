@@ -5,9 +5,8 @@ import { useTranslation } from 'react-i18next';
 import MovieBreadcrumbs from '@/components/Breadcrumbs/MovieBreadcrumbs';
 import Loader from '@/components/Loader/Loader';
 
-const Movie = (props) => {
+const Movie = ({ movie }) => {
   const { t, i18n } = useTranslation();
-  const movie = props.movie;
   const genres = movie?.genres?.length ? movie?.genres[0] : '';
   const breadcrumbs = [
     { name: t('sections.movies'), path: '/movies' }, //t('sections.series') t('sections.animation')

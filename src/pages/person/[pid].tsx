@@ -5,8 +5,7 @@ import i18next from 'i18next';
 import Loader from '@/components/Loader/Loader';
 import React from 'react';
 
-const Person = (props) => {
-  const person = props.person;
+const Person = ({ person }) => {
   if (!person?.id) return <NotFoundPage />;
 
   const { fullNameEn, fullName, name, enName } = person;

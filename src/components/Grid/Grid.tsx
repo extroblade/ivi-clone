@@ -11,7 +11,7 @@ interface iGrid {
 }
 const BASE_LIMIT = 14;
 
-const Grid: FC<iGrid> = ({ array }) => {
+const Grid: FC<iGrid> = ({ array = new Array(10).fill(1) }) => {
   const { t } = useTranslation();
   const [limit, setLimit] = useState(BASE_LIMIT);
   const [isLoading, setIsLoading] = useState(false);

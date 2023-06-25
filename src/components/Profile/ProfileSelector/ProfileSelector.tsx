@@ -1,6 +1,6 @@
 import React from 'react';
 import { Htag } from '@/components/Htag/Htag';
-import children from '../../../../public/children.png';
+import children from '../../../../public/images/children.png';
 import { useTranslation } from 'react-i18next';
 import styles from './ProfileSelector.module.scss';
 import { FiUser } from 'react-icons/fi';

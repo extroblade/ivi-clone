@@ -5,11 +5,9 @@ import MoviesPageDescription from '@/components/MoviesPage/MoviesPageDescription
 import Filters from '../../components/Filters/Filters';
 import { useTranslation } from 'react-i18next';
 import Grid from '@/components/Grid/Grid';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import Loader from '@/components/Loader/Loader';
 
-const Movies = () => {
-  const { data: movies, isLoading, error } = useFetchAllFilmsQuery({});
+const Movies = ({ movies }) => {
   const { t } = useTranslation();
   const breadcrumbs = [
     { name: t('sections.my-ivi'), path: '/' },
@@ -23,10 +21,20 @@ const Movies = () => {
       <BreadCrumbs breadcrumbs={breadcrumbs} />
       <MoviesPageDescription />
       <Filters />
-      {(isLoading || error) && <Loader />}
-      {!isLoading && <Grid array={movies?.length ? movies : new Array(10)} />}
+      {movies ? <Grid array={movies} /> : <Loader />}
     </>
   );
 };
 
 export default Movies;
+
+export const getServerSideProps = async () => {
+  const res = await fetch(`${process.env.SERVER}/film`);
+  const movies = await res.json();
+
+  return {
+    props: {
+      movies,
+    },
+  };
+};

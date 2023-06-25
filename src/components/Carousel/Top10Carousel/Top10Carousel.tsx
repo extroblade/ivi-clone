@@ -8,7 +8,7 @@ import { Htag } from '@/components/Htag/Htag';
 import { IMovie } from '@/types/types';
 import { useTranslation } from 'react-i18next';
 import { T10Card } from './Top10CarouselCard';
-import top10 from '@/../public/top10/top10.svg';
+import top10 from '@/../public/images/top10/top10.svg';
 import Link from 'next/link';
 interface iCarousel {
   data: IMovie[];
