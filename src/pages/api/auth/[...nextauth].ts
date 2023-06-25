@@ -68,10 +68,10 @@ export default NextAuth({
     // },
 
     async jwt({ token, account }) {
-      console.log('====================================================');
-      console.log('JWT TOKEN:', token);
-      console.log('ACCOUNT:', account);
-      console.log('====================================================');
+      // console.log('====================================================');
+      // console.log('JWT TOKEN:', token);
+      // console.log('ACCOUNT:', account);
+      // console.log('====================================================');
 
       if (account) {
         token.accessToken = account.access_token;
@@ -81,9 +81,9 @@ export default NextAuth({
     },
     async session({ session, token }) {
       // Send properties to the client, like an access_token from a provider.
-      console.log('====================================================');
-      console.log('SESSION TOKEN:', token);
-      console.log('====================================================');
+      // console.log('====================================================');
+      // console.log('SESSION TOKEN:', token);
+      // console.log('====================================================');
       return session;
     },
   },

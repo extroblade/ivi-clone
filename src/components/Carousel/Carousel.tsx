@@ -105,7 +105,7 @@ const Carousel: FC<CarouselProps> = ({
       <Slider {...settings}>
         {children}
         {showAll && (
-          <Link href={route || ''}>
+          <Link href={route || '/movies'}>
             <ShowAll />
           </Link>
         )}
