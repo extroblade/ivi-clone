@@ -68,21 +68,9 @@ export default NextAuth({
     // },
 
     async jwt({ token, account }) {
-      // Persist the OAuth access_token to the token right after signin
       console.log('====================================================');
       console.log('JWT TOKEN:', token);
       console.log('ACCOUNT:', account);
-      // Пример ответа от сервера 3001
-      //       JWT TOKEN: {
-      //   name: undefined,
-      //   email: undefined,
-      //   picture: undefined,
-      //   sub: undefined
-      // }
-      // ACCOUNT: {
-      //   providerAccountId: undefined,
-      //   type: 'credentials',
-      //   provider: 'credentials'
       console.log('====================================================');
 
       if (account) {
@@ -95,12 +83,6 @@ export default NextAuth({
       // Send properties to the client, like an access_token from a provider.
       console.log('====================================================');
       console.log('SESSION TOKEN:', token);
-      // Пример ответа от сервера 3001
-      //       SESSION TOKEN: {
-      //   iat: 1685435580,
-      //   exp: 1688027580,
-      //   jti: 'c70d4fa0-f608-4a11-b5b4-45014cecc2af'
-      // }
       console.log('====================================================');
       return session;
     },
