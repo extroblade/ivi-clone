@@ -32,12 +32,6 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
   const desc = slogan || description;
   const enDesc = originalSlogan || enDescription;
 
-  const getCountries = () => {
-    //creates a string with all countries divided by comma
-    return countries.reduce((res, next, index) => {
-      return index ? res + ', ' + next : res + next;
-    }, '');
-  };
   return (
     <div className={styles.watch__info}>
       <div className={styles.watch__title}>
@@ -55,7 +49,11 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
           </div>
         </ul>
         <ul className={styles.info_list}>
-          <div className={`${styles.info_item} ${styles.item_hasDot}`}>{getCountries()}</div>
+          {countries.map((country, index) => (
+            <div key={index} className={`${styles.info_item} ${styles.item_hasDot}`}>
+              {country}
+            </div>
+          ))}
           {genres?.length &&
             genres.map((genre, index) => (
               <div key={index} className={`${styles.info_item} ${styles.item_hasDot}`}>
