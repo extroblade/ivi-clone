@@ -18,14 +18,8 @@ const Admin = () => {
   const { t } = useTranslation();
   const [page, setPage] = useSearchParamsState<number>({ name: 'page' });
   const [deleteMovie] = useDeleteOneFilmMutation();
-  const {
-    data: movies,
-    error,
-    isLoading,
-  } = useFetchAllFilmsQuery({
-    limit: 10,
-    page: page,
-  });
+  const { data: movies } = useFetchAllFilmsQuery({});
+  console.log(movies, page);
   if (user) return <NotFoundPage />; //todo: fix when slice is ready
   const del = (id: number) => {
     try {
@@ -43,11 +37,11 @@ const Admin = () => {
       <div>
         <Htag tag={'h3'}>{t('descriptions.admin')}</Htag>
         <AddNewMovie />
-        {error || isLoading || !movies?.length ? (
+        {!movies?.length ? (
           <Loader />
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {movies.map((movie) => (
+            {movies.slice((page - 1) * 10, 10 * page).map((movie) => (
               <div
                 key={movie.id}
                 style={{
@@ -58,6 +52,7 @@ const Admin = () => {
                   alignItems: 'center',
                 }}
               >
+                <div>{movie.id}</div>
                 <Card card={movie} />
                 {!movies?.length && <div>mock data, unable to change</div>}
                 <Button
