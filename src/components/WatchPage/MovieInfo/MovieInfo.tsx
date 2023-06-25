@@ -5,6 +5,7 @@ import i18next from 'i18next';
 import { P } from '@/components/P/P';
 import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
 import { IMovie, IMovieOld, IPersonOld, IPersonsInFilm } from '@/types/types';
+import Link from "next/link";
 
 interface iInfo {
   movie: IMovie | IMovieOld;
@@ -49,15 +50,16 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
           </div>
         </ul>
         <ul className={styles.info_list}>
-          {countries.map((country, index) => (
-            <div key={index} className={`${styles.info_item} ${styles.item_hasDot}`}>
-              {country}
-            </div>
-          ))}
+          {countries?.length &&
+            countries.map((country, index) => (
+              <div key={index} className={`${styles.info_item} ${styles.item_hasDot}`}>
+                <Link href={'/movies'}>{country}</Link>
+              </div>
+            ))}
           {genres?.length &&
             genres.map((genre, index) => (
               <div key={index} className={`${styles.info_item} ${styles.item_hasDot}`}>
-                {genre}
+                <Link href={'/movies'}>{genre}</Link>
               </div>
             ))}
         </ul>
