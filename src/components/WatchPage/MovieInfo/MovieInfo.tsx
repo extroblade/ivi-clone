@@ -5,7 +5,8 @@ import i18next from 'i18next';
 import { P } from '@/components/P/P';
 import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
 import { IMovie, IMovieOld, IPersonOld, IPersonsInFilm } from '@/types/types';
-import Link from "next/link";
+import Link from 'next/link';
+import Explanations from '@/components/WatchPage/Explanations/Explanations';
 
 interface iInfo {
   movie: IMovie | IMovieOld;
@@ -67,6 +68,13 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
       <div className={styles.watch__rating}>
         <PersonList list={persons} rating={rating} />
       </div>
+      <Explanations
+        array={[
+          'asasdasdasdasddasd  das ads asd a adsdas das dasdasdsadsa dddd adsd asd asda sd as dasasasdas das ad ds s das dasdas',
+          'das sadasdas ass dasds das',
+          'sa dasdasdsa d sdasasasasd',
+        ]}
+      />
       <div className={styles.watch__description}>
         <P>{i18next.language == 'en' ? enDesc || desc : desc}</P>
       </div>
