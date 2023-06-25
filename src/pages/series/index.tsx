@@ -5,12 +5,10 @@ import SeriesPageDescription from '@/components/SeriesPage/SeriesPageDescription
 import { useTranslation } from 'react-i18next';
 import Filters from '@/components/Filters/Filters';
 import Grid from '@/components/Grid/Grid';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import Loader from '@/components/Loader/Loader';
 
-const Series = () => {
+const Series = ({ movies }) => {
   const { t } = useTranslation();
-  const { data: movies, isLoading, error } = useFetchAllFilmsQuery({});
   const breadcrumbs = [
     { name: t('sections.my-ivi'), path: '/' },
     { name: t('sections.series'), path: '/series' },
@@ -23,10 +21,20 @@ const Series = () => {
       <BreadCrumbs breadcrumbs={breadcrumbs} />
       <SeriesPageDescription />
       <Filters />
-      {(isLoading || error) && <Loader />}
-      {!isLoading && <Grid array={movies?.length ? movies : new Array(10)} />}
+      {movies ? <Grid array={movies} /> : <Loader />}
     </>
   );
 };
 
 export default Series;
+
+export const getStaticProps = async () => {
+  const res = await fetch(`${process.env.SERVER}/film`);
+  const movies = await res.json();
+
+  return {
+    props: {
+      movies,
+    },
+  };
+};

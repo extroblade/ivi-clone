@@ -48,12 +48,21 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
         </Htag>
       </div>
       <div className={styles.watch__params}>
-        <P>
-          {year}, {typeof duration !== 'string' ? `${duration.hours} часа` : duration}
-        </P>
-        <P>
-          {getCountries()} {genres?.length && genres.map((genre) => genre.name)}
-        </P>
+        <ul className={styles.info_list}>
+          <div className={styles.info_item}>{year}</div>
+          <div className={styles.info_item}>
+            {typeof duration !== 'string' ? `${duration.hours} часа` : duration}
+          </div>
+        </ul>
+        <ul className={styles.info_list}>
+          <div className={`${styles.info_item} ${styles.item_hasDot}`}>{getCountries()}</div>
+          {genres?.length &&
+            genres.map((genre, index) => (
+              <div key={index} className={`${styles.info_item} ${styles.item_hasDot}`}>
+                {genre}
+              </div>
+            ))}
+        </ul>
       </div>
       <div className={styles.watch__rating}>
         <PersonList list={persons} rating={rating} />
