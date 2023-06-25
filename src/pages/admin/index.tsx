@@ -13,13 +13,14 @@ import { useSearchParamsState } from '@/hooks/useSearchParamsState';
 import AddNewMovie from '@/components/AdminPage/AddNewMovie';
 import Loader from '@/components/Loader/Loader';
 
+const PAGE_LIMIT = 10;
+
 const Admin = () => {
   const { user } = useAppSelector(selectAuth);
   const { t } = useTranslation();
   const [page, setPage] = useSearchParamsState<number>({ name: 'page' });
   const [deleteMovie] = useDeleteOneFilmMutation();
   const { data: movies } = useFetchAllFilmsQuery({});
-  console.log(movies, page);
   if (user) return <NotFoundPage />; //todo: fix when slice is ready
   const del = (id: number) => {
     try {
@@ -41,7 +42,7 @@ const Admin = () => {
           <Loader />
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {movies.slice((page - 1) * 10, 10 * page).map((movie) => (
+            {movies.slice((page - 1) * PAGE_LIMIT, PAGE_LIMIT * page).map((movie) => (
               <div
                 key={movie.id}
                 style={{
@@ -68,11 +69,16 @@ const Admin = () => {
         )}
 
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {[...Array(5)].map((i, index) => (
-            <Button style={{ margin: '10px' }} key={index} onClick={() => setPage(() => index + 1)}>
-              {index + 1}
-            </Button>
-          ))}
+          {movies?.length &&
+            [...Array(Math.ceil(movies?.length / 10))].map((i, index) => (
+              <Button
+                style={{ margin: '10px' }}
+                key={index}
+                onClick={() => setPage(() => index + 1)}
+              >
+                {index + 1}
+              </Button>
+            ))}
         </div>
       </div>
     </>
