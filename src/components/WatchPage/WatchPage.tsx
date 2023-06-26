@@ -101,21 +101,15 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
         </Carousel>
         <PersonsGallery list={personsData} />
-        {comment?.length ? (
-          <>
-            <div className={styles.comments_container}>
-              <div className={styles.comments} onClick={openComments}>
-                <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length} />
-              </div>
-              <div className={styles.open} onClick={openComments}>
-                <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
-              </div>
-            </div>
-            <CommentCarousel comments={comment} />
-          </>
-        ) : (
-          ''
-        )}
+        <div className={styles.comments_container}>
+          <div className={styles.comments} onClick={openComments}>
+            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length || 0} />
+          </div>
+          <div className={styles.open} onClick={openComments}>
+            <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
+          </div>
+        </div>
+        {comment?.length ? <CommentCarousel comments={comment} /> : ''}
         <WatchAllDevices name={filmName || 'фильм'} image={card_image} />
       </section>
     </>

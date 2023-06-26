@@ -9,11 +9,22 @@
     column-gap: 24px;
     display: grid;
     grid-template-columns: 536px 1fr;
+    @media screen and (min-width: 272px) and (max-width: 1160px) {
+      background-color: #1f1b2e;
+      border-radius: 8px;
+      grid-template-columns: none;
+      grid-template-rows: 1fr min-content;
+      padding: 24px;
+      row-gap: 24px;
+    }
   }
   .appeal {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media screen and (min-width: 272px) and (max-width: 1160px) {
+      order: 1;
+    }
     .title {
       color: #fff;
       font-size: 24px;
@@ -30,12 +41,22 @@
       line-height: 20px;
       margin-bottom: 24px;
     }
-    button {
-      width: 215px;
+    a {
+      button {
+        width: 215px;
+        @media screen and (min-width: 272px) and (max-width: 1160px) {
+          width: 100%;
+        }
+      }
+
     }
   }
 
   .devices {
+    @media screen and (min-width: 272px) and (max-width: 1160px) {
+      display: flex;
+      justify-content: center;
+    }
 
   }
   .image_container {

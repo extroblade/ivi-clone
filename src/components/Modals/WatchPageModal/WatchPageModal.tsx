@@ -100,7 +100,7 @@ const WatchPageModal: FC = () => {
                 )}
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
-                <div style={{ maxWidth: '70vw', minWidth: '30vw' }}>
+                <div className={styles.comments}>
                   <CommentSection id={personModalItem?.id} />
                 </div>
               </TabPanel>
