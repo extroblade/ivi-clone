@@ -18,6 +18,7 @@ import { useFetchAllCommentsQuery } from '@/services/comments.api';
 import Sup from '@/components/Sup/Sup';
 import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
 import { Button } from '@/components/Button/Button';
+import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -57,7 +58,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     dispatch(setShowPersonsModal(true));
   };
 
-  const { title, originalTitle, name, enName, trailer } = movie;
+  const { title, originalTitle, name, enName, trailer, card_image } = movie;
   const filmName = title || name || null;
   const enFilmName = originalTitle || enName || null;
 
@@ -115,6 +116,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         ) : (
           ''
         )}
+        <WatchAllDevices name={filmName || 'фильм'} image={card_image} />
       </section>
     </>
   );
