@@ -7,7 +7,7 @@ import PersonCard from './PersonCard/PersonCard';
 export const PersonList: FC<PersonListProps> = ({ list, rating }) => {
   return (
     <div className={styles.list}>
-      <PersonCard>{rating}</PersonCard>
+      <PersonCard rating={rating} />
       {list?.length &&
         list.slice(0, 4).map((item) => {
           return <PersonCard key={item.id} person={item} />;

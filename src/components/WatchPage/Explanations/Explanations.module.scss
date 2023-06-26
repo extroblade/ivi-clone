@@ -29,17 +29,12 @@
     display: flex;
     height: 40px;
     width: 100%;
-
   }
   &.isActive {
     cursor: pointer;
     opacity: 1;
     position: relative;
-    transform: translateX(0);
     transition: transform .4s ease-out,opacity .4s ease-out;
-  }
-  &.isPrev {
-
   }
 
   img {

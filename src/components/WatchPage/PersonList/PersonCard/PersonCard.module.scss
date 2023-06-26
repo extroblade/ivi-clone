@@ -44,7 +44,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(white, .16);
+  background-color: hsla(0,0%,100%,.16);
+  transform: scale(1);
+  transition-duration: .4s;
+  div {
+    width: 44px;
+    height: 44px;
+    font-size: 15px!important;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 .person {
   width: 44px;
@@ -64,5 +77,4 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: green;
 }

@@ -7,6 +7,7 @@ import { IoPlayOutline } from 'react-icons/io5';
 import { FiUpload } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import AddToFavoritesButton from '@/components/Card/CardButtons/AddToFavoritesButton';
+import TurnNotificationsButton from '@/components/Card/CardButtons/TurnNotificationsButton';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: true });
 
 const Player: FC<PlayerProps> = ({ url }) => {
@@ -42,7 +43,7 @@ const Player: FC<PlayerProps> = ({ url }) => {
             {t('buttons.trailer')}
           </Button>
           <AddToFavoritesButton />
-
+          <TurnNotificationsButton />
           <Button appearance="square">
             <FiUpload className={styles.icon} />
           </Button>

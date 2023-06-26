@@ -6,6 +6,7 @@ import { RatingBlockProps } from '@/components/WatchPage/RatingBlock/RatingBlock
 import { useAppDispatch } from '@/hooks/redux';
 import { setShowRating } from '@/store/reducers/modals.slice';
 import { getRate } from '@/helpers/remainingAmount';
+import RatingPlate from '@/components/WatchPage/RatingBlock/RatingPlate';
 
 const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) => {
   const { t } = useTranslation();
@@ -13,21 +14,11 @@ const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) => {
   const openRating = () => {
     dispatch(setShowRating(true));
   };
-  let style;
-  const currentRate = +rating[0];
-  if (currentRate > 7) {
-    style = styles.good;
-  } else if (currentRate > 4) {
-    style = styles.ok;
-  } else {
-    style = styles.bad;
-  }
+
   return (
     <div className={styles.rating_block} onClick={openRating}>
       <div className={styles.rating_container}>
-        <div className={`${styles.rating_plate} ${style}`}>
-          <div className={styles.plate_value}>{rating}</div>
-        </div>
+        <RatingPlate rating={rating} />
         <div className={styles.text_block}>
           <div className={styles.title}>{t('categories.rating')}</div>
           <div className={styles.subtitle}>{criteria}</div>
