@@ -7,6 +7,7 @@ import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
 import { IMovie, IMovieOld, IPersonOld, IPersonsInFilm } from '@/types/types';
 import Link from 'next/link';
 import Explanations from '@/components/WatchPage/Explanations/Explanations';
+import RatingBlock from '@/components/WatchPage/RatingBlock/RatingBlock';
 
 interface iInfo {
   movie: IMovie | IMovieOld;
@@ -79,6 +80,7 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
         <P>{i18next.language == 'en' ? enDesc || desc : desc}</P>
       </div>
       <div className={styles.watch__medallions}></div>
+      <RatingBlock rating={rating} rates={123123} criteria={'выдающиеся актеры'} />
     </div>
   );
 };

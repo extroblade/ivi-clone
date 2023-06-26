@@ -17,6 +17,7 @@
   "select-profile": "Select profile",
   "main-profile": "Main profile",
   "search": "Search",
+  "rate": "Rate",
   "rating": "Rating",
   "rates-amount": "Rates amount",
   "by-amount": "Rates amount",
@@ -30,5 +31,4 @@
   "click-continue-agree": "By clicking \"Continue,\" I agree",
   "privacy-policy": "Privacy Policy",
   "user-agreement": "User Agreement"
-
 }

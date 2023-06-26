@@ -7,3 +7,10 @@ export const getRemainingFilmAmount = (array: any[], step = 0): string => {
   if (lastNumber == 1) return ` фильм`;
   return lastNumber >= 5 ? ` фильмов` : ` фильма`;
 };
+
+export const getRate = (number: number) => {
+  const lastNumber = +String(number).split('').reverse()[0];
+  if (number >= 10 && number <= 20) return ` оценок`;
+  if (lastNumber == 1) return ` оценка`;
+  return lastNumber >= 5 ? ` оценок` : ` оценки`;
+};
