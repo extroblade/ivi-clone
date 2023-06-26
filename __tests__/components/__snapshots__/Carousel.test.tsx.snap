@@ -274,7 +274,7 @@ exports[`carousel number array show all 1`] = `
               >
                 <div>
                   <a
-                    href=""
+                    href="/movies"
                     style="width: 100%; display: inline-block;"
                     tabindex="-1"
                   >
@@ -373,7 +373,7 @@ exports[`carousel number array show all 1`] = `
             >
               <div>
                 <a
-                  href=""
+                  href="/movies"
                   style="width: 100%; display: inline-block;"
                   tabindex="-1"
                 >
@@ -529,7 +529,7 @@ exports[`carousel number array show all 2`] = `
               >
                 <div>
                   <a
-                    href=""
+                    href="/movies"
                     style="width: 100%; display: inline-block;"
                     tabindex="-1"
                   >
@@ -628,7 +628,7 @@ exports[`carousel number array show all 2`] = `
             >
               <div>
                 <a
-                  href=""
+                  href="/movies"
                   style="width: 100%; display: inline-block;"
                   tabindex="-1"
                 >

@@ -143,6 +143,9 @@
     background-color: $color-input;
     color: $color-input-text;
     height: 40px;
+    @media screen and (max-width: 1160px) {
+      font-size: 10px;
+    }
     .stripe {
       background-color: rgba(31,27,46,.16);
       position: absolute;
