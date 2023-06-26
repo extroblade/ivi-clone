@@ -71,7 +71,7 @@ const SearchModal: FC = (): JSX.Element => {
   usePreventScroll(showSearch);
   const presets = ['Премьеры фильмов', 'Новинки подписки', 'Сериалы Amediateka', 'Высокий рейтинг'];
   return (
-    <FullScreenModal isOpen={showSearch} closeModal={() => close()}>
+    <FullScreenModal isOpen={showSearch} closeModal={close}>
       <div className={styles.body}>
         <h3>{t('sections.search')}</h3>
         <div className={styles.input}>

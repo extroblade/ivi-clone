@@ -1,0 +1,46 @@
+.modal_body {
+  align-items: flex-start;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  .modal_inner {
+
+  }
+  .title {
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 44px;
+    margin-bottom: 16px;
+  }
+  .content {
+    display: flex;
+    .desc {
+      width: 87.5%;
+      .info {
+        color: #d9d7e0;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 24px;
+      }
+    }
+    .poster {
+      box-sizing: border-box;
+      padding-left: 12px;
+      padding-right: 12px;
+      width: 12.5%;
+      .text {
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+      }
+    }
+  }
+}

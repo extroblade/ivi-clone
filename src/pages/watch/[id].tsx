@@ -15,7 +15,7 @@ const Movie = ({ movie }) => {
         (i18n.language == 'ru'
           ? genres || genres[0]?.genreName
           : genres[0]?.genreNameEn || genres) || 'Жанры',
-      path: genres.length ? `/movies/${genres[0]}` : '/movies',
+      path: '/movies',
     },
   ];
   return (

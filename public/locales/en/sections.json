@@ -30,5 +30,7 @@
   "use-service-any-device" : "to use the service on any device",
   "click-continue-agree": "By clicking \"Continue,\" I agree",
   "privacy-policy": "Privacy Policy",
-  "user-agreement": "User Agreement"
+  "user-agreement": "User Agreement",
+  "unsub-notifications": "You unsubscribe from notifications",
+  "stop-notifications": "We will stop notifying you about the release of new episodes of this series"
 }

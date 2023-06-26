@@ -15,11 +15,13 @@ interface iModal {
   showPersonsModal: boolean;
   showFooterModal: boolean;
   showEditProfile: boolean;
+  showUnsub: boolean;
   personModalItem: IPersonModal | null;
 }
 
 const initialState: iModal = {
   showAuth: false,
+  showUnsub: false,
   showRating: false,
   showSearch: false,
   showPersonsModal: false,
@@ -37,6 +39,9 @@ export const modalsSlice = createSlice({
     },
     setShowAuth: (state, action: PayloadAction<boolean>) => {
       state.showAuth = action.payload;
+    },
+    setShowUnsub: (state, action: PayloadAction<boolean>) => {
+      state.showUnsub = action.payload;
     },
     setShowRating: (state, action: PayloadAction<boolean>) => {
       state.showRating = action.payload;
@@ -69,6 +74,7 @@ export const selectModal = (state: RootState) => state.modalsReducer;
 export const {
   setShowAuth,
   setShowSearch,
+  setShowUnsub,
   setShowRating,
   setShowPersonsModal,
   setShowFooterModal,
