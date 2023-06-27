@@ -13,17 +13,16 @@
   right: 0;
   display: none;
   z-index: 9;
-
   overflow: hidden;
   button {
     width: 100%;
   }
   &.shown {
-    display: block;
     transform: translateY(0);
     transition: transform 80ms;
+    @media screen and (max-width: 1160px) {
+      display: block;
+    }
   }
-  @media screen and (min-width: 1160px) {
-    display: none;
-  }
+
 }

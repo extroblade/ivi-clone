@@ -77,7 +77,14 @@ const WatchPageModal: FC = () => {
                       return (
                         <Link href={`/person/${id}`} key={person.id + 'id'} className={styles.link}>
                           <div className={styles.card}>
-                            <Image width={120} height={144} src={url} alt="" />
+                            <div className={styles.img}>
+                              <Image
+                                fill
+                                sizes={'(max-width: 768px) 100vw, (max-width: 300px) 25vw, 20vw'}
+                                src={url}
+                                alt=""
+                              />
+                            </div>
                           </div>
                           <div>
                             {(enName || name) &&
