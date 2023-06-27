@@ -12,6 +12,10 @@
   position: fixed;
   right: 0;
   display: none;
+
+  @media screen and (min-width: 1160px) {
+    display: none;
+  }
   z-index: 9!important;
   overflow: hidden;
   button {
