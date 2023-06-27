@@ -20,6 +20,7 @@ import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarous
 import { Button } from '@/components/Button/Button';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
 import ScrollToTopButton from '@/components/WatchPage/ScrollToTopButton/ScrollToTopButton';
+import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -84,6 +85,9 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
       <section className={styles.watch}>
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>
+            <div className={styles.mobile_title}>
+              <MovieTitle enFilmName={enFilmName} filmName={filmName} />
+            </div>
             <div className={styles.watch__player}>
               <Player url={trailer || 'https://www.youtube.com/watch?v=ysz5S6PUM-U'} />
             </div>

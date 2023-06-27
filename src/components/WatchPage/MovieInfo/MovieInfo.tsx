@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
-import { Htag } from '@/components/Htag/Htag';
 import i18next from 'i18next';
 import { P } from '@/components/P/P';
 import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
@@ -8,6 +7,7 @@ import { IMovie, IMovieOld, IPersonOld, IPersonsInFilm } from '@/types/types';
 import Link from 'next/link';
 import Explanations from '@/components/WatchPage/Explanations/Explanations';
 import RatingBlock from '@/components/WatchPage/RatingBlock/RatingBlock';
+import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
 
 interface iInfo {
   movie: IMovie | IMovieOld;
@@ -38,11 +38,7 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
   return (
     <div className={styles.watch__info}>
       <div className={styles.watch__title}>
-        <Htag tag="h2">
-          {i18next.language == 'en'
-            ? `Movie ${enFilmName || filmName} watch online`
-            : `Фильм ${filmName} смотреть онлайн`}
-        </Htag>
+        <MovieTitle enFilmName={enFilmName} filmName={filmName} />
       </div>
       <div className={styles.watch__params}>
         <ul className={styles.info_list}>
