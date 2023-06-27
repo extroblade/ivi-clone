@@ -19,6 +19,7 @@ import Sup from '@/components/Sup/Sup';
 import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
 import { Button } from '@/components/Button/Button';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
+import ScrollToTopButton from '@/components/WatchPage/ScrollToTopButton/ScrollToTopButton';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
@@ -101,6 +102,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
         </Carousel>
         <PersonsGallery list={personsData} />
+        <ScrollToTopButton />
         <div className={styles.comments_container}>
           <div className={styles.comments} onClick={openComments}>
             <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length || 0} />

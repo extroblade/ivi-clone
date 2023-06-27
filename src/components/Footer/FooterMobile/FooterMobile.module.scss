@@ -1,12 +1,24 @@
-@import '../../../styles/variables.scss';
+@import '@/styles/variables.scss';
 
 .footerMobile {
-  background-color: rgba(31, 27, 46, 0.88);
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 1009;
-  display: none;
+  box-shadow: 0 -20px 40px rgba(7,5,14,.24);
+  box-sizing: border-box;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  @supports ((-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))) {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    background-color: rgba(31,27,46,.88);
+  }
+  @media screen and (min-width: 1160px) {
+    display: none;
+
+  }
 }
 
 .menu {
