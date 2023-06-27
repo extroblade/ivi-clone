@@ -16,6 +16,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const { personModalItem } = useAppSelector(selectModal);
+
   const open = () => {
     dispatch(setShowPersonsModal(true));
     dispatch(setPersonItems({ ...personModalItem, index: 0 }));
@@ -36,7 +37,14 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                 return (
                   <Link href={`/person/${id}`} key={id} className={styles.link}>
                     <div className={styles.card}>
-                      <Image src={url} width={88} height={88} alt="" />
+                      <div className={styles.img}>
+                        <Image
+                          src={url}
+                          fill
+                          sizes={'(max-width: 768px) 100vw, (max-width: 300px) 25vw, 20vw'}
+                          alt=""
+                        />
+                      </div>
                     </div>
                     <div>
                       {(i18n.language == 'en' ? fullNameEn || enName : fullName || name)

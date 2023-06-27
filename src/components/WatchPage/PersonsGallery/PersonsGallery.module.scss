@@ -1,6 +1,9 @@
 @import '@/styles/variables.scss';
 
 .wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .title_container {
@@ -19,22 +22,19 @@
 }
 
 .list {
-  padding: 20px 0;
-
+  padding: 10px 0;
   &__wrap {
     overflow: hidden;
+    padding: 0 20px;
     display: flex;
     gap: 20px;
     justify-content: flex-start;
     flex-wrap: wrap;
     flex-basis: calc(90% - 88px);
-    height: 150px;
     @media (max-width: $mobile) {
       flex-basis: calc(80% - 88px);
-
       // flex-basis: 70%;
       gap: 5px;
-      height: 140px;
     }
   }
 }
@@ -50,6 +50,7 @@
 }
 
 .card {
+  position: relative;
   width: 88px;
   height: 88px;
   overflow: hidden;
@@ -58,14 +59,19 @@
   &:hover {
     transform: scale(1.1);
   }
-  img {
-    object-fit: cover;
+  .img {
+    width: 88px;
+    height: 88px;
+    img {
+      object-fit: cover;
+    }
   }
   @media (max-width: $mobile) {
     width: 72px;
     height: 72px;
-    img {
-      object-fit: cover;
+    .img {
+      width: 72px;
+      height: 72px;
     }
   }
   &__text {
