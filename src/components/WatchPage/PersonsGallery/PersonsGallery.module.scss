@@ -60,18 +60,11 @@
     transform: scale(1.1);
   }
   .img {
+    position: relative;
     width: 88px;
     height: 88px;
     img {
       object-fit: cover;
-    }
-  }
-  @media (max-width: $mobile) {
-    width: 72px;
-    height: 72px;
-    .img {
-      width: 72px;
-      height: 72px;
     }
   }
   &__text {

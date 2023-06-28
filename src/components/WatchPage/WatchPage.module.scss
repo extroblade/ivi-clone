@@ -6,6 +6,10 @@
     padding-bottom: 62.5%;
     width: 100%;
   }
+  @media screen and (min-width: 880px) and (max-width: 1159px) {
+    height: 0;
+    padding-bottom: 75%;
+  }
   @media screen and (min-width: 600px) and (max-width: 879px) {
     height: 0;
     padding-bottom: 100%;
@@ -13,6 +17,18 @@
   @media screen and (min-width: 512px) and (max-width: 599px){
     height: 0;
     padding-bottom: 120%;
+  }
+  @media screen and (min-width: 512px) and (max-width: 599px) {
+    height: 0;
+    padding-bottom: 120%;
+  }
+  @media screen and (min-width: 392px) and (max-width: 511px) {
+    height: 0;
+    padding-bottom: 100%;
+  }
+  @media screen and (max-width: 391px) {
+    height: 0;
+    padding-bottom: 133.33333333%;
   }
   opacity: .32;
   transition: opacity 1s;
@@ -78,6 +94,13 @@
   color: hsla(0,0%,100%,.72);
   padding: 12px;
   margin-bottom: 20px;
+  @media screen and (min-width: 600px) and (max-width: 1159px) {
+    width: calc(100% / 3 * 2);
+  }
+  @media screen and (max-width: 599px) {
+    width: 100%;
+  }
+
   .watch__description {
     font-size: inherit;
     font-style: inherit;
@@ -127,11 +150,20 @@
           }
         }
       }
+
       &__options {
+        padding: 12px 0;
         & +.watch_options__options {
           @media screen and (min-width: 1160px){
             margin-top: 16px;
           }
+          @media screen and (max-width: 1159px) {
+            border-top: 1px solid hsla(0,0%,100%,.16);
+          }
+        }
+        @media screen and (max-width: 1159px) {
+          display: flex;
+          justify-content: space-between;
         }
       }
       &__title {
@@ -211,16 +243,7 @@
     display: inline-block;
     margin-top: 8px;
     font-weight: 400;
-    button {
-      color: hsla(0,0%,100%,.48);
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 22px;
-      &:hover {
-        color: #fff;
-      }
-    }
+
   }
 }
 

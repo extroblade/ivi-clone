@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '@/styles/variables.scss';
 
 .button {
   z-index: 0;
@@ -89,20 +89,39 @@
   padding: 5px 15px;
 }
 
+.gray {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: hsla(0,0%,100%,.48);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  &:hover {
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
 .transparent {
   padding: 0;
   background-color: transparent;
   border: 0;
   border-radius: 8px;
+  color: $color-input;
   &:hover {
+    color: $color-main;
     background-color: transparent;
     border: 0;
   }
 }
 
 .button {
-  font-size: 0.8em;
+  font-size: 1em;
   @media screen and (max-width: 1160px) {
-    //font-size: 0.6em;
+    font-size: 0.9em;
   }
 }

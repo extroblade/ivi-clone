@@ -42,7 +42,7 @@ const Admin = () => {
           <Loader />
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {movies.slice((page - 1) * PAGE_LIMIT, PAGE_LIMIT * page).map((movie) => (
+            {movies.slice(page * PAGE_LIMIT, PAGE_LIMIT * (page + 1)).map((movie) => (
               <div
                 key={movie.id}
                 style={{
@@ -71,11 +71,7 @@ const Admin = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {movies?.length &&
             [...Array(Math.ceil(movies?.length / 10))].map((i, index) => (
-              <Button
-                style={{ margin: '10px' }}
-                key={index}
-                onClick={() => setPage(() => index + 1)}
-              >
+              <Button style={{ margin: '10px' }} key={index} onClick={() => setPage(() => index)}>
                 {index + 1}
               </Button>
             ))}

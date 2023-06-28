@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Htag } from '@/components/Htag/Htag';
 import { P } from '@/components/P/P';
 import { useTranslation } from 'react-i18next';
-import { selectModal, setPersonItems, setShowPersonsModal } from '@/store/reducers/modals.slice';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { useAppSelector } from '@/hooks/redux';
@@ -15,11 +15,11 @@ import Sup from '@/components/Sup/Sup';
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
-  const { personModalItem } = useAppSelector(selectModal);
+  const { currentMovie } = useAppSelector(selectModal);
 
   const open = () => {
-    dispatch(setShowPersonsModal(true));
-    dispatch(setPersonItems({ ...personModalItem, index: 0 }));
+    dispatch(setShowWatchPageModal(true));
+    dispatch(setCurrentMovie({ ...currentMovie, index: 0 }));
   };
   return (
     <>

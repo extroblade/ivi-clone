@@ -6,7 +6,7 @@ import { WatchPageProps } from './WatchPage.props';
 import Card from '@/components/Card/Card';
 import { PersonsGallery } from '@/components/WatchPage/PersonsGallery/PersonsGallery';
 import i18next from 'i18next';
-import { selectModal, setPersonItems, setShowPersonsModal } from '@/store/reducers/modals.slice';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import MovieInfo from '@/components/WatchPage/MovieInfo/MovieInfo';
 import { FastAverageColor } from 'fast-average-color';
@@ -25,7 +25,7 @@ import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
   const { data: persons } = useFetchAllPersonsQuery();
-  const { personModalItem } = useAppSelector(selectModal);
+  const { currentMovie } = useAppSelector(selectModal);
   const [personsData, setPersonsData] = useState([]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
-    dispatch(setPersonItems({ ...movie, index: 0 }));
+    dispatch(setCurrentMovie({ ...movie, index: 0 }));
   }, [dispatch, movie.id]);
 
   useEffect(() => {
@@ -56,8 +56,8 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   }, [dispatch, movie]);
 
   const openComments = () => {
-    dispatch(setPersonItems({ ...personModalItem, index: 1 }));
-    dispatch(setShowPersonsModal(true));
+    dispatch(setCurrentMovie({ ...currentMovie, index: 1 }));
+    dispatch(setShowWatchPageModal(true));
   };
 
   const { title, originalTitle, name, enName, trailer, card_image } = movie;

@@ -7,9 +7,8 @@ import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
 
 const WatchModalInfoCard = () => {
-  const { personModalItem } = useAppSelector(selectModal);
-  const { card_image, year, country, countries, genres, duration } = personModalItem;
-
+  const { currentMovie } = useAppSelector(selectModal);
+  const { card_image, year, country, countries, genres, duration } = currentMovie;
   return (
     <div className={styles.movie}>
       <Image

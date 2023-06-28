@@ -7,7 +7,7 @@ import { P } from '@/components/P/P';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { Button } from '@/components/Button/Button';
 import { HiChevronLeft } from 'react-icons/hi';
-import { selectModal, setShowPersonsModal } from '@/store/reducers/modals.slice';
+import { selectModal, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useTranslation } from 'react-i18next';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
@@ -22,35 +22,35 @@ import WatchModalInfoCard from '@/components/Modals/WatchPageModal/WatchModalInf
 
 const WatchPageModal: FC = () => {
   const dispatch = useAppDispatch();
-  const { personModalItem, showPersonsModal } = useAppSelector(selectModal);
+  const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
   const { data: personsList } = useFetchAllPersonsQuery();
   const { t, i18n } = useTranslation();
-  usePreventScrollFixed(showPersonsModal);
+  usePreventScrollFixed(showWatchPageModal);
   const close = () => {
-    dispatch(setShowPersonsModal(false));
+    dispatch(setShowWatchPageModal(false));
   };
   useEscapeKey(close);
 
   const [persons, setPersons] = useState([]);
   useEffect(() => {
     if (personsList?.length) {
-      const set = new Set(personModalItem?.persons);
+      const set = new Set(currentMovie?.persons);
       setPersons(() => personsList.filter((pers) => set.has(pers.id)));
     }
-  }, [personsList?.length, personModalItem]);
+  }, [personsList?.length, currentMovie]);
 
   return (
     <>
-      {showPersonsModal && (
+      {showWatchPageModal && (
         <div className={cn(styles.modal, styles.modal__open)}>
           <Button appearance="transparent" className={styles.back} onClick={() => close()}>
             <HiChevronLeft className={styles.back__icon} />
             <span>{t('buttons.to-movie')}</span>
           </Button>
           <div className={styles.wrap}>
-            <Tabs className={styles.tabs} defaultIndex={personModalItem.index}>
+            <Tabs className={styles.tabs} defaultIndex={currentMovie.index}>
               <Htag tag={'h2'}>
-                {i18n.language == 'en' ? personModalItem?.enName : personModalItem?.name}
+                {i18n.language == 'en' ? currentMovie.enName : currentMovie.name}
               </Htag>
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
@@ -108,7 +108,7 @@ const WatchPageModal: FC = () => {
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
                 <div className={styles.comments}>
-                  <CommentSection id={personModalItem?.id} />
+                  <CommentSection id={currentMovie.id} />
                 </div>
               </TabPanel>
               <TabPanel className={styles.tabs__content}>

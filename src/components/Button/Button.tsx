@@ -22,6 +22,7 @@ export const Button: FC<ButtonProps> = ({
           [styles.red]: appearance == 'red',
           [styles.transparent]: appearance == 'transparent',
           [styles.outline]: appearance == 'outline',
+          [styles.gray]: appearance == 'gray',
         },
         {
           [styles.S]: size == 'S',

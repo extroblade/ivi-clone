@@ -18,7 +18,6 @@ const MovieOptions: FC<iOptions> = ({ movie }) => {
     setExtended((val) => !val);
   };
   const { name, enName, description, enDescription, fullDesc, languages, subtitles } = movie;
-  console.log(movie);
   const getString = (arr) => {
     arr.reduce((res, next, index) => {
       if (!index) {
@@ -79,7 +78,7 @@ const MovieOptions: FC<iOptions> = ({ movie }) => {
         </div>
       )}
       <span className={styles.clause_toggle}>
-        <Button appearance={'transparent'} onClick={extend}>
+        <Button appearance={'gray'} onClick={extend}>
           {!extended ? t('buttons.open_details') : t('buttons.collapse_details')}
         </Button>
       </span>

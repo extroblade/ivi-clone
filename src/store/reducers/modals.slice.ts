@@ -3,7 +3,7 @@ import { RootState } from '../store';
 import { IComment, IMovie } from '@/types/types';
 import { HYDRATE } from 'next-redux-wrapper';
 
-interface IPersonModal extends IMovie {
+interface ICurrentMovie extends IMovie {
   index?: number;
   comments?: IComment[];
 }
@@ -12,11 +12,11 @@ interface iModal {
   showAuth: boolean;
   showRating: boolean;
   showSearch: boolean;
-  showPersonsModal: boolean;
+  showWatchPageModal: boolean;
   showFooterModal: boolean;
   showEditProfile: boolean;
   showUnsub: boolean;
-  personModalItem: IPersonModal | null;
+  currentMovie: ICurrentMovie | null;
 }
 
 const initialState: iModal = {
@@ -24,18 +24,18 @@ const initialState: iModal = {
   showUnsub: false,
   showRating: false,
   showSearch: false,
-  showPersonsModal: false,
+  showWatchPageModal: false,
   showFooterModal: false,
   showEditProfile: false,
-  personModalItem: null,
+  currentMovie: null,
 };
 
 export const modalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
-    setPersonItems: (state, action: PayloadAction<IPersonModal>) => {
-      state.personModalItem = action.payload;
+    setCurrentMovie: (state, action: PayloadAction<ICurrentMovie>) => {
+      state.currentMovie = action.payload;
     },
     setShowAuth: (state, action: PayloadAction<boolean>) => {
       state.showAuth = action.payload;
@@ -49,8 +49,8 @@ export const modalsSlice = createSlice({
     setShowSearch: (state, action: PayloadAction<boolean>) => {
       state.showSearch = action.payload;
     },
-    setShowPersonsModal: (state, action: PayloadAction<boolean>) => {
-      state.showPersonsModal = action.payload;
+    setShowWatchPageModal: (state, action: PayloadAction<boolean>) => {
+      state.showWatchPageModal = action.payload;
     },
     setShowFooterModal: (state, action: PayloadAction<boolean>) => {
       state.showFooterModal = action.payload;
@@ -76,9 +76,9 @@ export const {
   setShowSearch,
   setShowUnsub,
   setShowRating,
-  setShowPersonsModal,
+  setShowWatchPageModal,
   setShowFooterModal,
   setShowEditProfile,
-  setPersonItems,
+  setCurrentMovie,
 } = modalsSlice.actions;
 export default modalsSlice.reducer;
