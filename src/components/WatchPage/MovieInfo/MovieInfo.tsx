@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
-import i18next from 'i18next';
-import { P } from '@/components/P/P';
 import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
 import { IMovie, IMovieOld, IPersonOld, IPersonsInFilm } from '@/types/types';
 import Link from 'next/link';
 import Explanations from '@/components/WatchPage/Explanations/Explanations';
 import RatingBlock from '@/components/WatchPage/RatingBlock/RatingBlock';
 import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
+import MovieOptions from '@/components/WatchPage/MovieOptions/MovieOptions';
 
 interface iInfo {
   movie: IMovie | IMovieOld;
@@ -15,25 +14,9 @@ interface iInfo {
 }
 
 const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
-  const {
-    title,
-    originalTitle,
-    slogan,
-    originalSlogan,
-    description,
-    enDescription,
-    year,
-    countries,
-    rating,
-    genres,
-    duration,
-    name,
-    enName,
-  } = movie;
+  const { title, originalTitle, year, countries, rating, genres, duration, name, enName } = movie;
   const filmName = title || name || null;
   const enFilmName = originalTitle || enName || null;
-  const desc = slogan || description;
-  const enDesc = originalSlogan || enDescription;
 
   return (
     <div className={styles.watch__info}>
@@ -72,9 +55,7 @@ const MovieInfo: FC<iInfo> = ({ movie, persons }) => {
           'sa dasdasdsa d sdasasasasd',
         ]}
       />
-      <div className={styles.watch__description}>
-        <P>{i18next.language == 'en' ? enDesc || desc : desc}</P>
-      </div>
+      <MovieOptions movie={movie} />
       <div className={styles.watch__medallions}></div>
       <RatingBlock rating={rating} rates={123123} criteria={'выдающиеся актеры'} />
     </div>
