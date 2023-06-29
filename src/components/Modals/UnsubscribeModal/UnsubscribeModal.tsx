@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 const UnsubscribeModal = () => {
   const { t, i18n } = useTranslation();
-  const { showUnsub, personModalItem } = useAppSelector(selectModal);
+  const { showUnsub, currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const close = () => {
     dispatch(setShowUnsub(false));
@@ -35,9 +35,9 @@ const UnsubscribeModal = () => {
               </Button>
             </article>
             <article className={styles.poster}>
-              <Image width={100} height={160} src={personModalItem?.card_image} alt={'poster'} />
+              <Image width={100} height={160} src={currentMovie?.card_image} alt={'poster'} />
               <span className={styles.text}>
-                {i18n.language == 'en' ? personModalItem?.enName : personModalItem?.name}
+                {i18n.language == 'en' ? currentMovie?.enName : currentMovie?.name}
               </span>
             </article>
           </div>
