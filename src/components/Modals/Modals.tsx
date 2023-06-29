@@ -6,6 +6,7 @@ import FooterModal from '@/components/Footer/FooterModal/FooterModal';
 import AuthModal from '@/components/Auth/AuthModal';
 import EditProfileModal from '@/components/Profile/EditProfileModal/EditProfileModal';
 import UnsubscribeModal from '@/components/Modals/UnsubscribeModal/UnsubscribeModal';
+import Alert from '@/components/Alert/Alert';
 
 const Modals = () => {
   return (
@@ -17,6 +18,7 @@ const Modals = () => {
       <EditProfileModal />
       <FooterModal />
       <UnsubscribeModal />
+      <Alert />
     </>
   );
 };
