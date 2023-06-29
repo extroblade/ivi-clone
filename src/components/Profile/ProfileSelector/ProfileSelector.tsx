@@ -4,7 +4,7 @@ import children from '../../../../public/images/children.png';
 import { useTranslation } from 'react-i18next';
 import styles from './ProfileSelector.module.scss';
 import { FiUser } from 'react-icons/fi';
-import ProfileIcon from '@/components/Auth/SelectProfile/ProfileIcon/ProfileIcon';
+import ProfileIcon from '@/components/Auth/ProfileIcon/ProfileIcon';
 import { useSession } from 'next-auth/react';
 
 const ProfileSelector = () => {

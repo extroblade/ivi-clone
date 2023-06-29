@@ -17,7 +17,7 @@ const SortDropdown: FC = (): JSX.Element => {
     setSortDrop(() => false);
   };
   const changeState = () => {
-    setSortDrop((d) => !d);
+    setSortDrop((val) => !val);
   };
   useOutsideClick(closeState, ref);
 
@@ -33,16 +33,16 @@ const SortDropdown: FC = (): JSX.Element => {
   const [current, setCurrent] = useState(0);
 
   const handler = useCallback(
-    (i) => {
-      if (current === i.id) {
+    (currentSort) => {
+      if (current === currentSort.id) {
         setCurrent(() => 0);
       } else {
-        setCurrent(() => i.id);
+        setCurrent(() => currentSort.id);
       }
       if (current === 0) {
         setTimeout(() => {
           closeState();
-        }, 150);
+        }, 50);
       }
     },
     [current]

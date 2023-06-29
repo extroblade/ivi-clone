@@ -39,6 +39,7 @@ const AddNewMovie = () => {
   return (
     <div>
       <Button onClick={create}>add</Button>
+      <div> doesnt work until finish backend part </div>
     </div>
   );
 };
