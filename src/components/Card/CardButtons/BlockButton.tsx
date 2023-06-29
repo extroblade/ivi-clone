@@ -20,7 +20,9 @@ const BlockButton = () => {
       };
       if (
         currentAlert?.length ||
-        !currentAlert.find((alert) => alert.title == 'Спасибо за отметку')
+        !currentAlert.find(
+          (alert) => alert.extra == 'Теперь мы будем показывать Вам меньше похожих фильмов'
+        )
       ) {
         cur.push(newAlert);
       }
@@ -29,7 +31,7 @@ const BlockButton = () => {
     setBlocked((blocked) => !blocked);
   };
   return (
-    <Button appearance={'square'} onClick={(e) => blockMovie(e)}>
+    <Button appearance={'square'} onClick={blockMovie}>
       {blocked ? <MdBlock fill={'#ff542e'} /> : <MdBlock />}
     </Button>
   );

@@ -11,10 +11,12 @@ const Alert: FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      dispatch(setCurrentAlert(currentAlert.slice(1)));
+      if (currentAlert?.length) {
+        dispatch(setCurrentAlert(currentAlert.slice(1)));
+      }
     }, CLOSE_TIME);
     return () => clearTimeout(timer);
-  }, [currentAlert]);
+  }, [currentAlert?.length]);
 
   const close = (index) => {
     dispatch(setCurrentAlert(currentAlert.filter((alert, alertIndex) => alertIndex !== index)));

@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import CommentSection from '@/components/Comment/CommentSection';
-import { usePreventScrollFixed } from '@/hooks/usePreventScrollFixed';
+import { usePreventScroll } from '@/hooks/usePreventScroll';
 import Image from 'next/image';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
 import Loader from '@/components/Loader/Loader';
@@ -25,7 +25,7 @@ const WatchPageModal: FC = () => {
   const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
   const { data: personsList } = useFetchAllPersonsQuery();
   const { t, i18n } = useTranslation();
-  usePreventScrollFixed(showWatchPageModal);
+  usePreventScroll(showWatchPageModal);
   const close = () => {
     dispatch(setShowWatchPageModal(false));
   };
