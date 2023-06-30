@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from '@/components/Alert/Alert.module.scss';
 import { Button } from '@/components/Button/Button';
 import { RxCross2 } from 'react-icons/rx';
@@ -12,6 +12,7 @@ interface IAlert {
 
 const Alert: FC<IAlert> = ({ alert }) => {
   const { activeAlerts } = useAppSelector(selectModal);
+  const [closing, setClosing] = useState(false);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -22,13 +23,16 @@ const Alert: FC<IAlert> = ({ alert }) => {
   }, [activeAlerts?.length]);
 
   const close = () => {
-    dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== alert.id)));
+    setClosing(() => true);
+    setTimeout(() => {
+      dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== alert.id)));
+    }, 300);
   };
 
   return (
     <>
       {(alert?.title || alert?.extra) && (
-        <div className={styles.alert}>
+        <div className={`${styles.alert} ${closing ? styles.closing : ''}`}>
           <div className={styles.alert_wrapper}>
             <div className={styles.close} onClick={close}>
               <Button appearance={'gray'}>

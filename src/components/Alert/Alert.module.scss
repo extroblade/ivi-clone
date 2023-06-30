@@ -9,9 +9,15 @@
 
 .alert {
   position: relative;
-  transition: ease-in-out .4s;
+  -webkit-animation: fadein .3s linear forwards;
+  animation: fadein .3s linear forwards;
   margin-bottom: 6px;
   backdrop-filter: drop-shadow(0 0 black);
+  &.opening {}
+  &.closing {
+    -webkit-animation: fadeout .3s linear forwards;
+    animation: fadeout .3s linear forwards;
+  }
   .close {
     position: absolute;
     right: 24px;
@@ -50,4 +56,24 @@
     color: $color-gray-text;
 
   }
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeout {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
 }
