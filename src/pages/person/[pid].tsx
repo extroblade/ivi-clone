@@ -24,10 +24,14 @@ const Person = ({ person }) => {
 export default Person;
 
 export async function getServerSideProps(context) {
-  const { pid } = context.query;
-  const res = await fetch(`${process.env.SERVER}/persons/${pid - 1}`);
-  const person = await res.json();
+  try {
+    const { pid } = context.query;
+    const res = await fetch(`${process.env.SERVER}/persons/${pid - 1}`);
+    const person = await res.json();
 
-  console.log(`Fetched person: ${person.name}`);
-  return { props: { person } };
+    console.log(`Fetched person: ${person.name}`);
+    return { props: { person } };
+  } catch (e) {
+    return { props: { person: null } };
+  }
 }
