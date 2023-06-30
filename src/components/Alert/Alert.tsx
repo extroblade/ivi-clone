@@ -1,57 +1,50 @@
 import React, { FC, useEffect } from 'react';
-import styles from './Alert.module.scss';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectModal, setCurrentAlert } from '@/store/reducers/modals.slice';
+import styles from '@/components/Alert/Alert.module.scss';
 import { Button } from '@/components/Button/Button';
-import { CLOSE_TIME } from '@/constants/Constants';
 import { RxCross2 } from 'react-icons/rx';
+import { iAlert, selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { CLOSE_TIME } from '@/constants/Constants';
 
-const Alert: FC = () => {
-  const { currentAlert } = useAppSelector(selectModal);
+interface IAlert {
+  alert: iAlert;
+}
+
+const Alert: FC<IAlert> = ({ alert }) => {
+  const { activeAlerts } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (currentAlert?.length) {
-        dispatch(setCurrentAlert(currentAlert.slice(1)));
-      }
+      close();
     }, CLOSE_TIME);
     return () => clearTimeout(timer);
-  }, [currentAlert?.length]);
+  }, [activeAlerts?.length]);
 
-  const close = (index) => {
-    dispatch(setCurrentAlert(currentAlert.filter((alert, alertIndex) => alertIndex !== index)));
+  const close = () => {
+    dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== alert.id)));
   };
 
   return (
     <>
-      {currentAlert?.length ? (
-        <div className={styles.alerts}>
-          {currentAlert.map(
-            (alert, index) =>
-              (alert?.title || alert?.extra) && (
-                <div className={styles.alert} key={index}>
-                  <div className={styles.alert_wrapper}>
-                    <div className={styles.close} onClick={() => close(index)}>
-                      <Button appearance={'gray'}>
-                        <RxCross2 />
-                      </Button>
-                    </div>
-                    <div className={styles.alert_textBlock}>
-                      {alert.title && <div className={styles.alert_title}>{alert.title}</div>}
-                      {alert.extra && (
-                        <div className={styles.alert_extra}>
-                          <div className={styles.alert_extraPrimary}>{alert.extra}</div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+      {(alert?.title || alert?.extra) && (
+        <div className={styles.alert}>
+          <div className={styles.alert_wrapper}>
+            <div className={styles.close} onClick={close}>
+              <Button appearance={'gray'}>
+                <RxCross2 />
+              </Button>
+            </div>
+            <div className={styles.alert_textBlock}>
+              {alert.title && <div className={styles.alert_title}>{alert.title}</div>}
+              {alert.extra && (
+                <div className={styles.alert_extra}>
+                  <div className={styles.alert_extraPrimary}>{alert.extra}</div>
                 </div>
-              )
-          )}
+              )}
+            </div>
+          </div>
         </div>
-      ) : (
-        ''
       )}
     </>
   );

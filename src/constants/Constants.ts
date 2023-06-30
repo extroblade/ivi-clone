@@ -5,4 +5,5 @@ export const REGEX_PASSWORD = /^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{4,16}$/; //(?
 
 export const REGEX_EMAIL = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-export const CLOSE_TIME = 4000;
+export const CLOSE_TIME = 2000;
+export const MAX_ALERT_AMOUNT = 4;

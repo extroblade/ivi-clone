@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from 'react';
 import styles from './CommentCard.module.scss';
-import { selectModal, setPersonItems, setShowPersonsModal } from '@/store/reducers/modals.slice';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import Vote from '@/components/Comment/Buttons/Vote';
 import { writeDate } from '@/helpers/writeDate';
@@ -12,22 +12,22 @@ interface iCommentComp {
 
 const CommentCard: FC<iCommentComp> = ({ comment }) => {
   const dispatch = useAppDispatch();
-  const { personModalItem } = useAppSelector(selectModal);
+  const { currentMovie } = useAppSelector(selectModal);
 
   const stringDate = useMemo(() => {
     return writeDate(comment?.date);
   }, [comment?.date]);
 
-  const open = () => {
-    dispatch(setPersonItems({ ...personModalItem, index: 1 }));
-    dispatch(setShowPersonsModal(true));
+  const openComments = () => {
+    dispatch(setCurrentMovie({ ...currentMovie, index: 1 }));
+    dispatch(setShowWatchPageModal(true));
   };
 
   const { user, clause } = comment;
 
   return (
-    <div className={styles.comment_card}>
-      <div onClick={open} className={styles.ugcTile}>
+    <div className={styles.comment_card} onClick={openComments}>
+      <div className={styles.ugcTile}>
         <div className={styles.ugcTile_vote}>
           <Vote />
         </div>

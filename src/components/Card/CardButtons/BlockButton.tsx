@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { MdBlock } from 'react-icons/md';
 import { Button } from '@/components/Button/Button';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectModal, setCurrentAlert } from '@/store/reducers/modals.slice';
+import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
 
 const BlockButton = () => {
   const [blocked, setBlocked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
-  const { currentAlert } = useAppSelector(selectModal);
+  const { activeAlerts } = useAppSelector(selectModal);
 
   const blockMovie = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -15,18 +15,16 @@ const BlockButton = () => {
     if (!blocked) {
       const cur = [];
       const newAlert = {
+        id: self.crypto.randomUUID(),
         title: 'Спасибо за отметку',
         extra: 'Теперь мы будем показывать Вам меньше похожих фильмов',
       };
-      if (
-        currentAlert?.length ||
-        !currentAlert?.find(
-          (alert) => alert.extra == 'Теперь мы будем показывать Вам меньше похожих фильмов'
-        )
-      ) {
+      if (activeAlerts?.length && !activeAlerts?.find((alert) => alert.id == newAlert.id)) {
+        cur.push(...activeAlerts, newAlert);
+      } else {
         cur.push(newAlert);
       }
-      dispatch(setCurrentAlert(cur));
+      dispatch(setActiveAlerts(cur));
     }
     setBlocked((blocked) => !blocked);
   };
