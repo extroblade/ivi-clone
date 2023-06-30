@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Comment.module.scss';
 import { P } from '@/components/P/P';
 import { Button } from '@/components/Button/Button';
@@ -19,9 +19,7 @@ const Comment: FC<iCommentComp> = ({ comment }): JSX.Element => {
   const { t } = useTranslation();
   const [answer, setAnswer] = useState<boolean>(false);
   const { user, date, clause, children, id } = comment;
-  const stringDate = useMemo(() => {
-    return writeDate(date);
-  }, [date]);
+  const stringDate = writeDate(date);
   const switcher = () => {
     setAnswer((ans) => !ans);
   };
@@ -56,4 +54,4 @@ const Comment: FC<iCommentComp> = ({ comment }): JSX.Element => {
   );
 };
 
-export default Comment;
+export default React.memo(Comment);

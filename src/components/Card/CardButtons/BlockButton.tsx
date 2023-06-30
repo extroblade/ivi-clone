@@ -20,7 +20,7 @@ const BlockButton = () => {
       };
       if (
         currentAlert?.length ||
-        !currentAlert.find(
+        !currentAlert?.find(
           (alert) => alert.extra == 'Теперь мы будем показывать Вам меньше похожих фильмов'
         )
       ) {

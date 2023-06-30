@@ -10,9 +10,12 @@
   flex-direction: column;
   & p {
     margin-top: 32px;
+    color: $color-gray-text;
+    font-weight: 600;
   }
 }
 .icon {
   width: 80px;
   height: 80px;
+  color: $color-gray-text;
 }
