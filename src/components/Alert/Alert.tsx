@@ -15,6 +15,8 @@ const Alert: FC<IAlert> = ({ alert }) => {
   const [closing, setClosing] = useState(false);
   const dispatch = useAppDispatch();
 
+  const { id, title, extra } = alert;
+
   useEffect(() => {
     const timer = setTimeout(() => {
       close();
@@ -23,15 +25,14 @@ const Alert: FC<IAlert> = ({ alert }) => {
   }, [activeAlerts?.length]);
 
   const close = () => {
-    setClosing(() => true);
     setTimeout(() => {
-      dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== alert.id)));
+      dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== id)));
     }, 300);
   };
 
   return (
     <>
-      {(alert?.title || alert?.extra) && (
+      {(title || extra) && (
         <div className={`${styles.alert} ${closing ? styles.closing : ''}`}>
           <div className={styles.alert_wrapper}>
             <div className={styles.close} onClick={close}>
@@ -40,10 +41,10 @@ const Alert: FC<IAlert> = ({ alert }) => {
               </Button>
             </div>
             <div className={styles.alert_textBlock}>
-              {alert.title && <div className={styles.alert_title}>{alert.title}</div>}
-              {alert.extra && (
+              {title && <div className={styles.alert_title}>{title}</div>}
+              {extra && (
                 <div className={styles.alert_extra}>
-                  <div className={styles.alert_extraPrimary}>{alert.extra}</div>
+                  <div className={styles.alert_extraPrimary}>{extra}</div>
                 </div>
               )}
             </div>
@@ -54,4 +55,4 @@ const Alert: FC<IAlert> = ({ alert }) => {
   );
 };
 
-export default Alert;
+export default React.memo(Alert);

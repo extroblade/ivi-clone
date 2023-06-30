@@ -9,11 +9,12 @@
 
 .alert {
   position: relative;
-  -webkit-animation: fadein .3s linear forwards;
-  animation: fadein .3s linear forwards;
   margin-bottom: 6px;
   backdrop-filter: drop-shadow(0 0 black);
-  &.opening {}
+  &.opening {
+    -webkit-animation: fadein .3s linear forwards;
+    animation: fadein .3s linear forwards;
+  }
   &.closing {
     -webkit-animation: fadeout .3s linear forwards;
     animation: fadeout .3s linear forwards;

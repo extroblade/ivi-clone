@@ -23,4 +23,4 @@ const Alerts: FC = () => {
   );
 };
 
-export default Alerts;
+export default React.memo(Alerts);
