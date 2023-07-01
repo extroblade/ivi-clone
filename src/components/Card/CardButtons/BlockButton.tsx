@@ -14,8 +14,9 @@ const BlockButton = () => {
     e.nativeEvent.stopImmediatePropagation();
     if (!blocked) {
       const cur = [];
+      const newId = Date.now(); //self.crypto.randomUUID()
       const newAlert = {
-        id: self.crypto.randomUUID(),
+        id: newId,
         title: 'Спасибо за отметку',
         extra: 'Теперь мы будем показывать Вам меньше похожих фильмов',
       };

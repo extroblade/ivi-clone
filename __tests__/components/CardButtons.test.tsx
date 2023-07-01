@@ -24,13 +24,21 @@ describe('card buttons', () => {
     expect(button).toMatchSnapshot();
   });
   test('block before', () => {
-    render(<BlockButton />);
+    render(
+      <Provider store={mockStore}>
+        <BlockButton />
+      </Provider>
+    );
     const button = screen.getByRole('button', { name: '' });
 
     expect(button).toMatchSnapshot();
   });
   test('block after', () => {
-    render(<BlockButton />);
+    render(
+      <Provider store={mockStore}>
+        <BlockButton />
+      </Provider>
+    );
     const button = screen.getByRole('button', { name: '' });
     fireEvent.click(button);
     expect(button).toMatchSnapshot();
