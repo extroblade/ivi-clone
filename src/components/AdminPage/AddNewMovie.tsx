@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button } from '@/components/Button/Button';
 import { useAddOneFilmMutation } from '@/services/movie.api';
-import { persons } from '@/mock/persons';
 import { IMovieOld } from '@/types/types';
 import { useCreateCommentsMutation } from '@/services/comments.api';
 const movie: IMovieOld = {
   id: 1,
-  title: 'Гарри Поттер и Дары Смерти: Часть I',
-  originalTitle: 'Harry Potter and the Deathly Hallows: Part I',
+  name: 'Гарри Поттер и Дары Смерти: Часть I',
+  enName: 'Harry Potter and the Deathly Hallows: Part I',
   slogan:
     'Заключительный фильм «поттерианы» о волшебном мире Дж.К. Роулинг и верных друзьях Гарри Поттере, Роне Уизли и Гермионе Грейнджер. Продолжается магическая война.',
   originalSlogan:
@@ -20,7 +19,7 @@ const movie: IMovieOld = {
   rating: '9,5',
   genres: ['Фэнтези'],
   duration: '2ч 50мин',
-  persons: persons,
+  persons: [1, 2, 3],
 };
 
 const AddNewMovie = () => {

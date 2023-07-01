@@ -18,7 +18,7 @@ export interface IMovieOld {
   rating: string;
   genres: string[];
   duration: string;
-  persons: IPersonOld[];
+  persons: IPersonOld[] | number[];
 }
 
 export interface IPersonOld {
