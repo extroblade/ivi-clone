@@ -5,7 +5,7 @@ import { selectModal } from '@/store/reducers/modals.slice';
 import { MAX_ALERT_AMOUNT } from '@/constants/Constants';
 import Alert from '@/components/Alert/Alert';
 
-const Alerts: FC = () => {
+const AlertsList: FC = () => {
   const { activeAlerts } = useAppSelector(selectModal);
 
   return (
@@ -23,4 +23,4 @@ const Alerts: FC = () => {
   );
 };
 
-export default React.memo(Alerts);
+export default React.memo(AlertsList);
