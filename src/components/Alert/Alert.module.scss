@@ -9,11 +9,6 @@
   @media screen and (max-width: 1160px) {
     bottom: calc(16px + 50px)
   }
-  &:nth-child(-1 of .closing) {
-    -webkit-animation: fadein .3s linear forwards;
-    animation: fadein .3s linear forwards;
-    border: 1px solid red;
-  }
 }
 
 .alert {
