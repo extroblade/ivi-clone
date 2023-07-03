@@ -19,12 +19,11 @@ const Alert: FC<IAlert> = ({ alert }) => {
   const { id, title, extra } = alert;
 
   useEffect(() => {
-    if (id == activeAlerts[0]?.id) {
-      const timer = setTimeout(() => {
-        close();
-      }, CLOSE_TIME);
-      return () => clearTimeout(timer);
-    }
+    if (id !== activeAlerts[0]?.id) return;
+    const timer = setTimeout(() => {
+      close();
+    }, CLOSE_TIME);
+    return () => clearTimeout(timer);
   }, [activeAlerts?.length]);
 
   useEffect(() => {

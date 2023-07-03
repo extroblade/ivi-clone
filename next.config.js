@@ -10,6 +10,7 @@ const nextConfig = {
   },
   env: {
     SERVER: 'https://api.npoint.io/f2d0fa5466639d1b194e',
+    API: 'https://kinopoiskapiunofficial.tech/api/',
     CLIENT: 'http://localhost:3000',
   },
   images: {
