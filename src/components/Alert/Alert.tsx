@@ -13,6 +13,7 @@ interface IAlert {
 const Alert: FC<IAlert> = ({ alert }) => {
   const { activeAlerts } = useAppSelector(selectModal);
   const [closing, setClosing] = useState(false);
+  const [opening, setOpening] = useState(false);
   const dispatch = useAppDispatch();
 
   const { id, title, extra } = alert;
@@ -24,7 +25,14 @@ const Alert: FC<IAlert> = ({ alert }) => {
     return () => clearTimeout(timer);
   }, [activeAlerts?.length]);
 
+  useEffect(() => {
+    if (id == activeAlerts[3]?.id) {
+      setOpening(() => true);
+    }
+  }, [activeAlerts?.length]);
+
   const close = () => {
+    setClosing(() => true);
     setTimeout(() => {
       dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== id)));
     }, 300);
@@ -33,7 +41,9 @@ const Alert: FC<IAlert> = ({ alert }) => {
   return (
     <>
       {(title || extra) && (
-        <div className={`${styles.alert} ${closing ? styles.closing : ''}`}>
+        <div
+          className={`${styles.alert} ${closing && styles.closing} ${opening && styles.opening}`}
+        >
           <div className={styles.alert_wrapper}>
             <div className={styles.close} onClick={close}>
               <Button appearance={'gray'}>
