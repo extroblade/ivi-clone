@@ -28,7 +28,7 @@ const Alert: FC<IAlert> = ({ alert }) => {
   }, [activeAlerts?.length]);
 
   useEffect(() => {
-    if (id == activeAlerts[3]?.id && activeAlerts.length > 4) {
+    if (id == activeAlerts[activeAlerts?.length - 1]?.id) {
       setOpening(() => true);
     } else {
       setOpening(() => false);
