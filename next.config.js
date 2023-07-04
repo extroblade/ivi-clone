@@ -11,6 +11,7 @@ const nextConfig = {
   env: {
     SERVER: 'https://api.npoint.io/f2d0fa5466639d1b194e',
     API: 'https://kinopoiskapiunofficial.tech/api/',
+    X_API_KEY: process.env.X_API_KEY,
     CLIENT: 'http://localhost:3000',
   },
   images: {
