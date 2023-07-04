@@ -19,7 +19,7 @@ export const movieApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.API + 'v2.2/films',
     prepareHeaders: (headers) => {
-      headers.set('X-API-KEY', '4676a528-bf21-41c2-9c8e-9791141065d0'); //process.env.X_API_KEY
+      headers.set('X-API-KEY', process.env.X_API_KEY); //process.env.X_API_KEY
       headers.set('Content-Type', 'application/json');
       return headers;
     },
