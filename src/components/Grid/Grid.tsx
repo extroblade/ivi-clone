@@ -13,7 +13,7 @@ const BASE_LIMIT = 20;
 
 const Grid: FC<iGrid> = ({ type }) => {
   const [page, setPage] = useState(1);
-  const { data } = useFetchAllFilmsQuery({ type: type, page: page });
+  const { data } = useFetchAllFilmsQuery({ type, page });
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const showMore = async () => {
@@ -30,7 +30,6 @@ const Grid: FC<iGrid> = ({ type }) => {
     if (data?.items) {
       setMovies((movies) => [...movies, ...data?.items]);
     }
-    console.log(movies);
   }, [data?.items]);
 
   return (

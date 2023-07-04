@@ -22,8 +22,18 @@ const Card: FC<CardProps> = ({
   ...props
 }): JSX.Element => {
   if (!card?.kinopoiskId) return <CardLoader />;
-  const { kinopoiskId: id, countries, genres, nameRu, nameEn, posterUrlPreview, year, duration, ratingKinopoisk } = card;
-  const i18nTitle = i18next.language == 'en' ? nameRu : nameEn;
+  const {
+    kinopoiskId: id,
+    countries,
+    genres,
+    nameRu,
+    nameEn,
+    posterUrlPreview,
+    year,
+    duration,
+    ratingKinopoisk,
+  } = card;
+  const i18nTitle = (i18next.language == 'en' ? nameRu : nameEn) || nameRu || '';
   return (
     <Link href={`/watch/${id}`} className={styles.card} draggable="false" {...props}>
       <div className={`${styles.imageSection} ${hover && styles.hover}`}>

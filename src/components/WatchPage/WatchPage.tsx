@@ -32,7 +32,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   useEffect(() => {
     dispatch(setCurrentMovie({ ...movie, index: 0 }));
   }, [dispatch, movie.kinopoiskId]);
-
+  console.log(movie);
   useEffect(() => {
     const fac = new FastAverageColor();
     if (movie?.coverUrl) {
@@ -85,8 +85,8 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           <Carousel
             title={
               i18next.language == 'en'
-                ? `Movies similar to «${nameEn}»`
-                : `С фильмом «${nameRu}» смотрят`
+                ? `Movies similar to «${nameEn || nameRu || ''}»`
+                : `С фильмом «${nameRu || ''}» смотрят`
             }
             route={'/'}
             showAll={movies?.length > 15}
@@ -108,7 +108,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           </div>
         </div>
         {comments?.length ? <CommentCarousel comments={comments} /> : ''}
-        <WatchAllDevices name={nameRu} image={coverUrl} />
+        <WatchAllDevices name={nameRu || nameEn || ''} image={coverUrl || posterUrl} />
       </section>
     </>
   );

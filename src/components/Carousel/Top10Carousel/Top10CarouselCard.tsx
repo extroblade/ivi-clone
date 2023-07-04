@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import Link from 'next/link';
 import styles from '@/components/Carousel/Top10Carousel/Top10Carousel.module.scss';
 import Image from 'next/image';
-import { IMovie } from '@/types/types';
 import zero from '@/../public/images/top10/number0.svg';
 import one from '@/../public/images/top10/number1.svg';
 import two from '@/../public/images/top10/number2.svg';
@@ -13,8 +12,9 @@ import six from '@/../public/images/top10/number6.svg';
 import seven from '@/../public/images/top10/number7.svg';
 import eight from '@/../public/images/top10/number8.svg';
 import nine from '@/../public/images/top10/number9.svg';
+import { iFilm } from '@/types/kinopoiskTypes';
 interface iCard {
-  card: IMovie;
+  card: iFilm;
   index: number;
 }
 interface iLoader {
@@ -48,22 +48,27 @@ const T10CardLoader: FC<iLoader> = ({ index }): JSX.Element => {
 };
 
 export const T10Card: FC<iCard> = ({ card, index }): JSX.Element => {
-  if (!card?.id) return <T10CardLoader index={index} />;
-  const { id, card_image, title, logo } = card;
+  if (!card?.kinopoiskId) return <T10CardLoader index={index} />;
+  const { kinopoiskId, posterUrlPreview, posterUrl, nameEn, nameRu, logo } = card;
   return (
-    <Link href={`/watch/${id}`} className={styles.card}>
+    <Link href={`/watch/${kinopoiskId}`} className={styles.card}>
       <div className={styles.card_image}>
-        <Image src={card_image} alt={title || 'title'} width={234} height={360} />
+        <Image
+          src={posterUrlPreview || posterUrl}
+          alt={nameRu || 'title'}
+          width={234}
+          height={360}
+        />
       </div>
       <div className={styles.fade} />
       <div className={styles.fade_footer} />
       <div className={styles.logo}>
         {logo ? (
           <div className={styles.logo_image}>
-            <Image src={logo} alt={title || 'title'} />
+            <Image src={logo} alt={nameRu || 'title'} />
           </div>
         ) : (
-          <div className={styles.logo_title}>{title}</div>
+          <div className={styles.logo_title}>{nameRu || 'title'}</div>
         )}
       </div>
       <div className={styles.place_number}>{top[index]}</div>
