@@ -1,33 +1,21 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { IComment } from '@/types/types';
-
-interface fetchedComment {
-  id: number | string;
-  commentsData: IComment[];
-}
+import { iReviews } from '@/types/kinopoiskTypes';
 
 export const commentsApi = createApi({
   reducerPath: 'commentsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.SERVER + '/comments',
+    baseUrl: process.env.API,
+    prepareHeaders: (headers) => {
+      headers.set('X-API-KEY', process.env.X_API_KEY);
+      headers.set('Content-Type', 'application/json');
+      return headers;
+    },
   }),
   tagTypes: ['Comments'],
   endpoints: (build) => ({
-    fetchAllComments: build.query<fetchedComment>({
-      query: () => ({
-        url: `/`,
-      }),
-      providesTags: (result) =>
-        result?.length
-          ? [
-              ...result.map(({ id }) => ({ type: 'Comments', id })),
-              { type: 'Comments', id: 'LIST' },
-            ]
-          : [{ type: 'Comments', id: 'LIST' }],
-    }),
-    fetchComments: build.query<fetchedComment, string | number>({
+    fetchComments: build.query<iReviews, number>({
       query: ({ id }) => ({
-        url: `/${id}`,
+        url: `/v2.2/films/${id}/reviews`,
       }),
       providesTags: (result) =>
         result?.length
@@ -36,37 +24,14 @@ export const commentsApi = createApi({
               { type: 'Comments', id: 'LIST' },
             ]
           : [{ type: 'Comments', id: 'LIST' }],
-    }),
-    createComments: build.mutation<fetchedComment, fetchedComment>({
-      query: ({ comment, id }) => ({
-        url: `/${id}`,
-        method: 'POST',
-        body: comment,
-      }),
-      invalidatesTags: [{ type: 'Comments', id: 'LIST' }],
-    }),
-    addComment: build.mutation<fetchedComment, fetchedComment>({
-      query: ({ comment, id }) => ({
-        url: `/${id}`,
-        method: 'PUT',
-        body: comment,
-      }),
-      invalidatesTags: [{ type: 'Comments', id: 'LIST' }],
-    }),
-    deleteComment: build.mutation<fetchedComment, string>({
-      query: (id) => ({
-        url: `/${id}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: [{ type: 'Comments', id: 'LIST' }],
     }),
   }),
 });
 
 export const {
   useFetchCommentsQuery,
-  useFetchAllCommentsQuery,
-  useCreateCommentsMutation,
-  useDeleteCommentMutation,
-  useAddCommentMutation,
+  // useFetchAllCommentsQuery,
+  // useCreateCommentsMutation,
+  // useDeleteCommentMutation,
+  // useAddCommentMutation,
 } = commentsApi;

@@ -1,7 +1,7 @@
-import { IMovie, IMovieOld } from '@/types/types';
+import { iFilm } from '@/types/kinopoiskTypes';
 
 export interface CardProps {
-  card: IMovie | IMovieOld;
+  card: iFilm;
   hover?: boolean;
   star?: boolean;
   book?: boolean;

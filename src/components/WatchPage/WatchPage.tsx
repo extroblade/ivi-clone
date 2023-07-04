@@ -13,40 +13,31 @@ import { FastAverageColor } from 'fast-average-color';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import { useTranslation } from 'react-i18next';
 import { Htag } from '@/components/Htag/Htag';
-import { useFetchAllPersonsQuery } from '@/services/person.api';
-import { useFetchAllCommentsQuery } from '@/services/comments.api';
+import { useFetchCommentsQuery } from '@/services/comments.api';
 import Sup from '@/components/Sup/Sup';
 import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
 import { Button } from '@/components/Button/Button';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
 import ScrollToTopButton from '@/components/WatchPage/ScrollToTopButton/ScrollToTopButton';
 import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
+import Loader from '@/components/Loader/Loader';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
-  const { data: movies, error, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
-  const { data: persons } = useFetchAllPersonsQuery();
-  const { currentMovie } = useAppSelector(selectModal);
-  const [personsData, setPersonsData] = useState([]);
-
-  useEffect(() => {
-    if (persons?.length) {
-      const set = new Set(movie.persons);
-      const temp = persons.filter((person) => set.has(person.id));
-      setPersonsData(() => temp);
-    }
-  }, [persons?.length]);
   const { t } = useTranslation();
+  const { data: movies, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
+  const { data: comments } = useFetchCommentsQuery({ id: movie.kinopoiskId });
+  const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
     dispatch(setCurrentMovie({ ...movie, index: 0 }));
-  }, [dispatch, movie.id]);
+  }, [dispatch, movie.kinopoiskId]);
 
   useEffect(() => {
     const fac = new FastAverageColor();
-    if (movie.card_image) {
+    if (movie?.coverUrl) {
       fac
-        .getColorAsync(movie.card_image, {
+        .getColorAsync(movie.coverUrl, {
           algorithm: 'simple',
         })
         .then((color) => {
@@ -60,20 +51,15 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     dispatch(setShowWatchPageModal(true));
   };
 
-  const { title, originalTitle, name, enName, trailer, card_image } = movie;
-  const filmName = title || name || null;
-  const enFilmName = originalTitle || enName || null;
+  const { nameRu, nameEn, trailer, posterUrl, coverUrl } = movie;
 
-  const { data: comments } = useFetchAllCommentsQuery();
-
-  const [comment, setComment] = useState([]);
-
-  useEffect(() => {
-    if (comments?.length) {
-      setComment(() => comments.find((com) => com?.id == movie?.id).commentsData);
-    }
-  }, [comments?.length, movie?.id]);
-
+  // const [comment, setComment] = useState([]);
+  //
+  // useEffect(() => {
+  //   if (comments?.length) {
+  //     setComment(() => comments.find((com) => com?.id == movie?.kinopoiskId).commentsData);
+  //   }
+  // }, [comments?.length, movie?.kinopoiskId]);
   return (
     <>
       <div
@@ -86,37 +72,43 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>
             <div className={styles.mobile_title}>
-              <MovieTitle enFilmName={enFilmName} filmName={filmName} />
+              <MovieTitle enFilmName={nameEn} filmName={nameRu} />
             </div>
             <div className={styles.watch__player}>
               <Player url={trailer || 'https://www.youtube.com/watch?v=ysz5S6PUM-U'} />
             </div>
-            <MovieInfo movie={movie} persons={personsData} />
+            <MovieInfo movie={movie} />
           </div>
         </div>
-        <Carousel
-          title={
-            i18next.language == 'en'
-              ? `Movies similar to «${enFilmName || filmName}»`
-              : `С фильмом «${filmName}» смотрят`
-          }
-          route={'/'}
-          showAll
-        >
-          {!isLoading && !error && movies.map((card) => <Card card={card} book key={card?.id} />)}
-        </Carousel>
-        <PersonsGallery list={personsData} />
+        {isLoading && <Loader />}
+        {movies?.length && (
+          <Carousel
+            title={
+              i18next.language == 'en'
+                ? `Movies similar to «${nameEn}»`
+                : `С фильмом «${nameRu}» смотрят`
+            }
+            route={'/'}
+            showAll={movies?.length > 15}
+          >
+            {movies.slice(0, 15).map((card) => (
+              <Card card={card} book key={card?.id} />
+            ))}
+          </Carousel>
+        )}
+
+        {/*<PersonsGallery list={personsData} />*/}
         <ScrollToTopButton />
         <div className={styles.comments_container}>
           <div className={styles.comments} onClick={openComments}>
-            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comment?.length || 0} />
+            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comments?.length || 0} />
           </div>
           <div className={styles.open} onClick={openComments}>
             <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
           </div>
         </div>
-        {comment?.length ? <CommentCarousel comments={comment} /> : ''}
-        <WatchAllDevices name={filmName || 'фильм'} image={card_image} />
+        {comments?.length ? <CommentCarousel comments={comments} /> : ''}
+        <WatchAllDevices name={nameRu} image={coverUrl} />
       </section>
     </>
   );

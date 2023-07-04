@@ -3,21 +3,22 @@ import Head from 'next/head';
 import WatchPage from '@/components/WatchPage/WatchPage';
 import { useTranslation } from 'react-i18next';
 import MovieBreadcrumbs from '@/components/Breadcrumbs/MovieBreadcrumbs';
-import Loader from '@/components/Loader/Loader';
 import NotFound from '@/components/NotFound/NotFound';
+import { iFilm } from '@/types/kinopoiskTypes';
+import { movieTypes } from '@/constants/Movies';
 
 const Movie = ({ movie }) => {
-  const { t, i18n } = useTranslation();
-  if (!movie?.id) return <NotFound />;
-  const genres = movie?.genres?.length ? movie?.genres[0] : '';
+  const { i18n } = useTranslation();
+  if (!movie?.kinopoiskId) return <NotFound />;
+  const typeRuName = movieTypes[movie?.type]?.ruName || 'Тип';
+  const typeEnName = movieTypes[movie?.type]?.enName || 'Type';
+  const typePath = movieTypes[movie?.type]?.path || '/movies';
+  const genre = movie?.genres[0]?.genre || 'Жанр';
   const breadcrumbs = [
-    { name: t('sections.movies'), path: '/movies' }, //t('sections.series') t('sections.animation')
+    { name: i18n?.language == 'en' ? typeEnName : typeRuName, path: typePath },
     {
-      name:
-        (i18n.language == 'ru'
-          ? genres || genres[0]?.genreName
-          : genres[0]?.genreNameEn || genres) || 'Жанры',
-      path: '/movies',
+      name: genre,
+      path: '/movies', //todo: fix
     },
   ];
   return (
@@ -25,12 +26,12 @@ const Movie = ({ movie }) => {
       <Head>
         <title>
           {i18n.language == 'en'
-            ? `Movie ${movie?.originalTitle || movie?.enName}`
-            : `Фильм ${movie?.title || movie?.name}`}
+            ? `Movie ${movie?.nameEn ? movie.nameEn : ''}`
+            : `Фильм ${movie?.nameRu ? movie.nameRu : ''}`}
         </title>
       </Head>
       <MovieBreadcrumbs breadcrumbs={breadcrumbs} />
-      {!movie?.id ? <Loader /> : <WatchPage movie={movie} />}
+      <WatchPage movie={movie} />
     </>
   );
 };
@@ -40,10 +41,16 @@ export default Movie;
 export async function getServerSideProps(context) {
   try {
     const { id } = context.query;
-    const res = await fetch(`${process.env.SERVER}/film/${id - 1}`);
-    const movie = await res.json();
 
-    console.log(`Fetched movie: ${movie.name}`);
+    const movie: iFilm = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': '4676a528-bf21-41c2-9c8e-9791141065d0',
+        'Content-Type': 'application/json',
+      },
+    }).then((res) => res.json());
+
+    console.log(`Fetched movie: ${movie.nameRu}`);
     return { props: { movie } };
   } catch (e) {
     return { props: { movie: null } };

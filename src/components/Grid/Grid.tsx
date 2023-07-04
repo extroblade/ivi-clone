@@ -1,51 +1,65 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './Grid.module.scss';
 import { useTranslation } from 'react-i18next';
-import { IMovie } from '@/types/types';
 import Card from '@/components/Card/Card';
 import { Button } from '@/components/Button/Button';
+import { useFetchAllFilmsQuery } from '@/services/movie.api';
+import Loader from '@/components/Loader/Loader';
 
 interface iGrid {
-  array: IMovie[];
-  loading?: boolean;
+  type: string;
 }
-const BASE_LIMIT = 14;
+const BASE_LIMIT = 20;
 
-const Grid: FC<iGrid> = ({ array = new Array(10).fill(1) }) => {
+const Grid: FC<iGrid> = ({ type }) => {
+  const [page, setPage] = useState(1);
+  const { data } = useFetchAllFilmsQuery({ type: type, page: page });
   const { t } = useTranslation();
-  const [limit, setLimit] = useState(BASE_LIMIT);
   const [isLoading, setIsLoading] = useState(false);
   const showMore = async () => {
     await setIsLoading(() => true);
-    await setLimit((prev) => prev + BASE_LIMIT);
+    if (page + 1 < data?.totalPages) {
+      await setPage((page) => page + 1);
+    }
     await setTimeout(() => {
       setIsLoading(() => false);
     }, 800);
   };
+  const [movies, setMovies] = useState<any[]>([]);
+  useEffect(() => {
+    if (data?.items) {
+      setMovies((movies) => [...movies, ...data?.items]);
+    }
+    console.log(movies);
+  }, [data?.items]);
 
   return (
     <>
       <div className={styles.grid}>
-        {array?.length && (
+        {movies?.length ? (
           <div className={styles.grid__container}>
             <ul className={styles.grid__list}>
-              {array.slice(0, limit).map((card, index) => (
+              {movies.map((card, index) => (
                 <li className={styles.grid_item} key={card?.id || index}>
                   <Card card={card} star book find block />
                 </li>
               ))}
             </ul>
           </div>
+        ) : (
+          <Loader />
         )}
       </div>
-      {array?.length > limit &&
-        (isLoading ? (
-          <div className={`${styles.open} loader`}></div>
-        ) : (
-          <Button appearance={'outline'} className={styles.open} onClick={showMore}>
-            {t('buttons.show-more')}
-          </Button>
-        ))}
+      {movies?.length
+        ? data?.total > BASE_LIMIT &&
+          (isLoading ? (
+            <div className={`${styles.open} loader`}></div>
+          ) : (
+            <Button appearance={'outline'} className={styles.open} onClick={showMore}>
+              {t('buttons.show-more')}
+            </Button>
+          ))
+        : ''}
     </>
   );
 };

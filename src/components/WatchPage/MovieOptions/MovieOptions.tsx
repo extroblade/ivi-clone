@@ -1,12 +1,13 @@
 import React, { FC, useState } from 'react';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
 import { P } from '@/components/P/P';
-import { IMovie, IMovieOld } from '@/types/types';
 import { useTranslation } from 'react-i18next';
 import Badge from '@/components/Badge/Badge';
 import { Button } from '@/components/Button/Button';
+import { iFilm } from '@/types/kinopoiskTypes';
+import { movieTypes } from '@/constants/Movies';
 interface iOptions {
-  movie: IMovie | IMovieOld;
+  movie: iFilm;
 }
 
 const badges = ['FullHD', 'HD', '1080', '720'];
@@ -17,7 +18,8 @@ const MovieOptions: FC<iOptions> = ({ movie }) => {
   const extend = () => {
     setExtended((val) => !val);
   };
-  const { name, enName, description, enDescription, fullDesc, languages, subtitles } = movie;
+  const { nameEn, nameRu, description, shortDescription, languages, subtitles, slogan, type } =
+    movie;
   const getString = (arr) => {
     arr.reduce((res, next, index) => {
       if (!index) {
@@ -30,13 +32,15 @@ const MovieOptions: FC<iOptions> = ({ movie }) => {
   return (
     <div className={styles.movie_options}>
       <div className={styles.watch__description}>
-        <P>{i18n.language == 'en' ? enDescription || description : description}</P>
+        <P>{shortDescription}</P>
         {extended && (
           <div>
-            {fullDesc && <P>{fullDesc}</P>}
+            {description && <P>{description}</P>}
             <P>
-              Сериал {i18n.language == 'en' ? enName || name : name} доступен на сайте. Приятного
-              просмотра!
+              {i18n.language == 'en'
+                ? movieTypes[type]?.enNameSingle
+                : movieTypes[type]?.ruNameSingle}{' '}
+              {i18n.language == 'en' ? nameEn : nameRu} доступен на сайте. Приятного просмотра!
             </P>
           </div>
         )}

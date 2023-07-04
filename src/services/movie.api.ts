@@ -1,76 +1,101 @@
-import { IMovie, IMovieOld } from '@/types/types';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { iFilm } from '@/types/kinopoiskTypes';
 
 export type QueryParams = {
-  limit?: number;
-  genres?: string[];
-  persons?: string[];
-  actors?: string[];
-  countries?: string[];
-  rating?: number;
+  countries?: string;
+  genres?: string;
+  order?: 'RATING' | 'NUM_VOTE' | 'YEAR';
+  type?: 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
+  ratingFrom?: number;
+  ratingTo?: number;
+  yearFrom?: number;
+  yearTo?: number;
+  keyword?: string;
   page?: number;
-  rates_amount?: number;
 };
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: process.env.SERVER + '/film',
+    baseUrl: process.env.API + 'v2.2/films',
+    prepareHeaders: (headers) => {
+      headers.set('X-API-KEY', '4676a528-bf21-41c2-9c8e-9791141065d0'); //process.env.X_API_KEY
+      headers.set('Content-Type', 'application/json');
+      return headers;
+    },
   }),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
-    fetchOneFilm: build.query<IMovie | IMovieOld, string | number>({
-      query: ({ id }) => ({
-        url: `/${id}`,
-      }),
-      providesTags: (result) =>
-        result?.length
-          ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
-          : [{ type: 'Movies', id: 'LIST' }],
-    }),
-    fetchAllFilms: build.query<IMovie[] | IMovieOld[], unknown>({
-      query: ({ genres, limit = 15, page }) => ({
+    fetchAllFilms: build.query<iFilm[], QueryParams>({
+      query: ({
+        countries,
+        genres,
+        order,
+        type,
+        ratingFrom,
+        ratingTo,
+        yearFrom,
+        yearTo,
+        keyword,
+        page,
+      }) => ({
         url: '/',
         params: {
-          genres: genres,
-          _limit: limit,
-          _page: page,
+          countries,
+          genres,
+          order,
+          type,
+          ratingFrom,
+          ratingTo,
+          yearFrom,
+          yearTo,
+          keyword,
+          page,
         },
       }),
-      providesTags: (result) =>
-        result?.length
-          ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
-          : [{ type: 'Movies', id: 'LIST' }],
     }),
-    addOneFilm: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
-      query: (movie) => ({
-        url: '/',
-        method: 'POST',
-        body: movie,
-      }),
-      invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
-    }),
-    updateMovie: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
-      query: (movie) => ({
-        url: `/${movie.id}`,
-        method: 'PUT',
-        body: movie,
-      }),
-      invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
-    }),
-    deleteOneFilm: build.mutation<IMovie | IMovieOld, string>({
-      query: (id) => ({
-        url: `/${id}`,
-        method: 'DELETE',
-      }),
-      invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
-    }),
+    // providesTags: (result) =>
+    //   result?.length
+    //     ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
+    //     : [{ type: 'Movies', id: 'LIST' }],
+    // fetchOneFilm: build.query<IMovie | IMovieOld, string | number>({
+    //   query: ({ id }) => ({
+    //     url: `/${id}`,
+    //   }),
+    //   providesTags: (result) =>
+    //     result?.length
+    //       ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
+    //       : [{ type: 'Movies', id: 'LIST' }],
+    // }),
+    // addOneFilm: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
+    //   query: (movie) => ({
+    //     url: '/',
+    //     method: 'POST',
+    //     body: movie,
+    //   }),
+    //   invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
+    // }),
+    // updateMovie: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
+    //   query: (movie) => ({
+    //     url: `/${movie.id}`,
+    //     method: 'PUT',
+    //     body: movie,
+    //   }),
+    //   invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
+    // }),
+    // deleteOneFilm: build.mutation<IMovie | IMovieOld, string>({
+    //   query: (id) => ({
+    //     url: `/${id}`,
+    //     method: 'DELETE',
+    //   }),
+    //   invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
+    // }),
   }),
 });
 
 export const {
-  useFetchOneFilmQuery,
   useFetchAllFilmsQuery,
-  useDeleteOneFilmMutation,
-  useAddOneFilmMutation,
+  // useFetchOneFilmQuery,
+  // useDeleteOneFilmMutation,
+  // useAddOneFilmMutation,
 } = movieApi;

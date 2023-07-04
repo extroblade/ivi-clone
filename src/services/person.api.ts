@@ -5,6 +5,11 @@ export const personApi = createApi({
   reducerPath: 'personApi',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.SERVER + '/persons',
+    prepareHeaders: (headers) => {
+      headers.set('X-API-KEY', process.env.X_API_KEY);
+      headers.set('Content-Type', 'application/json');
+      return headers;
+    },
   }),
   tagTypes: ['Person'],
   endpoints: (build) => ({

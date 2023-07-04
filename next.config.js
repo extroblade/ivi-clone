@@ -23,6 +23,18 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'kinopoiskapiunofficial.tech',
+        port: '',
+        pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.mds.yandex.net',
+        port: '',
+        pathname: '/get-ott/**',
+      },
+      {
+        protocol: 'https',
         hostname: '**.userapi.com',
         port: '',
         pathname: '/**',
