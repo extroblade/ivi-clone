@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/Button/Button';
-import { useAddOneFilmMutation } from '@/services/movie.api';
 import { IMovieOld } from '@/types/types';
-import { useCreateCommentsMutation } from '@/services/comments.api';
 const movie: IMovieOld = {
   id: 1,
   name: 'Гарри Поттер и Дары Смерти: Часть I',
@@ -23,17 +21,8 @@ const movie: IMovieOld = {
 };
 
 const AddNewMovie = () => {
-  const [addNewMovie] = useAddOneFilmMutation();
-  const [createComment] = useCreateCommentsMutation();
-
   const create = () => {
-    try {
-      movie.id = self.crypto.randomUUID();
-      addNewMovie(movie);
-      createComment({ id: movie.id, commentsData: [] });
-    } catch (e) {
-      console.log(e);
-    }
+    console.log('mock creation');
   };
   return (
     <div>

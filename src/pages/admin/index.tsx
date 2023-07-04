@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '@/hooks/redux';
 import { selectAuth } from '@/store/reducers/auth.slice';
 import { Htag } from '@/components/Htag/Htag';
-import { useDeleteOneFilmMutation, useFetchAllFilmsQuery } from '@/services/movie.api';
+import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import Card from '@/components/Card/Card';
 import { Button } from '@/components/Button/Button';
 import { BsTrash } from 'react-icons/bs';
@@ -19,15 +19,10 @@ const Admin = () => {
   const { user } = useAppSelector(selectAuth);
   const { t } = useTranslation();
   const [page, setPage] = useSearchParamsState<number>({ name: 'page' });
-  const [deleteMovie] = useDeleteOneFilmMutation();
   const { data: movies } = useFetchAllFilmsQuery({});
   if (user) return <NotFoundPage />; //todo: fix when slice is ready
   const del = (id: number) => {
-    try {
-      deleteMovie(id);
-    } catch (e) {
-      console.log(e);
-    }
+    console.log('mock delete');
   };
 
   return (

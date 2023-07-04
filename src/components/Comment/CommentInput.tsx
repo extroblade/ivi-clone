@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '@/hooks/redux';
 import { selectAuth } from '@/store/reducers/auth.slice';
-import { useAddCommentMutation, useFetchCommentsQuery } from '@/services/comments.api';
+import { useFetchCommentsQuery } from '@/services/comments.api';
 import { selectModal } from '@/store/reducers/modals.slice';
 const LIMIT = 5;
 
@@ -17,7 +17,6 @@ const CommentInput: FC = ({ id, parentId }): JSX.Element => {
   const { user } = useAppSelector(selectAuth);
   const { data: comments } = useFetchCommentsQuery({ id });
   const { data: session } = useSession();
-  const [addComment] = useAddCommentMutation();
   const validate = () => {
     return query?.length < LIMIT && query?.length;
   };
@@ -33,13 +32,14 @@ const CommentInput: FC = ({ id, parentId }): JSX.Element => {
     e.nativeEvent.preventDefault();
     if (!comments?.commentsData) return;
     if (!parentId) {
-      addComment({
-        comment: {
-          id: personModalItem?.id,
-          commentsData: [...comments?.commentsData, newComment],
-        },
-        id,
-      });
+      // addComment({
+      //   comment: {
+      //     id: personModalItem?.id,
+      //     commentsData: [...comments?.commentsData, newComment],
+      //   },
+      //   id,
+      // });
+      console.log('mock comment');
     } else {
       const oldComments = JSON.parse(JSON.stringify(comments.commentsData)).filter(
         (comment) => comment.id !== parentId
