@@ -161,13 +161,24 @@ export interface iSimilar {
 export interface iSimilarItems {
   //
 }
+
+export interface iReviewsItem {
+  positiveRating: number;
+  negativeRating: number;
+  author: string;
+  date: string;
+  description: string;
+  kinopoiskId: number;
+  title: string;
+  type: 'POSITIVE' | 'NEGATIVE';
+}
 export interface iReviews {
   total: number;
   totalPages: number;
   totalPositiveReviews: number;
   totalNegativeReviews: number;
   totalNeutralReviews: number;
-  items: any[];
+  items: iReviewsItem[];
 }
 
 export interface iTop {

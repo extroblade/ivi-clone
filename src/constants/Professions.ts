@@ -16,7 +16,7 @@ export const professionTypes = {
     enName: '????',
   },
   DIRECTOR: {
-    ruName: 'Директор',
+    ruName: 'Режиссер',
     enName: 'Director',
   },
 };

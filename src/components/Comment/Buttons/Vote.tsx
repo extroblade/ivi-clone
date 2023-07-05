@@ -1,13 +1,15 @@
-import React, { useMemo, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Vote.module.scss';
 import LikeButton from '@/components/Comment/Buttons/LikeButton';
 import DisLikeButton from '@/components/Comment/Buttons/DisLikeButton';
 
-const Vote = () => {
-  const startValue = useMemo(() => {
-    return Math.round(Math.random() * 200 - 100);
-  }, []);
-  const [value, setValue] = useState(startValue);
+interface iVote {
+  likes: number;
+  dislikes: number;
+}
+
+const Vote: FC<iVote> = ({ likes = 0, dislikes = 0 }) => {
+  const [value, setValue] = useState(likes - dislikes);
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
 

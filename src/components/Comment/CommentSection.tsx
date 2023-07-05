@@ -2,26 +2,19 @@ import React, { FC } from 'react';
 import CommentInput from '@/components/Comment/CommentInput';
 import Comment from '@/components/Comment/Comment';
 import styles from './Comment.module.scss';
-import { useFetchCommentsQuery } from '@/services/comments.api';
-import Loader from '@/components/Loader/Loader';
+import { useAppSelector } from '@/hooks/redux';
+import { selectModal } from '@/store/reducers/modals.slice';
 
-interface ICommentSection {
-  id: string | number;
-}
-
-const CommentSection: FC<ICommentSection> = ({ id }): JSX.Element => {
-  const { data: comments, isLoading, error } = useFetchCommentsQuery({ id });
-
+const CommentSection: FC = (): JSX.Element => {
+  const { currentMovie } = useAppSelector(selectModal);
+  const { comments } = currentMovie;
   return (
     <div className={styles.comment_section}>
       <div>!!!warn: answers works with only first level children!!!</div>
-      <CommentInput id={id} />
+      <CommentInput />
       <ul>
-        {isLoading && <Loader />}
-        {!error && comments?.length
-          ? comments
-              .sort((a, b) => a.id - b.id)
-              .map((comment) => <Comment comment={comment} key={comment.id} />)
+        {comments?.total
+          ? comments.items.map((comment) => <Comment comment={comment} key={comment.kinopoiskId} />)
           : ''}
       </ul>
     </div>

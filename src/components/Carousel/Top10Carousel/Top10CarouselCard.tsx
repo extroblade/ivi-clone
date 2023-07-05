@@ -48,10 +48,8 @@ const T10CardLoader: FC<iLoader> = ({ index }): JSX.Element => {
 };
 
 export const T10Card: FC<iCard> = ({ card, index }): JSX.Element => {
-  console.log(card);
-
   if (!card?.filmId) return <T10CardLoader index={index} />;
-  const { filmId, posterUrlPreview, posterUrl, nameEn, nameRu, logo } = card;
+  const { filmId, posterUrlPreview, posterUrl, nameEn, nameRu } = card;
   return (
     <Link href={`/watch/${filmId}`} className={styles.card}>
       <div className={styles.card_image}>
@@ -65,13 +63,7 @@ export const T10Card: FC<iCard> = ({ card, index }): JSX.Element => {
       <div className={styles.fade} />
       <div className={styles.fade_footer} />
       <div className={styles.logo}>
-        {logo ? (
-          <div className={styles.logo_image}>
-            <Image src={logo} alt={nameRu || nameEn} />
-          </div>
-        ) : (
-          <div className={styles.logo_title}>{nameRu || nameEn}</div>
-        )}
+        <div className={styles.logo_title}>{nameRu || nameEn || ''}</div>
       </div>
       <div className={styles.place_number}>{top[index]}</div>
     </Link>

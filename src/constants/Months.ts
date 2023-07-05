@@ -1,0 +1,12 @@
+export const JANUARY = 'JANUARY';
+export const FEBRUARY = 'FEBRUARY';
+export const MARCH = 'MARCH';
+export const APRIL = 'APRIL';
+export const MAY = 'MAY';
+export const JUNE = 'JUNE';
+export const JULY = 'JULY';
+export const AUGUST = 'AUGUST';
+export const SEPTEMBER = 'SEPTEMBER';
+export const OCTOBER = 'OCTOBER';
+export const NOVEMBER = 'NOVEMBER';
+export const DECEMBER = 'DECEMBER';

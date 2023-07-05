@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import NextArrow from '@/components/Carousel/Arrows/NextArrow';
 import PrevArrow from '@/components/Carousel/Arrows/PrevArrow';
 import Slider from 'react-slick';
-import { IComment } from '@/types/types';
 import CommentCard from '@/components/Comment/CommentCard/CommentCard';
 import Loader from '@/components/Loader/Loader';
+import { iReviewsItem } from '@/types/kinopoiskTypes';
 
 interface ICommentCarousel {
-  comments: IComment[];
+  comments: iReviewsItem[];
 }
 
 const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
@@ -47,7 +47,7 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
       {comments ? (
         <Slider {...settings}>
           {comments.map((comment) => (
-            <CommentCard comment={comment} key={comment.id} />
+            <CommentCard comment={comment} key={comment.kinopoiskId} />
           ))}
         </Slider>
       ) : (

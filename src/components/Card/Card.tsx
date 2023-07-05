@@ -28,13 +28,16 @@ const Card: FC<CardProps> = ({
     countries,
     genres,
     nameRu,
+    nameOriginal,
     nameEn,
     posterUrlPreview,
     year,
     filmLength,
     ratingKinopoisk,
   } = card;
-  const i18nTitle = (i18next.language == 'en' ? nameRu : nameEn) || nameRu || '';
+  const i18nTitle =
+    i18next.language == 'en' ? nameEn || nameOriginal || nameRu : nameRu || nameOriginal || nameEn;
+
   return (
     <Link href={`/watch/${id}`} className={styles.card} draggable="false" {...props}>
       <div className={`${styles.imageSection} ${hover && styles.hover}`}>

@@ -35,7 +35,11 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
               {list.slice(0, 9).map((person) => {
                 const { posterUrl: url, staffId, nameRu, nameEn, professionKey } = person;
                 return (
-                  <Link href={`/person/${staffId}`} key={staffId} className={styles.link}>
+                  <Link
+                    href={`/person/${staffId}`}
+                    key={staffId + professionKey}
+                    className={styles.link}
+                  >
                     <div className={styles.card}>
                       <div className={styles.img}>
                         <Image
@@ -51,9 +55,13 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                         .split(' ')
                         .slice(0, 2)
                         .map((word) => (
-                          <p key={staffId + word} className={styles.name}>
-                            {word}
-                          </p>
+                          <>
+                            {word?.length && (
+                              <p key={staffId + word} className={styles.name}>
+                                {word}
+                              </p>
+                            )}
+                          </>
                         ))}
                       <P size="S">
                         {i18n.language == 'en'

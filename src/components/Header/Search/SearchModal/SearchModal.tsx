@@ -14,6 +14,7 @@ import { P } from '@/components/P/P';
 import { BsPersonCircle } from 'react-icons/bs';
 import { BiMoviePlay } from 'react-icons/bi';
 import { useDebounce } from '@/hooks/useDebounce';
+import Loader from '@/components/Loader/Loader';
 
 const SearchModal: FC = (): JSX.Element => {
   const [query, setQuery] = useState<string>('');
@@ -21,14 +22,22 @@ const SearchModal: FC = (): JSX.Element => {
   const { showSearch } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const [fetchedMovies, setFetchedMovies] = useState([]);
+  const [fetchedPersons, setFetchedPersons] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(() => true);
+    const timer = setTimeout(() => setLoading(() => false), 300);
+    return () => clearTimeout(timer);
+  }, [query?.length]);
 
   const close = () => {
     setFetchedMovies(() => []);
+    setFetchedPersons(() => []);
     dispatch(setShowSearch(false));
   };
 
   const request = useDebounce((text: string) => {
-    console.log(text);
+    setLoading(() => true);
     fetch(`${process.env.API}v2.2/films/?keyword=${text}`, {
       method: 'GET',
       headers: {
@@ -40,6 +49,20 @@ const SearchModal: FC = (): JSX.Element => {
       .then((json) => {
         setFetchedMovies(() => json.items);
       })
+      .then(() => setLoading(() => false))
+      .catch((err) => console.log(err));
+    fetch(`${process.env.API}v1/persons/?name=${text}`, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': process.env.X_API_KEY,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setFetchedPersons(() => json.items);
+      })
+      .then(() => setLoading(() => false))
       .catch((err) => console.log(err));
   }, 300);
 
@@ -52,11 +75,20 @@ const SearchModal: FC = (): JSX.Element => {
   useEffect(() => {
     if (query?.length) {
       request(query);
+    } else {
+      setFetchedMovies(() => []);
+      setFetchedPersons(() => []);
     }
   }, [query?.length]);
   const router = useRouter();
   const redirect = (item) => {
-    router.push(`/watch/${item.kinopoiskId}`);
+    if (item?.type) {
+      router.push(`/watch/${item.kinopoiskId}`);
+    } else if (item?.sex) {
+      router.push(`/person/${item.kinopoiskId}`);
+    } else {
+      console.log('temporary');
+    }
     setTimeout(() => {
       close();
       clearQuery();
@@ -84,6 +116,7 @@ const SearchModal: FC = (): JSX.Element => {
             <IoSearchOutline className={styles.input__icon} />
           )}
         </div>
+        {loading && <Loader />}
 
         {!fetchedMovies?.length && !fetchedMovies?.length ? (
           <div className={styles.presets}>
@@ -100,25 +133,35 @@ const SearchModal: FC = (): JSX.Element => {
         ) : (
           <div className={styles.result}>
             {fetchedMovies?.length
-              ? fetchedMovies.slice(0, 15).map((movie) => (
-                  <Button onClick={() => redirect(movie)} appearance={'transparent'} key={movie.id}>
-                    <BiMoviePlay />
-                    <P>{movie.nameRu || movie.nameEn}</P>
-                  </Button>
-                ))
+              ? fetchedMovies.slice(0, 15).map((movie) => {
+                  const { nameRu, nameEn, nameOriginal, kinopoiskId: id } = movie;
+                  return (
+                    <Button
+                      onClick={() => redirect(movie)}
+                      appearance={'transparent'}
+                      key={id + 'm'}
+                    >
+                      <BiMoviePlay />
+                      <P>{nameRu || nameEn || nameOriginal}</P>
+                    </Button>
+                  );
+                })
               : ''}
-            {/*{personMatch?.length*/}
-            {/*  ? personMatch.slice(0, 15).map((person) => (*/}
-            {/*      <Button*/}
-            {/*        onClick={() => redirect(person)}*/}
-            {/*        appearance={'transparent'}*/}
-            {/*        key={person.id}*/}
-            {/*      >*/}
-            {/*        <BsPersonCircle />*/}
-            {/*        <P>{person.name}</P>*/}
-            {/*      </Button>*/}
-            {/*    ))*/}
-            {/*  : ''}*/}
+            {fetchedPersons?.length
+              ? fetchedPersons.slice(0, 15).map((person) => {
+                  const { kinopoiskId, nameRu, nameEn, nameOriginal } = person;
+                  return (
+                    <Button
+                      onClick={() => redirect(person)}
+                      appearance={'transparent'}
+                      key={kinopoiskId + 'p'}
+                    >
+                      <BsPersonCircle />
+                      <P>{nameRu || nameEn || nameOriginal}</P>
+                    </Button>
+                  );
+                })
+              : ''}
           </div>
         )}
       </div>

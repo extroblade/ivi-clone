@@ -7,7 +7,6 @@ import {
   iFilm,
   iFilters,
   iImages,
-  iReviews,
   iSeasons,
   iSimilar,
 } from '@/types/kinopoiskTypes';
@@ -71,6 +70,12 @@ export const movieApi = createApi({
         params: { type, page },
       }),
     }),
+    fetchFilmPremieres: build.query<iFilm[], any>({
+      query: ({ year = new Date().getFullYear(), month = new Date().getMonth() }) => ({
+        url: `/premieres`,
+        params: { year, month },
+      }),
+    }),
     fetchFilmFilters: build.query<iFilters[], Record<string, string>>({
       query: () => ({
         url: `/filters`,
@@ -116,11 +121,6 @@ export const movieApi = createApi({
         url: `/${id}/seasons`,
       }),
     }),
-    fetchFilmReviews: build.query<iReviews[], number>({
-      query: ({ id }) => ({
-        url: `/${id}/seasons`,
-      }),
-    }),
     fetchOneFilm: build.query<iFilm, number>({
       query: ({ id }) => ({
         url: `/${id}`,
@@ -159,6 +159,7 @@ export const movieApi = createApi({
 export const {
   useFetchAllFilmsQuery,
   useFetchTopFilmQuery,
+  useFetchFilmPremieresQuery,
   useFetchFilmFiltersQuery,
   useFetchFilmImagesQuery,
   useFetchFilmSimilarsQuery,
@@ -168,6 +169,5 @@ export const {
   useFetchFilmDistributionsQuery,
   useFetchFilmFactsQuery,
   useFetchFilmSeasonsQuery,
-  useFetchFilmReviewsQuery,
   useFetchOneFilmQuery,
 } = movieApi;

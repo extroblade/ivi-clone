@@ -23,7 +23,13 @@ export const personApi = createApi({
         url: `/v1/staff/${id}`,
       }),
     }),
+    fetchPersonName: build.query<iPerson, string>({
+      query: ({ name, page = 1 }) => ({
+        url: `/v1/persons`,
+        params: { name, page },
+      }),
+    }),
   }),
 });
 
-export const { useFetchAllPersonsQuery, useFetchOnePersonQuery } = personApi;
+export const { useFetchAllPersonsQuery, useFetchOnePersonQuery, useFetchPersonName } = personApi;

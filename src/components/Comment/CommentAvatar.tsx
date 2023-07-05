@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import styles from '@/components/Comment/Comment.module.scss';
 import { FiUser } from 'react-icons/fi';
 import Image from 'next/image';
-import { IUser } from '@/types/types';
 
 const colors: string[] = [
   '#313131',
@@ -18,12 +17,11 @@ const colors: string[] = [
 ];
 
 export type CommentAvatarProps = {
-  user: IUser | null;
+  user: string | null;
 };
 
 const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
-  let color = user?.userId ? String(user?.userId).split('').reverse()[0] : 0;
-  if (typeof color == 'string') color = 0;
+  const color = user ? (user.split('')[0].charCodeAt(0) - 97) % 10 : 0;
   return (
     <div className={styles.user_image}>
       {user?.image ? (
@@ -41,9 +39,7 @@ const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
             backgroundColor: `${colors[color as number]}`,
           }}
         >
-          <div className={styles.image_text}>
-            {user?.name ? user.name[0].toUpperCase() : <FiUser />}
-          </div>
+          <div className={styles.image_text}>{user ? user[0] : <FiUser />}</div>
         </div>
       )}
     </div>

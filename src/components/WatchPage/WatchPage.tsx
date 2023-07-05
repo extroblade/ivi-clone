@@ -32,9 +32,8 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
-    const newMovie = { ...movie, persons };
-    dispatch(setCurrentMovie({ ...newMovie, index: 0 }));
-  }, [dispatch, movie.kinopoiskId, persons]);
+    dispatch(setCurrentMovie({ ...movie, persons, comments, index: 0 }));
+  }, [dispatch, movie.kinopoiskId, persons, comments]);
   useEffect(() => {
     const fac = new FastAverageColor();
     if (movie?.coverUrl) {
@@ -51,17 +50,14 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const openComments = () => {
     dispatch(setCurrentMovie({ ...currentMovie, index: 1 }));
     dispatch(setShowWatchPageModal(true));
+    const isBrowser = () => typeof window !== 'undefined';
+    if (isBrowser()) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const { nameRu, nameEn, trailer, posterUrl, coverUrl } = movie;
 
-  // const [comment, setComment] = useState([]);
-  //
-  // useEffect(() => {
-  //   if (comments?.length) {
-  //     setComment(() => comments.find((com) => com?.id == movie?.kinopoiskId).commentsData);
-  //   }
-  // }, [comments?.length, movie?.kinopoiskId]);
   return (
     <>
       <div
@@ -103,13 +99,13 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         <ScrollToTopButton />
         <div className={styles.comments_container}>
           <div className={styles.comments} onClick={openComments}>
-            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comments?.length || 0} />
+            <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comments?.total || 0} />
           </div>
           <div className={styles.open} onClick={openComments}>
             <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
           </div>
         </div>
-        {comments?.length ? <CommentCarousel comments={comments} /> : ''}
+        {comments?.total ? <CommentCarousel comments={comments.items} /> : ''}
         <WatchAllDevices name={nameRu || nameEn || ''} image={coverUrl || posterUrl} />
       </section>
     </>

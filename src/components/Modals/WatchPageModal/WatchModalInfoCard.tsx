@@ -9,7 +9,6 @@ import { countTime } from '@/helpers/countTime';
 
 const WatchModalInfoCard = () => {
   const { currentMovie } = useAppSelector(selectModal);
-  console.log(currentMovie);
   const { posterUrl, ratingKinopoisk, year, countries, genres, duration, filmLength } =
     currentMovie;
   return (

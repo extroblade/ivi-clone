@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import cn from 'classnames';
-import Link from 'next/link';
 import styles from './WatchPageModal.module.scss';
 import { Htag } from '@/components/Htag/Htag';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
@@ -12,11 +11,9 @@ import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import CommentSection from '@/components/Comment/CommentSection';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
-import Image from 'next/image';
-import Loader from '@/components/Loader/Loader';
 import Sup from '@/components/Sup/Sup';
 import WatchModalInfoCard from '@/components/Modals/WatchPageModal/WatchModalInfoCard';
-import { iPerson } from '@/types/kinopoiskTypes';
+import PersonsTab from '@/components/Modals/WatchPageModal/PersonsTab';
 
 const WatchPageModal: FC = () => {
   const dispatch = useAppDispatch();
@@ -59,49 +56,11 @@ const WatchPageModal: FC = () => {
               </TabList>
 
               <TabPanel className={styles.tabs__content}>
-                <Htag tag="h3">{t('categories.actors')}</Htag>
-
-                {persons?.length ? (
-                  <div className={styles.cards} onClick={close}>
-                    {persons.map((person: iPerson) => {
-                      const { staffId, posterUrl: url, nameRu, nameEn, professionText } = person;
-                      return (
-                        <Link
-                          href={`/person/${staffId}`}
-                          key={staffId + 'id'}
-                          className={styles.link}
-                        >
-                          <div className={styles.card}>
-                            <div className={styles.img}>
-                              <Image
-                                fill
-                                sizes={'(max-width: 768px) 100vw, (max-width: 300px) 25vw, 20vw'}
-                                src={url}
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <div>
-                            {(nameRu || nameEn) &&
-                              (i18n.language == 'en' ? nameEn || nameRu : nameRu || nameEn)
-                                .split(' ')
-                                .map((letter) => (
-                                  <p key={Math.random() * staffId} className={styles.name}>
-                                    {letter}
-                                  </p>
-                                ))}
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <Loader />
-                )}
+                <PersonsTab />
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
                 <div className={styles.comments}>
-                  <CommentSection id={currentMovie.id} />
+                  <CommentSection />
                 </div>
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
