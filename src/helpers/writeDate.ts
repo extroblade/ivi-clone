@@ -1,4 +1,4 @@
-export const writeDate = (date: number): string => {
+export const writeDate = (date: number | string): string => {
   //DD.MM.YYYY
   const now: Date = new Date(date);
   const day = now.getDate();
