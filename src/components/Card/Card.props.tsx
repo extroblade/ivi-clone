@@ -7,4 +7,5 @@ export interface CardProps {
   book?: boolean;
   find?: boolean;
   block?: boolean;
+  infO?: boolean;
 }

@@ -12,8 +12,10 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import CommentSection from '@/components/Comment/CommentSection';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
 import Sup from '@/components/Sup/Sup';
-import WatchModalInfoCard from '@/components/Modals/WatchPageModal/WatchModalInfoCard';
-import PersonsTab from '@/components/Modals/WatchPageModal/PersonsTab';
+import WatchModalInfoCard from '@/components/Modals/WatchPageModal/Tabs/WatchModalInfoCard';
+import PersonsTab from '@/components/Modals/WatchPageModal/Tabs/PersonsTab';
+import TrailersTab from '@/components/Modals/WatchPageModal/Tabs/TrailersTab';
+import AwardsTab from '@/components/Modals/WatchPageModal/Tabs/AwardsTab';
 
 const WatchPageModal: FC = () => {
   const dispatch = useAppDispatch();
@@ -45,13 +47,13 @@ const WatchPageModal: FC = () => {
                   {t('categories.creators')} {persons?.length ? <Sup text={persons?.length} /> : ''}
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.comments')} <Sup text={3} />
+                  {t('categories.comments')} <Sup text={currentMovie?.comments?.total} />
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.trailers')}
+                  {t('categories.trailers')} <Sup text={currentMovie?.videos?.total} />
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.awards')}
+                  {t('categories.awards')} <Sup text={currentMovie?.awards?.total} />
                 </Tab>
               </TabList>
 
@@ -59,15 +61,13 @@ const WatchPageModal: FC = () => {
                 <PersonsTab />
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
-                <div className={styles.comments}>
-                  <CommentSection />
-                </div>
+                <CommentSection />
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
-                <h2>{t('categories.trailers')}</h2>
+                <TrailersTab />
               </TabPanel>
               <TabPanel className={styles.tabs__content}>
-                <h2>{t('categories.awards')}</h2>
+                <AwardsTab />
               </TabPanel>
             </Tabs>
             <WatchModalInfoCard />

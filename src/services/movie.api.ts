@@ -91,7 +91,7 @@ export const movieApi = createApi({
         url: `/${id}/similars`,
       }),
     }),
-    fetchFilmVideos: build.query<any[], number>({
+    fetchFilmVideo: build.query<any[], number>({
       query: ({ id }) => ({
         url: `/${id}/videos`,
       }),

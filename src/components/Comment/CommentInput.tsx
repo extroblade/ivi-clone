@@ -4,64 +4,35 @@ import { Button } from '@/components/Button/Button';
 import styles from './Comment.module.scss';
 import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
-import { useAppSelector } from '@/hooks/redux';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectAuth } from '@/store/reducers/auth.slice';
-import { useFetchCommentsQuery } from '@/services/comments.api';
-import { selectModal } from '@/store/reducers/modals.slice';
+import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
 const LIMIT = 5;
 
-const CommentInput: FC = ({ id, parentId }): JSX.Element => {
+const CommentInput: FC = (): JSX.Element => {
   const { t, i18n } = useTranslation();
-  const { personModalItem } = useAppSelector(selectModal);
   const [query, setQuery] = useState<string>('');
+  const dispatch = useAppDispatch();
   const { user } = useAppSelector(selectAuth);
-  const { data: comments } = useFetchCommentsQuery({ id });
   const { data: session } = useSession();
+  const { activeAlerts } = useAppSelector(selectModal);
   const validate = () => {
     return query?.length < LIMIT && query?.length;
   };
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
-    const newComment = {
-      id: self.crypto.randomUUID(),
-      user: user?.name
-        ? user
-        : { userId: `user${self.crypto.randomUUID()}`, name: `Guest-${self.crypto.randomUUID()}` },
-      date: Date.now(),
-      clause: query,
-    };
     e.nativeEvent.preventDefault();
-    if (!comments?.commentsData) return;
-    if (!parentId) {
-      // addComment({
-      //   comment: {
-      //     id: personModalItem?.id,
-      //     commentsData: [...comments?.commentsData, newComment],
-      //   },
-      //   id,
-      // });
-      console.log('mock comment');
+    const cur = [];
+    const newAlert = {
+      id: self.crypto.randomUUID(),
+      title: 'Комментарий не отправлен',
+      extra: 'POST запросы не работают',
+    };
+    if (activeAlerts?.length && !activeAlerts?.find((alert) => alert.id == newAlert.id)) {
+      cur.push(...activeAlerts, newAlert);
     } else {
-      const oldComments = JSON.parse(JSON.stringify(comments.commentsData)).filter(
-        (comment) => comment.id !== parentId
-      );
-      const changedComment = JSON.parse(JSON.stringify(comments.commentsData)).find(
-        (comment) => comment.id === parentId
-      );
-      if (!changedComment) {
-        console.error('2+ level');
-        return;
-      }
-      changedComment && changedComment?.children
-        ? changedComment.children.push(newComment)
-        : (changedComment.children = [newComment]);
-      addComment({
-        comment: {
-          id: personModalItem?.id,
-          commentsData: [...oldComments, changedComment],
-        },
-        id,
-      });
+      cur.push(newAlert);
     }
+    dispatch(setActiveAlerts(cur));
     setQuery(() => '');
   };
 

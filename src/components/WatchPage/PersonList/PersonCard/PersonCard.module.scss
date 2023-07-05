@@ -65,8 +65,7 @@
   overflow: hidden;
   border-radius: 6px;
   img {
-    width: 44px;
-    height: auto;
+    object-fit: cover;
   }
 }
 

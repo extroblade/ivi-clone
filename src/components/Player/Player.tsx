@@ -8,17 +8,27 @@ import { FiUpload } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import AddToFavoritesButton from '@/components/Card/CardButtons/AddToFavoritesButton';
 import TurnNotificationsButton from '@/components/Card/CardButtons/TurnNotificationsButton';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
+import { scrollTop } from '@/helpers/scrollTop';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: true });
 
-const Player: FC<PlayerProps> = ({ url }) => {
+const Player: FC<PlayerProps> = ({ url, actions }) => {
   const { t } = useTranslation();
-
+  const { currentMovie } = useAppSelector(selectModal);
+  const dispatch = useAppDispatch();
   const [hasWindow, setHasWindow] = useState(false);
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setHasWindow(true);
     }
   }, []);
+
+  const openTrailers = () => {
+    dispatch(setShowWatchPageModal(true));
+    dispatch(setCurrentMovie({ ...currentMovie, index: 2 }));
+    scrollTop();
+  };
 
   return (
     <div className={styles.container}>
@@ -36,18 +46,19 @@ const Player: FC<PlayerProps> = ({ url }) => {
             />
           )}
         </div>
-
-        <div className={styles.actions}>
-          <Button appearance="rectangle">
-            <IoPlayOutline className={styles.icon} />
-            {t('buttons.trailer')}
-          </Button>
-          <AddToFavoritesButton />
-          <TurnNotificationsButton />
-          <Button appearance="square">
-            <FiUpload className={styles.icon} />
-          </Button>
-        </div>
+        {actions && (
+          <div className={styles.actions}>
+            <Button appearance="rectangle" onClick={openTrailers}>
+              <IoPlayOutline className={styles.icon} />
+              {t('buttons.trailer')}
+            </Button>
+            <AddToFavoritesButton />
+            {currentMovie?.type == 'SERIES' && <TurnNotificationsButton />}
+            <Button appearance="square">
+              <FiUpload className={styles.icon} />
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

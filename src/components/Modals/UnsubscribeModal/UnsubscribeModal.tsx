@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './UnsubscribeModal.module.scss';
 import FullScreenModal from '@/components/Modals/FullScreenModal/FullScreenModal';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
-import { selectModal, setShowUnsub } from '@/store/reducers/modals.slice';
+import { selectModal, setActiveAlerts, setShowUnsub } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { P } from '@/components/P/P';
 import { Button } from '@/components/Button/Button';
@@ -13,10 +13,23 @@ const UnsubscribeModal = () => {
   const { t, i18n } = useTranslation();
   const { showUnsub, currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
+  const { activeAlerts } = useAppSelector(selectModal);
   const close = () => {
     dispatch(setShowUnsub(false));
   };
   const unsubscribe = () => {
+    const cur = [];
+    const newAlert = {
+      id: self.crypto.randomUUID(),
+      title: 'Комментарий не отправлен',
+      extra: 'Вы больше не будете получать уведомления о выходе новых серий',
+    };
+    if (activeAlerts?.length && !activeAlerts?.find((alert) => alert.id == newAlert.id)) {
+      cur.push(...activeAlerts, newAlert);
+    } else {
+      cur.push(newAlert);
+    }
+    dispatch(setActiveAlerts(cur));
     close();
   };
   usePreventScroll(showUnsub);
@@ -35,9 +48,9 @@ const UnsubscribeModal = () => {
               </Button>
             </article>
             <article className={styles.poster}>
-              <Image width={100} height={160} src={currentMovie?.card_image} alt={'poster'} />
+              <Image width={100} height={160} src={currentMovie?.posterUrl} alt={'poster'} />
               <span className={styles.text}>
-                {i18n.language == 'en' ? currentMovie?.enName : currentMovie?.name}
+                {i18n.language == 'en' ? currentMovie?.nameEn : currentMovie?.nameRu}
               </span>
             </article>
           </div>

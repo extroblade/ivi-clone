@@ -10,7 +10,6 @@ const CommentSection: FC = (): JSX.Element => {
   const { comments } = currentMovie;
   return (
     <div className={styles.comment_section}>
-      <div>!!!warn: answers works with only first level children!!!</div>
       <CommentInput />
       <ul>
         {comments?.total

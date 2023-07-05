@@ -283,6 +283,7 @@
   a {
     color: hsla(0,0%,100%,.72);
     transition: $time-main;
+    text-transform: capitalize;
     &:hover:not(:active) {
       color: #fff;
     }

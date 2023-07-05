@@ -1,6 +1,6 @@
-import { IPersonOld } from '@/types/types';
+import { iStaff } from '@/types/kinopoiskTypes';
 
 export interface PersonCardProps {
-  person?: IPersonOld;
-  rating: number | string;
+  person?: iStaff;
+  rating?: number | string;
 }

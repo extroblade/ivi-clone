@@ -5,9 +5,8 @@ import AnimationPageDescription from '@/components/AnimationPage/AnimationPageDe
 import { useTranslation } from 'react-i18next';
 import Filters from '@/components/Filters/Filters';
 import Grid from '@/components/Grid/Grid';
-import Loader from '@/components/Loader/Loader';
 
-const Index = ({ movies }) => {
+const Index = () => {
   const { t } = useTranslation();
 
   const breadcrumbs = [
@@ -22,20 +21,9 @@ const Index = ({ movies }) => {
       <BreadCrumbs breadcrumbs={breadcrumbs} />
       <AnimationPageDescription />
       <Filters />
-      {movies ? <Grid array={movies} /> : <Loader />}
+      <Grid type={'MINI_SERIES'} />
     </>
   );
 };
 
 export default Index;
-
-export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.SERVER}/film`);
-  const movies = await res.json();
-
-  return {
-    props: {
-      movies,
-    },
-  };
-};

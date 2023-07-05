@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { useAppSelector } from '@/hooks/redux';
 import Sup from '@/components/Sup/Sup';
 import { professionTypes } from '@/constants/Professions';
+import { scrollTop } from '@/helpers/scrollTop';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
@@ -20,6 +21,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const open = () => {
     dispatch(setShowWatchPageModal(true));
     dispatch(setCurrentMovie({ ...currentMovie, index: 0 }));
+    scrollTop();
   };
   return (
     <>

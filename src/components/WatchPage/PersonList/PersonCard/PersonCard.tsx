@@ -14,14 +14,16 @@ const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
       {person ? (
         <>
           <div className={styles.wrapCard}>
-            <Link href={`/person/${person.id}`}>
+            <Link href={`/person/${person.staffId}`}>
               <div className={styles.person}>
-                <Image width={44} height={44} src={person.url} alt={person.name} />
+                <Image width={44} height={44} src={person.posterUrl} alt={person.nameRu} />
               </div>
             </Link>
           </div>
           <div className={styles.card_name}>
-            {i18next.language == 'en' ? person.enName : person.name}
+            {i18next.language == 'en'
+              ? person.nameEn || person.nameRu
+              : person.nameRu || person.nameEn}
           </div>
         </>
       ) : (

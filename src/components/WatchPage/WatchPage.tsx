@@ -10,7 +10,12 @@ import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/red
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import MovieInfo from '@/components/WatchPage/MovieInfo/MovieInfo';
 import { FastAverageColor } from 'fast-average-color';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
+import {
+  useFetchFilmAwardsQuery,
+  useFetchFilmFactsQuery,
+  useFetchFilmSimilarsQuery,
+  useFetchFilmVideoQuery,
+} from '@/services/movie.api';
 import { useTranslation } from 'react-i18next';
 import { Htag } from '@/components/Htag/Htag';
 import { useFetchCommentsQuery } from '@/services/comments.api';
@@ -20,20 +25,23 @@ import { Button } from '@/components/Button/Button';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
 import ScrollToTopButton from '@/components/WatchPage/ScrollToTopButton/ScrollToTopButton';
 import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
-import Loader from '@/components/Loader/Loader';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
+import { scrollTop } from '@/helpers/scrollTop';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { t } = useTranslation();
-  const { data: movies, isLoading } = useFetchAllFilmsQuery({});
   const { data: comments } = useFetchCommentsQuery({ id: movie.kinopoiskId });
   const { data: persons } = useFetchAllPersonsQuery({ filmId: movie.kinopoiskId });
+  const { data: awards } = useFetchFilmAwardsQuery({ id: movie.kinopoiskId });
+  const { data: videos } = useFetchFilmVideoQuery({ id: movie.kinopoiskId });
+  const { data: facts } = useFetchFilmFactsQuery({ id: movie.kinopoiskId });
+  const { data: similar } = useFetchFilmSimilarsQuery({ id: movie.kinopoiskId });
   const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
-    dispatch(setCurrentMovie({ ...movie, persons, comments, index: 0 }));
-  }, [dispatch, movie.kinopoiskId, persons, comments]);
+    dispatch(setCurrentMovie({ ...movie, persons, comments, awards, videos, facts, index: 0 }));
+  }, [dispatch, movie.kinopoiskId, persons, comments, awards, videos, facts]);
   useEffect(() => {
     const fac = new FastAverageColor();
     if (movie?.coverUrl) {
@@ -50,14 +58,10 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const openComments = () => {
     dispatch(setCurrentMovie({ ...currentMovie, index: 1 }));
     dispatch(setShowWatchPageModal(true));
-    const isBrowser = () => typeof window !== 'undefined';
-    if (isBrowser()) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    scrollTop();
   };
 
-  const { nameRu, nameEn, trailer, posterUrl, coverUrl } = movie;
-
+  const { nameRu, nameEn, posterUrl, coverUrl } = movie;
   return (
     <>
       <div
@@ -73,13 +77,16 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
               <MovieTitle enFilmName={nameEn} filmName={nameRu} />
             </div>
             <div className={styles.watch__player}>
-              <Player url={trailer || 'https://www.youtube.com/watch?v=ysz5S6PUM-U'} />
+              {!videos?.items[0]?.url && <Htag tag={'h3'}>Трейлер не добавлен</Htag>}
+              <Player
+                url={videos?.items[0]?.url || 'https://www.youtube.com/watch?v=ysz5S6PUM-U'}
+                actions
+              />
             </div>
-            <MovieInfo movie={movie} />
+            <MovieInfo />
           </div>
         </div>
-        {isLoading && <Loader />}
-        {movies?.length && (
+        {similar?.total && (
           <Carousel
             title={
               i18next.language == 'en'
@@ -87,10 +94,10 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
                 : `С фильмом «${nameRu || ''}» смотрят`
             }
             route={'/'}
-            showAll={movies?.length > 15}
+            showAll={similar?.total > 15}
           >
-            {movies.slice(0, 15).map((card) => (
-              <Card card={card} book key={card?.id} />
+            {similar.items.slice(0, 15).map((card) => (
+              <Card card={card} info={false} book key={card?.id} />
             ))}
           </Carousel>
         )}

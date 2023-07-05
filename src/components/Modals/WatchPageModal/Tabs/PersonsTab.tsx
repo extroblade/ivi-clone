@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
 import { Htag } from '@/components/Htag/Htag';
-import StaffList from '@/components/Modals/WatchPageModal/StaffList';
+import StaffList from '@/components/Modals/WatchPageModal/Tabs/StaffList';
 
 const PersonsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
