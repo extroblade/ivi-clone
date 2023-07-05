@@ -1,14 +1,24 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { debounce } from '@/helpers/debounce';
 import { useEvent } from '@/hooks/useEvent';
 
 export function useDebounce<Fn extends (...args: any[]) => any>(fn: Fn, ms: number) {
   const memoizedFn = useEvent(fn);
-  return useMemo(
+
+  const debouncedFn = useMemo(
     () =>
-      debounce((...args) => {
+      debounce((...args: Parameters<Fn>) => {
         memoizedFn(...args);
       }, ms),
-    [memoizedFn, ms]
+    [ms]
   );
+
+  useEffect(
+    () => () => {
+      debouncedFn.cancel();
+    },
+    [debouncedFn]
+  );
+
+  return debouncedFn;
 }

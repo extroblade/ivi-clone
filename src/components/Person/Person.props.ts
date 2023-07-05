@@ -1,5 +1,5 @@
-import { IPersonOld } from '@/types/types';
+import { iPerson } from '@/types/kinopoiskTypes';
 
 export interface PersonProps {
-  person: IPersonOld;
+  person: iPerson;
 }

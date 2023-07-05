@@ -12,6 +12,14 @@
   align-items: center;
   gap: 15px;
   font-weight: 500;
+  &_row {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    p {
+      margin-right: 12px;
+    }
+  }
 }
 
 .img {

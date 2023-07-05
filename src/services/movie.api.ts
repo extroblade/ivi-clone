@@ -54,19 +54,15 @@ export const movieApi = createApi({
         },
       }),
     }),
+    fetchOneFilm: build.query<iFilm, number>({
+      query: ({ id }) => ({
+        url: `/${id}`,
+      }),
+    }),
     // providesTags: (result) =>
     //   result?.length
     //     ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
     //     : [{ type: 'Movies', id: 'LIST' }],
-    // fetchOneFilm: build.query<IMovie | IMovieOld, string | number>({
-    //   query: ({ id }) => ({
-    //     url: `/${id}`,
-    //   }),
-    //   providesTags: (result) =>
-    //     result?.length
-    //       ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
-    //       : [{ type: 'Movies', id: 'LIST' }],
-    // }),
     // addOneFilm: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
     //   query: (movie) => ({
     //     url: '/',
@@ -95,7 +91,7 @@ export const movieApi = createApi({
 
 export const {
   useFetchAllFilmsQuery,
-  // useFetchOneFilmQuery,
+  useFetchOneFilmQuery,
   // useDeleteOneFilmMutation,
   // useAddOneFilmMutation,
 } = movieApi;

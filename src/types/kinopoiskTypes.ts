@@ -91,8 +91,18 @@ export interface iAwardsItem {
   persons: iPerson[];
 }
 
+export interface iStaff {
+  staffId: number;
+  nameRu: string;
+  nameEn: string;
+  description: string;
+  posterUrl: string;
+  professionText: string;
+  professionKey: string; //'DIRECTOR'|
+}
+
 export interface iPerson {
-  kinopoiskId: number;
+  personId: number;
   webUrl: string;
   nameRu: string;
   nameEn: string;
@@ -105,6 +115,9 @@ export interface iPerson {
   birthplace: string;
   deathplace: string;
   profession: string;
+  facts: iFacts[];
+  spouses: any[];
+  films: iFilm[];
 }
 
 export interface iVideos {

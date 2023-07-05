@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { IComment, IMovie } from '@/types/types';
+import { IComment } from '@/types/types';
 import { HYDRATE } from 'next-redux-wrapper';
+import { iFilm } from '@/types/kinopoiskTypes';
 
-interface ICurrentMovie extends IMovie {
+interface ICurrentMovie extends iFilm {
   index?: number;
   comments?: IComment[];
 }

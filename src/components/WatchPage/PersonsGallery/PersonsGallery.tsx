@@ -11,19 +11,19 @@ import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { useAppSelector } from '@/hooks/redux';
 import Sup from '@/components/Sup/Sup';
+import { professionTypes } from '@/constants/Professions';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const { currentMovie } = useAppSelector(selectModal);
-
   const open = () => {
     dispatch(setShowWatchPageModal(true));
     dispatch(setCurrentMovie({ ...currentMovie, index: 0 }));
   };
   return (
     <>
-      {list.length > 0 && (
+      {list?.length > 0 && (
         <div className={styles.wrap}>
           <div className={styles.title_container}>
             <div className={styles.title} onClick={open}>
@@ -32,10 +32,10 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
           </div>
           <div className={styles.list}>
             <div className={styles.list__wrap}>
-              {[...new Set(list)].slice(0, 9).map((person) => {
-                const { id, url, fullName, fullNameEn, name, enName } = person;
+              {list.slice(0, 9).map((person) => {
+                const { posterUrl: url, staffId, nameRu, nameEn, professionKey } = person;
                 return (
-                  <Link href={`/person/${id}`} key={id} className={styles.link}>
+                  <Link href={`/person/${staffId}`} key={staffId} className={styles.link}>
                     <div className={styles.card}>
                       <div className={styles.img}>
                         <Image
@@ -47,14 +47,19 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                       </div>
                     </div>
                     <div>
-                      {(i18n.language == 'en' ? fullNameEn || enName : fullName || name)
+                      {(i18n.language == 'en' ? nameEn || nameRu : nameRu || nameEn)
                         .split(' ')
-                        .map((n) => (
-                          <p key={id + n} className={styles.name}>
-                            {n}
+                        .slice(0, 2)
+                        .map((word) => (
+                          <p key={staffId + word} className={styles.name}>
+                            {word}
                           </p>
                         ))}
-                      <P size="S">{i18n.language == 'en' ? 'actor' : 'актер'}</P>
+                      <P size="S">
+                        {i18n.language == 'en'
+                          ? professionTypes[professionKey].enName
+                          : professionTypes[professionKey].ruName}
+                      </P>
                     </div>
                   </Link>
                 );

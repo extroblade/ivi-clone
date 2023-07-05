@@ -42,10 +42,10 @@ export async function getServerSideProps(context) {
   try {
     const { id } = context.query;
 
-    const movie: iFilm = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
+    const movie: iFilm = await fetch(`${process.env.API}v2.2/films/${id}`, {
       method: 'GET',
       headers: {
-        'X-API-KEY': '4676a528-bf21-41c2-9c8e-9791141065d0',
+        'X-API-KEY': process.env.X_API_KEY,
         'Content-Type': 'application/json',
       },
     }).then((res) => res.json());

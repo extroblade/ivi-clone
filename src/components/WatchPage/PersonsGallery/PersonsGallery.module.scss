@@ -23,6 +23,8 @@
 
 .list {
   padding: 10px 0;
+  display: flex;
+  max-height: 180px;
   &__wrap {
     overflow: hidden;
     padding: 0 20px;

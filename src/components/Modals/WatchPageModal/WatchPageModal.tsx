@@ -1,9 +1,8 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import styles from './WatchPageModal.module.scss';
 import { Htag } from '@/components/Htag/Htag';
-import { P } from '@/components/P/P';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import { Button } from '@/components/Button/Button';
 import { HiChevronLeft } from 'react-icons/hi';
@@ -14,16 +13,14 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import CommentSection from '@/components/Comment/CommentSection';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
 import Image from 'next/image';
-import { useFetchAllPersonsQuery } from '@/services/person.api';
 import Loader from '@/components/Loader/Loader';
-import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
 import Sup from '@/components/Sup/Sup';
 import WatchModalInfoCard from '@/components/Modals/WatchPageModal/WatchModalInfoCard';
+import { iPerson } from '@/types/kinopoiskTypes';
 
 const WatchPageModal: FC = () => {
   const dispatch = useAppDispatch();
   const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
-  const { data: personsList } = useFetchAllPersonsQuery();
   const { t, i18n } = useTranslation();
   usePreventScroll(showWatchPageModal);
   const close = () => {
@@ -31,13 +28,7 @@ const WatchPageModal: FC = () => {
   };
   useEscapeKey(close);
 
-  const [persons, setPersons] = useState([]);
-  useEffect(() => {
-    if (personsList?.length) {
-      const set = new Set(currentMovie?.persons);
-      setPersons(() => personsList.filter((pers) => set.has(pers.id)));
-    }
-  }, [personsList?.length, currentMovie]);
+  const persons = currentMovie?.persons;
 
   return (
     <>
@@ -72,10 +63,14 @@ const WatchPageModal: FC = () => {
 
                 {persons?.length ? (
                   <div className={styles.cards} onClick={close}>
-                    {persons.map((person) => {
-                      const { id, url, enName, name, films } = person;
+                    {persons.map((person: iPerson) => {
+                      const { staffId, posterUrl: url, nameRu, nameEn, professionText } = person;
                       return (
-                        <Link href={`/person/${id}`} key={person.id + 'id'} className={styles.link}>
+                        <Link
+                          href={`/person/${staffId}`}
+                          key={staffId + 'id'}
+                          className={styles.link}
+                        >
                           <div className={styles.card}>
                             <div className={styles.img}>
                               <Image
@@ -87,16 +82,14 @@ const WatchPageModal: FC = () => {
                             </div>
                           </div>
                           <div>
-                            {(enName || name) &&
-                              (i18n.language == 'en' ? enName : name).split(' ').map((letter) => (
-                                <p key={Math.random() * id} className={styles.name}>
-                                  {letter}
-                                </p>
-                              ))}
-                            <P size="S">
-                              {films?.length}{' '}
-                              {i18n.language == 'en' ? 'movies' : getRemainingFilmAmount(films)}
-                            </P>
+                            {(nameRu || nameEn) &&
+                              (i18n.language == 'en' ? nameEn || nameRu : nameRu || nameEn)
+                                .split(' ')
+                                .map((letter) => (
+                                  <p key={Math.random() * staffId} className={styles.name}>
+                                    {letter}
+                                  </p>
+                                ))}
                           </div>
                         </Link>
                       );

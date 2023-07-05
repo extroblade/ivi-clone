@@ -1,5 +1,5 @@
-import { IMovie } from '@/types/types';
+import { iFilm } from '@/types/kinopoiskTypes';
 
 export interface MovieCardProps {
-  card: IMovie;
+  card: iFilm;
 }

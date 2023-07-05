@@ -32,7 +32,7 @@ const Home = () => {
       {movies?.items?.length ? (
         <Carousel title={t('carousels.adventures')} route={'/movies'} showAll={movies?.length > 15}>
           {movies.items.slice(10, 20).map((card: iFilm, index: number) => (
-            <Card card={card} star book find block key={card?.id || index} />
+            <Card card={card} star book find block key={card?.kinopoiskId || index} />
           ))}
         </Carousel>
       ) : (

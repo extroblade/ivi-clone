@@ -5,10 +5,13 @@ import BarGraph from '@/components/BarGraph/BarGraph';
 import { P } from '@/components/P/P';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
+import { countTime } from '@/helpers/countTime';
 
 const WatchModalInfoCard = () => {
   const { currentMovie } = useAppSelector(selectModal);
-  const { card_image, year, country, countries, genres, duration } = currentMovie;
+  console.log(currentMovie);
+  const { posterUrl, ratingKinopoisk, year, countries, genres, duration, filmLength } =
+    currentMovie;
   return (
     <div className={styles.movie}>
       <Image
@@ -16,12 +19,12 @@ const WatchModalInfoCard = () => {
         height={196}
         onClick={() => close()}
         className={styles.movie__img}
-        src={card_image}
+        src={posterUrl}
         alt=""
       />
       <div className={styles.movie__info}>
         <div className={styles.graphs}>
-          <span>9,1</span>
+          <span>{ratingKinopoisk}</span>
           <div className={styles.graphs__wrap}>
             <BarGraph width={80} />
             <BarGraph width={73} />
@@ -31,8 +34,9 @@ const WatchModalInfoCard = () => {
         </div>
         <P size="S" className={styles.movie__descr}>
           {year && `${year}, `}
-          {`${country || countries[0]}, `}
-          {genres?.length && `${genres[0]}`}
+          {countries?.length ? countries.map((country) => `${country.country}, `) : ''}
+          {genres?.length ? genres.map((genre) => `${genre.genre}, `) : ''}
+          {filmLength && countTime(filmLength)}
         </P>
         <P size="S">{duration}</P>
       </div>

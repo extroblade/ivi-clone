@@ -8,61 +8,55 @@ import i18next from 'i18next';
 import { selectModal, setShowSearch } from '@/store/reducers/modals.slice';
 import { usePreventScroll } from '@/hooks/usePreventScroll';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { useFetchAllPersonsQuery } from '@/services/person.api';
 import { Button } from '@/components/Button/Button';
 import { useRouter } from 'next/navigation';
 import { P } from '@/components/P/P';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import { BsPersonCircle } from 'react-icons/bs';
 import { BiMoviePlay } from 'react-icons/bi';
+import { useDebounce } from '@/hooks/useDebounce';
 
 const SearchModal: FC = (): JSX.Element => {
   const [query, setQuery] = useState<string>('');
   const { t } = useTranslation();
   const { showSearch } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
+  const [fetchedMovies, setFetchedMovies] = useState([]);
+
   const close = () => {
+    setFetchedMovies(() => []);
     dispatch(setShowSearch(false));
   };
-  const { data: persons } = useFetchAllPersonsQuery();
-  const { data: movies } = useFetchAllFilmsQuery({ limit: 100 });
 
-  const [personMatch, setPersonMatch] = useState([]);
-  const [movieMatch, setMovieMatch] = useState([]);
+  const request = useDebounce((text: string) => {
+    console.log(text);
+    fetch(`${process.env.API}v2.2/films/?keyword=${text}`, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': process.env.X_API_KEY,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setFetchedMovies(() => json.items);
+      })
+      .catch((err) => console.log(err));
+  }, 300);
+
   const changeQuery = (e) => {
     setQuery(() => e.target.value);
   };
-  useEffect(() => {
-    if (query?.length) {
-      setPersonMatch(() =>
-        persons?.filter((item) => {
-          const regex = new RegExp(query, 'gi');
-          const name = item?.name || item?.enName || item?.fullName || item?.fullNameEn;
-          return name?.match(regex);
-        })
-      );
-      setMovieMatch(() =>
-        movies?.filter((item) => {
-          const regex = new RegExp(query, 'gi');
-          const name = item?.name || item?.enName || item?.originalTitle || item?.title;
-          return name?.match(regex);
-        })
-      );
-    } else {
-      setMovieMatch(() => []);
-      setPersonMatch(() => []);
-    }
-  }, [movies, persons, query]);
   const clearQuery = (): void => {
     setQuery('');
   };
+  useEffect(() => {
+    if (query?.length) {
+      request(query);
+    }
+  }, [query?.length]);
   const router = useRouter();
   const redirect = (item) => {
-    if (item?.id) {
-      item?.trailer ? router.push(`/watch/${item.id}`) : router.push(`/person/${item.id}`);
-    } else {
-      router.push(item);
-    }
+    router.push(`/watch/${item.kinopoiskId}`);
     setTimeout(() => {
       close();
       clearQuery();
@@ -91,7 +85,7 @@ const SearchModal: FC = (): JSX.Element => {
           )}
         </div>
 
-        {!movieMatch?.length && !personMatch?.length ? (
+        {!fetchedMovies?.length && !fetchedMovies?.length ? (
           <div className={styles.presets}>
             {presets.map((preset, index) => (
               <div className={styles.preset} key={index}>
@@ -105,26 +99,26 @@ const SearchModal: FC = (): JSX.Element => {
           </div>
         ) : (
           <div className={styles.result}>
-            {movieMatch?.length
-              ? movieMatch.slice(0, 15).map((movie) => (
+            {fetchedMovies?.length
+              ? fetchedMovies.slice(0, 15).map((movie) => (
                   <Button onClick={() => redirect(movie)} appearance={'transparent'} key={movie.id}>
                     <BiMoviePlay />
-                    <P>{movie.name || movie.title}</P>
+                    <P>{movie.nameRu || movie.nameEn}</P>
                   </Button>
                 ))
               : ''}
-            {personMatch?.length
-              ? personMatch.slice(0, 15).map((person) => (
-                  <Button
-                    onClick={() => redirect(person)}
-                    appearance={'transparent'}
-                    key={person.id}
-                  >
-                    <BsPersonCircle />
-                    <P>{person.name}</P>
-                  </Button>
-                ))
-              : ''}
+            {/*{personMatch?.length*/}
+            {/*  ? personMatch.slice(0, 15).map((person) => (*/}
+            {/*      <Button*/}
+            {/*        onClick={() => redirect(person)}*/}
+            {/*        appearance={'transparent'}*/}
+            {/*        key={person.id}*/}
+            {/*      >*/}
+            {/*        <BsPersonCircle />*/}
+            {/*        <P>{person.name}</P>*/}
+            {/*      </Button>*/}
+            {/*    ))*/}
+            {/*  : ''}*/}
           </div>
         )}
       </div>

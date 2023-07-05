@@ -21,18 +21,20 @@ import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevi
 import ScrollToTopButton from '@/components/WatchPage/ScrollToTopButton/ScrollToTopButton';
 import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
 import Loader from '@/components/Loader/Loader';
+import { useFetchAllPersonsQuery } from '@/services/person.api';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { t } = useTranslation();
-  const { data: movies, isLoading } = useFetchAllFilmsQuery({ limit: 15 });
+  const { data: movies, isLoading } = useFetchAllFilmsQuery({});
   const { data: comments } = useFetchCommentsQuery({ id: movie.kinopoiskId });
+  const { data: persons } = useFetchAllPersonsQuery({ filmId: movie.kinopoiskId });
   const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
   useEffect(() => {
-    dispatch(setCurrentMovie({ ...movie, index: 0 }));
-  }, [dispatch, movie.kinopoiskId]);
-  console.log(movie);
+    const newMovie = { ...movie, persons };
+    dispatch(setCurrentMovie({ ...newMovie, index: 0 }));
+  }, [dispatch, movie.kinopoiskId, persons]);
   useEffect(() => {
     const fac = new FastAverageColor();
     if (movie?.coverUrl) {
@@ -97,7 +99,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           </Carousel>
         )}
 
-        {/*<PersonsGallery list={personsData} />*/}
+        <PersonsGallery list={persons} />
         <ScrollToTopButton />
         <div className={styles.comments_container}>
           <div className={styles.comments} onClick={openComments}>

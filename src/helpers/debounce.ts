@@ -1,10 +1,23 @@
-export const debounce = <Fn extends (...args: unknown[]) => unknown>(fn: Fn, ms: number) => {
-  let timeout: NodeJS.Timeout;
+export function debounce<T extends (...args: any[]) => any>(fn: T, ms: number) {
+  let timeoutId: number | null = null;
 
-  const debounced = (...args: unknown[]) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => fn(...args), ms);
+  function debounced(...args: Parameters<T>) {
+    if (typeof timeoutId === 'number') {
+      clearTimeout(timeoutId);
+    }
+
+    timeoutId = setTimeout(() => {
+      timeoutId = null;
+      fn.apply(null, args);
+    }, ms);
+  }
+
+  debounced.cancel = () => {
+    if (typeof timeoutId !== 'number') {
+      return;
+    }
+    clearTimeout(timeoutId);
   };
 
-  return debounced as (...args) => ReturnType<Fn>;
-};
+  return debounced;
+}
