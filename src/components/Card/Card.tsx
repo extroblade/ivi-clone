@@ -11,6 +11,7 @@ import BlockButton from '@/components/Card/CardButtons/BlockButton';
 import styles from './Card.module.scss';
 import Image from 'next/image';
 import CardLoader from '@/components/Card/CardLoader';
+import { countTime } from '@/helpers/countTime';
 
 const Card: FC<CardProps> = ({
   card,
@@ -30,7 +31,7 @@ const Card: FC<CardProps> = ({
     nameEn,
     posterUrlPreview,
     year,
-    duration,
+    filmLength,
     ratingKinopoisk,
   } = card;
   const i18nTitle = (i18next.language == 'en' ? nameRu : nameEn) || nameRu || '';
@@ -74,7 +75,7 @@ const Card: FC<CardProps> = ({
                 {countries?.length && `${countries[0].country}, `}
                 {genres?.length && `${genres[0]?.genre}`}
               </div>
-              <div className={styles.info__row}>{duration} минут</div>
+              <div className={styles.info__row}>{countTime(filmLength)}</div>
             </section>
           </div>
         </div>

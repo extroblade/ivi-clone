@@ -48,14 +48,16 @@ const T10CardLoader: FC<iLoader> = ({ index }): JSX.Element => {
 };
 
 export const T10Card: FC<iCard> = ({ card, index }): JSX.Element => {
-  if (!card?.kinopoiskId) return <T10CardLoader index={index} />;
-  const { kinopoiskId, posterUrlPreview, posterUrl, nameEn, nameRu, logo } = card;
+  console.log(card);
+
+  if (!card?.filmId) return <T10CardLoader index={index} />;
+  const { filmId, posterUrlPreview, posterUrl, nameEn, nameRu, logo } = card;
   return (
-    <Link href={`/watch/${kinopoiskId}`} className={styles.card}>
+    <Link href={`/watch/${filmId}`} className={styles.card}>
       <div className={styles.card_image}>
         <Image
           src={posterUrlPreview || posterUrl}
-          alt={nameRu || 'title'}
+          alt={nameRu || nameEn}
           width={234}
           height={360}
         />
@@ -65,10 +67,10 @@ export const T10Card: FC<iCard> = ({ card, index }): JSX.Element => {
       <div className={styles.logo}>
         {logo ? (
           <div className={styles.logo_image}>
-            <Image src={logo} alt={nameRu || 'title'} />
+            <Image src={logo} alt={nameRu || nameEn} />
           </div>
         ) : (
-          <div className={styles.logo_title}>{nameRu || 'title'}</div>
+          <div className={styles.logo_title}>{nameRu || nameEn}</div>
         )}
       </div>
       <div className={styles.place_number}>{top[index]}</div>

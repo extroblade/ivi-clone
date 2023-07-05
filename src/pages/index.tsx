@@ -21,7 +21,7 @@ const Home = () => {
       </Head>
       <PromoCarousel />
       <MainPageDescription />
-      <Top10Carousel data={movies?.items} />
+      <Top10Carousel />
       <Carousel title={t('carousels.foreign-series')} route={'/movies'}>
         {(movies?.items?.length ? movies.items : [...new Array(15)])
           .slice(0, 10)

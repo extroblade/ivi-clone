@@ -5,17 +5,17 @@ import styles from './Top10Carousel.module.scss';
 import Slider from 'react-slick';
 import Image from 'next/image';
 import { Htag } from '@/components/Htag/Htag';
-import { IMovie } from '@/types/types';
 import { useTranslation } from 'react-i18next';
 import { T10Card } from './Top10CarouselCard';
 import top10 from '@/../public/images/top10/top10.svg';
 import Link from 'next/link';
-interface iCarousel {
-  data: IMovie[];
-}
+import { useFetchTopFilmQuery } from '@/services/movie.api';
+import { TOP_100_POPULAR_FILMS } from '@/constants/TopMoviesTypes';
+import { iFilm } from '@/types/kinopoiskTypes';
 
-const Top10Carousel: FC<iCarousel> = ({ data }) => {
+const Top10Carousel: FC = () => {
   const { t } = useTranslation();
+  const { data } = useFetchTopFilmQuery({ type: TOP_100_POPULAR_FILMS });
   const settings = {
     dots: false,
     infinite: false,
@@ -62,8 +62,8 @@ const Top10Carousel: FC<iCarousel> = ({ data }) => {
         </Link>
       </div>
       <Slider {...settings}>
-        {(data?.length ? data.slice(0, 10) : new Array(10).fill(0)).map(
-          (card: IMovie, index: number) => (
+        {(data?.films ? data.films.slice(0, 10) : new Array(10).fill(0)).map(
+          (card: iFilm, index: number) => (
             <T10Card card={card} index={index} key={index} />
           )
         )}
