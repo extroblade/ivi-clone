@@ -35,7 +35,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
       <div className={styles.line}></div>
       <div className={styles.cards}>
         {list?.slice(0, 8).map((card) => {
-          return <MovieCard key={card.kinopoiskId} card={card} />;
+          return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
         })}
         {!isOpen && list?.length > 8 ? (
           <P onClick={changeState} className={styles.link}>
@@ -44,7 +44,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
           </P>
         ) : (
           list?.slice(8, list?.length).map((card) => {
-            return <MovieCard key={card.kinopoiskId} card={card} />;
+            return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
           })
         )}
       </div>
