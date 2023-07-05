@@ -44,7 +44,7 @@ const Explanations: FC<ExplanationsProps> = ({ array }) => {
                   width={16}
                 />
                 <div className={styles.content_block}>
-                  <div className={styles.content}>{now.text}</div>
+                  <div className={styles.content}>{now?.text}</div>
                 </div>
                 <Image
                   alt={'right_wing'}
