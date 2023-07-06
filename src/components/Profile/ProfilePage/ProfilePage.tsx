@@ -27,7 +27,6 @@ const ProfilePage = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   const user = session?.user || null;
-  console.log(user);
 
   return (
     <div className={styles.profile__btns}>

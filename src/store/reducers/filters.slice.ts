@@ -4,21 +4,27 @@ import { moviesSlice } from '@/store/reducers/movie.slice';
 import { HYDRATE } from 'next-redux-wrapper';
 
 interface iFilters {
-  genres: string[];
-  persons: string[];
-  actors: string[];
-  countries: string[];
-  rating: number;
-  rates_amount: number;
+  countries?: string[];
+  genres?: string[];
+  order: 'RATING' | 'NUM_VOTE' | 'YEAR';
+  type: 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
+  ratingFrom: number;
+  ratingTo: number;
+  yearFrom: number;
+  yearTo: number;
+  page: number;
+  keyword?: string;
 }
 
 const initialState: iFilters = {
-  genres: [],
-  persons: [],
-  actors: [],
-  countries: [],
-  rating: 0,
-  rates_amount: 0,
+  order: 'RATING',
+  type: 'ALL',
+  ratingFrom: 0,
+  ratingTo: 10,
+  yearFrom: 1000,
+  yearTo: 3000,
+  page: 1,
+  keyword: '',
 };
 
 export const filtersSlice = createSlice({
@@ -28,23 +34,29 @@ export const filtersSlice = createSlice({
     resetFilters: () => {
       return initialState;
     },
-    setGenres: (state, action: PayloadAction<string[]>) => {
+    setGenres(state, action: PayloadAction<string[]>) {
       state.genres = action.payload;
     },
-    setPersons: (state, action: PayloadAction<string[]>) => {
-      state.persons = action.payload;
-    },
-    setActors: (state, action: PayloadAction<string[]>) => {
-      state.actors = action.payload;
-    },
-    setCountries: (state, action: PayloadAction<string[]>) => {
+    setCountries(state, action: PayloadAction<string[]>) {
       state.countries = action.payload;
     },
-    setRating: (state, action: PayloadAction<number>) => {
-      state.rating = action.payload;
+    setRatingFrom(state, action: PayloadAction<number>) {
+      state.ratingFrom = action.payload;
     },
-    setRatesAmount: (state, action: PayloadAction<number>) => {
-      state.rates_amount = action.payload;
+    setRatingTo(state, action: PayloadAction<number>) {
+      state.ratingTo = action.payload;
+    },
+    setYearFrom(state, action: PayloadAction<number>) {
+      state.yearFrom = action.payload;
+    },
+    setYearTo(state, action: PayloadAction<number>) {
+      state.yearTo = action.payload;
+    },
+    setPage(state, action: PayloadAction<number>) {
+      state.page = action.payload;
+    },
+    setKeyword(state, action: PayloadAction<string>) {
+      state.keyword = action.payload;
     },
   },
   //>>>>>>
@@ -61,11 +73,13 @@ export const filtersSlice = createSlice({
 export const {
   resetFilters,
   setGenres,
-  setPersons,
-  setActors,
   setCountries,
-  setRating,
-  setRatesAmount,
+  setRatingFrom,
+  setRatingTo,
+  setYearFrom,
+  setYearTo,
+  setPage,
+  setKeyword,
 } = moviesSlice.actions;
 export const selectFilters = (state: RootState) => state.filtersReducer;
 export default filtersSlice.reducer;

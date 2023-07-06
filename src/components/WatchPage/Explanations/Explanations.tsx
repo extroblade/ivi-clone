@@ -30,42 +30,35 @@ const Explanations: FC<ExplanationsProps> = ({ array }) => {
     }, 3000);
     return () => clearInterval(interval);
   }, [active]);
+
+  if (!length) return;
   return (
-    <>
-      {length && (
-        <div className={styles.explanations} onClick={nextSlide}>
-          <div className={styles.slider_container}>
-            <div className={styles.slide}>
-              <div className={styles.reasons}>
-                <Image
-                  alt={'left_wing'}
-                  src={'/images/laurelBranchLeft.svg'}
-                  height={40}
-                  width={16}
-                />
-                <div className={styles.content_block}>
-                  <div className={styles.content}>{now?.text}</div>
-                </div>
-                <Image
-                  alt={'right_wing'}
-                  src={'/images/laurelBranchRight.svg'}
-                  height={40}
-                  width={16}
-                />
-              </div>
+    <div className={styles.explanations} onClick={nextSlide}>
+      <div className={styles.slider_container}>
+        <div className={styles.slide}>
+          <div className={styles.reasons}>
+            <Image alt={'left_wing'} src={'/images/laurelBranchLeft.svg'} height={40} width={16} />
+            <div className={styles.content_block}>
+              <div className={styles.content}>{now?.text}</div>
             </div>
-          </div>
-          <div className={styles.point_container}>
-            {array.map((item, index) => (
-              <div
-                className={`${styles.point} ${active == index ? styles.isActive : ''}`}
-                key={index}
-              />
-            ))}
+            <Image
+              alt={'right_wing'}
+              src={'/images/laurelBranchRight.svg'}
+              height={40}
+              width={16}
+            />
           </div>
         </div>
-      )}
-    </>
+      </div>
+      <div className={styles.point_container}>
+        {array.map((item, index) => (
+          <div
+            className={`${styles.point} ${active == index ? styles.isActive : ''}`}
+            key={index}
+          />
+        ))}
+      </div>
+    </div>
   );
 };
 

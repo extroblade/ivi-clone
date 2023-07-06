@@ -149,7 +149,9 @@ export interface iVideos {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface iVideosItems {
-  //
+  name: string;
+  site: string; //'YOUTUBE' | ''
+  url: string;
 }
 
 export interface iSimilar {
@@ -159,7 +161,7 @@ export interface iSimilar {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface iSimilarItems {
-  //
+  filmId: number;
 }
 
 export interface iReviewsItem {

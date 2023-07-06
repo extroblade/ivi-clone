@@ -13,6 +13,7 @@ const nextConfig = {
     API: 'https://kinopoiskapiunofficial.tech/api/',
     X_API_KEY: process.env.X_API_KEY,
     CLIENT: 'http://localhost:3000',
+    NEXT_PUBLIC_URL: 'http://localhost:3000',
   },
   images: {
     remotePatterns: [
