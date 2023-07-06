@@ -7,6 +7,8 @@ import { scrollTop } from '@/helpers/scrollTop';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
 import { iVideos } from '@/types/kinopoiskTypes';
+import Link from 'next/link';
+import { P } from '@/components/P/P';
 
 interface iTrailers {
   videos: iVideos;
@@ -22,21 +24,25 @@ const Trailers: FC<iTrailers> = ({ videos }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };
-  console.log(videos);
   return (
-    <>
+    <div className={styles.videos}>
       <div className={styles.title} onClick={openTrailers}>
         <Htag tag={'h4'}>{t('categories.trailers')} </Htag> <Sup text={videos?.total || 0} />
       </div>
-      {videos?.total
-        ? videos?.items.map((video) => (
-            <div key={video.url}>
-              {video.url}
-              {video.name}
-            </div>
-          ))
-        : ''}
-    </>
+      <div className={styles.videos_links}>
+        {videos?.total
+          ? videos?.items.map((video) => (
+              <div className={styles.text_container} key={video.url}>
+                <Link href={video.url}>
+                  <P size={'L'} color={'gray-light'}>
+                    {video.name}
+                  </P>
+                </Link>
+              </div>
+            ))
+          : ''}
+      </div>
+    </div>
   );
 };
 

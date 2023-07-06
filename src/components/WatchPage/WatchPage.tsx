@@ -78,8 +78,9 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
 
         <PersonsGallery list={persons} />
         <ScrollToTopButton />
+        {comments?.total ? <CommentCarousel comments={comments} /> : ''}
+
         <Trailers videos={videos} />
-        {comments?.total ? <CommentCarousel comments={comments.items} /> : ''}
         <WatchAllDevices name={nameRu || nameEn || ''} image={coverUrl || posterUrl} />
       </section>
     </>

@@ -4,7 +4,7 @@ import PrevArrow from '@/components/Carousel/Arrows/PrevArrow';
 import Slider from 'react-slick';
 import CommentCard from '@/components/Comment/CommentCard/CommentCard';
 import Loader from '@/components/Loader/Loader';
-import { iReviewsItem } from '@/types/kinopoiskTypes';
+import { iReviews } from '@/types/kinopoiskTypes';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
 import { Htag } from '@/components/Htag/Htag';
 import Sup from '@/components/Sup/Sup';
@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
 
 interface ICommentCarousel {
-  comments: iReviewsItem[];
+  comments: iReviews[];
 }
 
 const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
@@ -71,9 +71,9 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
         </div>
       </div>
       <div className={styles.carousel}>
-        {comments ? (
+        {comments?.total ? (
           <Slider {...settings}>
-            {comments.map((comment) => (
+            {comments.items.map((comment) => (
               <CommentCard comment={comment} key={comment.kinopoiskId} />
             ))}
           </Slider>
