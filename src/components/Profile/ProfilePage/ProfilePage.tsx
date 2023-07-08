@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProfilePage.module.scss';
-import { Button } from '@/components/Button/Button';
-import { P } from '@/components/P/P';
+import { Button } from '@/UI/Button/Button';
+import { P } from '@/UI/P/P';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 import SubscriptionsButton from '@/components/Profile/ProfilePage/ProfileBtns/SubscriptionsButton';
 import CertificatesButton from '@/components/Profile/ProfilePage/ProfileBtns/CertificatesButton';
@@ -16,7 +16,7 @@ import CodeLoginButton from '@/components/Profile/ProfilePage/ProfileBtns/CodeLo
 import SettingsButton from '@/components/Profile/ProfilePage/ProfileBtns/SettingsButton';
 import SupportButton from '@/components/Profile/ProfilePage/ProfileBtns/SupportButton';
 import BalanceButton from '@/components/Profile/ProfilePage/ProfileBtns/BalanceButton';
-import ProfileSelector from '@/components/Profile/ProfileSelector/ProfileSelector';
+import ProfileSelector from '@/UI/ProfileSelector/ProfileSelector';
 import EditProfile from '@/components/Profile/EditProfile';
 import ChecksButton from '@/components/Profile/ProfilePage/ProfileBtns/ChecksButton';
 import LoginButton from '@/components/Profile/LoginButton/LoginButton';

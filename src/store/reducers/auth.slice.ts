@@ -27,7 +27,7 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    setUser: (state: IAuth, action: PayloadAction<ISign>) => {
+    setUser(state: IAuth, action: PayloadAction<ISign>) {
       const { profileInfo, token } = action.payload;
       state.user = profileInfo;
       if (profileInfo.photo) {
@@ -36,7 +36,7 @@ export const authSlice = createSlice({
       state.token = token.token;
       localStorage.setItem('token', state.token);
     },
-    logout: (state: IAuth) => {
+    logout(state: IAuth) {
       state.user = null;
       state.token = null;
       state.photo = null;

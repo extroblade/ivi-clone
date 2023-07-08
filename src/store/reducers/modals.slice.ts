@@ -43,36 +43,36 @@ export const modalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
-    setCurrentMovie: (state, action: PayloadAction<ICurrentMovie>) => {
+    setCurrentMovie(state, action: PayloadAction<ICurrentMovie>) {
       state.currentMovie = action.payload;
     },
-    setActiveAlerts: (state, action: PayloadAction<string | null>) => {
+    setActiveAlerts(state, action: PayloadAction<string | null>) {
       state.activeAlerts = action.payload;
     },
-    setShowAuth: (state, action: PayloadAction<boolean>) => {
+    setShowAuth(state, action: PayloadAction<boolean>) {
       state.showAuth = action.payload;
     },
-    setShowUnsub: (state, action: PayloadAction<boolean>) => {
+    setShowUnsub(state, action: PayloadAction<boolean>) {
       state.showUnsub = action.payload;
     },
-    setShowRating: (state, action: PayloadAction<boolean>) => {
+    setShowRating(state, action: PayloadAction<boolean>) {
       state.showRating = action.payload;
     },
-    setShowSearch: (state, action: PayloadAction<boolean>) => {
+    setShowSearch(state, action: PayloadAction<boolean>) {
       state.showSearch = action.payload;
     },
-    setShowWatchPageModal: (state, action: PayloadAction<boolean>) => {
+    setShowWatchPageModal(state, action: PayloadAction<boolean>) {
       state.showWatchPageModal = action.payload;
     },
-    setShowFooterModal: (state, action: PayloadAction<boolean>) => {
+    setShowFooterModal(state, action: PayloadAction<boolean>) {
       state.showFooterModal = action.payload;
     },
-    setShowEditProfile: (state, action: PayloadAction<boolean>) => {
+    setShowEditProfile(state, action: PayloadAction<boolean>) {
       state.showEditProfile = action.payload;
     },
   },
   //>>>>>>
-  extraReducers: (builder) => {
+  extraReducers(builder) {
     builder.addCase(HYDRATE, (state, action) => {
       return {
         ...state,

@@ -1,10 +1,10 @@
 import React from 'react';
-import BreadCrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import BreadCrumbs from '@/UI/Breadcrumbs/Breadcrumbs';
 import Head from 'next/head';
-import MoviesPageDescription from '@/components/MoviesPage/MoviesPageDescription';
-import Filters from '@/components/Filters/Filters';
+import MoviesPageDescription from '@/components/Descriptions/MoviesPageDescription';
+import Filters from '@/UI/Filters/Filters';
 import { useTranslation } from 'react-i18next';
-import Grid from '@/components/Grid/Grid';
+import Grid from '@/UI/Grid/Grid';
 
 const Movies = () => {
   const { t } = useTranslation();

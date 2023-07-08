@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
 import styles from './Trailers.module.scss';
-import { Htag } from '@/components/Htag/Htag';
-import Sup from '@/components/Sup/Sup';
+import { Htag } from '@/UI/Htag/Htag';
+import Sup from '@/UI/Sup/Sup';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { scrollTop } from '@/helpers/scrollTop';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
 import { iVideos } from '@/types/kinopoiskTypes';
 import Link from 'next/link';
-import { P } from '@/components/P/P';
+import { P } from '@/UI/P/P';
 
 interface iTrailers {
   videos: iVideos;

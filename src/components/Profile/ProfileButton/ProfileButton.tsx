@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/UI/Button/Button';
 import styles from './ProfileButton.module.scss';
 import { ICardButtons } from '@/components/Profile/ProfileButton/ProfileButtons.props';
 

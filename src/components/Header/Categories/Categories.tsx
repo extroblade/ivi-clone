@@ -1,25 +1,27 @@
 import React, { FC } from 'react';
 import styles from './Categories.module.scss';
 import Link from 'next/link';
-import { ILink } from '@/types/types';
 import { CategoriesProps } from './Categories.props';
+import { useFetchFilmFiltersQuery } from '@/services/movie.api';
 
-const Categories: FC<CategoriesProps> = ({
-  genres,
-  countries,
-  years,
-  collections,
-}): JSX.Element => {
+const years = [];
+
+for (let i = 2010; i < 2024; i++) {
+  years.push(i);
+}
+
+const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
+  const { data } = useFetchFilmFiltersQuery();
   return (
     <div className={styles.content}>
       <div className={styles.content__items}>
         <div className={styles.content__item}>
           <h5 className={styles.content__title}>Жанры</h5>
           <div className={styles.content__genres}>
-            {genres &&
-              genres.map((item: ILink) => (
-                <Link className={styles.content__link} key={item.title} href={item.link}>
-                  {item.title}
+            {data?.genres &&
+              data.genres.slice(0, 10).map((genre) => (
+                <Link className={styles.content__link} key={genre.genre} href={'/'}>
+                  {genre.genre}
                 </Link>
               ))}
           </div>
@@ -27,30 +29,35 @@ const Categories: FC<CategoriesProps> = ({
         <div className={styles.content__item}>
           <h5 className={styles.content__title}>Страны</h5>
           <div className={styles.content__countries}>
-            {countries &&
-              countries.map((item: ILink) => (
-                <Link className={styles.content__link} key={item.title} href={item.link}>
-                  {item.title}
+            {data?.countries &&
+              data.countries.slice(0, 10).map((country) => (
+                <Link className={styles.content__link} key={country.country} href={'/'}>
+                  {country.country}
                 </Link>
               ))}
           </div>
+        </div>
+        <div className={styles.content__item}>
           <h5 className={styles.content__title}>Годы</h5>
           <div className={styles.content__years}>
-            {years &&
-              years.map((item: ILink) => (
-                <Link className={styles.content__link} key={item.title} href={item.link}>
-                  {item.title}
-                </Link>
-              ))}
+            {years.map((year) => (
+              <Link className={styles.content__link} key={year} href={'/'}>
+                {year}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
       <div className={styles.content__collections}>
         <div className={styles.collections__collection}>
           {collections &&
-            collections.map((item: ILink) => (
-              <Link className={styles.collections__link} key={item.title} href={item.link}>
-                {item.title}
+            collections.map((collection) => (
+              <Link
+                className={styles.collections__link}
+                key={collection.title}
+                href={collection.link}
+              >
+                {collection.title}
               </Link>
             ))}
         </div>

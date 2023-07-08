@@ -3,14 +3,14 @@ import { PersonsGalleryProps } from './PersonsGallery.props';
 import cn from 'classnames';
 import styles from './PersonsGallery.module.scss';
 import Link from 'next/link';
-import { Htag } from '@/components/Htag/Htag';
-import { P } from '@/components/P/P';
+import { Htag } from '@/UI/Htag/Htag';
+import { P } from '@/UI/P/P';
 import { useTranslation } from 'react-i18next';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { useAppSelector } from '@/hooks/redux';
-import Sup from '@/components/Sup/Sup';
+import Sup from '@/UI/Sup/Sup';
 import { professionTypes } from '@/constants/Professions';
 import { scrollTop } from '@/helpers/scrollTop';
 

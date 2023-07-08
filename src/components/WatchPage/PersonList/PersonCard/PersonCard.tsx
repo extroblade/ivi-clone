@@ -5,7 +5,7 @@ import Link from 'next/link';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
-import RatingPlate from '@/components/WatchPage/RatingBlock/RatingPlate';
+import RatingPlate from '@/UI/RatingBlock/RatingPlate';
 
 const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
   const { t } = useTranslation();
@@ -29,7 +29,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
       ) : (
         <>
           <div className={styles.wrapCard}>
-            <RatingPlate rating={rating} />
+            <RatingPlate rating={rating || null} />
           </div>
           <div className={styles.card_name} title={t('categories.rating')}>
             {t('categories.rating')}

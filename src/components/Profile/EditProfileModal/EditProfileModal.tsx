@@ -1,5 +1,5 @@
 import React from 'react';
-import FullScreenModal from '@/components/Modals/FullScreenModal/FullScreenModal';
+import FullScreenModal from '@/UI/FullScreenModal/FullScreenModal';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectModal, setShowEditProfile } from '@/store/reducers/modals.slice';
 

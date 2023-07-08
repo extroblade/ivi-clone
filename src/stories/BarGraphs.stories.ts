@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import BarGraph from '@/components/BarGraph/BarGraph';
-import { BarGraphProps } from '@/components/BarGraph/BarGraph.props';
+import BarGraph from '@/UI/BarGraph/BarGraph';
+import { BarGraphProps } from '@/UI/BarGraph/BarGraph.props';
 
 const meta: Meta<BarGraphProps> = {
   title: 'Main/BarGraph',

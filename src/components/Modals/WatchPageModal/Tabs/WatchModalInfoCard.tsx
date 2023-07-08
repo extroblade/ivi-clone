@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
 import Image from 'next/image';
-import BarGraph from '@/components/BarGraph/BarGraph';
-import { P } from '@/components/P/P';
+import BarGraph from '@/UI/BarGraph/BarGraph';
+import { P } from '@/UI/P/P';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
 import { countTime } from '@/helpers/countTime';

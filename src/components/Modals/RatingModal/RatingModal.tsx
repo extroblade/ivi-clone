@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import FullScreenModal from '@/components/Modals/FullScreenModal/FullScreenModal';
+import FullScreenModal from '@/UI/FullScreenModal/FullScreenModal';
 import styles from './RatingModal.module.scss';
-import { Htag } from '@/components/Htag/Htag';
-import { P } from '@/components/P/P';
-import { Button } from '@/components/Button/Button';
+import { Htag } from '@/UI/Htag/Htag';
+import { P } from '@/UI/P/P';
+import { Button } from '@/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { selectModal, setShowRating } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';

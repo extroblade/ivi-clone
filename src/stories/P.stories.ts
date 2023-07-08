@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { P } from '@/components/P/P';
-import { PProps } from '@/components/P/P.props';
+import { P } from '@/UI/P/P';
+import { PProps } from '@/UI/P/P.props';
 
 const meta: Meta<PProps> = {
   title: 'Main/P',

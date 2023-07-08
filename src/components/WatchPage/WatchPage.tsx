@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from 'react';
-import Player from '../Player/Player';
+import Player from '../../UI/Player/Player';
 import styles from './WatchPage.module.scss';
 import { WatchPageProps } from './WatchPage.props';
 import { PersonsGallery } from '@/components/WatchPage/PersonsGallery/PersonsGallery';
 import { setCurrentMovie } from '@/store/reducers/modals.slice';
 import { useAppDispatch } from '@/hooks/redux';
-import MovieInfo from '@/components/WatchPage/MovieInfo/MovieInfo';
+import MovieInfo from '@/UI/MovieInfo/MovieInfo';
 import { FastAverageColor } from 'fast-average-color';
 import {
   useFetchFilmAwardsQuery,
@@ -13,12 +13,12 @@ import {
   useFetchFilmSimilarsQuery,
   useFetchFilmVideoQuery,
 } from '@/services/movie.api';
-import { Htag } from '@/components/Htag/Htag';
+import { Htag } from '@/UI/Htag/Htag';
 import { useFetchCommentsQuery } from '@/services/comments.api';
-import CommentCarousel from '@/components/Carousel/CommentCarousel/CommentCarousel';
+import CommentCarousel from '@/UI/Carousel/CommentCarousel/CommentCarousel';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
-import ScrollToTopButton from '@/components/WatchPage/ScrollToTopButton/ScrollToTopButton';
-import MovieTitle from '@/components/WatchPage/MovieInfo/MovieTitle';
+import ScrollToTopButton from '@/UI/ScrollToTopButton/ScrollToTopButton';
+import MovieTitle from '@/UI/MovieInfo/MovieTitle';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
 import SimilarMovies from '@/components/WatchPage/SimilarMovies';
 import Trailers from '@/components/WatchPage/Trailers/Trailers';

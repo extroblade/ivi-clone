@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Description from '@/components/Description/Description';
-import { iDesc } from '@/components/Description/Description.props';
+import Description from '@/UI/Description/Description';
+import { iDesc } from '@/UI/Description/Description.props';
 
 const meta: Meta<iDesc> = {
   title: 'Main/Description',

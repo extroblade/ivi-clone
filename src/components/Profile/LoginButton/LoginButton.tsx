@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './LoginButton.module.scss';
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/UI/Button/Button';
 import { TiUserOutline } from 'react-icons/ti';
 import { useAppDispatch } from '@/hooks/redux';
 import { setShowAuth } from '@/store/reducers/modals.slice';

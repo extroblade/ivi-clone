@@ -1,4 +1,4 @@
-import Card from '@/components/Card/Card';
+import Card from '@/UI/Card/Card';
 import RatingModal from '@/components/Modals/RatingModal/RatingModal';
 import { Meta } from '@storybook/react';
 

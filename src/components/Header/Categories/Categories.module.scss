@@ -5,11 +5,14 @@
   width: 100%;
   padding: rem(20);
   display: flex;
+  max-height: 50vh;
   &__items {
     flex: 1 1 55%;
     display: flex;
   }
-  &__item {}
+  &__item {
+    margin: 0 5px;
+  }
   &__collections {
     padding: 0 rem(15);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
@@ -41,7 +44,7 @@
   }
   &__years {
     display: grid;
-    grid-template-columns: repeat(1, 190px);
+    grid-template-columns: repeat(2, 100px);
     grid-gap: rem(5);
     & a {
       margin: 0;
@@ -59,6 +62,7 @@
     letter-spacing: 0.3px;
     opacity: 0.5;
     transition: $time-main;
+    text-transform: capitalize;
     &:hover {
       opacity: 1;
     }

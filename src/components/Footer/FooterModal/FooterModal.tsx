@@ -2,8 +2,8 @@ import { FC } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
 import styles from './FooterModal.module.scss';
-import { Button } from '@/components/Button/Button';
-import { P } from '@/components/P/P';
+import { Button } from '@/UI/Button/Button';
+import { P } from '@/UI/P/P';
 import ModalList from './ModalList/ModalList';
 import { MdOutlineVideoLibrary } from 'react-icons/md';
 import { FiAward } from 'react-icons/fi';
@@ -159,9 +159,7 @@ const FooterModal: FC = (): JSX.Element => {
                   </Button>
                 </div>
                 <div>
-                  <Link href={'https://ask.ivi.ru/'} className={styles.askLink}>
-                    ask.ivi.ru
-                  </Link>
+                  <Link href={'https://ask.ivi.ru/'}>ask.ivi.ru</Link>
                   <P>{t('footer.answers')}</P>
                 </div>
               </div>

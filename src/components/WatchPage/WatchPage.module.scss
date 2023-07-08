@@ -14,7 +14,7 @@
     height: 0;
     padding-bottom: 100%;
   }
-  @media screen and (min-width: 512px) and (max-width: 599px){
+  @media screen and (min-width: 512px) and (max-width: 599px) {
     height: 0;
     padding-bottom: 120%;
   }
@@ -30,7 +30,7 @@
     height: 0;
     padding-bottom: 133.33333333%;
   }
-  opacity: .32;
+  opacity: 0.32;
   transition: opacity 1s;
   left: 0;
   pointer-events: none;
@@ -92,7 +92,7 @@
 }
 
 .movie_options {
-  color: hsla(0,0%,100%,.72);
+  color: hsla(0, 0%, 100%, 0.72);
   padding: 12px;
   margin-bottom: 20px;
   @media screen and (min-width: 600px) and (max-width: 1159px) {
@@ -108,7 +108,7 @@
     font-weight: inherit;
     line-height: inherit;
     p {
-      color: hsla(0,0%,100%,.72);
+      color: hsla(0, 0%, 100%, 0.72);
     }
   }
   .clause_bottom {
@@ -143,10 +143,11 @@
             right: 0;
           }
         }
-        &:before, &:after {
+        &:before,
+        &:after {
           @media screen and (min-width: 1160px) {
-            background-color: hsla(0,0%,100%,.16);
-            content: "";
+            background-color: hsla(0, 0%, 100%, 0.16);
+            content: '';
             height: 1px;
           }
         }
@@ -154,12 +155,12 @@
 
       &__options {
         padding: 12px 0;
-        & +.watch_options__options {
-          @media screen and (min-width: 1160px){
+        & + .watch_options__options {
+          @media screen and (min-width: 1160px) {
             margin-top: 16px;
           }
           @media screen and (max-width: 1159px) {
-            border-top: 1px solid hsla(0,0%,100%,.16);
+            border-top: 1px solid hsla(0, 0%, 100%, 0.16);
           }
         }
         @media screen and (max-width: 1159px) {
@@ -194,25 +195,25 @@
         }
       }
       &__title_narrow {
-        color: hsla(0,0%,100%,.72);
+        color: hsla(0, 0%, 100%, 0.72);
         font-size: inherit;
         font-style: inherit;
         font-weight: inherit;
         line-height: inherit;
-        @media screen and (min-width: 1160px){
+        @media screen and (min-width: 1160px) {
           display: none;
         }
       }
       &__title_wide {
-        color: hsla(0,0%,100%,.72);
+        color: hsla(0, 0%, 100%, 0.72);
         font-size: inherit;
         font-style: inherit;
         font-weight: inherit;
         line-height: inherit;
         span {
-          color: hsla(0,0%,100%,.4);
+          color: hsla(0, 0%, 100%, 0.4);
         }
-        @media screen and (max-width: 1160px){
+        @media screen and (max-width: 1160px) {
           display: none;
         }
       }
@@ -227,30 +228,28 @@
           justify-content: flex-start;
           margin-top: 8px;
         }
-        .badge+.badge {
+        .badge + .badge {
           margin-left: 8px;
         }
       }
     }
   }
   .clause_toggle {
-    color: hsla(0,0%,100%,.88);
+    color: hsla(0, 0%, 100%, 0.88);
     cursor: pointer;
     font-size: 15px;
     font-style: normal;
     line-height: 22px;
-    transition-duration: .4s;
-    transition-property: transform,color;
+    transition-duration: 0.4s;
+    transition-property: transform, color;
     display: inline-block;
     margin-top: 8px;
     font-weight: 400;
-
   }
 }
 
-
 .info_list {
-  color: hsla(0,0%,100%,.8);
+  color: hsla(0, 0%, 100%, 0.8);
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -265,14 +264,14 @@
     position: relative;
     vertical-align: top;
     &:not(:first-child):before {
-      content: "";
+      content: '';
       display: inline-block;
       width: 8px;
     }
     &.item_hasDot:not(:first-child):before {
       display: inline-block;
-      background-color: hsla(0, 0%, 100%, .72);
-      content: "";
+      background-color: hsla(0, 0%, 100%, 0.72);
+      content: '';
       height: 2px;
       margin-bottom: 3px;
       margin-left: 6px;
@@ -282,7 +281,7 @@
     }
   }
   a {
-    color: hsla(0,0%,100%,.72);
+    color: hsla(0, 0%, 100%, 0.72);
     transition: $time-main;
     text-transform: capitalize;
     &:hover:not(:active) {
@@ -304,7 +303,6 @@
 .carousel {
   margin-bottom: 40px;
 }
-
 
 .comments {
   h4 {

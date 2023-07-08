@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '@/components/Button/Button';
-import { ButtonProps } from '@/components/Button/Button.props';
+import { Button } from '@/UI/Button/Button';
+import { ButtonProps } from '@/UI/Button/Button.props';
 
 interface iButton extends ButtonProps {
   title: string;

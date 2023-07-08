@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import Carousel from '@/components/Carousel/Carousel';
+import Carousel from '@/UI/Carousel/Carousel';
 import i18next from 'i18next';
-import Card from '@/components/Card/Card';
+import Card from '@/UI/Card/Card';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
 import { iSimilar } from '@/types/kinopoiskTypes';
@@ -24,7 +24,7 @@ const SimilarMovies: FC<iSimilarCarousel> = ({ similar }) => {
       showAll={similar?.total > 15}
     >
       {similar.items.slice(0, 15).map((card) => (
-        <Card card={card} info={false} book key={card?.kinopoiskId || card?.filmId} />
+        <Card card={card} info={false} book key={card?.filmId} />
       ))}
     </Carousel>
   );

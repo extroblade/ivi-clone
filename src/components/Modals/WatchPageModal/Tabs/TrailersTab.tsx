@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
-import { Htag } from '@/components/Htag/Htag';
-import Player from '@/components/Player/Player';
+import { Htag } from '@/UI/Htag/Htag';
+import Player from '@/UI/Player/Player';
 import styles from '../WatchPageModal.module.scss';
 
 const TrailersTab = () => {

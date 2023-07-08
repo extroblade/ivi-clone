@@ -49,7 +49,7 @@ export const movieApi = createApi({
         keyword,
         page,
       }) => ({
-        url: '/',
+        url: '',
         params: {
           countries,
           genres,

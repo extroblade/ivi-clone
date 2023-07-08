@@ -1,7 +1,7 @@
 @import '@/styles/variables.scss';
 
 .square__icon {
-  svg{
+  svg {
     color: $color-accent;
   }
   width: 100%;
@@ -10,7 +10,7 @@
   padding: 20px 8px;
 }
 .rect__icon {
-  svg{
+  svg {
     color: $color-accent;
     font-size: 20px;
     @media screen and (max-width: 600px) {
@@ -32,7 +32,11 @@
     color: $color-accent;
   }
   background-color: #312b45;
-  background-image: radial-gradient(circle at 50% 50%,rgba(126,121,143,.56),rgba(49,43,69,0) 100%);
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(126, 121, 143, 0.56),
+    rgba(49, 43, 69, 0) 100%
+  );
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -45,10 +49,10 @@
   min-height: 60px;
 }
 .rect__icon__purple {
-  svg{
+  svg {
     color: $color-warning;
   }
-  transition-duration: .4s;
+  transition-duration: 0.4s;
   background-image: url(https://solea-parent.dfs.ivi.ru/picture/bypass/teaserTilePattern_a.svg);
   border-radius: 8px;
   background-position: 50% 50%;
@@ -68,10 +72,10 @@
   padding: 8px 15px;
   overflow: hidden;
   text-overflow: ellipsis;
-  &>:nth-child(1) {
+  & > :nth-child(1) {
     font-size: 1.1rem;
   }
-  &>:nth-child(2) {
+  & > :nth-child(2) {
     font-size: 0.9rem;
   }
 }

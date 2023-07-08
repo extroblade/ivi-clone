@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './WatchAllDevices.module.scss';
-import { Button } from '@/components/Button/Button';
+import { Button } from '@/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Htag } from '@/components/Htag/Htag';
-import { P } from '@/components/P/P';
+import { Htag } from '@/UI/Htag/Htag';
+import { P } from '@/UI/P/P';
 
 const WatchAllDevices = ({ name, image }) => {
   const { t } = useTranslation();

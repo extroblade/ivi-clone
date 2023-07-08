@@ -1,4 +1,4 @@
-@import "@/styles/variables.scss";
+@import '@/styles/variables.scss';
 
 .select_profile {
   padding: 0 12px;
@@ -11,7 +11,7 @@
   &:before {
     content: '';
     display: block;
-    background-color: rgba(255,255,255,.16);
+    background-color: rgba(255, 255, 255, 0.16);
     height: 1px;
     width: 100%;
     pointer-events: none;
@@ -19,10 +19,10 @@
   &:after {
     content: '';
     display: block;
-    background-color: rgba(255,255,255,.16);
+    background-color: rgba(255, 255, 255, 0.16);
     height: 1px;
     width: 100%;
-    pointer-events: none
+    pointer-events: none;
   }
 }
 
@@ -51,7 +51,6 @@
         text-overflow: ellipsis;
         @media screen and (max-width: $mobile) {
           font-size: 24px;
-
         }
       }
       p {
@@ -77,13 +76,13 @@
         margin-right: 10px;
       }
       button {
-        border: 1px solid rgba($color-input, .43);
+        border: 1px solid rgba($color-input, 0.43);
         padding: 10px;
         &:hover {
           border: 1px solid $color-input;
         }
       }
-      +.info {
+      + .info {
         margin-left: 16px;
       }
     }
@@ -91,11 +90,10 @@
       flex-direction: column;
       .info {
         margin: 5px 0;
-        +.info {
+        + .info {
           margin-left: 0;
         }
       }
-
     }
   }
 }
@@ -154,25 +152,25 @@
         width: 20%;
       }
       &.referral_program {
-        width: calc(100%*5/7);
+        width: calc(100% * 5 / 7);
       }
       &.notifications {
-        width: calc(100%*2/7);
+        width: calc(100% * 2 / 7);
       }
       &.smalls {
-        width: calc(100%/7);
+        width: calc(100% / 7);
         svg {
           font-size: 1.5rem;
         }
       }
       @media screen and (max-width: 1271px) {
         &.smalls {
-          width: calc(100%/6);
+          width: calc(100% / 6);
         }
       }
       @media screen and (max-width: 1095px) {
         &.smalls {
-          width: calc(100%/5);
+          width: calc(100% / 5);
         }
       }
       @media screen and (max-width: 919px) {
@@ -195,17 +193,17 @@
           width: 50%;
         }
         &.smalls {
-          width: calc(100%/4);
+          width: calc(100% / 4);
         }
       }
       @media screen and (max-width: 743px) {
         &.smalls {
-          width: calc(100%/3);
+          width: calc(100% / 3);
         }
       }
       @media screen and (max-width: $mobile+px) {
         &.smalls {
-          width: calc(100%/4);
+          width: calc(100% / 4);
         }
         &.referral_program {
           width: 100%;
@@ -214,10 +212,10 @@
           width: 100%;
         }
         &.certificate {
-          width: calc(100%*2/3);
+          width: calc(100% * 2 / 3);
         }
         &.fund {
-          width: calc(100%/3);
+          width: calc(100% / 3);
         }
       }
       @media screen and (max-width: 511px) {
@@ -231,12 +229,12 @@
           width: 100%;
         }
         &.smalls {
-          width: calc(100%/3);
+          width: calc(100% / 3);
         }
       }
       @media screen and (max-width: 391px) {
         &.smalls {
-          width: calc(100%/2);
+          width: calc(100% / 2);
         }
       }
       @media screen and (max-width: $minWidth+px) {
@@ -245,14 +243,11 @@
         }
       }
     }
-
   }
 
   @media screen and (max-width: 919px) {
-    .list{
+    .list {
       flex-wrap: wrap;
     }
   }
 }
-
-

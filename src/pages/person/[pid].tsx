@@ -2,7 +2,7 @@ import { PersonInfo } from '@/components/Person/Person';
 import NotFoundPage from '@/pages/404';
 import Head from 'next/head';
 import i18next from 'i18next';
-import Loader from '@/components/Loader/Loader';
+import Loader from '@/UI/Loader/Loader';
 import React from 'react';
 import { iPerson } from '@/types/kinopoiskTypes';
 

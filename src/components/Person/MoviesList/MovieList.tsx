@@ -1,8 +1,8 @@
 import React, { FC, useMemo, useState } from 'react';
 import styles from './MovieList.module.scss';
 
-import { P } from '@/components/P/P';
-import { Htag } from '@/components/Htag/Htag';
+import { P } from '@/UI/P/P';
+import { Htag } from '@/UI/Htag/Htag';
 import MovieCard from './MovieCard/MovieCard';
 import { MovieListProps } from './MovieList.props';
 import { useTranslation } from 'react-i18next';

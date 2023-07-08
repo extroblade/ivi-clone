@@ -4,14 +4,14 @@ import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '@/hooks/redux';
 import { selectAuth } from '@/store/reducers/auth.slice';
-import { Htag } from '@/components/Htag/Htag';
+import { Htag } from '@/UI/Htag/Htag';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
-import Card from '@/components/Card/Card';
-import { Button } from '@/components/Button/Button';
+import Card from '@/UI/Card/Card';
+import { Button } from '@/UI/Button/Button';
 import { BsTrash } from 'react-icons/bs';
 import { useSearchParamsState } from '@/hooks/useSearchParamsState';
-import AddNewMovie from '@/components/AdminPage/AddNewMovie';
-import Loader from '@/components/Loader/Loader';
+import AddNewMovie from '@/UI/AddNewMovie/AddNewMovie';
+import Loader from '@/UI/Loader/Loader';
 
 const PAGE_LIMIT = 10;
 
@@ -21,7 +21,7 @@ const Admin = () => {
   const [page, setPage] = useSearchParamsState<number>({ name: 'page' });
   const { data: movies } = useFetchAllFilmsQuery({});
   if (user) return <NotFoundPage />; //todo: fix when slice is ready
-  const del = (id: number) => {
+  const del = () => {
     console.log('mock delete');
   };
 

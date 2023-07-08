@@ -1,0 +1,57 @@
+@import '@/styles/variables.scss';
+
+.vote {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 100%;
+}
+
+.value {
+  color: rgba($color-gray-text, 0.72);
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.success {
+    color: rgba($color-success, 0.9);
+  }
+  &.danger {
+    color: rgba($color-danger, 0.9);
+  }
+}
+.buttonUp,
+.buttonDown {
+  color: rgba($color-gray-text, 0.72);
+  transition: color 400ms;
+  cursor: pointer;
+  font-size: 0;
+  position: relative;
+  background-color: transparent !important;
+  stroke-width: 10px !important;
+  padding: 0 10px;
+  height: 100%;
+  &:hover {
+    transition: color 80ms;
+    color: $color-gray-text;
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    background-color: transparent;
+  }
+}
+
+.buttonUp {
+  &.active {
+    color: $color-success !important;
+  }
+}
+.buttonDown {
+  &.active {
+    color: $color-danger !important;
+  }
+}

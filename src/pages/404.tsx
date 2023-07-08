@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import NotFound from '../components/NotFound/NotFound';
+import NotFound from '../UI/NotFound/NotFound';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
-import { moviesSlice } from '@/store/reducers/movie.slice';
 import { HYDRATE } from 'next-redux-wrapper';
 
 interface iFilters {
@@ -60,7 +59,7 @@ export const filtersSlice = createSlice({
     },
   },
   //>>>>>>
-  extraReducers: (builder) => {
+  extraReducers(builder) {
     builder.addCase(HYDRATE, (state, action) => {
       return {
         ...state,
@@ -80,6 +79,6 @@ export const {
   setYearTo,
   setPage,
   setKeyword,
-} = moviesSlice.actions;
+} = filtersSlice.actions;
 export const selectFilters = (state: RootState) => state.filtersReducer;
 export default filtersSlice.reducer;

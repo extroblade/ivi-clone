@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './ModalList.module.scss';
 import { ModalListProps } from './ModalList.props';
-import { P } from '@/components/P/P';
+import { P } from '@/UI/P/P';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 import { ILink } from '@/types/types';
 import { movieCategories } from '@/mock/movieCategories';

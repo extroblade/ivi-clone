@@ -1,9 +1,9 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import AddToFavoritesButton from '@/components/Card/CardButtons/AddToFavoritesButton';
-import BlockButton from '@/components/Card/CardButtons/BlockButton';
-import FindSimilarButton from '@/components/Card/CardButtons/FindSimilarButton';
+import AddToFavoritesButton from '@/UI/Card/CardButtons/AddToFavoritesButton';
+import BlockButton from '@/UI/Card/CardButtons/BlockButton';
+import FindSimilarButton from '@/UI/Card/CardButtons/FindSimilarButton';
 import { Provider } from 'react-redux';
-import RateButton from '@/components/Card/CardButtons/RateButton';
+import RateButton from '@/UI/Card/CardButtons/RateButton';
 import { configureStore } from '@reduxjs/toolkit';
 import modalsReducer from '@/store/reducers/modals.slice';
 import React from 'react';

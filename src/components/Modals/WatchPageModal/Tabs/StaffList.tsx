@@ -4,7 +4,7 @@ import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scs
 import { iPerson } from '@/types/kinopoiskTypes';
 import Link from 'next/link';
 import Image from 'next/image';
-import Loader from '@/components/Loader/Loader';
+import Loader from '@/UI/Loader/Loader';
 
 interface iStaffList {
   persons: iPerson[];
@@ -18,7 +18,7 @@ const StaffList: FC<iStaffList> = ({ persons }) => {
       {persons?.length ? (
         <div className={styles.cards} onClick={close}>
           {persons.map((person: iPerson) => {
-            const { staffId, posterUrl: url, nameRu, nameEn, professionText } = person;
+            const { staffId, posterUrl: url, nameRu, nameEn } = person;
             return (
               <Link href={`/person/${staffId}`} key={staffId + 'id'} className={styles.link}>
                 <div className={styles.card}>

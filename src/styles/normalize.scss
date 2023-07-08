@@ -27,7 +27,8 @@ html {
 body {
   margin: 0;
   * {
-    :focus, &:focus-visible {
+    :focus,
+    &:focus-visible {
       outline: -webkit-focus-ring-color auto 0;
     }
   }

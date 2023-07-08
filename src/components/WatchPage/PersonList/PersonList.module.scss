@@ -2,28 +2,28 @@
 .list {
   display: grid;
   grid-gap: 4px;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   overflow: hidden;
   @media (max-width: $pc) {
     justify-content: start;
   }
   @media screen and (max-width: 391px) {
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   @media screen and (min-width: 392px) and (max-width: 511px) {
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
   @media screen and (min-width: 512px) and (max-width: 599px) {
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   @media screen and (min-width: 600px) and (max-width: 879px) {
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   @media screen and (min-width: 880px) and (max-width: 1159px) {
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
   @media screen and (min-width: 1160px) {
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }

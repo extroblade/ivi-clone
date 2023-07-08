@@ -1,10 +1,10 @@
 import React from 'react';
-import BreadCrumbs from '@/components/Breadcrumbs/Breadcrumbs';
+import BreadCrumbs from '@/UI/Breadcrumbs/Breadcrumbs';
 import Head from 'next/head';
-import AnimationPageDescription from '@/components/AnimationPage/AnimationPageDescription';
+import AnimationPageDescription from '@/components/Descriptions/AnimationPageDescription';
 import { useTranslation } from 'react-i18next';
-import Filters from '@/components/Filters/Filters';
-import Grid from '@/components/Grid/Grid';
+import Filters from '@/UI/Filters/Filters';
+import Grid from '@/UI/Grid/Grid';
 
 const Index = () => {
   const { t } = useTranslation();

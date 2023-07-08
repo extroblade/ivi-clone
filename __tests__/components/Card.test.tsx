@@ -1,10 +1,10 @@
 import { cleanup, render } from '@testing-library/react';
-import Card from '@/components/Card/Card';
+import Card from '@/UI/Card/Card';
 import { configureStore } from '@reduxjs/toolkit';
 import modalsReducer from '@/store/reducers/modals.slice';
 import { Provider } from 'react-redux';
 import { persons } from '@/mock/persons';
-import ShowAll from '@/components/Card/ShowAll';
+import ShowAll from '@/UI/Card/ShowAll';
 import React from 'react';
 
 const mockStore = configureStore({ reducer: { modalsReducer } });

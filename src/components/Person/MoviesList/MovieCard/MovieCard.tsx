@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import styles from './MovieCard.module.scss';
 import { MovieCardProps } from './MovieCard.props';
 import Link from 'next/link';
-import { Button } from '@/components/Button/Button';
-import { P } from '@/components/P/P';
+import { Button } from '@/UI/Button/Button';
+import { P } from '@/UI/P/P';
 import { useTranslation } from 'react-i18next';
-import CardLoader from '@/components/Card/CardLoader';
+import CardLoader from '@/UI/Card/CardLoader';
 import { professionTypes } from '@/constants/Professions';
 
 const MovieCard: FC<MovieCardProps> = ({ card }) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
-import { Htag } from '@/components/Htag/Htag';
+import { Htag } from '@/UI/Htag/Htag';
 import StaffList from '@/components/Modals/WatchPageModal/Tabs/StaffList';
 
 const PersonsTab = () => {

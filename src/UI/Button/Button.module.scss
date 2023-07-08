@@ -1,0 +1,127 @@
+@import '@/styles/variables.scss';
+
+.button {
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: $time-main;
+  padding: 0 12px;
+  background-color: #1f1b2e;
+  border-color: #1f1b2e;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+    &:hover {
+      background-color: #1f1b2e;
+    }
+  }
+  &:hover {
+    background-color: #28233b;
+  }
+}
+
+.rectangle {
+  border-radius: 8px;
+}
+
+.square {
+  width: 40px;
+  border-radius: 8px;
+}
+
+.circle {
+  width: 40px;
+  border-radius: 20px;
+}
+.outline {
+  background-color: transparent;
+  transition-duration: 0.4s;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  min-height: 40px;
+  border-radius: 12px;
+  padding: 9px 15px;
+  &:hover {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.72);
+  }
+  @media screen and (max-width: 1160px) {
+    padding: 0.8rem 0.8rem;
+  }
+}
+
+.red {
+  background-color: #ea003d;
+  border-color: #ea003d;
+  border-radius: 8px;
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+    &:hover {
+      background-color: #ea003d;
+    }
+  }
+  &:hover {
+    background-color: #ff0f4d;
+    border-color: #ff0f4d;
+  }
+}
+
+.S {
+  height: 32px;
+  padding: 7px 11px;
+  font-size: 13px;
+}
+
+.M {
+  height: 40px;
+  padding: 9px 15px;
+}
+
+.L {
+  height: 48px;
+  padding: 5px 15px;
+}
+
+.gray {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: hsla(0, 0%, 100%, 0.48);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+  &:hover {
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.transparent {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: $color-input;
+  &:hover {
+    color: $color-main;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.button {
+  font-size: 0.9em;
+  @media screen and (max-width: 1160px) {
+    font-size: 0.85em;
+  }
+}

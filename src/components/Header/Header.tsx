@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import styles from './Header.module.scss';
-import { Button } from '../Button/Button';
-import SearchButton from '@/components/Header/Search/SearchButton/SearchButton';
-import Alerts from '@/components/Header/Alerts/Alerts';
+import { Button } from '@/UI/Button/Button';
+import SearchButton from '@/components/Modals/Search/SearchButton/SearchButton';
+import Notifications from '@/components/Header/Notifications/Notifications';
 import User from '@/components/Header/User/User';
 import Submenu from '@/components/Header/Submenu/Submenu';
 import { MdNotificationsNone } from 'react-icons/md';
@@ -15,7 +15,7 @@ import { seriesCategories } from '@/mock/seriesCategories';
 import { cartoonCategories } from '@/mock/cartoonCategories';
 import logo from '../../../public/images/iviLogo.svg';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '@/components/LanguageSwitcher/LanguageSwitcher';
+import LanguageSwitcher from '@/UI/LanguageSwitcher/LanguageSwitcher';
 import { useSession } from 'next-auth/react';
 
 const Header: FC = () => {
@@ -93,7 +93,7 @@ const Header: FC = () => {
           </div>
           <div className={styles.actions}>
             <Submenu icon={MdNotificationsNone} link={'/notifications'}>
-              <Alerts />
+              <Notifications />
             </Submenu>
             <Submenu icon={BiUser} user={photo} link={'/profile'} outline>
               <User />

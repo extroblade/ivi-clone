@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
-import Carousel from '@/components/Carousel/Carousel';
-import Card from '@/components/Card/Card';
+import Carousel from '@/UI/Carousel/Carousel';
+import Card from '@/UI/Card/Card';
 import React from 'react';
 
 const cards = [

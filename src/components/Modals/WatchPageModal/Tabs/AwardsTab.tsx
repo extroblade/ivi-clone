@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '@/hooks/redux';
 import { selectModal } from '@/store/reducers/modals.slice';
-import { Htag } from '@/components/Htag/Htag';
+import { Htag } from '@/UI/Htag/Htag';
 
 const AwardsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);

@@ -2,8 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import WatchPage from '@/components/WatchPage/WatchPage';
 import { useTranslation } from 'react-i18next';
-import MovieBreadcrumbs from '@/components/Breadcrumbs/MovieBreadcrumbs';
-import NotFound from '@/components/NotFound/NotFound';
+import MovieBreadcrumbs from '@/UI/Breadcrumbs/MovieBreadcrumbs';
+import NotFound from '@/UI/NotFound/NotFound';
 import { iFilm } from '@/types/kinopoiskTypes';
 import { movieTypes } from '@/constants/Movies';
 
