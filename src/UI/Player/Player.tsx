@@ -30,6 +30,8 @@ const Player: FC<PlayerProps> = ({ url, actions }) => {
     scrollTop();
   };
 
+  if (!url) return <div className={`${styles.placeholder} loader`} />;
+
   return (
     <div className={styles.container}>
       <div className={styles.player}>

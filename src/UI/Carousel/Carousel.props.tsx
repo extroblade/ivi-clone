@@ -1,10 +1,9 @@
-import { ReactNode } from 'react';
 import 'i18next';
+import { iFetchedFilms, iSimilar } from '@/types/kinopoiskTypes';
 
 export interface CarouselProps {
   title?: string;
   route?: string;
-  showAll?: boolean;
-  children: ReactNode;
+  movies: iFetchedFilms | iSimilar;
   settings?: object;
 }

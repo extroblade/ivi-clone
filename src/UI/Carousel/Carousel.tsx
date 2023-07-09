@@ -10,14 +10,9 @@ import { Htag } from '@/UI/Htag/Htag';
 import ShowAll from '@/UI/Card/ShowAll';
 import NextArrow from '@/UI/Carousel/Arrows/NextArrow';
 import PrevArrow from '@/UI/Carousel/Arrows/PrevArrow';
+import Card from '@/UI/Card/Card';
 
-const Carousel: FC<CarouselProps> = ({
-  title,
-  route,
-  showAll = false,
-  children,
-  settings,
-}): JSX.Element => {
+const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.Element => {
   if (!settings)
     settings = {
       dots: false,
@@ -103,8 +98,10 @@ const Carousel: FC<CarouselProps> = ({
         </div>
       )}
       <Slider {...settings}>
-        {children}
-        {showAll && (
+        {(movies?.total ? movies.items : [...new Array(15)]).slice(0, 15).map((card, index) => (
+          <Card card={card} star book find block key={card?.id || index} />
+        ))}
+        {movies?.total > 15 && (
           <Link href={route || '/movies'}>
             <ShowAll />
           </Link>

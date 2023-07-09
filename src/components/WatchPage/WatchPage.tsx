@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import Player from '../../UI/Player/Player';
 import styles from './WatchPage.module.scss';
 import { WatchPageProps } from './WatchPage.props';
@@ -6,14 +6,12 @@ import { PersonsGallery } from '@/components/WatchPage/PersonsGallery/PersonsGal
 import { setCurrentMovie } from '@/store/reducers/modals.slice';
 import { useAppDispatch } from '@/hooks/redux';
 import MovieInfo from '@/UI/MovieInfo/MovieInfo';
-import { FastAverageColor } from 'fast-average-color';
 import {
   useFetchFilmAwardsQuery,
   useFetchFilmFactsQuery,
   useFetchFilmSimilarsQuery,
   useFetchFilmVideoQuery,
 } from '@/services/movie.api';
-import { Htag } from '@/UI/Htag/Htag';
 import { useFetchCommentsQuery } from '@/services/comments.api';
 import CommentCarousel from '@/UI/Carousel/CommentCarousel/CommentCarousel';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
@@ -22,6 +20,7 @@ import MovieTitle from '@/UI/MovieInfo/MovieTitle';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
 import SimilarMovies from '@/components/WatchPage/SimilarMovies';
 import Trailers from '@/components/WatchPage/Trailers/Trailers';
+import BGContainer from '@/UI/MovieBGContainer/MovieBGContainer';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: comments } = useFetchCommentsQuery({ id: movie.kinopoiskId });
@@ -32,44 +31,24 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: similar } = useFetchFilmSimilarsQuery({ id: movie.kinopoiskId });
   const dispatch = useAppDispatch();
 
-  const [bgColor, setBgColor] = useState('');
   useEffect(() => {
     dispatch(setCurrentMovie({ ...movie, persons, comments, awards, videos, facts, index: 0 }));
   }, [dispatch, movie.kinopoiskId, persons, comments, awards, videos, facts]);
-  useEffect(() => {
-    const fac = new FastAverageColor();
-    if (movie?.coverUrl) {
-      fac
-        .getColorAsync(movie.coverUrl, {
-          algorithm: 'simple',
-        })
-        .then((color) => {
-          setBgColor(() => color.hex);
-        });
-    }
-  }, [dispatch, movie]);
 
-  const { nameRu, nameEn, posterUrl, coverUrl } = movie;
+  const { nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
+  const title = nameRu || nameEn || nameOriginal || '';
+  const cover = coverUrl || posterUrl || '';
   return (
     <>
-      <div
-        className={styles.bg_container}
-        style={{
-          background: `linear-gradient(${bgColor} 0%, transparent 100%)`,
-        }}
-      />
+      <BGContainer movie={movie} />
       <section className={styles.watch}>
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>
             <div className={styles.mobile_title}>
-              <MovieTitle enFilmName={nameEn} filmName={nameRu} />
+              <MovieTitle enFilmName={nameEn || nameOriginal} filmName={nameRu || nameOriginal} />
             </div>
             <div className={styles.watch__player}>
-              {!videos?.items[0]?.url && <Htag tag={'h3'}>Трейлер не добавлен</Htag>}
-              <Player
-                url={videos?.items[0]?.url || 'https://www.youtube.com/watch?v=ysz5S6PUM-U'}
-                actions
-              />
+              <Player url={videos?.items[0]?.url} actions />
             </div>
             <MovieInfo />
           </div>
@@ -78,10 +57,10 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
 
         <PersonsGallery list={persons} />
         <ScrollToTopButton />
-        {comments?.total ? <CommentCarousel comments={comments} /> : ''}
+        <CommentCarousel comments={comments} />
 
         <Trailers videos={videos} />
-        <WatchAllDevices name={nameRu || nameEn || ''} image={coverUrl || posterUrl} />
+        <WatchAllDevices name={title} image={cover} />
       </section>
     </>
   );

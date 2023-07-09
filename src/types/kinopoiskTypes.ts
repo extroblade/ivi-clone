@@ -330,3 +330,9 @@ export interface iFilm {
   shortFilm: boolean;
   completed: boolean;
 }
+
+export interface iFetchedFilms {
+  total: number;
+  totalPages: number;
+  items: iFilm[];
+}

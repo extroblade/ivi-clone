@@ -1,44 +1,5 @@
 @import '@/styles/variables.scss';
 
-.bg_container {
-  @media screen and (min-width: 1160px) {
-    height: 0;
-    padding-bottom: 62.5%;
-    width: 100%;
-  }
-  @media screen and (min-width: 880px) and (max-width: 1159px) {
-    height: 0;
-    padding-bottom: 75%;
-  }
-  @media screen and (min-width: 600px) and (max-width: 879px) {
-    height: 0;
-    padding-bottom: 100%;
-  }
-  @media screen and (min-width: 512px) and (max-width: 599px) {
-    height: 0;
-    padding-bottom: 120%;
-  }
-  @media screen and (min-width: 512px) and (max-width: 599px) {
-    height: 0;
-    padding-bottom: 120%;
-  }
-  @media screen and (min-width: 392px) and (max-width: 511px) {
-    height: 0;
-    padding-bottom: 100%;
-  }
-  @media screen and (max-width: 391px) {
-    height: 0;
-    padding-bottom: 133.33333333%;
-  }
-  opacity: 0.32;
-  transition: opacity 1s;
-  left: 0;
-  pointer-events: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-}
 .watch {
   * {
     z-index: 1;

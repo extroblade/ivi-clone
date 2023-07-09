@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
 
 interface ICommentCarousel {
-  comments: iReviews[];
+  comments: iReviews;
 }
 
 const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
@@ -60,6 +60,10 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };
+
+  if (!comments) return <Loader />;
+  if (!comments?.total) return;
+
   return (
     <>
       <div className={styles.comments_container}>
@@ -71,15 +75,11 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
         </div>
       </div>
       <div className={styles.carousel}>
-        {comments?.total ? (
-          <Slider {...settings}>
-            {comments.items.map((comment) => (
-              <CommentCard comment={comment} key={comment.kinopoiskId} />
-            ))}
-          </Slider>
-        ) : (
-          <Loader />
-        )}
+        <Slider {...settings}>
+          {comments.items.map((comment) => (
+            <CommentCard comment={comment} key={comment.kinopoiskId} />
+          ))}
+        </Slider>
       </div>
     </>
   );
