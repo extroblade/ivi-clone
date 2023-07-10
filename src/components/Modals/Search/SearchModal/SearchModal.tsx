@@ -38,7 +38,7 @@ const SearchModal: FC = (): JSX.Element => {
 
   const request = useDebounce((text: string) => {
     setLoading(() => true);
-    fetch(`${process.env.API}v2.2/films/?keyword=${text}`, {
+    fetch(`${process.env.API}v2.2/films?keyword=${text}`, {
       method: 'GET',
       headers: {
         'X-API-KEY': process.env.X_API_KEY,
@@ -51,7 +51,7 @@ const SearchModal: FC = (): JSX.Element => {
       })
       .then(() => setLoading(() => false))
       .catch((err) => console.log(err));
-    fetch(`${process.env.API}v1/persons/?name=${text}`, {
+    fetch(`${process.env.API}v1/persons?name=${text}`, {
       method: 'GET',
       headers: {
         'X-API-KEY': process.env.X_API_KEY,

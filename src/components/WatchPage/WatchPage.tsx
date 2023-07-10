@@ -29,6 +29,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: videos } = useFetchFilmVideoQuery({ id: movie.kinopoiskId });
   const { data: facts } = useFetchFilmFactsQuery({ id: movie.kinopoiskId });
   const { data: similar } = useFetchFilmSimilarsQuery({ id: movie.kinopoiskId });
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
   const title = nameRu || nameEn || nameOriginal || '';
   const cover = coverUrl || posterUrl || '';
+  const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url || null;
   return (
     <>
       <BGContainer movie={movie} />
@@ -48,7 +50,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
               <MovieTitle enFilmName={nameEn || nameOriginal} filmName={nameRu || nameOriginal} />
             </div>
             <div className={styles.watch__player}>
-              <Player url={videos?.items[0]?.url} actions />
+              <Player url={trailerYT} actions />
             </div>
             <MovieInfo />
           </div>

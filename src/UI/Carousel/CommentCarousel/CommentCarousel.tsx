@@ -60,7 +60,6 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };
-
   if (!comments) return <Loader />;
   if (!comments?.total) return;
 

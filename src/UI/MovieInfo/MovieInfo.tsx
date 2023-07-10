@@ -54,9 +54,8 @@ const MovieInfo: FC = () => {
       <div className={styles.watch__rating}>
         <PersonList list={persons} rating={ratingKinopoisk} />
       </div>
-      <Explanations array={facts?.items.slice(0, 5)} />
+      <Explanations facts={facts} />
       <MovieOptions movie={currentMovie} />
-      <div className={styles.watch__medallions}></div>
       <RatingBlock
         rating={ratingKinopoisk}
         rates={ratingKinopoiskVoteCount}

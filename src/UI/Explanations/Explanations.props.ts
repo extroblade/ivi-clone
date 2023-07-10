@@ -1,5 +1,5 @@
-import { iFactsItems } from '@/types/kinopoiskTypes';
+import { iFacts } from '@/types/kinopoiskTypes';
 
 export interface ExplanationsProps {
-  array: iFactsItems[];
+  facts: iFacts;
 }

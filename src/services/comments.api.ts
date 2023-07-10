@@ -17,21 +17,8 @@ export const commentsApi = createApi({
       query: ({ id }) => ({
         url: `/v2.2/films/${id}/reviews`,
       }),
-      providesTags: (result) =>
-        result?.length
-          ? [
-              ...result.map(({ id }) => ({ type: 'Comments', id })),
-              { type: 'Comments', id: 'LIST' },
-            ]
-          : [{ type: 'Comments', id: 'LIST' }],
     }),
   }),
 });
 
-export const {
-  useFetchCommentsQuery,
-  // useFetchAllCommentsQuery,
-  // useCreateCommentsMutation,
-  // useDeleteCommentMutation,
-  // useAddCommentMutation,
-} = commentsApi;
+export const { useFetchCommentsQuery } = commentsApi;
