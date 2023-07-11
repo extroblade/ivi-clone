@@ -3,17 +3,16 @@ import styles from './Explanations.module.scss';
 import Image from 'next/image';
 import { ExplanationsProps } from '@/UI/Explanations/Explanations.props';
 import { iFactsItems } from '@/types/kinopoiskTypes';
+import Loader from '@/UI/Loader/Loader';
+import { useFetchFilmFactsQuery } from '@/services/movie.api';
 
-const Explanations: FC<ExplanationsProps> = ({ facts }) => {
+const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
+  const { data: facts, isLoading, error } = useFetchFilmFactsQuery({ id: factsId });
+
   const items = facts?.items.filter((item) => item.text).slice(0, 5);
   const length = items?.length || 0;
   const [active, setActive] = useState<number>(0);
-  const [now, setNow] = useState<iFactsItems | null>(length ? items[0] : null);
-  useEffect(() => {
-    if (length) {
-      setNow(() => items.find((item, index) => index == active));
-    }
-  }, [active]);
+  const [now, setNow] = useState<iFactsItems | null>(null);
 
   const nextSlide = () => {
     if (active < length - 1) {
@@ -26,13 +25,22 @@ const Explanations: FC<ExplanationsProps> = ({ facts }) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [active]);
+    if (facts?.total) {
+      setNow(() => items[0]);
+    }
+  }, [facts]);
 
-  if (length < 1) return;
+  useEffect(() => {
+    if (length > 1) {
+      setNow(() => items.find((item, index) => index == active));
+      const interval = setInterval(() => {
+        nextSlide();
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [active]);
+  if (isLoading) return <Loader />;
+  if (error?.error || length < 1) return <></>;
   return (
     <div className={styles.explanations} onClick={nextSlide}>
       <div className={styles.slider_container}>

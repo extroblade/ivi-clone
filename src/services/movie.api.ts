@@ -7,6 +7,7 @@ import {
   iFilm,
   iFilters,
   iImages,
+  iReviews,
   iSeasons,
   iSimilar,
 } from '@/types/kinopoiskTypes';
@@ -33,6 +34,7 @@ export const movieApi = createApi({
       headers.set('Content-Type', 'application/json');
       return headers;
     },
+    mode: 'cors',
   }),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
@@ -66,64 +68,69 @@ export const movieApi = createApi({
     }),
     fetchTopFilm: build.query<iFilm[], any>({
       query: ({ type, page = 1 }) => ({
-        url: `/top`,
+        url: `top`,
         params: { type, page },
       }),
     }),
     fetchFilmPremieres: build.query<iFilm[], any>({
       query: ({ year = new Date().getFullYear(), month = new Date().getMonth() }) => ({
-        url: `/premieres`,
+        url: `premieres`,
         params: { year, month },
       }),
     }),
     fetchFilmFilters: build.query<iFilters[], Record<string, string>>({
       query: () => ({
-        url: `/filters`,
+        url: `filters`,
       }),
     }),
     fetchFilmImages: build.query<iImages[], number>({
       query: ({ id }) => ({
-        url: `/${id}/images`,
+        url: `${id}/images`,
       }),
     }),
     fetchFilmSimilars: build.query<iSimilar[], number>({
       query: ({ id }) => ({
-        url: `/${id}/similars`,
+        url: `${id}/similars`,
       }),
     }),
     fetchFilmVideo: build.query<any[], number>({
       query: ({ id }) => ({
-        url: `/${id}/videos`,
+        url: `${id}/videos`,
       }),
     }),
     fetchFilmAwards: build.query<iAwards[], number>({
       query: ({ id }) => ({
-        url: `/${id}/awards`,
+        url: `${id}/awards`,
       }),
     }),
     fetchFilmBoxOffice: build.query<iBoxOffice[], number>({
       query: ({ id }) => ({
-        url: `/${id}/box_office`,
+        url: `${id}/box_office`,
       }),
     }),
     fetchFilmDistributions: build.query<iDistributions[], number>({
       query: ({ id }) => ({
-        url: `/${id}/distributions`,
+        url: `${id}/distributions`,
       }),
     }),
     fetchFilmFacts: build.query<iFacts[], number>({
       query: ({ id }) => ({
-        url: `/${id}/facts`,
+        url: `${id}/facts`,
       }),
     }),
     fetchFilmSeasons: build.query<iSeasons[], number>({
       query: ({ id }) => ({
-        url: `/${id}/seasons`,
+        url: `${id}/seasons`,
       }),
     }),
     fetchOneFilm: build.query<iFilm, number>({
       query: ({ id }) => ({
-        url: `/${id}`,
+        url: `${id}`,
+      }),
+    }),
+    fetchComments: build.query<iReviews, number>({
+      query: ({ id }) => ({
+        url: `${id}/reviews`,
       }),
     }),
     // providesTags: (result) =>
@@ -170,4 +177,5 @@ export const {
   useFetchFilmFactsQuery,
   useFetchFilmSeasonsQuery,
   useFetchOneFilmQuery,
+  useFetchCommentsQuery,
 } = movieApi;

@@ -12,8 +12,9 @@ import { countTime } from '@/helpers/countTime';
 
 const MovieInfo: FC = () => {
   const { currentMovie } = useAppSelector(selectModal);
-  if (!currentMovie?.year) return;
+  if (!currentMovie?.year) return <></>;
   const {
+    kinopoiskId,
     year,
     countries,
     ratingKinopoisk,
@@ -23,7 +24,6 @@ const MovieInfo: FC = () => {
     nameEn,
     nameRu,
     persons,
-    facts,
   } = currentMovie;
 
   return (
@@ -54,7 +54,7 @@ const MovieInfo: FC = () => {
       <div className={styles.watch__rating}>
         <PersonList list={persons} rating={ratingKinopoisk} />
       </div>
-      <Explanations facts={facts} />
+      <Explanations factsId={kinopoiskId} />
       <MovieOptions movie={currentMovie} />
       <RatingBlock
         rating={ratingKinopoisk}

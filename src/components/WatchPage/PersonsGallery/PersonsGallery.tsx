@@ -43,6 +43,8 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                   nameOriginal,
                   professionKey,
                 } = person;
+                const name =
+                  (i18n.language == 'en' ? nameEn || nameOriginal : nameRu || nameOriginal) || '';
                 return (
                   <Link
                     href={`/person/${staffId}`}
@@ -60,17 +62,13 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                       </div>
                     </div>
                     <div>
-                      {(i18n.language == 'en' ? nameEn || nameOriginal : nameRu || nameOriginal)
+                      {name
                         .split(' ')
                         .slice(0, 2)
                         .map((word) => (
-                          <>
-                            {word?.length && (
-                              <p key={staffId + word} className={styles.name}>
-                                {word}
-                              </p>
-                            )}
-                          </>
+                          <div key={staffId + word}>
+                            {word?.length && <p className={styles.name}>{word}</p>}
+                          </div>
                         ))}
                       <P size="S">
                         {i18n.language == 'en'

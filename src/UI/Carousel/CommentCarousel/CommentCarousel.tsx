@@ -13,14 +13,16 @@ import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/red
 import { scrollTop } from '@/helpers/scrollTop';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
+import { useFetchCommentsQuery } from '@/services/movie.api';
 
 interface ICommentCarousel {
-  comments: iReviews;
+  comments?: iReviews;
+  commentsId: number;
 }
 
-const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
+const CommentCarousel: FC<ICommentCarousel> = ({ commentsId }) => {
   const { t } = useTranslation();
-
+  const { data: comments, isLoading, error } = useFetchCommentsQuery({ id: commentsId });
   const settings = {
     dots: false,
     infinite: false,
@@ -60,8 +62,8 @@ const CommentCarousel: FC<ICommentCarousel> = ({ comments }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };
-  if (!comments) return <Loader />;
-  if (!comments?.total) return;
+  if (isLoading) return <Loader />;
+  if (error?.error) return <></>;
 
   return (
     <>

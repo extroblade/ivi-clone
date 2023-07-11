@@ -8,11 +8,9 @@ import { useAppDispatch } from '@/hooks/redux';
 import MovieInfo from '@/UI/MovieInfo/MovieInfo';
 import {
   useFetchFilmAwardsQuery,
-  useFetchFilmFactsQuery,
   useFetchFilmSimilarsQuery,
   useFetchFilmVideoQuery,
 } from '@/services/movie.api';
-import { useFetchCommentsQuery } from '@/services/comments.api';
 import CommentCarousel from '@/UI/Carousel/CommentCarousel/CommentCarousel';
 import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
 import ScrollToTopButton from '@/UI/ScrollToTopButton/ScrollToTopButton';
@@ -23,20 +21,18 @@ import Trailers from '@/components/WatchPage/Trailers/Trailers';
 import BGContainer from '@/UI/MovieBGContainer/MovieBGContainer';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
-  const { data: comments } = useFetchCommentsQuery({ id: movie.kinopoiskId });
   const { data: persons } = useFetchAllPersonsQuery({ filmId: movie.kinopoiskId });
   const { data: awards } = useFetchFilmAwardsQuery({ id: movie.kinopoiskId });
   const { data: videos } = useFetchFilmVideoQuery({ id: movie.kinopoiskId });
-  const { data: facts } = useFetchFilmFactsQuery({ id: movie.kinopoiskId });
   const { data: similar } = useFetchFilmSimilarsQuery({ id: movie.kinopoiskId });
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(setCurrentMovie({ ...movie, persons, comments, awards, videos, facts, index: 0 }));
-  }, [dispatch, movie.kinopoiskId, persons, comments, awards, videos, facts]);
+    dispatch(setCurrentMovie({ ...movie, persons, awards, videos, index: 0 }));
+  }, [dispatch, movie.kinopoiskId, persons, awards, videos]);
 
-  const { nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
+  const { kinopoiskId, nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
   const title = nameRu || nameEn || nameOriginal || '';
   const cover = coverUrl || posterUrl || '';
   const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url || null;
@@ -56,11 +52,9 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
           </div>
         </div>
         <SimilarMovies similar={similar} />
-
         <PersonsGallery list={persons} />
         <ScrollToTopButton />
-        <CommentCarousel comments={comments} />
-
+        <CommentCarousel commentsId={kinopoiskId} />
         <Trailers videos={videos} />
         <WatchAllDevices name={title} image={cover} />
       </section>
