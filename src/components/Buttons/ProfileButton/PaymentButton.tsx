@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileButton from '@/components/Profile/ProfileButton/ProfileButton';
+import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import { AiFillCreditCard } from 'react-icons/ai';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';

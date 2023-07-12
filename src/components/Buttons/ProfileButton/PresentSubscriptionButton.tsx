@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import ProfileButton from '@/components/Profile/ProfileButton/ProfileButton';
+import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import { GiPresent } from 'react-icons/gi';
 import Link from 'next/link';
-import { iPB } from '@/components/Profile/ProfileButton/ProfileButtons.props';
+import { iPB } from '@/UI/ProfileButton/ProfileButtons.props';
 
 const PresentSubscriptionButton: FC<iPB> = ({ type }) => {
   const { t } = useTranslation();

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import styles from './Header.module.scss';
 import { Button } from '@/UI/Button/Button';
-import SearchButton from '@/components/Modals/Search/SearchButton/SearchButton';
+import SearchButton from '@/components/Buttons/SearchButton/SearchButton';
 import Notifications from '@/components/Header/Notifications/Notifications';
 import User from '@/components/Header/User/User';
 import Submenu from '@/components/Header/Submenu/Submenu';
@@ -15,7 +15,7 @@ import { seriesCategories } from '@/mock/seriesCategories';
 import { cartoonCategories } from '@/mock/cartoonCategories';
 import logo from '../../../public/images/iviLogo.svg';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '@/UI/LanguageSwitcher/LanguageSwitcher';
+import LanguageSwitcher from '@/components/Buttons/LanguageSwitcher/LanguageSwitcher';
 import { useSession } from 'next-auth/react';
 
 const Header: FC = () => {

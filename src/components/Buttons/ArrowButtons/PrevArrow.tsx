@@ -2,7 +2,7 @@ import styles from './Arrows.module.scss';
 import { Button } from '@/UI/Button/Button';
 import { MdArrowBackIosNew } from 'react-icons/md';
 import React, { FC } from 'react';
-import { ArrowProps } from '@/UI/Carousel/Arrows/Arrow.props';
+import { ArrowProps } from '@/components/Buttons/ArrowButtons/Arrow.props';
 
 const PrevArrow: FC<ArrowProps> = ({ variant, ...props }): JSX.Element => {
   const { className, onClick } = props;

@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import styles from './CommentCard.module.scss';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import Vote from '@/UI/Comment/Buttons/Vote';
+import Vote from '@/UI/Comment/Vote/Vote';
 import { writeDate } from '@/helpers/writeDate';
 import { iReviewsItem } from '@/types/kinopoiskTypes';
 

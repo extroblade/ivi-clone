@@ -12,11 +12,11 @@ import {
   useFetchFilmVideoQuery,
 } from '@/services/movie.api';
 import CommentCarousel from '@/UI/Carousel/CommentCarousel/CommentCarousel';
-import WatchAllDevices from '@/components/WatchPage/WatchAllDevices/WatchAllDevices';
-import ScrollToTopButton from '@/UI/ScrollToTopButton/ScrollToTopButton';
+import WatchAllDevices from '@/UI/WatchAllDevices/WatchAllDevices';
+import ScrollToTopButton from '@/components/Buttons/ScrollToTopButton/ScrollToTopButton';
 import MovieTitle from '@/UI/MovieInfo/MovieTitle';
 import { useFetchAllPersonsQuery } from '@/services/person.api';
-import SimilarMovies from '@/components/WatchPage/SimilarMovies';
+import SimilarMovies from '@/UI/Carousel/SimilarMovies';
 import Trailers from '@/components/WatchPage/Trailers/Trailers';
 import BGContainer from '@/UI/MovieBGContainer/MovieBGContainer';
 

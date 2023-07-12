@@ -1,6 +1,6 @@
 import React from 'react';
 import { AiOutlinePlaySquare } from 'react-icons/ai';
-import ProfileButton from '@/components/Profile/ProfileButton/ProfileButton';
+import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import { useTranslation } from 'react-i18next';
 
 const CodeLoginButton = () => {

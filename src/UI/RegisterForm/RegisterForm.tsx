@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import InputFileButton from '@/UI/InputFileButton/InputFileButton';
+import InputFileButton from '@/components/Buttons/InputFileButton/InputFileButton';
 import { Button } from '@/UI/Button/Button';
 import { useRegisterMutation } from '@/services/auth.api';
 import { setUser } from '@/store/reducers/auth.slice';

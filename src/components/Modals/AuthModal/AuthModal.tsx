@@ -10,7 +10,6 @@ import { Button } from '@/UI/Button/Button';
 import { BsPencil } from 'react-icons/bs';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { TbReload } from 'react-icons/tb';
-import { SlSocialVkontakte, SlSocialGoogle } from 'react-icons/sl';
 import { selectModal, setShowAuth } from '@/store/reducers/modals.slice';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
@@ -18,8 +17,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { selectAuth } from '@/store/reducers/auth.slice';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants/Constants';
+import GoogleAuthButton from '@/components/Buttons/AuthButtons/GoogleAuthButton';
+import VKAuthButton from '@/components/Buttons/AuthButtons/VKAuthButton';
 
-const AuthModal: FC = (): JSX.Element => {
+const AuthModal: FC = ({ show = false }): JSX.Element => {
   const { t } = useTranslation();
 
   const router = useRouter();
@@ -80,13 +81,6 @@ const AuthModal: FC = (): JSX.Element => {
     }
   }, [step]);
 
-  async function handleGoogleSingIn() {
-    await signIn('google', { callbackUrl: `${process.env.NEXT_PUBLIC_URL}/profile` });
-  }
-  async function handleVkSingIn() {
-    await signIn('vk', { callbackUrl: `${process.env.NEXT_PUBLIC_URL}/profile` });
-  }
-
   async function handleAuth() {
     const credentials = { email: login, password };
     signIn('credentials', {
@@ -103,7 +97,7 @@ const AuthModal: FC = (): JSX.Element => {
   }
 
   return (
-    <FullScreenModal isOpen={showAuth} closeModal={close}>
+    <FullScreenModal isOpen={showAuth || show} closeModal={close}>
       <div className={styles.chat}>
         <div className={styles.chat__header}>
           {step > 1 ? (
@@ -192,34 +186,30 @@ const AuthModal: FC = (): JSX.Element => {
                   </div>
                 </>
               )}
-              {step < 2 ? (
-                <button
-                  disabled={!login.match(REGEX_EMAIL)}
-                  className={styles.button}
-                  onClick={nextStep}
-                >
-                  {t('buttons.continue')}
-                </button>
-              ) : (
-                <button
-                  disabled={!password.match(REGEX_PASSWORD)}
-                  className={styles.button}
-                  onClick={nextStep}
-                >
-                  {t('buttons.login')}
-                </button>
-              )}
+              <div className={styles.chat__oauth}>
+                {step < 2 ? (
+                  <Button
+                    appearance={'red'}
+                    disabled={!login.match(REGEX_EMAIL)}
+                    onClick={nextStep}
+                  >
+                    {t('buttons.continue')}
+                  </Button>
+                ) : (
+                  <Button
+                    appearance={'red'}
+                    disabled={!password.match(REGEX_PASSWORD)}
+                    onClick={nextStep}
+                  >
+                    {t('buttons.login')}
+                  </Button>
+                )}
+              </div>
               {step < 2 ? (
                 <>
                   <div className={styles.chat__oauth}>
-                    <button className={styles.button} onClick={handleGoogleSingIn}>
-                      <span>{t('buttons.login-with')} Google</span>
-                      <SlSocialGoogle />
-                    </button>
-                    <button className={styles.button} onClick={handleVkSingIn}>
-                      <span>{t('buttons.login-with')} VK</span>
-                      <SlSocialVkontakte />
-                    </button>
+                    <GoogleAuthButton />
+                    <VKAuthButton />
                   </div>
                   <div className={styles.chat__confidential}>
                     <p>{t('sections.click-continue-agree')}</p>

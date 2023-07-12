@@ -1,6 +1,6 @@
 import React from 'react';
 import RatingModal from '@/components/Modals/RatingModal/RatingModal';
-import SearchModal from '@/components/Modals/Search/SearchModal/SearchModal';
+import SearchModal from '@/components/Modals/SearchModal/SearchModal';
 import WatchPageModal from '@/components/Modals/WatchPageModal/WatchPageModal';
 import FooterModal from '@/components/Footer/FooterModal/FooterModal';
 import AuthModal from '@/components/Modals/AuthModal/AuthModal';

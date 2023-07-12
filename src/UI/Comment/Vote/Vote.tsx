@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import styles from './Vote.module.scss';
-import LikeButton from '@/UI/Comment/Buttons/LikeButton';
-import DisLikeButton from '@/UI/Comment/Buttons/DisLikeButton';
+import LikeButton from '@/components/Buttons/LikeButton';
+import DisLikeButton from '@/components/Buttons/DisLikeButton';
 
 interface iVote {
   likes: number;

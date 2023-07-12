@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import ProfileButton from '@/components/Profile/ProfileButton/ProfileButton';
+import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 
 const BalanceButton = () => {
   const { t } = useTranslation();

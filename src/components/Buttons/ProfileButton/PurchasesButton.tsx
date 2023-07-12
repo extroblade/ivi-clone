@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileButton from '@/components/Profile/ProfileButton/ProfileButton';
+import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import { BiWallet } from 'react-icons/bi';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';

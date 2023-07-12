@@ -4,7 +4,7 @@ import MovieList from './MoviesList/MovieList';
 import { PersonProps } from './Person.props';
 import { Htag } from '@/UI/Htag/Htag';
 import styles from './Person.module.scss';
-import BackButton from '../../UI/BackButton/BackButton';
+import BackButton from '../Buttons/BackButton/BackButton';
 import i18next from 'i18next';
 import Image from 'next/image';
 

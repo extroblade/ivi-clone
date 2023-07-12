@@ -9,7 +9,7 @@ import { GoCreditCard } from 'react-icons/go';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import ProfileSelector from '@/UI/ProfileSelector/ProfileSelector';
-import LoginButton from '@/components/Profile/LoginButton/LoginButton';
+import LoginButton from '@/components/Buttons/LoginButton/LoginButton';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 

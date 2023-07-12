@@ -8,8 +8,8 @@ import { CarouselProps } from '@/UI/Carousel/Carousel.props';
 import Link from 'next/link';
 import { Htag } from '@/UI/Htag/Htag';
 import ShowAll from '@/UI/Card/ShowAll';
-import NextArrow from '@/UI/Carousel/Arrows/NextArrow';
-import PrevArrow from '@/UI/Carousel/Arrows/PrevArrow';
+import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
+import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
 import Card from '@/UI/Card/Card';
 
 const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.Element => {

@@ -1,5 +1,5 @@
-import SearchModal from '@/components/Modals/Search/SearchModal/SearchModal';
-import SearchButton from '@/components/Modals/Search/SearchButton/SearchButton';
+import SearchModal from '@/components/Modals/SearchModal/SearchModal';
+import SearchButton from '@/components/Buttons/SearchButton/SearchButton';
 
 export default {
   title: 'Main/Search',

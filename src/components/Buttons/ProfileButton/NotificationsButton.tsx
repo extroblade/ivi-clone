@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileButton from '@/components/Profile/ProfileButton/ProfileButton';
+import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import { TbBellRinging } from 'react-icons/tb';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';

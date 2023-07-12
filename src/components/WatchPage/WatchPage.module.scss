@@ -26,19 +26,6 @@
     flex: 1 1 auto;
     grid-area: a;
   }
-  &__info {
-    display: inline-block;
-    grid-area: b;
-  }
-  &__title {
-    margin-top: 8px;
-    margin-bottom: 20px;
-    padding: 0 12px;
-    text-align: center;
-    @media screen and (max-width: 1160px) {
-      display: none;
-    }
-  }
   &__params {
     margin-bottom: 20px;
     text-align: center;
@@ -209,47 +196,6 @@
   }
 }
 
-.info_list {
-  color: hsla(0, 0%, 100%, 0.8);
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  .info_item {
-    display: inline-block;
-    font-size: 15px;
-    margin-bottom: 10px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    position: relative;
-    vertical-align: top;
-    &:not(:first-child):before {
-      content: '';
-      display: inline-block;
-      width: 8px;
-    }
-    &.item_hasDot:not(:first-child):before {
-      display: inline-block;
-      background-color: hsla(0, 0%, 100%, 0.72);
-      content: '';
-      height: 2px;
-      margin-bottom: 3px;
-      margin-left: 6px;
-      margin-right: 6px;
-      text-align: center;
-      width: 2px;
-    }
-  }
-  a {
-    color: hsla(0, 0%, 100%, 0.72);
-    transition: $time-main;
-    text-transform: capitalize;
-    &:hover:not(:active) {
-      color: #fff;
-    }
-  }
-}
 
 .comments_container {
   display: flex;

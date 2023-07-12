@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from './Vote.module.scss';
+import styles from '../../UI/Comment/Vote/Vote.module.scss';
 import { AiFillDislike, AiOutlineDislike } from 'react-icons/ai';
 import { Button } from '@/UI/Button/Button';
 

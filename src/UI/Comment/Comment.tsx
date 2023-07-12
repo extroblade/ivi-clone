@@ -6,7 +6,7 @@ import CommentAvatar from '@/UI/Comment/CommentAvatar';
 import CommentInput from '@/UI/Comment/CommentInput';
 import { useTranslation } from 'react-i18next';
 import { writeDate } from '@/helpers/writeDate';
-import Vote from '@/UI/Comment/Buttons/Vote';
+import Vote from '@/UI/Comment/Vote/Vote';
 import { iReviewsItem } from '@/types/kinopoiskTypes';
 
 interface iCommentComp {

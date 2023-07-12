@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import styles from '@/components/WatchPage/WatchPage.module.scss';
+import styles from './MovieInfo.module.scss';
 import { PersonList } from '@/components/WatchPage/PersonList/PersonList';
 import Link from 'next/link';
 import Explanations from '@/UI/Explanations/Explanations';

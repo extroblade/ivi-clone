@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
-import NextArrow from '@/UI/Carousel/Arrows/NextArrow';
-import PrevArrow from '@/UI/Carousel/Arrows/PrevArrow';
+import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
+import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
 import Slider from 'react-slick';
 import CommentCard from '@/UI/Comment/CommentCard/CommentCard';
 import Loader from '@/UI/Loader/Loader';

@@ -12,21 +12,27 @@ export default NextAuth({
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
-        if (credentials?.email && credentials?.password) {
-          return await SignInUser(credentials.email, credentials.password);
-        } else {
-          throw new Error('Не введен email или пароль');
+        if (!credentials?.email || !credentials.password) return null;
+
+        const currentUser = users.find((user) => user.email === credentials.email);
+
+        if (currentUser && currentUser.password === credentials.password) {
+          const { password, ...userWithoutPass } = currentUser;
+
+          return userWithoutPass;
         }
+
+        return null;
       },
     }),
     // OAuth authentication providers...
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     VkProvider({
-      clientId: process.env.VK_CLIENT_ID || '',
-      clientSecret: process.env.VK_CLIENT_SECRET || '',
+      clientId: process.env.VK_CLIENT_ID,
+      clientSecret: process.env.VK_CLIENT_SECRET,
     }),
   ],
   secret: process.env.JWT_SECRET,

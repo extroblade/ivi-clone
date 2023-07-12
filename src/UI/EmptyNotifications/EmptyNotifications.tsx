@@ -1,7 +1,7 @@
 import { P } from '../P/P';
 import styles from './EmptyNotifications.module.scss';
 import { HiOutlineBellAlert } from 'react-icons/hi2';
-import BackButton from '@/UI/BackButton/BackButton';
+import BackButton from '@/components/Buttons/BackButton/BackButton';
 import { Htag } from '@/UI/Htag/Htag';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';

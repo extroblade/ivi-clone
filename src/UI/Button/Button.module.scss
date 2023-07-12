@@ -60,6 +60,11 @@
   background-color: #ea003d;
   border-color: #ea003d;
   border-radius: 8px;
+  & svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+  }
   &:disabled {
     opacity: 0.3;
     cursor: default;
@@ -71,22 +76,6 @@
     background-color: #ff0f4d;
     border-color: #ff0f4d;
   }
-}
-
-.S {
-  height: 32px;
-  padding: 7px 11px;
-  font-size: 13px;
-}
-
-.M {
-  height: 40px;
-  padding: 9px 15px;
-}
-
-.L {
-  height: 48px;
-  padding: 5px 15px;
 }
 
 .gray {
@@ -120,8 +109,25 @@
 }
 
 .button {
+  transition: all 0.05s ease-in;
   font-size: 0.9em;
   @media screen and (max-width: 1160px) {
     font-size: 0.85em;
   }
+}
+
+.S {
+  height: 32px;
+  padding: 7px 11px;
+  font-size: 13px;
+}
+
+.M {
+  height: 40px;
+  padding: 9px 15px;
+}
+
+.L {
+  height: 48px;
+  padding: 5px 15px;
 }
