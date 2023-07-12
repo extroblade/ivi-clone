@@ -16,12 +16,17 @@ const colors: string[] = [
   '#1dbe6d',
 ];
 
+interface iUser {
+  name: string;
+  image: string;
+}
+
 export type CommentAvatarProps = {
-  user: string | null;
+  user: iUser | string | null;
 };
 
 const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
-  const color = user?.length ? user.split('')[0].charCodeAt(0) % 10 : 0;
+  const color = user?.length ? user?.split('')[0].charCodeAt(0) % 10 : 0;
   return (
     <div className={styles.user_image}>
       <div
@@ -30,7 +35,11 @@ const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
           backgroundColor: `${colors[color as number] || colors[0]}`,
         }}
       >
-        <div className={styles.image_text}>{user ? user[0] : <FiUser />}</div>
+        {user?.image ? (
+          <Image src={user.image} alt={'user'} fill />
+        ) : (
+          <div className={styles.image_text}>{user ? user[0] : <FiUser />}</div>
+        )}
       </div>
     </div>
   );

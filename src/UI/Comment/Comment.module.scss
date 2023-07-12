@@ -90,6 +90,9 @@
     background-size: 100% 100%;
     width: 20px;
     height: 20px;
+    img {
+      border-radius: 4px;
+    }
   }
   .image_text {
     text-transform: capitalize;

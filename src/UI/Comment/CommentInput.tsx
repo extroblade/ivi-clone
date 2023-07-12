@@ -5,7 +5,6 @@ import styles from './Comment.module.scss';
 import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectAuth } from '@/store/reducers/auth.slice';
 import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
 const LIMIT = 5;
 
@@ -13,7 +12,6 @@ const CommentInput: FC = (): JSX.Element => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState<string>('');
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector(selectAuth);
   const { data: session } = useSession();
   const { activeAlerts } = useAppSelector(selectModal);
   const validate = () => {
@@ -38,7 +36,7 @@ const CommentInput: FC = (): JSX.Element => {
 
   return (
     <form className={styles.comment_form} onSubmit={(e) => submit(e)}>
-      <CommentAvatar user={session?.user || user || null} />
+      <CommentAvatar user={session?.user || null} />
       <div className={styles.input_container}>
         <div className={`${styles.input} ${validate() ? styles.invalid : ''}`}>
           <input

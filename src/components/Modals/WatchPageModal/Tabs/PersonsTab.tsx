@@ -9,12 +9,14 @@ const PersonsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const { t } = useTranslation();
   const persons = currentMovie?.persons;
+  const actors = persons.filter((person) => person.professionText == 'Актеры');
+  const directors = persons.filter((person) => person.professionText == 'Режиссеры');
   return (
     <>
       <Htag tag="h3">{t('categories.actors')}</Htag>
-      <StaffList persons={persons.filter((person) => person.professionText == 'Актеры')} />
+      <StaffList persons={actors} />
       <Htag tag="h3">{t('categories.directors')}</Htag>
-      <StaffList persons={persons.filter((person) => person.professionText == 'Режиссеры')} />
+      <StaffList persons={directors} />
     </>
   );
 };

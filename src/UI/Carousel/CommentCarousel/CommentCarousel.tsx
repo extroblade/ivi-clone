@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import NextArrow from '@/UI/Carousel/Arrows/NextArrow';
 import PrevArrow from '@/UI/Carousel/Arrows/PrevArrow';
 import Slider from 'react-slick';
@@ -62,6 +62,9 @@ const CommentCarousel: FC<ICommentCarousel> = ({ commentsId }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };
+  useEffect(() => {
+    dispatch(setCurrentMovie({ ...currentMovie, comments }));
+  }, [dispatch, comments]);
   if (isLoading) return <Loader />;
   if (error?.error) return <></>;
 

@@ -48,7 +48,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
             <div className={styles.watch__player}>
               <Player url={trailerYT} actions />
             </div>
-            <MovieInfo />
+            <MovieInfo movie={movie} />
           </div>
         </div>
         <SimilarMovies similar={similar} />

@@ -9,7 +9,7 @@ import { movieTypes } from '@/constants/Movies';
 
 const Movie = ({ movie }) => {
   const { i18n } = useTranslation();
-  if (!movie?.kinopoiskId) return <NotFound />;
+  if (!movie) return <NotFound />;
   const typeRuName = movieTypes[movie?.type]?.ruName || 'Тип';
   const typeEnName = movieTypes[movie?.type]?.enName || 'Type';
   const typePath = movieTypes[movie?.type]?.path || '/movies';

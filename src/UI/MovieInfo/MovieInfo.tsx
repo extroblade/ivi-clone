@@ -6,13 +6,14 @@ import Explanations from '@/UI/Explanations/Explanations';
 import RatingBlock from '@/UI/RatingBlock/RatingBlock';
 import MovieTitle from '@/UI/MovieInfo/MovieTitle';
 import MovieOptions from '@/UI/MovieOptions/MovieOptions';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
 import { countTime } from '@/helpers/countTime';
+import { iFilm } from '@/types/kinopoiskTypes';
 
-const MovieInfo: FC = () => {
-  const { currentMovie } = useAppSelector(selectModal);
-  if (!currentMovie?.year) return <></>;
+interface iMovieInfo {
+  movie: iFilm;
+}
+
+const MovieInfo: FC<iMovieInfo> = ({ movie }) => {
   const {
     kinopoiskId,
     year,
@@ -22,14 +23,15 @@ const MovieInfo: FC = () => {
     genres,
     filmLength,
     nameEn,
+    nameOriginal,
     nameRu,
     persons,
-  } = currentMovie;
+  } = movie;
 
   return (
     <div className={styles.watch__info}>
       <div className={styles.watch__title}>
-        <MovieTitle enFilmName={nameEn} filmName={nameRu} />
+        <MovieTitle enFilmName={nameEn || nameOriginal} filmName={nameRu || nameOriginal} />
       </div>
       <div className={styles.watch__params}>
         <ul className={styles.info_list}>
@@ -55,7 +57,7 @@ const MovieInfo: FC = () => {
         <PersonList list={persons} rating={ratingKinopoisk} />
       </div>
       <Explanations factsId={kinopoiskId} />
-      <MovieOptions movie={currentMovie} />
+      <MovieOptions movie={movie} />
       <RatingBlock
         rating={ratingKinopoisk}
         rates={ratingKinopoiskVoteCount}
