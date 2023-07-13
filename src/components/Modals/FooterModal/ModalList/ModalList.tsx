@@ -31,11 +31,7 @@ const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }): JSX.
 
   return (
     <div>
-      <P
-        onClick={() => (isListOpen ? setIsListOpen(false) : setIsListOpen(true))}
-        size="M"
-        className={styles.title}
-      >
+      <P onClick={() => setIsListOpen((open) => !open)} size="M" className={styles.title}>
         {icon && IconComponent && <IconComponent />}
         {title} {isListOpen ? <BsChevronCompactUp /> : <BsChevronCompactDown />}
       </P>

@@ -15,7 +15,7 @@ import { seriesCategories } from '@/mock/seriesCategories';
 import { cartoonCategories } from '@/mock/cartoonCategories';
 import logo from '../../../public/images/iviLogo.svg';
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '@/components/Buttons/LanguageSwitcher/LanguageSwitcher';
+import LanguageSwitcher from '@/components/Buttons/SwitchLanguageButton/LanguageSwitcher';
 import { useSession } from 'next-auth/react';
 
 const Header: FC = () => {
