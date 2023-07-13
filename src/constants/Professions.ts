@@ -19,4 +19,8 @@ export const professionTypes = {
     ruName: 'Режиссер',
     enName: 'Director',
   },
+  WRITER: {
+    ruName: 'Сценарист',
+    enName: 'Writer',
+  },
 };
