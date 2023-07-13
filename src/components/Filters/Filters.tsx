@@ -11,18 +11,18 @@ import SortDropdown from '@/components/Filters/SortDropdown/SortDropdown';
 import { motion } from 'framer-motion';
 const variants = {
   visible: {
-    paddingTop: 30,
     transition: { duration: 0.4 },
     opacity: 1,
+    marginBottom: 20,
     height: '165px',
     display: 'block',
   },
   hidden: {
     transition: { duration: 0.4 },
-    paddingTop: 30,
+    marginTop: -30,
+    margin: 0,
     opacity: 0,
     height: 0,
-    display: 'none',
   },
 };
 const Filters: FC = (): JSX.Element => {
