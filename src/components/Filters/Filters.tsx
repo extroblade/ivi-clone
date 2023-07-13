@@ -23,6 +23,7 @@ const variants = {
     margin: 0,
     opacity: 0,
     height: 0,
+    display: 'none',
   },
 };
 const Filters: FC = (): JSX.Element => {
