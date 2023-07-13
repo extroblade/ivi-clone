@@ -39,7 +39,7 @@ const Card: FC<CardProps> = ({
   } = card;
   const i18nTitle =
     i18next.language == 'en' ? nameEn || nameOriginal || nameRu : nameRu || nameOriginal || nameEn;
-
+  console.log(card);
   return (
     <Link href={`/watch/${id || filmId}`} className={styles.card} draggable="false" {...props}>
       <div className={`${styles.imageSection} ${hover && styles.hover}`}>
@@ -81,7 +81,7 @@ const Card: FC<CardProps> = ({
                   {countries?.length && `${countries[0].country}, `}
                   {genres?.length && `${genres[0]?.genre}`}
                 </div>
-                <div className={styles.info__row}>{countTime(filmLength)}</div>
+                {filmLength && <div className={styles.info__row}>{countTime(filmLength)}</div>}
               </section>
             </div>
           )}

@@ -71,7 +71,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                           </div>
                         ))}
                       <P size="S">
-                        {i18n.language == 'en'
+                        {professionKey && i18n.language == 'en'
                           ? professionTypes[professionKey].enName
                           : professionTypes[professionKey].ruName}
                       </P>
