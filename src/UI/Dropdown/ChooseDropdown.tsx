@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styles from './Dropdown.module.scss';
 import { BsCheckLg } from 'react-icons/bs';
 import { categories } from '@/mock/filters';
-import Dropdown from '@/UI/Filters/Dropdown/Dropdown';
+import Dropdown from '@/UI/Dropdown/Dropdown';
 
 interface iChooseDropdown {
   state: boolean;

@@ -99,7 +99,7 @@ const AuthModal: FC = ({ show = false }): JSX.Element => {
 
   return (
     <FullScreenModal isOpen={showAuth || show} closeModal={close}>
-      <div className={styles.chat}>
+      <form className={styles.chat}>
         <div className={styles.chat__header}>
           {step > 1 ? (
             <div className={styles.chat__welcome}>
@@ -165,6 +165,8 @@ const AuthModal: FC = ({ show = false }): JSX.Element => {
                     <input
                       type={showPassword ? 'text' : 'password'}
                       value={password}
+                      required
+                      pattern={'\\S+.*'}
                       onChange={(e) => setPassword(e.target.value)}
                       className={!!password ? styles.input__active : ''}
                     />
@@ -245,7 +247,7 @@ const AuthModal: FC = ({ show = false }): JSX.Element => {
             </>
           )}
         </div>
-      </div>
+      </form>
     </FullScreenModal>
   );
 };

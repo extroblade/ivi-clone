@@ -2,7 +2,7 @@ import React from 'react';
 import BreadCrumbs from '@/UI/Breadcrumbs/Breadcrumbs';
 import Head from 'next/head';
 import MoviesPageDescription from '@/components/Descriptions/MoviesPageDescription';
-import Filters from '@/UI/Filters/Filters';
+import Filters from '@/components/Filters/Filters';
 import { useTranslation } from 'react-i18next';
 import Grid from '@/UI/Grid/Grid';
 

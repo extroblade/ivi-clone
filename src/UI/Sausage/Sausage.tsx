@@ -2,7 +2,7 @@ import { FC } from 'react';
 import styles from './Sausage.module.scss';
 import { IoAddOutline } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
-import { SausageProps } from '@/UI/Filters/Sausage/Sausage.props';
+import { SausageProps } from '@/UI/Sausage/Sausage.props';
 import { sausages } from '@/mock/filters';
 import i18next from 'i18next';
 

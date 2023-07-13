@@ -1,9 +1,9 @@
 import React, { FC, useRef, useState } from 'react';
 import styles from './Plank.module.scss';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
-import ChooseDropdown from '@/UI/Filters/Dropdown/ChooseDropdown';
+import ChooseDropdown from '@/UI/Dropdown/ChooseDropdown';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
-import SearchDropdown from '@/UI/Filters/Dropdown/SearchDropdown';
+import SearchDropdown from '@/UI/Dropdown/SearchDropdown';
 
 interface iPlank {
   plank: unknown;

@@ -1,13 +1,13 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './Filters.module.scss';
-import Plank from '@/UI/Filters/Plank/Plank';
+import Plank from '@/UI/Plank/Plank';
 import { Button } from '@/UI/Button/Button';
 import { RxCross2 } from 'react-icons/rx';
 import { planks } from '@/mock/filters';
 import { useTranslation } from 'react-i18next';
-import InputRange from '@/UI/Filters/Plank/InputRange';
+import InputRange from '@/UI/Plank/InputRange';
 import { GoSettings } from 'react-icons/go';
-import SortDropdown from '@/UI/Filters/SortDropdown/SortDropdown';
+import SortDropdown from '@/components/Filters/SortDropdown/SortDropdown';
 import { motion } from 'framer-motion';
 const variants = {
   visible: {
@@ -15,6 +15,7 @@ const variants = {
     transition: { duration: 0.4 },
     opacity: 1,
     height: '165px',
+    display: 'block',
   },
   hidden: {
     transition: { duration: 0.4 },
@@ -25,6 +26,8 @@ const variants = {
   },
 };
 const Filters: FC = (): JSX.Element => {
+  //const { data } = useFetchFilmFiltersQuery();
+
   const [openedFilter, setOpenedFilter] = useState(false);
   const [active, setActive] = useState<boolean>(false);
   const [chosen, setChosen] = useState([]);

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import Dropdown from '@/UI/Filters/Dropdown/Dropdown';
+import Dropdown from '@/UI/Dropdown/Dropdown';
 import styles from './Dropdown.module.scss';
 import { BsCheckLg } from 'react-icons/bs';
 import { categories } from '@/mock/filters';

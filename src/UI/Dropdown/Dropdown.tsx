@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import styles from '@/UI/Filters/Dropdown/Dropdown.module.scss';
+import styles from '@/UI/Dropdown/Dropdown.module.scss';
 
 interface iDrop {
   state: boolean;
