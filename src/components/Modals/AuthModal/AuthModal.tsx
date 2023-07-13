@@ -17,12 +17,13 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { selectAuth } from '@/store/reducers/auth.slice';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants/Constants';
-import GoogleAuthButton from '@/components/Buttons/AuthButtons/GoogleAuthButton';
-import VKAuthButton from '@/components/Buttons/AuthButtons/VKAuthButton';
+import GoogleAuthButton from '@/components/Buttons/LoginButton/GoogleAuthButton';
+import VKAuthButton from '@/components/Buttons/LoginButton/VKAuthButton';
+import { useSearchParams } from 'next/navigation';
 
 const AuthModal: FC = ({ show = false }): JSX.Element => {
   const { t } = useTranslation();
-
+  const searchParams = useSearchParams();
   const router = useRouter();
   const [progress, setProgress] = useState<number>(5);
   const [step, setStep] = useState<number>(1);
@@ -83,10 +84,10 @@ const AuthModal: FC = ({ show = false }): JSX.Element => {
 
   async function handleAuth() {
     const credentials = { email: login, password };
+    const callbackUrl = searchParams.get('callbackUrl') || '/profile';
     signIn('credentials', {
       ...credentials,
-      // redirect: false,
-      callbackUrl: `${process.env.NEXT_PUBLIC_URL}/profile`,
+      callbackUrl,
     })
       .then((response) => {
         console.log(response);

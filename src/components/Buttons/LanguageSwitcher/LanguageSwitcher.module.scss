@@ -17,6 +17,7 @@
   background-color: $color-submenu-background;
   transition: $time-main;
   .switcher_item {
+    text-transform: capitalize;
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
