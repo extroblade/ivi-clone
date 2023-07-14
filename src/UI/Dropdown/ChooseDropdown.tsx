@@ -76,11 +76,11 @@ const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Element => {
                 switch (type) {
                   case 'genre':
                     itemTitle = item?.genre;
-                    act = genre?.genre;
+                    act = genre;
                     break;
                   case 'country':
                     itemTitle = item?.country;
-                    act = country?.country;
+                    act = country;
                     break;
                   case 'years':
                     itemTitle = item;
