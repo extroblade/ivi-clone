@@ -8,6 +8,8 @@
   position: relative;
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
+  min-width: 20vw;
+  z-index: 99;
   button {
   }
 }
@@ -88,6 +90,7 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      text-transform: capitalize;
     }
     &.selected {
       color: white;
@@ -98,6 +101,7 @@
 .head_title {
   overflow: hidden;
   white-space: pre-wrap;
+  text-transform: capitalize;
 }
 .filters__icon {
   display: flex;

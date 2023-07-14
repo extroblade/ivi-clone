@@ -4,7 +4,10 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 interface iFilters {
   countries?: string[];
+  years: number[];
   genres?: string[];
+  country: string | null;
+  genre: string | null;
   order: 'RATING' | 'NUM_VOTE' | 'YEAR';
   type: 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
   ratingFrom: number;
@@ -14,9 +17,14 @@ interface iFilters {
   page: number;
   keyword?: string;
 }
+const years = [];
+for (let i = 1950; i < 2024; i++) years.push(i);
 
 const initialState: iFilters = {
   order: 'RATING',
+  years: years,
+  country: null,
+  genre: null,
   type: 'ALL',
   ratingFrom: 0,
   ratingTo: 10,
@@ -33,11 +41,20 @@ export const filtersSlice = createSlice({
     resetFilters: () => {
       return initialState;
     },
+    setOrder(state, action: PayloadAction<string>) {
+      state.order = action.payload;
+    },
     setGenres(state, action: PayloadAction<string[]>) {
       state.genres = action.payload;
     },
     setCountries(state, action: PayloadAction<string[]>) {
       state.countries = action.payload;
+    },
+    setGenre(state, action: PayloadAction<string>) {
+      state.genre = action.payload;
+    },
+    setCountry(state, action: PayloadAction<string>) {
+      state.country = action.payload;
     },
     setRatingFrom(state, action: PayloadAction<number>) {
       state.ratingFrom = action.payload;
@@ -71,7 +88,10 @@ export const filtersSlice = createSlice({
 
 export const {
   resetFilters,
+  setOrder,
+  setGenre,
   setGenres,
+  setCountry,
   setCountries,
   setRatingFrom,
   setRatingTo,

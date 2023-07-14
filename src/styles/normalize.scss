@@ -10,7 +10,9 @@
 
 html {
   line-height: 1.15;
-
+  padding: 1rem;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   /* 1 */
   text-size-adjust: 100%;
 

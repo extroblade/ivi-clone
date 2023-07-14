@@ -4,16 +4,29 @@ import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 import ChooseDropdown from '@/UI/Dropdown/ChooseDropdown';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
 import SearchDropdown from '@/UI/Dropdown/SearchDropdown';
+import { useAppSelector } from '@/hooks/redux';
+import { selectFilters } from '@/store/reducers/filters.slice';
 
 interface iPlank {
-  plank: unknown;
-  chosen: unknown;
-  setChosen: (p: (ch) => unknown[]) => void;
+  array_type: 'genre' | 'country' | 'years';
   type: 'choose' | 'find';
 }
 
-const Plank: FC<iPlank> = ({ plank, chosen, setChosen, type }): JSX.Element => {
+const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
   const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
+  const { genre, yearTo, country } = useAppSelector(selectFilters);
+  let title;
+  switch (array_type) {
+    case 'genre':
+      title = genre?.genre || 'Жанр';
+      break;
+    case 'country':
+      title = country?.country || 'Страна';
+      break;
+    case 'years':
+      title = yearTo < 3000 ? yearTo : 'Год';
+      break;
+  }
   const change = () => {
     setDropDownOpen((d) => !d);
   };
@@ -22,54 +35,16 @@ const Plank: FC<iPlank> = ({ plank, chosen, setChosen, type }): JSX.Element => {
   };
   const ref = useRef(null);
   useOutsideClick(close, ref);
-  const changePressed = (i) => {
-    setChosen((ch) =>
-      [
-        ...ch.filter((item) => item.plankID !== plank.id),
-        {
-          plankID: plank.id,
-          category: ch
-            .find((item) => item.plankID === plank.id)
-            ?.category.find((item) => item.id == i.id)
-            ? [
-                ...ch
-                  ?.find((item) => item.plankID === plank.id)
-                  ?.category.filter((item) => item.id !== i.id),
-              ].sort((a, b) => a.id - b.id)
-            : [
-                ...(ch?.find((item) => item.plankID == plank.id)?.category || []),
-                {
-                  id: i.id,
-                  title: i.title,
-                },
-              ].sort((a, b) => a.id - b.id),
-        },
-      ].sort((a, b) => a.plankID - b.plankID)
-    );
-  };
   return (
     <span ref={ref}>
       {type == 'choose' ? (
-        <ChooseDropdown state={dropDownOpen} chosen={chosen} plank={plank} change={changePressed} />
+        <ChooseDropdown state={dropDownOpen} type={array_type} />
       ) : (
-        <SearchDropdown state={dropDownOpen} chosen={chosen} plank={plank} change={changePressed} />
+        <SearchDropdown state={dropDownOpen} type={array_type} />
       )}
       <button className={`${styles.plank} ${dropDownOpen && styles.active}`} onClick={change}>
         <div className={styles.info}>
-          <div className={styles.title}>{plank.title}</div>
-          {chosen && (
-            <div className={styles.chosen}>
-              {chosen
-                .find((item) => item.plankID === plank.id)
-                ?.category.map((item, index) => (
-                  <span key={item.id}>
-                    {chosen.find((item) => item.plankID == plank.id).category.length > index + 1
-                      ? `${item.title}, `
-                      : item.title}
-                  </span>
-                ))}
-            </div>
-          )}
+          <div className={styles.title}>{title}</div>
         </div>
         <div className={styles.icon}>
           {dropDownOpen ? <BsChevronCompactUp /> : <BsChevronCompactDown />}
@@ -80,3 +55,17 @@ const Plank: FC<iPlank> = ({ plank, chosen, setChosen, type }): JSX.Element => {
 };
 
 export default Plank;
+
+// {chosen && (
+//   <div className={styles.chosen}>
+//     {chosen
+//       .find((item) => item.plankID === array.id)
+//       ?.category.map((item, index) => (
+//         <span key={item.id}>
+//                     {chosen.find((item) => item.plankID == array.id).category.length > index + 1
+//                       ? `${item.title}, `
+//                       : item.title}
+//                   </span>
+//       ))}
+//   </div>
+// )}

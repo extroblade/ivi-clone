@@ -8,9 +8,12 @@ import {
 import { Button } from '@/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import { useAppDispatch } from '@/hooks/redux';
+import { setOrder } from '@/store/reducers/filters.slice';
 
 const SortDropdown: FC = (): JSX.Element => {
   const [sortDrop, setSortDrop] = useState(false);
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const ref = useRef(null);
   const closeState = () => {
@@ -22,13 +25,10 @@ const SortDropdown: FC = (): JSX.Element => {
   useOutsideClick(closeState, ref);
 
   const sorts = [
-    { id: 1, title: t('sections.by-amount') },
-    { id: 2, title: t('sections.by-name-asc') },
-    { id: 3, title: t('sections.by-name-desc') },
-    { id: 4, title: t('sections.by-date') },
-    { id: 5, title: t('sections.by-rating-asc') },
-    { id: 6, title: t('sections.by-rating-desc') },
     { id: 0, title: t('sections.by-default') },
+    { id: 1, value: 'RATING', title: 'рейтингу' },
+    { id: 2, value: 'NUM_VOTE', title: 'оценкам' },
+    { id: 3, value: 'YEAR', title: 'годам' },
   ];
   const [current, setCurrent] = useState(0);
 
@@ -49,6 +49,7 @@ const SortDropdown: FC = (): JSX.Element => {
   );
 
   useEffect(() => {
+    dispatch(setOrder(current?.value));
     setTimeout(() => {
       closeState();
     }, 150);
@@ -85,3 +86,13 @@ const SortDropdown: FC = (): JSX.Element => {
 };
 
 export default SortDropdown;
+
+// const sorts = [
+//   { id: 1, title: t('sections.by-amount') },
+//   { id: 2, title: t('sections.by-name-asc') },
+//   { id: 3, title: t('sections.by-name-desc') },
+//   { id: 4, title: t('sections.by-date') },
+//   { id: 5, title: t('sections.by-rating-asc') },
+//   { id: 6, title: t('sections.by-rating-desc') },
+//   { id: 0, title: t('sections.by-default') },
+// ];

@@ -4,7 +4,7 @@ import styles from './Dropdown.module.scss';
 import { BsCheckLg } from 'react-icons/bs';
 import { categories } from '@/mock/filters';
 
-const SearchDropdown: FC = ({ state, chosen, plank, change }): JSX.Element => {
+const SearchDropdown: FC = ({ state }): JSX.Element => {
   const [val, setVal] = useState<string>('');
   const handler = (e) => {
     setVal(() => e.target.value);
@@ -26,28 +26,6 @@ const SearchDropdown: FC = ({ state, chosen, plank, change }): JSX.Element => {
         <input type={'text'} onChange={(e) => handler(e)} value={val} />
         <div className={styles.list_container}>
           <ul className={styles.one_lane}>
-            {dynamicSearch().map((person) => (
-              <li
-                className={
-                  chosen
-                    ?.find((item) => item.plankID === plank?.id)
-                    ?.category.find((item) => item.id == person.id)
-                    ? styles.checked
-                    : ''
-                }
-                key={person.id}
-              >
-                <label>
-                  <input type="checkbox" value={person.title} onChange={() => change(person)} />
-                  <div className={styles.input_text}>{person.title}</div>
-                  <div className={styles.checkbox}>
-                    <div className={styles.checkbox_selected}>
-                      <BsCheckLg />
-                    </div>
-                  </div>
-                </label>
-              </li>
-            ))}
           </ul>
         </div>
       </div>
@@ -56,3 +34,25 @@ const SearchDropdown: FC = ({ state, chosen, plank, change }): JSX.Element => {
 };
 
 export default SearchDropdown;
+// {dynamicSearch().map((person) => (
+//   <li
+//     className={
+//       chosen
+//         ?.find((item) => item.plankID === plank?.id)
+//         ?.category.find((item) => item.id == person.id)
+//         ? styles.checked
+//         : ''
+//     }
+//     key={person.id}
+//   >
+//     <label>
+//       <input type="checkbox" value={person.title} onChange={() => change(person)} />
+//       <div className={styles.input_text}>{person.title}</div>
+//       <div className={styles.checkbox}>
+//         <div className={styles.checkbox_selected}>
+//           <BsCheckLg />
+//         </div>
+//       </div>
+//     </label>
+//   </li>
+// ))}

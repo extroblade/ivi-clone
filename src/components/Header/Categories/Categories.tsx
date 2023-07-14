@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import styles from './Categories.module.scss';
 import Link from 'next/link';
 import { CategoriesProps } from './Categories.props';
 import { useFetchFilmFiltersQuery } from '@/services/movie.api';
+import { useAppDispatch } from '@/hooks/redux';
+import { setCountries, setGenres } from '@/store/reducers/filters.slice';
 
 const years = [];
 
@@ -11,7 +13,19 @@ for (let i = 2010; i < 2024; i++) {
 }
 
 const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
-  const { data } = useFetchFilmFiltersQuery();
+  const { data, error } = useFetchFilmFiltersQuery();
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (data?.genres) {
+      dispatch(setGenres(data.genres));
+    }
+    if (data?.countries) {
+      dispatch(setCountries(data.countries));
+    }
+    if (error) {
+      console.table(error);
+    }
+  }, [data]);
   return (
     <div className={styles.content}>
       <div className={styles.content__items}>

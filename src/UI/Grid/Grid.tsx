@@ -5,6 +5,9 @@ import Card from '@/UI/Card/Card';
 import { Button } from '@/UI/Button/Button';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import Loader from '@/UI/Loader/Loader';
+import { useAppSelector } from '@/hooks/redux';
+import { selectFilters } from '@/store/reducers/filters.slice';
+import { Htag } from '@/UI/Htag/Htag';
 
 interface iGrid {
   type: string;
@@ -12,7 +15,39 @@ interface iGrid {
 
 const Grid: FC<iGrid> = ({ type }) => {
   const [page, setPage] = useState(1);
-  const { data } = useFetchAllFilmsQuery({ type, page });
+  const { genre, yearTo, country, yearFrom, order, ratingTo, ratingFrom } =
+    useAppSelector(selectFilters);
+  let params = { type, page, yearTo, yearFrom: yearTo, ratingTo };
+
+  useEffect(() => {
+    if (ratingFrom) {
+      params = { ...params, ratingFrom };
+    }
+    if (genre?.id) {
+      params = { ...params, genres: genre.id };
+    }
+    if (country?.id) {
+      params = { ...params, countries: country.id };
+    }
+    if (yearTo) {
+      const yearFr = yearTo < 3000 ? yearTo : yearFrom;
+      params = { ...params, yearTo, yearFrom: yearFr };
+    }
+    if (order) {
+      params = { ...params, order };
+    }
+    if (
+      genre?.id !== params?.genres ||
+      country?.id !== params?.countries ||
+      yearTo !== params?.yearTo ||
+      order !== params?.order ||
+      ratingFrom !== params?.ratingFrom
+    ) {
+      setPage(() => 1);
+    }
+  }, [genre, yearTo, country, yearFrom, page]);
+
+  const { data, isLoading: loadingData } = useFetchAllFilmsQuery(params);
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const showMore = async () => {
@@ -27,10 +62,13 @@ const Grid: FC<iGrid> = ({ type }) => {
   const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {
     if (data?.items) {
-      setMovies((movies) => [...movies, ...data?.items]);
+      if (page > 1) {
+        setMovies(() => [...movies, ...data?.items]);
+      } else {
+        setMovies(() => data?.items);
+      }
     }
-  }, [data?.items]);
-
+  }, [data?.items, data, data?.total]);
   return (
     <>
       <div className={styles.grid}>
@@ -45,10 +83,14 @@ const Grid: FC<iGrid> = ({ type }) => {
             </ul>
           </div>
         ) : (
-          <Loader />
+          ''
         )}
       </div>
-      {movies?.length
+      <div className={styles.nodata}>
+        {(data?.total === undefined || loadingData) && <Loader />}
+        {data?.total === 0 ? <Htag tag={'h2'}>Ничего не найдено</Htag> : ''}
+      </div>
+      {data?.total
         ? data?.totalPages > page &&
           (isLoading ? (
             <div className={`${styles.open} loader`}></div>

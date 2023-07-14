@@ -1,17 +1,21 @@
-import React, { ChangeEvent, FC, ReactNode, useState } from 'react';
+import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from 'react';
 import { P } from '@/UI/P/P';
 import styles from './Plank.module.scss';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { selectFilters, setRatingFrom } from '@/store/reducers/filters.slice';
 
 interface iRange {
-  onChange?: () => void;
   minLimit: number;
   maxLimit: number;
   range: number;
   children: ReactNode;
+  type: 'rating' | 'comments';
 }
 
-const InputRange: FC<iRange> = ({ onChange, minLimit, maxLimit, range, children }): JSX.Element => {
-  const [inputValue, setInputValue] = useState<number>(minLimit);
+const InputRange: FC<iRange> = ({ minLimit, maxLimit, range, children, type }): JSX.Element => {
+  const { ratingFrom } = useAppSelector(selectFilters);
+  const [inputValue, setInputValue] = useState<number>(ratingFrom);
+  const dispatch = useAppDispatch();
   const handler = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.valueAsNumber < minLimit) {
       setInputValue(minLimit);
@@ -20,14 +24,20 @@ const InputRange: FC<iRange> = ({ onChange, minLimit, maxLimit, range, children 
     } else {
       setInputValue(e.target.valueAsNumber);
     }
-    if (onChange) onChange();
   };
+  useEffect(() => {
+    if (type == 'rating') {
+      dispatch(setRatingFrom(inputValue));
+    } else if (type == 'comments') {
+      console.log('currently not available');
+    }
+  }, [inputValue]);
   return (
     <div className={styles.plank}>
       <div className={styles.input_range}>
         <div className={styles.output}>
           <P color={'white'}>{children}</P>
-          <P color={'white'}>&gt; {inputValue}</P>
+          <P color={'white'}>&gt; {ratingFrom}</P>
         </div>
         <input
           className={styles.input}
@@ -36,10 +46,10 @@ const InputRange: FC<iRange> = ({ onChange, minLimit, maxLimit, range, children 
           min={minLimit}
           max={maxLimit}
           step={range}
-          value={inputValue}
+          value={ratingFrom}
           style={{
             background: `linear-gradient(90deg, #1f1b2d ${
-              ((inputValue - minLimit) * 100) / (maxLimit - minLimit)
+              ((ratingFrom - minLimit) * 100) / (maxLimit - minLimit)
             }%, #A2002DFF 0%)`,
           }}
         />

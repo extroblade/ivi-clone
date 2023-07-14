@@ -33,6 +33,7 @@
   margin-bottom: 20px;
   transition: max-height 400ms ease, opacity 200ms ease, padding-top 400ms ease;
   .plank_list {
+
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -48,7 +49,7 @@
     margin-bottom: 12px;
     padding-right: 6px;
     padding-left: 6px;
-    width: calc(100% / 6);
+    width: calc(100% / 4);
 
     @media screen and (max-width: 879px) {
       width: 50%;
@@ -92,6 +93,12 @@
     &:disabled {
       opacity: 0.32;
       cursor: default !important;
+      &:hover {
+        background-color: transparent;
+        border: 0;
+        border-radius: 8px;
+        color: $color-input;
+      }
     }
   }
 }
