@@ -3,6 +3,7 @@ import { MdBlock } from 'react-icons/md';
 import { Button } from '@/UI/Button/Button';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
+import { createNewAlert } from '@/helpers/createNewAlert';
 
 const BlockButton = () => {
   const [blocked, setBlocked] = useState<boolean>(false);
@@ -13,19 +14,12 @@ const BlockButton = () => {
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
     if (!blocked) {
-      const cur = [];
-      const newId = self.crypto.randomUUID(); //
-      const newAlert = {
-        id: newId,
-        title: 'Спасибо за отметку',
-        extra: 'Теперь мы будем показывать Вам меньше похожих фильмов',
-      };
-      if (activeAlerts?.length && !activeAlerts?.find((alert) => alert.id == newAlert.id)) {
-        cur.push(...activeAlerts, newAlert);
-      } else {
-        cur.push(newAlert);
-      }
-      dispatch(setActiveAlerts(cur));
+      const newAlertList = createNewAlert(
+        'Спасибо за отметку',
+        'Теперь мы будем показывать Вам меньше похожих фильмов',
+        activeAlerts
+      );
+      dispatch(setActiveAlerts(newAlertList));
     }
     setBlocked((blocked) => !blocked);
   };

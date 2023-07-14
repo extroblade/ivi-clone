@@ -6,6 +6,7 @@ import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
+import { createNewAlert } from '@/helpers/createNewAlert';
 const LIMIT = 5;
 
 const CommentInput: FC = (): JSX.Element => {
@@ -19,18 +20,12 @@ const CommentInput: FC = (): JSX.Element => {
   };
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.nativeEvent.preventDefault();
-    const cur = [];
-    const newAlert = {
-      id: self.crypto.randomUUID(),
-      title: 'Комментарий не отправлен',
-      extra: 'POST запросы не работают',
-    };
-    if (activeAlerts?.length && !activeAlerts?.find((alert) => alert.id == newAlert.id)) {
-      cur.push(...activeAlerts, newAlert);
-    } else {
-      cur.push(newAlert);
-    }
-    dispatch(setActiveAlerts(cur));
+    const newAlertList = createNewAlert(
+      'Комментарий не отправлен',
+      'POST запросы не работают',
+      activeAlerts
+    );
+    dispatch(setActiveAlerts(newAlertList));
     setQuery(() => '');
   };
 

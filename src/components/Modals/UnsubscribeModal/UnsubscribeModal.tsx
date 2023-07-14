@@ -8,6 +8,7 @@ import { P } from '@/UI/P/P';
 import { Button } from '@/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
 import Image from 'next/image';
+import { createNewAlert } from '@/helpers/createNewAlert';
 
 const UnsubscribeModal = () => {
   const { t, i18n } = useTranslation();
@@ -18,18 +19,12 @@ const UnsubscribeModal = () => {
     dispatch(setShowUnsub(false));
   };
   const unsubscribe = () => {
-    const cur = [];
-    const newAlert = {
-      id: self.crypto.randomUUID(),
-      title: 'Комментарий не отправлен',
-      extra: 'Вы больше не будете получать уведомления о выходе новых серий',
-    };
-    if (activeAlerts?.length && !activeAlerts?.find((alert) => alert.id == newAlert.id)) {
-      cur.push(...activeAlerts, newAlert);
-    } else {
-      cur.push(newAlert);
-    }
-    dispatch(setActiveAlerts(cur));
+    const newAlertList = createNewAlert(
+      '',
+      'Вы больше не будете получать уведомления о выходе новых серий',
+      activeAlerts
+    );
+    dispatch(setActiveAlerts(newAlertList));
     close();
   };
   usePreventScroll(showUnsub);

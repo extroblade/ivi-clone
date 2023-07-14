@@ -2,9 +2,14 @@ import React, { useEffect } from 'react';
 import i18next from 'i18next';
 import styles from './LanguageSwitcher.module.scss';
 import { Button } from '@/UI/Button/Button';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
+import { createNewAlert } from '@/helpers/createNewAlert';
 const languages = ['ru', 'en'];
 
 const LanguageSwitcher = () => {
+  const dispatch = useAppDispatch();
+  const { activeAlerts } = useAppSelector(selectModal);
   useEffect(() => {
     const language = localStorage.getItem('language') || 'ru';
     i18next.changeLanguage(language).then(() => {
@@ -13,6 +18,13 @@ const LanguageSwitcher = () => {
   }, []);
   const changeLanguage = async (e, language) => {
     e.preventDefault();
+    const title = i18next.language == 'en' ? 'Смена языка' : 'Language changed';
+    const extra =
+      i18next.language == 'en'
+        ? 'Язык был усмешно поменян на русский'
+        : 'Successfully changed language to english';
+    const newAlertList = createNewAlert(title, extra, activeAlerts);
+    dispatch(setActiveAlerts(newAlertList));
     await i18next.changeLanguage(language).then(() => {
       localStorage.setItem('language', language);
     });
