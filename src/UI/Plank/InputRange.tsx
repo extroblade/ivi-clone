@@ -3,6 +3,7 @@ import { P } from '@/UI/P/P';
 import styles from './Plank.module.scss';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectFilters, setRatingFrom } from '@/store/reducers/filters.slice';
+import { useDebounce } from '@/hooks/useDebounce';
 
 interface iRange {
   minLimit: number;
@@ -25,12 +26,16 @@ const InputRange: FC<iRange> = ({ minLimit, maxLimit, range, children, type }): 
       setInputValue(e.target.valueAsNumber);
     }
   };
-  useEffect(() => {
+  const setValue = useDebounce(() => {
     if (type == 'rating') {
-      dispatch(setRatingFrom(inputValue));
+      dispatch(setRatingFrom(+inputValue));
     } else if (type == 'comments') {
       console.log('currently not available');
     }
+  }, 300);
+
+  useEffect(() => {
+    setValue();
   }, [inputValue]);
   return (
     <div className={styles.plank}>

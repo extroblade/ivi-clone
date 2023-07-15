@@ -80,7 +80,7 @@ const Filters: FC = (): JSX.Element => {
           {/*  <Plank title={'asd'} type={'choose'} />*/}
           {/*</div>*/}
           <div className={styles.plank_item}>
-            <InputRange minLimit={0} maxLimit={10} range={0.1} type={'rating'}>
+            <InputRange minLimit={0} maxLimit={10} range={1} type={'rating'}>
               {t('sections.rating')}
             </InputRange>
           </div>

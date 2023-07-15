@@ -17,37 +17,23 @@ const Grid: FC<iGrid> = ({ type }) => {
   const [page, setPage] = useState(1);
   const { genre, yearTo, country, yearFrom, order, ratingTo, ratingFrom } =
     useAppSelector(selectFilters);
-  let params = { type, page, yearTo, yearFrom: yearTo, ratingTo };
+  const params = {
+    type,
+    page,
+    yearTo,
+    yearFrom: yearTo,
+    ratingTo: +ratingTo,
+    countries: country?.id,
+    genres: genre?.id,
+    order,
+    ratingFrom: +ratingFrom,
+  };
 
   useEffect(() => {
-    if (ratingFrom) {
-      params = { ...params, ratingFrom };
-    }
-    if (genre?.id) {
-      params = { ...params, genres: genre.id };
-    }
-    if (country?.id) {
-      params = { ...params, countries: country.id };
-    }
-    if (yearTo) {
-      const yearFr = yearTo < 3000 ? yearTo : yearFrom;
-      params = { ...params, yearTo, yearFrom: yearFr };
-    }
-    if (order) {
-      params = { ...params, order };
-    }
-    if (
-      genre?.id !== params?.genres ||
-      country?.id !== params?.countries ||
-      yearTo !== params?.yearTo ||
-      order !== params?.order ||
-      ratingFrom !== params?.ratingFrom
-    ) {
-      setPage(() => 1);
-    }
+    setPage(() => 1);
   }, [genre, yearTo, country, yearFrom, page]);
+  const { data, isLoading: loadingData } = useFetchAllFilmsQuery({ ...params });
 
-  const { data, isLoading: loadingData } = useFetchAllFilmsQuery(params);
   const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const showMore = async () => {
@@ -72,7 +58,7 @@ const Grid: FC<iGrid> = ({ type }) => {
   return (
     <>
       <div className={styles.grid}>
-        {movies?.length ? (
+        {!isLoading && movies?.length ? (
           <div className={styles.grid__container}>
             <ul className={styles.grid__list}>
               {movies.map((card, index) => (
