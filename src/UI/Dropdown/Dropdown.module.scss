@@ -38,6 +38,11 @@
   border-radius: 4px;
   box-shadow: 0 16px 32px rgba(7, 5, 14, 0.4);
   padding: 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .list_container {

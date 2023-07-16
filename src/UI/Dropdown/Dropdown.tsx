@@ -7,7 +7,7 @@ interface iDrop {
 }
 
 const Dropdown: FC<iDrop> = ({ state, children }): JSX.Element => {
-  return <div className={styles.dropdown_out}>{state && children}</div>;
+  return <>{state && <div className={styles.dropdown_out}>{children}</div>}</>;
 };
 
 export default Dropdown;

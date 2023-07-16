@@ -4,6 +4,7 @@ import { Button } from '@/UI/Button/Button';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
 import { createNewAlert } from '@/helpers/createNewAlert';
+import { Tooltip } from '@/UI/Tooltip/Tooltip';
 
 const BlockButton = () => {
   const [blocked, setBlocked] = useState<boolean>(false);
@@ -24,9 +25,19 @@ const BlockButton = () => {
     setBlocked((blocked) => !blocked);
   };
   return (
-    <Button appearance={'square'} onClick={blockMovie}>
-      {blocked ? <MdBlock fill={'#ff542e'} /> : <MdBlock />}
-    </Button>
+    <Tooltip text="delete">
+      {(propsGetter) => (
+        <Button
+          {...propsGetter({
+            onMouseEnter: (e) => console.log(e, 'enter'),
+          })}
+          appearance={'square'}
+          onClick={blockMovie}
+        >
+          {blocked ? <MdBlock fill={'#ff542e'} /> : <MdBlock />}
+        </Button>
+      )}
+    </Tooltip>
   );
 };
 
