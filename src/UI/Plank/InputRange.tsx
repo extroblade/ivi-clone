@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from 'react';
+import React, { ChangeEvent, FC, memo, ReactNode, useEffect, useState } from 'react';
 import { P } from '@/UI/P/P';
 import styles from './Plank.module.scss';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
@@ -63,4 +63,4 @@ const InputRange: FC<iRange> = ({ minLimit, maxLimit, range, children, type }): 
   );
 };
 
-export default InputRange;
+export default memo(InputRange);

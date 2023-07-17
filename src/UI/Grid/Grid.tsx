@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import styles from './Grid.module.scss';
 import { useTranslation } from 'react-i18next';
 import Card from '@/UI/Card/Card';
@@ -8,6 +8,7 @@ import Loader from '@/UI/Loader/Loader';
 import { useAppSelector } from '@/hooks/redux';
 import { selectFilters } from '@/store/reducers/filters.slice';
 import { Htag } from '@/UI/Htag/Htag';
+import { useInView } from 'framer-motion';
 
 interface iGrid {
   type: string;
@@ -15,6 +16,8 @@ interface iGrid {
 
 const Grid: FC<iGrid> = ({ type }) => {
   const [page, setPage] = useState(1);
+  const buttonRef = useRef(null);
+  const isInView = useInView(buttonRef);
   const { genre, yearTo, country, yearFrom, order, ratingTo, ratingFrom } =
     useAppSelector(selectFilters);
   const params = {
@@ -28,22 +31,16 @@ const Grid: FC<iGrid> = ({ type }) => {
     order,
     ratingFrom: +ratingFrom,
   };
-
   useEffect(() => {
     setPage(() => 1);
-  }, [genre, yearTo, country, yearFrom, page]);
-  const { data, isLoading: loadingData } = useFetchAllFilmsQuery({ ...params });
+  }, [genre, yearTo, country, yearFrom]);
+  const { data, isLoading } = useFetchAllFilmsQuery({ ...params });
 
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(false);
-  const showMore = async () => {
-    await setIsLoading(() => true);
+  const showMore = () => {
     if (page < data?.totalPages) {
-      await setPage((page) => page + 1);
+      setPage((page) => page + 1);
     }
-    await setTimeout(() => {
-      setIsLoading(() => false);
-    }, 800);
   };
   const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {
@@ -54,7 +51,13 @@ const Grid: FC<iGrid> = ({ type }) => {
         setMovies(() => data?.items);
       }
     }
-  }, [data?.items, data, data?.total]);
+  }, [page, data]);
+
+  useEffect(() => {
+    if (isInView) {
+      showMore();
+    }
+  }, [isInView]);
   return (
     <>
       <div className={styles.grid}>
@@ -73,19 +76,21 @@ const Grid: FC<iGrid> = ({ type }) => {
         )}
       </div>
       <div className={styles.nodata}>
-        {(data?.total === undefined || loadingData) && <Loader />}
+        {(data?.total === undefined || isLoading) && <Loader />}
         {data?.total === 0 ? <Htag tag={'h2'}>Ничего не найдено</Htag> : ''}
       </div>
-      {data?.total
-        ? data?.totalPages > page &&
-          (isLoading ? (
-            <div className={`${styles.open} loader`}></div>
-          ) : (
-            <Button appearance={'outline'} className={styles.open} onClick={showMore}>
-              {t('buttons.show-more')}
-            </Button>
-          ))
-        : ''}
+      <div ref={buttonRef}>
+        {data?.total
+          ? data?.totalPages > page &&
+            (isLoading ? (
+              <div className={`${styles.open} loader`}></div>
+            ) : (
+              <Button appearance={'outline'} className={styles.open} onClick={showMore}>
+                {t('buttons.show-more')}
+              </Button>
+            ))
+          : ''}
+      </div>
     </>
   );
 };

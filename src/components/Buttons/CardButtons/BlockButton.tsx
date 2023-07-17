@@ -29,7 +29,7 @@ const BlockButton = () => {
       {(propsGetter) => (
         <Button
           {...propsGetter({
-            onMouseEnter: (e) => console.log(e, 'enter'),
+            onMouseEnter: () => {},
           })}
           appearance={'square'}
           onClick={blockMovie}

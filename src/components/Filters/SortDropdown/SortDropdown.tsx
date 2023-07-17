@@ -11,6 +11,12 @@ import { useOutsideClick } from '@/hooks/useOutsideClick';
 import { useAppDispatch } from '@/hooks/redux';
 import { setOrder } from '@/store/reducers/filters.slice';
 
+interface iSort {
+  id: number;
+  value?: 'RATING' | 'NUM_VOTE' | 'YEAR';
+  title: string;
+}
+
 const SortDropdown: FC = (): JSX.Element => {
   const [sortDrop, setSortDrop] = useState(false);
   const dispatch = useAppDispatch();
@@ -24,7 +30,7 @@ const SortDropdown: FC = (): JSX.Element => {
   };
   useOutsideClick(closeState, ref);
 
-  const sorts = [
+  const sorts: iSort[] = [
     { id: 0, title: t('sections.by-default') },
     { id: 1, value: 'RATING', title: 'рейтингу' },
     { id: 2, value: 'NUM_VOTE', title: 'оценкам' },
@@ -49,7 +55,8 @@ const SortDropdown: FC = (): JSX.Element => {
   );
 
   useEffect(() => {
-    dispatch(setOrder(current?.value));
+    const newOrder = sorts.find((sort) => sort.id == current)?.value;
+    dispatch(setOrder(newOrder));
     setTimeout(() => {
       closeState();
     }, 150);
