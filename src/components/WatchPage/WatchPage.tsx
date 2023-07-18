@@ -19,6 +19,7 @@ import { useFetchAllPersonsQuery } from '@/services/person.api';
 import SimilarMovies from '@/UI/Carousel/SimilarMovies';
 import Trailers from '@/components/WatchPage/Trailers/Trailers';
 import BGContainer from '@/UI/MovieBGContainer/MovieBGContainer';
+import ExternalSources from '@/components/WatchPage/ExternalSources/ExternalSources';
 
 const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: persons } = useFetchAllPersonsQuery({ filmId: movie.kinopoiskId });
@@ -51,6 +52,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
             <MovieInfo movie={movie} />
           </div>
         </div>
+        <ExternalSources />
         <SimilarMovies similar={similar} />
         <PersonsGallery list={persons} />
         <ScrollToTopButton />

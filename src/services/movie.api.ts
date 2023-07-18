@@ -3,6 +3,7 @@ import {
   iAwards,
   iBoxOffice,
   iDistributions,
+  iExternalSources,
   iFacts,
   iFilm,
   iFilters,
@@ -123,6 +124,11 @@ export const movieApi = createApi({
         url: `${id}/seasons`,
       }),
     }),
+    fetchFilmExternalSources: build.query<iExternalSources[], number>({
+      query: ({ id }) => ({
+        url: `${id}/external_sources`,
+      }),
+    }),
     fetchOneFilm: build.query<iFilm, number>({
       query: ({ id }) => ({
         url: `${id}`,
@@ -176,6 +182,7 @@ export const {
   useFetchFilmDistributionsQuery,
   useFetchFilmFactsQuery,
   useFetchFilmSeasonsQuery,
+  useFetchFilmExternalSourcesQuery,
   useFetchOneFilmQuery,
   useFetchCommentsQuery,
 } = movieApi;

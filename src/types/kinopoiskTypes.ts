@@ -35,6 +35,22 @@ export interface iSeasons {
   items: iSeasonItems[];
 }
 
+export interface iExternalSourcesItem {
+  url: string;
+  platform: string; // 'Okko' ||
+  logoUrl: string;
+  positiveRating: number;
+  negativeRating: number;
+  author: string;
+  title: string;
+  description: string;
+}
+
+export interface iExternalSources {
+  total: number;
+  items: iExternalSourcesItem[];
+}
+
 export interface iFactsItems {
   text: string;
   type: string; // 'BLOOPER' | '...' |
