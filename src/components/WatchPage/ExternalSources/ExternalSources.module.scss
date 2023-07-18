@@ -1,17 +1,7 @@
 @import '@/styles/variables.scss';
 
 .sources_container {
-  .title {
-    h4 {
-      border-bottom: 1px solid rgba($color-main, 0.16);
-      display: inline;
-      transition: $time-main;
-      &:hover {
-        cursor: pointer;
-        border-bottom-color: $color-main;
-      }
-    }
-  }
+
 }
 .sources {
   display: flex;

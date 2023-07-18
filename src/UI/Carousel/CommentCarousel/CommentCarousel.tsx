@@ -4,25 +4,29 @@ import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
 import Slider from 'react-slick';
 import CommentCard from '@/UI/Comment/CommentCard/CommentCard';
 import Loader from '@/UI/Loader/Loader';
-import { iReviews } from '@/types/kinopoiskTypes';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
-import { Htag } from '@/UI/Htag/Htag';
-import Sup from '@/UI/Sup/Sup';
 import { Button } from '@/UI/Button/Button';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { scrollTop } from '@/helpers/scrollTop';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
 import { useFetchCommentsQuery } from '@/services/movie.api';
+import Title from '@/UI/Title/Title';
 
-interface ICommentCarousel {
-  comments?: iReviews;
-  commentsId: number;
-}
-
-const CommentCarousel: FC<ICommentCarousel> = ({ commentsId }) => {
+const CommentCarousel: FC = () => {
   const { t } = useTranslation();
-  const { data: comments, isLoading, error } = useFetchCommentsQuery({ id: commentsId });
+  const { currentMovie } = useAppSelector(selectModal);
+  const {
+    data: comments,
+    isLoading,
+    error,
+    refetch,
+  } = useFetchCommentsQuery({ id: currentMovie?.kinopoiskId });
+  useEffect(() => {
+    if (currentMovie?.kinopoiskId) {
+      refetch();
+    }
+  }, [currentMovie]);
   const settings = {
     dots: false,
     infinite: false,
@@ -54,7 +58,6 @@ const CommentCarousel: FC<ICommentCarousel> = ({ commentsId }) => {
       },
     ],
   };
-  const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
 
   const openComments = () => {
@@ -71,9 +74,7 @@ const CommentCarousel: FC<ICommentCarousel> = ({ commentsId }) => {
   return (
     <>
       <div className={styles.comments_container}>
-        <div className={styles.comments} onClick={openComments}>
-          <Htag tag={'h4'}>{t('categories.comments')} </Htag> <Sup text={comments?.total || 0} />
-        </div>
+        <Title text={t('categories.comments')} sup={comments?.total || 0} onClick={openComments} />
         <div className={styles.open} onClick={openComments}>
           <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
         </div>

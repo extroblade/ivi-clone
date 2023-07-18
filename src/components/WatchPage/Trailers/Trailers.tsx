@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
 import styles from './Trailers.module.scss';
-import { Htag } from '@/UI/Htag/Htag';
-import Sup from '@/UI/Sup/Sup';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { scrollTop } from '@/helpers/scrollTop';
 import { useAppDispatch, useAppSelector } from '@/hooks/redux';
@@ -9,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { iVideos } from '@/types/kinopoiskTypes';
 import Link from 'next/link';
 import { P } from '@/UI/P/P';
+import Title from '@/UI/Title/Title';
 
 interface iTrailers {
   videos: iVideos;
@@ -24,11 +23,10 @@ const Trailers: FC<iTrailers> = ({ videos }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };
+  //todo!!!
   return (
     <div className={styles.videos}>
-      <div className={styles.title} onClick={openTrailers}>
-        <Htag tag={'h4'}>{t('categories.trailers')} </Htag> <Sup text={videos?.total || 0} />
-      </div>
+      <Title text={t('categories.trailers')} sup={videos?.total || 0} onClick={openTrailers} />
       <div className={styles.videos_links}>
         {videos?.total
           ? videos?.items.map((video) => (

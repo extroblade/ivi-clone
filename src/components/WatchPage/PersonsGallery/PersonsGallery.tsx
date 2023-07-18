@@ -3,16 +3,15 @@ import { PersonsGalleryProps } from './PersonsGallery.props';
 import cn from 'classnames';
 import styles from './PersonsGallery.module.scss';
 import Link from 'next/link';
-import { Htag } from '@/UI/Htag/Htag';
 import { P } from '@/UI/P/P';
 import { useTranslation } from 'react-i18next';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
 import { useDispatch } from 'react-redux';
 import Image from 'next/image';
 import { useAppSelector } from '@/hooks/redux';
-import Sup from '@/UI/Sup/Sup';
 import { professionTypes } from '@/constants/Professions';
 import { scrollTop } from '@/helpers/scrollTop';
+import Title from '@/UI/Title/Title';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
@@ -27,11 +26,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
     <>
       {list?.length > 0 && (
         <div className={styles.wrap}>
-          <div className={styles.title_container}>
-            <div className={styles.title} onClick={open}>
-              <Htag tag={'h4'}>{t('sections.actors-creators')}</Htag> <Sup text={list?.length} />
-            </div>
-          </div>
+          <Title text={t('sections.actors-creators')} sup={list?.length || 0} onClick={open} />
           <div className={styles.list}>
             <div className={styles.list__wrap}>
               {list.slice(0, 9).map((person) => {

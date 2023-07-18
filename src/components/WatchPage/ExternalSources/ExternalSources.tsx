@@ -6,8 +6,7 @@ import { P } from '@/UI/P/P';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ExternalSources.module.scss';
-import { Htag } from '@/UI/Htag/Htag';
-
+import Title from '@/UI/Title/Title';
 const ExternalSources = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const params = { id: currentMovie?.kinopoiskId };
@@ -19,10 +18,7 @@ const ExternalSources = () => {
   }, [currentMovie]);
   return (
     <div className={styles.sources_container}>
-      <div className={styles.title}>
-        <Htag tag={'h4'}>Смотреть полностью: </Htag>
-      </div>
-
+      <Title text={'Смотреть полностью:'} />
       <div className={styles.sources}>
         {params.id && sources?.total
           ? sources.items.map((item) => (

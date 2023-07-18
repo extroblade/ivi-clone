@@ -33,7 +33,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     dispatch(setCurrentMovie({ ...movie, persons, awards, videos, index: 0 }));
   }, [dispatch, movie.kinopoiskId, persons, awards, videos]);
 
-  const { kinopoiskId, nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
+  const { nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
   const title = nameRu || nameEn || nameOriginal || '';
   const cover = coverUrl || posterUrl || '';
   const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url || null;
@@ -56,7 +56,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         <SimilarMovies similar={similar} />
         <PersonsGallery list={persons} />
         <ScrollToTopButton />
-        <CommentCarousel commentsId={kinopoiskId} />
+        <CommentCarousel />
         <Trailers videos={videos} />
         <WatchAllDevices name={title} image={cover} />
       </section>
