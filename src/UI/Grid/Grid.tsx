@@ -45,10 +45,10 @@ const Grid: FC<iGrid> = ({ type }) => {
   const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {
     if (data?.items) {
-      if (page > 1) {
-        setMovies(() => [...movies, ...data?.items]);
-      } else {
+      if (page === 1) {
         setMovies(() => data?.items);
+      } else {
+        setMovies(() => [...movies, ...data?.items]);
       }
     }
   }, [page, data]);
