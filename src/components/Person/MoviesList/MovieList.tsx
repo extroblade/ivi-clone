@@ -50,9 +50,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
             height={
               window?.innerHeight < 1200 ? window?.innerHeight * 0.9 : window?.innerHeight * 0.65
             }
-            width={
-              window?.innerWidth < 1200 ? window?.innerWidth * 0.9 : window?.innerWidth * 0.65
-            }
+            width={window?.innerWidth < 1200 ? window?.innerWidth * 0.9 : window?.innerWidth * 0.65}
             rowCount={list?.length}
             rowHeight={100}
             rowRenderer={({ key, style, index }) => {
