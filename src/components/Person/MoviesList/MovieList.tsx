@@ -8,6 +8,7 @@ import { MovieListProps } from './MovieList.props';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
+import { List } from 'react-virtualized';
 
 const MovieList: FC<MovieListProps> = ({ list }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,18 +35,34 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
       </div>
       <div className={styles.line}></div>
       <div className={styles.cards}>
-        {list?.slice(0, 8).map((card) => {
-          return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
-        })}
         {!isOpen && list?.length > 8 ? (
-          <P onClick={changeState} className={styles.link}>
-            {t('buttons.more')} {list?.length - 8}
-            {i18next.language == 'en' ? ' movies' : remainingAmount}
-          </P>
+          <>
+            {list?.slice(0, 8).map((card) => {
+              return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
+            })}
+            <P onClick={changeState} className={styles.link}>
+              {t('buttons.more')} {list?.length - 8}
+              {i18next.language == 'en' ? ' movies' : remainingAmount}
+            </P>
+          </>
         ) : (
-          list?.slice(8, list?.length).map((card) => {
-            return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
-          })
+          <List
+            height={
+              window?.innerHeight < 1200 ? window?.innerHeight * 0.9 : window?.innerHeight * 0.65
+            }
+            width={
+              window?.innerWidth < 1200 ? window?.innerWidth * 0.9 : window?.innerWidth * 0.65
+            }
+            rowCount={list?.length}
+            rowHeight={100}
+            rowRenderer={({ key, style, index }) => {
+              return (
+                <div key={key} style={style}>
+                  <MovieCard card={list[index]} />
+                </div>
+              );
+            }}
+          />
         )}
       </div>
     </div>

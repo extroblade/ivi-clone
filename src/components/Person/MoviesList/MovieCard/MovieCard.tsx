@@ -11,14 +11,14 @@ import { professionTypes } from '@/constants/Professions';
 const MovieCard: FC<MovieCardProps> = ({ card }) => {
   const { t, i18n } = useTranslation();
   if (!card) return <CardLoader />;
-
   const { filmId, description, year, nameRu, nameEn, rating, professionKey: type } = card;
+  const name = i18n.language == 'en' ? nameEn || nameRu : nameRu || nameEn;
   return (
-    <Link href={`/watch/${filmId}`} className={styles.card}>
+    <Link href={`/watch/${filmId}`} className={styles.card} title={name}>
       <div className={styles.info}>
         <div>
           <P color={'white'}>{year}</P>
-          <P color={'white'}>{i18n.language == 'en' ? nameEn || nameRu : nameRu || nameEn}</P>
+          <P color={'white'}>{name}</P>
           <div className={styles.info_row}>
             {description && <P size={'S'}>{description}, </P>}
             {type && (

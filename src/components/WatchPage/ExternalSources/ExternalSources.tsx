@@ -5,6 +5,8 @@ import { selectModal } from '@/store/reducers/modals.slice';
 import { P } from '@/UI/P/P';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from './ExternalSources.module.scss';
+
 const ExternalSources = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const params = { id: currentMovie?.kinopoiskId };
@@ -12,19 +14,19 @@ const ExternalSources = () => {
   useEffect(() => {
     if (currentMovie?.kinopoiskId) {
       refetch();
-      console.log(currentMovie?.kinopoiskId);
     }
   }, [currentMovie]);
   return (
-    <div>
+    <div className={styles.sources}>
       {params.id && data?.total
         ? data.items.map((item) => (
-            <Link href={item.url} key={item.platform}>
-              <div>
-                <Image width={120} height={120} alt={'logo'} src={item.logoUrl} />
+            <Link href={item.url} key={item.platform} className={styles.source_item}>
+              <div className={styles.img}>
+                <Image fill alt={'logo'} src={item.logoUrl} />
               </div>
-
-              <P>{item.platform}</P>
+              <div className={styles.text}>
+                <P color={'gray-light'}>{item.platform}</P>
+              </div>
             </Link>
           ))
         : ''}
