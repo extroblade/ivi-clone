@@ -24,6 +24,14 @@
       font-size: 1.25rem;
     }
   }
+  &:hover {
+    transition: $time-main;
+    transform: scale(1.03) translateY(-1%);
+    .imageSection{
+      transition: $time-main;
+      transform: scale(1.03) translateY(-1%);
+    }
+  }
   .imageSection {
     aspect-ratio: 13/20;
     position: relative;
@@ -133,8 +141,6 @@
   }
   &:hover {
     .imageSection {
-      transition: $time-main;
-      transform: scale(1.03) translateY(-1%);
       &.show > p {
         color: white !important;
         transition: $time-main;
