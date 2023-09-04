@@ -12,7 +12,7 @@
   background-color: #1f1b2e;
   border-color: #1f1b2e;
   color: white;
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 600;
   &:disabled {
     opacity: 0.4;
@@ -110,24 +110,20 @@
 
 .button {
   transition: all 0.05s ease-in;
-  font-size: 0.9em;
-  @media screen and (max-width: 1160px) {
-    font-size: 0.85em;
-  }
 }
 
 .S {
-  height: 32px;
+  height: 2rem;
   padding: 7px 11px;
   font-size: 13px;
 }
 
 .M {
-  height: 40px;
+  height: 3rem;
   padding: 9px 15px;
 }
 
 .L {
-  height: 48px;
+  height: 4rem;
   padding: 5px 15px;
 }

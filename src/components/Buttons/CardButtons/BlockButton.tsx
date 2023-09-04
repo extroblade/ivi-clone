@@ -18,9 +18,9 @@ const BlockButton = () => {
       const newAlertList = createNewAlert(
         'Спасибо за отметку',
         'Теперь мы будем показывать Вам меньше похожих фильмов',
-        activeAlerts
+        activeAlerts || undefined
       );
-      dispatch(setActiveAlerts(newAlertList));
+      dispatch(setActiveAlerts(newAlertList || null));
     }
     setBlocked((blocked) => !blocked);
   };

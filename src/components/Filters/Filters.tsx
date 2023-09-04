@@ -15,16 +15,14 @@ const variants = {
     transition: { duration: 0.4 },
     opacity: 1,
     marginBottom: 20,
-    height: '165px',
+    height: '100%',
     display: 'block',
   },
   hidden: {
     transition: { duration: 0.4 },
-    marginTop: -30,
     margin: 0,
     opacity: 0,
-    height: 0,
-    display: 'none',
+    height: '0px',
   },
 };
 const Filters: FC = (): JSX.Element => {
@@ -34,7 +32,15 @@ const Filters: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   useEffect(() => {
-    setActive(() => Boolean(genre?.genre || country?.country || yearTo < 3000 || ratingFrom > 0));
+    setActive(
+      () =>
+        !!(
+          (typeof genre === 'object' ? genre?.genre : genre) ||
+          (typeof country === 'object' ? country?.country : country) ||
+          yearTo < 3000 ||
+          ratingFrom > 0
+        )
+    );
   }, [genre, yearTo, country, ratingFrom]);
   const reset = () => {
     dispatch(resetFilters());

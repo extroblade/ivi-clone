@@ -8,7 +8,6 @@ export default function Document() {
         <link rel="icon" href="/images/favicon.svg" />
       </Head>
       <body>
-        <div id="tooltip-root" />
         <Main />
         <NextScript />
       </body>

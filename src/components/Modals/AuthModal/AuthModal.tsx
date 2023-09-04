@@ -21,7 +21,7 @@ import GoogleAuthButton from '@/components/Buttons/LoginButton/GoogleAuthButton'
 import VKAuthButton from '@/components/Buttons/LoginButton/VKAuthButton';
 import { useSearchParams } from 'next/navigation';
 
-const AuthModal: FC = ({ show = false }): JSX.Element => {
+const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();

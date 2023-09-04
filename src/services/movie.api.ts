@@ -31,7 +31,7 @@ export const movieApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.API + 'v2.2/films',
     prepareHeaders: (headers) => {
-      headers.set('X-API-KEY', process.env.X_API_KEY); //process.env.X_API_KEY
+      headers.set('X-API-KEY', process.env.X_API_KEY || '');
       headers.set('Content-Type', 'application/json');
       return headers;
     },
@@ -79,62 +79,63 @@ export const movieApi = createApi({
         params: { year, month },
       }),
     }),
-    fetchFilmFilters: build.query<iFilters[], Record<string, string>>({
-      query: () => ({
+    fetchFilmFilters: build.query<iFilters, null>({
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      query: (_) => ({
         url: `filters`,
       }),
     }),
-    fetchFilmImages: build.query<iImages[], number>({
+    fetchFilmImages: build.query<iImages[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/images`,
       }),
     }),
-    fetchFilmSimilars: build.query<iSimilar[], number>({
+    fetchFilmSimilars: build.query<iSimilar[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/similars`,
       }),
     }),
-    fetchFilmVideo: build.query<any[], number>({
+    fetchFilmVideo: build.query<any[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/videos`,
       }),
     }),
-    fetchFilmAwards: build.query<iAwards[], number>({
+    fetchFilmAwards: build.query<iAwards[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/awards`,
       }),
     }),
-    fetchFilmBoxOffice: build.query<iBoxOffice[], number>({
+    fetchFilmBoxOffice: build.query<iBoxOffice[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/box_office`,
       }),
     }),
-    fetchFilmDistributions: build.query<iDistributions[], number>({
+    fetchFilmDistributions: build.query<iDistributions[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/distributions`,
       }),
     }),
-    fetchFilmFacts: build.query<iFacts[], number>({
+    fetchFilmFacts: build.query<iFacts, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/facts`,
       }),
     }),
-    fetchFilmSeasons: build.query<iSeasons[], number>({
+    fetchFilmSeasons: build.query<iSeasons[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/seasons`,
       }),
     }),
-    fetchFilmExternalSources: build.query<iExternalSources[], number>({
+    fetchFilmExternalSources: build.query<iExternalSources[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/external_sources`,
       }),
     }),
-    fetchOneFilm: build.query<iFilm, number>({
+    fetchOneFilm: build.query<iFilm, { id: number }>({
       query: ({ id }) => ({
         url: `${id}`,
       }),
     }),
-    fetchComments: build.query<iReviews, number>({
+    fetchComments: build.query<iReviews, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/reviews`,
       }),
@@ -178,7 +179,6 @@ export const {
   useFetchFilmSimilarsQuery,
   useFetchFilmVideoQuery,
   useFetchFilmAwardsQuery,
-  useFetchFilmBoxOfficesQuery,
   useFetchFilmDistributionsQuery,
   useFetchFilmFactsQuery,
   useFetchFilmSeasonsQuery,

@@ -11,28 +11,29 @@ export default NextAuth({
         email: { label: 'email', type: 'text' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials.password) return null;
-
-        const currentUser = users.find((user) => user.email === credentials.email);
-
-        if (currentUser && currentUser.password === credentials.password) {
-          const { password, ...userWithoutPass } = currentUser;
-
-          return userWithoutPass;
-        }
+      async authorize() {
+        //credentials
+        // if (!credentials?.email || !credentials.password) return null;
+        //
+        // const currentUser = users.find((user) => user.email === credentials.email);
+        //
+        // if (currentUser && currentUser.password === credentials.password) {
+        //   const { password, ...userWithoutPass } = currentUser;
+        //
+        //   return userWithoutPass;
+        // }
 
         return null;
       },
     }),
-    // OAuth authentication providers...
+    // OAuth's authentication providers...
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID || '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
     }),
     VkProvider({
-      clientId: process.env.VK_CLIENT_ID,
-      clientSecret: process.env.VK_CLIENT_SECRET,
+      clientId: process.env.VK_CLIENT_ID || '',
+      clientSecret: process.env.VK_CLIENT_SECRET || '',
     }),
   ],
   secret: process.env.JWT_SECRET,
@@ -86,10 +87,9 @@ export default NextAuth({
       return token;
     },
     async session({ session, token }) {
-      // Send properties to the client, like an access_token from a provider.
-      // console.log('====================================================');
-      // console.log('SESSION TOKEN:', token);
-      // console.log('====================================================');
+      console.log('====================================================');
+      console.log('SESSION TOKEN:', token);
+      console.log('====================================================');
       return session;
     },
   },
@@ -100,49 +100,49 @@ export default NextAuth({
   debug: process.env.NODE_ENV !== 'production',
 });
 
-const SignInUser = async (email: string, password: string) => {
-  const url = `http://localhost:3001/auth/login`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email,
-      password,
-    }),
-  });
-  const user = await res.json();
-  console.log('====================================================');
-  console.log('USER:', user);
-  // Пример ответа от сервера 3001
-  //   {
-  //   token: {
-  //     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAbWFpbC5ydSIsImlkIjoxLCJpYXQiOjE2ODU0MzUzMzcsImV4cCI6MTY4NTUyMTczN30.9b2y9u24gR_Dnjt7mtWrbeWVifHdE3Z1RTEe20h1P2s'
-  //   },
-  //   profileInfo: {
-  //     id: 1,
-  //     url: '',
-  //     name: 'Александр',
-  //     surname: 'Иванов',
-  //     nickname: 'stas9n',
-  //     country: 'Россия',
-  //     city: 'Москва',
-  //     createdAt: '2023-05-29T20:55:09.408Z',
-  //     photo: null,
-  //     userId: 1
-  //   }
-  // }
-  console.log('====================================================');
-
-  if (res.ok && user) {
-    return {
-      name: user.profileInfo.name,
-      email: email,
-      picture: user.profileInfo.photo,
-      sub: undefined,
-      token: user.token.token,
-    };
-  }
-  return null;
-};
+// const SignInUser = async (email: string, password: string) => {
+//   const url = `http://localhost:3001/auth/login`;
+//   const res = await fetch(url, {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       email,
+//       password,
+//     }),
+//   });
+//   const user = await res.json();
+//   console.log('====================================================');
+//   console.log('USER:', user);
+// Пример ответа от сервера 3001
+//   {
+//   token: {
+//     token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAbWFpbC5ydSIsImlkIjoxLCJpYXQiOjE2ODU0MzUzMzcsImV4cCI6MTY4NTUyMTczN30.9b2y9u24gR_Dnjt7mtWrbeWVifHdE3Z1RTEe20h1P2s'
+//   },
+//   profileInfo: {
+//     id: 1,
+//     url: '',
+//     name: 'Александр',
+//     surname: 'Иванов',
+//     nickname: 'stas9n',
+//     country: 'Россия',
+//     city: 'Москва',
+//     createdAt: '2023-05-29T20:55:09.408Z',
+//     photo: null,
+//     userId: 1
+//   }
+// }
+//   console.log('====================================================');
+//
+//   if (res.ok && user) {
+//     return {
+//       name: user.profileInfo.name,
+//       email: email,
+//       picture: user.profileInfo.photo,
+//       sub: undefined,
+//       token: user.token.token,
+//     };
+//   }
+//   return null;
+// };

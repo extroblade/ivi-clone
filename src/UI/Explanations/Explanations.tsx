@@ -26,13 +26,13 @@ const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
 
   useEffect(() => {
     if (facts?.total) {
-      setNow(() => items[0]);
+      setNow(() => (items ? items[0] : null));
     }
   }, [facts]);
 
   useEffect(() => {
     if (length > 1) {
-      setNow(() => items.find((item, index) => index == active));
+      setNow(() => (items && items.find((item, index) => index == active)) || null);
       const interval = setInterval(() => {
         nextSlide();
       }, 3000);
@@ -40,7 +40,7 @@ const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
     }
   }, [active]);
   if (isLoading) return <Loader />;
-  if (error?.error || length < 1) return <></>;
+  if (error || length < 1) return <></>;
   return (
     <div className={styles.explanations} onClick={nextSlide}>
       <div className={styles.slider_container}>
@@ -48,7 +48,10 @@ const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
           <div className={styles.reasons}>
             <Image alt={'left_wing'} src={'/images/laurelBranchLeft.svg'} height={40} width={16} />
             <div className={styles.content_block}>
-              <div className={styles.content}>{now?.text}</div>
+              <div
+                className={styles.content}
+                dangerouslySetInnerHTML={{ __html: now?.text || '' }}
+              />
             </div>
             <Image
               alt={'right_wing'}
@@ -60,12 +63,14 @@ const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
         </div>
       </div>
       <div className={styles.point_container}>
-        {items.map((item, index) => (
-          <div
-            className={`${styles.point} ${active == index ? styles.isActive : ''}`}
-            key={index}
-          />
-        ))}
+        {items &&
+          items.length &&
+          items.map((item, index) => (
+            <div
+              className={`${styles.point} ${active == index ? styles.isActive : ''}`}
+              key={index}
+            />
+          ))}
       </div>
     </div>
   );

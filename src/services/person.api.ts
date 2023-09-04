@@ -12,18 +12,18 @@ export const personApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    fetchAllPersons: build.query<iPerson[], number>({
+    fetchAllPersons: build.query<iPerson[], { filmId: number }>({
       query: ({ filmId }) => ({
         url: '/v1/staff',
         params: { filmId },
       }),
     }),
-    fetchOnePerson: build.query<iPerson, number>({
+    fetchOnePerson: build.query<iPerson, { id: number }>({
       query: ({ id }) => ({
         url: `/v1/staff/${id}`,
       }),
     }),
-    fetchPersonName: build.query<iPerson, string>({
+    fetchPersonName: build.query<iPerson, { name: string; page: number }>({
       query: ({ name, page = 1 }) => ({
         url: `/v1/persons`,
         params: { name, page },

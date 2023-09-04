@@ -16,7 +16,7 @@ const ScrollToTopButton = () => {
 
   return (
     <>
-      <div className={styles.obs} ref={ref}></div>
+      <div className={styles.obs} ref={ref} />
       <div className={`${styles.scroll_to_top} ${isInView ? styles.shown : ''}`}>
         <Button onClick={scrollToTop} appearance={'red'}>
           Продолжить просмотр

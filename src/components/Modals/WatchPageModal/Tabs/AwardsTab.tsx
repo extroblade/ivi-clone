@@ -9,7 +9,7 @@ const AwardsTab = () => {
   return (
     <div>
       {awards?.length ? (
-        awards.map((award) => <div key={award}>{award}</div>)
+        awards.map((award: string) => <div key={award}>{award}</div>)
       ) : (
         <Htag tag={'h2'}>Награды не указаны</Htag>
       )}

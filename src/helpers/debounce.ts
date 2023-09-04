@@ -6,8 +6,11 @@ export function debounce<T extends (...args: any[]) => any>(fn: T, ms: number) {
       clearTimeout(timeoutId);
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     timeoutId = setTimeout(() => {
       timeoutId = null;
+      // eslint-disable-next-line prefer-spread
       fn.apply(null, args);
     }, ms);
   }

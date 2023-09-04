@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import styles from '@/UI/Comment/Comment.module.scss';
-import { FiUser } from 'react-icons/fi';
 import Image from 'next/image';
 
 const colors: string[] = [
@@ -26,7 +25,7 @@ export type CommentAvatarProps = {
 };
 
 const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
-  const color = user?.length ? user?.split('')[0].charCodeAt(0) % 10 : 0;
+  const color = typeof user === 'string' ? user?.split('')[0].charCodeAt(0) % 10 : 0;
   return (
     <div className={styles.user_image}>
       <div
@@ -35,11 +34,10 @@ const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
           backgroundColor: `${colors[color as number] || colors[0]}`,
         }}
       >
-        {user?.image ? (
-          <Image src={user.image} alt={'user'} fill />
-        ) : (
-          <div className={styles.image_text}>{user ? user[0] : <FiUser />}</div>
-        )}
+        {typeof user === 'object' && user?.image && <Image src={user.image} alt={'user'} fill />}
+        {/*{user?.length && (*/}
+        {/*  <div className={styles.image_text}>{user ? user[0] : <FiUser />}</div>*/}
+        {/*)}*/}
       </div>
     </div>
   );

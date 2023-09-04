@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
-import { HYDRATE } from 'next-redux-wrapper';
+import { iCountry, iGenre } from '@/types/kinopoiskTypes';
+// import { HYDRATE } from 'next-redux-wrapper';
 
+type Order = 'RATING' | 'NUM_VOTE' | 'YEAR';
 interface iFilters {
-  countries?: string[];
+  countries?: string[] | iCountry;
   years: number[];
-  genres?: string[];
-  country: string | null;
-  genre: string | null;
-  order: 'RATING' | 'NUM_VOTE' | 'YEAR';
+  genres?: string[] | iGenre;
+  country?: string | null | iCountry;
+  genre?: string | null | { genre: string };
+  order: Order;
   type: 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
   ratingFrom: number;
   ratingTo: number;
@@ -41,13 +43,13 @@ export const filtersSlice = createSlice({
     resetFilters: () => {
       return initialState;
     },
-    setOrder(state, action: PayloadAction<string>) {
+    setOrder(state, action: PayloadAction<Order>) {
       state.order = action.payload;
     },
-    setGenres(state, action: PayloadAction<string[]>) {
+    setGenres(state, action: PayloadAction<string[] | iGenre>) {
       state.genres = action.payload;
     },
-    setCountries(state, action: PayloadAction<string[]>) {
+    setCountries(state, action: PayloadAction<string[] | iCountry>) {
       state.countries = action.payload;
     },
     setGenre(state, action: PayloadAction<string>) {
@@ -76,14 +78,14 @@ export const filtersSlice = createSlice({
     },
   },
   //>>>>>>
-  extraReducers(builder) {
-    builder.addCase(HYDRATE, (state, action) => {
-      return {
-        ...state,
-        ...action.payload.filtersReducer,
-      };
-    });
-  },
+  // extraReducers(builder) {
+  //   builder.addCase(HYDRATE, (state, action) => {
+  //     return {
+  //       ...state,
+  //       ...action.payload.filtersReducer,
+  //     };
+  //   });
+  // },
 });
 
 export const {
@@ -94,11 +96,11 @@ export const {
   setCountry,
   setCountries,
   setRatingFrom,
-  setRatingTo,
+  // setRatingTo,
   setYearFrom,
   setYearTo,
-  setPage,
-  setKeyword,
+  // setPage,
+  // setKeyword,
 } = filtersSlice.actions;
 export const selectFilters = (state: RootState) => state.filtersReducer;
 export default filtersSlice.reducer;

@@ -1,16 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { IComment } from '@/types/types';
-import { HYDRATE } from 'next-redux-wrapper';
+// import { HYDRATE } from 'next-redux-wrapper';
 import { iFilm } from '@/types/kinopoiskTypes';
 
 interface ICurrentMovie extends iFilm {
+  awards?: {
+    items: any[];
+  };
   index?: number;
   comments?: IComment[];
 }
 
 export interface iAlert {
-  id: string | number;
+  id?: string | number;
   title: string;
   extra?: string;
 }
@@ -46,7 +49,7 @@ export const modalsSlice = createSlice({
     setCurrentMovie(state, action: PayloadAction<ICurrentMovie>) {
       state.currentMovie = action.payload;
     },
-    setActiveAlerts(state, action: PayloadAction<string | null>) {
+    setActiveAlerts(state, action: PayloadAction<iAlert[] | null>) {
       state.activeAlerts = action.payload;
     },
     setShowAuth(state, action: PayloadAction<boolean>) {
@@ -72,14 +75,14 @@ export const modalsSlice = createSlice({
     },
   },
   //>>>>>>
-  extraReducers(builder) {
-    builder.addCase(HYDRATE, (state, action) => {
-      return {
-        ...state,
-        ...action.payload.modalsReducer,
-      };
-    });
-  },
+  // extraReducers(builder) {
+  //   builder.addCase(HYDRATE, (state, action) => {
+  //     return {
+  //       ...state,
+  //       ...action.payload.modalsReducer,
+  //     };
+  //   });
+  // },
 });
 
 export const selectModal = (state: RootState) => state.modalsReducer;

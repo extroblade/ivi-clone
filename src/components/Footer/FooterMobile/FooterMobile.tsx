@@ -31,7 +31,7 @@ const FooterMobile: FC = (): JSX.Element => {
     }
   };
   return (
-    <div className={styles.footerMobile}>
+    <footer className={styles.footerMobile}>
       <div className={styles.menu}>
         <Link href={'/'} className={styles.link}>
           <FooterLink title={t('sections.my-ivi')} href={'/'} icon={RiHome6Line} />
@@ -55,7 +55,7 @@ const FooterMobile: FC = (): JSX.Element => {
           icon={showFooterModal ? IoCloseOutline : HiDotsHorizontal}
         />
       </div>
-    </div>
+    </footer>
   );
 };
 

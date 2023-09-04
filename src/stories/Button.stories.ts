@@ -5,11 +5,11 @@ import { ButtonProps } from '@/UI/Button/Button.props';
 
 interface iButton extends ButtonProps {
   title: string;
-  component: Button;
+  component: typeof Button;
   argTypes?: ButtonProps;
 }
 
-const meta: Meta<iButton> = {
+const meta: Meta<typeof Button> = {
   title: 'Main/Button',
   component: Button,
   tags: ['autodocs'],

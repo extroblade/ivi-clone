@@ -15,15 +15,6 @@ interface iRegister {
   city?: string;
   photo?: unknown;
 }
-
-// prepareHeaders: (headers, { getState }) => {
-//   const token = getState().auth.token;
-//   if (token) {
-//     headers.set('authorization', `Bearer ${token}`);
-//   }
-//   return headers;
-// },
-
 export const authApi = createApi({
   reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({
@@ -50,7 +41,6 @@ export const authApi = createApi({
           body,
         };
       },
-      providesTags: () => ['Auth'],
     }),
     login: build.mutation({
       query: (body: iAuth | any) => {
@@ -60,7 +50,6 @@ export const authApi = createApi({
           body: body,
         };
       },
-      providesTags: () => ['Auth'],
     }),
     googleLogin: build.query({
       query: () => {
@@ -76,7 +65,6 @@ export const authApi = createApi({
           url: '/auth/logout', ///////
         };
       },
-      providesTags: () => ['Auth'],
     }),
   }),
 });

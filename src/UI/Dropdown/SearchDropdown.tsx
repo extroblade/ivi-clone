@@ -1,32 +1,30 @@
 import React, { FC, useState } from 'react';
 import Dropdown from '@/UI/Dropdown/Dropdown';
 import styles from './Dropdown.module.scss';
-import { BsCheckLg } from 'react-icons/bs';
-import { categories } from '@/mock/filters';
+// import { categories } from '@/mock/filters';
 
-const SearchDropdown: FC = ({ state }): JSX.Element => {
+const SearchDropdown: FC = ({ state }: any): JSX.Element => {
   const [val, setVal] = useState<string>('');
-  const handler = (e) => {
+  const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(() => e.target.value);
   };
 
-  const dynamicSearch = () => {
-    const array = categories.find((item) => item.plankID === plank.id)?.category;
-    if (!val) return [...array].splice(0, 10);
-    if (array) {
-      return array.filter((s) => {
-        const regex = new RegExp(val + '[A-Za-z0-9]*', 'gi'); //
-        return s.title.match(regex)?.splice(0, 15);
-      });
-    }
-  };
+  // const dynamicSearch = () => {
+  //   const array = categories.find((item) => item.plankID !== undefined)?.category;
+  //   if (!val && array) return [...array].splice(0, 10);
+  //   if (array) {
+  //     return array.filter((s) => {
+  //       const regex = new RegExp(val + '[A-Za-z0-9]*', 'gi'); //
+  //       return s.title.match(regex)?.splice(0, 15);
+  //     });
+  //   }
+  // };
   return (
     <Dropdown state={state}>
       <div className={`${styles.dropdown} ${styles.find}`}>
         <input type={'text'} onChange={(e) => handler(e)} value={val} />
         <div className={styles.list_container}>
-          <ul className={styles.one_lane}>
-          </ul>
+          <ul className={styles.one_lane}></ul>
         </div>
       </div>
     </Dropdown>

@@ -1,6 +1,6 @@
 const lastHourLetter = (number: number): string => {
-  let result = '';
-  const lastNum = String(number).split('').reverse()[0];
+  let result: string;
+  const lastNum = +String(number).split('').reverse()[0];
   if (lastNum == 1 && (number < 10 || number > 20)) {
     result = '';
   } else if (lastNum < 5 && (number < 10 || number > 20)) {
@@ -13,7 +13,7 @@ const lastHourLetter = (number: number): string => {
 
 const lastMinuteLetter = (number: number): string => {
   let result;
-  const lastNum = String(number).split('').reverse()[0];
+  const lastNum = +String(number).split('').reverse()[0];
   if (lastNum == 1 && (number < 10 || number > 20)) {
     result = 'а';
   } else if (lastNum < 5 && (number < 10 || number > 20)) {

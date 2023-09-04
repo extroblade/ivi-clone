@@ -15,13 +15,15 @@
   display: flex;
   background-color: $color-input-text;
   border-radius: 16px;
+  max-width: 95vw;
   button {
     margin: 3px;
+    padding: 0;
     border-radius: 12px;
-    height: 48px;
+    height: 6vw;
     aspect-ratio: 14/16;
     color: $color-gray-text;
-    font-size: 18px;
+    font-size: 1.2rem;
     line-height: 200%;
     &:hover {
       color: $color-main;

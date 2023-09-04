@@ -6,13 +6,15 @@ import { useFetchFilmFiltersQuery } from '@/services/movie.api';
 import { useAppDispatch } from '@/hooks/redux';
 import { setCountries, setGenres } from '@/store/reducers/filters.slice';
 
-const years = [];
+const years: number[] = [];
 
 for (let i = 2010; i < 2024; i++) {
   years.push(i);
 }
 
 const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const { data, error } = useFetchFilmFiltersQuery();
   const dispatch = useAppDispatch();
   useEffect(() => {

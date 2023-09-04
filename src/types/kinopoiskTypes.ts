@@ -163,7 +163,6 @@ export interface iVideos {
   items: iVideosItems[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface iVideosItems {
   name: string;
   site: string; //'YOUTUBE' | ''
