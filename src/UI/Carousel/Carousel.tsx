@@ -11,6 +11,7 @@ import ShowAll from '@/UI/Card/ShowAll';
 import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
 import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
 import Card from '@/UI/Card/Card';
+import Loader from "@/UI/Loader/Loader";
 
 const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.Element => {
   if (!settings)
@@ -84,7 +85,7 @@ const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.El
         },
       ],
     };
-
+  if(!movies) return <Loader />
   return (
     <div className={styles.carousel}>
       {title && (
