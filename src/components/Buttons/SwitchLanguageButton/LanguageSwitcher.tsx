@@ -24,7 +24,7 @@ const LanguageSwitcher = () => {
     const title = i18next.language == 'en' ? 'Смена языка' : 'Language changed';
     const extra =
       i18next.language == 'en'
-        ? 'Язык был усмешно поменян на русский'
+        ? 'Язык был успешно изменен на русский'
         : 'Successfully changed language to english';
     const newAlertList = createNewAlert(title, extra, activeAlerts || undefined);
     dispatch(setActiveAlerts(newAlertList));
