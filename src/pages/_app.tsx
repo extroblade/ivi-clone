@@ -52,7 +52,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           <Next13ProgressBar
             height="2px"
             color="var(--color-accent)"
-            options={{ showSpinner: true }}
+            options={{ showSpinner: false }}
             showOnShallow
           />
           <div className={iviSans.className}>
