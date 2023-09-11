@@ -2,16 +2,16 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
 import { iCountry, iGenre } from '@/types/kinopoiskTypes';
 // import { HYDRATE } from 'next-redux-wrapper';
-
-type Order = 'RATING' | 'NUM_VOTE' | 'YEAR';
-interface iFilters {
+export type FilmType = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
+export type FilmOrder = 'RATING' | 'NUM_VOTE' | 'YEAR';
+export interface iFilters {
   countries?: string[] | iCountry;
   years: number[];
   genres?: string[] | iGenre;
   country?: string | null | iCountry;
   genre?: string | null | { genre: string };
-  order: Order;
-  type: 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
+  order: FilmOrder;
+  type: FilmType;
   ratingFrom: number;
   ratingTo: number;
   yearFrom: number;
@@ -43,7 +43,7 @@ export const filtersSlice = createSlice({
     resetFilters: () => {
       return initialState;
     },
-    setOrder(state, action: PayloadAction<Order>) {
+    setOrder(state, action: PayloadAction<FilmOrder>) {
       state.order = action.payload;
     },
     setGenres(state, action: PayloadAction<string[] | iGenre>) {

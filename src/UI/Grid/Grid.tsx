@@ -34,7 +34,7 @@ const Grid: FC<iGrid> = ({ type }) => {
   useEffect(() => {
     setPage(() => 1);
   }, [genre, yearTo, country, yearFrom]);
-  const { data, isLoading } = useFetchAllFilmsQuery({ ...params });
+  const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
 
   const { t } = useTranslation();
   const showMore = () => {
@@ -76,7 +76,7 @@ const Grid: FC<iGrid> = ({ type }) => {
         )}
       </div>
       <div className={styles.nodata}>
-        {(data?.total === undefined || isLoading) && <Loader />}
+        {(!data?.total || isFetching) && <Loader />}
         {data?.total === 0 ? <Htag tag={'h2'}>Ничего не найдено</Htag> : ''}
       </div>
       <div ref={buttonRef}>

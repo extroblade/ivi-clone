@@ -12,12 +12,13 @@ import {
   iSeasons,
   iSimilar,
 } from '@/types/kinopoiskTypes';
+import { FilmOrder, FilmType } from '@/store/reducers/filters.slice';
 
 export type QueryParams = {
   countries?: string;
   genres?: string;
-  order?: 'RATING' | 'NUM_VOTE' | 'YEAR';
-  type?: 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
+  order?: FilmOrder;
+  type?: FilmType;
   ratingFrom?: number;
   ratingTo?: number;
   yearFrom?: number;
