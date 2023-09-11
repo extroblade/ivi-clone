@@ -6,12 +6,12 @@ import { Button } from '@/UI/Button/Button';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
 import Loader from '@/UI/Loader/Loader';
 import { useAppSelector } from '@/hooks/redux';
-import { selectFilters } from '@/store/reducers/filters.slice';
+import { FilmType, selectFilters } from '@/store/reducers/filters.slice';
 import { Htag } from '@/UI/Htag/Htag';
 import { useInView } from 'framer-motion';
 
 interface iGrid {
-  type: string;
+  type: FilmType;
 }
 
 const Grid: FC<iGrid> = ({ type }) => {
@@ -44,12 +44,13 @@ const Grid: FC<iGrid> = ({ type }) => {
   };
   const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {
-    if (data?.items) {
-      if (page === 1) {
-        setMovies(() => data?.items);
-      } else {
-        setMovies(() => [...movies, ...data?.items]);
-      }
+    if (!data?.items || isFetching) {
+      return;
+    }
+    if (page === 1) {
+      setMovies(() => data?.items);
+    } else {
+      setMovies(() => [...movies, ...data?.items]);
     }
   }, [page, data]);
 
@@ -61,6 +62,7 @@ const Grid: FC<iGrid> = ({ type }) => {
   return (
     <>
       <div className={styles.grid}>
+        {data?.total && isFetching && <Loader />}
         {!isLoading && movies?.length ? (
           <div className={styles.grid__container}>
             <ul className={styles.grid__list}>
