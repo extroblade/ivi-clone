@@ -16,6 +16,7 @@ const nextConfig = {
     NEXT_PUBLIC_URL: 'http://localhost:3000',
   },
   images: {
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
