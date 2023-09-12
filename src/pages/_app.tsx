@@ -8,7 +8,7 @@ import { SessionProvider } from 'next-auth/react';
 import Modals from '@/components/Modals/Modals';
 import '@/i18n/i18n';
 import { Provider } from 'react-redux';
-import { Next13ProgressBar } from 'next13-progressbar';
+// import { Next13ProgressBar } from 'next13-progressbar';
 
 const iviSans = localFont({
   src: [
@@ -49,12 +49,12 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
       <Provider store={store}>
         <SessionProvider session={session}>
-          <Next13ProgressBar
-            height="2px"
-            color="var(--color-accent)"
-            options={{ showSpinner: false }}
-            showOnShallow
-          />
+          {/*<Next13ProgressBar*/}
+          {/*  height="2px"*/}
+          {/*  color="var(--color-accent)"*/}
+          {/*  options={{ showSpinner: false }}*/}
+          {/*  showOnShallow*/}
+          {/*/>*/}
           <div className={iviSans.className}>
             <MainLayout>
               <Component {...pageProps} />
