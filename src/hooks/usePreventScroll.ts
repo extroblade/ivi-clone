@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 
-export function usePreventScroll(openState) {
+export function usePreventScroll(openState: boolean): void {
   useEffect(() => {
     const wrapper = document.querySelector('.wrapper');
-
+    if (!wrapper) {
+      return;
+    }
     if (openState) {
-      wrapper.style.position = 'absolute';
-      wrapper.style.overflow = 'hidden';
+      wrapper.classList.add('locked');
     } else {
-      wrapper.removeAttribute('style');
+      wrapper.classList.remove('locked');
     }
   }, [openState]);
 }
