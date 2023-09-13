@@ -1,27 +1,26 @@
-import { FC } from 'react';
 import cn from 'classnames';
 import Link from 'next/link';
-import styles from './FooterModal.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { P } from '@/UI/P/P';
-import ModalList from './ModalList/ModalList';
-import { MdOutlineVideoLibrary } from 'react-icons/md';
-import { FiAward } from 'react-icons/fi';
-import { SlDiamond } from 'react-icons/sl';
-import { BsCameraReels } from 'react-icons/bs';
-import { TbDeviceTv, TbTractor } from 'react-icons/tb';
-import { IoMailOutline, IoTv, IoTvOutline } from 'react-icons/io5';
-import { FaLinkedinIn, FaOdnoklassniki, FaTelegramPlane, FaTwitter, FaVk } from 'react-icons/fa';
-import { CgPhone } from 'react-icons/cg';
-import { BiDevices, BiInfoCircle, BiMessageAlt } from 'react-icons/bi';
-import { HiPhone } from 'react-icons/hi2';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { usePreventScroll } from '@/hooks/usePreventScroll';
-import { selectModal, setShowFooterModal } from '@/store/reducers/modals.slice';
-import { useEscapeKey } from '@/hooks/useEscapeKey';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { BiDevices, BiInfoCircle, BiMessageAlt } from 'react-icons/bi';
+import { BsCameraReels } from 'react-icons/bs';
+import { CgPhone } from 'react-icons/cg';
+import { FaLinkedinIn, FaOdnoklassniki, FaTelegramPlane, FaTwitter, FaVk } from 'react-icons/fa';
+import { FiAward } from 'react-icons/fi';
+import { HiPhone } from 'react-icons/hi2';
+import { IoMailOutline, IoTv, IoTvOutline } from 'react-icons/io5';
+import { MdOutlineVideoLibrary } from 'react-icons/md';
+import { SlDiamond } from 'react-icons/sl';
+import { TbDeviceTv, TbTractor } from 'react-icons/tb';
 
-const FooterModal: FC = (): JSX.Element => {
+import { ModalList } from '@/components';
+import { useAppDispatch, useAppSelector, useEscapeKey, usePreventScroll } from '@/hooks';
+import { selectModal, setShowFooterModal } from '@/store';
+import { Button, P } from '@/UI';
+
+import styles from './FooterModal.module.scss';
+
+export const FooterModal: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { showFooterModal } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
@@ -196,5 +195,3 @@ const FooterModal: FC = (): JSX.Element => {
     </>
   );
 };
-
-export default FooterModal;

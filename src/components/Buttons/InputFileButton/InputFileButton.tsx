@@ -1,17 +1,20 @@
 import React, { FC } from 'react';
-import styles from './InputFileButton.module.scss';
 import { useTranslation } from 'react-i18next';
 
+import styles from './InputFileButton.module.scss';
+
 interface InputFileProps {
-  setSelected: unknown;
+  setSelected: (p: () => unknown) => void;
 }
 
-const InputFileButton: FC<InputFileProps> = ({ setSelected }) => {
+export const InputFileButton: FC<InputFileProps> = ({ setSelected }) => {
   const { t } = useTranslation();
-  const selectFile = (e) => {
-    if (e.target.files.length) {
-      setSelected(() => e.target.files[0]);
+  const selectFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e?.target?.files;
+    if (!files?.length) {
+      return;
     }
+    setSelected(() => files[0]);
   };
   return (
     <label className={styles.inputFile}>
@@ -20,5 +23,3 @@ const InputFileButton: FC<InputFileProps> = ({ setSelected }) => {
     </label>
   );
 };
-
-export default InputFileButton;

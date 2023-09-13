@@ -1,8 +1,9 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 import { IconType } from 'react-icons';
+
 import styles from './Submenu.module.scss';
-import Link from 'next/link';
-import Image from 'next/image';
 
 export interface SubmenuProps {
   icon?: IconType;
@@ -13,7 +14,14 @@ export interface SubmenuProps {
   children: ReactNode;
 }
 
-const Submenu: FC<SubmenuProps> = ({ icon, user, title, link, outline, children }): JSX.Element => {
+export const Submenu: FC<SubmenuProps> = ({
+  icon,
+  user,
+  title,
+  link,
+  outline,
+  children,
+}): JSX.Element => {
   const IconComponent = icon || undefined;
   if (!user) {
     return (
@@ -75,4 +83,3 @@ const Submenu: FC<SubmenuProps> = ({ icon, user, title, link, outline, children 
     );
   }
 };
-export default Submenu;

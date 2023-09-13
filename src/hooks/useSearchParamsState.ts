@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useEvent } from '@/hooks/useEvent';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+
+import { useEvent } from '@/hooks/useEvent';
 
 // can save state in url, example:
 // const [query, setQuery] = useSearchParamsState({

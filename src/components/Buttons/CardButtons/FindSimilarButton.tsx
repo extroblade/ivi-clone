@@ -1,10 +1,11 @@
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { IoColorWandOutline } from 'react-icons/io5';
-import styles from '@/UI/Card/Card.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { useRouter } from 'next/navigation';
 
-const FindSimilarButton = () => {
+import { Button } from '@/UI';
+import styles from '@/UI/Card/Card.module.scss';
+
+export const FindSimilarButton = () => {
   const router = useRouter();
 
   const findSimilar = (e: React.FormEvent<HTMLButtonElement>) => {
@@ -18,5 +19,3 @@ const FindSimilarButton = () => {
     </Button>
   );
 };
-
-export default FindSimilarButton;

@@ -1,29 +1,31 @@
-import React from 'react';
-import styles from './ProfilePage.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { P } from '@/UI/P/P';
-import { RiLogoutBoxRLine } from 'react-icons/ri';
-import SubscriptionsButton from '@/components/Buttons/ProfileButton/SubscriptionsButton';
-import CertificatesButton from '@/components/Buttons/ProfileButton/CertificatesButton';
-import PresentSubscriptionButton from '@/components/Buttons/ProfileButton/PresentSubscriptionButton';
-import InviteFriendsButton from '@/components/Buttons/ProfileButton/InviteFriendsButton';
-import NotificationsButton from '@/components/Buttons/ProfileButton/NotificationsButton';
-import PurchasesButton from '@/components/Buttons/ProfileButton/PurchasesButton';
-import WatchLaterButton from '@/components/Buttons/ProfileButton/WatchLaterButton';
-import ViewedButton from '@/components/Buttons/ProfileButton/ViewedButton';
-import PaymentButton from '@/components/Buttons/ProfileButton/PaymentButton';
-import CodeLoginButton from '@/components/Buttons/ProfileButton/CodeLoginButton';
-import SettingsButton from '@/components/Buttons/ProfileButton/SettingsButton';
-import SupportButton from '@/components/Buttons/ProfileButton/SupportButton';
-import BalanceButton from '@/components/Buttons/ProfileButton/BalanceButton';
-import ProfileSelector from '@/UI/ProfileSelector/ProfileSelector';
-import EditProfile from '@/components/Profile/EditProfile';
-import ChecksButton from '@/components/Buttons/ProfileButton/ChecksButton';
-import LoginButton from '@/components/Buttons/LoginButton/LoginButton';
-import { useTranslation } from 'react-i18next';
 import { signOut, useSession } from 'next-auth/react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { RiLogoutBoxRLine } from 'react-icons/ri';
 
-const ProfilePage = () => {
+import {
+  BalanceButton,
+  CertificatesButton,
+  ChecksButton,
+  CodeLoginButton,
+  EditProfile,
+  InviteFriendsButton,
+  LoginButton,
+  NotificationsButton,
+  PaymentButton,
+  PresentSubscriptionButton,
+  PurchasesButton,
+  SettingsButton,
+  SubscriptionsButton,
+  SupportButton,
+  ViewedButton,
+  WatchLaterButton,
+} from '@/components';
+import { Button, P, ProfileSelector } from '@/UI';
+
+import styles from './ProfilePage.module.scss';
+
+export const ProfilePage = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   const user = session?.user || null;
@@ -120,5 +122,3 @@ const ProfilePage = () => {
     </div>
   );
 };
-
-export default ProfilePage;

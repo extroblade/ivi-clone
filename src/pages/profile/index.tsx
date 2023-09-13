@@ -1,7 +1,8 @@
-import React from 'react';
 import Head from 'next/head';
-import ProfilePage from '@/components/Profile/ProfilePage/ProfilePage';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ProfilePage } from '@/components';
 
 const Profile = () => {
   const { t } = useTranslation();

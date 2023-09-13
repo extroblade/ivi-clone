@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
-import { TbBellRinging } from 'react-icons/tb';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { TbBellRinging } from 'react-icons/tb';
 
-const NotificationsButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const NotificationsButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,5 +16,3 @@ const NotificationsButton = () => {
     </Link>
   );
 };
-
-export default NotificationsButton;

@@ -1,10 +1,12 @@
-import styles from './Arrows.module.scss';
-import { Button } from '@/UI/Button/Button';
+import { FC } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
-import React, { FC } from 'react';
-import { ArrowProps } from '@/components/Buttons/ArrowButtons/Arrow.props';
 
-const NextArrow: FC<ArrowProps> = ({ variant, ...props }): JSX.Element => {
+import { Button } from '@/UI';
+
+import { ArrowProps } from './Arrow.props';
+import styles from './Arrows.module.scss';
+
+export const NextArrow: FC<ArrowProps> = ({ variant, ...props }): JSX.Element => {
   const { onClick, className } = props;
   return (
     <div onClick={onClick} className={styles.arrow_container}>
@@ -21,5 +23,3 @@ const NextArrow: FC<ArrowProps> = ({ variant, ...props }): JSX.Element => {
     </div>
   );
 };
-
-export default NextArrow;

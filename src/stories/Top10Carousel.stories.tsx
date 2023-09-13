@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/react';
-import Top10Carousel from '@/UI/Carousel/Top10Carousel/Top10Carousel';
 
-const Top10Wrapper = (data) => {
+import { Top10Carousel } from '@/UI';
+
+const Top10Wrapper = (data: unknown & JSX.IntrinsicAttributes) => {
   return <Top10Carousel data={data} />;
 };
 

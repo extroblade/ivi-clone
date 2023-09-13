@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '@/store/store';
+
+import { RootState } from '@/store';
 import { iCountry, iGenre } from '@/types/kinopoiskTypes';
 // import { HYDRATE } from 'next-redux-wrapper';
 export type FilmType = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';

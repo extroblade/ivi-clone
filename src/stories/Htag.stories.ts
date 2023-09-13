@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { HtagProps } from '@/UI/Htag/Htag.props';
+
 import { Htag } from '@/UI/Htag/Htag';
+import { HtagProps } from '@/UI/Htag/Htag.props';
 
 const meta: Meta<HtagProps> = {
   title: 'Main/Htag',

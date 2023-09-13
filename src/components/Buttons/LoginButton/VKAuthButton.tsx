@@ -1,11 +1,12 @@
-import React from 'react';
-import { signIn } from 'next-auth/react';
-import { SlSocialVkontakte } from 'react-icons/sl';
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
-import { Button } from '@/UI/Button/Button';
+import { signIn } from 'next-auth/react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { SlSocialVkontakte } from 'react-icons/sl';
 
-const VkAuthButton = () => {
+import { Button } from '@/UI';
+
+export const VkAuthButton = () => {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/profile';
@@ -20,5 +21,3 @@ const VkAuthButton = () => {
     </Button>
   );
 };
-
-export default VkAuthButton;

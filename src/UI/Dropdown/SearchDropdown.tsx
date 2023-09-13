@@ -1,9 +1,11 @@
 import React, { FC, useState } from 'react';
-import Dropdown from '@/UI/Dropdown/Dropdown';
+
+import { Dropdown } from '@/UI';
+
 import styles from './Dropdown.module.scss';
 // import { categories } from '@/mock/filters';
 
-const SearchDropdown: FC = ({ state }: any): JSX.Element => {
+export const SearchDropdown: FC = ({ state }: any): JSX.Element => {
   const [val, setVal] = useState<string>('');
   const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(() => e.target.value);
@@ -31,7 +33,6 @@ const SearchDropdown: FC = ({ state }: any): JSX.Element => {
   );
 };
 
-export default SearchDropdown;
 // {dynamicSearch().map((person) => (
 //   <li
 //     className={

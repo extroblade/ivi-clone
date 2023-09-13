@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
-import { BsBookmark } from 'react-icons/bs';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { BsBookmark } from 'react-icons/bs';
 
-const WatchLaterButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const WatchLaterButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,5 +16,3 @@ const WatchLaterButton = () => {
     </Link>
   );
 };
-
-export default WatchLaterButton;

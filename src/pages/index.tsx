@@ -1,11 +1,10 @@
 import Head from 'next/head';
 import React from 'react';
-import Carousel from '@/UI/Carousel/Carousel';
-import MainPageDescription from '@/components/Descriptions/MainPageDescription';
-import PromoCarousel from '@/UI/Carousel/PromoCarousel/PromoCarousel';
 import { useTranslation } from 'react-i18next';
+
+import { MainPageDescription } from '@/components';
 import { useFetchAllFilmsQuery } from '@/services/movie.api';
-import Top10Carousel from '@/UI/Carousel/Top10Carousel/Top10Carousel';
+import { Carousel, PromoCarousel, Top10Carousel } from '@/UI';
 
 const Home = () => {
   const { data: foreignSeries } = useFetchAllFilmsQuery({

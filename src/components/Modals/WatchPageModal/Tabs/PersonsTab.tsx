@@ -1,11 +1,12 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { Htag } from '@/UI/Htag/Htag';
-import StaffList from '@/components/Modals/WatchPageModal/Tabs/StaffList';
 
-const PersonsTab = () => {
+import { StaffList } from '@/components/Modals/WatchPageModal/Tabs/StaffList';
+import { useAppSelector } from '@/hooks';
+import { selectModal } from '@/store';
+import { Htag } from '@/UI';
+
+export const PersonsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const { t } = useTranslation();
   const persons = currentMovie?.persons;
@@ -20,5 +21,3 @@ const PersonsTab = () => {
     </>
   );
 };
-
-export default PersonsTab;

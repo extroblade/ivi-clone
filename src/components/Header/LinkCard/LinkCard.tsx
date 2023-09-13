@@ -1,9 +1,16 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
-import { LinkCardProps } from './LinkCard.props';
-import styles from './LinkCard.module.scss';
 
-const LinkCard: FC<LinkCardProps> = ({ icon, title, subtitle, link, status }): JSX.Element => {
+import styles from './LinkCard.module.scss';
+import { LinkCardProps } from './LinkCard.props';
+
+export const LinkCard: FC<LinkCardProps> = ({
+  icon,
+  title,
+  subtitle,
+  link,
+  status,
+}): JSX.Element => {
   const IconComponent = icon;
   return (
     <>
@@ -22,5 +29,3 @@ const LinkCard: FC<LinkCardProps> = ({ icon, title, subtitle, link, status }): J
     </>
   );
 };
-
-export default LinkCard;

@@ -1,17 +1,19 @@
+import Link from 'next/link';
 import { FC } from 'react';
-import styles from './FooterMobile.module.scss';
-import FooterLink from '../FooterLink/FooterLink';
+import { useTranslation } from 'react-i18next';
 import { BiSearch } from 'react-icons/bi';
-import { HiOutlineFolder } from 'react-icons/hi2';
 import { HiDotsHorizontal } from 'react-icons/hi';
+import { HiOutlineFolder } from 'react-icons/hi2';
 import { IoCloseOutline, IoTvOutline } from 'react-icons/io5';
 import { RiHome6Line } from 'react-icons/ri';
-import { useTranslation } from 'react-i18next';
-import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { FooterLink } from '@/components';
 import { selectModal, setShowFooterModal, setShowSearch } from '@/store/reducers/modals.slice';
 
-const FooterMobile: FC = (): JSX.Element => {
+import styles from './FooterMobile.module.scss';
+
+export const FooterMobile: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { showSearch, showFooterModal } = useSelector(selectModal);
   const dispatch = useDispatch();
@@ -58,5 +60,3 @@ const FooterMobile: FC = (): JSX.Element => {
     </footer>
   );
 };
-
-export default FooterMobile;

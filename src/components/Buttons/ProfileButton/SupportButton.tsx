@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
-import { BiSupport } from 'react-icons/bi';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { BiSupport } from 'react-icons/bi';
 
-const SupportButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const SupportButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,5 +16,3 @@ const SupportButton = () => {
     </Link>
   );
 };
-
-export default SupportButton;

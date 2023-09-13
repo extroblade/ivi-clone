@@ -1,12 +1,14 @@
+import i18next from 'i18next';
 import { FC } from 'react';
-import styles from './Sausage.module.scss';
 import { IoAddOutline } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
-import { SausageProps } from '@/UI/Sausage/Sausage.props';
-import { sausages } from '@/mock/filters';
-import i18next from 'i18next';
 
-const Sausage: FC<SausageProps> = ({ sausage, chosen, set }): JSX.Element => {
+import { sausages } from '@/mock';
+import { SausageProps } from '@/UI/Sausage/Sausage.props';
+
+import styles from './Sausage.module.scss';
+
+export const Sausage: FC<SausageProps> = ({ sausage, chosen, set }): JSX.Element => {
   const check = () => {
     set(() =>
       [
@@ -35,5 +37,3 @@ const Sausage: FC<SausageProps> = ({ sausage, chosen, set }): JSX.Element => {
     </div>
   );
 };
-
-export default Sausage;

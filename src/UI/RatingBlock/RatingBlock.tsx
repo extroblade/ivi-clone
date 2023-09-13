@@ -1,14 +1,15 @@
 import React, { FC } from 'react';
-import styles from './RatingBlock.module.scss';
-import { Button } from '@/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { RatingBlockProps } from '@/UI/RatingBlock/RatingBlockProps';
-import { useAppDispatch } from '@/hooks/redux';
-import { setShowRating } from '@/store/reducers/modals.slice';
-import { getRate } from '@/helpers/remainingAmount';
-import RatingPlate from '@/UI/RatingBlock/RatingPlate';
 
-const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) => {
+import { getRate } from '@/helpers';
+import { useAppDispatch } from '@/hooks';
+import { setShowRating } from '@/store';
+import { Button, RatingPlate } from '@/UI';
+import { RatingBlockProps } from '@/UI/RatingBlock/RatingBlockProps';
+
+import styles from './RatingBlock.module.scss';
+
+export const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const openRating = () => {
@@ -31,5 +32,3 @@ const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) => {
     </div>
   );
 };
-
-export default RatingBlock;

@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
-import { iPB } from '@/UI/ProfileButton/ProfileButtons.props';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 import { GiPresent } from 'react-icons/gi';
 
-const ActivateCertificateButton: FC<iPB> = ({ type }) => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+import { iPB } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
+
+export const ActivateCertificateButton: FC<iPB> = ({ type }) => {
   const { t } = useTranslation();
 
   return (
@@ -16,5 +17,3 @@ const ActivateCertificateButton: FC<iPB> = ({ type }) => {
     </Link>
   );
 };
-
-export default ActivateCertificateButton;

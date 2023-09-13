@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
 import Link from 'next/link';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsLightningChargeFill } from 'react-icons/bs';
-import { iPB } from '@/UI/ProfileButton/ProfileButtons.props';
 
-const PromotionButton: FC<iPB> = ({ type }) => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+import { iPB } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
+
+export const PromotionButton: FC<iPB> = ({ type }) => {
   const { t } = useTranslation();
 
   return (
@@ -16,5 +17,3 @@ const PromotionButton: FC<iPB> = ({ type }) => {
     </Link>
   );
 };
-
-export default PromotionButton;

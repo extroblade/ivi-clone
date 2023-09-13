@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
-import Breadcrumbs from '@/UI/Breadcrumbs/Breadcrumbs';
-import MovieBreadcrumbs from '@/UI/Breadcrumbs/MovieBreadcrumbs';
+
+import { Breadcrumbs, MovieBreadcrumbs } from '@/UI';
 
 describe('breadcrumbs', () => {
   it('should be correct with 3 breadcrumbs', () => {
@@ -27,8 +27,7 @@ describe('breadcrumbs', () => {
     expect(bc).toMatchSnapshot();
   });
   it('should be correct with no breadcrumbs', () => {
-    const breadcrumbsMockData = [];
-    const bc = render(<Breadcrumbs breadcrumbs={breadcrumbsMockData} />);
+    const bc = render(<Breadcrumbs breadcrumbs={[]} />);
     expect(bc).toMatchSnapshot();
   });
 });
@@ -57,8 +56,7 @@ describe("movie's breadcrumbs", () => {
     expect(bc).toMatchSnapshot();
   });
   it('should be correct with undefined', () => {
-    const breadcrumbsMockData = undefined;
-    const bc = render(<MovieBreadcrumbs breadcrumbs={breadcrumbsMockData} />);
+    const bc = render(<MovieBreadcrumbs breadcrumbs={undefined} />);
     expect(bc).toMatchSnapshot();
   });
 });

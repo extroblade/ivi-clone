@@ -1,9 +1,10 @@
-import { FC } from 'react';
 import Link from 'next/link';
+import { FC } from 'react';
+
 import styles from './Breadcrumbs.module.scss';
 import { BreadcrumbsProps } from './Breadcrumbs.props';
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }): JSX.Element => {
+export const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }): JSX.Element => {
   return (
     <>
       {breadcrumbs.length && (
@@ -24,5 +25,3 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }): JSX.Element =>
     </>
   );
 };
-
-export default Breadcrumbs;

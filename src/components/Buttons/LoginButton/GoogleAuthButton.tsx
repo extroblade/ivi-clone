@@ -1,11 +1,12 @@
-import React from 'react';
-import { SlSocialGoogle } from 'react-icons/sl';
-import { signIn } from 'next-auth/react';
-import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'next/navigation';
-import { Button } from '@/UI/Button/Button';
+import { signIn } from 'next-auth/react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { SlSocialGoogle } from 'react-icons/sl';
 
-const GoogleAuthButton = () => {
+import { Button } from '@/UI';
+
+export const GoogleAuthButton = () => {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl') || '/profile';
@@ -19,5 +20,3 @@ const GoogleAuthButton = () => {
     </Button>
   );
 };
-
-export default GoogleAuthButton;

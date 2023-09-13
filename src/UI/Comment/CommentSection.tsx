@@ -1,13 +1,12 @@
 import React, { FC } from 'react';
-import CommentInput from '@/UI/Comment/CommentInput';
-import Comment from '@/UI/Comment/Comment';
-import styles from './Comment.module.scss';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { useFetchCommentsQuery } from '@/services/movie.api';
-import Loader from '@/UI/Loader/Loader';
 
-const CommentSection: FC = (): JSX.Element => {
+import { useAppSelector } from '@/hooks';
+import { useFetchCommentsQuery } from '@/services';
+import { selectModal } from '@/store';
+import { Comment, CommentInput, Loader } from '@/UI';
+
+import styles from './Comment.module.scss';
+export const CommentSection: FC = (): JSX.Element => {
   const { currentMovie } = useAppSelector(selectModal);
   const {
     data: comments,
@@ -27,5 +26,3 @@ const CommentSection: FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default CommentSection;

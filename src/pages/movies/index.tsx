@@ -1,10 +1,9 @@
-import React from 'react';
-import BreadCrumbs from '@/UI/Breadcrumbs/Breadcrumbs';
 import Head from 'next/head';
-import MoviesPageDescription from '@/components/Descriptions/MoviesPageDescription';
-import Filters from '@/components/Filters/Filters';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Grid from '@/UI/Grid/Grid';
+
+import { Filters, MoviesPageDescription } from '@/components';
+import { Breadcrumbs, Grid } from '@/UI';
 
 const Movies = () => {
   const { t } = useTranslation();
@@ -18,7 +17,7 @@ const Movies = () => {
       <Head>
         <title>{t('title.movies')}</title>
       </Head>
-      <BreadCrumbs breadcrumbs={breadcrumbs} />
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <MoviesPageDescription />
       <Filters />
       <Grid type={'FILM'} />

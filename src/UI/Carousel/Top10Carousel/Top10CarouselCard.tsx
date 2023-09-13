@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
-import Link from 'next/link';
-import styles from '@/UI/Carousel/Top10Carousel/Top10Carousel.module.scss';
 import Image from 'next/image';
+import Link from 'next/link';
+import React, { FC } from 'react';
+
+import { iFilm } from '@/types/kinopoiskTypes';
+import styles from '@/UI/Carousel/Top10Carousel/Top10Carousel.module.scss';
+
 import zero from '../../../../public/images/top10/number0.svg';
 import one from '../../../../public/images/top10/number1.svg';
 import two from '../../../../public/images/top10/number2.svg';
@@ -12,7 +15,6 @@ import six from '../../../../public/images/top10/number6.svg';
 import seven from '../../../../public/images/top10/number7.svg';
 import eight from '../../../../public/images/top10/number8.svg';
 import nine from '../../../../public/images/top10/number9.svg';
-import { iFilm } from '@/types/kinopoiskTypes';
 interface iCard {
   card: iFilm;
   index: number;

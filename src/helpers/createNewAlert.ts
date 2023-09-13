@@ -5,7 +5,7 @@ export const createNewAlert = (
   extra: string | undefined,
   activeAlerts: iAlert[] | undefined
 ): iAlert[] => {
-  const newId = self.crypto.randomUUID(); //
+  const newId = self?.crypto?.randomUUID ? self.crypto.randomUUID() : '123'; //
   const currentAlerts = [];
 
   const newAlert = {

@@ -1,20 +1,18 @@
 import React, { FC, useState } from 'react';
-import styles from './Comment.module.scss';
-import { P } from '@/UI/P/P';
-import { Button } from '@/UI/Button/Button';
-import CommentAvatar from '@/UI/Comment/CommentAvatar';
-import CommentInput from '@/UI/Comment/CommentInput';
 import { useTranslation } from 'react-i18next';
-import { writeDate } from '@/helpers/writeDate';
-import Vote from '@/UI/Comment/Vote/Vote';
+
+import { writeDate } from '@/helpers';
 import { iReviewsItem } from '@/types/kinopoiskTypes';
+import { Button, CommentAvatar, CommentInput, P, Vote } from '@/UI';
+
+import styles from './Comment.module.scss';
 
 interface iCommentComp {
   comment: iReviewsItem;
   children?: iReviewsItem[];
 }
 
-const Comment: FC<iCommentComp> = ({ comment, children }): JSX.Element => {
+export const Comment: FC<iCommentComp> = React.memo(({ comment, children }): JSX.Element => {
   const { t } = useTranslation();
   const [answer, setAnswer] = useState<boolean>(false);
   const { author, date, title, description, negativeRating, positiveRating } = comment;
@@ -54,6 +52,4 @@ const Comment: FC<iCommentComp> = ({ comment, children }): JSX.Element => {
       )}
     </li>
   );
-};
-
-export default React.memo(Comment);
+});

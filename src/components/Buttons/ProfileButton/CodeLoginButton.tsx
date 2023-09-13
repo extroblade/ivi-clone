@@ -1,9 +1,10 @@
 import React from 'react';
-import { AiOutlinePlaySquare } from 'react-icons/ai';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import { useTranslation } from 'react-i18next';
+import { AiOutlinePlaySquare } from 'react-icons/ai';
 
-const CodeLoginButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const CodeLoginButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -16,5 +17,3 @@ const CodeLoginButton = () => {
     </ProfileButton>
   );
 };
-
-export default CodeLoginButton;

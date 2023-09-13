@@ -1,26 +1,22 @@
 import React, { FC, useEffect, useState } from 'react';
-import styles from './Dropdown.module.scss';
 import { BsCheckLg } from 'react-icons/bs';
-import Dropdown from '@/UI/Dropdown/Dropdown';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import {
-  selectFilters,
-  setCountry,
-  setGenre,
-  setYearFrom,
-  setYearTo,
-} from '@/store/reducers/filters.slice';
-import { useFetchFilmFiltersQuery } from '@/services/movie.api';
+
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useFetchFilmFiltersQuery } from '@/services';
+import { selectFilters, setCountry, setGenre, setYearFrom, setYearTo } from '@/store';
+import { Dropdown } from '@/UI';
+
+import styles from './Dropdown.module.scss';
 
 interface iChooseDropdown {
   state: boolean;
   type: 'genre' | 'country' | 'years';
 }
 
-const years = [];
+const years: number[] = [];
 for (let i = 1950; i < 2024; i++) years.push(i);
 
-const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Element => {
+export const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Element => {
   const { data } = useFetchFilmFiltersQuery();
   const { genre, yearTo, country } = useAppSelector(selectFilters);
   const dispatch = useAppDispatch();
@@ -107,5 +103,3 @@ const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Element => {
     </Dropdown>
   );
 };
-
-export default ChooseDropdown;

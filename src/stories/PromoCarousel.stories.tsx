@@ -1,5 +1,6 @@
-import PromoCarousel from '@/UI/Carousel/PromoCarousel/PromoCarousel';
 import { Meta } from '@storybook/react';
+
+import { PromoCarousel } from '@/UI';
 
 const PromoWrapper = () => {
   return (

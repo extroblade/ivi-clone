@@ -1,10 +1,12 @@
-import React, { FC, useEffect } from 'react';
-import styles from './Categories.module.scss';
 import Link from 'next/link';
-import { CategoriesProps } from './Categories.props';
-import { useFetchFilmFiltersQuery } from '@/services/movie.api';
+import React, { FC, useEffect } from 'react';
+
 import { useAppDispatch } from '@/hooks/redux';
-import { setCountries, setGenres } from '@/store/reducers/filters.slice';
+import { useFetchFilmFiltersQuery } from '@/services';
+import { setCountries, setGenres } from '@/store';
+
+import styles from './Categories.module.scss';
+import { CategoriesProps } from './Categories.props';
 
 const years: number[] = [];
 
@@ -12,7 +14,7 @@ for (let i = 2010; i < 2024; i++) {
   years.push(i);
 }
 
-const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
+export const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const { data, error } = useFetchFilmFiltersQuery();
@@ -81,5 +83,3 @@ const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
     </div>
   );
 };
-
-export default Categories;

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { MdBlock } from 'react-icons/md';
-import { Button } from '@/UI/Button/Button';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
-import { createNewAlert } from '@/helpers/createNewAlert';
 
-const BlockButton = () => {
+import { createNewAlert } from '@/helpers';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectModal, setActiveAlerts } from '@/store';
+import { Button } from '@/UI';
+
+export const BlockButton = () => {
   const [blocked, setBlocked] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const { activeAlerts } = useAppSelector(selectModal);
@@ -29,5 +30,3 @@ const BlockButton = () => {
     </Button>
   );
 };
-
-export default BlockButton;

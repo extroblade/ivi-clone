@@ -1,16 +1,17 @@
 import React, { FC, useEffect, useState } from 'react';
-import styles from '@/UI/Alert/Alert.module.scss';
-import { Button } from '@/UI/Button/Button';
 import { RxCross2 } from 'react-icons/rx';
-import { iAlert, selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { CLOSE_TIME } from '@/constants/Constants';
+
+import { CLOSE_TIME } from '@/constants';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { iAlert, selectModal, setActiveAlerts } from '@/store';
+import { Button } from '@/UI';
+import styles from '@/UI/Alert/Alert.module.scss';
 
 interface IAlert {
   alert: iAlert;
 }
 
-const Alert: FC<IAlert> = ({ alert }) => {
+export const Alert: FC<IAlert> = React.memo(({ alert }) => {
   const { activeAlerts } = useAppSelector(selectModal);
   const [closing, setClosing] = useState(false);
   const [opening, setOpening] = useState(false);
@@ -19,6 +20,9 @@ const Alert: FC<IAlert> = ({ alert }) => {
   const { id, title, extra } = alert;
 
   useEffect(() => {
+    if (!activeAlerts?.length) {
+      return;
+    }
     if (id !== activeAlerts[0]?.id) return;
     const timer = setTimeout(() => {
       close();
@@ -27,6 +31,9 @@ const Alert: FC<IAlert> = ({ alert }) => {
   }, [activeAlerts?.length]);
 
   useEffect(() => {
+    if (!activeAlerts?.length) {
+      return;
+    }
     if (id == activeAlerts[activeAlerts?.length - 1]?.id) {
       setOpening(() => true);
     } else {
@@ -68,6 +75,4 @@ const Alert: FC<IAlert> = ({ alert }) => {
       )}
     </>
   );
-};
-
-export default React.memo(Alert);
+});

@@ -1,14 +1,15 @@
 import React, { FC, useState } from 'react';
+
+import { DisLikeButton, LikeButton } from '@/components';
+
 import styles from './Vote.module.scss';
-import LikeButton from '@/components/Buttons/VoteButtons/LikeButton';
-import DisLikeButton from '@/components/Buttons/VoteButtons/DisLikeButton';
 
 interface iVote {
   likes: number;
   dislikes: number;
 }
 
-const Vote: FC<iVote> = ({ likes = 0, dislikes = 0 }) => {
+export const Vote: FC<iVote> = ({ likes = 0, dislikes = 0 }) => {
   const [value, setValue] = useState(likes - dislikes);
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
@@ -58,5 +59,3 @@ const Vote: FC<iVote> = ({ likes = 0, dislikes = 0 }) => {
     </div>
   );
 };
-
-export default Vote;

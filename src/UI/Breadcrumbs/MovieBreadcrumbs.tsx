@@ -1,9 +1,10 @@
-import { FC } from 'react';
-import styles from '@/UI/Breadcrumbs/Breadcrumbs.module.scss';
 import Link from 'next/link';
+import { FC } from 'react';
+
+import styles from '@/UI/Breadcrumbs/Breadcrumbs.module.scss';
 import { BreadcrumbsProps } from '@/UI/Breadcrumbs/Breadcrumbs.props';
 
-const MovieBreadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }): JSX.Element => {
+export const MovieBreadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }): JSX.Element => {
   return (
     <div className={styles.container}>
       <ul className={styles.breadcrumbs}>
@@ -19,5 +20,3 @@ const MovieBreadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs = [] }): JSX.Eleme
     </div>
   );
 };
-
-export default MovieBreadcrumbs;

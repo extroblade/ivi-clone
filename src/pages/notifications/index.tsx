@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import React, { FC } from 'react';
-import EmptyNotifications from '@/UI/EmptyNotifications/EmptyNotifications';
 import { useTranslation } from 'react-i18next';
+
+import { EmptyNotifications } from '@/UI';
 
 const Notifications: FC = () => {
   const { t } = useTranslation();

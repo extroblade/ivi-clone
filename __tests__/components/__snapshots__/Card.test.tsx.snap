@@ -8,7 +8,7 @@ exports[`card card object empty card  1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection false"
@@ -19,8 +19,7 @@ exports[`card card object empty card  1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -40,7 +39,6 @@ exports[`card card object empty card  1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -48,36 +46,32 @@ exports[`card card object empty card  1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -92,9 +86,8 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -105,25 +98,19 @@ exports[`card card object empty card  1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -132,7 +119,7 @@ exports[`card card object empty card  1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection false"
@@ -143,8 +130,7 @@ exports[`card card object empty card  1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -164,7 +150,6 @@ exports[`card card object empty card  1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -172,36 +157,32 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -216,9 +197,8 @@ exports[`card card object empty card  1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -229,25 +209,19 @@ exports[`card card object empty card  1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,
@@ -313,7 +287,7 @@ exports[`card params all 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection hover"
@@ -324,8 +298,7 @@ exports[`card params all 1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -436,7 +409,6 @@ exports[`card params all 1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -444,36 +416,32 @@ exports[`card params all 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -488,9 +456,8 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -501,25 +468,19 @@ exports[`card params all 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -528,7 +489,7 @@ exports[`card params all 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection hover"
@@ -539,8 +500,7 @@ exports[`card params all 1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -651,7 +611,6 @@ exports[`card params all 1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -659,36 +618,32 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -703,9 +658,8 @@ exports[`card params all 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -716,25 +670,19 @@ exports[`card params all 1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,
@@ -800,7 +748,7 @@ exports[`card params block 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection hover"
@@ -811,8 +759,7 @@ exports[`card params block 1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -854,7 +801,6 @@ exports[`card params block 1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -862,36 +808,32 @@ exports[`card params block 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -906,9 +848,8 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -919,25 +860,19 @@ exports[`card params block 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -946,7 +881,7 @@ exports[`card params block 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection hover"
@@ -957,8 +892,7 @@ exports[`card params block 1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -1000,7 +934,6 @@ exports[`card params block 1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -1008,36 +941,32 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -1052,9 +981,8 @@ exports[`card params block 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -1065,25 +993,19 @@ exports[`card params block 1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,
@@ -1149,7 +1071,7 @@ exports[`card params book 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection hover"
@@ -1160,8 +1082,7 @@ exports[`card params book 1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -1199,7 +1120,6 @@ exports[`card params book 1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -1207,36 +1127,32 @@ exports[`card params book 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -1251,9 +1167,8 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -1264,25 +1179,19 @@ exports[`card params book 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -1291,7 +1200,7 @@ exports[`card params book 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection hover"
@@ -1302,8 +1211,7 @@ exports[`card params book 1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -1341,7 +1249,6 @@ exports[`card params book 1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -1349,36 +1256,32 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -1393,9 +1296,8 @@ exports[`card params book 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -1406,25 +1308,19 @@ exports[`card params book 1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,
@@ -1490,7 +1386,7 @@ exports[`card params find 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection hover"
@@ -1501,8 +1397,7 @@ exports[`card params find 1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -1558,7 +1453,6 @@ exports[`card params find 1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -1566,36 +1460,32 @@ exports[`card params find 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -1610,9 +1500,8 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -1623,25 +1512,19 @@ exports[`card params find 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -1650,7 +1533,7 @@ exports[`card params find 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection hover"
@@ -1661,8 +1544,7 @@ exports[`card params find 1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -1718,7 +1600,6 @@ exports[`card params find 1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -1726,36 +1607,32 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -1770,9 +1647,8 @@ exports[`card params find 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -1783,25 +1659,19 @@ exports[`card params find 1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,
@@ -1867,7 +1737,7 @@ exports[`card params no hover 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection false"
@@ -1878,8 +1748,7 @@ exports[`card params no hover 1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -1899,7 +1768,6 @@ exports[`card params no hover 1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -1907,36 +1775,32 @@ exports[`card params no hover 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -1951,9 +1815,8 @@ exports[`card params no hover 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -1964,25 +1827,19 @@ exports[`card params no hover 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -1991,7 +1848,7 @@ exports[`card params no hover 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection false"
@@ -2002,8 +1859,7 @@ exports[`card params no hover 1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -2023,7 +1879,6 @@ exports[`card params no hover 1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -2031,36 +1886,32 @@ exports[`card params no hover 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -2075,9 +1926,8 @@ exports[`card params no hover 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -2088,25 +1938,19 @@ exports[`card params no hover 1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,
@@ -2172,7 +2016,7 @@ exports[`card params star 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/1"
+        href="/watch/undefined"
       >
         <div
           class="imageSection hover"
@@ -2183,8 +2027,7 @@ exports[`card params star 1`] = `
             decoding="async"
             fetchpriority="high"
             height="360"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            src=""
             style="color: transparent;"
             width="234"
           />
@@ -2222,7 +2065,6 @@ exports[`card params star 1`] = `
               <div
                 class="ratings"
               >
-                9.0
                 <div
                   class="graphs"
                 >
@@ -2230,36 +2072,32 @@ exports[`card params star 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 62.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 80.8%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 100%;"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red  "
+                      class="barValue gray  "
                       data-testid="bar"
-                      style="width: 71.8%;"
                     />
                   </div>
                 </div>
@@ -2274,9 +2112,8 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 89.8%;"
                   />
                 </div>
               </div>
@@ -2287,25 +2124,19 @@ exports[`card params star 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  С, 
-                  Фэнтези
+                  undefined, 
+                  undefined
                 </div>
-                <div
-                  class="info__row"
-                />
               </section>
             </div>
           </div>
         </div>
         <div
           class="textSection"
-          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M"
-          >
-            Гарри Поттер и Дары Смерти: Часть I
-          </p>
+          />
         </div>
       </a>
     </div>
@@ -2314,7 +2145,7 @@ exports[`card params star 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/1"
+      href="/watch/undefined"
     >
       <div
         class="imageSection hover"
@@ -2325,8 +2156,7 @@ exports[`card params star 1`] = `
           decoding="async"
           fetchpriority="high"
           height="360"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          src=""
           style="color: transparent;"
           width="234"
         />
@@ -2364,7 +2194,6 @@ exports[`card params star 1`] = `
             <div
               class="ratings"
             >
-              9.0
               <div
                 class="graphs"
               >
@@ -2372,36 +2201,32 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 62.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 80.8%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 100%;"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red  "
+                    class="barValue gray  "
                     data-testid="bar"
-                    style="width: 71.8%;"
                   />
                 </div>
               </div>
@@ -2416,9 +2241,8 @@ exports[`card params star 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red  "
+                  class="barValue gray  "
                   data-testid="bar"
-                  style="width: 89.8%;"
                 />
               </div>
             </div>
@@ -2429,25 +2253,19 @@ exports[`card params star 1`] = `
                 class="info__row"
               >
                 2011, 
-                С, 
-                Фэнтези
+                undefined, 
+                undefined
               </div>
-              <div
-                class="info__row"
-              />
             </section>
           </div>
         </div>
       </div>
       <div
         class="textSection"
-        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M"
-        >
-          Гарри Поттер и Дары Смерти: Часть I
-        </p>
+        />
       </div>
     </a>
   </div>,

@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
+
 import styles from '@/UI/RatingBlock/RatingBlock.module.scss';
 
 interface iPlate {
   rating: number | string | null;
 }
 
-const RatingPlate: FC<iPlate> = ({ rating }) => {
+export const RatingPlate: FC<iPlate> = ({ rating }) => {
   let style;
   const currentRate = +String(rating).split('')[0];
   if (currentRate >= 7) {
@@ -22,5 +23,3 @@ const RatingPlate: FC<iPlate> = ({ rating }) => {
     </div>
   );
 };
-
-export default RatingPlate;

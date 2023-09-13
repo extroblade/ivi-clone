@@ -8,10 +8,11 @@
     "server": "json-server --watch db.json --port 3001",
     "start": "next start",
     "test": "jest --watch=false",
-    "coverage": "jest --watch=false --coverage",
+    "test:coverage": "jest --watch=false --coverage",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "lint:fix": "next lint --fix",
+    "prettify": "prettier --write .",
+    "sb": "storybook dev -p 6006"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -34,14 +35,7 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
-    "eslint": "8.38.0",
-    "eslint-config-next": "13.3.0",
-    "sass": "^1.62.0",
-    "typescript": "5.0.4",
-    "@tomfreudenberg/next-auth-mock": "^0.5.6",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.34",
-    "@types/react-dom": "18.0.11",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "@next/eslint-plugin-next": "^13.4.1",
     "@storybook/addon-essentials": "^7.0.10",
     "@storybook/addon-interactions": "^7.0.10",
@@ -52,11 +46,17 @@
     "@storybook/testing-library": "^0.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@tomfreudenberg/next-auth-mock": "^0.5.6",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.34",
+    "@types/react-dom": "18.0.11",
     "@types/react-slick": "^0.23.10",
     "@types/react-virtualized": "^9.21.22",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
     "classnames": "^2.3.2",
+    "eslint": "8.38.0",
+    "eslint-config-next": "13.3.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
@@ -68,7 +68,9 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "prettier": "^2.8.7",
+    "sass": "^1.62.0",
     "storybook": "^7.0.10",
-    "storybook-react-i18next": "^2.0.1"
+    "storybook-react-i18next": "^2.0.1",
+    "typescript": "5.0.4"
   }
 }

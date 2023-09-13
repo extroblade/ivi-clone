@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
-import { FiSettings } from 'react-icons/fi';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FiSettings } from 'react-icons/fi';
 
-const SettingsButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const SettingsButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,5 +16,3 @@ const SettingsButton = () => {
     </Link>
   );
 };
-
-export default SettingsButton;

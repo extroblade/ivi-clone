@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import ProfileSelector from '@/UI/ProfileSelector/ProfileSelector';
-import ShowAll from '@/UI/Card/ShowAll';
+
+import { ProfileSelector, ShowAll } from '@/UI';
 
 const meta: Meta<typeof ProfileSelector> = {
   title: 'Main/Profile',

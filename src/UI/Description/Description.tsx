@@ -1,10 +1,12 @@
 import React, { FC, useState } from 'react';
-import { Button } from '@/UI/Button/Button';
-import styles from './Description.module.scss';
 import { useTranslation } from 'react-i18next';
-import { iDesc } from '@/UI/Description/Description.props';
 
-const Description: FC<iDesc> = ({ title, cut, children }): JSX.Element => {
+import { Button } from '@/UI';
+
+import styles from './Description.module.scss';
+import { iDesc } from './Description.props';
+
+export const Description: FC<iDesc> = ({ title, cut, children }): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false);
   const { t } = useTranslation();
   return (
@@ -20,5 +22,3 @@ const Description: FC<iDesc> = ({ title, cut, children }): JSX.Element => {
     </div>
   );
 };
-
-export default Description;

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import ShowAll from '@/UI/Card/ShowAll';
+
+import { ShowAll } from '@/UI';
 
 const meta: Meta<typeof ShowAll> = {
   title: 'Main/Card',

@@ -1,6 +1,7 @@
-import { Button } from '@/UI/Button/Button';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
+
+import { Button } from '@/UI';
 
 describe('Button', () => {
   it('should be circle', () => {

@@ -1,13 +1,14 @@
-import React from 'react';
-import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
 import Image from 'next/image';
-import BarGraph from '@/UI/BarGraph/BarGraph';
-import { P } from '@/UI/P/P';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { countTime } from '@/helpers/countTime';
+import React from 'react';
 
-const WatchModalInfoCard = () => {
+import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
+import { countTime } from '@/helpers';
+import { useAppSelector } from '@/hooks';
+import { selectModal } from '@/store';
+import { BarGraph } from '@/UI';
+import { P } from '@/UI/P/P';
+
+export const WatchModalInfoCard = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const { posterUrl, ratingKinopoisk, year, countries, genres, duration, filmLength } =
     currentMovie;
@@ -42,5 +43,3 @@ const WatchModalInfoCard = () => {
     </div>
   );
 };
-
-export default WatchModalInfoCard;

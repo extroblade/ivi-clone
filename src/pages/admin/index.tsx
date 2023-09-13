@@ -1,17 +1,13 @@
-import React from 'react';
-import NotFoundPage from '@/pages/404';
 import Head from 'next/head';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppSelector } from '@/hooks/redux';
-import { selectAuth } from '@/store/reducers/auth.slice';
-import { Htag } from '@/UI/Htag/Htag';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
-import Card from '@/UI/Card/Card';
-import { Button } from '@/UI/Button/Button';
 import { BsTrash } from 'react-icons/bs';
-import { useSearchParamsState } from '@/hooks/useSearchParamsState';
-import AddNewMovie from '@/UI/AddNewMovie/AddNewMovie';
-import Loader from '@/UI/Loader/Loader';
+
+import { useAppSelector, useSearchParamsState } from '@/hooks';
+import NotFoundPage from '@/pages/404';
+import { useFetchAllFilmsQuery } from '@/services';
+import { selectAuth } from '@/store';
+import { AddNewMovie, Button, Card, Htag, Loader } from '@/UI';
 
 const PAGE_LIMIT = 10;
 
@@ -48,14 +44,10 @@ const Admin = () => {
                   alignItems: 'center',
                 }}
               >
-                <div>{movie.id}</div>
+                <div>{movie?.id || 0}</div>
                 <Card card={movie} />
                 {!movies?.length && <div>mock data, unable to change</div>}
-                <Button
-                  appearance={'circle'}
-                  style={{ margin: '3px' }}
-                  onClick={() => del(movie.id)}
-                >
+                <Button appearance={'circle'} style={{ margin: '3px' }} onClick={() => del()}>
                   <BsTrash />
                 </Button>
               </div>

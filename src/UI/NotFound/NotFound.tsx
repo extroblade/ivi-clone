@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from './NotFound.module.scss';
-import { Htag } from '@/UI/Htag/Htag';
-import { P } from '@/UI/P/P';
 import { useTranslation } from 'react-i18next';
 
-const NotFound = (): JSX.Element => {
+import { Htag, P } from '@/UI';
+
+import styles from './NotFound.module.scss';
+
+export const NotFound = (): JSX.Element => {
   const { t } = useTranslation();
   return (
     <div className={styles.content}>
@@ -15,5 +16,3 @@ const NotFound = (): JSX.Element => {
     </div>
   );
 };
-
-export default NotFound;

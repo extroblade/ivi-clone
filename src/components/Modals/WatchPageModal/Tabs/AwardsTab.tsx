@@ -1,11 +1,11 @@
-import React from 'react';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { Htag } from '@/UI/Htag/Htag';
 import Image from 'next/image';
-import { P } from '@/UI/P/P';
+import React from 'react';
 
-const AwardsTab = () => {
+import { useAppSelector } from '@/hooks';
+import { selectModal } from '@/store';
+import { Htag, P } from '@/UI';
+
+export const AwardsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const awards = currentMovie?.awards?.items;
   return (
@@ -24,5 +24,3 @@ const AwardsTab = () => {
     </div>
   );
 };
-
-export default AwardsTab;

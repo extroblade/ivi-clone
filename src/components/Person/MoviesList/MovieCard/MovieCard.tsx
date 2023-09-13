@@ -1,14 +1,14 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { professionTypes } from '@/constants';
+import { Button, CardLoader, P } from '@/UI';
+
 import styles from './MovieCard.module.scss';
 import { MovieCardProps } from './MovieCard.props';
-import Link from 'next/link';
-import { Button } from '@/UI/Button/Button';
-import { P } from '@/UI/P/P';
-import { useTranslation } from 'react-i18next';
-import CardLoader from '@/UI/Card/CardLoader';
-import { professionTypes } from '@/constants/Professions';
 
-const MovieCard: FC<MovieCardProps> = ({ card }) => {
+export const MovieCard: FC<MovieCardProps> = ({ card }) => {
   const { t, i18n } = useTranslation();
   if (!card) return <CardLoader />;
   const { filmId, description, year, nameRu, nameEn, rating, professionKey: type } = card;
@@ -42,5 +42,3 @@ const MovieCard: FC<MovieCardProps> = ({ card }) => {
     </Link>
   );
 };
-
-export default MovieCard;

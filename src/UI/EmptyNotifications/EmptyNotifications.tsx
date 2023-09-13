@@ -1,12 +1,13 @@
-import { P } from '../P/P';
-import styles from './EmptyNotifications.module.scss';
-import { HiOutlineBellAlert } from 'react-icons/hi2';
-import BackButton from '@/components/Buttons/BackButton/BackButton';
-import { Htag } from '@/UI/Htag/Htag';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HiOutlineBellAlert } from 'react-icons/hi2';
 
-const EmptyNotifications: FC = (): JSX.Element => {
+import { BackButton } from '@/components';
+import { Htag, P } from '@/UI';
+
+import styles from './EmptyNotifications.module.scss';
+
+export const EmptyNotifications: FC = (): JSX.Element => {
   const { t } = useTranslation();
   return (
     <>
@@ -21,5 +22,3 @@ const EmptyNotifications: FC = (): JSX.Element => {
     </>
   );
 };
-
-export default EmptyNotifications;

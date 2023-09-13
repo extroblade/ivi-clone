@@ -1,17 +1,20 @@
-import React, { useRef } from 'react';
-import styles from './ScrollToTopButton.module.scss';
-import { Button } from '@/UI/Button/Button';
 import { useInView } from 'framer-motion';
+import React, { useRef } from 'react';
 
-const ScrollToTopButton = () => {
+import { Button } from '@/UI';
+
+import styles from './ScrollToTopButton.module.scss';
+
+export const ScrollToTopButton = () => {
   const isBrowser = () => typeof window !== 'undefined';
   const ref = useRef(null);
   const isInView = useInView(ref);
 
   const scrollToTop = () => {
-    if (isBrowser()) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!isBrowser()) {
+      return;
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -25,5 +28,3 @@ const ScrollToTopButton = () => {
     </>
   );
 };
-
-export default ScrollToTopButton;

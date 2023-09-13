@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 
-const BalanceButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const BalanceButton = () => {
   const { t } = useTranslation();
   return (
     <ProfileButton type={'rect_text'}>
@@ -13,5 +14,3 @@ const BalanceButton = () => {
     </ProfileButton>
   );
 };
-
-export default BalanceButton;

@@ -1,15 +1,15 @@
-import { FC, useEffect, useState } from 'react';
-import styles from './Filters.module.scss';
-import Plank from '@/UI/Plank/Plank';
-import { Button } from '@/UI/Button/Button';
-import { RxCross2 } from 'react-icons/rx';
-import { useTranslation } from 'react-i18next';
-import InputRange from '@/UI/Plank/InputRange';
-import { GoSettings } from 'react-icons/go';
-import SortDropdown from '@/components/Filters/SortDropdown/SortDropdown';
 import { motion } from 'framer-motion';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { resetFilters, selectFilters } from '@/store/reducers/filters.slice';
+import { FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { GoSettings } from 'react-icons/go';
+import { RxCross2 } from 'react-icons/rx';
+
+import { SortDropdown } from '@/components';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { resetFilters, selectFilters } from '@/store';
+import { Button, InputRange, Plank } from '@/UI';
+
+import styles from './Filters.module.scss';
 const variants = {
   visible: {
     transition: { duration: 0.4 },
@@ -25,7 +25,7 @@ const variants = {
     height: '0px',
   },
 };
-const Filters: FC = (): JSX.Element => {
+export const Filters: FC = (): JSX.Element => {
   const [openedFilter, setOpenedFilter] = useState(false);
   const [active, setActive] = useState<boolean>(false);
   const { genre, yearTo, country, ratingFrom } = useAppSelector(selectFilters);
@@ -106,8 +106,6 @@ const Filters: FC = (): JSX.Element => {
     </>
   );
 };
-
-export default Filters;
 
 // <div className={styles.plank_item}>
 //   <InputRange minLimit={0} maxLimit={1_000_000} range={993} type={'comments'}>

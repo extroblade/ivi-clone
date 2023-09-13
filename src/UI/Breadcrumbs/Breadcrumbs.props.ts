@@ -7,5 +7,5 @@ export type Breadcrumb = {
 
 export interface BreadcrumbsProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  breadcrumbs: Breadcrumb[];
+  breadcrumbs?: Breadcrumb[];
 }

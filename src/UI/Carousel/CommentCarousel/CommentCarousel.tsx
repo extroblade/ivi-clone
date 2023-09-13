@@ -1,19 +1,16 @@
 import React, { FC, useEffect } from 'react';
-import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
-import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
-import Slider from 'react-slick';
-import CommentCard from '@/UI/Comment/CommentCard/CommentCard';
-import Loader from '@/UI/Loader/Loader';
-import styles from '@/components/WatchPage/WatchPage.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
-import { scrollTop } from '@/helpers/scrollTop';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 import { useTranslation } from 'react-i18next';
-import { useFetchCommentsQuery } from '@/services/movie.api';
-import Title from '@/UI/Title/Title';
+import Slider from 'react-slick';
 
-const CommentCarousel: FC = () => {
+import { NextArrow, PrevArrow } from '@/components';
+import styles from '@/components/WatchPage/WatchPage.module.scss';
+import { scrollTop } from '@/helpers';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useFetchCommentsQuery } from '@/services';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
+import { Button, CommentCard, Loader, Title } from '@/UI';
+
+export const CommentCarousel: FC = () => {
   const { t } = useTranslation();
   const { currentMovie } = useAppSelector(selectModal);
   const {
@@ -89,5 +86,3 @@ const CommentCarousel: FC = () => {
     </>
   );
 };
-
-export default CommentCarousel;

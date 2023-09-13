@@ -22,7 +22,14 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react", "prettier", "react-hooks", "@next/eslint-plugin-next"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier",
+    "react-hooks",
+    "@next/eslint-plugin-next",
+    "simple-import-sort"
+  ],
   "rules": {
     "@next/next/no-html-link-for-pages": "error",
     "@next/next/no-img-element": "warn",
@@ -46,7 +53,9 @@
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
   "settings": {
     "react": {

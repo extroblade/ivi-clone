@@ -1,14 +1,14 @@
-import React, { FC, useMemo, useState } from 'react';
-import styles from './MovieList.module.scss';
-
-import { P } from '@/UI/P/P';
-import { Htag } from '@/UI/Htag/Htag';
-import MovieCard from './MovieCard/MovieCard';
-import { MovieListProps } from './MovieList.props';
-import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
+import React, { FC, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { List } from 'react-virtualized';
+
+import { MovieCard } from '@/components';
+import { getRemainingFilmAmount } from '@/helpers';
+import { Htag, P } from '@/UI';
+
+import styles from './MovieList.module.scss';
+import { MovieListProps } from './MovieList.props';
 
 const MovieList: FC<MovieListProps> = ({ list }) => {
   const [isOpen, setIsOpen] = useState(false);

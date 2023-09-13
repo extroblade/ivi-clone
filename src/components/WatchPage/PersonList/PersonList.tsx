@@ -1,10 +1,12 @@
 import { FC } from 'react';
-import { PersonListProps } from './PersonList.props';
+
+import { PersonCard } from '@/components';
+import { useAppSelector } from '@/hooks';
+import { selectModal } from '@/store';
+import { iStaff } from '@/types/kinopoiskTypes';
 
 import styles from './PersonList.module.scss';
-import PersonCard from './PersonCard/PersonCard';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
+import { PersonListProps } from './PersonList.props';
 
 export const PersonList: FC<PersonListProps> = ({ rating }) => {
   const { currentMovie } = useAppSelector(selectModal);
@@ -13,8 +15,8 @@ export const PersonList: FC<PersonListProps> = ({ rating }) => {
     <div className={styles.list}>
       <PersonCard rating={rating} />
       {currentMovie?.persons?.length &&
-        currentMovie?.persons.slice(0, 4).map((person) => {
-          return <PersonCard key={person.staffId} person={person} />;
+        currentMovie?.persons.slice(0, 4).map((person: iStaff | undefined) => {
+          return <PersonCard key={person?.staffId} person={person} />;
         })}
     </div>
   );

@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
-import { RxCountdownTimer } from 'react-icons/rx';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { RxCountdownTimer } from 'react-icons/rx';
 
-const ViewedButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const ViewedButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,5 +16,3 @@ const ViewedButton = () => {
     </Link>
   );
 };
-
-export default ViewedButton;

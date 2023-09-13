@@ -1,24 +1,21 @@
-import React from 'react';
 import Head from 'next/head';
-import WatchPage from '@/components/WatchPage/WatchPage';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import MovieBreadcrumbs from '@/UI/Breadcrumbs/MovieBreadcrumbs';
-import NotFound from '@/UI/NotFound/NotFound';
+
+import { WatchPage } from '@/components';
+import { movieTypes } from '@/constants';
 import { iFilm } from '@/types/kinopoiskTypes';
-import { movieTypes } from '@/constants/Movies';
+import { MovieBreadcrumbs, NotFound } from '@/UI';
 
 const Movie = ({ movie }: { movie: iFilm & any }) => {
   const { i18n } = useTranslation();
+  const typeMovie = new Map(Object.entries(movieTypes));
   if (!movie) return <NotFound />;
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const typeRuName = movieTypes[movie?.type]?.ruName || 'Тип';
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const typeEnName = movieTypes[movie?.type]?.enName || 'Type';
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const typePath = movieTypes[movie?.type]?.path || '/movies';
+
+  const typeRuName = typeMovie.get(movie.type)?.ruName || 'Тип';
+  const typeEnName = typeMovie.get(movie.type)?.enName || 'Type';
+  const typePath = typeMovie.get(movie.type)?.path || '.movies';
+
   const genre = movie?.genres[0]?.genre || 'Жанр';
   const breadcrumbs = [
     { name: i18n?.language == 'en' ? typeEnName : typeRuName, path: typePath },

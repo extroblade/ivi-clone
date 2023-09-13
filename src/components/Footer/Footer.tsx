@@ -1,10 +1,8 @@
-import { FC } from 'react';
-import styles from './Footer.module.scss';
-import { P } from '@/UI/P/P';
-import { Button } from '@/UI/Button/Button';
-import { HiOutlineMegaphone, HiPhone } from 'react-icons/hi2';
-import { IoMailOutline, IoTv } from 'react-icons/io5';
 import Link from 'next/link';
+import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BiDevices } from 'react-icons/bi';
+import { CgPhone } from 'react-icons/cg';
 import {
   FaApple,
   FaGooglePlay,
@@ -14,12 +12,15 @@ import {
   FaTwitter,
   FaVk,
 } from 'react-icons/fa';
-import { BiDevices } from 'react-icons/bi';
-import { CgPhone } from 'react-icons/cg';
-import FooterMobile from './FooterMobile/FooterMobile';
-import { useTranslation } from 'react-i18next';
+import { HiOutlineMegaphone, HiPhone } from 'react-icons/hi2';
+import { IoMailOutline, IoTv } from 'react-icons/io5';
 
-const Footer: FC = (): JSX.Element => {
+import { FooterMobile } from '@/components';
+import { Button, P } from '@/UI';
+
+import styles from './Footer.module.scss';
+
+export const Footer: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const first_links = [
     {
@@ -209,5 +210,3 @@ const Footer: FC = (): JSX.Element => {
     </>
   );
 };
-
-export default Footer;

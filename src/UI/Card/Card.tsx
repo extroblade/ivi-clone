@@ -1,19 +1,16 @@
-import React, { FC } from 'react';
-import { CardProps } from './Card.props';
-import { P } from '@/UI/P/P';
-import Link from 'next/link';
-import BarGraph from '@/UI/BarGraph/BarGraph';
 import i18next from 'i18next';
-import AddToFavoritesButton from '@/components/Buttons/CardButtons/AddToFavoritesButton';
-import RateButton from '@/components/Buttons/CardButtons/RateButton';
-import FindSimilarButton from '@/components/Buttons/CardButtons/FindSimilarButton';
-import BlockButton from '@/components/Buttons/CardButtons/BlockButton';
-import styles from './Card.module.scss';
 import Image from 'next/image';
-import CardLoader from '@/UI/Card/CardLoader';
-import { countTime } from '@/helpers/countTime';
+import Link from 'next/link';
+import React, { FC } from 'react';
 
-const Card: FC<CardProps> = ({
+import { AddToFavoritesButton, BlockButton, FindSimilarButton, RateButton } from '@/components';
+import { countTime } from '@/helpers';
+import { BarGraph, CardLoader, P } from '@/UI';
+
+import styles from './Card.module.scss';
+import { CardProps } from './Card.props';
+
+export const Card: FC<CardProps> = ({
   card,
   hover = true,
   star = false,
@@ -92,5 +89,3 @@ const Card: FC<CardProps> = ({
     </Link>
   );
 };
-
-export default Card;

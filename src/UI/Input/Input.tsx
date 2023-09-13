@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+
 import styles from './Input.module.scss';
 
-const Input = ({ label }) => {
+export const Input = ({ label }) => {
   const [query, setQuery] = useState<string>('');
 
   return (
@@ -16,5 +17,3 @@ const Input = ({ label }) => {
     </div>
   );
 };
-
-export default Input;

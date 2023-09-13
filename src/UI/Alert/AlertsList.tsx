@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
-import styles from './Alert.module.scss';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { MAX_ALERT_AMOUNT } from '@/constants/Constants';
-import Alert from '@/UI/Alert/Alert';
 
-const AlertsList: FC = () => {
+import { MAX_ALERT_AMOUNT } from '@/constants';
+import { useAppSelector } from '@/hooks';
+import { selectModal } from '@/store';
+import { Alert } from '@/UI';
+
+import styles from './Alert.module.scss';
+
+export const AlertsList: FC = () => {
   const { activeAlerts } = useAppSelector(selectModal);
 
   return (
@@ -22,5 +24,3 @@ const AlertsList: FC = () => {
     </>
   );
 };
-
-export default AlertsList;

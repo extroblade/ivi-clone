@@ -1,26 +1,22 @@
-import React, { useEffect } from 'react';
-import { useFetchFilmExternalSourcesQuery } from '@/services/movie.api';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { P } from '@/UI/P/P';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { useAppSelector } from '@/hooks';
+import { useFetchFilmExternalSourcesQuery } from '@/services';
+import { selectModal } from '@/store';
+import { P, Title } from '@/UI';
+
 import styles from './ExternalSources.module.scss';
-import Title from '@/UI/Title/Title';
-const ExternalSources = () => {
+export const ExternalSources = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const params = { id: currentMovie?.kinopoiskId };
-  const { data: sources, refetch } = useFetchFilmExternalSourcesQuery({ ...params });
-  useEffect(() => {
-    if (currentMovie?.kinopoiskId) {
-      refetch();
-    }
-  }, [currentMovie]);
+  const { data: sources, isSuccess } = useFetchFilmExternalSourcesQuery({ ...params });
+  if (!isSuccess) return <></>;
   return (
     <div className={styles.sources_container}>
       <Title text={'Смотреть полностью:'} />
       <div className={styles.sources}>
-        {params.id && sources?.total
+        {params.id && sources
           ? sources.items.map((item) => (
               <Link href={item.url} key={item.platform} className={styles.source_item}>
                 <div className={styles.img}>
@@ -36,5 +32,3 @@ const ExternalSources = () => {
     </div>
   );
 };
-
-export default ExternalSources;

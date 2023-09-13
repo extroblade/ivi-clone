@@ -1,23 +1,18 @@
-import { FC } from 'react';
 import cn from 'classnames';
-import styles from './WatchPageModal.module.scss';
-import { Htag } from '@/UI/Htag/Htag';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import { Button } from '@/UI/Button/Button';
-import { HiChevronLeft } from 'react-icons/hi';
-import { selectModal, setShowWatchPageModal } from '@/store/reducers/modals.slice';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useEscapeKey } from '@/hooks/useEscapeKey';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import CommentSection from '@/UI/Comment/CommentSection';
-import { usePreventScroll } from '@/hooks/usePreventScroll';
-import Sup from '@/UI/Sup/Sup';
-import WatchModalInfoCard from '@/components/Modals/WatchPageModal/Tabs/WatchModalInfoCard';
-import PersonsTab from '@/components/Modals/WatchPageModal/Tabs/PersonsTab';
-import TrailersTab from '@/components/Modals/WatchPageModal/Tabs/TrailersTab';
-import AwardsTab from '@/components/Modals/WatchPageModal/Tabs/AwardsTab';
+import { HiChevronLeft } from 'react-icons/hi';
+import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
-const WatchPageModal: FC = () => {
+import { AwardsTab, PersonsTab, TrailersTab, WatchModalInfoCard } from '@/components';
+import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
+import { useEscapeKey } from '@/hooks/useEscapeKey';
+import { selectModal, setShowWatchPageModal } from '@/store';
+import { Button, CommentSection, Htag, Sup } from '@/UI';
+
+import styles from './WatchPageModal.module.scss';
+
+export const WatchPageModal: FC = () => {
   const dispatch = useAppDispatch();
   const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
   const { t, i18n } = useTranslation();
@@ -28,6 +23,9 @@ const WatchPageModal: FC = () => {
   useEscapeKey(close);
 
   const persons = currentMovie?.persons;
+  const enName = currentMovie?.enName || currentMovie?.originalName || currentMovie?.ruName;
+  const ruName = currentMovie?.ruName || currentMovie?.originalName || currentMovie?.enName;
+  const name = i18n.language == 'en' ? enName : ruName;
 
   return (
     <>
@@ -39,21 +37,19 @@ const WatchPageModal: FC = () => {
           </Button>
           <div className={styles.wrap}>
             <Tabs className={styles.tabs} defaultIndex={currentMovie.index}>
-              <Htag tag={'h2'}>
-                {i18n.language == 'en' ? currentMovie.enName : currentMovie.name}
-              </Htag>
+              <Htag tag={'h2'}>{name}</Htag>
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   {t('categories.creators')} {persons?.length ? <Sup text={persons?.length} /> : ''}
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.comments')} <Sup text={currentMovie?.comments?.total} />
+                  {t('categories.comments')} <Sup text={currentMovie?.comments?.total || 0} />
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.trailers')} <Sup text={currentMovie?.videos?.total} />
+                  {t('categories.trailers')} <Sup text={currentMovie?.videos?.total || 0} />
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.awards')} <Sup text={currentMovie?.awards?.total} />
+                  {t('categories.awards')} <Sup text={currentMovie?.awards?.total || 0} />
                 </Tab>
               </TabList>
 
@@ -77,5 +73,3 @@ const WatchPageModal: FC = () => {
     </>
   );
 };
-
-export default WatchPageModal;

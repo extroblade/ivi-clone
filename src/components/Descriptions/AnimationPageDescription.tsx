@@ -1,10 +1,9 @@
 import React from 'react';
-import { Htag } from '@/UI/Htag/Htag';
-import { P } from '@/UI/P/P';
-import Description from '@/UI/Description/Description';
 import { useTranslation } from 'react-i18next';
 
-const AnimationPageDescription = () => {
+import { Description, Htag, P } from '@/UI';
+
+export const AnimationPageDescription = () => {
   const { t } = useTranslation();
   return (
     <Description
@@ -20,5 +19,3 @@ const AnimationPageDescription = () => {
     </Description>
   );
 };
-
-export default AnimationPageDescription;

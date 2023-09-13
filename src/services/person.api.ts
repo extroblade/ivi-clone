@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
 import { iPerson } from '@/types/kinopoiskTypes';
 
 export const personApi = createApi({

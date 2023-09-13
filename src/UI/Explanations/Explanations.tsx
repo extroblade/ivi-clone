@@ -1,12 +1,14 @@
-import React, { FC, useEffect, useState } from 'react';
-import styles from './Explanations.module.scss';
 import Image from 'next/image';
-import { ExplanationsProps } from '@/UI/Explanations/Explanations.props';
-import { iFactsItems } from '@/types/kinopoiskTypes';
-import Loader from '@/UI/Loader/Loader';
-import { useFetchFilmFactsQuery } from '@/services/movie.api';
+import React, { FC, useEffect, useState } from 'react';
 
-const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
+import { useFetchFilmFactsQuery } from '@/services';
+import { iFactsItems } from '@/types/kinopoiskTypes';
+import { Loader } from '@/UI';
+import { ExplanationsProps } from '@/UI/Explanations/Explanations.props';
+
+import styles from './Explanations.module.scss';
+
+export const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
   const { data: facts, isLoading, error } = useFetchFilmFactsQuery({ id: factsId });
 
   const items = facts?.items.filter((item) => item.text).slice(0, 5);
@@ -75,5 +77,3 @@ const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
     </div>
   );
 };
-
-export default Explanations;

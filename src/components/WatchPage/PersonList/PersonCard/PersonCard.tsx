@@ -1,13 +1,15 @@
+import i18next from 'i18next';
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { RatingPlate } from '@/UI';
+
 import styles from './PersonCard.module.scss';
 import { PersonCardProps } from './PersonCard.props';
-import Link from 'next/link';
-import i18next from 'i18next';
-import { useTranslation } from 'react-i18next';
-import Image from 'next/image';
-import RatingPlate from '@/UI/RatingBlock/RatingPlate';
 
-const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
+export const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.person_card}>
@@ -31,7 +33,7 @@ const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
           <div className={styles.wrapCard}>
             <RatingPlate rating={rating || null} />
           </div>
-          <div className={styles.card_name} title={t('categories.rating')}>
+          <div className={styles.card_name} title={t('categories.rating') || ''}>
             {t('categories.rating')}
           </div>
         </>
@@ -39,5 +41,3 @@ const PersonCard: FC<PersonCardProps> = ({ person, rating }) => {
     </div>
   );
 };
-
-export default PersonCard;

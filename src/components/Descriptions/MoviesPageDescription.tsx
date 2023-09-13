@@ -1,11 +1,10 @@
-import React from 'react';
-import { Htag } from '@/UI/Htag/Htag';
-import Description from '@/UI/Description/Description';
 import Link from 'next/link';
-import { P } from '@/UI/P/P';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const MoviesPageDescription = () => {
+import { Description, Htag, P } from '@/UI';
+
+export const MoviesPageDescription = () => {
   const { t } = useTranslation();
   return (
     <Description
@@ -27,5 +26,3 @@ const MoviesPageDescription = () => {
     </Description>
   );
 };
-
-export default MoviesPageDescription;

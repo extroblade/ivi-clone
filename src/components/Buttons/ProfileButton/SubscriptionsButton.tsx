@@ -1,9 +1,9 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const SubscriptionsButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+export const SubscriptionsButton = () => {
   const { t } = useTranslation();
   return (
     <Link href={'https://www.ivi.ru/profile/subscriptions'}>
@@ -16,5 +16,3 @@ const SubscriptionsButton = () => {
     </Link>
   );
 };
-
-export default SubscriptionsButton;

@@ -1,4 +1,4 @@
-import User from '@/components/Header/User/User';
+import { User } from '@/components';
 
 export default {
   title: 'Main/User',

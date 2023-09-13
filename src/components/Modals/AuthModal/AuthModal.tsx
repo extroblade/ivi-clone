@@ -1,27 +1,24 @@
-import React, { FC, useEffect, useState } from 'react';
-import styles from './AuthModal.module.scss';
-import { CgClose } from 'react-icons/cg';
-import { BiUser } from 'react-icons/bi';
-import FullScreenModal from '@/UI/FullScreenModal/FullScreenModal';
-import { P } from '@/UI/P/P';
-import BarGraph from '@/UI/BarGraph/BarGraph';
-import { signIn, signOut } from 'next-auth/react';
-import { Button } from '@/UI/Button/Button';
-import { BsPencil } from 'react-icons/bs';
-import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
-import { TbReload } from 'react-icons/tb';
-import { selectModal, setShowAuth } from '@/store/reducers/modals.slice';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { selectAuth } from '@/store/reducers/auth.slice';
-import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants/Constants';
-import GoogleAuthButton from '@/components/Buttons/LoginButton/GoogleAuthButton';
-import VKAuthButton from '@/components/Buttons/LoginButton/VKAuthButton';
 import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/router';
+import { signIn, signOut } from 'next-auth/react';
+import React, { FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { BiUser } from 'react-icons/bi';
+import { BsPencil } from 'react-icons/bs';
+import { CgClose } from 'react-icons/cg';
+import { TbReload } from 'react-icons/tb';
 
-const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
+import { GoogleAuthButton, VkAuthButton } from '@/components';
+import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectAuth, selectModal, setShowAuth } from '@/store';
+import { BarGraph, Button, FullScreenModal, P } from '@/UI';
+
+import styles from './AuthModal.module.scss';
+
+export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
   const { t } = useTranslation();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -212,7 +209,7 @@ const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
                 <>
                   <div className={styles.chat__oauth}>
                     <GoogleAuthButton />
-                    <VKAuthButton />
+                    <VkAuthButton />
                   </div>
                   <div className={styles.chat__confidential}>
                     <p>{t('sections.click-continue-agree')}</p>
@@ -251,5 +248,3 @@ const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
     </FullScreenModal>
   );
 };
-
-export default AuthModal;

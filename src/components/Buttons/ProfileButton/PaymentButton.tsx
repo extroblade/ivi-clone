@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
-import { AiFillCreditCard } from 'react-icons/ai';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { AiFillCreditCard } from 'react-icons/ai';
 
-const PaymentButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const PaymentButton = () => {
   const { t } = useTranslation();
 
   return (
@@ -15,5 +16,3 @@ const PaymentButton = () => {
     </Link>
   );
 };
-
-export default PaymentButton;

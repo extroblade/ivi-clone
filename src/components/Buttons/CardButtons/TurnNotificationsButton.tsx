@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Button } from '@/UI/Button/Button';
 import { AiFillBell, AiOutlineBell } from 'react-icons/ai';
-import { setShowUnsub } from '@/store/reducers/modals.slice';
-import { useAppDispatch } from '@/hooks/redux';
 
-const TurnNotificationsButton = () => {
+import { useAppDispatch } from '@/hooks';
+import { setShowUnsub } from '@/store';
+import { Button } from '@/UI';
+
+export const TurnNotificationsButton = () => {
   const [turned, setTurned] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const turn = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -23,5 +24,3 @@ const TurnNotificationsButton = () => {
     </Button>
   );
 };
-
-export default TurnNotificationsButton;

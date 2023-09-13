@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
-import { Button } from '@/UI/Button/Button';
-import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
 
-const AddToFavoritesButton = () => {
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectModal, setActiveAlerts } from '@/store';
+import { Button } from '@/UI';
+
+export const AddToFavoritesButton = () => {
   const [booked, setBooked] = useState<boolean>(false);
   const { activeAlerts } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
@@ -15,7 +16,7 @@ const AddToFavoritesButton = () => {
     if (!booked) {
       const cur = [];
       const newAlert = {
-        id: self.crypto.randomUUID(),
+        id: self?.crypto?.randomUUID ? self.crypto.randomUUID() : '123',
         title: 'Добавлено в ваш список избранного!',
         extra: '',
       };
@@ -34,5 +35,3 @@ const AddToFavoritesButton = () => {
     </Button>
   );
 };
-
-export default AddToFavoritesButton;

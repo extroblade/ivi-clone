@@ -1,15 +1,17 @@
-import React, { FC, useState } from 'react';
-import CommentAvatar from '@/UI/Comment/CommentAvatar';
-import { Button } from '@/UI/Button/Button';
-import styles from './Comment.module.scss';
 import { useSession } from 'next-auth/react';
+import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { selectModal, setActiveAlerts } from '@/store/reducers/modals.slice';
-import { createNewAlert } from '@/helpers/createNewAlert';
+
+import { createNewAlert } from '@/helpers';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectModal, setActiveAlerts } from '@/store';
+import { CommentAvatar } from '@/UI';
+import { Button } from '@/UI/Button/Button';
+
+import styles from './Comment.module.scss';
 const LIMIT = 5;
 
-const CommentInput: FC = (): JSX.Element => {
+export const CommentInput: FC = (): JSX.Element => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState<string>('');
   const dispatch = useAppDispatch();
@@ -57,5 +59,3 @@ const CommentInput: FC = (): JSX.Element => {
     </form>
   );
 };
-
-export default CommentInput;

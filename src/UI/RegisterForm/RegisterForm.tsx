@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import InputFileButton from '@/components/Buttons/InputFileButton/InputFileButton';
-import { Button } from '@/UI/Button/Button';
-import { useRegisterMutation } from '@/services/auth.api';
-import { setUser } from '@/store/reducers/auth.slice';
-import { useAppDispatch } from '@/hooks/redux';
+
+import { InputFileButton } from '@/components';
+import { useAppDispatch } from '@/hooks';
+import { useRegisterMutation } from '@/services';
+import { setUser } from '@/store';
+import { Button } from '@/UI';
+
 import styles from './RegisterForm.module.scss';
 
-const RegisterForm = () => {
+export const RegisterForm = () => {
   const dispatch = useAppDispatch();
   const [username, setUsername] = useState<string>('');
   const [login, setLogin] = useState<string>('');
@@ -60,5 +62,3 @@ const RegisterForm = () => {
     </div>
   );
 };
-
-export default RegisterForm;

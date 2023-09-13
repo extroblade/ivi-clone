@@ -1,12 +1,13 @@
-import { FC } from 'react';
-import { P } from '@/UI/P/P';
-import MovieList from './MoviesList/MovieList';
-import { PersonProps } from './Person.props';
-import { Htag } from '@/UI/Htag/Htag';
-import styles from './Person.module.scss';
-import BackButton from '../Buttons/BackButton/BackButton';
 import i18next from 'i18next';
 import Image from 'next/image';
+import { FC } from 'react';
+
+import { BackButton } from '@/components';
+import { Htag, P } from '@/UI';
+
+import MovieList from './MoviesList/MovieList';
+import styles from './Person.module.scss';
+import { PersonProps } from './Person.props';
 
 export const PersonInfo: FC<PersonProps> = ({ person }) => {
   const { posterUrl, nameRu, nameEn, profession, films } = person;

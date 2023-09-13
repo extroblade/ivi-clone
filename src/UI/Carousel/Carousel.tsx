@@ -1,19 +1,18 @@
-import React, { FC } from 'react';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import styles from './Carousel.module.scss';
-import { MdArrowForwardIos } from 'react-icons/md';
-import { CarouselProps } from '@/UI/Carousel/Carousel.props';
-import Link from 'next/link';
-import { Htag } from '@/UI/Htag/Htag';
-import ShowAll from '@/UI/Card/ShowAll';
-import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
-import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
-import Card from '@/UI/Card/Card';
-import Loader from "@/UI/Loader/Loader";
 
-const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.Element => {
+import Link from 'next/link';
+import React, { FC } from 'react';
+import { MdArrowForwardIos } from 'react-icons/md';
+import Slider from 'react-slick';
+
+import { NextArrow, PrevArrow } from '@/components';
+import { Card, Htag, Loader, ShowAll } from '@/UI';
+import { CarouselProps } from '@/UI/Carousel/Carousel.props';
+
+import styles from './Carousel.module.scss';
+
+export const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.Element => {
   if (!settings)
     settings = {
       dots: false,
@@ -85,7 +84,7 @@ const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.El
         },
       ],
     };
-  if(!movies) return <Loader />
+  if (!movies) return <Loader />;
   return (
     <div className={styles.carousel}>
       {title && (
@@ -111,5 +110,3 @@ const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.El
     </div>
   );
 };
-
-export default Carousel;

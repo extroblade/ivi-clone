@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+
+import { FilmOrder, FilmType } from '@/store';
 import {
   iAwards,
   iBoxOffice,
@@ -12,7 +14,6 @@ import {
   iSeasons,
   iSimilar,
 } from '@/types/kinopoiskTypes';
-import { FilmOrder, FilmType } from '@/store/reducers/filters.slice';
 
 export type QueryParams = {
   countries?: string;
@@ -91,7 +92,7 @@ export const movieApi = createApi({
         url: `${id}/images`,
       }),
     }),
-    fetchFilmSimilars: build.query<iSimilar[], { id: number }>({
+    fetchFilmSimilar: build.query<iSimilar[], { id: number }>({
       query: ({ id }) => ({
         url: `${id}/similars`,
       }),
@@ -177,7 +178,7 @@ export const {
   useFetchFilmPremieresQuery,
   useFetchFilmFiltersQuery,
   useFetchFilmImagesQuery,
-  useFetchFilmSimilarsQuery,
+  useFetchFilmSimilarQuery,
   useFetchFilmVideoQuery,
   useFetchFilmAwardsQuery,
   useFetchFilmDistributionsQuery,

@@ -1,16 +1,18 @@
-import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
+import i18next from 'i18next';
 import Link from 'next/link';
+import { FC, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
+
+import { movieCategories } from '@/mock/movieCategories';
+import { ILink } from '@/types/types';
+import { P } from '@/UI';
+
 import styles from './ModalList.module.scss';
 import { ModalListProps } from './ModalList.props';
-import { P } from '@/UI/P/P';
-import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
-import { ILink } from '@/types/types';
-import { movieCategories } from '@/mock/movieCategories';
-import i18next from 'i18next';
-import { useTranslation } from 'react-i18next';
 
-const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }): JSX.Element => {
+export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }): JSX.Element => {
   const [isListOpen, setIsListOpen] = useState<boolean>(false);
   const IconComponent = icon ? icon : undefined;
   const { t } = useTranslation();
@@ -94,5 +96,3 @@ const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }): JSX.
     </div>
   );
 };
-
-export default ModalList;

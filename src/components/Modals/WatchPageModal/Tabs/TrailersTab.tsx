@@ -1,11 +1,12 @@
 import React from 'react';
-import { useAppSelector } from '@/hooks/redux';
-import { selectModal } from '@/store/reducers/modals.slice';
-import { Htag } from '@/UI/Htag/Htag';
-import Player from '@/UI/Player/Player';
+
+import { useAppSelector } from '@/hooks';
+import { selectModal } from '@/store';
+import { Htag, Player } from '@/UI';
+
 import styles from '../WatchPageModal.module.scss';
 
-const TrailersTab = () => {
+export const TrailersTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const videos = currentMovie?.videos?.items;
   return (
@@ -23,5 +24,3 @@ const TrailersTab = () => {
     </>
   );
 };
-
-export default TrailersTab;

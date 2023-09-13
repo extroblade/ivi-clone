@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Description from '@/UI/Description/Description';
+
+import { Description } from '@/UI';
 import { iDesc } from '@/UI/Description/Description.props';
 
 const meta: Meta<iDesc> = {

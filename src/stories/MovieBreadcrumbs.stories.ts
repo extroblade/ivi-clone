@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import MovieBreadcrumbs from '@/UI/Breadcrumbs/MovieBreadcrumbs';
+import { MovieBreadcrumbs } from '@/UI';
 
 const meta: Meta<typeof MovieBreadcrumbs> = {
   title: 'Main/Breadcrumbs',

@@ -1,19 +1,20 @@
-import styles from './Player.module.scss';
 import dynamic from 'next/dynamic';
 import { FC, useEffect, useState } from 'react';
-import { PlayerProps } from './Player.props';
-import { Button } from '../Button/Button';
-import { IoPlayOutline } from 'react-icons/io5';
-import { FiUpload } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
-import AddToFavoritesButton from '@/components/Buttons/CardButtons/AddToFavoritesButton';
-import TurnNotificationsButton from '@/components/Buttons/CardButtons/TurnNotificationsButton';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
-import { scrollTop } from '@/helpers/scrollTop';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { FiUpload } from 'react-icons/fi';
+import { IoPlayOutline } from 'react-icons/io5';
+
+import { AddToFavoritesButton, TurnNotificationsButton } from '@/components';
+import { scrollTop } from '@/helpers';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
+import { Button } from '@/UI';
+import { PlayerProps } from '@/UI/Player/Player.props';
+
+import styles from './Player.module.scss';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: true });
 
-const Player: FC<PlayerProps> = ({ url, actions }) => {
+export const Player: FC<PlayerProps> = ({ url, actions }) => {
   const { t } = useTranslation();
   const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
@@ -65,5 +66,3 @@ const Player: FC<PlayerProps> = ({ url, actions }) => {
     </div>
   );
 };
-
-export default Player;

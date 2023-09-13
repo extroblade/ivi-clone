@@ -1,15 +1,16 @@
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { BsEnvelope, BsPhone } from 'react-icons/bs';
+import { HiOutlinePencil } from 'react-icons/hi';
+
 import styles from '@/components/Profile/ProfilePage/ProfilePage.module.scss';
+import { Button } from '@/UI/Button/Button';
 import { Htag } from '@/UI/Htag/Htag';
 import { P } from '@/UI/P/P';
-import Link from 'next/link';
-import { Button } from '@/UI/Button/Button';
-import { HiOutlinePencil } from 'react-icons/hi';
-import { BsEnvelope, BsPhone } from 'react-icons/bs';
-import { useTranslation } from 'react-i18next';
-import { useSession } from 'next-auth/react';
 
-const EditProfile = () => {
+export const EditProfile = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   const user = session?.user || null;
@@ -60,5 +61,3 @@ const EditProfile = () => {
     </div>
   );
 };
-
-export default EditProfile;

@@ -1,4 +1,4 @@
-export const getRemainingFilmAmount = (length): string => {
+export const getRemainingFilmAmount = (length: number): string => {
   if (length <= 0) return '';
   const lastNumber = +String(length).split('').reverse()[0];
   if (length >= 10 && length <= 20) return ` фильмов`;

@@ -1,18 +1,18 @@
 import React, { FC, useRef, useState } from 'react';
-import styles from './Plank.module.scss';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
-import ChooseDropdown from '@/UI/Dropdown/ChooseDropdown';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import SearchDropdown from '@/UI/Dropdown/SearchDropdown';
-import { useAppSelector } from '@/hooks/redux';
-import { selectFilters } from '@/store/reducers/filters.slice';
+
+import { useAppSelector, useOutsideClick } from '@/hooks';
+import { selectFilters } from '@/store';
+import { ChooseDropdown, SearchDropdown } from '@/UI';
+
+import styles from './Plank.module.scss';
 
 interface iPlank {
   array_type: 'genre' | 'country' | 'years';
   type: 'choose' | 'find';
 }
 
-const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
+export const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
   const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
   const { genre, yearTo, country } = useAppSelector(selectFilters);
   let title;
@@ -53,8 +53,6 @@ const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
     </span>
   );
 };
-
-export default Plank;
 
 // {chosen && (
 //   <div className={styles.chosen}>

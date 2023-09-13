@@ -1,11 +1,10 @@
 import React from 'react';
-import { Htag } from '@/UI/Htag/Htag';
-import { P } from '@/UI/P/P';
-import Description from '@/UI/Description/Description';
-import styles from '@/UI/Description/Description.module.scss';
 import { useTranslation } from 'react-i18next';
 
-const MainPageDescription = () => {
+import { Description, Htag, P } from '@/UI';
+import styles from '@/UI/Description/Description.module.scss';
+
+export const MainPageDescription = () => {
   const { t } = useTranslation();
   return (
     <Description
@@ -46,5 +45,3 @@ const MainPageDescription = () => {
     </Description>
   );
 };
-
-export default MainPageDescription;

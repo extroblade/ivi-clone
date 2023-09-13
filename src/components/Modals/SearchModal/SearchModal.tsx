@@ -1,22 +1,20 @@
+import i18next from 'i18next';
+import { useRouter } from 'next/router';
 import React, { FC, useEffect, useState } from 'react';
-import styles from './SearchModal.module.scss';
+import { useTranslation } from 'react-i18next';
+import { BiMoviePlay } from 'react-icons/bi';
+import { BsPersonCircle } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { IoSearchOutline } from 'react-icons/io5';
-import FullScreenModal from '@/UI/FullScreenModal/FullScreenModal';
-import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
-import { selectModal, setShowSearch } from '@/store/reducers/modals.slice';
-import { usePreventScroll } from '@/hooks/usePreventScroll';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { Button } from '@/UI/Button/Button';
-import { useRouter } from 'next/navigation';
-import { P } from '@/UI/P/P';
-import { BsPersonCircle } from 'react-icons/bs';
-import { BiMoviePlay } from 'react-icons/bi';
-import { useDebounce } from '@/hooks/useDebounce';
-import Loader from '@/UI/Loader/Loader';
 
-const SearchModal: FC = (): JSX.Element => {
+import { useAppDispatch, useAppSelector, useDebounce, usePreventScroll } from '@/hooks';
+import { selectModal, setShowSearch } from '@/store';
+import { iFilm, iPerson } from '@/types/kinopoiskTypes';
+import { Button, FullScreenModal, Loader, P } from '@/UI';
+
+import styles from './SearchModal.module.scss';
+
+export const SearchModal: FC = (): JSX.Element => {
   const [query, setQuery] = useState<string>('');
   const { t } = useTranslation();
   const { showSearch } = useAppSelector(selectModal);
@@ -66,7 +64,7 @@ const SearchModal: FC = (): JSX.Element => {
       .catch((err) => console.log(err));
   }, 300);
 
-  const changeQuery = (e) => {
+  const changeQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(() => e.target.value);
   };
   const clearQuery = (): void => {
@@ -81,7 +79,7 @@ const SearchModal: FC = (): JSX.Element => {
     }
   }, [query?.length]);
   const router = useRouter();
-  const redirect = (item) => {
+  const redirect = (item: iFilm | iPerson) => {
     if (item?.type) {
       router.push(`/watch/${item.kinopoiskId}`);
     } else if (item?.sex) {
@@ -168,5 +166,3 @@ const SearchModal: FC = (): JSX.Element => {
     </FullScreenModal>
   );
 };
-
-export default SearchModal;

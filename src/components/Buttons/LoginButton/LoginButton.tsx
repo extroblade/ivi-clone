@@ -1,12 +1,14 @@
 import React from 'react';
-import styles from './LoginButton.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { TiUserOutline } from 'react-icons/ti';
-import { useAppDispatch } from '@/hooks/redux';
-import { setShowAuth } from '@/store/reducers/modals.slice';
 import { useTranslation } from 'react-i18next';
+import { TiUserOutline } from 'react-icons/ti';
 
-const LoginButton = () => {
+import { useAppDispatch } from '@/hooks';
+import { setShowAuth } from '@/store';
+import { Button } from '@/UI';
+
+import styles from './LoginButton.module.scss';
+
+export const LoginButton = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -27,5 +29,3 @@ const LoginButton = () => {
     </div>
   );
 };
-
-export default LoginButton;

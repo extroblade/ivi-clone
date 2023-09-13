@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Card.module.scss';
 
-const CardLoader = () => {
+export const CardLoader = () => {
   return (
     <div className={`${styles.card}`}>
       <div className={`${styles.imageSection} loader`} />
@@ -10,5 +10,3 @@ const CardLoader = () => {
     </div>
   );
 };
-
-export default CardLoader;

@@ -1,20 +1,18 @@
-import React, { FC, useEffect, useState } from 'react';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import styles from './PromoCarousel.module.scss';
-import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
-import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
-import { Button } from '@/UI/Button/Button';
-import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
-import PromotionButton from '@/components/Buttons/ProfileButton/PromotionButton';
-import ActivateCertificateButton from '@/components/Buttons/ProfileButton/ActivateCertificateButton';
+
+import { FastAverageColor } from 'fast-average-color';
 import i18next from 'i18next';
 import Image from 'next/image';
-import { P } from '@/UI/P/P';
-import { FastAverageColor } from 'fast-average-color';
-import { Htag } from '@/UI/Htag/Htag';
+import Link from 'next/link';
+import React, { FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import Slider from 'react-slick';
+
+import { ActivateCertificateButton, NextArrow, PrevArrow, PromotionButton } from '@/components';
+import { Button, Htag, P } from '@/UI';
+
+import styles from './PromoCarousel.module.scss';
 
 interface iMockCarousel {
   id: number;
@@ -82,7 +80,7 @@ const PromoCarouselSlide: FC<iSlide> = ({ slide }): JSX.Element => {
   );
 };
 
-const PromoCarousel: FC = () => {
+export const PromoCarousel: FC = () => {
   const { t } = useTranslation();
   const mockCarousel: iMockCarousel[] = [
     {
@@ -183,5 +181,3 @@ const PromoCarousel: FC = () => {
     </>
   );
 };
-
-export default PromoCarousel;

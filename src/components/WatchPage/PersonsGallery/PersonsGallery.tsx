@@ -1,17 +1,18 @@
-import React, { FC } from 'react';
-import { PersonsGalleryProps } from './PersonsGallery.props';
 import cn from 'classnames';
-import styles from './PersonsGallery.module.scss';
-import Link from 'next/link';
-import { P } from '@/UI/P/P';
-import { useTranslation } from 'react-i18next';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
-import { useDispatch } from 'react-redux';
 import Image from 'next/image';
-import { useAppSelector } from '@/hooks/redux';
-import { professionTypes } from '@/constants/Professions';
-import { scrollTop } from '@/helpers/scrollTop';
-import Title from '@/UI/Title/Title';
+import Link from 'next/link';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+
+import { professionTypes } from '@/constants';
+import { scrollTop } from '@/helpers';
+import { useAppSelector } from '@/hooks';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
+import { P, Title } from '@/UI';
+
+import styles from './PersonsGallery.module.scss';
+import { PersonsGalleryProps } from './PersonsGallery.props';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();

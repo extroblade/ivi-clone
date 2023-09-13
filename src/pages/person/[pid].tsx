@@ -1,10 +1,11 @@
-import { PersonInfo } from '@/components/Person/Person';
-import NotFoundPage from '@/pages/404';
-import Head from 'next/head';
 import i18next from 'i18next';
-import Loader from '@/UI/Loader/Loader';
+import Head from 'next/head';
 import React from 'react';
+
+import { PersonInfo } from '@/components';
+import NotFoundPage from '@/pages/404';
 import { iPerson } from '@/types/kinopoiskTypes';
+import { Loader } from '@/UI';
 
 const Person = ({ person }) => {
   if (!person?.personId) return <NotFoundPage />;

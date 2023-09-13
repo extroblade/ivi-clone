@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
-import styles from './SearchButton.module.scss';
-import { FaSearch } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import { setShowSearch } from '@/store/reducers/modals.slice';
-import { useAppDispatch } from '@/hooks/redux';
+import { FaSearch } from 'react-icons/fa';
 
-const SearchButton: FC = (): JSX.Element => {
+import { useAppDispatch } from '@/hooks';
+import { setShowSearch } from '@/store';
+
+import styles from './SearchButton.module.scss';
+
+export const SearchButton: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const open = () => {
@@ -18,5 +20,3 @@ const SearchButton: FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default SearchButton;

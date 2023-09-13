@@ -1,15 +1,16 @@
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
-import styles from './SortDropdown.module.scss';
+import { useTranslation } from 'react-i18next';
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
   MdOutlineSort,
 } from 'react-icons/md';
-import { Button } from '@/UI/Button/Button';
-import { useTranslation } from 'react-i18next';
-import { useOutsideClick } from '@/hooks/useOutsideClick';
-import { useAppDispatch } from '@/hooks/redux';
-import { setOrder } from '@/store/reducers/filters.slice';
+
+import { useAppDispatch, useOutsideClick } from '@/hooks';
+import { setOrder } from '@/store';
+import { Button } from '@/UI';
+
+import styles from './SortDropdown.module.scss';
 
 interface iSort {
   id: number;
@@ -17,7 +18,7 @@ interface iSort {
   title: string;
 }
 
-const SortDropdown: FC = (): JSX.Element => {
+export const SortDropdown: FC = (): JSX.Element => {
   const [sortDrop, setSortDrop] = useState(false);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
@@ -39,7 +40,7 @@ const SortDropdown: FC = (): JSX.Element => {
   const [current, setCurrent] = useState(0);
 
   const handler = useCallback(
-    (currentSort) => {
+    (currentSort: iSort) => {
       if (current === currentSort.id) {
         setCurrent(() => 0);
       } else {
@@ -56,7 +57,9 @@ const SortDropdown: FC = (): JSX.Element => {
 
   useEffect(() => {
     const newOrder = sorts.find((sort) => sort.id == current)?.value;
-    dispatch(setOrder(newOrder));
+    if (newOrder) {
+      dispatch(setOrder(newOrder));
+    }
     setTimeout(() => {
       closeState();
     }, 150);
@@ -69,7 +72,9 @@ const SortDropdown: FC = (): JSX.Element => {
           <div className={styles.icon}>
             <MdOutlineSort />
           </div>
-          <div className={styles.head_title}>{sorts.find((sort) => sort.id === current).title}</div>
+          <div className={styles.head_title}>
+            {sorts.find((sort) => sort.id === current)?.title || 'sort'}
+          </div>
           {!sortDrop ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
         </div>
       </Button>
@@ -91,8 +96,6 @@ const SortDropdown: FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default SortDropdown;
 
 // const sorts = [
 //   { id: 1, title: t('sections.by-amount') },

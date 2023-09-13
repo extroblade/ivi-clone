@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import styles from './FullScreenModal.module.scss';
-import { FSMProps } from '@/UI/FullScreenModal/FullScreenModal.prop';
-import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { useTranslation } from 'react-i18next';
-import { usePreventScroll } from '@/hooks/usePreventScroll';
 
-const FullScreenModal: FC<FSMProps> = ({ isOpen, closeModal, children }) => {
+import { useEscapeKey, usePreventScroll } from '@/hooks';
+import { FSMProps } from '@/UI/FullScreenModal/FullScreenModal.prop';
+
+import styles from './FullScreenModal.module.scss';
+export const FullScreenModal: FC<FSMProps> = ({ isOpen, closeModal, children }) => {
   useEscapeKey(closeModal);
   usePreventScroll(isOpen);
 
@@ -25,5 +25,3 @@ const FullScreenModal: FC<FSMProps> = ({ isOpen, closeModal, children }) => {
     </>
   );
 };
-
-export default FullScreenModal;

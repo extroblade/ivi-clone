@@ -1,7 +1,6 @@
 @import '@/styles/variables.scss';
 
 .sources_container {
-
 }
 .sources {
   display: flex;
@@ -11,7 +10,7 @@
   padding: 12px;
   &:hover p {
     color: white;
-    transition: .8s ease-out;
+    transition: 0.8s ease-out;
   }
   .img {
     position: relative;

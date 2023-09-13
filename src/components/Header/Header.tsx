@@ -1,24 +1,26 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC } from 'react';
-import styles from './Header.module.scss';
-import { Button } from '@/UI/Button/Button';
-import SearchButton from '@/components/Buttons/SearchButton/SearchButton';
-import Notifications from '@/components/Header/Notifications/Notifications';
-import User from '@/components/Header/User/User';
-import Submenu from '@/components/Header/Submenu/Submenu';
-import { MdNotificationsNone } from 'react-icons/md';
-import { BiUser } from 'react-icons/bi';
-import Categories from './Categories/Categories';
-import { movieCategories } from '@/mock/movieCategories';
-import { seriesCategories } from '@/mock/seriesCategories';
-import { cartoonCategories } from '@/mock/cartoonCategories';
-import logo from '../../../public/images/iviLogo.svg';
-import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '@/components/Buttons/SwitchLanguageButton/LanguageSwitcher';
 import { useSession } from 'next-auth/react';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { BiUser } from 'react-icons/bi';
+import { MdNotificationsNone } from 'react-icons/md';
 
-const Header: FC = () => {
+import logo from '@/../public/images/iviLogo.svg';
+import {
+  Categories,
+  LanguageSwitcher,
+  Notifications,
+  SearchButton,
+  Submenu,
+  User,
+} from '@/components';
+import { cartoonCategories, movieCategories, seriesCategories } from '@/mock';
+import { Button } from '@/UI';
+
+import styles from './Header.module.scss';
+
+export const Header: FC = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   const photo = session?.user?.image || null;
@@ -104,5 +106,3 @@ const Header: FC = () => {
     </header>
   );
 };
-
-export default Header;

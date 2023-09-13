@@ -1,7 +1,8 @@
 import { Meta } from '@storybook/react';
-import Carousel from '@/UI/Carousel/Carousel';
-import Card from '@/UI/Card/Card';
 import React from 'react';
+
+import { Carousel } from '@/UI';
+import { CarouselProps } from '@/UI/Carousel/Carousel.props';
 
 const cards = [
   {
@@ -86,12 +87,8 @@ const cards = [
   },
 ];
 
-const CarouselWM = (args) => (
-  <Carousel {...args}>
-    {cards.slice(0, 7).map((card) => (
-      <Card card={card} block key={card.id} />
-    ))}
-  </Carousel>
+const CarouselWM = (args: JSX.IntrinsicAttributes & CarouselProps) => (
+  <Carousel {...args} movies={cards} />
 );
 
 const meta: Meta<typeof Carousel> = {

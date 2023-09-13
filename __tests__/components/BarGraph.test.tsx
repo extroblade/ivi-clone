@@ -1,6 +1,7 @@
-import BarGraph from '@/UI/BarGraph/BarGraph';
 import { cleanup, render, screen } from '@testing-library/react';
 import React from 'react';
+
+import { BarGraph } from '@/UI';
 
 describe('BarGraphSnapshot', () => {
   test('25%', () => {

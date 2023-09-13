@@ -1,20 +1,19 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
-import styles from './Grid.module.scss';
-import { useTranslation } from 'react-i18next';
-import Card from '@/UI/Card/Card';
-import { Button } from '@/UI/Button/Button';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
-import Loader from '@/UI/Loader/Loader';
-import { useAppSelector } from '@/hooks/redux';
-import { FilmType, selectFilters } from '@/store/reducers/filters.slice';
-import { Htag } from '@/UI/Htag/Htag';
 import { useInView } from 'framer-motion';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { useAppSelector } from '@/hooks';
+import { useFetchAllFilmsQuery } from '@/services';
+import { FilmType, selectFilters } from '@/store';
+import { Button, Card, Htag, Loader } from '@/UI';
+
+import styles from './Grid.module.scss';
 
 interface iGrid {
   type: FilmType;
 }
 
-const Grid: FC<iGrid> = ({ type }) => {
+export const Grid: FC<iGrid> = ({ type }) => {
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
   const isInView = useInView(buttonRef);
@@ -96,5 +95,3 @@ const Grid: FC<iGrid> = ({ type }) => {
     </>
   );
 };
-
-export default Grid;

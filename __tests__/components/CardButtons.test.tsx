@@ -1,24 +1,30 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import AddToFavoritesButton from '@/components/Buttons/CardButtons/AddToFavoritesButton';
-import BlockButton from '@/components/Buttons/CardButtons/BlockButton';
-import FindSimilarButton from '@/components/Buttons/CardButtons/FindSimilarButton';
-import { Provider } from 'react-redux';
-import RateButton from '@/components/Buttons/CardButtons/RateButton';
 import { configureStore } from '@reduxjs/toolkit';
-import modalsReducer from '@/store/reducers/modals.slice';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
+import { Provider } from 'react-redux';
+
+import { AddToFavoritesButton, BlockButton, FindSimilarButton, RateButton } from '@/components';
+import modalsReducer from '@/store/reducers/modals.slice';
 
 const mockStore = configureStore({ reducer: { modalsReducer } });
 
 describe('card buttons', () => {
   afterEach(() => cleanup());
   test('add to favorite before', async () => {
-    render(<AddToFavoritesButton />);
+    render(
+      <Provider store={mockStore}>
+        <AddToFavoritesButton />
+      </Provider>
+    );
     const button = screen.getByRole('button', { name: '' });
     expect(button).toMatchSnapshot();
   });
   test('add to favorite after', async () => {
-    render(<AddToFavoritesButton />);
+    render(
+      <Provider store={mockStore}>
+        <AddToFavoritesButton />
+      </Provider>
+    );
     const button = screen.getByRole('button', { name: '' });
     fireEvent.click(button);
     expect(button).toMatchSnapshot();

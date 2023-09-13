@@ -1,31 +1,32 @@
 import React, { FC, useEffect } from 'react';
-import Player from '../../UI/Player/Player';
+
+import { ExternalSources, PersonsGallery, ScrollToTopButton, Trailers } from '@/components';
+import { useAppDispatch } from '@/hooks';
+import {
+  useFetchAllPersonsQuery,
+  useFetchFilmAwardsQuery,
+  useFetchFilmSimilarQuery,
+  useFetchFilmVideoQuery,
+} from '@/services';
+import { setCurrentMovie } from '@/store';
+import {
+  CommentCarousel,
+  MovieBGContainer,
+  MovieInfo,
+  MovieTitle,
+  Player,
+  SimilarMovies,
+  WatchAllDevices,
+} from '@/UI';
+
 import styles from './WatchPage.module.scss';
 import { WatchPageProps } from './WatchPage.props';
-import { PersonsGallery } from '@/components/WatchPage/PersonsGallery/PersonsGallery';
-import { setCurrentMovie } from '@/store/reducers/modals.slice';
-import { useAppDispatch } from '@/hooks/redux';
-import MovieInfo from '@/UI/MovieInfo/MovieInfo';
-import {
-  useFetchFilmAwardsQuery,
-  useFetchFilmSimilarsQuery,
-  useFetchFilmVideoQuery,
-} from '@/services/movie.api';
-import CommentCarousel from '@/UI/Carousel/CommentCarousel/CommentCarousel';
-import WatchAllDevices from '@/UI/WatchAllDevices/WatchAllDevices';
-import ScrollToTopButton from '@/components/Buttons/ScrollToTopButton/ScrollToTopButton';
-import MovieTitle from '@/UI/MovieInfo/MovieTitle';
-import { useFetchAllPersonsQuery } from '@/services/person.api';
-import SimilarMovies from '@/UI/Carousel/SimilarMovies';
-import Trailers from '@/components/WatchPage/Trailers/Trailers';
-import BGContainer from '@/UI/MovieBGContainer/MovieBGContainer';
-import ExternalSources from '@/components/WatchPage/ExternalSources/ExternalSources';
 
-const WatchPage: FC<WatchPageProps> = ({ movie }) => {
+export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { data: persons } = useFetchAllPersonsQuery({ filmId: movie.kinopoiskId });
   const { data: awards } = useFetchFilmAwardsQuery({ id: movie.kinopoiskId });
   const { data: videos } = useFetchFilmVideoQuery({ id: movie.kinopoiskId });
-  const { data: similar } = useFetchFilmSimilarsQuery({ id: movie.kinopoiskId });
+  const { data: similar } = useFetchFilmSimilarQuery({ id: movie.kinopoiskId });
 
   const dispatch = useAppDispatch();
 
@@ -39,7 +40,7 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url || null;
   return (
     <>
-      <BGContainer movie={movie} />
+      <MovieBGContainer movie={movie} />
       <section className={styles.watch}>
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>
@@ -63,5 +64,3 @@ const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     </>
   );
 };
-
-export default WatchPage;

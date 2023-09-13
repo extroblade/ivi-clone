@@ -1,16 +1,17 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
 import { iPerson } from '@/types/kinopoiskTypes';
-import Link from 'next/link';
-import Image from 'next/image';
-import Loader from '@/UI/Loader/Loader';
+import { Loader } from '@/UI';
 
 interface iStaffList {
   persons: iPerson[];
 }
 
-const StaffList: FC<iStaffList> = ({ persons }) => {
+export const StaffList: FC<iStaffList> = ({ persons }) => {
   const { i18n } = useTranslation();
 
   return (
@@ -51,5 +52,3 @@ const StaffList: FC<iStaffList> = ({ persons }) => {
     </>
   );
 };
-
-export default StaffList;

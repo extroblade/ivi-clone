@@ -1,4 +1,5 @@
 import { IMovie, IMovieOld } from '@/types/types';
+
 import { persons } from './persons';
 
 export const moviesData: IMovieOld[] | IMovie[] = [

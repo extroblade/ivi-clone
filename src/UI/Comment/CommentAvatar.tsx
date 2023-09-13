@@ -1,7 +1,8 @@
-import React, { FC } from 'react';
-import styles from '@/UI/Comment/Comment.module.scss';
 import Image from 'next/image';
+import React, { FC } from 'react';
 import { FiUser } from 'react-icons/fi';
+
+import styles from '@/UI/Comment/Comment.module.scss';
 
 const colors: string[] = [
   '#313131',
@@ -25,7 +26,7 @@ export type CommentAvatarProps = {
   user: iUser | string | null;
 };
 
-const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
+export const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
   const color = typeof user === 'string' ? user?.split('')[0].charCodeAt(0) % 10 : 0;
   return (
     <div className={styles.user_image}>
@@ -52,5 +53,3 @@ const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
     </div>
   );
 };
-
-export default CommentAvatar;

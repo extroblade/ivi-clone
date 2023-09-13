@@ -1,16 +1,15 @@
 import { FC, useState } from 'react';
-import FullScreenModal from '@/UI/FullScreenModal/FullScreenModal';
-import styles from './RatingModal.module.scss';
-import { Htag } from '@/UI/Htag/Htag';
-import { P } from '@/UI/P/P';
-import { Button } from '@/UI/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { selectModal, setShowRating } from '@/store/reducers/modals.slice';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { usePreventScroll } from '@/hooks/usePreventScroll';
+
+import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
+import { selectModal, setShowRating } from '@/store';
+import { Button, FullScreenModal, Htag, P } from '@/UI';
+
+import styles from './RatingModal.module.scss';
+
 const rates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-const RatingModal: FC = (): JSX.Element => {
+export const RatingModal: FC = (): JSX.Element => {
   const [active, setActive] = useState<number | null>();
   const { t } = useTranslation();
   const { showRating } = useAppSelector(selectModal);
@@ -55,5 +54,3 @@ const RatingModal: FC = (): JSX.Element => {
     </FullScreenModal>
   );
 };
-
-export default RatingModal;

@@ -1,10 +1,11 @@
-import React from 'react';
-import ProfileButton from '@/UI/ProfileButton/ProfileButton';
 import Link from 'next/link';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsReceipt } from 'react-icons/bs';
 
-const ChecksButton = () => {
+import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+
+export const ChecksButton = () => {
   const { t } = useTranslation();
   return (
     <Link href={'/profile'} target={'_blank'}>
@@ -14,5 +15,3 @@ const ChecksButton = () => {
     </Link>
   );
 };
-
-export default ChecksButton;

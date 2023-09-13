@@ -1,16 +1,18 @@
 import React, { FC, useMemo } from 'react';
-import styles from './CommentCard.module.scss';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import Vote from '@/UI/Comment/Vote/Vote';
-import { writeDate } from '@/helpers/writeDate';
+
+import { writeDate } from '@/helpers';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
 import { iReviewsItem } from '@/types/kinopoiskTypes';
+import { Vote } from '@/UI';
+
+import styles from './CommentCard.module.scss';
 
 interface iCommentComp {
   comment: iReviewsItem;
 }
 
-const CommentCard: FC<iCommentComp> = ({ comment }) => {
+export const CommentCard: FC<iCommentComp> = ({ comment }) => {
   const dispatch = useAppDispatch();
   const { currentMovie } = useAppSelector(selectModal);
 
@@ -43,5 +45,3 @@ const CommentCard: FC<iCommentComp> = ({ comment }) => {
     </div>
   );
 };
-
-export default CommentCard;

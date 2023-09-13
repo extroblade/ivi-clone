@@ -1,19 +1,20 @@
-import React, { FC } from 'react';
-import styles from './Trailers.module.scss';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
-import { scrollTop } from '@/helpers/scrollTop';
-import { useAppDispatch, useAppSelector } from '@/hooks/redux';
-import { useTranslation } from 'react-i18next';
-import { iVideos } from '@/types/kinopoiskTypes';
 import Link from 'next/link';
-import { P } from '@/UI/P/P';
-import Title from '@/UI/Title/Title';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { scrollTop } from '@/helpers';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
+import { iVideos } from '@/types/kinopoiskTypes';
+import { P, Title } from '@/UI';
+
+import styles from './Trailers.module.scss';
 
 interface iTrailers {
   videos: iVideos;
 }
 
-const Trailers: FC<iTrailers> = ({ videos }) => {
+export const Trailers: FC<iTrailers> = ({ videos }) => {
   const { t } = useTranslation();
 
   const { currentMovie } = useAppSelector(selectModal);
@@ -43,5 +44,3 @@ const Trailers: FC<iTrailers> = ({ videos }) => {
     </div>
   );
 };
-
-export default Trailers;

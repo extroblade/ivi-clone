@@ -1,13 +1,13 @@
-import React from 'react';
-import styles from './WatchAllDevices.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { useTranslation } from 'react-i18next';
-import Link from 'next/link';
 import Image from 'next/image';
-import { Htag } from '@/UI/Htag/Htag';
-import { P } from '@/UI/P/P';
+import Link from 'next/link';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
-const WatchAllDevices = ({ name, image }) => {
+import { Button, Htag, P } from '@/UI';
+
+import styles from './WatchAllDevices.module.scss';
+
+export const WatchAllDevices: FC<{ name: string; image: string }> = ({ name, image }) => {
   const { t } = useTranslation();
   return (
     <div className={styles.content_card}>
@@ -59,5 +59,3 @@ const WatchAllDevices = ({ name, image }) => {
     </div>
   );
 };
-
-export default WatchAllDevices;

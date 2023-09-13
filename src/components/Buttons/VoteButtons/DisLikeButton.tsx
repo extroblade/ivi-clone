@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import styles from '../../../UI/Comment/Vote/Vote.module.scss';
 import { AiFillDislike, AiOutlineDislike } from 'react-icons/ai';
-import { Button } from '@/UI/Button/Button';
 
-const DisLikeButton: FC = ({ dislike, ...props }): JSX.Element => {
+import { Button } from '@/UI/Button/Button';
+import styles from '@/UI/Comment/Vote/Vote.module.scss';
+
+export const DisLikeButton: FC<{ dislike: boolean }> = ({ dislike, ...props }): JSX.Element => {
   return (
     <Button
       appearance={'transparent'}
@@ -14,5 +15,3 @@ const DisLikeButton: FC = ({ dislike, ...props }): JSX.Element => {
     </Button>
   );
 };
-
-export default DisLikeButton;

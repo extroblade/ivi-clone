@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { BarGraphProps } from '@/UI/BarGraph/BarGraph.props';
-import styles from './BarGraph.module.scss';
 
-const BarGraph: FC<BarGraphProps> = ({ width, color }): JSX.Element => {
+import styles from './BarGraph.module.scss';
+import { BarGraphProps } from './BarGraph.props';
+
+export const BarGraph: FC<BarGraphProps> = ({ width, color }): JSX.Element => {
   if (width > 100) {
     width = 100;
   } else if (width < 0) {
@@ -20,5 +21,3 @@ const BarGraph: FC<BarGraphProps> = ({ width, color }): JSX.Element => {
     </div>
   );
 };
-
-export default BarGraph;

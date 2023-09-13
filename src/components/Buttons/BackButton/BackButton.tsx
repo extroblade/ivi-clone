@@ -1,11 +1,13 @@
 import { useRouter } from 'next/navigation';
-import { HiChevronLeft } from 'react-icons/hi';
-import styles from './BackButton.module.scss';
-import { useTranslation } from 'react-i18next';
-import { useEscapeKey } from '@/hooks/useEscapeKey';
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import { HiChevronLeft } from 'react-icons/hi';
 
-const BackButton: FC = (): JSX.Element => {
+import { useEscapeKey } from '@/hooks';
+
+import styles from './BackButton.module.scss';
+
+export const BackButton: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -22,5 +24,3 @@ const BackButton: FC = (): JSX.Element => {
     </button>
   );
 };
-
-export default BackButton;

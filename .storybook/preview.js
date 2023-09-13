@@ -2,7 +2,7 @@ import '@/styles/global.scss';
 import './stories.scss';
 import { AppRouterContext } from 'next/dist/shared/lib/app-router-context';
 import { Provider } from 'react-redux';
-import { store } from '../src/store/store';
+import { store } from '../src/store';
 import { useEffect, Suspense } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import * as nextImage from 'next/image';

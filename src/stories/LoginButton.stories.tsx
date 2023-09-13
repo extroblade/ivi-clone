@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
-import LoginButton from '@/components/Buttons/LoginButton/LoginButton';
-import AuthModal from '@/components/Modals/AuthModal/AuthModal';
+
+import { AuthModal, LoginButton } from '@/components';
 
 const LoginWrapper = () => {
   return (

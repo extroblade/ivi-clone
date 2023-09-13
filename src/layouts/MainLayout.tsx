@@ -1,12 +1,12 @@
-import Footer from '@/components/Footer/Footer';
-import Header from '@/components/Header/Header';
 import { FC, ReactNode } from 'react';
+
+import { Footer, Header } from '@/components';
 
 interface MainLayoutProps {
   children: ReactNode;
 }
 
-const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
     <div className="wrapper">
       <Header />
@@ -17,5 +17,3 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     </div>
   );
 };
-
-export default MainLayout;

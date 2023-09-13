@@ -1,19 +1,20 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { signOut, useSession } from 'next-auth/react';
 import React, { FC } from 'react';
-import styles from './User.module.scss';
-import LinkCard from '@/components/Header/LinkCard/LinkCard';
+import { useTranslation } from 'react-i18next';
 import { BiCertification, BiMoviePlay } from 'react-icons/bi';
+import { GoCreditCard } from 'react-icons/go';
 import { HiOutlineBookmark } from 'react-icons/hi2';
 import { IoDiamondOutline, IoTimerOutline } from 'react-icons/io5';
 import { TbDeviceTvOld } from 'react-icons/tb';
-import { GoCreditCard } from 'react-icons/go';
-import Link from 'next/link';
-import { useTranslation } from 'react-i18next';
-import ProfileSelector from '@/UI/ProfileSelector/ProfileSelector';
-import LoginButton from '@/components/Buttons/LoginButton/LoginButton';
-import { signOut, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 
-const User: FC = (): JSX.Element => {
+import { LinkCard, LoginButton } from '@/components';
+import { ProfileSelector } from '@/UI';
+
+import styles from './User.module.scss';
+
+export const User: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   const router = useRouter();
@@ -62,5 +63,3 @@ const User: FC = (): JSX.Element => {
     </div>
   );
 };
-
-export default User;

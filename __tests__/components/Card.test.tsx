@@ -1,11 +1,11 @@
-import { cleanup, render } from '@testing-library/react';
-import Card from '@/UI/Card/Card';
 import { configureStore } from '@reduxjs/toolkit';
-import modalsReducer from '@/store/reducers/modals.slice';
-import { Provider } from 'react-redux';
-import { persons } from '@/mock/persons';
-import ShowAll from '@/UI/Card/ShowAll';
+import { cleanup, render } from '@testing-library/react';
 import React from 'react';
+import { Provider } from 'react-redux';
+
+import { persons } from '@/mock';
+import modalsReducer from '@/store/reducers/modals.slice';
+import { Card, ShowAll } from '@/UI';
 
 const mockStore = configureStore({ reducer: { modalsReducer } });
 const mockCard = {

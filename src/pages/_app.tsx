@@ -1,14 +1,16 @@
 import '@/styles/global.scss';
-import type { AppProps } from 'next/app';
-import MainLayout from '@/layouts/MainLayout';
-import Head from 'next/head';
-import localFont from 'next/font/local';
-import { wrapper } from '@/store/store';
-import { SessionProvider } from 'next-auth/react';
-import Modals from '@/components/Modals/Modals';
 import '@/i18n/i18n';
+
+import type { AppProps } from 'next/app';
+import localFont from 'next/font/local';
+import Head from 'next/head';
+import { SessionProvider } from 'next-auth/react';
+import { Next13ProgressBar } from 'next13-progressbar';
 import { Provider } from 'react-redux';
-// import { Next13ProgressBar } from 'next13-progressbar';
+
+import { Modals } from '@/components';
+import { MainLayout } from '@/layouts/MainLayout';
+import { wrapper } from '@/store';
 
 const iviSans = localFont({
   src: [
@@ -49,12 +51,12 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       </Head>
       <Provider store={store}>
         <SessionProvider session={session}>
-          {/*<Next13ProgressBar*/}
-          {/*  height="2px"*/}
-          {/*  color="var(--color-accent)"*/}
-          {/*  options={{ showSpinner: false }}*/}
-          {/*  showOnShallow*/}
-          {/*/>*/}
+          <Next13ProgressBar
+            height="2px"
+            color="var(--color-accent)"
+            options={{ showSpinner: false }}
+            showOnShallow
+          />
           <div className={iviSans.className}>
             <MainLayout>
               <Component {...pageProps} />

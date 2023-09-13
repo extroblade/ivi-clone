@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import styles from '../../../UI/Comment/Vote/Vote.module.scss';
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
-import { Button } from '@/UI/Button/Button';
 
-const LikeButton: FC = ({ like, ...props }): JSX.Element => {
+import { Button } from '@/UI/Button/Button';
+import styles from '@/UI/Comment/Vote/Vote.module.scss';
+
+export const LikeButton: FC<{ like: boolean }> = ({ like, ...props }): JSX.Element => {
   return (
     <Button
       appearance={'transparent'}
@@ -14,5 +15,3 @@ const LikeButton: FC = ({ like, ...props }): JSX.Element => {
     </Button>
   );
 };
-
-export default LikeButton;

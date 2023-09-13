@@ -1,7 +1,8 @@
 import Head from 'next/head';
-import NotFound from '../UI/NotFound/NotFound';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { NotFound } from '@/UI';
 
 const NotFoundPage = () => {
   const { t } = useTranslation();

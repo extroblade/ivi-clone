@@ -1,10 +1,11 @@
 import React from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
-import { Button } from '@/UI/Button/Button';
 import { useDispatch } from 'react-redux';
-import { setShowRating } from '@/store/reducers/modals.slice';
 
-const RateButton = () => {
+import { setShowRating } from '@/store';
+import { Button } from '@/UI';
+
+export const RateButton = () => {
   const dispatch = useDispatch();
   const openRatingModal = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -17,5 +18,3 @@ const RateButton = () => {
     </Button>
   );
 };
-
-export default RateButton;

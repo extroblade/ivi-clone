@@ -1,6 +1,8 @@
-import Card from '@/UI/Card/Card';
-import RatingModal from '@/components/Modals/RatingModal/RatingModal';
 import { Meta } from '@storybook/react';
+
+import { RatingModal } from '@/components';
+import { Card } from '@/UI';
+import { CardProps } from '@/UI/Card/Card.props';
 
 const card = {
   id: 1,
@@ -18,7 +20,7 @@ const card = {
   persons: [],
 };
 
-const CardWM = (args) => (
+const CardWM = (args: JSX.IntrinsicAttributes & CardProps) => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Card card={card} {...args} />
     <RatingModal />
