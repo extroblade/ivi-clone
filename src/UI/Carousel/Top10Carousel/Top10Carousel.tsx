@@ -1,19 +1,20 @@
-import React, { FC } from 'react';
-import NextArrow from '@/components/Buttons/ArrowButtons/NextArrow';
-import PrevArrow from '@/components/Buttons/ArrowButtons/PrevArrow';
-import styles from './Top10Carousel.module.scss';
-import Slider from 'react-slick';
 import Image from 'next/image';
-import { Htag } from '@/UI/Htag/Htag';
-import { useTranslation } from 'react-i18next';
-import { T10Card } from './Top10CarouselCard';
-import top10 from '../../../../public/images/top10/top10.svg';
 import Link from 'next/link';
-import { useFetchTopFilmQuery } from '@/services/movie.api';
-import { TOP_100_POPULAR_FILMS } from '@/constants/TopMoviesTypes';
-import { iFilm } from '@/types/kinopoiskTypes';
+import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
+import Slider from 'react-slick';
 
-const Top10Carousel: FC = () => {
+import { NextArrow, PrevArrow } from '@/components';
+import { TOP_100_POPULAR_FILMS } from '@/constants';
+import { useFetchTopFilmQuery } from '@/services';
+import { iFilm } from '@/types/kinopoiskTypes';
+import { Htag } from '@/UI';
+
+import top10 from '../../../../public/images/top10/top10.svg';
+import styles from './Top10Carousel.module.scss';
+import { T10Card } from './Top10CarouselCard';
+
+export const Top10Carousel: FC = () => {
   const { t } = useTranslation();
   const { data } = useFetchTopFilmQuery({ type: TOP_100_POPULAR_FILMS });
   const settings = {
@@ -71,5 +72,3 @@ const Top10Carousel: FC = () => {
     </div>
   );
 };
-
-export default Top10Carousel;
