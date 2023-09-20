@@ -1,11 +1,12 @@
 import { FastAverageColor } from 'fast-average-color';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { useAppDispatch } from '@/hooks';
+import { iFilm } from '@/types/kinopoiskTypes';
 
 import styles from './MovieBGContainer.module.scss';
 
-export const MovieBGContainer = ({ movie }) => {
+export const MovieBGContainer: FC<{ movie: iFilm }> = ({ movie }) => {
   const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
 

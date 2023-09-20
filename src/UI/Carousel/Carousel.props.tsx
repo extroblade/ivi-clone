@@ -1,8 +1,6 @@
-import 'i18next';
-
 export interface CarouselProps {
   title?: string;
   route?: string;
-  movies?: any[];
+  movies?: { total: number; items: any[] };
   settings?: object;
 }

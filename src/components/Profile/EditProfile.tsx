@@ -13,10 +13,13 @@ import { P } from '@/UI/P/P';
 export const EditProfile = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
-  const user = session?.user || null;
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const user: { name?: string; nickname?: string; surname?: string; email?: string } =
+    session?.user || null;
+  const { name, nickname, surname, email } = user || {};
 
   const finalName = () => {
-    const { name, nickname, surname } = user;
     if (name) {
       return `${name} ${surname || ''}`;
     } else if (nickname) {
@@ -44,7 +47,7 @@ export const EditProfile = () => {
         <div className={styles.info}>
           <BsEnvelope />
           {user?.email ? (
-            <P size={'S'}>{user?.email}</P>
+            <P size={'S'}>{email}</P>
           ) : (
             <Button appearance={'transparent'} size={'S'} title={t('buttons.add-email') || ''}>
               {t('buttons.add-email')}

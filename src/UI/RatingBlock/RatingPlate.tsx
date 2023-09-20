@@ -16,7 +16,7 @@ export const RatingPlate: FC<iPlate> = ({ rating }) => {
   } else {
     style = styles.bad;
   }
-  if (!rating) return;
+  if (!rating) return <></>;
   return (
     <div className={`${styles.rating_plate} ${style}`}>
       <div className={styles.plate_value}>{rating}</div>

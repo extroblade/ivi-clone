@@ -33,7 +33,7 @@ export const CommentInput: FC = (): JSX.Element => {
 
   return (
     <form className={styles.comment_form} onSubmit={(e) => submit(e)}>
-      <CommentAvatar user={session?.user || null} />
+      <CommentAvatar user={session?.user} />
       <div className={styles.input_container}>
         <div className={`${styles.input} ${validate() ? styles.invalid : ''}`}>
           <input

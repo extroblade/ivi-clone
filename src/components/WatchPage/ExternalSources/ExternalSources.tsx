@@ -9,14 +9,14 @@ import { P, Title } from '@/UI';
 import styles from './ExternalSources.module.scss';
 export const ExternalSources = () => {
   const { currentMovie } = useAppSelector(selectModal);
-  const params = { id: currentMovie?.kinopoiskId };
-  const { data: sources, isSuccess } = useFetchFilmExternalSourcesQuery({ ...params });
+  const params = { id: currentMovie?.kinopoiskId || 0 };
+  const { data: sources, isSuccess } = useFetchFilmExternalSourcesQuery(params);
   if (!isSuccess) return <></>;
   return (
     <div className={styles.sources_container}>
       <Title text={'Смотреть полностью:'} />
       <div className={styles.sources}>
-        {params.id && sources
+        {params.id && sources?.items
           ? sources.items.map((item) => (
               <Link href={item.url} key={item.platform} className={styles.source_item}>
                 <div className={styles.img}>

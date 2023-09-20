@@ -9,7 +9,6 @@ import { IoSearchOutline } from 'react-icons/io5';
 
 import { useAppDispatch, useAppSelector, useDebounce, usePreventScroll } from '@/hooks';
 import { selectModal, setShowSearch } from '@/store';
-import { iFilm, iPerson } from '@/types/kinopoiskTypes';
 import { Button, FullScreenModal, Loader, P } from '@/UI';
 
 import styles from './SearchModal.module.scss';
@@ -39,7 +38,7 @@ export const SearchModal: FC = (): JSX.Element => {
     fetch(`${process.env.API}v2.2/films?keyword=${text}`, {
       method: 'GET',
       headers: {
-        'X-API-KEY': process.env.X_API_KEY,
+        'X-API-KEY': process.env.X_API_KEY || '',
         'Content-Type': 'application/json',
       },
     })
@@ -52,7 +51,7 @@ export const SearchModal: FC = (): JSX.Element => {
     fetch(`${process.env.API}v1/persons?name=${text}`, {
       method: 'GET',
       headers: {
-        'X-API-KEY': process.env.X_API_KEY,
+        'X-API-KEY': process.env.X_API_KEY || '',
         'Content-Type': 'application/json',
       },
     })
@@ -79,11 +78,11 @@ export const SearchModal: FC = (): JSX.Element => {
     }
   }, [query?.length]);
   const router = useRouter();
-  const redirect = (item: iFilm | iPerson) => {
+  const redirect = (item: any) => {
     if (item?.type) {
-      router.push(`/watch/${item.kinopoiskId}`);
+      router.push(`/watch/${item.kinopoiskId}`).then(() => {});
     } else if (item?.sex) {
-      router.push(`/person/${item.kinopoiskId}`);
+      router.push(`/person/${item.kinopoiskId}`).then(() => {});
     } else {
       console.log('temporary');
     }

@@ -1,4 +1,4 @@
-import React, { FC, JSX } from 'react';
+import React, { FC } from 'react';
 
 import { Button } from '@/UI';
 import { ICardButtons } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
@@ -6,7 +6,7 @@ import { ICardButtons } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
 import styles from './ProfileButton.module.scss';
 
 const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick }) => {
-  const IconComponent: JSX.Element = icon;
+  const IconComponent: any = icon;
   switch (type) {
     case 'square_icon':
       return (

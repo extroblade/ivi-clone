@@ -8,16 +8,19 @@ import { Htag } from '@/UI';
 
 export const PersonsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
+  const persons = currentMovie?.persons || [];
   const { t } = useTranslation();
-  const persons = currentMovie?.persons;
-  const actors = persons.filter((person) => person.professionText == 'Актеры');
-  const directors = persons.filter((person) => person.professionText == 'Режиссеры');
+
+  const actors = persons?.length && persons.filter((person) => person.professionText == 'Актеры');
+  const directors =
+    persons?.length && persons.filter((person) => person.professionText == 'Режиссеры');
+
   return (
     <>
       <Htag tag="h3">{t('categories.actors')}</Htag>
-      <StaffList persons={actors} />
+      <StaffList persons={actors || []} />
       <Htag tag="h3">{t('categories.directors')}</Htag>
-      <StaffList persons={directors} />
+      <StaffList persons={directors || []} />
     </>
   );
 };

@@ -35,7 +35,7 @@ export const User: FC = (): JSX.Element => {
             icon={IoDiamondOutline}
             title={t('buttons.subscriptions')}
             link="/purchases"
-            subtitle={t('buttons.connect')}
+            subtitle={t('buttons.connect') || ''}
             status="red"
           />
           <LinkCard

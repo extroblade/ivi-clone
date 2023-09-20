@@ -50,7 +50,9 @@
     }
     &_inner {
       background-color: $color-input-text;
-      transition: background-color 0.4s, background-color 0.4s;
+      transition:
+        background-color 0.4s,
+        background-color 0.4s;
       box-sizing: border-box;
       padding: 20px 20px 52px;
       text-decoration: none;

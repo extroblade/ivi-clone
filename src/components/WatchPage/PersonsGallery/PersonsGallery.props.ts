@@ -1,5 +1,5 @@
-import { IPersonOld, IPersonsInFilm } from '@/types/types';
+import { iPerson } from '@/types/kinopoiskTypes';
 
 export interface PersonsGalleryProps {
-  list: IPersonOld[] | IPersonsInFilm[];
+  list?: iPerson[];
 }

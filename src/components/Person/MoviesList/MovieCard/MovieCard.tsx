@@ -21,11 +21,16 @@ export const MovieCard: FC<MovieCardProps> = ({ card }) => {
           <P color={'white'}>{name}</P>
           <div className={styles.info_row}>
             {description && <P size={'S'}>{description}, </P>}
+
             {type && (
               <P size={'S'}>
                 {i18n.language == 'en'
-                  ? professionTypes[type]?.enName
-                  : professionTypes[type]?.ruName}
+                  ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    professionTypes[type]?.enName
+                  : // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    professionTypes[type]?.ruName}
                 ,
               </P>
             )}

@@ -9,7 +9,7 @@ import { RiHome6Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FooterLink } from '@/components';
-import { selectModal, setShowFooterModal, setShowSearch } from '@/store/reducers/modals.slice';
+import { selectModal, setShowFooterModal, setShowSearch } from '@/store';
 
 import styles from './FooterMobile.module.scss';
 

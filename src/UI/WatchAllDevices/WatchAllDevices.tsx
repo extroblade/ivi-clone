@@ -13,9 +13,7 @@ export const WatchAllDevices: FC<{ name: string; image: string }> = ({ name, ima
     <div className={styles.content_card}>
       <div className={styles.wrapper}>
         <div className={styles.appeal}>
-          <Htag tag={'h3'} className={styles.title}>
-            Смотреть {name} на всех устройствах
-          </Htag>
+          <Htag tag={'h3'}>Смотреть {name} на всех устройствах</Htag>
           <P className={styles.subtitle}>
             Приложение доступно для скачивания на iOS, Android, SmartTV и приставках
           </P>

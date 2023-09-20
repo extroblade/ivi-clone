@@ -7,5 +7,6 @@ interface iSausage {
 export interface SausageProps {
   sausage: iSausage;
   //change after adding redux
+  chosen: any[];
   set: any;
 }

@@ -11,7 +11,7 @@ import { P, Title } from '@/UI';
 import styles from './Trailers.module.scss';
 
 interface iTrailers {
-  videos: iVideos;
+  videos?: iVideos;
 }
 
 export const Trailers: FC<iTrailers> = ({ videos }) => {
@@ -20,7 +20,10 @@ export const Trailers: FC<iTrailers> = ({ videos }) => {
   const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const openTrailers = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     dispatch(setCurrentMovie({ ...currentMovie, index: 2 }));
+
     dispatch(setShowWatchPageModal(true));
     scrollTop();
   };

@@ -2,15 +2,16 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from '@/store';
 // import { HYDRATE } from 'next-redux-wrapper';
-import { iFilm } from '@/types/kinopoiskTypes';
+import { iAwards, iFilm, iPerson, iVideos } from '@/types/kinopoiskTypes';
 import { IComment } from '@/types/types';
 
 interface ICurrentMovie extends iFilm {
-  awards?: {
-    items: any[];
-  };
+  awards?: iAwards;
+  duration?: string;
+  videos?: iVideos;
+  persons?: iPerson[];
   index?: number;
-  comments?: IComment[];
+  comments?: IComment;
 }
 
 export interface iAlert {
@@ -21,14 +22,14 @@ export interface iAlert {
 
 interface iModal {
   showAuth: boolean;
-  activeAlerts: iAlert[] | null;
+  activeAlerts?: iAlert[];
   showRating: boolean;
   showSearch: boolean;
   showWatchPageModal: boolean;
   showFooterModal: boolean;
   showEditProfile: boolean;
   showUnsub: boolean;
-  currentMovie: ICurrentMovie | null;
+  currentMovie?: ICurrentMovie;
 }
 
 const initialState: iModal = {
@@ -39,18 +40,18 @@ const initialState: iModal = {
   showWatchPageModal: false,
   showFooterModal: false,
   showEditProfile: false,
-  currentMovie: null,
-  activeAlerts: null,
+  currentMovie: undefined,
+  activeAlerts: [],
 };
 
 export const modalsSlice = createSlice({
   name: 'modals',
   initialState,
   reducers: {
-    setCurrentMovie(state, action: PayloadAction<ICurrentMovie>) {
+    setCurrentMovie(state, action: PayloadAction<any>) {
       state.currentMovie = action.payload;
     },
-    setActiveAlerts(state, action: PayloadAction<iAlert[] | null>) {
+    setActiveAlerts(state, action: PayloadAction<iAlert[]>) {
       state.activeAlerts = action.payload;
     },
     setShowAuth(state, action: PayloadAction<boolean>) {

@@ -24,7 +24,6 @@ export const MovieInfo: FC<iMovieInfo> = ({ movie }) => {
     nameEn,
     nameOriginal,
     nameRu,
-    persons,
   } = movie;
 
   return (
@@ -53,7 +52,7 @@ export const MovieInfo: FC<iMovieInfo> = ({ movie }) => {
         </ul>
       </div>
       <div className={styles.watch__rating}>
-        <PersonList list={persons} rating={ratingKinopoisk} />
+        <PersonList rating={ratingKinopoisk} />
       </div>
       <Explanations factsId={kinopoiskId} />
       <MovieOptions movie={movie} />

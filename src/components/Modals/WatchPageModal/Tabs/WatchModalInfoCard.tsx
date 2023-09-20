@@ -11,7 +11,7 @@ import { P } from '@/UI/P/P';
 export const WatchModalInfoCard = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const { posterUrl, ratingKinopoisk, year, countries, genres, duration, filmLength } =
-    currentMovie;
+    currentMovie || {};
   return (
     <div className={styles.movie}>
       <Image
@@ -19,7 +19,7 @@ export const WatchModalInfoCard = () => {
         height={196}
         onClick={() => close()}
         className={styles.movie__img}
-        src={posterUrl}
+        src={posterUrl || ''}
         alt=""
       />
       <div className={styles.movie__info}>

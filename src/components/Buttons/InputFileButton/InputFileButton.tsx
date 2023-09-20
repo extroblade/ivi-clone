@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './InputFileButton.module.scss';
 
 interface InputFileProps {
-  setSelected: (p: () => unknown) => void;
+  setSelected: (prev: any) => any;
 }
 
 export const InputFileButton: FC<InputFileProps> = ({ setSelected }) => {

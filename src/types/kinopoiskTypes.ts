@@ -141,9 +141,11 @@ export interface iFetchOrder {
 
 export interface iPerson {
   personId: number;
+  staffId: number;
   webUrl: string;
   nameRu: string;
   nameEn: string;
+  nameOriginal: string;
   sex: 'MALE' | 'FEMALE';
   posterUrl: string;
   growth: number;
@@ -153,6 +155,8 @@ export interface iPerson {
   birthplace: string;
   deathplace: string;
   profession: string;
+  professionText: string;
+  professionKey: string;
   facts: iFacts[];
   spouses: any[];
   films: iFilm[];
@@ -299,6 +303,11 @@ export interface iReleaseItem {
 
 export interface iFilm {
   kinopoiskId: number;
+  languages: string[];
+  subtitles: string[];
+  persons: iPerson[];
+  rating: number;
+  professionKey: string;
   filmId: number;
   imdbId: number;
   nameRu: string;

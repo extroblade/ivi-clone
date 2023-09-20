@@ -37,7 +37,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
   const title = nameRu || nameEn || nameOriginal || '';
   const cover = coverUrl || posterUrl || '';
-  const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url || null;
+  const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
   return (
     <>
       <MovieBGContainer movie={movie} />

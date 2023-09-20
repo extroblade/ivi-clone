@@ -94,6 +94,7 @@ export interface IAgeRestriction {
 export interface IComment {
   //комментарии к отзыву
   id: number;
+  total: number;
   reviewId: number;
   parentCommentId: number;
   profile: number;

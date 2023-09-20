@@ -23,8 +23,8 @@ export const WatchPageModal: FC = () => {
   useEscapeKey(close);
 
   const persons = currentMovie?.persons;
-  const enName = currentMovie?.enName || currentMovie?.originalName || currentMovie?.ruName;
-  const ruName = currentMovie?.ruName || currentMovie?.originalName || currentMovie?.enName;
+  const enName = currentMovie?.nameEn || currentMovie?.nameOriginal || currentMovie?.nameRu;
+  const ruName = currentMovie?.nameRu || currentMovie?.nameOriginal || currentMovie?.nameEn;
   const name = i18n.language == 'en' ? enName : ruName;
 
   return (
@@ -36,7 +36,7 @@ export const WatchPageModal: FC = () => {
             <span>{t('buttons.to-movie')}</span>
           </Button>
           <div className={styles.wrap}>
-            <Tabs className={styles.tabs} defaultIndex={currentMovie.index}>
+            <Tabs className={styles.tabs} defaultIndex={currentMovie?.index || 0}>
               <Htag tag={'h2'}>{name}</Htag>
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>

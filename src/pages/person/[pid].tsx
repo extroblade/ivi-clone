@@ -7,7 +7,7 @@ import NotFoundPage from '@/pages/404';
 import { iPerson } from '@/types/kinopoiskTypes';
 import { Loader } from '@/UI';
 
-const Person = ({ person }) => {
+const Person = ({ person }: { person: iPerson }) => {
   if (!person?.personId) return <NotFoundPage />;
 
   const { nameRu, nameEn } = person;
@@ -23,14 +23,14 @@ const Person = ({ person }) => {
 
 export default Person;
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: { query: { pid: string } }) {
   try {
     const { pid } = context.query;
 
-    const person: iPerson = await fetch(`${process.env.API}/v1/staff/${pid - 1}`, {
+    const person: iPerson = await fetch(`${process.env.API}/v1/staff/${pid}`, {
       method: 'GET',
       headers: {
-        'X-API-KEY': process.env.X_API_KEY,
+        'X-API-KEY': process.env.X_API_KEY || '',
         'Content-Type': 'application/json',
       },
     }).then((res) => res.json());

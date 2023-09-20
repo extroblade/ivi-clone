@@ -1,4 +1,4 @@
 export interface PlayerProps {
-  url: string;
+  url?: string;
   actions?: boolean;
 }

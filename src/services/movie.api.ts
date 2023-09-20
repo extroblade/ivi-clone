@@ -13,6 +13,7 @@ import {
   iReviews,
   iSeasons,
   iSimilar,
+  iVideos,
 } from '@/types/kinopoiskTypes';
 
 export type QueryParams = {
@@ -69,7 +70,7 @@ export const movieApi = createApi({
         },
       }),
     }),
-    fetchTopFilm: build.query<iFilm[], any>({
+    fetchTopFilm: build.query<{ films: iFilm[] }, any>({
       query: ({ type, page = 1 }) => ({
         url: `top`,
         params: { type, page },
@@ -92,17 +93,17 @@ export const movieApi = createApi({
         url: `${id}/images`,
       }),
     }),
-    fetchFilmSimilar: build.query<iSimilar[], { id: number }>({
+    fetchFilmSimilar: build.query<iSimilar, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/similars`,
       }),
     }),
-    fetchFilmVideo: build.query<any[], { id: number }>({
+    fetchFilmVideo: build.query<iVideos, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/videos`,
       }),
     }),
-    fetchFilmAwards: build.query<iAwards[], { id: number }>({
+    fetchFilmAwards: build.query<iAwards, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/awards`,
       }),
@@ -127,7 +128,7 @@ export const movieApi = createApi({
         url: `${id}/seasons`,
       }),
     }),
-    fetchFilmExternalSources: build.query<iExternalSources[], { id: number }>({
+    fetchFilmExternalSources: build.query<iExternalSources, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/external_sources`,
       }),

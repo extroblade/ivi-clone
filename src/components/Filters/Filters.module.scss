@@ -31,7 +31,10 @@
   background-color: #1f1b2e;
   border-radius: 6px;
   margin-bottom: 20px;
-  transition: max-height 400ms ease, opacity 200ms ease, padding-top 400ms ease;
+  transition:
+    max-height 400ms ease,
+    opacity 200ms ease,
+    padding-top 400ms ease;
   .plank_list {
     display: -webkit-box;
     display: -webkit-flex;

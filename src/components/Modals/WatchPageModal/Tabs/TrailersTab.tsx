@@ -11,7 +11,7 @@ export const TrailersTab = () => {
   const videos = currentMovie?.videos?.items;
   return (
     <>
-      {currentMovie?.videos?.total ? (
+      {videos?.length && currentMovie?.videos?.total ? (
         videos.map((video) => (
           <div key={video.name} className={styles.trailers}>
             <Htag tag={'h3'}>{video.name}</Htag>

@@ -7,7 +7,7 @@ import styles from './ScrollToTopButton.module.scss';
 
 export const ScrollToTopButton = () => {
   const isBrowser = () => typeof window !== 'undefined';
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref);
 
   const scrollToTop = () => {

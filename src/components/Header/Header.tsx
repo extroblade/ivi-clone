@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { BiUser } from 'react-icons/bi';
 import { MdNotificationsNone } from 'react-icons/md';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import logo from '@/../public/images/iviLogo.svg';
 import {
   Categories,

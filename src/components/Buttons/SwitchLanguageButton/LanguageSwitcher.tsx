@@ -1,5 +1,5 @@
-import i18next from 'i18next';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { languages } from '@/constants';
 import { createNewAlert } from '@/helpers';
@@ -10,6 +10,7 @@ import { Button } from '@/UI';
 import styles from './LanguageSwitcher.module.scss';
 
 export const LanguageSwitcher = () => {
+  const { i18n: i18next } = useTranslation();
   const dispatch = useAppDispatch();
   const { activeAlerts } = useAppSelector(selectModal);
   const [currentLanguage, setCurrentLanguage] = useState('ru');

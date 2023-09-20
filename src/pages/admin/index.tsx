@@ -7,6 +7,7 @@ import { useAppSelector, useSearchParamsState } from '@/hooks';
 import NotFoundPage from '@/pages/404';
 import { useFetchAllFilmsQuery } from '@/services';
 import { selectAuth } from '@/store';
+import { iFilm } from '@/types/kinopoiskTypes';
 import { AddNewMovie, Button, Card, Htag, Loader } from '@/UI';
 
 const PAGE_LIMIT = 10;
@@ -33,9 +34,9 @@ const Admin = () => {
           <Loader />
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {movies.slice(page * PAGE_LIMIT, PAGE_LIMIT * (page + 1)).map((movie) => (
+            {movies.slice(page * PAGE_LIMIT, PAGE_LIMIT * (page + 1)).map((movie: iFilm) => (
               <div
-                key={movie.id}
+                key={movie.kinopoiskId}
                 style={{
                   margin: '20px',
                   display: 'flex',
@@ -44,7 +45,7 @@ const Admin = () => {
                   alignItems: 'center',
                 }}
               >
-                <div>{movie?.id || 0}</div>
+                <div>{movie.kinopoiskId}</div>
                 <Card card={movie} />
                 {!movies?.length && <div>mock data, unable to change</div>}
                 <Button appearance={'circle'} style={{ margin: '3px' }} onClick={() => del()}>
@@ -58,7 +59,7 @@ const Admin = () => {
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           {movies?.length &&
             [...Array(Math.ceil(movies?.length / 10))].map((i, index) => (
-              <Button style={{ margin: '10px' }} key={index} onClick={() => setPage(() => index)}>
+              <Button style={{ margin: '10px' }} key={index} onClick={() => setPage(index)}>
                 {index + 1}
               </Button>
             ))}

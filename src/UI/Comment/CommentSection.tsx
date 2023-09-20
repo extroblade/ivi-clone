@@ -12,7 +12,7 @@ export const CommentSection: FC = (): JSX.Element => {
     data: comments,
     isLoading,
     error,
-  } = useFetchCommentsQuery({ id: currentMovie.kinopoiskId });
+  } = useFetchCommentsQuery({ id: currentMovie?.kinopoiskId || 0 });
   if (isLoading) return <Loader />;
   if (error || !comments?.total) return <></>;
   return (

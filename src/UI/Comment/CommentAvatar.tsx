@@ -17,13 +17,8 @@ const colors: string[] = [
   '#1dbe6d',
 ];
 
-interface iUser {
-  name: string;
-  image: string;
-}
-
 export type CommentAvatarProps = {
-  user: iUser | string | null;
+  user: any;
 };
 
 export const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {

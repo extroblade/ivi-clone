@@ -20,7 +20,7 @@ const card = {
   persons: [],
 };
 
-const CardWM = (args: JSX.IntrinsicAttributes & CardProps) => (
+const CardWM = (args: JSX.IntrinsicAttributes & CardProps): JSX.Element => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Card card={card} {...args} />
     <RatingModal />

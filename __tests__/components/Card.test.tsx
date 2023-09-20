@@ -7,7 +7,7 @@ import { persons } from '@/mock';
 import modalsReducer from '@/store/reducers/modals.slice';
 import { Card, ShowAll } from '@/UI';
 
-const mockStore = configureStore({ reducer: { modalsReducer } });
+export const mockStore = configureStore({ reducer: { modalsReducer } });
 const mockCard = {
   id: 1,
   name: 'Гарри Поттер и Дары Смерти: Часть I',

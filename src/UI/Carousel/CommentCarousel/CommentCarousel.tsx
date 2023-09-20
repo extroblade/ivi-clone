@@ -18,7 +18,7 @@ export const CommentCarousel: FC = () => {
     isLoading,
     error,
     refetch,
-  } = useFetchCommentsQuery({ id: currentMovie?.kinopoiskId });
+  } = useFetchCommentsQuery({ id: currentMovie?.kinopoiskId || 0 });
   useEffect(() => {
     if (currentMovie?.kinopoiskId) {
       refetch();
@@ -63,10 +63,13 @@ export const CommentCarousel: FC = () => {
     scrollTop();
   };
   useEffect(() => {
+    if (!comments) {
+      return;
+    }
     dispatch(setCurrentMovie({ ...currentMovie, comments }));
   }, [dispatch, comments]);
   if (isLoading) return <Loader />;
-  if (error?.error) return <></>;
+  if (error) return <></>;
 
   return (
     <>
@@ -78,9 +81,11 @@ export const CommentCarousel: FC = () => {
       </div>
       <div className={styles.carousel}>
         <Slider {...settings}>
-          {comments.items.map((comment) => (
-            <CommentCard comment={comment} key={comment.kinopoiskId} />
-          ))}
+          {!isLoading &&
+            comments &&
+            comments.items.map((comment) => (
+              <CommentCard comment={comment} key={comment.kinopoiskId} />
+            ))}
         </Slider>
       </div>
     </>

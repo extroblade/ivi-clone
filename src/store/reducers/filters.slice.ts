@@ -6,9 +6,9 @@ import { iCountry, iGenre } from '@/types/kinopoiskTypes';
 export type FilmType = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
 export type FilmOrder = 'RATING' | 'NUM_VOTE' | 'YEAR';
 export interface iFilters {
-  countries?: string[] | iCountry;
+  countries?: iCountry[];
   years: number[];
-  genres?: string[] | iGenre;
+  genres?: iGenre[];
   country?: string | null | iCountry;
   genre?: string | null | { genre: string };
   order: FilmOrder;
@@ -47,10 +47,10 @@ export const filtersSlice = createSlice({
     setOrder(state, action: PayloadAction<FilmOrder>) {
       state.order = action.payload;
     },
-    setGenres(state, action: PayloadAction<string[] | iGenre>) {
+    setGenres(state, action: PayloadAction<iGenre[]>) {
       state.genres = action.payload;
     },
-    setCountries(state, action: PayloadAction<string[] | iCountry>) {
+    setCountries(state, action: PayloadAction<iCountry[]>) {
       state.countries = action.payload;
     },
     setGenre(state, action: PayloadAction<string>) {
@@ -97,11 +97,8 @@ export const {
   setCountry,
   setCountries,
   setRatingFrom,
-  // setRatingTo,
   setYearFrom,
   setYearTo,
-  // setPage,
-  // setKeyword,
 } = filtersSlice.actions;
 export const selectFilters = (state: RootState) => state.filtersReducer;
 export default filtersSlice.reducer;

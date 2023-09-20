@@ -38,7 +38,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                   nameEn,
                   nameOriginal,
                   professionKey,
-                } = person;
+                } = person || {};
                 const name =
                   (i18n.language == 'en' ? nameEn || nameOriginal : nameRu || nameOriginal) || '';
                 return (

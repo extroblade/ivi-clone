@@ -44,6 +44,10 @@ export const Alert: FC<IAlert> = React.memo(({ alert }) => {
   const close = () => {
     setClosing(() => true);
     setTimeout(() => {
+      if (!activeAlerts?.length) {
+        dispatch(setActiveAlerts([]));
+        return;
+      }
       dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== id)));
     }, 300);
   };

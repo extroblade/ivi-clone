@@ -3,9 +3,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiUser } from 'react-icons/fi';
 
+import children from '@/../public/images/children.png';
 import { Htag, ProfileIcon } from '@/UI';
 
-import children from '../../../../public/images/children.png';
 import styles from './ProfileSelector.module.scss';
 
 export const ProfileSelector = () => {

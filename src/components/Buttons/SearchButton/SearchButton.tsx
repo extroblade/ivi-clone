@@ -14,7 +14,7 @@ export const SearchButton: FC = (): JSX.Element => {
     dispatch(setShowSearch(true));
   };
   return (
-    <div className={styles.search} onClick={() => open()}>
+    <div className={styles.search} onClick={open}>
       <FaSearch className={styles.icon} />
       <span>{t('sections.search')}</span>
     </div>

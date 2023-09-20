@@ -4,13 +4,13 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 
+import top10 from '@/../public/images/top10/top10.svg';
 import { NextArrow, PrevArrow } from '@/components';
 import { TOP_100_POPULAR_FILMS } from '@/constants';
 import { useFetchTopFilmQuery } from '@/services';
 import { iFilm } from '@/types/kinopoiskTypes';
 import { Htag } from '@/UI';
 
-import top10 from '../../../../public/images/top10/top10.svg';
 import styles from './Top10Carousel.module.scss';
 import { T10Card } from './Top10CarouselCard';
 

@@ -19,8 +19,8 @@ export const MovieOptions: FC<iOptions> = ({ movie }) => {
     setExtended((val) => !val);
   };
   const { nameEn, nameRu, description, shortDescription, languages, subtitles, type } = movie;
-  const getString = (arr) => {
-    arr.reduce((res, next, index) => {
+  const getString = (arr: any[]): string => {
+    return arr.reduce((res, next, index) => {
       if (!index) {
         return res + next;
       }

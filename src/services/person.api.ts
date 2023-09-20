@@ -7,7 +7,7 @@ export const personApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.API,
     prepareHeaders: (headers) => {
-      headers.set('X-API-KEY', process.env.X_API_KEY);
+      headers.set('X-API-KEY', process.env.X_API_KEY || '');
       headers.set('Content-Type', 'application/json');
       return headers;
     },
@@ -33,4 +33,5 @@ export const personApi = createApi({
   }),
 });
 
-export const { useFetchAllPersonsQuery, useFetchOnePersonQuery, useFetchPersonName } = personApi;
+export const { useFetchAllPersonsQuery, useFetchOnePersonQuery, useFetchPersonNameQuery } =
+  personApi;
