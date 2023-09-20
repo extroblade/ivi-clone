@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { languages } from '@/constants';
 import { createNewAlert } from '@/helpers';
@@ -12,29 +12,37 @@ import styles from './LanguageSwitcher.module.scss';
 export const LanguageSwitcher = () => {
   const dispatch = useAppDispatch();
   const { activeAlerts } = useAppSelector(selectModal);
+  const [currentLanguage, setCurrentLanguage] = useState('ru');
   useEffect(() => {
     const language = localStorage.getItem('language') || 'ru';
     i18next.changeLanguage(language).then(() => {
       localStorage.setItem('language', language);
     });
+    if (language !== currentLanguage) {
+      setCurrentLanguage(() => currentLanguage);
+    }
   }, []);
   const changeLanguage = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-    language: string | undefined
+    language: 'ru' | 'en'
   ) => {
     e.preventDefault();
-    const title = i18next.language == 'en' ? 'Смена языка' : 'Language changed';
-    const extra =
-      i18next.language == 'en'
-        ? 'Язык был успешно изменен на русский'
-        : 'Successfully changed language to english';
+    await i18next.changeLanguage(language).then(() => {
+      localStorage.setItem('language', language);
+    });
+    if (language === currentLanguage) {
+      return;
+    }
+
+    setCurrentLanguage(() => language);
+
+    const { title, extra } =
+      language !== 'en'
+        ? { title: 'Смена языка', extra: 'Язык был успешно изменен на русский' }
+        : { title: 'Language changed', extra: 'Successfully changed language to english' };
+
     const newAlertList = createNewAlert(title, extra, activeAlerts || undefined);
     dispatch(setActiveAlerts(newAlertList));
-    await i18next.changeLanguage(language).then(() => {
-      if (typeof language === 'string') {
-        localStorage.setItem('language', language);
-      }
-    });
   };
   return (
     <div className={styles.switcher_container}>

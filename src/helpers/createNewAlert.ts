@@ -1,3 +1,4 @@
+import { MAX_ALERT_AMOUNT } from '@/constants';
 import { iAlert } from '@/store/reducers/modals.slice';
 
 export const createNewAlert = (
@@ -18,5 +19,5 @@ export const createNewAlert = (
   } else {
     currentAlerts.push(newAlert);
   }
-  return currentAlerts;
+  return currentAlerts.slice(-(MAX_ALERT_AMOUNT * 2));
 };

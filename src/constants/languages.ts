@@ -1,1 +1,2 @@
-export const languages = ['ru', 'en'];
+export type LanguageVariants = 'ru' | 'en';
+export const languages: LanguageVariants[] = ['ru', 'en'];
