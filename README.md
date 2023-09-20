@@ -21,5 +21,4 @@ Next.js, Typescript, Redux Toolkit, RTK Query, SCSS, TypeScript, Jest, Storybook
 ```bash
 npm run storybook
 npm run test
-npm run coverage
 ```
