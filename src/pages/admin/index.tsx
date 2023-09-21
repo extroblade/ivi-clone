@@ -3,21 +3,19 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsTrash } from 'react-icons/bs';
 
-import { useAppSelector, useSearchParamsState } from '@/hooks';
+import { useSearchParamsState } from '@/hooks';
 import NotFoundPage from '@/pages/404';
 import { useFetchAllFilmsQuery } from '@/services';
-import { selectAuth } from '@/store';
 import { iFilm } from '@/types/kinopoiskTypes';
 import { AddNewMovie, Button, Card, Htag, Loader } from '@/UI';
 
 const PAGE_LIMIT = 10;
 
 const Admin = () => {
-  const { user } = useAppSelector(selectAuth);
   const { t } = useTranslation();
   const [page, setPage] = useSearchParamsState<number>({ name: 'page' });
   const { data: movies } = useFetchAllFilmsQuery({});
-  if (user) return <NotFoundPage />; //todo: fix when slice is ready
+  if (page < 2) return <NotFoundPage />;
   const del = () => {
     console.log('mock delete');
   };

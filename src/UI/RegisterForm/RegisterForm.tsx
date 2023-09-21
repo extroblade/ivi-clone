@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
 
 import { InputFileButton } from '@/components';
-import { useAppDispatch } from '@/hooks';
-import { useRegisterMutation } from '@/services';
-import { setUser } from '@/store';
 import { Button } from '@/UI';
 
 import styles from './RegisterForm.module.scss';
 
 export const RegisterForm = () => {
-  const dispatch = useAppDispatch();
   const [username, setUsername] = useState<string>('');
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [profilePicture, setProfilePicture] = useState<File | null>();
-  const [register] = useRegisterMutation();
-
-  const clearInputs = () => {
-    setUsername(() => '');
-    setLogin(() => '');
-    setPassword(() => '');
-    setProfilePicture(() => null);
-  };
 
   const registerHandler = () => {
     const formData = new FormData();
@@ -29,13 +17,6 @@ export const RegisterForm = () => {
     formData.append('password', password);
     formData.append('nickname', username);
     profilePicture && formData.append('photo', profilePicture);
-    register(formData)
-      .unwrap()
-      .then((response) => {
-        dispatch(setUser(response));
-        clearInputs();
-      })
-      .catch((rejected) => console.error(rejected));
   };
   return (
     <div className={styles.register}>
