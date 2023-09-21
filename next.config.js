@@ -11,6 +11,7 @@ const nextConfig = {
   env: {
     API: 'https://kinopoiskapiunofficial.tech/api/',
     X_API_KEY: process.env.X_API_KEY,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
   images: {
     unoptimized: true,

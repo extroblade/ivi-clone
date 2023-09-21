@@ -13,4 +13,28 @@ export default NextAuth({
       clientSecret: process.env.VK_CLIENT_SECRET || '',
     }),
   ],
+
+  secret: process.env.JWT_SECRET,
+
+  session: {
+    strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60, // 30 days
+    updateAge: 24 * 60 * 60, // 24 hours
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
+
+  callbacks: {
+    async jwt({ token, account }) {
+      if (account) {
+        token.accessToken = account.access_token;
+        token.idToken = account.id_token;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      return session;
+    },
+  },
 });
