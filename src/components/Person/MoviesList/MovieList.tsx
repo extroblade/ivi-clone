@@ -1,7 +1,6 @@
 import i18next from 'i18next';
 import React, { FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { List } from 'react-virtualized';
 
 import { MovieCard } from '@/components';
 import { getRemainingFilmAmount } from '@/helpers';
@@ -46,21 +45,11 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
             </P>
           </>
         ) : (
-          <List
-            height={
-              window?.innerHeight < 1200 ? window?.innerHeight * 0.9 : window?.innerHeight * 0.65
-            }
-            width={window?.innerWidth < 1200 ? window?.innerWidth * 0.9 : window?.innerWidth * 0.65}
-            rowCount={list?.length}
-            rowHeight={100}
-            rowRenderer={({ key, style, index }) => {
-              return (
-                <div key={key} style={style}>
-                  <MovieCard card={list[index]} />
-                </div>
-              );
-            }}
-          />
+          <>
+            {list.map((card) => {
+              return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
+            })}
+          </>
         )}
       </div>
     </div>

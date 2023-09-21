@@ -3,7 +3,6 @@ import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import { persons } from '@/mock';
 import modalsReducer from '@/store/reducers/modals.slice';
 import { Card, ShowAll } from '@/UI';
 
@@ -24,7 +23,7 @@ const mockCard = {
   rating: '9,5',
   genres: ['Фэнтези'],
   duration: '2ч 50мин',
-  persons: persons,
+  persons: [],
 };
 // const emptyCard = {
 //   id: 1,

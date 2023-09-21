@@ -4,9 +4,9 @@ import React, { FC, useEffect } from 'react';
 import { useAppDispatch } from '@/hooks/redux';
 import { useFetchFilmFiltersQuery } from '@/services';
 import { setCountries, setGenres } from '@/store';
+import { ILink } from '@/types/types';
 
 import styles from './Categories.module.scss';
-import { CategoriesProps } from './Categories.props';
 
 const years: number[] = [];
 
@@ -14,7 +14,17 @@ for (let i = 2010; i < 2024; i++) {
   years.push(i);
 }
 
-export const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element => {
+const collections: ILink[] = [
+  { title: 'Новинки', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Подборки', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Иви.Рейтинг', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Трейлеры', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Что посмотреть', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Фильмы в HD', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Новинки подписки', link: 'https://www.ivi.tv/movies/arthouse' },
+];
+
+export const Categories: FC = (): JSX.Element => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const { data, error } = useFetchFilmFiltersQuery();
@@ -36,23 +46,41 @@ export const Categories: FC<CategoriesProps> = ({ collections }): JSX.Element =>
         <div className={styles.content__item}>
           <h5 className={styles.content__title}>Жанры</h5>
           <div className={styles.content__genres}>
-            {data?.genres &&
-              data.genres.slice(0, 10).map((genre) => (
-                <Link className={styles.content__link} key={genre.genre} href={'/'}>
-                  {genre.genre}
-                </Link>
-              ))}
+            {data?.genres
+              ? data.genres.slice(0, 10).map((genre) => (
+                  <Link className={styles.content__link} key={genre.genre} href={'/'}>
+                    {genre.genre}
+                  </Link>
+                ))
+              : Array(15)
+                  .fill(1)
+                  .map((_, index) => (
+                    <div
+                      key={index}
+                      style={{ width: '90%', height: '18px' }}
+                      className={'loader'}
+                    ></div>
+                  ))}
           </div>
         </div>
         <div className={styles.content__item}>
           <h5 className={styles.content__title}>Страны</h5>
           <div className={styles.content__countries}>
-            {data?.countries &&
-              data.countries.slice(0, 10).map((country) => (
-                <Link className={styles.content__link} key={country.country} href={'/'}>
-                  {country.country}
-                </Link>
-              ))}
+            {data?.countries
+              ? data.countries.slice(0, 10).map((country) => (
+                  <Link className={styles.content__link} key={country.country} href={'/'}>
+                    {country.country}
+                  </Link>
+                ))
+              : Array(15)
+                  .fill(1)
+                  .map((_, index) => (
+                    <div
+                      key={index}
+                      style={{ width: '90%', height: '18px' }}
+                      className={'loader'}
+                    ></div>
+                  ))}
           </div>
         </div>
         <div className={styles.content__item}>

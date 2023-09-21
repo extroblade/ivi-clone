@@ -22,7 +22,7 @@ const card = {
 
 const CardWM = (args: JSX.IntrinsicAttributes & CardProps): JSX.Element => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
-    <Card card={card} {...args} />
+    <Card {...args} card={card} />
     <RatingModal />
   </div>
 );

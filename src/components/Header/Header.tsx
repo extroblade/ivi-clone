@@ -17,7 +17,6 @@ import {
   Submenu,
   User,
 } from '@/components';
-import { cartoonCategories, movieCategories, seriesCategories } from '@/mock';
 import { Button } from '@/UI';
 
 import styles from './Header.module.scss';
@@ -25,7 +24,6 @@ import styles from './Header.module.scss';
 export const Header: FC = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
-  const photo = session?.user?.image || null;
   return (
     <header className="header">
       <div className="container">
@@ -50,32 +48,17 @@ export const Header: FC = () => {
                 </li>
                 <li className={styles.menu__item}>
                   <Submenu title={t('sections.movies')} link="/movies">
-                    <Categories
-                      genres={movieCategories.genres}
-                      countries={movieCategories.countries}
-                      years={movieCategories.years}
-                      collections={movieCategories.collections}
-                    />
+                    <Categories />
                   </Submenu>
                 </li>
                 <li className={styles.menu__item}>
                   <Submenu title={t('sections.series')} link="/series">
-                    <Categories
-                      genres={seriesCategories.genres}
-                      countries={seriesCategories.countries}
-                      years={seriesCategories.years}
-                      collections={seriesCategories.collections}
-                    />
+                    <Categories />
                   </Submenu>
                 </li>
                 <li className={styles.menu__item}>
                   <Submenu title={t('sections.animation')} link="/animation">
-                    <Categories
-                      genres={cartoonCategories.genres}
-                      countries={cartoonCategories.countries}
-                      years={cartoonCategories.years}
-                      collections={cartoonCategories.collections}
-                    />
+                    <Categories />
                   </Submenu>
                 </li>
               </ul>
@@ -99,7 +82,7 @@ export const Header: FC = () => {
             <Submenu icon={MdNotificationsNone} link={'/notifications'}>
               <Notifications />
             </Submenu>
-            <Submenu icon={BiUser} user={photo} link={'/profile'} outline>
+            <Submenu icon={BiUser} user={session?.user?.image} link={'/profile'} outline>
               <User />
             </Submenu>
           </div>

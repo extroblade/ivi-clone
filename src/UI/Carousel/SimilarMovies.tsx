@@ -16,5 +16,5 @@ export const SimilarMovies: FC<iSimilarCarousel> = ({ similar }) => {
     i18next.language == 'en' ? `Movies similar to «${enName}»` : `С фильмом «${ruName}» смотрят`;
 
   if (!similar?.total) return <></>;
-  return <Carousel title={title} movies={similar} route={'/'} />;
+  return <Carousel title={title} movies={similar?.items} route={'/'} />;
 };

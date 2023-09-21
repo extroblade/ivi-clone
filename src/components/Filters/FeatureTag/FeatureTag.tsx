@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import styles from './FeatureTag.module.scss';
 

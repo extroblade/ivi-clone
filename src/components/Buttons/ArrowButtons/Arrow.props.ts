@@ -1,5 +1,5 @@
 interface IProps {
-  onClick?: any;
+  onClick?: () => void;
   className?: string;
 }
 

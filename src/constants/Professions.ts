@@ -1,4 +1,16 @@
-export const professionTypes = {
+export type ProfessionVariants =
+  | 'ACTOR'
+  | 'PRODUCER'
+  | 'HIMSELF'
+  | 'HRONO_TITR_MALE'
+  | 'DIRECTOR'
+  | 'WRITER';
+interface iProfession {
+  ruName: string;
+  enName: string;
+}
+
+export const professionTypes: Record<ProfessionVariants, iProfession> = {
   ACTOR: {
     ruName: 'Актер',
     enName: 'Actor',

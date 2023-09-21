@@ -9,22 +9,13 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   env: {
-    SERVER: 'https://api.npoint.io/f2d0fa5466639d1b194e',
     API: 'https://kinopoiskapiunofficial.tech/api/',
     X_API_KEY: process.env.X_API_KEY,
-    CLIENT: 'http://localhost:3000',
-    NEXT_PUBLIC_URL: 'http://localhost:3000',
   },
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,
     remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3001',
-        pathname: '/photo/**',
-      },
       {
         protocol: 'https',
         hostname: 'kinopoiskapiunofficial.tech',

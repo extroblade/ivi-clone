@@ -1,16 +1,32 @@
 import { motion } from 'framer-motion';
 import i18next from 'i18next';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
-import { movieCategories } from '@/mock/movieCategories';
+import { useAppSelector } from '@/hooks';
+import { selectFilters } from '@/store';
 import { ILink } from '@/types/types';
 import { P } from '@/UI';
 
 import styles from './ModalList.module.scss';
 import { ModalListProps } from './ModalList.props';
+
+const years: number[] = [];
+
+for (let i = 2010; i < 2024; i++) {
+  years.push(i);
+}
+const collections: ILink[] = [
+  { title: 'Новинки', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Подборки', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Иви.Рейтинг', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Трейлеры', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Что посмотреть', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Фильмы в HD', link: 'https://www.ivi.tv/movies/arthouse' },
+  { title: 'Новинки подписки', link: 'https://www.ivi.tv/movies/arthouse' },
+];
 
 export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }): JSX.Element => {
   const [isListOpen, setIsListOpen] = useState<boolean>(false);
@@ -30,6 +46,7 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
       height: 0,
     },
   };
+  const { genres, countries } = useAppSelector(selectFilters);
 
   return (
     <div>
@@ -51,10 +68,10 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
             <ul className={styles.list}>
               <li className={styles.list__item}>
                 <P className={styles.list__title}>{t('categories.genres')}</P>
-                {movieCategories?.genres &&
-                  movieCategories?.genres.map((item: ILink) => (
-                    <Link className={styles.list__link} key={item.title} href={item.link}>
-                      {item.title}
+                {genres &&
+                  genres.slice(0, 10).map((genre) => (
+                    <Link className={styles.content__link} key={genre.genre} href={'/'}>
+                      {genre.genre}
                     </Link>
                   ))}
               </li>
@@ -62,26 +79,25 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
                 <ul>
                   <li className={styles.list__item}>
                     <P className={styles.list__title}>{t('categories.countries')}</P>
-                    {movieCategories?.countries &&
-                      movieCategories?.countries.map((item: ILink) => (
-                        <Link className={styles.list__link} key={item.title} href={item.link}>
-                          {item.title}
+                    {countries &&
+                      countries.slice(0, 10).map((country) => (
+                        <Link className={styles.content__link} key={country.country} href={'/'}>
+                          {country.country}
                         </Link>
                       ))}
                   </li>
                   <li className={styles.list__item}>
                     <P className={styles.list__title}>{t('categories.years')}</P>
-                    {movieCategories?.years &&
-                      movieCategories?.years.map((item: ILink) => (
-                        <Link className={styles.list__link} key={item.title} href={item.link}>
-                          {item.title}
-                        </Link>
-                      ))}
+                    {years.map((year) => (
+                      <Link className={styles.content__link} key={year} href={'/'}>
+                        {year}
+                      </Link>
+                    ))}
                   </li>
                 </ul>
                 <div className={styles.list__item}>
-                  {movieCategories?.collections &&
-                    movieCategories?.collections.map((item: ILink) => (
+                  {collections &&
+                    collections.map((item: ILink) => (
                       <Link className={styles.list__link} key={item.title} href={item.link}>
                         {item.title}
                       </Link>

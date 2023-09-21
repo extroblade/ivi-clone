@@ -41,31 +41,29 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const { store } = wrapper.useWrappedStore(pageProps);
 
   return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>
-          Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем
-          качестве
-        </title>
-      </Head>
-      <Provider store={store}>
-        <SessionProvider session={session}>
-          <Next13ProgressBar
-            height="2px"
-            color="var(--color-accent)"
-            options={{ showSpinner: false }}
-            showOnShallow
-          />
-          <div className={iviSans.className}>
-            <MainLayout>
-              <Component {...pageProps} />
-            </MainLayout>
-            <Modals />
-          </div>
-        </SessionProvider>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <SessionProvider session={session}>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <title>
+            Онлайн-кинотеатр Иви - фильмы, сериалы и мультфильмы смотреть онлайн бесплатно в хорошем
+            качестве
+          </title>
+        </Head>
+        <Next13ProgressBar
+          height="2px"
+          color="var(--color-accent)"
+          options={{ showSpinner: false }}
+          showOnShallow
+        />
+        <div className={iviSans.className}>
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+          <Modals />
+        </div>
+      </SessionProvider>
+    </Provider>
   );
 }
 

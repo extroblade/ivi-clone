@@ -98,10 +98,10 @@ export const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }):
         </div>
       )}
       <Slider {...settings}>
-        {(movies?.total ? movies.items : [...new Array(15)]).slice(0, 15).map((card, index) => (
+        {(movies?.length ? movies : [...new Array(15)]).slice(0, 15).map((card, index) => (
           <Card card={card} star book find block key={card?.id || index} />
         ))}
-        {movies?.total > 15 && (
+        {movies?.length > 15 && (
           <Link href={route || '/movies'}>
             <ShowAll />
           </Link>

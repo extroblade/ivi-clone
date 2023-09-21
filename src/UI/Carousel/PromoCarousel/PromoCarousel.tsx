@@ -62,6 +62,7 @@ const PromoCarouselSlide: FC<iSlide> = ({ slide }): JSX.Element => {
                   alt="logo"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={slide?.id === 1}
                 />
               ) : (
                 <Htag tag={'h2'}>{slide.name}</Htag>

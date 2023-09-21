@@ -6,7 +6,7 @@ export const getRemainingFilmAmount = (length: number): string => {
   return lastNumber >= 5 ? ` фильмов` : ` фильма`;
 };
 
-export const getRate = (number: number) => {
+export const getRate = (number: number): string => {
   const lastNumber = +String(number).split('').reverse()[0];
   if (number >= 10 && number <= 20) return ` оценок`;
   if (lastNumber == 1) return ` оценка`;

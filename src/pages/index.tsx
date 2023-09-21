@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { MainPageDescription } from '@/components';
-import { useFetchAllFilmsQuery } from '@/services/movie.api';
+import { useFetchAllFilmsQuery } from '@/services';
 import { Carousel, PromoCarousel, Top10Carousel } from '@/UI';
 
 const Home = () => {

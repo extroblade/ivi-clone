@@ -11,7 +11,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     <div className="wrapper">
       <Header />
       <main className="main">
-        <div className="container"> {children}</div>
+        <div className="container">{children}</div>
       </main>
       <Footer />
     </div>

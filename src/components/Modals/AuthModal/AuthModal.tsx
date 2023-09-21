@@ -1,8 +1,7 @@
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { useRouter } from 'next/router';
-import { signIn, signOut } from 'next-auth/react';
-import React, { FC, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
@@ -13,14 +12,13 @@ import { TbReload } from 'react-icons/tb';
 import { GoogleAuthButton, VkAuthButton } from '@/components';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectAuth, selectModal, setShowAuth } from '@/store';
+import { selectModal, setShowAuth } from '@/store';
 import { BarGraph, Button, FullScreenModal, P } from '@/UI';
 
 import styles from './AuthModal.module.scss';
 
 export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
   const { t } = useTranslation();
-  const searchParams = useSearchParams();
   const router = useRouter();
   const [progress, setProgress] = useState<number>(5);
   const [step, setStep] = useState<number>(1);
@@ -29,31 +27,47 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
   const [showPassword, setShowPassword] = useState(false);
   const { showAuth } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
+
+  const { data: session } = useSession();
   const close = () => {
     dispatch(setShowAuth(false));
     setStep(() => 1);
   };
-  const { user } = useAppSelector(selectAuth);
 
   const handleLogout = () => {
     signOut().then(() => {
-      router.push('/profile').then(() => {});
+      router.push('/profile');
     });
   };
 
   const nextStep = () => {
-    if (step < 4) {
-      setStep((prev) => prev + 1);
+    if (step > 3) {
+      return;
     }
+    setStep((prev) => prev + 1);
   };
 
   const previousStep = () => {
-    if (step >= 1) {
-      setStep((prev) => prev - 1);
+    if (step < 1) {
+      return;
     }
+    setStep((prev) => prev - 1);
   };
   const toggleShowPassword = () => {
     setShowPassword((prevState) => !prevState);
+  };
+
+  const handleAuth = () => {
+    signIn('credentials', {
+      login: login,
+      password,
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -67,32 +81,14 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
       case 3:
         setProgress(75);
 
-        handleAuth()
-          .then(() => {
-            setProgress(100);
-            close();
-            setPassword(() => '');
-            setLogin(() => '');
-          })
-          .catch((rejected) => console.error(rejected));
+        handleAuth();
+        setProgress(100);
+        close();
+        setPassword(() => '');
+        setLogin(() => '');
         break;
     }
   }, [step]);
-
-  async function handleAuth() {
-    const credentials = { email: login, password };
-    const callbackUrl = searchParams.get('callbackUrl') || '/profile';
-    signIn('credentials', {
-      ...credentials,
-      callbackUrl,
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
 
   return (
     <FullScreenModal isOpen={showAuth || show} closeModal={close}>
@@ -116,7 +112,7 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
           </div>
         </div>
         <div className={styles.chat__body}>
-          {user ? (
+          {session ? (
             <div className={styles.chat__message}>
               <h1 onClick={handleLogout} title={'Нажмите, чтобы выйти из аккаунта'}>
                 {t('sections.already-signed')}
@@ -124,13 +120,11 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
             </div>
           ) : (
             <>
-              {step >= 1 && (
-                <div className={styles.chat__message}>
-                  <h5>{t('buttons.login-signup-person')}</h5>
-                  {step <= 1 && <P>{t('sections.use-service-any-device')}</P>}
-                </div>
-              )}
-              {step < 2 ? (
+              <div className={styles.chat__message}>
+                <h5>{t('buttons.login-signup-person')}</h5>
+                {step <= 1 && <P>{t('sections.use-service-any-device')}</P>}
+              </div>
+              {step === 1 ? (
                 <div className={styles.input}>
                   <BiUser className={styles.input__icon} />
                   <input
@@ -151,7 +145,7 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
                   </div>
                 </div>
               )}
-              {step >= 2 && (
+              {step !== 1 && (
                 <>
                   <div className={styles.chat__message}>
                     <h5>
@@ -187,7 +181,7 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
                 </>
               )}
               <div className={styles.chat__oauth}>
-                {step < 2 ? (
+                {step === 1 ? (
                   <Button
                     appearance={'red'}
                     disabled={!login.match(REGEX_EMAIL)}
@@ -205,7 +199,7 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
                   </Button>
                 )}
               </div>
-              {step < 2 ? (
+              {step === 1 ? (
                 <>
                   <div className={styles.chat__oauth}>
                     <GoogleAuthButton />

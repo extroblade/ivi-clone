@@ -1,6 +1,6 @@
 export interface CarouselProps {
   title?: string;
   route?: string;
-  movies?: { total: number; items: any[] };
+  movies?: unknown[];
   settings?: object;
 }
