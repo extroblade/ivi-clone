@@ -33,7 +33,7 @@ export default NextAuth({
       }
       return token;
     },
-    async session({ session }) {
+    async session({ session, token }) {
       return session;
     },
   },
