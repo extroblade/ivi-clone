@@ -7,6 +7,7 @@ import {
   iDistributions,
   iExternalSources,
   iFacts,
+  iFetchedFilms,
   iFilm,
   iFilters,
   iImages,
@@ -42,7 +43,7 @@ export const movieApi = createApi({
   }),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
-    fetchAllFilms: build.query<iFilm[], QueryParams>({
+    fetchAllFilms: build.query<iFetchedFilms, QueryParams>({
       query: ({
         countries,
         genres,
@@ -70,7 +71,7 @@ export const movieApi = createApi({
         },
       }),
     }),
-    fetchTopFilm: build.query<{ films: iFilm[] }, any>({
+    fetchTopFilm: build.query<iFetchedFilms, any>({
       query: ({ type, page = 1 }) => ({
         url: `top`,
         params: { type, page },

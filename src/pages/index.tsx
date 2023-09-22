@@ -31,12 +31,12 @@ const Home = () => {
       <Top10Carousel />
       <Carousel
         title={t('carousels.foreign-series') || 'Зарубежные сериалы'}
-        movies={foreignSeries}
+        movies={foreignSeries?.items}
         route={'/movies'}
       />
       <Carousel
         title={t('carousels.adventures') || 'Приключения'}
-        movies={adventures}
+        movies={adventures?.items}
         route={'/movies'}
       />
     </>
