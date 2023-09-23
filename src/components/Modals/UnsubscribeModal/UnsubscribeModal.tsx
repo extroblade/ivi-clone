@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { createNewAlert } from '@/helpers';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
-import { selectModal, setActiveAlerts, setShowUnsub } from '@/store';
+import { selectModal, setActiveAlerts, setShowUnsub } from '@/shared/store';
 import { Button, FullScreenModal, P } from '@/UI';
 
 import styles from './UnsubscribeModal.module.scss';

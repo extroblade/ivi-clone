@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setActiveAlerts } from '@/store';
+import { selectModal, setActiveAlerts } from '@/shared/store';
 import { Button } from '@/UI';
 
 export const AddToFavoritesButton = () => {

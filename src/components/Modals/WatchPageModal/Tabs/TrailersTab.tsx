@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
+import { selectModal } from '@/shared/store';
 import { Htag, Player } from '@/UI';
 
 import styles from '../WatchPageModal.module.scss';

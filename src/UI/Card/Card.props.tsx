@@ -1,4 +1,4 @@
-import { iFilm, iSimilarItems } from '@/types/kinopoiskTypes';
+import { iFilm, iSimilarItems } from '@/shared/types/kinopoiskTypes';
 
 export interface CardProps {
   card: iFilm | iSimilarItems | any;

@@ -7,8 +7,8 @@ import {
   useFetchFilmAwardsQuery,
   useFetchFilmSimilarQuery,
   useFetchFilmVideoQuery,
-} from '@/services';
-import { setCurrentMovie } from '@/store';
+} from '@/shared/services';
+import { setCurrentMovie } from '@/shared/store';
 import {
   CommentCarousel,
   MovieBGContainer,

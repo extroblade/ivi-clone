@@ -1,28 +1,25 @@
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
-
 .input {
   width: 70vw;
   max-width: 860px;
   display: flex;
   align-items: center;
-  background-color: $color-input;
-  color: $color-input-text;
+  background-color: var(--color-input);
+  color: var(--color-input-text);
   border-radius: 4px;
   height: 40px;
   position: relative;
 
   & label {
     position: absolute;
-    width: rem(300);
+    width: 300px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    left: rem(12);
+    left: 12px;
     font-weight: 700;
     opacity: 0.32;
     pointer-events: none;
-    transition: $time-main;
+    transition: var(--transition-main);
   }
   &__active {
     transform: translateY(8px);
@@ -34,12 +31,12 @@
   }
   & input {
     width: 100%;
-    padding: rem(1) rem(12);
-    background-color: $color-input;
+    padding: 1px 12px;
+    background-color: var(--color-input);
     border-radius: 4px;
     outline: 0;
-    font-size: rem(15);
-    line-height: percent(20, 15);
+    font-size: 15px;
+    line-height: 150%;
     font-weight: 500;
     &:focus {
       transition: all 0.05s ease-in;
@@ -53,10 +50,10 @@
   }
   &__icon {
     cursor: pointer;
-    margin: 0 rem(5);
-    color: $color-input-text;
+    margin: 0 5px;
+    color: var(--color-input-text);
     opacity: 0.5;
-    transition: $time-main;
+    transition: var(--transition-main);
     &:hover {
       opacity: 1;
     }
@@ -65,10 +62,10 @@
 
 .body {
   max-width: 860px;
-  margin-top: rem(60);
+  margin-top: 60px;
   & h3 {
-    font-size: rem(40);
-    margin-bottom: rem(40);
+    font-size: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -114,7 +111,7 @@
     display: flex;
     justify-content: flex-start;
     svg {
-      fill: $color-accent;
+      fill: var(--color-accent);
       margin-right: 15px;
       font-size: 15px;
       margin-bottom: 3px;
@@ -132,7 +129,7 @@
     }
     p:hover {
       transition: 0.3s;
-      color: $color-accent;
+      color: var(--color-accent);
     }
   }
 }

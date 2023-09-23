@@ -1,9 +1,7 @@
-@import '@/styles/variables.scss';
-
 .placeholder {
   width: auto;
   height: 360px;
-  transition: $time-main;
+  transition: var(--transition-main);
 }
 
 .container {
@@ -13,7 +11,7 @@
   margin-top: 20px;
   padding-bottom: 40px;
   padding-right: 32px;
-  @media (max-width: $pc) {
+  @media (max-width: 1160px) {
     padding: 0;
   }
 }
@@ -23,7 +21,7 @@
   top: 20px;
   left: 0;
   width: 100%;
-  @media (max-width: $pc) {
+  @media (max-width: 1160px) {
     position: relative;
     top: 0;
   }

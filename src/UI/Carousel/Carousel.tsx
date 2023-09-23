@@ -4,7 +4,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 
 import { NextArrow, PrevArrow } from '@/components';
 import { Card, Htag, Loader, ShowAll } from '@/UI';
@@ -12,7 +12,13 @@ import { CarouselProps } from '@/UI/Carousel/Carousel.props';
 
 import styles from './Carousel.module.scss';
 
-export const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }): JSX.Element => {
+export const Carousel: FC<CarouselProps> = ({
+  title,
+  hover = true,
+  route,
+  movies,
+  settings,
+}): JSX.Element => {
   if (!settings)
     settings = {
       dots: false,
@@ -83,7 +89,7 @@ export const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }):
           },
         },
       ],
-    };
+    } as Settings;
   if (!movies) return <Loader />;
   return (
     <div className={styles.carousel}>
@@ -99,7 +105,7 @@ export const Carousel: FC<CarouselProps> = ({ title, route, movies, settings }):
       )}
       <Slider {...settings}>
         {(movies?.length ? movies : [...new Array(15)]).slice(0, 15).map((card, index) => (
-          <Card card={card} star book find block key={card?.id || index} />
+          <Card card={card} hover={hover} star book find block key={card?.id || index} />
         ))}
         {movies?.length > 15 && (
           <Link href={route || '/movies'}>

@@ -24,7 +24,7 @@ describe('BarGraphSnapshot', () => {
 
 describe('BarGraph', () => {
   it('should be in the document', async () => {
-    render(<BarGraph width={100} />);
+    render(<BarGraph width={100} data-testid={'bar'} />);
     expect(screen.getByTestId('bar')).toBeInTheDocument();
   });
 

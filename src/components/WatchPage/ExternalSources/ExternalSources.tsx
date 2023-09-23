@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { useAppSelector } from '@/hooks';
-import { useFetchFilmExternalSourcesQuery } from '@/services';
-import { selectModal } from '@/store';
+import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
+import { selectModal } from '@/shared/store';
 import { P, Title } from '@/UI';
 
 import styles from './ExternalSources.module.scss';

@@ -3,11 +3,12 @@ import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import modalsReducer from '@/store/reducers/modals.slice';
+import filtersReducer from '@/shared/store/reducers/filters.slice';
+import modalsReducer from '@/shared/store/reducers/modals.slice';
 import { Card, ShowAll } from '@/UI';
 
-export const mockStore = configureStore({ reducer: { modalsReducer } });
-const mockCard = {
+export const mockStore = configureStore({ reducer: { modalsReducer, filtersReducer } });
+export const mockCard = {
   id: 1,
   name: 'Гарри Поттер и Дары Смерти: Часть I',
   enName: 'Harry Potter and the Deathly Hallows: Part I',
@@ -16,7 +17,7 @@ const mockCard = {
   enDescription:
     'The final "Potter" film about the magical world of J.K. Rowling and faithful friends Harry Potter, Ron Weasley, and Hermione Granger. The magical war continues.',
   trailer: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
-  card_image:
+  posterUrlPreview:
     'https://thumbs.dfs.ivi.ru/storage2/contents/5/b/1a320c6f0240982ad3f287e19afa91.jpg/234x360/?q=85',
   year: '2011',
   countries: 'США',

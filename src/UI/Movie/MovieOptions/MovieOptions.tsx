@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import styles from '@/components/WatchPage/WatchPage.module.scss';
 import { movieTypes } from '@/constants';
-import { iFilm } from '@/types/kinopoiskTypes';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Badge, Button, P } from '@/UI';
 
 interface iOptions {

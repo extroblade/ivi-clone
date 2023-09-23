@@ -1,9 +1,16 @@
 import cn from 'classnames';
+import { FC } from 'react';
 
 import styles from './P.module.scss';
 import { PProps } from './P.props';
 
-export const P = ({ children, size = 'M', color, className, ...props }: PProps): JSX.Element => {
+export const P: FC<PProps> = ({
+  children,
+  size = 'M',
+  color,
+  className,
+  ...props
+}): JSX.Element => {
   return (
     <p
       className={cn(

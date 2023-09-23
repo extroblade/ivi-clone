@@ -1,4 +1,4 @@
-export type MovieVariants = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'VIDEO';
+export type MovieVariants = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'VIDEO' | 'SERIES';
 
 interface iFilmValues {
   ruName: string;
@@ -23,6 +23,13 @@ export const movieTypes: Record<MovieVariants, iFilmValues> = {
     path: '/series',
   },
   TV_SERIES: {
+    ruName: 'Сериалы',
+    ruNameSingle: 'Сериал',
+    enName: 'Series',
+    enNameSingle: 'Series',
+    path: '/series',
+  },
+  SERIES: {
     ruName: 'Сериалы',
     ruNameSingle: 'Сериал',
     enName: 'Series',

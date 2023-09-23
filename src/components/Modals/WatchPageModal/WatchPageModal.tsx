@@ -7,7 +7,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import { AwardsTab, PersonsTab, TrailersTab, WatchModalInfoCard } from '@/components';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
-import { selectModal, setShowWatchPageModal } from '@/store';
+import { selectModal, setShowWatchPageModal } from '@/shared/store';
 import { Button, CommentSection, Htag, Sup } from '@/UI';
 
 import styles from './WatchPageModal.module.scss';
@@ -40,16 +40,25 @@ export const WatchPageModal: FC = () => {
               <Htag tag={'h2'}>{name}</Htag>
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.creators')} {persons?.length ? <Sup text={persons?.length} /> : ''}
+                  <div className={styles.tab__container}>
+                    {t('categories.creators')}{' '}
+                    {persons?.length ? <Sup text={persons?.length} /> : ''}
+                  </div>
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.comments')} <Sup text={currentMovie?.comments?.total || 0} />
+                  <div className={styles.tab__container}>
+                    {t('categories.comments')} <Sup text={currentMovie?.comments?.total || 0} />
+                  </div>
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.trailers')} <Sup text={currentMovie?.videos?.total || 0} />
+                  <div className={styles.tab__container}>
+                    {t('categories.trailers')} <Sup text={currentMovie?.videos?.total || 0} />
+                  </div>
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
-                  {t('categories.awards')} <Sup text={currentMovie?.awards?.total || 0} />
+                  <div className={styles.tab__container}>
+                    {t('categories.awards')} <Sup text={currentMovie?.awards?.total || 0} />
+                  </div>
                 </Tab>
               </TabList>
 

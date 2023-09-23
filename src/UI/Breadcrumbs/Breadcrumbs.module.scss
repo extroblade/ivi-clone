@@ -1,25 +1,22 @@
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
-
 .container {
-  margin: rem(20) 0;
+  margin: 20px 0;
 }
 
 .breadcrumbs {
   display: flex;
 
   &__item {
-    font-size: rem(14);
+    font-size: 14px;
     font-weight: 500;
     position: relative;
-    margin-right: rem(16);
+    margin-right: 16px;
     & span {
       opacity: 0.5;
     }
     &::before {
       content: '/';
       position: absolute;
-      left: rem(-11);
+      left: -11px;
       color: gray;
     }
     &:first-child::before {
@@ -33,19 +30,19 @@
       &::after {
         content: '';
         position: absolute;
-        bottom: rem(-2);
+        bottom: -2px;
         left: 0;
         width: 100%;
-        height: rem(2);
+        height: 2px;
         background-color: rgba(255, 255, 255, 0.3);
 
         transform-origin: left;
-        transition: $time-main;
+        transition: var(--transition-main);
       }
 
       &:hover::after {
-        bottom: rem(0);
-        height: rem(16);
+        bottom: 0;
+        height: 16px;
         transition: all 0.05s ease-in;
       }
     }

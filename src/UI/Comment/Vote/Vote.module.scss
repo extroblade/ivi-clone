@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .vote {
   margin-left: auto;
   display: flex;
@@ -9,21 +7,25 @@
 }
 
 .value {
-  color: rgba($color-gray-text, 0.72);
+  color: var(--color-gray-text);
+  opacity: 0.72;
   min-width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   &.success {
-    color: rgba($color-success, 0.9);
+    color: var(--color-success);
+    opacity: 0.9;
   }
   &.danger {
-    color: rgba($color-danger, 0.9);
+    color: var(--color-danger);
+    opacity: 0.9;
   }
 }
 .buttonUp,
 .buttonDown {
-  color: rgba($color-gray-text, 0.72);
+  color: var(--color-gray-text);
+  opacity: 0.72;
   transition: color 400ms;
   cursor: pointer;
   font-size: 0;
@@ -34,7 +36,8 @@
   height: 100%;
   &:hover {
     transition: color 80ms;
-    color: $color-gray-text;
+    color: var(--color-gray-text);
+    opacity: 1;
   }
   svg {
     width: 16px;
@@ -47,11 +50,11 @@
 
 .buttonUp {
   &.active {
-    color: $color-success !important;
+    color: var(--color-success);
   }
 }
 .buttonDown {
   &.active {
-    color: $color-danger !important;
+    color: var(--color-danger);
   }
 }

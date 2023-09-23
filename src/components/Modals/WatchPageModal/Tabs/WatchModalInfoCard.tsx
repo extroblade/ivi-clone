@@ -4,9 +4,8 @@ import React from 'react';
 import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
 import { countTime } from '@/helpers';
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
-import { BarGraph } from '@/UI';
-import { P } from '@/UI/P/P';
+import { selectModal } from '@/shared/store';
+import { BarGraph, P } from '@/UI';
 
 export const WatchModalInfoCard = () => {
   const { currentMovie } = useAppSelector(selectModal);

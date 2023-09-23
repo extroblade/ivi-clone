@@ -1,11 +1,10 @@
-@import '@/styles/variables.scss';
 .list {
   display: grid;
   grid-gap: 4px;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   overflow: hidden;
-  @media (max-width: $pc) {
+  @media (max-width: 1160px) {
     justify-content: start;
   }
   @media screen and (max-width: 391px) {

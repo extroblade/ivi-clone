@@ -93,11 +93,11 @@ exports[`card buttons find similar after 1`] = `
   class="button square M"
 >
   <svg
-    class="mirrored"
     fill="currentColor"
     height="1em"
     stroke="currentColor"
     stroke-width="0"
+    style="transform: scale(-1, 1);"
     viewBox="0 0 512 512"
     width="1em"
     xmlns="http://www.w3.org/2000/svg"
@@ -131,11 +131,11 @@ exports[`card buttons find similar before 1`] = `
   class="button square M"
 >
   <svg
-    class="mirrored"
     fill="currentColor"
     height="1em"
     stroke="currentColor"
     stroke-width="0"
+    style="transform: scale(-1, 1);"
     viewBox="0 0 512 512"
     width="1em"
     xmlns="http://www.w3.org/2000/svg"

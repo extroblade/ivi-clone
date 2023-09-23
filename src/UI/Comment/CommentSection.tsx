@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 
 import { useAppSelector } from '@/hooks';
-import { useFetchCommentsQuery } from '@/services';
-import { selectModal } from '@/store';
+import { useFetchCommentsQuery } from '@/shared/services';
+import { selectModal } from '@/shared/store';
 import { Comment, CommentInput, Loader } from '@/UI';
 
 import styles from './Comment.module.scss';

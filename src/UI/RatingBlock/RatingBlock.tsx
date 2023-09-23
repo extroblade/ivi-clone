@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { getRate } from '@/helpers';
 import { useAppDispatch } from '@/hooks';
-import { setShowRating } from '@/store';
+import { setShowRating } from '@/shared/store';
 import { Button, RatingPlate } from '@/UI';
 import { RatingBlockProps } from '@/UI/RatingBlock/RatingBlockProps';
 

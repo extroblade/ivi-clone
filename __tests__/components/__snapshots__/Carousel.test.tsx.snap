@@ -18,7 +18,9 @@ exports[`card card object empty card  1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -45,32 +47,28 @@ exports[`card card object empty card  1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -85,8 +83,7 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -128,7 +125,9 @@ exports[`card card object empty card  1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -155,32 +154,28 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -195,8 +190,7 @@ exports[`card card object empty card  1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -295,7 +289,9 @@ exports[`card params all 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -329,11 +325,11 @@ exports[`card params all 1`] = `
                   class="button square M"
                 >
                   <svg
-                    class="mirrored"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
                     stroke-width="0"
+                    style="transform: scale(-1, 1);"
                     viewBox="0 0 512 512"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -413,32 +409,28 @@ exports[`card params all 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -453,8 +445,7 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -496,7 +487,9 @@ exports[`card params all 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -530,11 +523,11 @@ exports[`card params all 1`] = `
                 class="button square M"
               >
                 <svg
-                  class="mirrored"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
                   stroke-width="0"
+                  style="transform: scale(-1, 1);"
                   viewBox="0 0 512 512"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -614,32 +607,28 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -654,8 +643,7 @@ exports[`card params all 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -754,7 +742,9 @@ exports[`card params block 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -803,32 +793,28 @@ exports[`card params block 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -843,8 +829,7 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -886,7 +871,9 @@ exports[`card params block 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -935,32 +922,28 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -975,8 +958,7 @@ exports[`card params block 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -1075,7 +1057,9 @@ exports[`card params book 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -1120,32 +1104,28 @@ exports[`card params book 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -1160,8 +1140,7 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1203,7 +1182,9 @@ exports[`card params book 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -1248,32 +1229,28 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1288,8 +1265,7 @@ exports[`card params book 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -1388,7 +1364,9 @@ exports[`card params find 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -1405,11 +1383,11 @@ exports[`card params find 1`] = `
                   class="button square M"
                 >
                   <svg
-                    class="mirrored"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
                     stroke-width="0"
+                    style="transform: scale(-1, 1);"
                     viewBox="0 0 512 512"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1451,32 +1429,28 @@ exports[`card params find 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -1491,8 +1465,7 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1534,7 +1507,9 @@ exports[`card params find 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -1551,11 +1526,11 @@ exports[`card params find 1`] = `
                 class="button square M"
               >
                 <svg
-                  class="mirrored"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
                   stroke-width="0"
+                  style="transform: scale(-1, 1);"
                   viewBox="0 0 512 512"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1597,32 +1572,28 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1637,8 +1608,7 @@ exports[`card params find 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -1737,7 +1707,9 @@ exports[`card params no hover 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -1764,32 +1736,28 @@ exports[`card params no hover 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -1804,8 +1772,7 @@ exports[`card params no hover 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1847,7 +1814,9 @@ exports[`card params no hover 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -1874,32 +1843,28 @@ exports[`card params no hover 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1914,8 +1879,7 @@ exports[`card params no hover 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -2014,7 +1978,9 @@ exports[`card params star 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -2059,32 +2025,28 @@ exports[`card params star 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -2099,8 +2061,7 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -2142,7 +2103,9 @@ exports[`card params star 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -2187,32 +2150,28 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -2227,8 +2186,7 @@ exports[`card params star 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -2354,7 +2312,38 @@ exports[`carousel number array 1`] = `
         </div>
         <div
           class="slick-slider slick-initialized"
+          dir="ltr"
         >
+          <div
+            class="arrow_container"
+          >
+            <div
+              class="arrow prev"
+            >
+              <button
+                class="button transparent L"
+                disabled=""
+              >
+                <svg
+                  fill="currentColor"
+                  height="30"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M17.77 3.77L16 2 6 12l10 10 1.77-1.77L9.54 12z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
           <div
             class="slick-list"
           >
@@ -2385,7 +2374,9 @@ exports[`carousel number array 1`] = `
                         data-nimg="1"
                         decoding="async"
                         height="360"
-                        src=""
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                         style="color: transparent;"
                         width="234"
                       />
@@ -2419,11 +2410,11 @@ exports[`carousel number array 1`] = `
                               class="button square M"
                             >
                               <svg
-                                class="mirrored"
                                 fill="currentColor"
                                 height="1em"
                                 stroke="currentColor"
                                 stroke-width="0"
+                                style="transform: scale(-1, 1);"
                                 viewBox="0 0 512 512"
                                 width="1em"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -2503,32 +2494,28 @@ exports[`carousel number array 1`] = `
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                             </div>
@@ -2543,8 +2530,7 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -2553,7 +2539,11 @@ exports[`carousel number array 1`] = `
                           >
                             <div
                               class="info__row"
-                            />
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
                           </section>
                         </div>
                       </div>
@@ -2591,7 +2581,9 @@ exports[`carousel number array 1`] = `
                         data-nimg="1"
                         decoding="async"
                         height="360"
-                        src=""
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                         style="color: transparent;"
                         width="234"
                       />
@@ -2625,11 +2617,11 @@ exports[`carousel number array 1`] = `
                               class="button square M"
                             >
                               <svg
-                                class="mirrored"
                                 fill="currentColor"
                                 height="1em"
                                 stroke="currentColor"
                                 stroke-width="0"
+                                style="transform: scale(-1, 1);"
                                 viewBox="0 0 512 512"
                                 width="1em"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -2709,32 +2701,28 @@ exports[`carousel number array 1`] = `
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                             </div>
@@ -2749,8 +2737,7 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -2759,7 +2746,11 @@ exports[`carousel number array 1`] = `
                           >
                             <div
                               class="info__row"
-                            />
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
                           </section>
                         </div>
                       </div>
@@ -2797,7 +2788,9 @@ exports[`carousel number array 1`] = `
                         data-nimg="1"
                         decoding="async"
                         height="360"
-                        src=""
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                         style="color: transparent;"
                         width="234"
                       />
@@ -2831,11 +2824,11 @@ exports[`carousel number array 1`] = `
                               class="button square M"
                             >
                               <svg
-                                class="mirrored"
                                 fill="currentColor"
                                 height="1em"
                                 stroke="currentColor"
                                 stroke-width="0"
+                                style="transform: scale(-1, 1);"
                                 viewBox="0 0 512 512"
                                 width="1em"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -2915,32 +2908,28 @@ exports[`carousel number array 1`] = `
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                             </div>
@@ -2955,8 +2944,7 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -2965,7 +2953,11 @@ exports[`carousel number array 1`] = `
                           >
                             <div
                               class="info__row"
-                            />
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
                           </section>
                         </div>
                       </div>
@@ -3003,7 +2995,9 @@ exports[`carousel number array 1`] = `
                         data-nimg="1"
                         decoding="async"
                         height="360"
-                        src=""
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                         style="color: transparent;"
                         width="234"
                       />
@@ -3037,11 +3031,11 @@ exports[`carousel number array 1`] = `
                               class="button square M"
                             >
                               <svg
-                                class="mirrored"
                                 fill="currentColor"
                                 height="1em"
                                 stroke="currentColor"
                                 stroke-width="0"
+                                style="transform: scale(-1, 1);"
                                 viewBox="0 0 512 512"
                                 width="1em"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -3121,32 +3115,28 @@ exports[`carousel number array 1`] = `
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                             </div>
@@ -3161,8 +3151,7 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -3171,7 +3160,11 @@ exports[`carousel number array 1`] = `
                           >
                             <div
                               class="info__row"
-                            />
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
                           </section>
                         </div>
                       </div>
@@ -3209,7 +3202,9 @@ exports[`carousel number array 1`] = `
                         data-nimg="1"
                         decoding="async"
                         height="360"
-                        src=""
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                         style="color: transparent;"
                         width="234"
                       />
@@ -3243,11 +3238,11 @@ exports[`carousel number array 1`] = `
                               class="button square M"
                             >
                               <svg
-                                class="mirrored"
                                 fill="currentColor"
                                 height="1em"
                                 stroke="currentColor"
                                 stroke-width="0"
+                                style="transform: scale(-1, 1);"
                                 viewBox="0 0 512 512"
                                 width="1em"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -3327,32 +3322,28 @@ exports[`carousel number array 1`] = `
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                               <div
                                 class="bar"
                               >
                                 <div
-                                  class="barValue gray  "
-                                  data-testid="bar"
+                                  class="barValue red"
                                 />
                               </div>
                             </div>
@@ -3367,8 +3358,7 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -3377,7 +3367,11 @@ exports[`carousel number array 1`] = `
                           >
                             <div
                               class="info__row"
-                            />
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
                           </section>
                         </div>
                       </div>
@@ -3392,6 +3386,470 @@ exports[`carousel number array 1`] = `
                   </a>
                 </div>
               </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="5"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <a
+                    class="card"
+                    draggable="false"
+                    href="/watch/undefined"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="imageSection hover"
+                    >
+                      <img
+                        alt="title"
+                        data-nimg="1"
+                        decoding="async"
+                        height="360"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+                        style="color: transparent;"
+                        width="234"
+                      />
+                      <div
+                        class="props"
+                      >
+                        <div
+                          class="btns__container"
+                        >
+                          <div
+                            class="btns"
+                          >
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 16 16"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                style="transform: scale(-1, 1);"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  fill="none"
+                                  height="378.2"
+                                  rx="31.52"
+                                  stroke-miterlimit="10"
+                                  stroke-width="32"
+                                  transform="rotate(-45 312.002 311.994)"
+                                  width="63.03"
+                                  x="280.48"
+                                  y="122.9"
+                                />
+                                <path
+                                  d="M178.38 178.38a31.64 31.64 0 000 44.75L223.25 268 268 223.25l-44.87-44.87a31.64 31.64 0 00-44.75 0z"
+                                />
+                                <path
+                                  d="M48 192h48M90.18 90.18l33.94 33.94M192 48v48m101.82-5.82l-33.94 33.94M124.12 259.88l-33.94 33.94"
+                                  stroke-linecap="round"
+                                  stroke-miterlimit="10"
+                                  stroke-width="32"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9A7.902 7.902 0 014 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1A7.902 7.902 0 0120 12c0 4.42-3.58 8-8 8z"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          class="info"
+                        >
+                          <div
+                            class="ratings"
+                          >
+                            <div
+                              class="graphs"
+                            >
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="singleGraph"
+                          >
+                            <span>
+                              актёры
+                            </span>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                          </div>
+                          <section
+                            class="info__text"
+                          >
+                            <div
+                              class="info__row"
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="textSection"
+                    >
+                      <p
+                        class="p M"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                aria-hidden="false"
+                class="slick-slide slick-active"
+                data-index="6"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              >
+                <div>
+                  <a
+                    class="card"
+                    draggable="false"
+                    href="/watch/undefined"
+                    style="width: 100%; display: inline-block;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="imageSection hover"
+                    >
+                      <img
+                        alt="title"
+                        data-nimg="1"
+                        decoding="async"
+                        height="360"
+                        loading="lazy"
+                        src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                        srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+                        style="color: transparent;"
+                        width="234"
+                      />
+                      <div
+                        class="props"
+                      >
+                        <div
+                          class="btns__container"
+                        >
+                          <div
+                            class="btns"
+                          >
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 16 16"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                style="transform: scale(-1, 1);"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <rect
+                                  fill="none"
+                                  height="378.2"
+                                  rx="31.52"
+                                  stroke-miterlimit="10"
+                                  stroke-width="32"
+                                  transform="rotate(-45 312.002 311.994)"
+                                  width="63.03"
+                                  x="280.48"
+                                  y="122.9"
+                                />
+                                <path
+                                  d="M178.38 178.38a31.64 31.64 0 000 44.75L223.25 268 268 223.25l-44.87-44.87a31.64 31.64 0 00-44.75 0z"
+                                />
+                                <path
+                                  d="M48 192h48M90.18 90.18l33.94 33.94M192 48v48m101.82-5.82l-33.94 33.94M124.12 259.88l-33.94 33.94"
+                                  stroke-linecap="round"
+                                  stroke-miterlimit="10"
+                                  stroke-width="32"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                                />
+                              </svg>
+                            </button>
+                            <button
+                              class="button square M"
+                            >
+                              <svg
+                                fill="currentColor"
+                                height="1em"
+                                stroke="currentColor"
+                                stroke-width="0"
+                                viewBox="0 0 24 24"
+                                width="1em"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path
+                                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9A7.902 7.902 0 014 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1A7.902 7.902 0 0120 12c0 4.42-3.58 8-8 8z"
+                                />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div
+                          class="info"
+                        >
+                          <div
+                            class="ratings"
+                          >
+                            <div
+                              class="graphs"
+                            >
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                              <div
+                                class="bar"
+                              >
+                                <div
+                                  class="barValue red"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="singleGraph"
+                          >
+                            <span>
+                              актёры
+                            </span>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                          </div>
+                          <section
+                            class="info__text"
+                          >
+                            <div
+                              class="info__row"
+                            >
+                              2011, 
+                              undefined, 
+                              undefined
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="textSection"
+                    >
+                      <p
+                        class="p M"
+                      />
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="7"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              />
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="8"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              />
+              <div
+                aria-hidden="true"
+                class="slick-slide"
+                data-index="9"
+                style="outline: none; width: 0px;"
+                tabindex="-1"
+              />
+            </div>
+          </div>
+          <div
+            class="arrow_container"
+          >
+            <div
+              class="arrow next"
+            >
+              <button
+                class="button transparent L"
+              >
+                <svg
+                  fill="currentColor"
+                  height="30"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h24v24H0V0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M6.23 20.23L8 22l10-10L8 2 6.23 3.77 14.46 12z"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
         </div>
@@ -3439,7 +3897,38 @@ exports[`carousel number array 1`] = `
       </div>
       <div
         class="slick-slider slick-initialized"
+        dir="ltr"
       >
+        <div
+          class="arrow_container"
+        >
+          <div
+            class="arrow prev"
+          >
+            <button
+              class="button transparent L"
+              disabled=""
+            >
+              <svg
+                fill="currentColor"
+                height="30"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                  fill="none"
+                />
+                <path
+                  d="M17.77 3.77L16 2 6 12l10 10 1.77-1.77L9.54 12z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
         <div
           class="slick-list"
         >
@@ -3470,7 +3959,9 @@ exports[`carousel number array 1`] = `
                       data-nimg="1"
                       decoding="async"
                       height="360"
-                      src=""
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                       style="color: transparent;"
                       width="234"
                     />
@@ -3504,11 +3995,11 @@ exports[`carousel number array 1`] = `
                             class="button square M"
                           >
                             <svg
-                              class="mirrored"
                               fill="currentColor"
                               height="1em"
                               stroke="currentColor"
                               stroke-width="0"
+                              style="transform: scale(-1, 1);"
                               viewBox="0 0 512 512"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
@@ -3588,32 +4079,28 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -3628,8 +4115,7 @@ exports[`carousel number array 1`] = `
                             class="bar"
                           >
                             <div
-                              class="barValue gray  "
-                              data-testid="bar"
+                              class="barValue red"
                             />
                           </div>
                         </div>
@@ -3638,7 +4124,11 @@ exports[`carousel number array 1`] = `
                         >
                           <div
                             class="info__row"
-                          />
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
                         </section>
                       </div>
                     </div>
@@ -3676,7 +4166,9 @@ exports[`carousel number array 1`] = `
                       data-nimg="1"
                       decoding="async"
                       height="360"
-                      src=""
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                       style="color: transparent;"
                       width="234"
                     />
@@ -3710,11 +4202,11 @@ exports[`carousel number array 1`] = `
                             class="button square M"
                           >
                             <svg
-                              class="mirrored"
                               fill="currentColor"
                               height="1em"
                               stroke="currentColor"
                               stroke-width="0"
+                              style="transform: scale(-1, 1);"
                               viewBox="0 0 512 512"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
@@ -3794,32 +4286,28 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -3834,8 +4322,7 @@ exports[`carousel number array 1`] = `
                             class="bar"
                           >
                             <div
-                              class="barValue gray  "
-                              data-testid="bar"
+                              class="barValue red"
                             />
                           </div>
                         </div>
@@ -3844,7 +4331,11 @@ exports[`carousel number array 1`] = `
                         >
                           <div
                             class="info__row"
-                          />
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
                         </section>
                       </div>
                     </div>
@@ -3882,7 +4373,9 @@ exports[`carousel number array 1`] = `
                       data-nimg="1"
                       decoding="async"
                       height="360"
-                      src=""
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                       style="color: transparent;"
                       width="234"
                     />
@@ -3916,11 +4409,11 @@ exports[`carousel number array 1`] = `
                             class="button square M"
                           >
                             <svg
-                              class="mirrored"
                               fill="currentColor"
                               height="1em"
                               stroke="currentColor"
                               stroke-width="0"
+                              style="transform: scale(-1, 1);"
                               viewBox="0 0 512 512"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
@@ -4000,32 +4493,28 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -4040,8 +4529,7 @@ exports[`carousel number array 1`] = `
                             class="bar"
                           >
                             <div
-                              class="barValue gray  "
-                              data-testid="bar"
+                              class="barValue red"
                             />
                           </div>
                         </div>
@@ -4050,7 +4538,11 @@ exports[`carousel number array 1`] = `
                         >
                           <div
                             class="info__row"
-                          />
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
                         </section>
                       </div>
                     </div>
@@ -4088,7 +4580,9 @@ exports[`carousel number array 1`] = `
                       data-nimg="1"
                       decoding="async"
                       height="360"
-                      src=""
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                       style="color: transparent;"
                       width="234"
                     />
@@ -4122,11 +4616,11 @@ exports[`carousel number array 1`] = `
                             class="button square M"
                           >
                             <svg
-                              class="mirrored"
                               fill="currentColor"
                               height="1em"
                               stroke="currentColor"
                               stroke-width="0"
+                              style="transform: scale(-1, 1);"
                               viewBox="0 0 512 512"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
@@ -4206,32 +4700,28 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -4246,8 +4736,7 @@ exports[`carousel number array 1`] = `
                             class="bar"
                           >
                             <div
-                              class="barValue gray  "
-                              data-testid="bar"
+                              class="barValue red"
                             />
                           </div>
                         </div>
@@ -4256,7 +4745,11 @@ exports[`carousel number array 1`] = `
                         >
                           <div
                             class="info__row"
-                          />
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
                         </section>
                       </div>
                     </div>
@@ -4294,7 +4787,9 @@ exports[`carousel number array 1`] = `
                       data-nimg="1"
                       decoding="async"
                       height="360"
-                      src=""
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
                       style="color: transparent;"
                       width="234"
                     />
@@ -4328,11 +4823,11 @@ exports[`carousel number array 1`] = `
                             class="button square M"
                           >
                             <svg
-                              class="mirrored"
                               fill="currentColor"
                               height="1em"
                               stroke="currentColor"
                               stroke-width="0"
+                              style="transform: scale(-1, 1);"
                               viewBox="0 0 512 512"
                               width="1em"
                               xmlns="http://www.w3.org/2000/svg"
@@ -4412,32 +4907,28 @@ exports[`carousel number array 1`] = `
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                             <div
                               class="bar"
                             >
                               <div
-                                class="barValue gray  "
-                                data-testid="bar"
+                                class="barValue red"
                               />
                             </div>
                           </div>
@@ -4452,8 +4943,7 @@ exports[`carousel number array 1`] = `
                             class="bar"
                           >
                             <div
-                              class="barValue gray  "
-                              data-testid="bar"
+                              class="barValue red"
                             />
                           </div>
                         </div>
@@ -4462,7 +4952,11 @@ exports[`carousel number array 1`] = `
                         >
                           <div
                             class="info__row"
-                          />
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
                         </section>
                       </div>
                     </div>
@@ -4477,6 +4971,470 @@ exports[`carousel number array 1`] = `
                 </a>
               </div>
             </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="5"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <a
+                  class="card"
+                  draggable="false"
+                  href="/watch/undefined"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="imageSection hover"
+                  >
+                    <img
+                      alt="title"
+                      data-nimg="1"
+                      decoding="async"
+                      height="360"
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+                      style="color: transparent;"
+                      width="234"
+                    />
+                    <div
+                      class="props"
+                    >
+                      <div
+                        class="btns__container"
+                      >
+                        <div
+                          class="btns"
+                        >
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              style="transform: scale(-1, 1);"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="none"
+                                height="378.2"
+                                rx="31.52"
+                                stroke-miterlimit="10"
+                                stroke-width="32"
+                                transform="rotate(-45 312.002 311.994)"
+                                width="63.03"
+                                x="280.48"
+                                y="122.9"
+                              />
+                              <path
+                                d="M178.38 178.38a31.64 31.64 0 000 44.75L223.25 268 268 223.25l-44.87-44.87a31.64 31.64 0 00-44.75 0z"
+                              />
+                              <path
+                                d="M48 192h48M90.18 90.18l33.94 33.94M192 48v48m101.82-5.82l-33.94 33.94M124.12 259.88l-33.94 33.94"
+                                stroke-linecap="round"
+                                stroke-miterlimit="10"
+                                stroke-width="32"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 24 24"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9A7.902 7.902 0 014 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1A7.902 7.902 0 0120 12c0 4.42-3.58 8-8 8z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="info"
+                      >
+                        <div
+                          class="ratings"
+                        >
+                          <div
+                            class="graphs"
+                          >
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="singleGraph"
+                        >
+                          <span>
+                            актёры
+                          </span>
+                          <div
+                            class="bar"
+                          >
+                            <div
+                              class="barValue red"
+                            />
+                          </div>
+                        </div>
+                        <section
+                          class="info__text"
+                        >
+                          <div
+                            class="info__row"
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="textSection"
+                  >
+                    <p
+                      class="p M"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active"
+              data-index="6"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <a
+                  class="card"
+                  draggable="false"
+                  href="/watch/undefined"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                >
+                  <div
+                    class="imageSection hover"
+                  >
+                    <img
+                      alt="title"
+                      data-nimg="1"
+                      decoding="async"
+                      height="360"
+                      loading="lazy"
+                      src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+                      srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+                      style="color: transparent;"
+                      width="234"
+                    />
+                    <div
+                      class="props"
+                    >
+                      <div
+                        class="btns__container"
+                      >
+                        <div
+                          class="btns"
+                        >
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 16 16"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              style="transform: scale(-1, 1);"
+                              viewBox="0 0 512 512"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="none"
+                                height="378.2"
+                                rx="31.52"
+                                stroke-miterlimit="10"
+                                stroke-width="32"
+                                transform="rotate(-45 312.002 311.994)"
+                                width="63.03"
+                                x="280.48"
+                                y="122.9"
+                              />
+                              <path
+                                d="M178.38 178.38a31.64 31.64 0 000 44.75L223.25 268 268 223.25l-44.87-44.87a31.64 31.64 0 00-44.75 0z"
+                              />
+                              <path
+                                d="M48 192h48M90.18 90.18l33.94 33.94M192 48v48m101.82-5.82l-33.94 33.94M124.12 259.88l-33.94 33.94"
+                                stroke-linecap="round"
+                                stroke-miterlimit="10"
+                                stroke-width="32"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                              />
+                            </svg>
+                          </button>
+                          <button
+                            class="button square M"
+                          >
+                            <svg
+                              fill="currentColor"
+                              height="1em"
+                              stroke="currentColor"
+                              stroke-width="0"
+                              viewBox="0 0 24 24"
+                              width="1em"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M0 0h24v24H0z"
+                                fill="none"
+                              />
+                              <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9A7.902 7.902 0 014 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1A7.902 7.902 0 0120 12c0 4.42-3.58 8-8 8z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                      <div
+                        class="info"
+                      >
+                        <div
+                          class="ratings"
+                        >
+                          <div
+                            class="graphs"
+                          >
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                            <div
+                              class="bar"
+                            >
+                              <div
+                                class="barValue red"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="singleGraph"
+                        >
+                          <span>
+                            актёры
+                          </span>
+                          <div
+                            class="bar"
+                          >
+                            <div
+                              class="barValue red"
+                            />
+                          </div>
+                        </div>
+                        <section
+                          class="info__text"
+                        >
+                          <div
+                            class="info__row"
+                          >
+                            2011, 
+                            undefined, 
+                            undefined
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="textSection"
+                  >
+                    <p
+                      class="p M"
+                    />
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide"
+              data-index="7"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            />
+            <div
+              aria-hidden="true"
+              class="slick-slide"
+              data-index="8"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            />
+            <div
+              aria-hidden="true"
+              class="slick-slide"
+              data-index="9"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            />
+          </div>
+        </div>
+        <div
+          class="arrow_container"
+        >
+          <div
+            class="arrow next"
+          >
+            <button
+              class="button transparent L"
+            >
+              <svg
+                fill="currentColor"
+                height="30"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 24 24"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0h24v24H0V0z"
+                  fill="none"
+                />
+                <path
+                  d="M6.23 20.23L8 22l10-10L8 2 6.23 3.77 14.46 12z"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>

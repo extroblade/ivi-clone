@@ -1,7 +1,5 @@
-@import '@/styles/variables.scss';
-
 .find {
-  background-color: $color-card-hover;
+  background-color: var(--color-card-hover);
   width: 180%;
   @media screen and (max-width: 879px) {
     width: 100%;
@@ -9,7 +7,7 @@
   input {
     width: 100%;
     background-color: rgb(42, 33, 63);
-    color: $color-input;
+    color: var(--color-input);
     padding: 10px;
   }
 }

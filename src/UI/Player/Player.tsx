@@ -7,7 +7,7 @@ import { IoPlayOutline } from 'react-icons/io5';
 import { AddToFavoritesButton, TurnNotificationsButton } from '@/components';
 import { scrollTop } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
 import { Button } from '@/UI';
 import { PlayerProps } from '@/UI/Player/Player.props';
 

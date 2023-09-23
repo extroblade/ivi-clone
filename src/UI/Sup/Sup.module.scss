@@ -1,8 +1,6 @@
-@import '@/styles/variables.scss';
-
 .sup {
   box-sizing: border-box;
-  color: $color-secondary;
+  color: var(--color-secondary);
   display: inline-block;
   font-size: 13px;
   font-style: normal;

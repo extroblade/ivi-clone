@@ -5,8 +5,8 @@ import { BsTrash } from 'react-icons/bs';
 
 import { useSearchParamsState } from '@/hooks';
 import NotFoundPage from '@/pages/404';
-import { useFetchAllFilmsQuery } from '@/services';
-import { iFilm } from '@/types/kinopoiskTypes';
+import { useFetchAllFilmsQuery } from '@/shared/services';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { AddNewMovie, Button, Card, Htag, Loader } from '@/UI';
 
 const PAGE_LIMIT = 10;
@@ -28,11 +28,11 @@ const Admin = () => {
       <div>
         <Htag tag={'h3'}>{t('descriptions.admin')}</Htag>
         <AddNewMovie />
-        {!movies?.length ? (
+        {!movies?.total ? (
           <Loader />
         ) : (
           <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            {movies.slice(page * PAGE_LIMIT, PAGE_LIMIT * (page + 1)).map((movie: iFilm) => (
+            {movies.items.slice(page * PAGE_LIMIT, PAGE_LIMIT * (page + 1)).map((movie: iFilm) => (
               <div
                 key={movie.kinopoiskId}
                 style={{
@@ -45,7 +45,7 @@ const Admin = () => {
               >
                 <div>{movie.kinopoiskId}</div>
                 <Card card={movie} />
-                {!movies?.length && <div>mock data, unable to change</div>}
+                {!movies?.total && <div>mock data, unable to change</div>}
                 <Button appearance={'circle'} style={{ margin: '3px' }} onClick={() => del()}>
                   <BsTrash />
                 </Button>
@@ -55,8 +55,8 @@ const Admin = () => {
         )}
 
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          {movies?.length &&
-            [...Array(Math.ceil(movies?.length / 10))].map((i, index) => (
+          {movies?.total &&
+            [...Array(Math.ceil(movies?.total / 10))].map((i, index) => (
               <Button style={{ margin: '10px' }} key={index} onClick={() => setPage(index)}>
                 {index + 1}
               </Button>

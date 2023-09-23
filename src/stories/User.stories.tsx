@@ -1,10 +1,20 @@
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { User } from '@/components';
 
-export default {
+const meta: Meta<typeof User> = {
   title: 'Main/User',
   component: User,
 };
 
-export const UserStory = () => <User />;
+export default meta;
+type Story = StoryObj<typeof User>;
 
-UserStory.parameters = {};
+export const Default: Story = {
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+  },
+  args: {},
+};

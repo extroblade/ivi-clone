@@ -1,10 +1,6 @@
-const previewAnnotations: {
-  staticDirs: string[];
-  stories: string[];
-  framework: { name: string; options: {} };
-  docs: { autodocs: string };
-  addons: string[];
-} = {
+import { StorybookConfig } from "@storybook/nextjs";
+
+const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   staticDirs: ['../public'],
   addons: [
@@ -21,4 +17,4 @@ const previewAnnotations: {
     autodocs: 'tag',
   },
 };
-export default previewAnnotations;
+export default config;

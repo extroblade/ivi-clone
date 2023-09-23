@@ -1,5 +1,3 @@
-export * from './ArrowButtons/NextArrow';
-export * from './ArrowButtons/PrevArrow';
 export * from './BackButton/BackButton';
 export * from './CardButtons';
 export * from './InputFileButton/InputFileButton';
@@ -9,3 +7,5 @@ export * from './ScrollToTopButton/ScrollToTopButton';
 export * from './SearchButton/SearchButton';
 export * from './SwitchLanguageButton/LanguageSwitcher';
 export * from './VoteButtons';
+export * from '@/components/Buttons/Arrows/NextArrow';
+export * from '@/components/Buttons/Arrows/PrevArrow';

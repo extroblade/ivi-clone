@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { writeDate } from '@/helpers';
-import { iReviewsItem } from '@/types/kinopoiskTypes';
+import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
 import { Button, CommentAvatar, CommentInput, P, Vote } from '@/UI';
 
 import styles from './Comment.module.scss';

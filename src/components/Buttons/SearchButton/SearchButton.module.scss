@@ -1,16 +1,13 @@
-@import '../../../styles/variables';
-@import '@/styles/mixins.scss';
-
 .search {
   cursor: pointer;
-  margin-left: rem(20);
+  margin-left: 20px;
   display: flex;
   align-items: center;
-  font-size: rem(14);
+  font-size: 14px;
   opacity: 0.5;
-  transition: $time-main;
+  transition: var(--transition-main);
   z-index: 10;
-  @media (max-width: $pc) {
+  @media (max-width: 1160px) {
     display: none;
   }
   &:hover {
@@ -19,7 +16,7 @@
 }
 
 .icon {
-  margin-right: rem(5);
-  width: rem(20);
-  height: rem(20);
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
 }

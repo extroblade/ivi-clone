@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 
 import { PersonList } from '@/components';
 import { countTime } from '@/helpers';
-import { iFilm } from '@/types/kinopoiskTypes';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Explanations, MovieOptions, MovieTitle, RatingBlock } from '@/UI';
 
 import styles from './MovieInfo.module.scss';

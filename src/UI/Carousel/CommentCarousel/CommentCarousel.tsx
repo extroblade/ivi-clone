@@ -1,13 +1,13 @@
 import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 
 import { NextArrow, PrevArrow } from '@/components';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
 import { scrollTop } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { useFetchCommentsQuery } from '@/services';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
+import { useFetchCommentsQuery } from '@/shared/services';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
 import { Button, CommentCard, Loader, Title } from '@/UI';
 
 export const CommentCarousel: FC = () => {
@@ -24,7 +24,7 @@ export const CommentCarousel: FC = () => {
       refetch();
     }
   }, [currentMovie]);
-  const settings = {
+  const settings: Settings = {
     dots: false,
     infinite: false,
     speed: 500,

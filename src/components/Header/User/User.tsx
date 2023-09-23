@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { signOut, useSession } from 'next-auth/react';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +20,7 @@ export const User: FC = (): JSX.Element => {
   const router = useRouter();
   const logoutFunc = () => {
     signOut().then(() => {
-      router.push('/profile').then(() => {});
+      router.push('/profile');
     });
   };
 

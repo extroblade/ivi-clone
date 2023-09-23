@@ -8,7 +8,11 @@ import { useDispatch } from 'react-redux';
 import { professionTypes } from '@/constants';
 import { scrollTop } from '@/helpers';
 import { useAppSelector } from '@/hooks';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store/reducers/modals.slice';
+import {
+  selectModal,
+  setCurrentMovie,
+  setShowWatchPageModal,
+} from '@/shared/store/reducers/modals.slice';
 import { P, Title } from '@/UI';
 
 import styles from './PersonsGallery.module.scss';
@@ -25,7 +29,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   };
   return (
     <>
-      {list?.length > 0 && (
+      {list?.length && (
         <div className={styles.wrap}>
           <Title text={t('sections.actors-creators')} sup={list?.length || 0} onClick={open} />
           <div className={styles.list}>

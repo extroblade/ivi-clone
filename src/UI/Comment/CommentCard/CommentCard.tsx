@@ -2,8 +2,8 @@ import React, { FC, useMemo } from 'react';
 
 import { writeDate } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
-import { iReviewsItem } from '@/types/kinopoiskTypes';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
+import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
 import { Vote } from '@/UI';
 
 import styles from './CommentCard.module.scss';

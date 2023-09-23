@@ -3,8 +3,8 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppSelector } from '@/hooks';
-import { useFetchAllFilmsQuery } from '@/services';
-import { FilmType, selectFilters } from '@/store';
+import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
+import { FilmType, selectFilters } from '@/shared/store';
 import { Button, Card, Htag, Loader } from '@/UI';
 
 import styles from './Grid.module.scss';
@@ -19,7 +19,7 @@ export const Grid: FC<iGrid> = ({ type }) => {
   const isInView = useInView(buttonRef);
   const { genre, yearTo, country, yearFrom, order, ratingTo, ratingFrom } =
     useAppSelector(selectFilters);
-  const params = {
+  const params: QueryParams = {
     type,
     page,
     yearTo,
@@ -37,9 +37,10 @@ export const Grid: FC<iGrid> = ({ type }) => {
 
   const { t } = useTranslation();
   const showMore = () => {
-    if (page < data?.totalPages) {
-      setPage((page) => page + 1);
+    if (!data?.totalPages || page >= data?.totalPages) {
+      return;
     }
+    setPage((page) => page + 1);
   };
   const [movies, setMovies] = useState<any[]>([]);
   useEffect(() => {

@@ -3,7 +3,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiUser } from 'react-icons/fi';
 
-import children from '@/../public/images/children.png';
 import { Htag, ProfileIcon } from '@/UI';
 
 import styles from './ProfileSelector.module.scss';
@@ -29,7 +28,11 @@ export const ProfileSelector = () => {
           )}
           <span>{username}</span>
         </div>
-        <ProfileIcon image={children} name={t('sections.children')} isActive={false} />
+        <ProfileIcon
+          image={'/images/children.png'}
+          name={t('sections.children')}
+          isActive={false}
+        />
         <ProfileIcon name={t('buttons.new-one')} isActive={false} />
       </div>
     </div>

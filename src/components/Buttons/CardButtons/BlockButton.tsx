@@ -3,7 +3,7 @@ import { MdBlock } from 'react-icons/md';
 
 import { createNewAlert } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setActiveAlerts } from '@/store';
+import { selectModal, setActiveAlerts } from '@/shared/store';
 import { Button } from '@/UI';
 
 export const BlockButton = () => {

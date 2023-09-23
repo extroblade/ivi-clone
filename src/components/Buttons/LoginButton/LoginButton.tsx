@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { TiUserOutline } from 'react-icons/ti';
 
 import { useAppDispatch } from '@/hooks';
-import { setShowAuth } from '@/store';
+import { setShowAuth } from '@/shared/store';
 import { Button } from '@/UI';
 
 import styles from './LoginButton.module.scss';

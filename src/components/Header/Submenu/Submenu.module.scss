@@ -1,9 +1,6 @@
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
-
 .submenu {
   .submenu__body {
-    @media screen and (max-width: $pc) {
+    @media screen and (max-width: 1160px) {
       display: none;
     }
   }
@@ -17,17 +14,16 @@
     }
   }
   &__button {
-    width: rem(23);
-    height: rem(23);
-    margin-left: rem(15);
+    width: 23px;
+    height: 23px;
+    margin-left: 15px;
     font-weight: 400;
     position: relative;
     z-index: 10;
     opacity: 0.5;
     cursor: pointer;
-    //transition: $time-main;
     & img {
-      padding: rem(5);
+      padding: 5px;
     }
     &:hover {
       opacity: 1;
@@ -44,13 +40,13 @@
     opacity: 0.5;
     border: 2px solid white;
     border-radius: 8px;
-    width: rem(48);
-    height: rem(48);
-    padding: rem(9);
+    width: 48px;
+    height: 48px;
+    padding: 9px;
     cursor: pointer;
-    transition: $time-main;
+    transition: var(--transition-main);
     & img {
-      padding: rem(5);
+      padding: 5px;
     }
     &:hover {
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
@@ -68,13 +64,13 @@
     z-index: 10;
     opacity: 0.9;
     border-radius: 8px;
-    width: rem(48);
-    height: rem(48);
+    width: 48px;
+    height: 48px;
     cursor: pointer;
     object-fit: cover;
-    transition: $time-main;
+    transition: var(--transition-main);
     & img {
-      padding: rem(0);
+      padding: 0;
     }
     &:hover {
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
@@ -109,8 +105,8 @@
     left: -1%;
     right: -1%;
     width: 102%;
-    min-height: rem(300);
-    background-color: $color-submenu-background;
+    min-height: 3px;
+    background-color: var(--color-submenu-background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,7 +115,7 @@
     visibility: hidden;
     touch-action: none;
     pointer-events: none;
-    border-radius: rem(10);
+    border-radius: 10px;
     z-index: 1;
     transition: all 0.3s ease-in;
     &:hover {
@@ -131,8 +127,8 @@
   }
   &__icon {
     opacity: 0.5;
-    font-size: rem(50);
-    margin-bottom: rem(30);
+    font-size: 5px;
+    margin-bottom: 3px;
   }
   & p {
     opacity: 0.5;

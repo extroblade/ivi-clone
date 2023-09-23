@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { FilmOrder, FilmType } from '@/store';
+import { FilmOrder, FilmType } from '@/shared/store';
 import {
   iAwards,
   iBoxOffice,
@@ -15,17 +15,17 @@ import {
   iSeasons,
   iSimilar,
   iVideos,
-} from '@/types/kinopoiskTypes';
+} from '@/shared/types/kinopoiskTypes';
 
 export type QueryParams = {
-  countries?: string;
-  genres?: string;
+  countries?: string | number;
+  genres?: string | number;
   order?: FilmOrder;
   type?: FilmType;
   ratingFrom?: number;
   ratingTo?: number;
-  yearFrom?: number;
-  yearTo?: number;
+  yearFrom?: number | string;
+  yearTo?: number | string;
   keyword?: string;
   page?: number;
 };
@@ -71,21 +71,20 @@ export const movieApi = createApi({
         },
       }),
     }),
-    fetchTopFilm: build.query<iFetchedFilms, any>({
+    fetchTopFilm: build.query<iFetchedFilms, { type?: string; page?: number }>({
       query: ({ type, page = 1 }) => ({
         url: `top`,
         params: { type, page },
       }),
     }),
-    fetchFilmPremieres: build.query<iFilm[], any>({
+    fetchFilmPremieres: build.query<iFilm[], { year?: number; month?: number }>({
       query: ({ year = new Date().getFullYear(), month = new Date().getMonth() }) => ({
         url: `premieres`,
         params: { year, month },
       }),
     }),
-    fetchFilmFilters: build.query<iFilters, null>({
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      query: (_) => ({
+    fetchFilmFilters: build.query<iFilters, void>({
+      query: () => ({
         url: `filters`,
       }),
     }),
@@ -144,49 +143,17 @@ export const movieApi = createApi({
         url: `${id}/reviews`,
       }),
     }),
-    // providesTags: (result) =>
-    //   result?.length
-    //     ? [...result.map(({ id }) => ({ type: 'Movies', id })), { type: 'Movies', id: 'LIST' }]
-    //     : [{ type: 'Movies', id: 'LIST' }],
-    // addOneFilm: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
-    //   query: (movie) => ({
-    //     url: '/',
-    //     method: 'POST',
-    //     body: movie,
-    //   }),
-    //   invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
-    // }),
-    // updateMovie: build.mutation<IMovie | IMovieOld, IMovie | IMovieOld>({
-    //   query: (movie) => ({
-    //     url: `/${movie.id}`,
-    //     method: 'PUT',
-    //     body: movie,
-    //   }),
-    //   invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
-    // }),
-    // deleteOneFilm: build.mutation<IMovie | IMovieOld, string>({
-    //   query: (id) => ({
-    //     url: `/${id}`,
-    //     method: 'DELETE',
-    //   }),
-    //   invalidatesTags: [{ type: 'Movies', id: 'LIST' }],
-    // }),
   }),
 });
 
 export const {
   useFetchAllFilmsQuery,
   useFetchTopFilmQuery,
-  useFetchFilmPremieresQuery,
   useFetchFilmFiltersQuery,
-  useFetchFilmImagesQuery,
   useFetchFilmSimilarQuery,
   useFetchFilmVideoQuery,
   useFetchFilmAwardsQuery,
-  useFetchFilmDistributionsQuery,
   useFetchFilmFactsQuery,
-  useFetchFilmSeasonsQuery,
   useFetchFilmExternalSourcesQuery,
-  useFetchOneFilmQuery,
   useFetchCommentsQuery,
 } = movieApi;

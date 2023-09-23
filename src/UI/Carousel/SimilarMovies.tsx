@@ -2,8 +2,8 @@ import i18next from 'i18next';
 import React, { FC } from 'react';
 
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
-import { iSimilar } from '@/types/kinopoiskTypes';
+import { selectModal } from '@/shared/store';
+import { iSimilar } from '@/shared/types/kinopoiskTypes';
 import { Carousel } from '@/UI';
 interface iSimilarCarousel {
   similar?: iSimilar;
@@ -16,5 +16,5 @@ export const SimilarMovies: FC<iSimilarCarousel> = ({ similar }) => {
     i18next.language == 'en' ? `Movies similar to «${enName}»` : `С фильмом «${ruName}» смотрят`;
 
   if (!similar?.total) return <></>;
-  return <Carousel title={title} movies={similar?.items} route={'/'} />;
+  return <Carousel hover={false} title={title} movies={similar?.items} route={'/'} />;
 };

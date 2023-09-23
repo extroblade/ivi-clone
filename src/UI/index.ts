@@ -14,7 +14,6 @@ export * from './Explanations/Explanations';
 export * from './FullScreenModal/FullScreenModal';
 export * from './Grid/Grid';
 export * from './Htag/Htag';
-export * from './Input/Input';
 export * from './Loader/Loader';
 export * from './Movie';
 export * from './NotFound/NotFound';

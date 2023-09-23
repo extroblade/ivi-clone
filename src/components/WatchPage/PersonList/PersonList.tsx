@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { PersonCard } from '@/components';
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
-import { iPerson } from '@/types/kinopoiskTypes';
+import { selectModal } from '@/shared/store';
+import { iPerson } from '@/shared/types/kinopoiskTypes';
 
 import styles from './PersonList.module.scss';
 import { PersonListProps } from './PersonList.props';

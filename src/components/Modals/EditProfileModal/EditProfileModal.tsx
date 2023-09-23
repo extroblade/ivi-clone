@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setShowEditProfile } from '@/store';
+import { selectModal, setShowEditProfile } from '@/shared/store';
 import { FullScreenModal } from '@/UI';
 export const EditProfileModal = () => {
   const { showEditProfile } = useAppSelector(selectModal);

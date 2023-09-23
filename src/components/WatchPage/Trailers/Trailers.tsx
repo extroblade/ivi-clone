@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { scrollTop } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/store';
-import { iVideos } from '@/types/kinopoiskTypes';
+import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
+import { iVideos } from '@/shared/types/kinopoiskTypes';
 import { P, Title } from '@/UI';
 
 import styles from './Trailers.module.scss';

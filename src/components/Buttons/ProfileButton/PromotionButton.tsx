@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsLightningChargeFill } from 'react-icons/bs';
 
-import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
 import { iPB } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
 
 export const PromotionButton: FC<iPB> = ({ type }) => {

@@ -6,7 +6,7 @@ import { RxCross2 } from 'react-icons/rx';
 
 import { SortDropdown } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { resetFilters, selectFilters } from '@/store';
+import { resetFilters, selectFilters } from '@/shared/store';
 import { Button, InputRange, Plank } from '@/UI';
 
 import styles from './Filters.module.scss';

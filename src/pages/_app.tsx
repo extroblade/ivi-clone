@@ -1,5 +1,5 @@
-import '@/styles/global.scss';
-import '@/i18n/i18n';
+import '@/app/styles/global.scss';
+import '@/app/(config)/i18n/i18n';
 
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
@@ -8,9 +8,9 @@ import { SessionProvider } from 'next-auth/react';
 import { Next13ProgressBar } from 'next13-progressbar';
 import { Provider } from 'react-redux';
 
+import { MainLayout } from '@/app/layouts/MainLayout';
 import { Modals } from '@/components';
-import { MainLayout } from '@/layouts/MainLayout';
-import { wrapper } from '@/store';
+import { wrapper } from '@/shared/store';
 
 const iviSans = localFont({
   src: [

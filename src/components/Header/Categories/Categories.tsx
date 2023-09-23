@@ -2,9 +2,9 @@ import Link from 'next/link';
 import React, { FC, useEffect } from 'react';
 
 import { useAppDispatch } from '@/hooks/redux';
-import { useFetchFilmFiltersQuery } from '@/services';
-import { setCountries, setGenres } from '@/store';
-import { ILink } from '@/types/types';
+import { useFetchFilmFiltersQuery } from '@/shared/services';
+import { setCountries, setGenres } from '@/shared/store';
+import { ILink } from '@/shared/types/types';
 
 import styles from './Categories.module.scss';
 
@@ -25,8 +25,6 @@ const collections: ILink[] = [
 ];
 
 export const Categories: FC = (): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   const { data, error } = useFetchFilmFiltersQuery();
   const dispatch = useAppDispatch();
   useEffect(() => {

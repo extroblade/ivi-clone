@@ -2,8 +2,8 @@ import React, { FC, useEffect, useState } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { useFetchFilmFiltersQuery } from '@/services';
-import { selectFilters, setCountry, setGenre, setYearFrom, setYearTo } from '@/store';
+import { useFetchFilmFiltersQuery } from '@/shared/services';
+import { selectFilters, setCountry, setGenre, setYearFrom, setYearTo } from '@/shared/store';
 import { Dropdown } from '@/UI';
 
 import styles from './Dropdown.module.scss';
@@ -20,8 +20,8 @@ export const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Elemen
   const { data } = useFetchFilmFiltersQuery();
   const { genre, yearTo, country } = useAppSelector(selectFilters);
   const dispatch = useAppDispatch();
-  const [current, setCurrent] = useState([]);
-  const [chosen, setChosen] = useState<string | null>(null);
+  const [current, setCurrent] = useState<any[] | undefined>([]);
+  const [chosen, setChosen] = useState<any>(null);
   useEffect(() => {
     switch (type) {
       case 'genre':
@@ -51,7 +51,7 @@ export const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Elemen
     }
   }, [chosen]);
 
-  const set = (e, item) => {
+  const set = (e: React.MouseEvent<HTMLLabelElement>, item: any) => {
     e.preventDefault();
     e.stopPropagation();
     if (chosen == item) {
@@ -66,7 +66,7 @@ export const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Elemen
         <div className={styles.list_container}>
           <ul>
             {current?.length &&
-              current.map((item) => {
+              current.map((item: any) => {
                 let itemTitle;
                 let act;
                 switch (type) {

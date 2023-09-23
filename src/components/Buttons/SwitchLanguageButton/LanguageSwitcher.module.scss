@@ -1,8 +1,6 @@
-@import '@/styles/variables.scss';
-
 .switcher_container {
   margin: 0 30px;
-  @media (max-width: $mobile) {
+  @media (max-width: 600px) {
     margin: 0 10px;
   }
 }
@@ -14,8 +12,8 @@
   align-items: center;
   border-radius: 10px;
   border: 0;
-  background-color: $color-submenu-background;
-  transition: $time-main;
+  background-color: var(--color-submenu-background);
+  transition: var(--transition-main);
   .switcher_item {
     text-transform: capitalize;
     cursor: pointer;
@@ -23,7 +21,7 @@
     border-radius: 10px;
     color: white;
   }
-  @media (max-width: $mobile) {
+  @media (max-width: 600px) {
     width: 100%;
     aspect-ratio: 1;
     padding: 0;

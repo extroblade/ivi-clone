@@ -18,7 +18,9 @@ exports[`card card object empty card  1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -45,32 +47,28 @@ exports[`card card object empty card  1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -85,8 +83,7 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -128,7 +125,9 @@ exports[`card card object empty card  1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -155,32 +154,28 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -195,8 +190,7 @@ exports[`card card object empty card  1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -295,7 +289,9 @@ exports[`card params all 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -329,11 +325,11 @@ exports[`card params all 1`] = `
                   class="button square M"
                 >
                   <svg
-                    class="mirrored"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
                     stroke-width="0"
+                    style="transform: scale(-1, 1);"
                     viewBox="0 0 512 512"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -413,32 +409,28 @@ exports[`card params all 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -453,8 +445,7 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -496,7 +487,9 @@ exports[`card params all 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -530,11 +523,11 @@ exports[`card params all 1`] = `
                 class="button square M"
               >
                 <svg
-                  class="mirrored"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
                   stroke-width="0"
+                  style="transform: scale(-1, 1);"
                   viewBox="0 0 512 512"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -614,32 +607,28 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -654,8 +643,7 @@ exports[`card params all 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -754,7 +742,9 @@ exports[`card params block 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -803,32 +793,28 @@ exports[`card params block 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -843,8 +829,7 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -886,7 +871,9 @@ exports[`card params block 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -935,32 +922,28 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -975,8 +958,7 @@ exports[`card params block 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -1075,7 +1057,9 @@ exports[`card params book 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -1120,32 +1104,28 @@ exports[`card params book 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -1160,8 +1140,7 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1203,7 +1182,9 @@ exports[`card params book 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -1248,32 +1229,28 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1288,8 +1265,7 @@ exports[`card params book 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -1388,7 +1364,9 @@ exports[`card params find 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -1405,11 +1383,11 @@ exports[`card params find 1`] = `
                   class="button square M"
                 >
                   <svg
-                    class="mirrored"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
                     stroke-width="0"
+                    style="transform: scale(-1, 1);"
                     viewBox="0 0 512 512"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1451,32 +1429,28 @@ exports[`card params find 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -1491,8 +1465,7 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1534,7 +1507,9 @@ exports[`card params find 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -1551,11 +1526,11 @@ exports[`card params find 1`] = `
                 class="button square M"
               >
                 <svg
-                  class="mirrored"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
                   stroke-width="0"
+                  style="transform: scale(-1, 1);"
                   viewBox="0 0 512 512"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -1597,32 +1572,28 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1637,8 +1608,7 @@ exports[`card params find 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -1737,7 +1707,9 @@ exports[`card params no hover 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -1764,32 +1736,28 @@ exports[`card params no hover 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -1804,8 +1772,7 @@ exports[`card params no hover 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1847,7 +1814,9 @@ exports[`card params no hover 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -1874,32 +1843,28 @@ exports[`card params no hover 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -1914,8 +1879,7 @@ exports[`card params no hover 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>
@@ -2014,7 +1978,9 @@ exports[`card params star 1`] = `
             data-nimg="1"
             decoding="async"
             height="360"
-            src=""
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
             style="color: transparent;"
             width="234"
           />
@@ -2059,32 +2025,28 @@ exports[`card params star 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue gray  "
-                      data-testid="bar"
+                      class="barValue red"
                     />
                   </div>
                 </div>
@@ -2099,8 +2061,7 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -2142,7 +2103,9 @@ exports[`card params star 1`] = `
           data-nimg="1"
           decoding="async"
           height="360"
-          src=""
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
           style="color: transparent;"
           width="234"
         />
@@ -2187,32 +2150,28 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue gray  "
-                    data-testid="bar"
+                    class="barValue red"
                   />
                 </div>
               </div>
@@ -2227,8 +2186,7 @@ exports[`card params star 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue gray  "
-                  data-testid="bar"
+                  class="barValue red"
                 />
               </div>
             </div>

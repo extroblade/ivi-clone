@@ -3,7 +3,6 @@ import React from 'react';
 import { IoColorWandOutline } from 'react-icons/io5';
 
 import { Button } from '@/UI';
-import styles from '@/UI/Card/Card.module.scss';
 
 export const FindSimilarButton = () => {
   const router = useRouter();
@@ -15,7 +14,7 @@ export const FindSimilarButton = () => {
   };
   return (
     <Button appearance={'square'} onClick={(e) => findSimilar(e)}>
-      <IoColorWandOutline className={styles.mirrored} />
+      <IoColorWandOutline style={{ transform: 'scale(-1, 1)' }} />
     </Button>
   );
 };

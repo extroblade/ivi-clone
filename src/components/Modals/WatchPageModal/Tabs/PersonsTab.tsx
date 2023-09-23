@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { StaffList } from '@/components/Modals/WatchPageModal/Tabs/StaffList';
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
+import { selectModal } from '@/shared/store';
 import { Htag } from '@/UI';
 
 export const PersonsTab = () => {

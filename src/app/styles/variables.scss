@@ -1,0 +1,23 @@
+:root {
+  --time-main: 0.3s;
+  --transition-main: all var(--time-main) ease-out;
+
+  --width-min: 320px;
+  --width-container: 1220px;
+  --padding-container: 20px;
+
+  --color-background: rgb(16, 14, 25);
+  --color-main: rgb(255, 255, 255);
+  --color-input: rgb(217, 215, 224);
+  --color-input-text: rgb(31, 27, 46);
+  --color-submenu-background: rgb(31, 27, 45);
+  --color-card-background: rgb(50, 44, 67);
+  --color-card-hover: rgb(63, 56, 86);
+  --color-accent: rgb(234, 0, 61);
+  --color-secondary: rgb(165, 161, 178);
+  --color-gray-text: rgb(126, 121, 143);
+
+  --color-danger: rgb(255, 84, 46);
+  --color-warning: rgb(255, 184, 44);
+  --color-success: rgb(115, 163, 47);
+}

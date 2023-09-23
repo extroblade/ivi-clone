@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 
 import { Carousel } from '@/UI';
 
-import { mockStore } from './Card.test';
+import { mockCard, mockStore } from './Card.test';
 
-const testArray = [1, 2, 3, 4, 5];
+const testArray = Array(10).fill(mockCard);
 
 describe('carousel', () => {
   test('number array', () => {

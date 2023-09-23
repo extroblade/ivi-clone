@@ -2,7 +2,7 @@ import React, { ChangeEvent, FC, memo, ReactNode, useEffect, useState } from 're
 
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { useDebounce } from '@/hooks';
-import { selectFilters, setRatingFrom } from '@/store';
+import { selectFilters, setRatingFrom } from '@/shared/store';
 import { P } from '@/UI';
 
 import styles from './Plank.module.scss';
@@ -18,7 +18,7 @@ interface iRange {
 export const InputRange: FC<iRange> = memo(
   ({ minLimit, maxLimit, range, children, type }): JSX.Element => {
     const { ratingFrom } = useAppSelector(selectFilters);
-    const [inputValue, setInputValue] = useState<number>(ratingFrom);
+    const [inputValue, setInputValue] = useState<number | string>(ratingFrom);
     const dispatch = useAppDispatch();
     const handler = (e: ChangeEvent<HTMLInputElement>) => {
       if (e.target.valueAsNumber < minLimit) {
@@ -57,7 +57,7 @@ export const InputRange: FC<iRange> = memo(
             value={ratingFrom}
             style={{
               background: `linear-gradient(90deg, #1f1b2d ${
-                ((ratingFrom - minLimit) * 100) / (maxLimit - minLimit)
+                ((+ratingFrom - minLimit) * 100) / (maxLimit - minLimit)
               }%, #A2002DFF 0%)`,
             }}
           />

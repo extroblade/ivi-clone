@@ -1,6 +1,3 @@
-@use 'sass:math';
-@import './variables.scss';
-
 #__next {
   height: 100%;
   padding: 0;
@@ -10,12 +7,12 @@
 html,
 body {
   overflow-x: hidden;
-  min-width: $minWidth + px;
+  min-width: var(--width-min);
   width: 100vw;
   line-height: 1;
   font-size: 16px;
-  background-color: $color-background;
-  color: $color-main;
+  background-color: var(--color-background);
+  color: var(--color-main);
   @media screen and (max-width: 1160px) {
     font-size: 12px;
   }
@@ -37,20 +34,20 @@ body {
 main {
   flex: 1 1 auto;
   margin: 0 20px;
-  padding: 0 math.div($containerPadding, 2) + px;
+  padding: 0 var(--padding-container);
   @media screen and (max-width: 1160px) {
     margin-bottom: 60px; //footer
   }
 }
 
 .container {
-  max-width: $maxWidthContainer + px;
+  max-width: var(--width-container);
   box-sizing: content-box;
   margin: 0 auto;
 }
 
 .header {
-  padding: 0 math.div($containerPadding, 2) + px;
+  padding: 0 var(--padding-container);
   margin: 0 20px;
   z-index: 3;
 }

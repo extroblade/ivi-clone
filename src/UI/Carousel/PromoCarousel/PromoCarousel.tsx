@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 
 import { ActivateCertificateButton, NextArrow, PrevArrow, PromotionButton } from '@/components';
 import { Button, Htag, P } from '@/UI';
@@ -155,7 +155,7 @@ export const PromoCarousel: FC = () => {
       btn: t('buttons.watch-sub'),
     },
   ];
-  const settings = {
+  const settings: Settings = {
     slidesToShow: 3,
     slidesToScroll: 1,
     speed: 300,

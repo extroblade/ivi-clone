@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlinePlaySquare } from 'react-icons/ai';
 
-import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
 
 export const CodeLoginButton = () => {
   const { t } = useTranslation();

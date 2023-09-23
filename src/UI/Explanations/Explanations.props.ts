@@ -1,4 +1,4 @@
-import { iFacts } from '@/types/kinopoiskTypes';
+import { iFacts } from '@/shared/types/kinopoiskTypes';
 
 export interface ExplanationsProps {
   facts?: iFacts;

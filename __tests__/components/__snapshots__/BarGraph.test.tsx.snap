@@ -9,8 +9,7 @@ exports[`BarGraphSnapshot 25% 1`] = `
         class="bar"
       >
         <div
-          class="barValue red  "
-          data-testid="bar"
+          class="barValue red"
           style="width: 25%;"
         />
       </div>
@@ -21,8 +20,7 @@ exports[`BarGraphSnapshot 25% 1`] = `
       class="bar"
     >
       <div
-        class="barValue red  "
-        data-testid="bar"
+        class="barValue red"
         style="width: 25%;"
       />
     </div>
@@ -90,8 +88,7 @@ exports[`BarGraphSnapshot 50% 1`] = `
         class="bar"
       >
         <div
-          class="barValue red  "
-          data-testid="bar"
+          class="barValue red"
           style="width: 50%;"
         />
       </div>
@@ -102,8 +99,7 @@ exports[`BarGraphSnapshot 50% 1`] = `
       class="bar"
     >
       <div
-        class="barValue red  "
-        data-testid="bar"
+        class="barValue red"
         style="width: 50%;"
       />
     </div>
@@ -171,8 +167,7 @@ exports[`BarGraphSnapshot 75% 1`] = `
         class="bar"
       >
         <div
-          class="barValue red  "
-          data-testid="bar"
+          class="barValue red"
           style="width: 75%;"
         />
       </div>
@@ -183,8 +178,7 @@ exports[`BarGraphSnapshot 75% 1`] = `
       class="bar"
     >
       <div
-        class="barValue red  "
-        data-testid="bar"
+        class="barValue red"
         style="width: 75%;"
       />
     </div>
@@ -252,8 +246,7 @@ exports[`BarGraphSnapshot 100% 1`] = `
         class="bar"
       >
         <div
-          class="barValue red  "
-          data-testid="bar"
+          class="barValue red"
           style="width: 100%;"
         />
       </div>
@@ -264,8 +257,7 @@ exports[`BarGraphSnapshot 100% 1`] = `
       class="bar"
     >
       <div
-        class="barValue red  "
-        data-testid="bar"
+        class="barValue red"
         style="width: 100%;"
       />
     </div>

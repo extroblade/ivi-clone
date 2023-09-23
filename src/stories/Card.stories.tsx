@@ -11,7 +11,8 @@ const card = {
   description: '',
   enDescription: '',
   trailer: '',
-  card_image: 'https://thumbs.dfs.ivi.ru/storage2/contents/5/b/1a320c6f0240982ad3f287e19afa91.jpg',
+  posterUrlPreview:
+    'https://thumbs.dfs.ivi.ru/storage2/contents/5/b/1a320c6f0240982ad3f287e19afa91.jpg',
   year: '2011',
   countries: 'США',
   rating: '9,5',

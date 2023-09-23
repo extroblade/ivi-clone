@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { iPerson } from '@/types/kinopoiskTypes';
+import { iPerson } from '@/shared/types/kinopoiskTypes';
 
 export const personApi = createApi({
   reducerPath: 'personApi',
@@ -33,5 +33,4 @@ export const personApi = createApi({
   }),
 });
 
-export const { useFetchAllPersonsQuery, useFetchOnePersonQuery, useFetchPersonNameQuery } =
-  personApi;
+export const { useFetchAllPersonsQuery, useFetchPersonNameQuery } = personApi;

@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .wrap {
   margin: 0 auto;
   width: 100%;
@@ -19,7 +17,7 @@
 .line {
   width: 100%;
   height: 1px;
-  background-color: rgba($color-main, 0.16);
+  background-color: rgba(var(--color-main), 0.16);
 }
 
 .cards {
@@ -33,9 +31,9 @@
 }
 
 .link {
-  transition: $time-main;
+  transition: var(--transition-main);
   cursor: pointer;
   &:hover {
-    color: $color-main;
+    color: var(--color-main);
   }
 }

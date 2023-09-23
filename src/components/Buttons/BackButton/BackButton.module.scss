@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
 .back {
   cursor: pointer;
   background-color: transparent;
@@ -7,19 +5,19 @@
   display: flex;
   align-items: center;
   opacity: 0.7;
-  transition: $time-main;
-  margin: rem(15) 0;
+  transition: var(--transition-main);
+  margin: 15px 0;
   &__icon {
-    margin-left: rem(-10);
-    width: rem(35);
-    height: rem(35);
+    margin-left: -10px;
+    width: 35px;
+    height: 35px;
   }
   & span {
-    font-size: rem(15);
+    font-size: 15px;
   }
   &:hover {
     opacity: 1;
-    margin: rem(15) 0;
+    margin: 15px 0;
   }
   &:hover .back__icon {
     transform: scale(1.1);

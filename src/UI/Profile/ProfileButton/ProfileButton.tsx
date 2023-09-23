@@ -5,7 +5,7 @@ import { ICardButtons } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
 
 import styles from './ProfileButton.module.scss';
 
-const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick }) => {
+export const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick }) => {
   const IconComponent: any = icon;
   switch (type) {
     case 'square_icon':
@@ -54,5 +54,3 @@ const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick }) => {
       return <></>;
   }
 };
-
-export default ProfileButton;

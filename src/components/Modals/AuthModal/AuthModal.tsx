@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -12,12 +12,12 @@ import { TbReload } from 'react-icons/tb';
 import { GoogleAuthButton, VkAuthButton } from '@/components';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setShowAuth } from '@/store';
+import { selectModal, setShowAuth } from '@/shared/store';
 import { BarGraph, Button, FullScreenModal, P } from '@/UI';
 
 import styles from './AuthModal.module.scss';
 
-export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element => {
+export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
   const [progress, setProgress] = useState<number>(5);
@@ -35,8 +35,8 @@ export const AuthModal: FC = ({ show = false }: { show?: boolean }): JSX.Element
   };
 
   const handleLogout = () => {
-    signOut().then(() => {
-      router.push('/profile');
+    signOut().then(async () => {
+      await router.push('/profile');
     });
   };
 

@@ -7,7 +7,7 @@ import {
 } from 'react-icons/md';
 
 import { useAppDispatch, useOutsideClick } from '@/hooks';
-import { setOrder } from '@/store';
+import { setOrder } from '@/shared/store';
 import { Button } from '@/UI';
 
 import styles from './SortDropdown.module.scss';

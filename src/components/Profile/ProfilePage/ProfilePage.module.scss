@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .select_profile {
   padding: 0 12px;
   .select_container {
@@ -49,7 +47,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        @media screen and (max-width: $mobile) {
+        @media screen and (max-width: 600px) {
           font-size: 24px;
         }
       }
@@ -72,21 +70,21 @@
       display: flex;
 
       svg {
-        color: $color-gray-text;
+        color: var(--color-gray-text);
         margin-right: 10px;
       }
       button {
-        border: 1px solid rgba($color-input, 0.43);
+        border: 1px solid rgba(var(--color-input), 0.43);
         padding: 10px;
         &:hover {
-          border: 1px solid $color-input;
+          border: 1px solid var(--color-input);
         }
       }
       + .info {
         margin-left: 16px;
       }
     }
-    @media screen and (max-width: $mobile) {
+    @media screen and (max-width: 600px) {
       flex-direction: column;
       .info {
         margin: 5px 0;
@@ -105,7 +103,7 @@
   justify-content: space-between;
   align-items: center;
   svg {
-    color: $color-accent;
+    color: var(--color-accent);
   }
   .id {
     display: flex;
@@ -201,7 +199,7 @@
           width: calc(100% / 3);
         }
       }
-      @media screen and (max-width: $mobile+px) {
+      @media screen and (max-width: 600px) {
         &.smalls {
           width: calc(100% / 4);
         }
@@ -237,7 +235,7 @@
           width: calc(100% / 2);
         }
       }
-      @media screen and (max-width: $minWidth+px) {
+      @media screen and (max-width: var(--width-min)) {
         &.smalls {
           width: calc(100%);
         }

@@ -3,15 +3,12 @@ import { RxCross2 } from 'react-icons/rx';
 
 import { CLOSE_TIME } from '@/constants';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { iAlert, selectModal, setActiveAlerts } from '@/store';
+import { iAlert, selectModal, setActiveAlerts } from '@/shared/store';
 import { Button } from '@/UI';
-import styles from '@/UI/Alert/Alert.module.scss';
 
-interface IAlert {
-  alert: iAlert;
-}
+import styles from './Alert.module.scss';
 
-export const Alert: FC<IAlert> = React.memo(({ alert }) => {
+export const Alert: FC<{ alert: iAlert }> = React.memo(({ alert }) => {
   const { activeAlerts } = useAppSelector(selectModal);
   const [closing, setClosing] = useState(false);
   const [opening, setOpening] = useState(false);

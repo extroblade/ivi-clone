@@ -1,20 +1,15 @@
-@import '@/styles/variables.scss';
-
 .footer {
   padding: 0 10px;
   margin: 0 20px;
   // border-top: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba($color-main, 0.48);
+  color: rgba(var(--color-main), 0.48);
   &__container {
     display: flex;
     justify-content: space-between;
     padding-top: 48px;
     padding-bottom: 48px;
-    border-top: 1px solid rgba($color-main, 0.16);
-    border-bottom: 1px solid rgba($color-main, 0.16);
-  }
-  p {
-    color: rgba($color-main, 0.48);
+    border-top: 1px solid rgba(var(--color-main), 0.16);
+    border-bottom: 1px solid rgba(var(--color-main), 0.16);
   }
 }
 
@@ -25,7 +20,7 @@
 
 .listTitle {
   display: block;
-  color: $color-main;
+  color: var(--color-main);
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -35,9 +30,10 @@
   font-weight: 400;
   font-size: 15px;
   line-height: 20px;
-  transition: $time-main;
+  color: var(--color-secondary);
+  transition: var(--transition-main);
   &:hover {
-    color: $color-main;
+    color: var(--color-main);
     cursor: pointer;
   }
 }
@@ -58,17 +54,17 @@
 }
 
 .certLink {
-  background-image: linear-gradient(-45deg, #c447ff, $color-accent);
+  background-image: linear-gradient(-45deg, #c447ff, var(--color-accent));
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
 }
 
 .askLink {
-  color: $color-main;
-  transition: $time-main;
+  color: var(--color-main);
+  transition: var(--transition-main);
   &:hover {
-    color: rgba($color-main, 0.72);
+    color: rgba(var(--color-main), 0.72);
   }
 }
 
@@ -101,7 +97,7 @@
   &__icon {
     width: 56px;
     height: 56px;
-    color: $color-main;
+    color: var(--color-main);
   }
   &__descr {
     text-align: center;
@@ -128,7 +124,7 @@
     height: 20px;
   }
   span {
-    color: rgba($color-main, 0.72);
+    color: rgba(var(--color-main), 0.72);
     display: block;
     font-size: 10px;
     line-height: 12px;
@@ -136,7 +132,7 @@
   }
 }
 
-@media (max-width: $pc) {
+@media (max-width: 1160px) {
   .footer {
     display: none;
   }

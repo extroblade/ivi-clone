@@ -8,7 +8,7 @@ import { CgClose } from 'react-icons/cg';
 import { IoSearchOutline } from 'react-icons/io5';
 
 import { useAppDispatch, useAppSelector, useDebounce, usePreventScroll } from '@/hooks';
-import { selectModal, setShowSearch } from '@/store';
+import { selectModal, setShowSearch } from '@/shared/store';
 import { Button, FullScreenModal, Loader, P } from '@/UI';
 
 import styles from './SearchModal.module.scss';

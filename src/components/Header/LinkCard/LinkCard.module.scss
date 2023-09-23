@@ -1,34 +1,31 @@
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
-
 .card {
-  background-color: $color-card-background;
+  background-color: var(--color-card-background);
   display: inline-flex;
-  padding: rem(14);
+  padding: 14px;
   width: 100%;
   height: 100%;
   border-radius: 7px;
   position: relative;
-  transition: $time-main;
+  transition: var(--transition-main);
   &:hover {
-    background-color: $color-card-hover;
+    background-color: var(--color-card-hover);
   }
   &__status {
     &::before {
       content: '';
       position: absolute;
-      top: rem(10);
-      right: rem(10);
-      width: rem(8);
-      height: rem(8);
+      top: 10px;
+      right: 10px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      background-color: $color-accent;
+      background-color: var(--color-accent);
     }
   }
   &__icon {
     color: white;
-    width: rem(25);
-    height: rem(25);
+    width: 25px;
+    height: 25px;
     opacity: 0.5;
   }
   &__row {
@@ -36,14 +33,14 @@
     flex-direction: column;
     justify-content: space-between;
     & h5 {
-      font-size: rem(14);
+      font-size: 14px;
       line-height: 130%;
       letter-spacing: 0.8px;
     }
     & p {
-      font-size: rem(12);
+      font-size: 12px;
       font-weight: 700;
-      margin-top: rem(8);
+      margin-top: 8px;
     }
   }
 }

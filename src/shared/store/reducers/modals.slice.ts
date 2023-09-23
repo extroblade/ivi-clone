@@ -1,15 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RootState } from '@/store';
+import { RootState } from '@/shared/store';
 // import { HYDRATE } from 'next-redux-wrapper';
-import { iAwards, iFilm, iPerson, iVideos } from '@/types/kinopoiskTypes';
-import { IComment } from '@/types/types';
+import { iAwards, iFilm, iVideos } from '@/shared/types/kinopoiskTypes';
+import { IComment } from '@/shared/types/types';
 
 interface ICurrentMovie extends iFilm {
   awards?: iAwards;
   duration?: string;
   videos?: iVideos;
-  persons?: iPerson[];
   index?: number;
   comments?: IComment;
 }

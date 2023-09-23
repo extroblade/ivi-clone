@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .carousel {
   -webkit-tap-highlight-color: transparent;
   .title {
@@ -79,7 +77,7 @@
       text-align: center;
       display: flex;
       font-weight: 700;
-      color: $color-input;
+      color: var(--color-input);
       min-height: 20px;
       justify-content: center;
     }

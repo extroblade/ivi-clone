@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { AddToFavoritesButton, BlockButton, FindSimilarButton, RateButton } from '@/components';
-import modalsReducer from '@/store/reducers/modals.slice';
+import modalsReducer from '@/shared/store/reducers/modals.slice';
 
 const mockStore = configureStore({ reducer: { modalsReducer } });
 

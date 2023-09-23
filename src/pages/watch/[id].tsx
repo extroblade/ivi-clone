@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { WatchPage } from '@/components';
 import { movieTypes } from '@/constants';
-import { iFilm } from '@/types/kinopoiskTypes';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { MovieBreadcrumbs, NotFound } from '@/UI';
 
-const Movie = ({ movie }: { movie: iFilm & any }) => {
+const Movie = ({ movie }: { movie: iFilm }) => {
   const { i18n } = useTranslation();
   const typeMovie = new Map(Object.entries(movieTypes));
   if (!movie) return <NotFound />;
@@ -45,7 +45,7 @@ export async function getServerSideProps(context: { query: { id: any } }) {
   try {
     const { id } = context.query;
 
-    const movie: iFilm = await fetch(`${process.env.API || ''}v2.2/films/${id}`, {
+    const movie: iFilm = await fetch(`${process.env.API}v2.2/films/${id}`, {
       method: 'GET',
       headers: {
         'X-API-KEY': process.env.X_API_KEY || '',

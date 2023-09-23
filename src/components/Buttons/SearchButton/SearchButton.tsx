@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FaSearch } from 'react-icons/fa';
 
 import { useAppDispatch } from '@/hooks';
-import { setShowSearch } from '@/store';
+import { setShowSearch } from '@/shared/store';
 
 import styles from './SearchButton.module.scss';
 

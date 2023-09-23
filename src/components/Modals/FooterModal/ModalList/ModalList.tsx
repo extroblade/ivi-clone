@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
 import { useAppSelector } from '@/hooks';
-import { selectFilters } from '@/store';
-import { ILink } from '@/types/types';
+import { selectFilters } from '@/shared/store';
+import { ILink } from '@/shared/types/types';
 import { P } from '@/UI';
 
 import styles from './ModalList.module.scss';

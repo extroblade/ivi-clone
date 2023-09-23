@@ -1,3 +1,5 @@
+import { MovieVariants, ProfessionVariants } from '@/constants';
+
 export interface iStaff {
   staffId: number;
   nameRu: string;
@@ -9,10 +11,12 @@ export interface iStaff {
 }
 
 export interface iCountry {
+  id: string | number;
   country: string;
 }
 
 export interface iGenre {
+  id: string | number;
   genre: string;
 }
 
@@ -156,7 +160,7 @@ export interface iPerson {
   deathplace: string;
   profession: string;
   professionText: string;
-  professionKey: string;
+  professionKey: ProfessionVariants;
   facts: iFacts[];
   spouses: any[];
   films: iFilm[];
@@ -339,7 +343,7 @@ export interface iFilm {
   editorAnnotation: string;
   isTicketsAvailable: boolean;
   productionStatus: string; // 'POST_PRODUCTION' | '...' |
-  type: string; // 'FILM' | '...' |
+  type: MovieVariants; // 'FILM' | '...' |
   ratingMpaa: string; // 'r' | '...' |
   ratingAgeLimits: string; // 'POST_PRODUCTION' | '...' |
   hasImax: boolean;
@@ -358,4 +362,5 @@ export interface iFetchedFilms {
   total: number;
   totalPages: number;
   items: iFilm[];
+  films?: iFilm[];
 }

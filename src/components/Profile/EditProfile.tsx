@@ -6,9 +6,7 @@ import { BsEnvelope, BsPhone } from 'react-icons/bs';
 import { HiOutlinePencil } from 'react-icons/hi';
 
 import styles from '@/components/Profile/ProfilePage/ProfilePage.module.scss';
-import { Button } from '@/UI/Button/Button';
-import { Htag } from '@/UI/Htag/Htag';
-import { P } from '@/UI/P/P';
+import { Button, Htag, P } from '@/UI';
 
 export const EditProfile = () => {
   const { t } = useTranslation();

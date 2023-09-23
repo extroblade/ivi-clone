@@ -5,7 +5,7 @@ import { Dropdown } from '@/UI';
 import styles from './Dropdown.module.scss';
 // import { categories } from '@/mock/filters';
 
-export const SearchDropdown: FC = ({ state }: any): JSX.Element => {
+export const SearchDropdown: FC<{ state: boolean }> = ({ state }): JSX.Element => {
   const [val, setVal] = useState<string>('');
   const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(() => e.target.value);

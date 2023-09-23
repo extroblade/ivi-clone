@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
+import { selectModal } from '@/shared/store';
 import { Htag, P } from '@/UI';
 
 export const AwardsTab = () => {

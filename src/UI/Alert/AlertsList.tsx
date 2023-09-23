@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { MAX_ALERT_AMOUNT } from '@/constants';
 import { useAppSelector } from '@/hooks';
-import { selectModal } from '@/store';
+import { selectModal } from '@/shared/store';
 import { Alert } from '@/UI';
 
 import styles from './Alert.module.scss';

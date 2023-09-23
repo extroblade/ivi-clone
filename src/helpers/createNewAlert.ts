@@ -1,5 +1,5 @@
 import { MAX_ALERT_AMOUNT } from '@/constants';
-import { iAlert } from '@/store';
+import { iAlert } from '@/shared/store';
 
 export const createNewAlert = (
   title: string,

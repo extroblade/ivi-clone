@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
 import { useAppSelector, useOutsideClick } from '@/hooks';
-import { selectFilters } from '@/store';
+import { selectFilters } from '@/shared/store';
 import { ChooseDropdown, SearchDropdown } from '@/UI';
 
 import styles from './Plank.module.scss';
@@ -24,7 +24,7 @@ export const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
       title = country?.country || 'Страна';
       break;
     case 'years':
-      title = yearTo < 3000 ? yearTo : 'Год';
+      title = +yearTo < 3000 ? yearTo : 'Год';
       break;
   }
   const change = () => {
@@ -40,7 +40,7 @@ export const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
       {type == 'choose' ? (
         <ChooseDropdown state={dropDownOpen} type={array_type} />
       ) : (
-        <SearchDropdown state={dropDownOpen} type={array_type} />
+        <SearchDropdown state={dropDownOpen} />
       )}
       <button className={`${styles.plank} ${dropDownOpen && styles.active}`} onClick={change}>
         <div className={styles.info}>

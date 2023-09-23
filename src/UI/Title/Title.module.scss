@@ -1,13 +1,13 @@
-@import '@/styles/variables.scss';
-
 .title {
   h4 {
-    border-bottom: 1px solid rgba($color-main, 0.16);
+    border-width: 0 0 1px 0;
+    border-color: color-mix(in srgb, var(--color-main) 56%, transparent);
+    border-style: solid;
     display: inline;
-    transition: $time-main;
+    transition: var(--transition-main);
     &:hover {
       cursor: pointer;
-      border-bottom-color: $color-main;
+      border-bottom-color: var(--color-main);
     }
   }
 }

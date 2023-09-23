@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiSupport } from 'react-icons/bi';
 
-import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
 
 export const SupportButton = () => {
   const { t } = useTranslation();

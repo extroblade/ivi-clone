@@ -1,4 +1,4 @@
-import { iFilm } from '@/types/kinopoiskTypes';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 
 export interface WatchPageProps {
   movie: iFilm;

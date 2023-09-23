@@ -1,4 +1,4 @@
-import { iPerson, iStaff } from '@/types/kinopoiskTypes';
+import { iPerson, iStaff } from '@/shared/types/kinopoiskTypes';
 
 export interface PersonCardProps {
   person?: iStaff | iPerson;

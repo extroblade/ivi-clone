@@ -1,11 +1,8 @@
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
-
 .profile {
   &__title {
-    margin-bottom: rem(24);
+    margin-bottom: 24px;
     h3 {
-      font-size: rem(26);
+      font-size: 26px;
     }
   }
   &__row {
@@ -35,7 +32,7 @@
     width: 45px;
     opacity: 0.5;
     align-items: center;
-    transition: $time-main;
+    transition: var(--transition-main);
     & img {
       width: 40px;
       height: 40px;
@@ -66,36 +63,6 @@
         width: 80%;
         height: 80%;
       }
-    }
-  }
-  &__addProfile {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: $color-card-hover;
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40%;
-      height: 2px;
-      border-radius: 1px;
-      background-color: white;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 2px;
-      height: 40%;
-      border-radius: 1px;
-      background-color: white;
     }
   }
 }

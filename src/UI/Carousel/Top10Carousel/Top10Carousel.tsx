@@ -2,13 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 
-import top10 from '@/../public/images/top10/top10.svg';
 import { NextArrow, PrevArrow } from '@/components';
 import { TOP_100_POPULAR_FILMS } from '@/constants';
-import { useFetchTopFilmQuery } from '@/services';
-import { iFilm } from '@/types/kinopoiskTypes';
+import { useFetchTopFilmQuery } from '@/shared/services';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Htag } from '@/UI';
 
 import styles from './Top10Carousel.module.scss';
@@ -17,7 +16,7 @@ import { T10Card } from './Top10CarouselCard';
 export const Top10Carousel: FC = () => {
   const { t } = useTranslation();
   const { data } = useFetchTopFilmQuery({ type: TOP_100_POPULAR_FILMS });
-  const settings = {
+  const settings: Settings = {
     dots: false,
     infinite: false,
     speed: 500,
@@ -56,7 +55,7 @@ export const Top10Carousel: FC = () => {
     <div className={styles.carousel}>
       <div className={styles.title}>
         <Link href={'/movies'}>
-          <Image src={top10} alt={'top10'} />
+          <Image src={'/images/top10/top10.svg'} width={116} height={24} alt={'top10'} />
         </Link>
         <Link href={'/movies'}>
           <Htag tag={'h3'}>{t('sections.during-week')}</Htag>

@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
-import { iPerson } from '@/types/kinopoiskTypes';
+import { iPerson } from '@/shared/types/kinopoiskTypes';
 import { Loader } from '@/UI';
 
 interface iStaffList {

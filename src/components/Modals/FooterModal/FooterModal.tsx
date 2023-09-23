@@ -15,7 +15,7 @@ import { TbDeviceTv, TbTractor } from 'react-icons/tb';
 
 import { ModalList } from '@/components';
 import { useAppDispatch, useAppSelector, useEscapeKey, usePreventScroll } from '@/hooks';
-import { selectModal, setShowFooterModal } from '@/store';
+import { selectModal, setShowFooterModal } from '@/shared/store';
 import { Button, P } from '@/UI';
 
 import styles from './FooterModal.module.scss';

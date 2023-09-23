@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react';
 
-import { useFetchFilmFactsQuery } from '@/services';
-import { iFactsItems } from '@/types/kinopoiskTypes';
+import { useFetchFilmFactsQuery } from '@/shared/services';
+import { iFactsItems } from '@/shared/types/kinopoiskTypes';
 import { Loader } from '@/UI';
 import { ExplanationsProps } from '@/UI/Explanations/Explanations.props';
 

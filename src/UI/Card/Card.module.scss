@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .card {
   cursor: pointer;
   padding: 20px 10px 0 10px;
@@ -28,10 +26,10 @@
     }
   }
   &:hover {
-    transition: $time-main;
+    transition: var(--transition-main);
     transform: scale(1.03) translateY(-1%);
     .imageSection {
-      transition: $time-main;
+      transition: var(--transition-main);
       transform: scale(1.03) translateY(-1%);
     }
   }
@@ -57,7 +55,7 @@
       height: 100%;
       object-fit: cover;
     }
-    @media screen and (min-width: $mobile) {
+    @media screen and (min-width: 600px) {
       &.hover .props {
         height: 100%;
         width: 100%;
@@ -66,7 +64,7 @@
         position: absolute;
         bottom: 0;
         text-align: center;
-        transition: $time-main;
+        transition: var(--transition-main);
         z-index: 90;
         opacity: 0;
         padding: 10%;
@@ -131,7 +129,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       font-size: 0.8rem;
-      transition: $time-main;
+      transition: var(--transition-main);
     }
   }
   .singleGraph {
@@ -145,25 +143,25 @@
     .imageSection {
       &.show > p {
         color: white !important;
-        transition: $time-main;
+        transition: var(--transition-main);
       }
       .props {
         display: flex;
         background-color: rgba(7, 5, 14, 0.8);
         opacity: 1;
         visibility: visible;
-        transition: $time-main;
+        transition: var(--transition-main);
       }
     }
     .textSection {
       p {
-        transition: $time-main;
+        transition: var(--transition-main);
         color: white;
       }
     }
   }
   &:active {
-    transition: $time-main ease-in-out;
+    transition: var(--transition-main) ease-in-out;
     transform: scale(0.98);
   }
 }

@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
-import { selectModal, setShowRating } from '@/store';
+import { selectModal, setShowRating } from '@/shared/store';
 import { Button, FullScreenModal, Htag, P } from '@/UI';
 
 import styles from './RatingModal.module.scss';

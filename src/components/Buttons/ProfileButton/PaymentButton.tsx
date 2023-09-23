@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiFillCreditCard } from 'react-icons/ai';
 
-import ProfileButton from '@/UI/Profile/ProfileButton/ProfileButton';
+import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
 
 export const PaymentButton = () => {
   const { t } = useTranslation();

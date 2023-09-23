@@ -1,5 +1,3 @@
-@import '@/styles/variables.scss';
-
 .openers {
   display: flex;
   flex-direction: row;
@@ -14,8 +12,8 @@
     align-items: stretch;
     justify-content: center;
     .open_filter:hover {
-      transition: $time-main;
-      color: $color-accent;
+      transition: var(--transition-main);
+      color: var(--color-accent);
     }
     svg {
       margin-right: 5px;
@@ -99,7 +97,7 @@
         background-color: transparent;
         border: 0;
         border-radius: 8px;
-        color: $color-input;
+        color: var(--color-input);
       }
     }
   }

@@ -1,7 +1,5 @@
-@import '../../../styles/variables';
-
 .modal {
-  background: $color-background;
+  background: var(--color-background);
   display: none;
   width: 100%;
   padding: 70px 34px;
@@ -19,7 +17,7 @@
 }
 
 .menuItem {
-  border-top: 1px solid rgba($color-main, 0.16);
+  border-top: 1px solid rgba(var(--color-main), 0.16);
   padding: 34px 0;
   display: grid;
   gap: 24px;
@@ -51,8 +49,8 @@
     content: '';
     display: block;
     position: absolute;
-    box-shadow: 0 2px 8px rgba($color-accent, 0.8);
-    background-color: $color-accent;
+    box-shadow: 0 2px 8px rgba(var(--color-accent), 0.8);
+    background-color: var(--color-accent);
     width: 10px;
     height: 10px;
     top: 8px;
@@ -63,16 +61,16 @@
 
 .link {
   &:hover {
-    color: rgba($color-main, 0.72);
+    color: rgba(var(--color-main), 0.72);
   }
 }
 
 .listLink {
-  color: rgba($color-main, 0.72);
+  color: rgba(var(--color-main), 0.72);
   display: block;
   font-weight: 400;
   &:hover {
-    color: $color-main;
+    color: var(--color-main);
   }
 }
 
@@ -109,12 +107,12 @@
   }
 }
 
-@media (max-width: $pc) {
+@media (max-width: 1160px) {
   .modal {
     display: block;
   }
 }
-@media (max-width: $mobile) {
+@media (max-width: 600px) {
   .modal {
     padding: 70px 16px;
   }

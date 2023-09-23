@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { createNewAlert } from '@/helpers';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { selectModal, setActiveAlerts } from '@/store';
+import { selectModal, setActiveAlerts } from '@/shared/store';
 import { CommentAvatar } from '@/UI';
 import { Button } from '@/UI/Button/Button';
 
