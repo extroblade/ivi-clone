@@ -6,8 +6,10 @@ import React, { FC } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Slider, { Settings } from 'react-slick';
 
-import { NextArrow, PrevArrow } from '@/components';
-import { Card, Htag, Loader, ShowAll } from '@/UI';
+import { NextArrow } from '@/components/Buttons/Arrows/NextArrow';
+import { PrevArrow } from '@/components/Buttons/Arrows/PrevArrow';
+import { Card, ShowAllCard } from '@/entities/card';
+import { Loader, Title } from '@/newui';
 import { CarouselProps } from '@/UI/Carousel/Carousel.props';
 
 import styles from './Carousel.module.scss';
@@ -97,7 +99,7 @@ export const Carousel: FC<CarouselProps> = ({
         <div className={styles.title}>
           <Link href={route || ''} className={styles.title_container}>
             <div title={title}>
-              <Htag tag={'h4'}>{title}</Htag>
+              <Title tag={'h4'}>{title}</Title>
             </div>
             <MdArrowForwardIos />
           </Link>
@@ -109,7 +111,7 @@ export const Carousel: FC<CarouselProps> = ({
         ))}
         {movies?.length > 15 && (
           <Link href={route || '/movies'}>
-            <ShowAll />
+            <ShowAllCard />
           </Link>
         )}
       </Slider>

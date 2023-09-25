@@ -5,11 +5,11 @@ import { HiChevronLeft } from 'react-icons/hi';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { AwardsTab, PersonsTab, TrailersTab, WatchModalInfoCard } from '@/components';
-import { Button, Sup } from '@/newui';
+import { Button, Sup, Title } from '@/newui';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { useEscapeKey } from '@/shared/hooks/useEscapeKey';
 import { selectModal, setShowWatchPageModal } from '@/shared/store';
-import { CommentSection, Htag } from '@/UI';
+import { CommentSection } from '@/UI';
 
 import styles from './WatchPageModal.module.scss';
 
@@ -38,7 +38,7 @@ export const WatchPageModal: FC = () => {
           </Button>
           <div className={styles.wrap}>
             <Tabs className={styles.tabs} defaultIndex={currentMovie?.index || 0}>
-              <Htag tag={'h2'}>{name}</Htag>
+              <Title tag={'h2'}>{name}</Title>
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   <div className={styles.tab__container}>

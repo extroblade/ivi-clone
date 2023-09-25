@@ -7,10 +7,9 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { IoSearchOutline } from 'react-icons/io5';
 
-import { Button, Text } from '@/newui';
+import { Button, Loader, Modal, Text } from '@/newui';
 import { useAppDispatch, useAppSelector, useDebounce, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowSearch } from '@/shared/store';
-import { FullScreenModal, Loader } from '@/UI';
 
 import styles from './SearchModal.module.scss';
 
@@ -95,7 +94,7 @@ export const SearchModal: FC = (): JSX.Element => {
   usePreventScroll(showSearch);
   const presets = ['Премьеры фильмов', 'Новинки подписки', 'Сериалы Amediateka', 'Высокий рейтинг'];
   return (
-    <FullScreenModal isOpen={showSearch} closeModal={close}>
+    <Modal isOpen={showSearch} closeModal={close}>
       <div className={styles.body}>
         <h3>{t('sections.search')}</h3>
         <div className={styles.input}>
@@ -163,6 +162,6 @@ export const SearchModal: FC = (): JSX.Element => {
           </div>
         )}
       </div>
-    </FullScreenModal>
+    </Modal>
   );
 };

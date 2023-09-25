@@ -1,10 +1,11 @@
 import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { Vote } from '@/entities/vote/ui/vote';
 import { Button, Text } from '@/newui';
 import { writeDate } from '@/shared/helpers';
 import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
-import { CommentAvatar, CommentInput, Vote } from '@/UI';
+import { CommentAvatar, CommentInput } from '@/UI';
 
 import styles from './Comment.module.scss';
 

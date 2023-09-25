@@ -19,7 +19,7 @@ export const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick 
       );
     case 'rect_icon':
       return (
-        <Button className={styles.rect__icon} onClick={() => onClick && onClick()}>
+        <Button className={styles.rect__icon} onClick={() => onClick?.()}>
           <div>
             <IconComponent />
           </div>
@@ -28,7 +28,7 @@ export const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick 
       );
     case 'rect_icon_light':
       return (
-        <Button className={styles.rect__icon__light} onClick={() => onClick && onClick()}>
+        <Button className={styles.rect__icon__light} onClick={() => onClick?.()}>
           <div>
             <IconComponent />
           </div>
@@ -37,7 +37,7 @@ export const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick 
       );
     case 'rect_icon_purple':
       return (
-        <Button className={styles.rect__icon__purple} onClick={() => onClick && onClick()}>
+        <Button className={styles.rect__icon__purple} onClick={() => onClick?.()}>
           <div>
             <IconComponent />
           </div>
@@ -46,7 +46,7 @@ export const ProfileButton: FC<ICardButtons> = ({ type, icon, children, onClick 
       );
     case 'rect_text':
       return (
-        <Button className={styles.rect__text} onClick={() => onClick && onClick()}>
+        <Button className={styles.rect__text} onClick={() => onClick?.()}>
           {children}
         </Button>
       );

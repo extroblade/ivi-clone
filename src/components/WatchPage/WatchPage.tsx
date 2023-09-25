@@ -1,6 +1,8 @@
 import React, { FC, useEffect } from 'react';
 
-import { ExternalSources, PersonsGallery, ScrollToTopButton, Trailers } from '@/components';
+import { ExternalSources, PersonsGallery, Trailers } from '@/components';
+import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
+import { ScrollToTopButton } from '@/features/scroll-to-top';
 import { useAppDispatch } from '@/shared/hooks';
 import {
   useFetchAllPersonsQuery,
@@ -16,7 +18,6 @@ import {
   MovieTitle,
   Player,
   SimilarMovies,
-  WatchAllDevices,
 } from '@/UI';
 
 import styles from './WatchPage.module.scss';
@@ -59,7 +60,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         <ScrollToTopButton />
         <CommentCarousel />
         <Trailers videos={videos} />
-        <WatchAllDevices name={title} image={cover} />
+        <WatchOnAllDevices name={title} image={cover} />
       </section>
     </>
   );

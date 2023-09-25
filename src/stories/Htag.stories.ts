@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Htag } from '@/UI/Htag/Htag';
-import { HtagProps } from '@/UI/Htag/Htag.props';
+import { Title } from '@/newui/title/title';
+import { TitleProps } from '@/newui/title/title.props';
 
-const meta: Meta<HtagProps> = {
+const meta: Meta<TitleProps> = {
   title: 'Main/Htag',
-  component: Htag,
+  component: Title,
 };
 
 export default meta;
-type Story = StoryObj<HtagProps>;
+type Story = StoryObj<TitleProps>;
 
 export const H1: Story = {
   args: {

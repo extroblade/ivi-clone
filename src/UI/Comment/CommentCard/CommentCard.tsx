@@ -1,10 +1,10 @@
 import React, { FC, useMemo } from 'react';
 
+import { Vote } from '@/entities/vote';
 import { writeDate } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
 import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
-import { Vote } from '@/UI';
 
 import styles from './CommentCard.module.scss';
 

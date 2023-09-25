@@ -1,7 +1,4 @@
-import { signOut, useSession } from 'next-auth/react';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { RiLogoutBoxRLine } from 'react-icons/ri';
+import { useSession } from 'next-auth/react';
 
 import {
   BalanceButton,
@@ -9,7 +6,6 @@ import {
   ChecksButton,
   CodeLoginButton,
   InviteFriendsButton,
-  LoginButton,
   NotificationsButton,
   PaymentButton,
   PresentSubscriptionButton,
@@ -20,27 +16,25 @@ import {
   ViewedButton,
   WatchLaterButton,
 } from '@/components';
-import { Button, Text } from '@/newui';
-import { ProfileSelector } from '@/UI';
+import { LoginButton } from '@/features/login-button';
+import { LogoutButton } from '@/features/logout-button';
+import { SelectProfile } from '@/features/select-profile';
+import { Text } from '@/newui';
 
 import styles from './ProfilePage.module.scss';
 
 export const ProfilePage = () => {
-  const { t } = useTranslation();
   const { data: session } = useSession();
   const user = session?.user || null;
 
   return (
     <div className={styles.profile__btns}>
-      {user && (
+      {user ? (
         <div className={styles.select_profile}>
           <div className={styles.select_container}>
-            <ProfileSelector />
+            <SelectProfile />
           </div>
         </div>
-      )}
-      {user ? (
-        <div>!</div>
       ) : (
         <div className={styles.login_button}>
           <LoginButton />
@@ -99,16 +93,7 @@ export const ProfilePage = () => {
         </li>
       </ul>
       <div className={styles.bottom}>
-        {user && (
-          <Button
-            appearance={'transparent'}
-            onClick={() => signOut()}
-            title={t('buttons.logout') || 'Выйти'}
-          >
-            <RiLogoutBoxRLine />
-            {t('buttons.logout')}
-          </Button>
-        )}
+        {user && <LogoutButton />}
         <div className={styles.id}>
           <Text>uid: 2049522430</Text>
         </div>

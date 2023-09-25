@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react';
 
+import { Loader } from '@/newui';
 import { useFetchFilmFactsQuery } from '@/shared/services';
 import { iFactsItems } from '@/shared/types/kinopoiskTypes';
-import { Loader } from '@/UI';
 import { ExplanationsProps } from '@/UI/Explanations/Explanations.props';
 
 import styles from './Explanations.module.scss';
@@ -27,9 +27,10 @@ export const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
   };
 
   useEffect(() => {
-    if (facts?.total) {
-      setNow(() => (items ? items[0] : null));
+    if (!facts?.total) {
+      return;
     }
+    setNow(() => (items ? items[0] : null));
   }, [facts]);
 
   useEffect(() => {

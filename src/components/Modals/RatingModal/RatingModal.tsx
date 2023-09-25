@@ -1,10 +1,9 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Text } from '@/newui';
+import { Button, Modal, Text, Title } from '@/newui';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowRating } from '@/shared/store';
-import { FullScreenModal, Htag } from '@/UI';
 
 import styles from './RatingModal.module.scss';
 
@@ -24,9 +23,9 @@ export const RatingModal: FC = (): JSX.Element => {
   };
   usePreventScroll(showRating);
   return (
-    <FullScreenModal isOpen={showRating} closeModal={close}>
+    <Modal isOpen={showRating} closeModal={close}>
       <div className={styles.body}>
-        <Htag tag={'h2'}>{t('descriptions.your-rate')}</Htag>
+        <Title tag={'h2'}>{t('descriptions.your-rate')}</Title>
         <Text>{t('descriptions.rates-improvements')}</Text>
         <div className={styles.picker}>
           {rates.map((rating) => (
@@ -52,6 +51,6 @@ export const RatingModal: FC = (): JSX.Element => {
           {t('buttons.rate')}
         </Button>
       </div>
-    </FullScreenModal>
+    </Modal>
   );
 };

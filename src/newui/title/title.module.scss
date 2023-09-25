@@ -1,13 +1,37 @@
-.title {
-  h4 {
-    border-width: 0 0 1px 0;
-    border-color: color-mix(in srgb, var(--color-main) 56%, transparent);
-    border-style: solid;
-    display: inline;
-    transition: var(--transition-main);
-    &:hover {
-      cursor: pointer;
-      border-bottom-color: var(--color-main);
-    }
+.h1 {
+  margin: 0;
+  font-size: 56px;
+  line-height: 56px;
+  font-weight: 700;
+}
+
+.h2 {
+  margin: 0;
+
+  font-size: 40px;
+  line-height: 44px;
+  font-weight: 700;
+}
+
+.h3 {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.h4 {
+  margin: 0;
+
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 900;
+}
+
+.h {
+  @media screen and (max-width: 600px) {
+    font-size: 0.8rem;
+    line-height: 0.8rem;
   }
 }

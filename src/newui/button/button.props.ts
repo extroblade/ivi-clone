@@ -11,7 +11,7 @@ type AppearanceVariants =
 type SizeVariants = 'S' | 'M' | 'L';
 
 export type ButtonProps = {
-  children: ReactNode;
+  children?: ReactNode;
   appearance?: AppearanceVariants;
   size?: SizeVariants;
 } & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;

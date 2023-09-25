@@ -2,9 +2,8 @@ import i18next from 'i18next';
 import Image from 'next/image';
 import { FC } from 'react';
 
-import { BackButton } from '@/components';
-import { Text } from '@/newui';
-import { Htag } from '@/UI';
+import { BackButton } from '@/features/back-button';
+import { Text, Title } from '@/newui';
 
 import MovieList from './MoviesList/MovieList';
 import styles from './Person.module.scss';
@@ -20,7 +19,7 @@ export const PersonInfo: FC<PersonProps> = ({ person }) => {
         <div className={styles.card_image}>
           <Image width={128} height={203} src={posterUrl} alt={nameRu || nameEn} />
         </div>
-        <Htag tag={'h1'}>{i18next.language == 'en' ? nameEn || nameRu : nameRu}</Htag>
+        <Title tag={'h1'}>{i18next.language == 'en' ? nameEn || nameRu : nameRu}</Title>
         <Text>{i18next.language == 'en' ? nameEn : nameRu}</Text>
         <Text color={'gray-light'} className={styles.description}>
           {profession || ''}

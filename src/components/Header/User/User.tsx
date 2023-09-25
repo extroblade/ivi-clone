@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiCertification, BiMoviePlay } from 'react-icons/bi';
@@ -9,20 +8,16 @@ import { HiOutlineBookmark } from 'react-icons/hi2';
 import { IoDiamondOutline, IoTimerOutline } from 'react-icons/io5';
 import { TbDeviceTvOld } from 'react-icons/tb';
 
-import { LinkCard, LoginButton } from '@/components';
-import { ProfileSelector } from '@/UI';
+import { LinkCard } from '@/components';
+import { LoginButton } from '@/features/login-button/ui/login-button';
+import { LogoutButton } from '@/features/logout-button';
+import { SelectProfile } from '@/features/select-profile';
 
 import styles from './User.module.scss';
 
 export const User: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { data: session } = useSession();
-  const router = useRouter();
-  const logoutFunc = () => {
-    signOut().then(() => {
-      router.push('/profile');
-    });
-  };
 
   return (
     <div className={styles.user__content}>
@@ -47,7 +42,7 @@ export const User: FC = (): JSX.Element => {
           <LinkCard icon={GoCreditCard} title={t('buttons.payment')} link="/purchases" />
         </div>
         <div className={styles.content__auth}>
-          {session?.user ? <ProfileSelector /> : <LoginButton />}
+          {session?.user ? <SelectProfile /> : <LoginButton />}
           <div className={styles.content__links}>
             {session?.user && (
               <Link href="https://www.ivi.tv/profile/profile_info">
@@ -56,7 +51,7 @@ export const User: FC = (): JSX.Element => {
             )}
             <Link href={'https://www.ivi.tv/profile/settings'}>{t('buttons.settings')}</Link>
             <Link href={'/admin'}>{t('buttons.support')}</Link>
-            {session?.user && <span onClick={logoutFunc}>{t('buttons.logout')}</span>}
+            {session?.user && <LogoutButton />}
           </div>
         </div>
       </div>

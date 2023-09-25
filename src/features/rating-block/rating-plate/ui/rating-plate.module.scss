@@ -1,0 +1,48 @@
+.rating_plate {
+  flex-shrink: 0;
+  height: 64px;
+  width: 64px;
+  border-radius: 8px;
+  display: flex;
+  @media screen and (max-width: 1160px) {
+    height: 48px;
+    width: 48px;
+  }
+
+  &.good {
+    background-color: var(--color-success);
+  }
+
+  &.ok {
+    background-color: var(--color-warning);
+  }
+
+  &.bad {
+    background-color: var(--color-danger);
+  }
+
+  .plate_value {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+    @media screen and (min-width: 1160px) {
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      height: 28px;
+      line-height: 28px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

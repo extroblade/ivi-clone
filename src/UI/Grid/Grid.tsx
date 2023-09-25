@@ -2,11 +2,11 @@ import { useInView } from 'framer-motion';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/newui';
+import { Card } from '@/entities/card';
+import { Button, Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
 import { FilmType, selectFilters } from '@/shared/store';
-import { Card, Htag, Loader } from '@/UI';
 
 import styles from './Grid.module.scss';
 
@@ -80,7 +80,7 @@ export const Grid: FC<iGrid> = ({ type }) => {
       </div>
       <div className={styles.nodata}>
         {(!data?.total || isFetching) && <Loader />}
-        {data?.total === 0 ? <Htag tag={'h2'}>Ничего не найдено</Htag> : ''}
+        {data?.total === 0 ? <Title tag={'h2'}>Ничего не найдено</Title> : ''}
       </div>
       <div ref={buttonRef}>
         {data?.total

@@ -1,11 +1,14 @@
 .select_profile {
   padding: 0 12px;
+  margin-bottom: 20px;
+
   .select_container {
     margin: 20px 0;
     @media screen and (max-width: 600px) {
       width: 100%;
     }
   }
+
   &:before {
     content: '';
     display: block;
@@ -14,6 +17,7 @@
     width: 100%;
     pointer-events: none;
   }
+
   &:after {
     content: '';
     display: block;
@@ -27,16 +31,20 @@
 .userinfo {
   padding: 0 12px;
   margin: 20px 0;
+
   &__title {
     display: flex;
     justify-content: space-between;
+
     a {
       height: 100%;
     }
+
     .title__text {
       display: flex;
       flex-direction: column;
       overflow: hidden;
+
       h2 {
         font-size: 32px;
         line-height: 36px;
@@ -51,13 +59,16 @@
           font-size: 24px;
         }
       }
+
       p {
         margin-top: 0;
       }
     }
   }
+
   &__information {
     display: flex;
+
     .info {
       margin-top: 4px;
       margin-bottom: -2px;
@@ -73,21 +84,26 @@
         color: var(--color-gray-text);
         margin-right: 10px;
       }
+
       button {
         border: 1px solid rgba(var(--color-input), 0.43);
         padding: 10px;
+
         &:hover {
           border: 1px solid var(--color-input);
         }
       }
+
       + .info {
         margin-left: 16px;
       }
     }
+
     @media screen and (max-width: 600px) {
       flex-direction: column;
       .info {
         margin: 5px 0;
+
         + .info {
           margin-left: 0;
         }
@@ -95,6 +111,7 @@
     }
   }
 }
+
 .bottom {
   padding: 0 12px;
   margin-bottom: 15px;
@@ -102,9 +119,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   svg {
     color: var(--color-accent);
   }
+
   .id {
     display: flex;
     flex-direction: row;
@@ -127,40 +146,52 @@
   button {
     text-align: center;
   }
+
   .list {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+
     &__item {
       margin-bottom: 20px;
       padding: 0 12px;
+
       &.subscription {
         width: 40%;
+
         &_present {
           width: 100%;
+
           svg {
             font-size: 30px;
           }
         }
       }
+
       &.certificate {
         width: 40%;
       }
+
       &.fund {
         width: 20%;
       }
+
       &.referral_program {
         width: calc(100% * 5 / 7);
       }
+
       &.notifications {
         width: calc(100% * 2 / 7);
       }
+
       &.smalls {
         width: calc(100% / 7);
+
         svg {
           font-size: 1.5rem;
         }
       }
+
       @media screen and (max-width: 1271px) {
         &.smalls {
           width: calc(100% / 6);

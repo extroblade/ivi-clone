@@ -3,9 +3,8 @@ import React, { FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { MovieCard } from '@/components';
-import { Text } from '@/newui';
+import { Text, Title } from '@/newui';
 import { getRemainingFilmAmount } from '@/shared/helpers';
-import { Htag } from '@/UI';
 
 import styles from './MovieList.module.scss';
 import { MovieListProps } from './MovieList.props';
@@ -28,7 +27,7 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
   return (
     <div className={styles.wrap}>
       <div className={styles.title}>
-        <Htag tag={'h3'}>{t('descriptions.complete-filmography')}</Htag>
+        <Title tag={'h3'}>{t('descriptions.complete-filmography')}</Title>
         <Text
           className={styles.amount}
           onClick={changeState}

@@ -1,0 +1,26 @@
+.vote {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 100%;
+}
+
+.value {
+  color: var(--color-gray-text);
+  opacity: 0.72;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.success {
+    color: var(--color-success);
+    opacity: 0.9;
+  }
+
+  &.danger {
+    color: var(--color-danger);
+    opacity: 0.9;
+  }
+}

@@ -1,5 +1,4 @@
 export * from './AuthModal/AuthModal';
-export * from './EditProfileModal/EditProfileModal';
 export * from './FooterModal/FooterModal';
 export * from './FooterModal/ModalList/ModalList';
 export * from './Modals';

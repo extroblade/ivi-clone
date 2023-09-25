@@ -1,0 +1,41 @@
+.like,
+.dislike {
+  color: var(--color-gray-text);
+  opacity: 0.72;
+  transition: color 400ms;
+  cursor: pointer;
+  font-size: 0;
+  position: relative;
+  background-color: transparent !important;
+  stroke-width: 10px !important;
+  padding: 0 10px;
+  height: 100%;
+
+  &:hover {
+    transition: color 80ms;
+    color: var(--color-gray-text);
+    opacity: 1;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    background-color: transparent;
+  }
+}
+
+.like {
+  &.active {
+    color: var(--color-success);
+  }
+}
+
+.dislike {
+  transform: scale(1, -1);
+
+  &.active {
+    color: var(--color-danger);
+  }
+}

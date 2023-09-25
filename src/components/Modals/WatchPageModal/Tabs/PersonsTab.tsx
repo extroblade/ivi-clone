@@ -2,9 +2,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { StaffList } from '@/components/Modals/WatchPageModal/Tabs/StaffList';
+import { Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
-import { Htag } from '@/UI';
 
 export const PersonsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
@@ -17,9 +17,9 @@ export const PersonsTab = () => {
 
   return (
     <>
-      <Htag tag="h3">{t('categories.actors')}</Htag>
+      <Title tag="h3">{t('categories.actors')}</Title>
       <StaffList persons={actors || []} />
-      <Htag tag="h3">{t('categories.directors')}</Htag>
+      <Title tag="h3">{t('categories.directors')}</Title>
       <StaffList persons={directors || []} />
     </>
   );

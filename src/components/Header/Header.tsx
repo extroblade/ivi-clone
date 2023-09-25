@@ -6,7 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { BiUser } from 'react-icons/bi';
 import { MdNotificationsNone } from 'react-icons/md';
 
-import { Categories, Notifications, SearchButton, Submenu, User } from '@/components';
+import { Categories, Notifications, Submenu, User } from '@/components';
+import { SearchButton } from '@/entities/SearchButton/SearchButton';
 import { SwitchLanguage } from '@/features/switch-language';
 import { Button } from '@/newui';
 

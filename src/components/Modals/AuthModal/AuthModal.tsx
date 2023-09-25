@@ -11,11 +11,10 @@ import { TbReload } from 'react-icons/tb';
 
 import { GoogleAuthButton, VkAuthButton } from '@/components';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
-import { Button, Text } from '@/newui';
+import { Button, Modal, Text } from '@/newui';
 import { BarGraph } from '@/newui/bar-graph/bar-graph';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setShowAuth } from '@/shared/store';
-import { FullScreenModal } from '@/UI';
 
 import styles from './AuthModal.module.scss';
 
@@ -93,7 +92,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
   }, [step]);
 
   return (
-    <FullScreenModal isOpen={showAuth || show} closeModal={close}>
+    <Modal isOpen={showAuth || show} closeModal={close}>
       <form className={styles.chat}>
         <div className={styles.chat__header}>
           {step > 1 ? (
@@ -241,6 +240,6 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
           )}
         </div>
       </form>
-    </FullScreenModal>
+    </Modal>
   );
 };

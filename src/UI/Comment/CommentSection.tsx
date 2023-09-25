@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 
+import { Loader } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { useFetchCommentsQuery } from '@/shared/services';
 import { selectModal } from '@/shared/store';
-import { Comment, CommentInput, Loader } from '@/UI';
+import { Comment, CommentInput } from '@/UI';
 
 import styles from './Comment.module.scss';
+
 export const CommentSection: FC = (): JSX.Element => {
   const { currentMovie } = useAppSelector(selectModal);
   const {

@@ -2,11 +2,10 @@ import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Text } from '@/newui';
+import { Button, Modal, Text } from '@/newui';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 import { selectModal, setShowUnsub } from '@/shared/store';
-import { FullScreenModal } from '@/UI';
 
 import styles from './UnsubscribeModal.module.scss';
 
@@ -24,7 +23,7 @@ export const UnsubscribeModal = () => {
   };
   usePreventScroll(showUnsub);
   return (
-    <FullScreenModal isOpen={showUnsub} closeModal={close}>
+    <Modal isOpen={showUnsub} closeModal={close}>
       <section className={styles.modal_body}>
         <div className={styles.modal_inner}>
           <div className={styles.title}>{t('sections.unsub-notifications')}</div>
@@ -48,6 +47,6 @@ export const UnsubscribeModal = () => {
           </div>
         </div>
       </section>
-    </FullScreenModal>
+    </Modal>
   );
 };

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { EmptyNotifications } from '@/UI';
+import { NoNotifications } from '@/entities/no-notifications';
 
 const Notifications: FC = () => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ const Notifications: FC = () => {
       <Head>
         <title>{t('title.profile') || 'Мой профиль / ivi.ru'}</title>
       </Head>
-      <EmptyNotifications />
+      <NoNotifications />
     </>
   );
 };

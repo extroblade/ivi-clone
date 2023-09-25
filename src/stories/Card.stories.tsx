@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
 import { RatingModal } from '@/components';
+import { CardProps } from '@/entities/card/model/Card.props';
 import { Card } from '@/UI';
-import { CardProps } from '@/UI/Card/Card.props';
 
 const card = {
   id: 1,

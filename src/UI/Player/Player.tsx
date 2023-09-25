@@ -4,17 +4,19 @@ import { useTranslation } from 'react-i18next';
 import { FiUpload } from 'react-icons/fi';
 import { IoPlayOutline } from 'react-icons/io5';
 
-import { AddToFavoritesButton, TurnNotificationsButton } from '@/components';
+import { AddToFavoritesButton, TurnNotificationsButton } from '@/entities/card/buttons';
+import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Button } from '@/newui';
-import { scrollTop } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
 import { PlayerProps } from '@/UI/Player/Player.props';
 
 import styles from './Player.module.scss';
+
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: true });
 
 export const Player: FC<PlayerProps> = ({ url, actions }) => {
+  const scrollTop = useScrollTop();
   const { t } = useTranslation();
   const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
@@ -28,7 +30,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
   const openTrailers = () => {
     dispatch(setShowWatchPageModal(true));
     dispatch(setCurrentMovie({ ...currentMovie, index: 2 }));
-    scrollTop();
+    scrollTop?.();
   };
 
   if (!url) return <div className={`${styles.placeholder} loader`} />;
@@ -45,7 +47,6 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
               controls={true}
               light={true}
               url={url}
-              playing={true}
             />
           )}
         </div>

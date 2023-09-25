@@ -2,14 +2,15 @@ import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider, { Settings } from 'react-slick';
 
-import { NextArrow, PrevArrow } from '@/components';
+import { NextArrow } from '@/components/Buttons/Arrows/NextArrow';
+import { PrevArrow } from '@/components/Buttons/Arrows/PrevArrow';
 import styles from '@/components/WatchPage/WatchPage.module.scss';
-import { Button, Title } from '@/newui';
+import { Button, Loader, Title } from '@/newui';
 import { scrollTop } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useFetchCommentsQuery } from '@/shared/services';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
-import { CommentCard, Loader } from '@/UI';
+import { CommentCard } from '@/UI';
 
 export const CommentCarousel: FC = () => {
   const { t } = useTranslation();
@@ -75,9 +76,7 @@ export const CommentCarousel: FC = () => {
   return (
     <>
       <div className={styles.comments_container}>
-        <Title sup={comments?.total || 0} onClick={openComments}>
-          {t('categories.comments')}
-        </Title>
+        <Title onClick={openComments}>{t('categories.comments')}</Title>
         <div className={styles.open} onClick={openComments}>
           <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
         </div>

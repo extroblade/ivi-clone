@@ -4,11 +4,12 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider, { Settings } from 'react-slick';
 
-import { NextArrow, PrevArrow } from '@/components';
+import { NextArrow } from '@/components/Buttons/Arrows/NextArrow';
+import { PrevArrow } from '@/components/Buttons/Arrows/PrevArrow';
 import { TOP_100_POPULAR_FILMS } from '@/constants';
+import { Title } from '@/newui';
 import { useFetchTopFilmQuery } from '@/shared/services';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { Htag } from '@/UI';
 
 import styles from './Top10Carousel.module.scss';
 import { T10Card } from './Top10CarouselCard';
@@ -58,7 +59,7 @@ export const Top10Carousel: FC = () => {
           <Image src={'/images/top10/top10.svg'} width={116} height={24} alt={'top10'} />
         </Link>
         <Link href={'/movies'}>
-          <Htag tag={'h3'}>{t('sections.during-week')}</Htag>
+          <Title tag={'h3'}>{t('sections.during-week')}</Title>
         </Link>
       </div>
       <Slider {...settings}>

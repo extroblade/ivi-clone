@@ -9,9 +9,10 @@ import React, { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider, { Settings } from 'react-slick';
 
-import { ActivateCertificateButton, NextArrow, PrevArrow, PromotionButton } from '@/components';
-import { Button, Text } from '@/newui';
-import { Htag } from '@/UI';
+import { ActivateCertificateButton, PromotionButton } from '@/components';
+import { NextArrow } from '@/components/Buttons/Arrows/NextArrow';
+import { PrevArrow } from '@/components/Buttons/Arrows/PrevArrow';
+import { Button, Text, Title } from '@/newui';
 
 import styles from './PromoCarousel.module.scss';
 
@@ -66,7 +67,7 @@ const PromoCarouselSlide: FC<iSlide> = ({ slide }): JSX.Element => {
                   priority={slide?.id === 1}
                 />
               ) : (
-                <Htag tag={'h2'}>{slide.name}</Htag>
+                <Title>{slide.name}</Title>
               )}
             </div>
             <Text className={styles.synopsis} style={{ color: `${color ? 'white' : 'black'}` }}>

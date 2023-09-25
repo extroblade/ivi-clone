@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { professionTypes } from '@/constants';
+import { CardLoader } from '@/entities/card';
 import { Button, Text } from '@/newui';
-import { CardLoader } from '@/UI';
 
 import styles from './MovieCard.module.scss';
 import { MovieCardProps } from './MovieCard.props';

@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
   AuthModal,
-  EditProfileModal,
   FooterModal,
   RatingModal,
   SearchModal,
@@ -18,7 +17,6 @@ export const Modals = () => {
       <RatingModal />
       <SearchModal />
       <WatchPageModal />
-      <EditProfileModal />
       <FooterModal />
       <UnsubscribeModal />
       <AlertList />
