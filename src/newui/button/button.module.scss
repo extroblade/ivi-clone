@@ -12,13 +12,16 @@
   color: white;
   font-size: 1rem;
   font-weight: 600;
+
   &:disabled {
     opacity: 0.4;
     cursor: default;
+
     &:hover {
       background-color: #1f1b2e;
     }
   }
+
   &:hover {
     background-color: #28233b;
   }
@@ -34,9 +37,11 @@
 }
 
 .circle {
-  width: 40px;
   border-radius: 20px;
+  height: 40px;
+  aspect-ratio: 1;
 }
+
 .outline {
   background-color: transparent;
   transition-duration: 0.4s;
@@ -45,10 +50,12 @@
   min-height: 40px;
   border-radius: 12px;
   padding: 9px 15px;
+
   &:hover {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.72);
   }
+
   @media screen and (max-width: 1160px) {
     padding: 0.8rem 0.8rem;
   }
@@ -58,18 +65,22 @@
   background-color: #ea003d;
   border-color: #ea003d;
   border-radius: 8px;
+
   & svg {
     width: 24px;
     height: 24px;
     margin-left: 10px;
   }
+
   &:disabled {
     opacity: 0.3;
     cursor: default;
+
     &:hover {
       background-color: #ea003d;
     }
   }
+
   &:hover {
     background-color: #ff0f4d;
     border-color: #ff0f4d;
@@ -86,6 +97,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: 22px;
+
   &:hover {
     color: #fff;
     background-color: transparent;
@@ -99,6 +111,7 @@
   border: 0;
   border-radius: 8px;
   color: var(--color-input);
+
   &:hover {
     color: var(--color-main);
     background-color: transparent;

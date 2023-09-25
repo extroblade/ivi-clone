@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Description } from '@/UI';
-import { iDesc } from '@/UI/Description/Description.props';
 
-const meta: Meta<iDesc> = {
+const meta: Meta<typeof Description> = {
   title: 'Main/Description',
   component: Description,
 };
 
 export default meta;
-type Story = StoryObj<iDesc>;
+type Story = StoryObj<typeof Description>;
 
 export const Default: Story = {
   args: {
