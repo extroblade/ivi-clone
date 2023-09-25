@@ -1,0 +1,16 @@
+.content_container {
+  border-top: 1px solid rgba(var(--color-main), 0.16);
+  background: url('/images/bg404.png') 0 0/100% auto no-repeat;
+  min-height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 0;
+}

@@ -1,3 +1,4 @@
+export * from '../../features/switch-language/ui/switch-language';
 export * from './BackButton/BackButton';
 export * from './CardButtons';
 export * from './InputFileButton/InputFileButton';
@@ -5,7 +6,6 @@ export * from './LoginButton';
 export * from './ProfileButton';
 export * from './ScrollToTopButton/ScrollToTopButton';
 export * from './SearchButton/SearchButton';
-export * from './SwitchLanguageButton/LanguageSwitcher';
 export * from './VoteButtons';
 export * from '@/components/Buttons/Arrows/NextArrow';
 export * from '@/components/Buttons/Arrows/PrevArrow';

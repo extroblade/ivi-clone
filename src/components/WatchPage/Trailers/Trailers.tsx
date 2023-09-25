@@ -2,11 +2,11 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { scrollTop } from '@/helpers';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { Text, Title } from '@/newui';
+import { scrollTop } from '@/shared/helpers';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
 import { iVideos } from '@/shared/types/kinopoiskTypes';
-import { P, Title } from '@/UI';
 
 import styles from './Trailers.module.scss';
 
@@ -30,15 +30,15 @@ export const Trailers: FC<iTrailers> = ({ videos }) => {
   //todo!!!
   return (
     <div className={styles.videos}>
-      <Title text={t('categories.trailers')} sup={videos?.total || 0} onClick={openTrailers} />
+      <Title onClick={openTrailers}>{t('categories.trailers')}</Title>
       <div className={styles.videos_links}>
         {videos?.total
           ? videos?.items.map((video) => (
               <div className={styles.text_container} key={video.url}>
                 <Link href={video.url}>
-                  <P size={'L'} color={'gray-light'}>
+                  <Text size={'L'} color={'gray-light'}>
                     {video.name}
-                  </P>
+                  </Text>
                 </Link>
               </div>
             ))

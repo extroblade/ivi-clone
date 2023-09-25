@@ -1,46 +1,46 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Description, Htag, P } from '@/UI';
+import { Text } from '@/newui';
+import { Description, Htag } from '@/UI';
 import styles from '@/UI/Description/Description.module.scss';
-
 export const MainPageDescription = () => {
   const { t } = useTranslation();
   return (
     <Description
       title={<Htag tag={'h4'}>{t('descriptions.main-page-title')}</Htag>}
-      cut={<P size={'M'}>{t('descriptions.main-page-cut')}</P>}
+      cut={<Text size={'M'}>{t('descriptions.main-page-cut')}</Text>}
     >
       <>
-        <P size={'M'}>{t('descriptions.main-page-text0')}</P>
-        <P size={'M'}>{t('descriptions.main-page-text1')}</P>
+        <Text size={'M'}>{t('descriptions.main-page-text0')}</Text>
+        <Text size={'M'}>{t('descriptions.main-page-text1')}</Text>
         <ol className={styles.list}>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text2')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text2')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text3')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text3')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text4')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text4')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text5')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text5')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text6')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text6')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text7')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text7')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text8')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text8')}</Text>
           </li>
           <li>
-            <P size={'M'}>{t('descriptions.main-page-text9')}</P>
+            <Text size={'M'}>{t('descriptions.main-page-text9')}</Text>
           </li>
         </ol>
-        <P size={'M'}>{t('descriptions.main-page-text10')}</P>
+        <Text size={'M'}>{t('descriptions.main-page-text10')}</Text>
       </>
     </Description>
   );

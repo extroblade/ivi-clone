@@ -1,9 +1,8 @@
 import React, { ChangeEvent, FC, memo, ReactNode, useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from '@/hooks';
-import { useDebounce } from '@/hooks';
+import { Text } from '@/newui';
+import { useAppDispatch, useAppSelector, useDebounce } from '@/shared/hooks';
 import { selectFilters, setRatingFrom } from '@/shared/store';
-import { P } from '@/UI';
 
 import styles from './Plank.module.scss';
 
@@ -44,8 +43,8 @@ export const InputRange: FC<iRange> = memo(
       <div className={styles.plank}>
         <div className={styles.input_range}>
           <div className={styles.output}>
-            <P color={'white'}>{children}</P>
-            <P color={'white'}>&gt; {ratingFrom}</P>
+            <Text color={'white'}>{children}</Text>
+            <Text color={'white'}>&gt; {ratingFrom}</Text>
           </div>
           <input
             className={styles.input}

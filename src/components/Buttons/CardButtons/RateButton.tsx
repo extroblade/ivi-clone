@@ -2,8 +2,8 @@ import React from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 
+import { Button } from '@/newui';
 import { setShowRating } from '@/shared/store';
-import { Button } from '@/UI';
 
 export const RateButton = () => {
   const dispatch = useDispatch();

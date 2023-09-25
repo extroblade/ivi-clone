@@ -2,9 +2,8 @@ import { render } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 
+import { mockCard, mockStore } from '@/shared/testdata';
 import { Carousel } from '@/UI';
-
-import { mockCard, mockStore } from './Card.test';
 
 const testArray = Array(10).fill(mockCard);
 

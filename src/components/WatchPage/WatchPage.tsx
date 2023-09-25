@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from 'react';
 
 import { ExternalSources, PersonsGallery, ScrollToTopButton, Trailers } from '@/components';
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch } from '@/shared/hooks';
 import {
   useFetchAllPersonsQuery,
   useFetchFilmAwardsQuery,

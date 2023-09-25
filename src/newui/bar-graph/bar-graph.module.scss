@@ -1,0 +1,22 @@
+.bar {
+  min-width: 10px;
+  width: 100%;
+  background-color: rgba(126, 121, 143, 0.32);
+  min-height: 3px;
+  margin: 1px;
+  .bar_value {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 3px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    transition: width 0.5s;
+    background-color: var(--color-accent);
+  }
+  &.gray {
+    background-color: var(--color-gray-text);
+  }
+  &.red {
+    background-color: var(--color-accent);
+  }
+}

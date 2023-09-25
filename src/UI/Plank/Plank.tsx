@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
-import { useAppSelector, useOutsideClick } from '@/hooks';
+import { useAppSelector, useOutsideClick } from '@/shared/hooks';
 import { selectFilters } from '@/shared/store';
 import { ChooseDropdown, SearchDropdown } from '@/UI';
 

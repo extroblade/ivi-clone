@@ -3,7 +3,7 @@ import { MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SlSocialGoogle } from 'react-icons/sl';
 
-import { Button } from '@/UI';
+import { Button } from '@/newui';
 
 export const GoogleAuthButton = () => {
   const { t } = useTranslation();

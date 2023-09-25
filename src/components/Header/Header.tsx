@@ -6,16 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { BiUser } from 'react-icons/bi';
 import { MdNotificationsNone } from 'react-icons/md';
 
-import logo from '@/../public/images/iviLogo.svg';
-import {
-  Categories,
-  LanguageSwitcher,
-  Notifications,
-  SearchButton,
-  Submenu,
-  User,
-} from '@/components';
-import { Button } from '@/UI';
+import { Categories, Notifications, SearchButton, Submenu, User } from '@/components';
+import { SwitchLanguage } from '@/features/switch-language';
+import { Button } from '@/newui';
 
 import styles from './Header.module.scss';
 
@@ -29,7 +22,7 @@ export const Header: FC = () => {
           <div className={styles.body}>
             <div className={styles.logo}>
               <Link href="/">
-                <Image src={logo} alt="logo" width={66} height={48} />
+                <Image src={'/images/iviLogo.svg'} alt="logo" width={66} height={48} />
               </Link>
             </div>
             <nav className={styles.menu}>
@@ -62,7 +55,7 @@ export const Header: FC = () => {
               </ul>
             </nav>
             <div className={styles.zindex}>
-              <LanguageSwitcher />
+              <SwitchLanguage />
             </div>
 
             <div className={styles.zindex}>

@@ -7,9 +7,10 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { IoSearchOutline } from 'react-icons/io5';
 
-import { useAppDispatch, useAppSelector, useDebounce, usePreventScroll } from '@/hooks';
+import { Button, Text } from '@/newui';
+import { useAppDispatch, useAppSelector, useDebounce, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowSearch } from '@/shared/store';
-import { Button, FullScreenModal, Loader, P } from '@/UI';
+import { FullScreenModal, Loader } from '@/UI';
 
 import styles from './SearchModal.module.scss';
 
@@ -139,7 +140,7 @@ export const SearchModal: FC = (): JSX.Element => {
                       key={id + 'm'}
                     >
                       <BiMoviePlay />
-                      <P>{nameRu || nameEn || nameOriginal}</P>
+                      <Text>{nameRu || nameEn || nameOriginal}</Text>
                     </Button>
                   );
                 })
@@ -154,7 +155,7 @@ export const SearchModal: FC = (): JSX.Element => {
                       key={kinopoiskId + 'p'}
                     >
                       <BsPersonCircle />
-                      <P>{nameRu || nameEn || nameOriginal}</P>
+                      <Text>{nameRu || nameEn || nameOriginal}</Text>
                     </Button>
                   );
                 })

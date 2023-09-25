@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useEscapeKey, usePreventScroll } from '@/hooks';
+import { useEscapeKey, usePreventScroll } from '@/shared/hooks';
 import { FSMProps } from '@/UI/FullScreenModal/FullScreenModal.prop';
 
 import styles from './FullScreenModal.module.scss';

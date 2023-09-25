@@ -3,7 +3,8 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Htag, P } from '@/UI';
+import { Button, Text } from '@/newui';
+import { Htag } from '@/UI';
 
 import styles from './WatchAllDevices.module.scss';
 
@@ -14,9 +15,9 @@ export const WatchAllDevices: FC<{ name: string; image: string }> = ({ name, ima
       <div className={styles.wrapper}>
         <div className={styles.appeal}>
           <Htag tag={'h3'}>Смотреть {name} на всех устройствах</Htag>
-          <P className={styles.subtitle}>
+          <Text className={styles.subtitle}>
             Приложение доступно для скачивания на iOS, Android, SmartTV и приставках
-          </P>
+          </Text>
           <Link href={'https://www.ivi.ru/devices'}>
             <Button appearance={'red'}>{t('buttons.connect-all-devices')}</Button>
           </Link>

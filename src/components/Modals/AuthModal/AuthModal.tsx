@@ -11,9 +11,11 @@ import { TbReload } from 'react-icons/tb';
 
 import { GoogleAuthButton, VkAuthButton } from '@/components';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { Button, Text } from '@/newui';
+import { BarGraph } from '@/newui/bar-graph/bar-graph';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setShowAuth } from '@/shared/store';
-import { BarGraph, Button, FullScreenModal, P } from '@/UI';
+import { FullScreenModal } from '@/UI';
 
 import styles from './AuthModal.module.scss';
 
@@ -97,7 +99,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
           {step > 1 ? (
             <div className={styles.chat__welcome}>
               <h5 className={styles.chat__title}>{t('sections.hello')}</h5>
-              {login && <P size="S">{login}</P>}
+              {login && <Text size="S">{login}</Text>}
             </div>
           ) : (
             <div className={styles.chat__welcome}>
@@ -122,7 +124,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
             <>
               <div className={styles.chat__message}>
                 <h5>{t('buttons.login-signup-person')}</h5>
-                {step <= 1 && <P>{t('sections.use-service-any-device')}</P>}
+                {step <= 1 && <Text>{t('sections.use-service-any-device')}</Text>}
               </div>
               {step === 1 ? (
                 <div className={styles.input}>

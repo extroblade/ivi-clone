@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { selectFilters, setCountry, setGenre, setYearFrom, setYearTo } from '@/shared/store';
 import { Dropdown } from '@/UI';

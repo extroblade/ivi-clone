@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Button } from '@/UI';
-
+import { Button } from '@/newui';
 export const AddNewMovie = () => {
   const create = () => {
     console.log('mock creation');

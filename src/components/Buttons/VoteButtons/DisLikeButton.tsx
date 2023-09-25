@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { AiFillDislike, AiOutlineDislike } from 'react-icons/ai';
 
-import { Button } from '@/UI';
+import { Button } from '@/newui';
 import styles from '@/UI/Comment/Vote/Vote.module.scss';
 
 export const DisLikeButton: FC<{ dislike: boolean; onClick: () => void }> = ({

@@ -9,7 +9,7 @@ import {
   UnsubscribeModal,
   WatchPageModal,
 } from '@/components';
-import { AlertsList } from '@/UI';
+import { AlertList } from '@/entities/alert-list';
 
 export const Modals = () => {
   return (
@@ -21,7 +21,7 @@ export const Modals = () => {
       <EditProfileModal />
       <FooterModal />
       <UnsubscribeModal />
-      <AlertsList />
+      <AlertList />
     </>
   );
 };

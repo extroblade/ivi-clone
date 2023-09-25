@@ -10,7 +10,8 @@ import { useTranslation } from 'react-i18next';
 import Slider, { Settings } from 'react-slick';
 
 import { ActivateCertificateButton, NextArrow, PrevArrow, PromotionButton } from '@/components';
-import { Button, Htag, P } from '@/UI';
+import { Button, Text } from '@/newui';
+import { Htag } from '@/UI';
 
 import styles from './PromoCarousel.module.scss';
 
@@ -68,9 +69,9 @@ const PromoCarouselSlide: FC<iSlide> = ({ slide }): JSX.Element => {
                 <Htag tag={'h2'}>{slide.name}</Htag>
               )}
             </div>
-            <P className={styles.synopsis} style={{ color: `${color ? 'white' : 'black'}` }}>
+            <Text className={styles.synopsis} style={{ color: `${color ? 'white' : 'black'}` }}>
               {i18next.language == 'ru' ? slide.description : slide.enDescription}
-            </P>
+            </Text>
           </div>
           <Button appearance={'red'} title={slide.btn}>
             {slide.btn}

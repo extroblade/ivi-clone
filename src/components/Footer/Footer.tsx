@@ -16,7 +16,7 @@ import { HiOutlineMegaphone, HiPhone } from 'react-icons/hi2';
 import { IoMailOutline, IoTv } from 'react-icons/io5';
 
 import { FooterMobile } from '@/components';
-import { Button, P } from '@/UI';
+import { Button, Text } from '@/newui';
 
 import styles from './Footer.module.scss';
 
@@ -115,8 +115,8 @@ export const Footer: FC = (): JSX.Element => {
             <ul className={styles.list}>
               <span className={styles.listTitle}>{t('footer.support')}</span>
               <li>
-                <P>{t('footer.ready-to-help')}</P>
-                <P>{t('footer.anytime')}</P>
+                <Text>{t('footer.ready-to-help')}</Text>
+                <Text>{t('footer.anytime')}</Text>
               </li>
               <li className={styles.buttonsGroup}>
                 <Link href={'https://www.ivi.ru/profile'}>
@@ -133,7 +133,7 @@ export const Footer: FC = (): JSX.Element => {
                 <Link href={'https://ask.ivi.ru/'} className={styles.askLink}>
                   ask.ivi.ru
                 </Link>
-                <P>{t('footer.answers')}</P>
+                <Text>{t('footer.answers')}</Text>
               </li>
             </ul>
             <ul className={styles.list}>
@@ -144,7 +144,7 @@ export const Footer: FC = (): JSX.Element => {
                   <div className={styles.widget}>
                     <HiOutlineMegaphone className={styles.widget__icon} />
                   </div>
-                  <P className={styles.widget__descr}>{t('footer.watch')}</P>
+                  <Text className={styles.widget__descr}>{t('footer.watch')}</Text>
                 </Link>
               </li>
             </ul>
@@ -200,8 +200,8 @@ export const Footer: FC = (): JSX.Element => {
               </div>
             </div>
             <div>
-              <P>© 2023 ООО «Иви.ру» </P>
-              <P>HBO ® and related service marks are the property of Home Box Office, Inc</P>
+              <Text>© 2023 ООО «Иви.ру» </Text>
+              <Text>HBO ® and related service marks are the property of Home Box Office, Inc</Text>
             </div>
           </div>
         </div>

@@ -6,14 +6,14 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
 import { professionTypes } from '@/constants';
-import { scrollTop } from '@/helpers';
-import { useAppSelector } from '@/hooks';
+import { Sup, Text, Title } from '@/newui';
+import { scrollTop } from '@/shared/helpers';
+import { useAppSelector } from '@/shared/hooks';
 import {
   selectModal,
   setCurrentMovie,
   setShowWatchPageModal,
 } from '@/shared/store/reducers/modals.slice';
-import { P, Title } from '@/UI';
 
 import styles from './PersonsGallery.module.scss';
 import { PersonsGalleryProps } from './PersonsGallery.props';
@@ -31,7 +31,9 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
     <>
       {list?.length && (
         <div className={styles.wrap}>
-          <Title text={t('sections.actors-creators')} sup={list?.length || 0} onClick={open} />
+          <Title onClick={open}>
+            {t('sections.actors-creators')} <Sup>{list?.length || 0}</Sup>
+          </Title>
           <div className={styles.list}>
             <div className={styles.list__wrap}>
               {list.slice(0, 9).map((person) => {
@@ -70,11 +72,11 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                             {word?.length && <p className={styles.name}>{word}</p>}
                           </div>
                         ))}
-                      <P size="S">
+                      <Text size="S">
                         {professionKey && i18n.language == 'en'
                           ? professionTypes[professionKey]?.enName
                           : professionTypes[professionKey]?.ruName}
-                      </P>
+                      </Text>
                     </div>
                   </Link>
                 );

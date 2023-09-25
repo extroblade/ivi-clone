@@ -6,7 +6,7 @@ exports[`BackButton should be as in snapshot 1`] = `
   "baseElement": <body>
     <div>
       <button
-        class="back"
+        class="button back transparent M"
       >
         <svg
           aria-hidden="true"
@@ -33,7 +33,7 @@ exports[`BackButton should be as in snapshot 1`] = `
   </body>,
   "container": <div>
     <button
-      class="back"
+      class="button back transparent M"
     >
       <svg
         aria-hidden="true"

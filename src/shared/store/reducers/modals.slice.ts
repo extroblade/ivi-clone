@@ -13,15 +13,8 @@ interface ICurrentMovie extends iFilm {
   comments?: IComment;
 }
 
-export interface iAlert {
-  id?: string | number;
-  title: string;
-  extra?: string;
-}
-
 interface iModal {
   showAuth: boolean;
-  activeAlerts?: iAlert[];
   showRating: boolean;
   showSearch: boolean;
   showWatchPageModal: boolean;
@@ -40,7 +33,6 @@ const initialState: iModal = {
   showFooterModal: false,
   showEditProfile: false,
   currentMovie: undefined,
-  activeAlerts: [],
 };
 
 export const modalsSlice = createSlice({
@@ -49,9 +41,6 @@ export const modalsSlice = createSlice({
   reducers: {
     setCurrentMovie(state, action: PayloadAction<any>) {
       state.currentMovie = action.payload;
-    },
-    setActiveAlerts(state, action: PayloadAction<iAlert[]>) {
-      state.activeAlerts = action.payload;
     },
     setShowAuth(state, action: PayloadAction<boolean>) {
       state.showAuth = action.payload;
@@ -96,6 +85,5 @@ export const {
   setShowFooterModal,
   setShowEditProfile,
   setCurrentMovie,
-  setActiveAlerts,
 } = modalsSlice.actions;
 export default modalsSlice.reducer;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useAppSelector } from '@/hooks';
+import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
 import { Htag, Player } from '@/UI';
 

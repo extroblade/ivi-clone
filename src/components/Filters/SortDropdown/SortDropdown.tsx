@@ -6,9 +6,9 @@ import {
   MdOutlineSort,
 } from 'react-icons/md';
 
-import { useAppDispatch, useOutsideClick } from '@/hooks';
+import { Button } from '@/newui';
+import { useAppDispatch, useOutsideClick } from '@/shared/hooks';
 import { setOrder } from '@/shared/store';
-import { Button } from '@/UI';
 
 import styles from './SortDropdown.module.scss';
 

@@ -1,9 +1,10 @@
 import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { writeDate } from '@/helpers';
+import { Button, Text } from '@/newui';
+import { writeDate } from '@/shared/helpers';
 import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
-import { Button, CommentAvatar, CommentInput, P, Vote } from '@/UI';
+import { CommentAvatar, CommentInput, Vote } from '@/UI';
 
 import styles from './Comment.module.scss';
 
@@ -31,10 +32,10 @@ export const Comment: FC<iCommentComp> = React.memo(({ comment, children }): JSX
       </header>
       <div className={styles.clause}>
         <div className={styles.clause_title}>
-          <P color={'gray'}>{title}</P>
+          <Text color={'gray'}>{title}</Text>
         </div>
         <div className={styles.clause_text}>
-          <P color={'gray-light'}>{description}</P>
+          <Text color={'gray-light'}>{description}</Text>
         </div>
       </div>
       <div className={styles.interactions}>

@@ -3,7 +3,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { professionTypes } from '@/constants';
-import { Button, CardLoader, P } from '@/UI';
+import { Button, Text } from '@/newui';
+import { CardLoader } from '@/UI';
 
 import styles from './MovieCard.module.scss';
 import { MovieCardProps } from './MovieCard.props';
@@ -17,13 +18,13 @@ export const MovieCard: FC<MovieCardProps> = ({ card }) => {
     <Link href={`/watch/${filmId}`} className={styles.card} title={name}>
       <div className={styles.info}>
         <div>
-          <P color={'white'}>{year}</P>
-          <P color={'white'}>{name}</P>
+          <Text color={'white'}>{year}</Text>
+          <Text color={'white'}>{name}</Text>
           <div className={styles.info_row}>
-            {description && <P size={'S'}>{description}, </P>}
+            {description && <Text size={'S'}>{description}, </Text>}
 
             {type && (
-              <P size={'S'}>
+              <Text size={'S'}>
                 {i18n.language == 'en'
                   ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
@@ -32,13 +33,13 @@ export const MovieCard: FC<MovieCardProps> = ({ card }) => {
                     // @ts-ignore
                     professionTypes[type]?.ruName}
                 ,
-              </P>
+              </Text>
             )}
 
             {rating && (
-              <P size={'S'}>
+              <Text size={'S'}>
                 {t('categories.rating')}: {rating}
-              </P>
+              </Text>
             )}
           </div>
         </div>

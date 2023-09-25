@@ -3,8 +3,9 @@ import React, { FC, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { MovieCard } from '@/components';
-import { getRemainingFilmAmount } from '@/helpers';
-import { Htag, P } from '@/UI';
+import { Text } from '@/newui';
+import { getRemainingFilmAmount } from '@/shared/helpers';
+import { Htag } from '@/UI';
 
 import styles from './MovieList.module.scss';
 import { MovieListProps } from './MovieList.props';
@@ -28,9 +29,13 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
     <div className={styles.wrap}>
       <div className={styles.title}>
         <Htag tag={'h3'}>{t('descriptions.complete-filmography')}</Htag>
-        <P className={styles.amount} onClick={changeState} title={isOpen ? 'Скрыть' : 'Развернуть'}>
+        <Text
+          className={styles.amount}
+          onClick={changeState}
+          title={isOpen ? 'Скрыть' : 'Развернуть'}
+        >
           {list?.length} {i18next.language == 'en' ? 'movies' : allAmount}
-        </P>
+        </Text>
       </div>
       <div className={styles.line}></div>
       <div className={styles.cards}>
@@ -39,10 +44,10 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
             {list?.slice(0, 8).map((card) => {
               return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
             })}
-            <P onClick={changeState} className={styles.link}>
+            <Text onClick={changeState} className={styles.link}>
               {t('buttons.more')} {list?.length - 8}
               {i18next.language == 'en' ? ' movies' : remainingAmount}
-            </P>
+            </Text>
           </>
         ) : (
           <>

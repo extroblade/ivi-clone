@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC, useEffect } from 'react';
 
-import { useAppDispatch } from '@/hooks/redux';
+import { useAppDispatch } from '@/shared/hooks/redux';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { setCountries, setGenres } from '@/shared/store';
 import { ILink } from '@/shared/types/types';

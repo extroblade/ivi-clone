@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react';
-import { useEscapeKey } from '../../src/hooks/useEscapeKey';
+
+import { useEscapeKey } from '@/shared/hooks/useEscapeKey';
 
 describe('useEscape', () => {
   test('escape', () => {

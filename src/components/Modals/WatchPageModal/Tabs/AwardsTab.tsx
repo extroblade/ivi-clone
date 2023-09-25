@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { useAppSelector } from '@/hooks';
+import { Text } from '@/newui';
+import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
-import { Htag, P } from '@/UI';
+import { iAwardsItem } from '@/shared/types/kinopoiskTypes';
+import { Htag } from '@/UI';
 
 export const AwardsTab = () => {
   const { currentMovie } = useAppSelector(selectModal);
@@ -11,10 +13,10 @@ export const AwardsTab = () => {
   return (
     <div>
       {awards?.length ? (
-        awards.map((award: Record<string, string>) => (
+        awards.map((award: iAwardsItem) => (
           <div key={award.name}>
             <Htag tag={'h3'}>{award.name}</Htag>
-            <P>{award.nominationName}</P>
+            <Text>{award.nominationName}</Text>
             <Image src={award.imageUrl} width={100} height={100} alt={award.name} />
           </div>
         ))

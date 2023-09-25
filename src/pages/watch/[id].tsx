@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 import { WatchPage } from '@/components';
 import { movieTypes } from '@/constants';
+import { NotFound } from '@/entities/not-found';
+import { Breadcrumbs } from '@/newui';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { MovieBreadcrumbs, NotFound } from '@/UI';
 
 const Movie = ({ movie }: { movie: iFilm }) => {
   const { i18n } = useTranslation();
@@ -33,7 +34,7 @@ const Movie = ({ movie }: { movie: iFilm }) => {
             : `Фильм ${movie?.nameRu ? movie.nameRu : ''}`}
         </title>
       </Head>
-      <MovieBreadcrumbs breadcrumbs={breadcrumbs} />
+      <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
       <WatchPage movie={movie} />
     </>
   );

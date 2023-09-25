@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { getRate } from '@/helpers';
-import { useAppDispatch } from '@/hooks';
+import { Button } from '@/newui';
+import { getRate } from '@/shared/helpers';
+import { useAppDispatch } from '@/shared/hooks';
 import { setShowRating } from '@/shared/store';
-import { Button, RatingPlate } from '@/UI';
+import { RatingPlate } from '@/UI';
 import { RatingBlockProps } from '@/UI/RatingBlock/RatingBlockProps';
 
 import styles from './RatingBlock.module.scss';

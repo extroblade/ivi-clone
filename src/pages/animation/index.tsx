@@ -1,16 +1,16 @@
 import Head from 'next/head';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AnimationPageDescription, Filters } from '@/components';
-import { Breadcrumbs, Grid } from '@/UI';
+import { Breadcrumbs } from '@/newui';
+import { Grid } from '@/UI';
 
 const Index = () => {
   const { t } = useTranslation();
 
   const breadcrumbs = [
-    { name: t('sections.my-ivi'), path: '/' },
-    { name: t('sections.animation'), path: '/series' },
+    { id: 1, name: t('sections.my-ivi'), path: '/' },
+    { id: 2, name: t('sections.animation'), path: '/series' },
   ];
   return (
     <>

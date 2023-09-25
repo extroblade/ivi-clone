@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { Button } from '@/UI';
+import { Button } from '@/newui';
 import { ICardButtons } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
 
 import styles from './ProfileButton.module.scss';

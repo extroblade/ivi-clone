@@ -1,4 +1,4 @@
-import { writeDate } from '../../src/helpers/writeDate';
+import { writeDate } from '@/shared/helpers/writeDate';
 
 describe('remaining amount', () => {
   test('zero', () => {

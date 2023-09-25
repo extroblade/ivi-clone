@@ -1,10 +1,9 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { TiUserOutline } from 'react-icons/ti';
 
-import { useAppDispatch } from '@/hooks';
+import { Button } from '@/newui';
+import { useAppDispatch } from '@/shared/hooks';
 import { setShowAuth } from '@/shared/store';
-import { Button } from '@/UI';
 
 import styles from './LoginButton.module.scss';
 
@@ -18,7 +17,7 @@ export const LoginButton = () => {
   return (
     <div className={styles.login} data-testid={'login-button'}>
       <Button
-        onClick={() => openLoginModal()}
+        onClick={openLoginModal}
         size={'S'}
         appearance={'red'}
         title={t('buttons.login-signup') || 'Войти или зарегистрироваться'}

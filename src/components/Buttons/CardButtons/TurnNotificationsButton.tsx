@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { AiFillBell, AiOutlineBell } from 'react-icons/ai';
 
-import { useAppDispatch } from '@/hooks';
+import { Button } from '@/newui';
+import { useAppDispatch } from '@/shared/hooks';
 import { setShowUnsub } from '@/shared/store';
-import { Button } from '@/UI';
 
 export const TurnNotificationsButton = () => {
   const [turned, setTurned] = useState<boolean>(false);

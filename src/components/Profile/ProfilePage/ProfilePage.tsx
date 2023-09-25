@@ -8,7 +8,6 @@ import {
   CertificatesButton,
   ChecksButton,
   CodeLoginButton,
-  EditProfile,
   InviteFriendsButton,
   LoginButton,
   NotificationsButton,
@@ -21,7 +20,8 @@ import {
   ViewedButton,
   WatchLaterButton,
 } from '@/components';
-import { Button, P, ProfileSelector } from '@/UI';
+import { Button, Text } from '@/newui';
+import { ProfileSelector } from '@/UI';
 
 import styles from './ProfilePage.module.scss';
 
@@ -40,7 +40,7 @@ export const ProfilePage = () => {
         </div>
       )}
       {user ? (
-        <EditProfile />
+        <div>!</div>
       ) : (
         <div className={styles.login_button}>
           <LoginButton />
@@ -99,25 +99,19 @@ export const ProfilePage = () => {
         </li>
       </ul>
       <div className={styles.bottom}>
-        {user ? (
-          <>
-            <Button
-              appearance={'transparent'}
-              onClick={() => signOut()}
-              title={t('buttons.logout') || 'Выйти'}
-            >
-              <RiLogoutBoxRLine />
-              {t('buttons.logout')}
-            </Button>
-            <div className={styles.id}>
-              <P>uid: 2049522430</P>
-            </div>
-          </>
-        ) : (
-          <div className={styles.id}>
-            <P>uid: 2049522430</P>
-          </div>
+        {user && (
+          <Button
+            appearance={'transparent'}
+            onClick={() => signOut()}
+            title={t('buttons.logout') || 'Выйти'}
+          >
+            <RiLogoutBoxRLine />
+            {t('buttons.logout')}
+          </Button>
         )}
+        <div className={styles.id}>
+          <Text>uid: 2049522430</Text>
+        </div>
       </div>
     </div>
   );

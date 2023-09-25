@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`card card object empty card  1`] = `
+exports[`card card object should not throw error with empty card 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -47,28 +47,28 @@ exports[`card card object empty card  1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                 </div>
@@ -83,7 +83,7 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -93,8 +93,7 @@ exports[`card card object empty card  1`] = `
                 <div
                   class="info__row"
                 >
-                  2011, 
-                  undefined, 
+                  0
                   undefined
                 </div>
               </section>
@@ -105,7 +104,7 @@ exports[`card card object empty card  1`] = `
           class="textSection"
         >
           <p
-            class="p M"
+            class="p M gray"
           />
         </div>
       </a>
@@ -154,28 +153,28 @@ exports[`card card object empty card  1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -190,7 +189,7 @@ exports[`card card object empty card  1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red"
+                  class="bar_value red"
                 />
               </div>
             </div>
@@ -200,8 +199,7 @@ exports[`card card object empty card  1`] = `
               <div
                 class="info__row"
               >
-                2011, 
-                undefined, 
+                0
                 undefined
               </div>
             </section>
@@ -212,7 +210,7 @@ exports[`card card object empty card  1`] = `
         class="textSection"
       >
         <p
-          class="p M"
+          class="p M gray"
         />
       </div>
     </a>
@@ -271,7 +269,7 @@ exports[`card card object empty card  1`] = `
 }
 `;
 
-exports[`card params all 1`] = `
+exports[`card params should has all available buttons 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -409,28 +407,28 @@ exports[`card params all 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                 </div>
@@ -445,7 +443,7 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -467,7 +465,7 @@ exports[`card params all 1`] = `
           class="textSection"
         >
           <p
-            class="p M"
+            class="p M gray"
           />
         </div>
       </a>
@@ -607,28 +605,28 @@ exports[`card params all 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -643,7 +641,7 @@ exports[`card params all 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red"
+                  class="bar_value red"
                 />
               </div>
             </div>
@@ -665,7 +663,7 @@ exports[`card params all 1`] = `
         class="textSection"
       >
         <p
-          class="p M"
+          class="p M gray"
         />
       </div>
     </a>
@@ -724,7 +722,7 @@ exports[`card params all 1`] = `
 }
 `;
 
-exports[`card params block 1`] = `
+exports[`card params should has only block button 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -793,28 +791,28 @@ exports[`card params block 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                 </div>
@@ -829,7 +827,7 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -851,7 +849,7 @@ exports[`card params block 1`] = `
           class="textSection"
         >
           <p
-            class="p M"
+            class="p M gray"
           />
         </div>
       </a>
@@ -922,28 +920,28 @@ exports[`card params block 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -958,7 +956,7 @@ exports[`card params block 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red"
+                  class="bar_value red"
                 />
               </div>
             </div>
@@ -980,7 +978,7 @@ exports[`card params block 1`] = `
         class="textSection"
       >
         <p
-          class="p M"
+          class="p M gray"
         />
       </div>
     </a>
@@ -1039,7 +1037,7 @@ exports[`card params block 1`] = `
 }
 `;
 
-exports[`card params book 1`] = `
+exports[`card params should has only book button 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -1104,28 +1102,28 @@ exports[`card params book 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                 </div>
@@ -1140,7 +1138,7 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -1162,7 +1160,7 @@ exports[`card params book 1`] = `
           class="textSection"
         >
           <p
-            class="p M"
+            class="p M gray"
           />
         </div>
       </a>
@@ -1229,28 +1227,28 @@ exports[`card params book 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -1265,7 +1263,7 @@ exports[`card params book 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red"
+                  class="bar_value red"
                 />
               </div>
             </div>
@@ -1287,7 +1285,7 @@ exports[`card params book 1`] = `
         class="textSection"
       >
         <p
-          class="p M"
+          class="p M gray"
         />
       </div>
     </a>
@@ -1346,7 +1344,7 @@ exports[`card params book 1`] = `
 }
 `;
 
-exports[`card params find 1`] = `
+exports[`card params should has only find button 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -1429,28 +1427,28 @@ exports[`card params find 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                 </div>
@@ -1465,7 +1463,7 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -1487,7 +1485,7 @@ exports[`card params find 1`] = `
           class="textSection"
         >
           <p
-            class="p M"
+            class="p M gray"
           />
         </div>
       </a>
@@ -1572,28 +1570,28 @@ exports[`card params find 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -1608,7 +1606,7 @@ exports[`card params find 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red"
+                  class="bar_value red"
                 />
               </div>
             </div>
@@ -1630,7 +1628,7 @@ exports[`card params find 1`] = `
         class="textSection"
       >
         <p
-          class="p M"
+          class="p M gray"
         />
       </div>
     </a>
@@ -1689,278 +1687,7 @@ exports[`card params find 1`] = `
 }
 `;
 
-exports[`card params no hover 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <a
-        class="card"
-        draggable="false"
-        href="/watch/undefined"
-      >
-        <div
-          class="imageSection false"
-        >
-          <img
-            alt="title"
-            data-nimg="1"
-            decoding="async"
-            height="360"
-            loading="lazy"
-            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
-            style="color: transparent;"
-            width="234"
-          />
-          <div
-            class="props"
-          >
-            <div
-              class="btns__container"
-            >
-              <div
-                class="btns"
-              />
-            </div>
-            <div
-              class="info"
-            >
-              <div
-                class="ratings"
-              >
-                <div
-                  class="graphs"
-                >
-                  <div
-                    class="bar"
-                  >
-                    <div
-                      class="barValue red"
-                    />
-                  </div>
-                  <div
-                    class="bar"
-                  >
-                    <div
-                      class="barValue red"
-                    />
-                  </div>
-                  <div
-                    class="bar"
-                  >
-                    <div
-                      class="barValue red"
-                    />
-                  </div>
-                  <div
-                    class="bar"
-                  >
-                    <div
-                      class="barValue red"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="singleGraph"
-              >
-                <span>
-                  актёры
-                </span>
-                <div
-                  class="bar"
-                >
-                  <div
-                    class="barValue red"
-                  />
-                </div>
-              </div>
-              <section
-                class="info__text"
-              >
-                <div
-                  class="info__row"
-                >
-                  2011, 
-                  undefined, 
-                  undefined
-                </div>
-              </section>
-            </div>
-          </div>
-        </div>
-        <div
-          class="textSection"
-        >
-          <p
-            class="p M"
-          />
-        </div>
-      </a>
-    </div>
-  </body>,
-  "container": <div>
-    <a
-      class="card"
-      draggable="false"
-      href="/watch/undefined"
-    >
-      <div
-        class="imageSection false"
-      >
-        <img
-          alt="title"
-          data-nimg="1"
-          decoding="async"
-          height="360"
-          loading="lazy"
-          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
-          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
-          style="color: transparent;"
-          width="234"
-        />
-        <div
-          class="props"
-        >
-          <div
-            class="btns__container"
-          >
-            <div
-              class="btns"
-            />
-          </div>
-          <div
-            class="info"
-          >
-            <div
-              class="ratings"
-            >
-              <div
-                class="graphs"
-              >
-                <div
-                  class="bar"
-                >
-                  <div
-                    class="barValue red"
-                  />
-                </div>
-                <div
-                  class="bar"
-                >
-                  <div
-                    class="barValue red"
-                  />
-                </div>
-                <div
-                  class="bar"
-                >
-                  <div
-                    class="barValue red"
-                  />
-                </div>
-                <div
-                  class="bar"
-                >
-                  <div
-                    class="barValue red"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="singleGraph"
-            >
-              <span>
-                актёры
-              </span>
-              <div
-                class="bar"
-              >
-                <div
-                  class="barValue red"
-                />
-              </div>
-            </div>
-            <section
-              class="info__text"
-            >
-              <div
-                class="info__row"
-              >
-                2011, 
-                undefined, 
-                undefined
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
-      <div
-        class="textSection"
-      >
-        <p
-          class="p M"
-        />
-      </div>
-    </a>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`card params star 1`] = `
+exports[`card params should has only star button 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -2025,28 +1752,28 @@ exports[`card params star 1`] = `
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                   <div
                     class="bar"
                   >
                     <div
-                      class="barValue red"
+                      class="bar_value red"
                     />
                   </div>
                 </div>
@@ -2061,7 +1788,7 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -2083,7 +1810,7 @@ exports[`card params star 1`] = `
           class="textSection"
         >
           <p
-            class="p M"
+            class="p M gray"
           />
         </div>
       </a>
@@ -2150,28 +1877,28 @@ exports[`card params star 1`] = `
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
                 <div
                   class="bar"
                 >
                   <div
-                    class="barValue red"
+                    class="bar_value red"
                   />
                 </div>
               </div>
@@ -2186,7 +1913,7 @@ exports[`card params star 1`] = `
                 class="bar"
               >
                 <div
-                  class="barValue red"
+                  class="bar_value red"
                 />
               </div>
             </div>
@@ -2208,7 +1935,7 @@ exports[`card params star 1`] = `
         class="textSection"
       >
         <p
-          class="p M"
+          class="p M gray"
         />
       </div>
     </a>
@@ -2267,7 +1994,278 @@ exports[`card params star 1`] = `
 }
 `;
 
-exports[`show all card should match snapshot 1`] = `
+exports[`card params should not have hover 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <a
+        class="card"
+        draggable="false"
+        href="/watch/undefined"
+      >
+        <div
+          class="imageSection false"
+        >
+          <img
+            alt="title"
+            data-nimg="1"
+            decoding="async"
+            height="360"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+            srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+            style="color: transparent;"
+            width="234"
+          />
+          <div
+            class="props"
+          >
+            <div
+              class="btns__container"
+            >
+              <div
+                class="btns"
+              />
+            </div>
+            <div
+              class="info"
+            >
+              <div
+                class="ratings"
+              >
+                <div
+                  class="graphs"
+                >
+                  <div
+                    class="bar"
+                  >
+                    <div
+                      class="bar_value red"
+                    />
+                  </div>
+                  <div
+                    class="bar"
+                  >
+                    <div
+                      class="bar_value red"
+                    />
+                  </div>
+                  <div
+                    class="bar"
+                  >
+                    <div
+                      class="bar_value red"
+                    />
+                  </div>
+                  <div
+                    class="bar"
+                  >
+                    <div
+                      class="bar_value red"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="singleGraph"
+              >
+                <span>
+                  актёры
+                </span>
+                <div
+                  class="bar"
+                >
+                  <div
+                    class="bar_value red"
+                  />
+                </div>
+              </div>
+              <section
+                class="info__text"
+              >
+                <div
+                  class="info__row"
+                >
+                  2011, 
+                  undefined, 
+                  undefined
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div
+          class="textSection"
+        >
+          <p
+            class="p M gray"
+          />
+        </div>
+      </a>
+    </div>
+  </body>,
+  "container": <div>
+    <a
+      class="card"
+      draggable="false"
+      href="/watch/undefined"
+    >
+      <div
+        class="imageSection false"
+      >
+        <img
+          alt="title"
+          data-nimg="1"
+          decoding="async"
+          height="360"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85"
+          srcset="/_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=256&q=85 1x, /_next/image?url=https%3A%2F%2Fthumbs.dfs.ivi.ru%2Fstorage2%2Fcontents%2F5%2Fb%2F1a320c6f0240982ad3f287e19afa91.jpg%2F234x360%2F%3Fq%3D85&w=640&q=85 2x"
+          style="color: transparent;"
+          width="234"
+        />
+        <div
+          class="props"
+        >
+          <div
+            class="btns__container"
+          >
+            <div
+              class="btns"
+            />
+          </div>
+          <div
+            class="info"
+          >
+            <div
+              class="ratings"
+            >
+              <div
+                class="graphs"
+              >
+                <div
+                  class="bar"
+                >
+                  <div
+                    class="bar_value red"
+                  />
+                </div>
+                <div
+                  class="bar"
+                >
+                  <div
+                    class="bar_value red"
+                  />
+                </div>
+                <div
+                  class="bar"
+                >
+                  <div
+                    class="bar_value red"
+                  />
+                </div>
+                <div
+                  class="bar"
+                >
+                  <div
+                    class="bar_value red"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="singleGraph"
+            >
+              <span>
+                актёры
+              </span>
+              <div
+                class="bar"
+              >
+                <div
+                  class="bar_value red"
+                />
+              </div>
+            </div>
+            <section
+              class="info__text"
+            >
+              <div
+                class="info__row"
+              >
+                2011, 
+                undefined, 
+                undefined
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div
+        class="textSection"
+      >
+        <p
+          class="p M gray"
+        />
+      </div>
+    </a>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`show all card should render show all card 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -2279,7 +2277,7 @@ exports[`show all card should match snapshot 1`] = `
           class="imageSection show"
         >
           <p
-            class="p M"
+            class="p M gray"
           >
             buttons.show-all
           </p>
@@ -2295,7 +2293,7 @@ exports[`show all card should match snapshot 1`] = `
         class="imageSection show"
       >
         <p
-          class="p M"
+          class="p M gray"
         >
           buttons.show-all
         </p>

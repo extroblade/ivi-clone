@@ -5,10 +5,11 @@ import { HiChevronLeft } from 'react-icons/hi';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { AwardsTab, PersonsTab, TrailersTab, WatchModalInfoCard } from '@/components';
-import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
-import { useEscapeKey } from '@/hooks/useEscapeKey';
+import { Button, Sup } from '@/newui';
+import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
+import { useEscapeKey } from '@/shared/hooks/useEscapeKey';
 import { selectModal, setShowWatchPageModal } from '@/shared/store';
-import { Button, CommentSection, Htag, Sup } from '@/UI';
+import { CommentSection, Htag } from '@/UI';
 
 import styles from './WatchPageModal.module.scss';
 
@@ -41,23 +42,22 @@ export const WatchPageModal: FC = () => {
               <TabList className={styles.tabs__title}>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   <div className={styles.tab__container}>
-                    {t('categories.creators')}{' '}
-                    {persons?.length ? <Sup text={persons?.length} /> : ''}
+                    {t('categories.creators')} {persons?.length ? <Sup>{persons?.length}</Sup> : ''}
                   </div>
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   <div className={styles.tab__container}>
-                    {t('categories.comments')} <Sup text={currentMovie?.comments?.total || 0} />
+                    {t('categories.comments')} <Sup>{currentMovie?.comments?.total || 0}</Sup>
                   </div>
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   <div className={styles.tab__container}>
-                    {t('categories.trailers')} <Sup text={currentMovie?.videos?.total || 0} />
+                    {t('categories.trailers')} <Sup>{currentMovie?.videos?.total || 0}</Sup>
                   </div>
                 </Tab>
                 <Tab className={styles.tab} selectedClassName={styles.active}>
                   <div className={styles.tab__container}>
-                    {t('categories.awards')} <Sup text={currentMovie?.awards?.total || 0} />
+                    {t('categories.awards')} <Sup>{currentMovie?.awards?.total || 0}</Sup>
                   </div>
                 </Tab>
               </TabList>

@@ -1,7 +1,7 @@
 import { FastAverageColor } from 'fast-average-color';
 import React, { FC, useEffect, useState } from 'react';
 
-import { useAppDispatch } from '@/hooks';
+import { useAppDispatch } from '@/shared/hooks';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
 
 import styles from './MovieBGContainer.module.scss';

@@ -3,13 +3,10 @@ import Head from 'next/head';
 import React from 'react';
 
 import { PersonInfo } from '@/components';
-import NotFoundPage from '@/pages/404';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 import { Loader } from '@/UI';
 
 const Person = ({ person }: { person: iPerson }) => {
-  if (!person?.personId) return <NotFoundPage />;
-
   const { nameRu, nameEn } = person;
   return (
     <>

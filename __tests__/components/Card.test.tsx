@@ -1,51 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit';
 import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import filtersReducer from '@/shared/store/reducers/filters.slice';
-import modalsReducer from '@/shared/store/reducers/modals.slice';
+import { emptyCard, mockCard, mockStore } from '@/shared/testdata';
 import { Card, ShowAll } from '@/UI';
-
-export const mockStore = configureStore({ reducer: { modalsReducer, filtersReducer } });
-export const mockCard = {
-  id: 1,
-  name: 'Гарри Поттер и Дары Смерти: Часть I',
-  enName: 'Harry Potter and the Deathly Hallows: Part I',
-  description:
-    'Заключительный фильм «поттерианы» о волшебном мире Дж.К. Роулинг и верных друзьях Гарри Поттере, Роне Уизли и Гермионе Грейнджер. Продолжается магическая война.',
-  enDescription:
-    'The final "Potter" film about the magical world of J.K. Rowling and faithful friends Harry Potter, Ron Weasley, and Hermione Granger. The magical war continues.',
-  trailer: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
-  posterUrlPreview:
-    'https://thumbs.dfs.ivi.ru/storage2/contents/5/b/1a320c6f0240982ad3f287e19afa91.jpg/234x360/?q=85',
-  year: '2011',
-  countries: 'США',
-  rating: '9,5',
-  genres: ['Фэнтези'],
-  duration: '2ч 50мин',
-  persons: [],
-};
-// const emptyCard = {
-//   id: 1,
-//   name: '',
-//   enName: '',
-//   description: '',
-//   enDescription: '',
-//   trailer: '',
-//   card_image: '',
-//   year: '',
-//   countries: '',
-//   rating: '',
-//   genres: [''],
-//   duration: '',
-//   persons: [],
-// };
 
 describe('card', () => {
   describe('params', () => {
     afterEach(() => cleanup());
-    test('star', () => {
+    it('should has only star button', () => {
       const card = render(
         <Provider store={mockStore}>
           <Card card={mockCard} star />
@@ -53,7 +16,7 @@ describe('card', () => {
       );
       expect(card).toMatchSnapshot();
     });
-    test('find', () => {
+    it('should has only find button', () => {
       const card = render(
         <Provider store={mockStore}>
           <Card card={mockCard} find />
@@ -61,7 +24,7 @@ describe('card', () => {
       );
       expect(card).toMatchSnapshot();
     });
-    test('block', () => {
+    it('should has only block button', () => {
       const card = render(
         <Provider store={mockStore}>
           <Card card={mockCard} block />
@@ -69,7 +32,7 @@ describe('card', () => {
       );
       expect(card).toMatchSnapshot();
     });
-    test('book', () => {
+    it('should has only book button', () => {
       const card = render(
         <Provider store={mockStore}>
           <Card card={mockCard} book />
@@ -77,7 +40,7 @@ describe('card', () => {
       );
       expect(card).toMatchSnapshot();
     });
-    test('all', () => {
+    it('should has all available buttons', () => {
       const card = render(
         <Provider store={mockStore}>
           <Card card={mockCard} find star book block />
@@ -85,7 +48,7 @@ describe('card', () => {
       );
       expect(card).toMatchSnapshot();
     });
-    test('no hover', () => {
+    it('should not have hover', () => {
       const card = render(
         <Provider store={mockStore}>
           <Card card={mockCard} hover={false} />
@@ -95,10 +58,10 @@ describe('card', () => {
     });
   });
   describe('card object', () => {
-    test('empty card ', () => {
+    it('should not throw error with empty card', () => {
       const card = render(
         <Provider store={mockStore}>
-          <Card card={mockCard} hover={false} />
+          <Card card={emptyCard} hover={false} />
         </Provider>
       );
       expect(card).toMatchSnapshot();
@@ -107,7 +70,7 @@ describe('card', () => {
 });
 
 describe('show all card', () => {
-  it('should match snapshot', () => {
+  it('should render show all card', () => {
     const card = render(<ShowAll />);
     expect(card).toMatchSnapshot();
   });

@@ -3,7 +3,8 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiChevronLeft } from 'react-icons/hi';
 
-import { useEscapeKey } from '@/hooks';
+import { Button } from '@/newui';
+import { useEscapeKey } from '@/shared/hooks';
 
 import styles from './BackButton.module.scss';
 
@@ -18,9 +19,9 @@ export const BackButton: FC = (): JSX.Element => {
   useEscapeKey(back);
 
   return (
-    <button className={styles.back} onClick={back}>
+    <Button appearance={'transparent'} className={styles.back} onClick={back}>
       <HiChevronLeft className={styles.back__icon} />
       <span>{t('buttons.back')}</span>
-    </button>
+    </Button>
   );
 };

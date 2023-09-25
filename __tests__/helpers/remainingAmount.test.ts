@@ -1,4 +1,4 @@
-import { getRemainingFilmAmount } from '@/helpers/remainingAmount';
+import { getRemainingFilmAmount } from '@/shared/helpers/remainingAmount';
 
 const testArr = [0, 1, 2, 5, 11, 20, 21, 25];
 

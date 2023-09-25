@@ -5,11 +5,13 @@ import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
 
 import { SortDropdown } from '@/components';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { Button } from '@/newui';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { resetFilters, selectFilters } from '@/shared/store';
-import { Button, InputRange, Plank } from '@/UI';
+import { InputRange, Plank } from '@/UI';
 
 import styles from './Filters.module.scss';
+
 const variants = {
   visible: {
     transition: { duration: 0.4 },
@@ -37,8 +39,8 @@ export const Filters: FC = (): JSX.Element => {
         !!(
           (typeof genre === 'object' ? genre?.genre : genre) ||
           (typeof country === 'object' ? country?.country : country) ||
-          yearTo < 3000 ||
-          ratingFrom > 0
+          +yearTo < 3000 ||
+          +ratingFrom > 0
         )
     );
   }, [genre, yearTo, country, ratingFrom]);

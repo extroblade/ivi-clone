@@ -5,10 +5,10 @@ import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
-import { useAppSelector } from '@/hooks';
+import { Text } from '@/newui';
+import { useAppSelector } from '@/shared/hooks';
 import { selectFilters } from '@/shared/store';
 import { ILink } from '@/shared/types/types';
-import { P } from '@/UI';
 
 import styles from './ModalList.module.scss';
 import { ModalListProps } from './ModalList.props';
@@ -50,10 +50,10 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
 
   return (
     <div>
-      <P onClick={() => setIsListOpen((open) => !open)} size="M" className={styles.title}>
+      <Text onClick={() => setIsListOpen((open) => !open)} size="M" className={styles.title}>
         {icon && IconComponent && <IconComponent />}
         {title} {isListOpen ? <BsChevronCompactUp /> : <BsChevronCompactDown />}
-      </P>
+      </Text>
       <motion.div
         className={styles.wrap}
         initial={isListOpen ? 'visible' : 'hidden'}
@@ -67,7 +67,7 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
             </Link>
             <ul className={styles.list}>
               <li className={styles.list__item}>
-                <P className={styles.list__title}>{t('categories.genres')}</P>
+                <Text className={styles.list__title}>{t('categories.genres')}</Text>
                 {genres &&
                   genres.slice(0, 10).map((genre) => (
                     <Link className={styles.content__link} key={genre.genre} href={'/'}>
@@ -78,7 +78,7 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
               <li className={styles.flex}>
                 <ul>
                   <li className={styles.list__item}>
-                    <P className={styles.list__title}>{t('categories.countries')}</P>
+                    <Text className={styles.list__title}>{t('categories.countries')}</Text>
                     {countries &&
                       countries.slice(0, 10).map((country) => (
                         <Link className={styles.content__link} key={country.country} href={'/'}>
@@ -87,7 +87,7 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
                       ))}
                   </li>
                   <li className={styles.list__item}>
-                    <P className={styles.list__title}>{t('categories.years')}</P>
+                    <Text className={styles.list__title}>{t('categories.years')}</Text>
                     {years.map((year) => (
                       <Link className={styles.content__link} key={year} href={'/'}>
                         {year}

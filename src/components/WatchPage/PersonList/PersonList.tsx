@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { PersonCard } from '@/components';
-import { useAppSelector } from '@/hooks';
+import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 

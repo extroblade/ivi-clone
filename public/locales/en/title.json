@@ -5,5 +5,7 @@
   "animation": "Watch animation movies online",
   "profile": "My profile / ivi.ru",
   "page-404": "Page not found",
-  "admin": "Admin panel"
+  "admin": "Admin panel",
+  "change-language-title": "Language changed",
+  "change-language-body": "Successfully changed language"
 }

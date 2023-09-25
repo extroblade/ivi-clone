@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import { IoColorWandOutline } from 'react-icons/io5';
 
-import { Button } from '@/UI';
+import { Button } from '@/newui';
 
 export const FindSimilarButton = () => {
   const router = useRouter();

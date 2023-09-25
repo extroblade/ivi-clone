@@ -1,8 +1,8 @@
 import { useInView } from 'framer-motion';
 import React, { useRef } from 'react';
 
-import { scrollTop } from '@/helpers';
-import { Button } from '@/UI';
+import { Button } from '@/newui';
+import { scrollTop } from '@/shared/helpers';
 
 import styles from './ScrollToTopButton.module.scss';
 

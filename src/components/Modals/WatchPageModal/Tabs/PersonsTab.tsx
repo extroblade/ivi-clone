@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { StaffList } from '@/components/Modals/WatchPageModal/Tabs/StaffList';
-import { useAppSelector } from '@/hooks';
+import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
 import { Htag } from '@/UI';
 

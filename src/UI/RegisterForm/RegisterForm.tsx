@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { InputFileButton } from '@/components';
-import { Button } from '@/UI';
+import { Button } from '@/newui';
 
 import styles from './RegisterForm.module.scss';
 

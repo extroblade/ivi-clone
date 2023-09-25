@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 import { PersonList } from '@/components';
-import { countTime } from '@/helpers';
+import { countTime } from '@/shared/helpers';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Explanations, MovieOptions, MovieTitle, RatingBlock } from '@/UI';
 

@@ -3,7 +3,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Filters, SeriesPageDescription } from '@/components';
-import { Breadcrumbs, Grid } from '@/UI';
+import { Breadcrumbs } from '@/newui';
+import { Grid } from '@/UI';
 
 const Series = () => {
   const { t } = useTranslation();

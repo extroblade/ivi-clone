@@ -2,10 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { createNewAlert } from '@/helpers';
-import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
-import { selectModal, setActiveAlerts, setShowUnsub } from '@/shared/store';
-import { Button, FullScreenModal, P } from '@/UI';
+import { Button, Text } from '@/newui';
+import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
+import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
+import { selectModal, setShowUnsub } from '@/shared/store';
+import { FullScreenModal } from '@/UI';
 
 import styles from './UnsubscribeModal.module.scss';
 
@@ -13,17 +14,12 @@ export const UnsubscribeModal = () => {
   const { t, i18n } = useTranslation();
   const { showUnsub, currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
-  const { activeAlerts } = useAppSelector(selectModal);
   const close = () => {
     dispatch(setShowUnsub(false));
   };
+  const createAlert = useCreateAlert();
   const unsubscribe = () => {
-    const newAlertList = createNewAlert(
-      '',
-      'Вы больше не будете получать уведомления о выходе новых серий',
-      activeAlerts
-    );
-    dispatch(setActiveAlerts(newAlertList));
+    createAlert({ extra: 'Вы больше не будете получать уведомления о выходе новых серий' });
     close();
   };
   usePreventScroll(showUnsub);
@@ -34,9 +30,9 @@ export const UnsubscribeModal = () => {
           <div className={styles.title}>{t('sections.unsub-notifications')}</div>
           <div className={styles.content}>
             <article className={styles.desc}>
-              <P className={styles.info} color={'gray'}>
+              <Text className={styles.info} color={'gray'}>
                 {t('sections.stop-notifications')}
-              </P>
+              </Text>
               <Button onClick={unsubscribe} appearance={'red'}>
                 {t('buttons.unsubscribe')}
               </Button>

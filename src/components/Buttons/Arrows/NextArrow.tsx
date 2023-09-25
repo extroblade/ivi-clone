@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 
-import { Button } from '@/UI';
+import { Button } from '@/newui';
 
 import { ArrowProps } from './Arrow.props';
 import styles from './Arrows.module.scss';

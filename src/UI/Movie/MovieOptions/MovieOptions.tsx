@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import styles from '@/components/WatchPage/WatchPage.module.scss';
 import { movieTypes } from '@/constants';
+import { Badge } from '@/newui';
+import { Button, Text } from '@/newui';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { Badge, Button, P } from '@/UI';
 
 interface iOptions {
   movie: iFilm;
@@ -31,16 +32,16 @@ export const MovieOptions: FC<iOptions> = ({ movie }) => {
   return (
     <div className={styles.movie_options}>
       <div className={styles.watch__description}>
-        <P>{shortDescription}</P>
+        <Text>{shortDescription}</Text>
         {extended && (
           <div>
-            {description && <P>{description}</P>}
-            <P>
+            {description && <Text>{description}</Text>}
+            <Text>
               {i18n.language == 'en'
                 ? movieTypes[type]?.enNameSingle
                 : movieTypes[type]?.ruNameSingle}{' '}
               {i18n.language == 'en' ? nameEn : nameRu} доступен на сайте. Приятного просмотра!
-            </P>
+            </Text>
           </div>
         )}
       </div>
@@ -71,7 +72,7 @@ export const MovieOptions: FC<iOptions> = ({ movie }) => {
                 <div className={styles.watch_options__icons_list}>
                   {badges.map((badge) => (
                     <div key={badge} className={styles.badge}>
-                      <Badge text={badge} />
+                      <Badge>{badge}</Badge>
                     </div>
                   ))}
                 </div>

@@ -14,9 +14,9 @@ import { SlDiamond } from 'react-icons/sl';
 import { TbDeviceTv, TbTractor } from 'react-icons/tb';
 
 import { ModalList } from '@/components';
-import { useAppDispatch, useAppSelector, useEscapeKey, usePreventScroll } from '@/hooks';
+import { Button, Text } from '@/newui';
+import { useAppDispatch, useAppSelector, useEscapeKey, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowFooterModal } from '@/shared/store';
-import { Button, P } from '@/UI';
 
 import styles from './FooterModal.module.scss';
 
@@ -143,8 +143,8 @@ export const FooterModal: FC = (): JSX.Element => {
             <ModalList title={t('footer.support')} icon={BiMessageAlt}>
               <div className={styles.list}>
                 <div>
-                  <P>{t('footer.ready-to-help')}</P>
-                  <P>{t('footer.anytime')}</P>
+                  <Text>{t('footer.ready-to-help')}</Text>
+                  <Text>{t('footer.anytime')}</Text>
                 </div>
                 <div className={cn(styles.flex, styles.feedbackButtons)}>
                   <Link href={'https://www.ivi.ru/profile'}>
@@ -159,7 +159,7 @@ export const FooterModal: FC = (): JSX.Element => {
                 </div>
                 <div>
                   <Link href={'https://ask.ivi.ru/'}>ask.ivi.ru</Link>
-                  <P>{t('footer.answers')}</P>
+                  <Text>{t('footer.answers')}</Text>
                 </div>
               </div>
             </ModalList>

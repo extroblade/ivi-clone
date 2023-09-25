@@ -1,9 +1,10 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector, usePreventScroll } from '@/hooks';
+import { Button, Text } from '@/newui';
+import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowRating } from '@/shared/store';
-import { Button, FullScreenModal, Htag, P } from '@/UI';
+import { FullScreenModal, Htag } from '@/UI';
 
 import styles from './RatingModal.module.scss';
 
@@ -26,7 +27,7 @@ export const RatingModal: FC = (): JSX.Element => {
     <FullScreenModal isOpen={showRating} closeModal={close}>
       <div className={styles.body}>
         <Htag tag={'h2'}>{t('descriptions.your-rate')}</Htag>
-        <P>{t('descriptions.rates-improvements')}</P>
+        <Text>{t('descriptions.rates-improvements')}</Text>
         <div className={styles.picker}>
           {rates.map((rating) => (
             <Button
@@ -41,10 +42,10 @@ export const RatingModal: FC = (): JSX.Element => {
         </div>
         <div className={styles.helper}>
           <div>
-            <P>{t('buttons.very-bad')}</P>
+            <Text>{t('buttons.very-bad')}</Text>
           </div>
           <div>
-            <P>{t('buttons.great')}</P>
+            <Text>{t('buttons.great')}</Text>
           </div>
         </div>
         <Button appearance={'red'} disabled={!active} onClick={close}>

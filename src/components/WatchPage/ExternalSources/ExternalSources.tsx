@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useAppSelector } from '@/hooks';
+import { Text, Title } from '@/newui';
+import { useAppSelector } from '@/shared/hooks';
 import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
 import { selectModal } from '@/shared/store';
-import { P, Title } from '@/UI';
 
 import styles from './ExternalSources.module.scss';
+
 export const ExternalSources = () => {
   const { currentMovie } = useAppSelector(selectModal);
   const params = { id: currentMovie?.kinopoiskId || 0 };
@@ -14,7 +15,7 @@ export const ExternalSources = () => {
   if (!isSuccess) return <></>;
   return (
     <div className={styles.sources_container}>
-      <Title text={'Смотреть полностью:'} />
+      <Title>Смотреть полностью:</Title>
       <div className={styles.sources}>
         {params.id && sources?.items
           ? sources.items.map((item) => (
@@ -23,7 +24,7 @@ export const ExternalSources = () => {
                   <Image fill alt={'logo'} src={item.logoUrl} />
                 </div>
                 <div className={styles.text}>
-                  <P color={'gray-light'}>{item.platform}</P>
+                  <Text color={'gray-light'}>{item.platform}</Text>
                 </div>
               </Link>
             ))

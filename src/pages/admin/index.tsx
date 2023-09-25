@@ -3,11 +3,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsTrash } from 'react-icons/bs';
 
-import { useSearchParamsState } from '@/hooks';
+import { Button } from '@/newui';
 import NotFoundPage from '@/pages/404';
+import { useSearchParamsState } from '@/shared/hooks';
 import { useFetchAllFilmsQuery } from '@/shared/services';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { AddNewMovie, Button, Card, Htag, Loader } from '@/UI';
+import { AddNewMovie, Card, Htag, Loader } from '@/UI';
 
 const PAGE_LIMIT = 10;
 

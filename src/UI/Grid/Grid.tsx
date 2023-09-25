@@ -2,10 +2,11 @@ import { useInView } from 'framer-motion';
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useAppSelector } from '@/hooks';
+import { Button } from '@/newui';
+import { useAppSelector } from '@/shared/hooks';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
 import { FilmType, selectFilters } from '@/shared/store';
-import { Button, Card, Htag, Loader } from '@/UI';
+import { Card, Htag, Loader } from '@/UI';
 
 import styles from './Grid.module.scss';
 

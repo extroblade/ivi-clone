@@ -2,10 +2,11 @@ import Image from 'next/image';
 import React from 'react';
 
 import styles from '@/components/Modals/WatchPageModal/WatchPageModal.module.scss';
-import { countTime } from '@/helpers';
-import { useAppSelector } from '@/hooks';
+import { Text } from '@/newui';
+import { BarGraph } from '@/newui/bar-graph/bar-graph';
+import { countTime } from '@/shared/helpers';
+import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
-import { BarGraph, P } from '@/UI';
 
 export const WatchModalInfoCard = () => {
   const { currentMovie } = useAppSelector(selectModal);
@@ -31,13 +32,13 @@ export const WatchModalInfoCard = () => {
             <BarGraph width={98} />
           </div>
         </div>
-        <P size="S" className={styles.movie__descr}>
+        <Text size="S" className={styles.movie__descr}>
           {year && `${year}, `}
           {countries?.length ? countries.map((country) => `${country.country}, `) : ''}
           {genres?.length ? genres.map((genre) => `${genre.genre}, `) : ''}
           {filmLength && countTime(filmLength)}
-        </P>
-        <P size="S">{duration}</P>
+        </Text>
+        <Text size="S">{duration}</Text>
       </div>
     </div>
   );

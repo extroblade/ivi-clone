@@ -3,24 +3,12 @@ import React, { FC, useState } from 'react';
 import { Dropdown } from '@/UI';
 
 import styles from './Dropdown.module.scss';
-// import { categories } from '@/mock/filters';
 
 export const SearchDropdown: FC<{ state: boolean }> = ({ state }): JSX.Element => {
   const [val, setVal] = useState<string>('');
   const handler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVal(() => e.target.value);
   };
-
-  // const dynamicSearch = () => {
-  //   const array = categories.find((item) => item.plankID !== undefined)?.category;
-  //   if (!val && array) return [...array].splice(0, 10);
-  //   if (array) {
-  //     return array.filter((s) => {
-  //       const regex = new RegExp(val + '[A-Za-z0-9]*', 'gi'); //
-  //       return s.title.match(regex)?.splice(0, 15);
-  //     });
-  //   }
-  // };
   return (
     <Dropdown state={state}>
       <div className={`${styles.dropdown} ${styles.find}`}>

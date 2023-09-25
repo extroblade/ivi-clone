@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-export interface iDesc {
+export type DescriptionProps = {
   title: ReactNode;
   children: ReactNode;
   cut: ReactNode;
-}
+};

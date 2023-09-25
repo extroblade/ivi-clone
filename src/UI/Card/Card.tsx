@@ -4,8 +4,9 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 import { AddToFavoritesButton, BlockButton, FindSimilarButton, RateButton } from '@/components';
-import { countTime } from '@/helpers';
-import { BarGraph, CardLoader, P } from '@/UI';
+import { BarGraph, Text } from '@/newui';
+import { countTime } from '@/shared/helpers';
+import { CardLoader } from '@/UI';
 
 import styles from './Card.module.scss';
 import { CardProps } from './Card.props';
@@ -83,7 +84,7 @@ export const Card: FC<CardProps> = ({
         </div>
       </div>
       <div className={styles.textSection} title={i18nTitle}>
-        <P>{i18nTitle}</P>
+        <Text>{i18nTitle}</Text>
       </div>
     </Link>
   );

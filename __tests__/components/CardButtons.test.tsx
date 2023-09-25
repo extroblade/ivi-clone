@@ -1,12 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 
 import { AddToFavoritesButton, BlockButton, FindSimilarButton, RateButton } from '@/components';
-import modalsReducer from '@/shared/store/reducers/modals.slice';
-
-const mockStore = configureStore({ reducer: { modalsReducer } });
+import { mockStore } from '@/shared/testdata';
 
 describe('card buttons', () => {
   afterEach(() => cleanup());
