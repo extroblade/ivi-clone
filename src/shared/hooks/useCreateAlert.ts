@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 import { AlertProps, DEFAULT_ALERT_AMOUNT } from '@/entities/alert-list/model';
 import { selectAlerts, setActiveAlerts } from '@/entities/alert-list/model/slice';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
