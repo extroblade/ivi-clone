@@ -50,17 +50,11 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
     setShowPassword((prevState) => !prevState);
   };
 
-  const handleAuth = () => {
-    signIn('credentials', {
+  const handleAuth = async () => {
+    await signIn('credentials', {
       login: login,
       password,
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    });
   };
 
   useEffect(() => {
@@ -74,11 +68,13 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
       case 3:
         setProgress(75);
 
-        handleAuth();
-        setProgress(100);
-        handleClose();
-        setPassword(() => '');
-        setLogin(() => '');
+        handleAuth().then(() => {
+          setProgress(100);
+          handleClose();
+          setPassword(() => '');
+          setLogin(() => '');
+        });
+
         break;
     }
   }, [step]);

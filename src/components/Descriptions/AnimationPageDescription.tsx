@@ -1,9 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Text } from '@/newui';
+import { Text, Title } from '@/newui';
 import { Description } from '@/newui/description/description';
-import { Title } from '@/UI';
 
 export const AnimationPageDescription = () => {
   const { t } = useTranslation();

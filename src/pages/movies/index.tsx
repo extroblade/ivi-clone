@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Filters, MoviesPageDescription } from '@/components';

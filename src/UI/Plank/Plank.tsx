@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, { FC, useRef, useState } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
@@ -7,12 +8,12 @@ import { ChooseDropdown, SearchDropdown } from '@/UI';
 
 import styles from './Plank.module.scss';
 
-interface iPlank {
+type PlankProps = {
   array_type: 'genre' | 'country' | 'years';
   type: 'choose' | 'find';
-}
+};
 
-export const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
+export const Plank: FC<PlankProps> = ({ type, array_type }): JSX.Element => {
   const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
   const { genre, yearTo, country } = useAppSelector(selectFilters);
   let title;
@@ -33,16 +34,16 @@ export const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
   const close = () => {
     setDropDownOpen(() => false);
   };
-  const ref = useRef(null);
-  useOutsideClick(close, ref);
+  const plankRef = useRef(null);
+  useOutsideClick(close, plankRef);
   return (
-    <span ref={ref}>
+    <span ref={plankRef}>
       {type == 'choose' ? (
         <ChooseDropdown state={dropDownOpen} type={array_type} />
       ) : (
         <SearchDropdown state={dropDownOpen} />
       )}
-      <button className={`${styles.plank} ${dropDownOpen && styles.active}`} onClick={change}>
+      <button className={cn(styles.plank, dropDownOpen && styles.active)} onClick={change}>
         <div className={styles.info}>
           <div className={styles.title}>{title}</div>
         </div>
@@ -53,17 +54,3 @@ export const Plank: FC<iPlank> = ({ type, array_type }): JSX.Element => {
     </span>
   );
 };
-
-// {chosen && (
-//   <div className={styles.chosen}>
-//     {chosen
-//       .find((item) => item.plankID === array.id)
-//       ?.category.map((item, index) => (
-//         <span key={item.id}>
-//                     {chosen.find((item) => item.plankID == array.id).category.length > index + 1
-//                       ? `${item.title}, `
-//                       : item.title}
-//                   </span>
-//       ))}
-//   </div>
-// )}

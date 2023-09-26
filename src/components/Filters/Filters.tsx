@@ -18,11 +18,10 @@ const variants = {
     opacity: 1,
     marginBottom: 20,
     height: '100%',
-    display: 'block',
   },
   hidden: {
     transition: { duration: 0.4 },
-    margin: 0,
+    marginBottom: -40,
     opacity: 0,
     height: '0px',
   },
