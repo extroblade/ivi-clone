@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { RatingPlate } from '@/UI';
+import { RatingPlate } from '@/features/rating-block/rating-plate/ui/rating-plate';
 
 import styles from './PersonCard.module.scss';
 import { PersonCardProps } from './PersonCard.props';

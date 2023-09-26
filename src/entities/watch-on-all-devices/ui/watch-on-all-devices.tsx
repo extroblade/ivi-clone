@@ -3,8 +3,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Text } from '@/newui';
-import { Title } from '@/UI';
+import { Button, Text, Title } from '@/newui';
 
 import styles from './watch-on-all-devices.module.scss';
 

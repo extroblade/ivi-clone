@@ -2,9 +2,10 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 
 import { PersonList } from '@/components';
+import { RatingBlock } from '@/features/rating-block';
 import { countTime } from '@/shared/helpers';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { Explanations, MovieOptions, MovieTitle, RatingBlock } from '@/UI';
+import { Explanations, MovieOptions, MovieTitle } from '@/UI';
 
 import styles from './MovieInfo.module.scss';
 

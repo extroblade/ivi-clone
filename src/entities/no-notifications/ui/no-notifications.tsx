@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { HiOutlineBellAlert } from 'react-icons/hi2';
 
 import { BackButton } from '@/features/back-button';
-import { Text } from '@/newui';
-import { Title } from '@/UI';
+import { Text, Title } from '@/newui';
 
 import styles from './no-notifications.module.scss';
 
