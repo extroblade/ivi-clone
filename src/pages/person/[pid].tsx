@@ -3,8 +3,8 @@ import Head from 'next/head';
 import React from 'react';
 
 import { PersonInfo } from '@/components';
+import { Loader } from '@/newui';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
-import { Loader } from '@/UI';
 
 const Person = ({ person }: { person: iPerson }) => {
   const { nameRu, nameEn } = person;

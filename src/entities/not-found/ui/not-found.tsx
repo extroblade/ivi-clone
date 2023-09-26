@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Text } from '@/newui';
-import { Title } from '@/UI';
+import { Text, Title } from '@/newui';
 
 import styles from './not-found.module.scss';
 
