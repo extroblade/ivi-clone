@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import { AuthButton } from 'src/features/auth-button';
 
 import {
   BalanceButton,
@@ -16,7 +17,6 @@ import {
   ViewedButton,
   WatchLaterButton,
 } from '@/components';
-import { LoginButton } from '@/features/login-button';
 import { LogoutButton } from '@/features/logout-button';
 import { SelectProfile } from '@/features/select-profile';
 import { Text } from '@/newui';
@@ -37,7 +37,7 @@ export const ProfilePage = () => {
         </div>
       ) : (
         <div className={styles.login_button}>
-          <LoginButton />
+          <AuthButton />
         </div>
       )}
       <ul className={styles.list}>

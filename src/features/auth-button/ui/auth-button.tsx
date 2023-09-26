@@ -1,23 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import { TiUserOutline } from 'react-icons/ti';
 
+import { useAuthModal } from '@/features/auth-button/lib';
 import { Button } from '@/newui';
-import { useAppDispatch } from '@/shared/hooks';
-import { setShowAuth } from '@/shared/store';
 
-import styles from './login-button.module.scss';
+import styles from './auth-button.module.scss';
 
-export const LoginButton = () => {
+export const AuthButton = () => {
   const { t } = useTranslation();
 
-  const dispatch = useAppDispatch();
-  const openLoginModal = () => {
-    dispatch(setShowAuth(true));
-  };
+  const { handleState } = useAuthModal();
   return (
-    <div className={styles.l1ogin} data-testid={'login-button'}>
+    <div className={styles.login} data-testid={'login-button'}>
       <Button
-        onClick={openLoginModal}
+        onClick={() => handleState(true)}
         size={'S'}
         appearance={'red'}
         title={t('buttons.login-signup') || 'Войти или зарегистрироваться'}

@@ -2,17 +2,19 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { createWrapper } from 'next-redux-wrapper';
 
-import alertsReducer from '@/entities/alert-list/model/slice';
+import { alertsReducer } from '@/entities/alert-list/model/slice';
+import { authModalReducer } from '@/features/auth-button/model/slice';
 import { movieApi } from '@/shared/services/movie.api';
 import { personApi } from '@/shared/services/person.api';
 
-import filtersReducer from './reducers/filters.slice';
-import modalsReducer from './reducers/modals.slice';
+import { filtersReducer } from './reducers/filters.slice';
+import { modalsReducer } from './reducers/modals.slice';
 
 const rootReducer = combineReducers({
   filtersReducer,
   modalsReducer,
   alertsReducer,
+  authModalReducer,
   [movieApi.reducerPath]: movieApi.reducer,
   [personApi.reducerPath]: personApi.reducer,
 });

@@ -5,6 +5,7 @@ import { iCountry, iGenre } from '@/shared/types/kinopoiskTypes';
 // import { HYDRATE } from 'next-redux-wrapper';
 export type FilmType = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
 export type FilmOrder = 'RATING' | 'NUM_VOTE' | 'YEAR';
+
 export interface iFilters {
   countries?: iCountry[];
   years: number[];
@@ -20,6 +21,7 @@ export interface iFilters {
   page: number | string;
   keyword?: string | number;
 }
+
 const years = [];
 for (let i = 1950; i < 2024; i++) years.push(i);
 
@@ -101,4 +103,4 @@ export const {
   setYearTo,
 } = filtersSlice.actions;
 export const selectFilters = (state: RootState) => state.filtersReducer;
-export default filtersSlice.reducer;
+export const filtersReducer = filtersSlice.reducer;

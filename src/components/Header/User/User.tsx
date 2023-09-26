@@ -9,7 +9,7 @@ import { IoDiamondOutline, IoTimerOutline } from 'react-icons/io5';
 import { TbDeviceTvOld } from 'react-icons/tb';
 
 import { LinkCard } from '@/components';
-import { LoginButton } from '@/features/login-button/ui/login-button';
+import { AuthButton } from '@/features/auth-button/ui/auth-button';
 import { LogoutButton } from '@/features/logout-button';
 import { SelectProfile } from '@/features/select-profile';
 
@@ -42,7 +42,7 @@ export const User: FC = (): JSX.Element => {
           <LinkCard icon={GoCreditCard} title={t('buttons.payment')} link="/purchases" />
         </div>
         <div className={styles.content__auth}>
-          {session?.user ? <SelectProfile /> : <LoginButton />}
+          {session?.user ? <SelectProfile /> : <AuthButton />}
           <div className={styles.content__links}>
             {session?.user && (
               <Link href="https://www.ivi.tv/profile/profile_info">
@@ -51,7 +51,7 @@ export const User: FC = (): JSX.Element => {
             )}
             <Link href={'https://www.ivi.tv/profile/settings'}>{t('buttons.settings')}</Link>
             <Link href={'/admin'}>{t('buttons.support')}</Link>
-            {session?.user && <LogoutButton />}
+            {session?.user && <LogoutButton variant={'none'} />}
           </div>
         </div>
       </div>

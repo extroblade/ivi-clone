@@ -11,14 +11,14 @@ import { TbReload } from 'react-icons/tb';
 
 import { GoogleAuthButton, VkAuthButton } from '@/components';
 import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
-import { Button, Modal, Text } from '@/newui';
-import { BarGraph } from '@/newui/bar-graph/bar-graph';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { selectModal, setShowAuth } from '@/shared/store';
+import { STEPS_COUNT } from '@/features/auth-button/auth-modal/model';
+import { AuthModalProps } from '@/features/auth-button/auth-modal/model/props';
+import { useAuthModal } from '@/features/auth-button/lib';
+import { BarGraph, Button, Modal, Text } from '@/newui';
 
-import styles from './AuthModal.module.scss';
+import styles from './auth-modal.module.scss';
 
-export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element => {
+export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
   const [progress, setProgress] = useState<number>(5);
@@ -26,12 +26,10 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [showPassword, setShowPassword] = useState(false);
-  const { showAuth } = useAppSelector(selectModal);
-  const dispatch = useAppDispatch();
-
+  const { isOpen: showAuth, handleState } = useAuthModal();
   const { data: session } = useSession();
-  const close = () => {
-    dispatch(setShowAuth(false));
+  const handleClose = () => {
+    handleState(false);
     setStep(() => 1);
   };
 
@@ -42,17 +40,11 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
   };
 
   const nextStep = () => {
-    if (step > 3) {
-      return;
-    }
-    setStep((prev) => prev + 1);
+    setStep((prev) => Math.min(prev + 1, STEPS_COUNT));
   };
 
   const previousStep = () => {
-    if (step < 1) {
-      return;
-    }
-    setStep((prev) => prev - 1);
+    setStep((prev) => Math.max(prev - 1, 1));
   };
   const toggleShowPassword = () => {
     setShowPassword((prevState) => !prevState);
@@ -84,7 +76,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
 
         handleAuth();
         setProgress(100);
-        close();
+        handleClose();
         setPassword(() => '');
         setLogin(() => '');
         break;
@@ -92,7 +84,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
   }, [step]);
 
   return (
-    <Modal isOpen={showAuth || show} closeModal={close}>
+    <Modal isOpen={showAuth || isOpen} closeModal={handleClose}>
       <form className={styles.chat}>
         <div className={styles.chat__header}>
           {step > 1 ? (
@@ -106,7 +98,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
             </div>
           )}
           <div className={styles.chat__close}>
-            <CgClose onClick={close} />
+            <CgClose onClick={handleClose} />
           </div>
           <div className={styles.chat__progress}>
             <BarGraph width={progress} />
@@ -131,7 +123,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
                   <input
                     type="text"
                     value={login}
-                    onChange={(e) => setLogin(e.target.value)}
+                    onChange={({ target: { value } }) => setLogin(value)}
                     className={!!login ? styles.input__active : ''}
                   />
                   <label>{t('buttons.email-or-phone')}</label>
@@ -159,7 +151,7 @@ export const AuthModal: FC<{ show?: boolean }> = ({ show = false }): JSX.Element
                       value={password}
                       required
                       pattern={'\\S+.*'}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={({ target: { value } }) => setPassword(value)}
                       className={!!password ? styles.input__active : ''}
                     />
                     <label>{t('buttons.enter-password')}</label>

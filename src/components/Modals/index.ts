@@ -1,4 +1,3 @@
-export * from './AuthModal/AuthModal';
 export * from './FooterModal/FooterModal';
 export * from './FooterModal/ModalList/ModalList';
 export * from './Modals';

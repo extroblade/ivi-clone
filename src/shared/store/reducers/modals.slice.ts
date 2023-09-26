@@ -14,7 +14,6 @@ interface ICurrentMovie extends iFilm {
 }
 
 interface iModal {
-  showAuth: boolean;
   showRating: boolean;
   showSearch: boolean;
   showWatchPageModal: boolean;
@@ -25,7 +24,6 @@ interface iModal {
 }
 
 const initialState: iModal = {
-  showAuth: false,
   showUnsub: false,
   showRating: false,
   showSearch: false,
@@ -41,9 +39,6 @@ export const modalsSlice = createSlice({
   reducers: {
     setCurrentMovie(state, action: PayloadAction<any>) {
       state.currentMovie = action.payload;
-    },
-    setShowAuth(state, action: PayloadAction<boolean>) {
-      state.showAuth = action.payload;
     },
     setShowUnsub(state, action: PayloadAction<boolean>) {
       state.showUnsub = action.payload;
@@ -77,7 +72,6 @@ export const modalsSlice = createSlice({
 
 export const selectModal = (state: RootState) => state.modalsReducer;
 export const {
-  setShowAuth,
   setShowSearch,
   setShowUnsub,
   setShowRating,
@@ -86,4 +80,4 @@ export const {
   setShowEditProfile,
   setCurrentMovie,
 } = modalsSlice.actions;
-export default modalsSlice.reducer;
+export const modalsReducer = modalsSlice.reducer;

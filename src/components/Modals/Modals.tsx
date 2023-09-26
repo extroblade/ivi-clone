@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {
-  AuthModal,
   FooterModal,
   RatingModal,
   SearchModal,
@@ -9,6 +8,7 @@ import {
   WatchPageModal,
 } from '@/components';
 import { AlertList } from '@/entities/alert-list';
+import { AuthModal } from '@/features/auth-button/auth-modal';
 
 export const Modals = () => {
   return (

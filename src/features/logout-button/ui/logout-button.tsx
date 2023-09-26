@@ -1,20 +1,26 @@
 import { signOut } from 'next-auth/react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 
+import { LogoutButtonProps } from '@/features/logout-button/model/props';
 import { Button } from '@/newui';
 
-export const LogoutButton = () => {
+import styles from './logout-button.module.scss';
+
+export const LogoutButton: FC<LogoutButtonProps> = ({ variant = 'left' }) => {
   const { t } = useTranslation();
 
   return (
     <Button
+      className={styles[variant]}
       appearance={'transparent'}
       onClick={() => signOut()}
       title={t('buttons.logout') || 'Выйти'}
     >
-      <RiLogoutBoxRLine />
+      {variant === 'left' && <RiLogoutBoxRLine />}
       {t('buttons.logout')}
+      {variant === 'right' && <RiLogoutBoxRLine />}
     </Button>
   );
 };
