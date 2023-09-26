@@ -1,1 +1,1 @@
-export { Submenu } from './ui/submenu';
+export { Submenu } from './ui/Submenu';
