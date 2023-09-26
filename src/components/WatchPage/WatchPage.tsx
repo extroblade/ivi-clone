@@ -1,6 +1,7 @@
 import React, { FC, useEffect } from 'react';
 
-import { ExternalSources, PersonsGallery, Trailers } from '@/components';
+import { PersonsGallery, Trailers } from '@/components';
+import { ExternalSources } from '@/entities/external-sources';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
 import { useAppDispatch } from '@/shared/hooks';
@@ -54,7 +55,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
             <MovieInfo movie={movie} />
           </div>
         </div>
-        <ExternalSources />
+        <ExternalSources id={movie.kinopoiskId} />
         <SimilarMovies similar={similar} />
         <PersonsGallery list={persons} />
         <ScrollToTopButton />

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { RatingBlockProps } from '@/entities/rating-block/model';
-import { RatingPlate } from '@/entities/rating-block/rating-plate/ui/rating-plate';
+import { RatingBlockProps } from '@/features/rating-block/model';
+import { RatingPlate } from '@/features/rating-block/rating-plate';
 import { Button } from '@/newui';
 import { getRate } from '@/shared/helpers';
 import { useAppDispatch } from '@/shared/hooks';

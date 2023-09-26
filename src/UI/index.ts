@@ -1,7 +1,6 @@
 export * from './Carousel';
 export * from './Comment';
 export * from './Dropdown';
-export * from './Explanations/Explanations';
 export * from './Grid/Grid';
 export * from './Movie';
 export * from './Plank/InputRange';

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-import { iPerson } from '@/shared/types/kinopoiskTypes';
+import { iFetchedPerson, iPerson } from '@/shared/types/kinopoiskTypes';
 
 export const personApi = createApi({
   reducerPath: 'personApi',
@@ -19,12 +19,12 @@ export const personApi = createApi({
         params: { filmId },
       }),
     }),
-    fetchOnePerson: build.query<iPerson, { id: number }>({
+    fetchOnePerson: build.query<iPerson[], { id: number }>({
       query: ({ id }) => ({
         url: `/v1/staff/${id}`,
       }),
     }),
-    fetchPersonName: build.query<iPerson, { name: string; page: number }>({
+    fetchPersonName: build.query<iFetchedPerson, { name?: string; page?: number }>({
       query: ({ name, page = 1 }) => ({
         url: `/v1/persons`,
         params: { name, page },

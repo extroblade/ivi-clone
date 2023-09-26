@@ -1,4 +1,3 @@
-export * from './ExternalSources/ExternalSources';
 export * from './PersonList/PersonCard/PersonCard';
 export * from './PersonList/PersonList';
 export * from './PersonsGallery/PersonsGallery';

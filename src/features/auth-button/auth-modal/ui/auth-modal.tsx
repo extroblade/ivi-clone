@@ -9,10 +9,9 @@ import { BsPencil } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { TbReload } from 'react-icons/tb';
 
-import { GoogleAuthButton, VkAuthButton } from '@/components';
-import { REGEX_EMAIL, REGEX_PASSWORD } from '@/constants';
-import { STEPS_COUNT } from '@/features/auth-button/auth-modal/model';
+import { REGEX_EMAIL, REGEX_PASSWORD, STEPS_COUNT } from '@/features/auth-button/auth-modal/model';
 import { AuthModalProps } from '@/features/auth-button/auth-modal/model/props';
+import { GoogleAuthButton, VkAuthButton } from '@/features/auth-button/auth-modal/ui/buttons';
 import { useAuthModal } from '@/features/auth-button/lib';
 import { BarGraph, Button, Modal, Text } from '@/newui';
 

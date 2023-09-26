@@ -4,6 +4,7 @@
   width: 56px;
   cursor: pointer;
   overflow: hidden;
+
   .card_name {
     text-align: center;
     margin-top: 8px;
@@ -18,9 +19,11 @@
     color: var(--color-secondary);
     transition-duration: 0.4s;
   }
+
   &:hover {
     transition-duration: 0.8s;
     transition-property: color;
+
     .card_name {
       color: white;
       will-change: color;
@@ -28,6 +31,7 @@
       -o-transition-property: color;
       transition-property: color;
     }
+
     .wrapCard {
       background-color: rgba(white, 0.24);
       color: white;
@@ -45,6 +49,7 @@
   background-color: hsla(0, 0%, 100%, 0.16);
   transform: scale(1);
   transition-duration: 0.4s;
+
   div {
     width: 44px;
     height: 44px;
@@ -56,22 +61,4 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-}
-.person {
-  width: 44px;
-  height: 44px;
-  overflow: hidden;
-  border-radius: 6px;
-  img {
-    object-fit: cover;
-  }
-}
-
-.rating {
-  border-radius: 6px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

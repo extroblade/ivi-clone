@@ -1,6 +1,6 @@
-import { iPerson, iStaff } from '@/shared/types/kinopoiskTypes';
+import { ReactNode } from 'react';
 
 export interface PersonCardProps {
-  person?: iStaff | iPerson;
-  rating?: number | string;
+  children: ReactNode;
+  title?: string;
 }

@@ -1,6 +1,7 @@
 import { FC, ReactNode } from 'react';
 
-import { Footer, Header } from '@/components';
+import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/header';
 
 type MainLayoutProps = {
   children: ReactNode;

@@ -133,6 +133,7 @@ export interface iFetchImage {
     | 'COVER'
     | 'SCREENSHOT';
 }
+
 export interface iFetchOrder {
   type:
     | 'DATE_ASC'
@@ -143,7 +144,13 @@ export interface iFetchOrder {
     | 'USER_NEGATIVE_RATING_DESC';
 }
 
+export interface iFetchedPerson {
+  total: number;
+  items: iPerson[];
+}
+
 export interface iPerson {
+  kinopoiskId: number | string;
   personId: number;
   staffId: number;
   webUrl: string;
@@ -196,6 +203,7 @@ export interface iReviewsItem {
   title: string;
   type: 'POSITIVE' | 'NEGATIVE';
 }
+
 export interface iReviews {
   total: number;
   totalPages: number;

@@ -128,7 +128,7 @@ export const movieApi = createApi({
         url: `${id}/seasons`,
       }),
     }),
-    fetchFilmExternalSources: build.query<iExternalSources, { id: number }>({
+    fetchFilmExternalSources: build.query<iExternalSources, { id: number | string }>({
       query: ({ id }) => ({
         url: `${id}/external_sources`,
       }),

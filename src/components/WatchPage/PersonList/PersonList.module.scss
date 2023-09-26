@@ -26,3 +26,14 @@
     grid-template-columns: repeat(5, 1fr);
   }
 }
+
+.person {
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-radius: 6px;
+
+  img {
+    object-fit: cover;
+  }
+}

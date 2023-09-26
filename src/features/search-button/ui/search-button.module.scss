@@ -1,0 +1,22 @@
+.search {
+  cursor: pointer;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: var(--transition-main);
+  z-index: 10;
+  @media (max-width: 1160px) {
+    display: none;
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.icon {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}

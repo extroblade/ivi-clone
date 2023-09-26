@@ -1,0 +1,10 @@
+.alert_list {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1000;
+  max-width: 35vw;
+  @media screen and (max-width: 1160px) {
+    bottom: 66px;
+  }
+}
