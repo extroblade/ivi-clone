@@ -10,6 +10,47 @@ export interface iStaff {
   professionKey: string; //'DIRECTOR'|'...'|...
 }
 
+export interface iStaffSingle {
+  personId: number;
+  webUrl: string;
+  nameRu: string;
+  nameEn: string;
+  sex: string;
+  posterUrl: string;
+  growth: string;
+  birthday: string;
+  death: string;
+  age: number;
+  birthplace: string;
+  deathplace: string;
+  hasAwards: number;
+  profession: string;
+  facts: string[];
+  spouses: Spouse[];
+  films: StaffFilm[];
+}
+
+export interface Spouse {
+  personId: number;
+  name: string;
+  divorced: boolean;
+  divorcedReason: string;
+  sex: string;
+  children: number;
+  webUrl: string;
+  relation: string;
+}
+
+export interface StaffFilm {
+  filmId: number;
+  nameRu: string;
+  nameEn: string;
+  rating: string;
+  general: boolean;
+  description: string;
+  professionKey: ProfessionVariants;
+}
+
 export interface iCountry {
   id: string | number;
   country: string;
@@ -170,7 +211,7 @@ export interface iPerson {
   professionKey: ProfessionVariants;
   facts: iFacts[];
   spouses: any[];
-  films: iFilm[];
+  films: StaffFilm[];
 }
 
 export interface iVideos {

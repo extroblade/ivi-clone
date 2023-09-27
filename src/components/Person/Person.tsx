@@ -2,10 +2,10 @@ import i18next from 'i18next';
 import Image from 'next/image';
 import { FC } from 'react';
 
+import { MovieList } from '@/components';
 import { BackButton } from '@/features/back-button';
 import { Text, Title } from '@/newui';
 
-import MovieList from './MoviesList/MovieList';
 import styles from './Person.module.scss';
 import { PersonProps } from './Person.props';
 

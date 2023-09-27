@@ -3,11 +3,11 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/newui';
-import { DescriptionProps } from '@/newui/description/description.props';
 
 import styles from './description.module.scss';
+import { DescriptionProps } from './description.props';
 
-export const Description: FC<DescriptionProps> = ({ title, children }): JSX.Element => {
+export const Description: FC<DescriptionProps> = ({ children }): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { t } = useTranslation();
   const toggleState = () => {
@@ -16,8 +16,7 @@ export const Description: FC<DescriptionProps> = ({ title, children }): JSX.Elem
 
   return (
     <div className={styles.description}>
-      {title}
-      <div className={cn(!isOpen && styles.first)}>{children}</div>
+      <div className={cn(!isOpen && styles.cut)}>{children}</div>
       <Button size={'S'} appearance={'transparent'} onClick={toggleState}>
         {isOpen ? t('descriptions.close-btn') : t('descriptions.open-btn')}
       </Button>

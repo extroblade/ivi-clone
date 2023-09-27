@@ -5,10 +5,12 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Text, Title } from '@/newui';
 
+import { WatchOnAllDevicesProps } from '../model/props';
 import styles from './watch-on-all-devices.module.scss';
 
-export const WatchOnAllDevices: FC<{ name: string; image: string }> = ({ name, image }) => {
+export const WatchOnAllDevices: FC<WatchOnAllDevicesProps> = ({ name, image }) => {
   const { t } = useTranslation();
+  if (!image) return <></>;
   return (
     <div className={styles.content_card}>
       <div className={styles.wrapper}>

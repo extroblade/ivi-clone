@@ -2,37 +2,27 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { professionTypes } from '@/constants';
-import { CardLoader } from '@/entities/card';
+import { languageVariants, professionTypes } from '@/constants';
 import { Button, Text } from '@/newui';
+import { localizeName } from '@/shared/helpers/localize-name';
 
 import styles from './MovieCard.module.scss';
 import { MovieCardProps } from './MovieCard.props';
 
 export const MovieCard: FC<MovieCardProps> = ({ card }) => {
   const { t, i18n } = useTranslation();
-  if (!card) return <CardLoader />;
-  const { filmId, description, year, nameRu, nameEn, rating, professionKey: type } = card;
-  const name = i18n.language == 'en' ? nameEn || nameRu : nameRu || nameEn;
+  const { filmId, description, rating, professionKey } = card;
   return (
-    <Link href={`/watch/${filmId}`} className={styles.card} title={name}>
+    <Link href={`/watch/${filmId}`} className={styles.card} title={localizeName(card)}>
       <div className={styles.info}>
         <div>
-          <Text color={'white'}>{year}</Text>
-          <Text color={'white'}>{name}</Text>
+          <Text color={'white'}>{localizeName(card)}</Text>
           <div className={styles.info_row}>
             {description && <Text size={'S'}>{description}, </Text>}
 
-            {type && (
+            {professionKey && (
               <Text size={'S'}>
-                {i18n.language == 'en'
-                  ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    professionTypes[type]?.enName
-                  : // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    professionTypes[type]?.ruName}
-                ,
+                {professionTypes[professionKey][i18n.language as languageVariants]},
               </Text>
             )}
 

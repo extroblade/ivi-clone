@@ -14,7 +14,7 @@
     line-height: 20px;
   }
 
-  .first {
+  .cut {
     display: block;
     display: -webkit-box;
     overflow: hidden;
@@ -32,32 +32,5 @@
   button {
     margin: 5px 0 0 0;
     padding: 0;
-  }
-
-  .list {
-    ol {
-      list-style-type: none;
-    }
-
-    li {
-      position: relative;
-      padding-left: 16px;
-      margin-left: 12px;
-    }
-
-    li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      border-radius: 50%;
-      width: 6px;
-      height: 6px;
-      background-color: #a5a1b2;
-    }
-
-    li::marker {
-      color: transparent;
-    }
   }
 }

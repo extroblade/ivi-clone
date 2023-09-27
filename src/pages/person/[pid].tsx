@@ -7,7 +7,7 @@ import { Loader } from '@/newui';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 
 const Person = ({ person }: { person: iPerson }) => {
-  const { nameRu, nameEn } = person;
+  const { nameRu, nameEn } = person || {};
   return (
     <>
       <Head>

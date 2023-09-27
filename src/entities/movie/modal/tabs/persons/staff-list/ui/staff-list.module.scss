@@ -1,0 +1,51 @@
+.link {
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 10px;
+
+  &:hover {
+    .name {
+      color: var(--color-main);
+    }
+  }
+}
+
+.card {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+
+  .img {
+    width: 120px;
+    height: 120px;
+    position: relative;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 110px;
+    height: 110px;
+    .img {
+      width: 110px;
+      height: 110px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.name {
+  font-size: 13px;
+  color: #d9d7e0;
+  transition: var(--transition-main);
+  line-height: 16px;
+  font-weight: 500;
+}

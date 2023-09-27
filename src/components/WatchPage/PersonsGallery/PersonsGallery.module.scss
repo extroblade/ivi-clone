@@ -11,7 +11,8 @@
 .list {
   padding: 10px 0;
   display: flex;
-  max-height: 180px;
+  max-height: 170px;
+
   &__wrap {
     overflow: hidden;
     padding: 0 20px;
@@ -31,6 +32,7 @@
 .link {
   display: grid;
   gap: 10px;
+
   &:hover {
     .name {
       color: var(--color-main);
@@ -45,17 +47,21 @@
   overflow: hidden;
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
+
   &:hover {
     transform: scale(1.1);
   }
+
   .img {
     position: relative;
     width: 88px;
     height: 88px;
+
     img {
       object-fit: cover;
     }
   }
+
   &__text {
     display: flex;
     justify-content: center;
@@ -63,6 +69,7 @@
     background: var(--color-submenu-background);
     color: #a5a1b2;
     transition: var(--transition-main);
+
     &:hover {
       cursor: pointer;
       color: var(--color-main);

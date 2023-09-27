@@ -1,0 +1,135 @@
+.container {
+  display: flex;
+  color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #312b45;
+  border-radius: 4px;
+  height: 56px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.input_range {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  p {
+    text-align: start;
+    margin-top: 0;
+    max-width: 45%;
+    font-size: 11px;
+    white-space: pre-wrap;
+    line-height: 1;
+    overflow: hidden;
+  }
+
+  .input {
+    width: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .output {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  input[type='range'] {
+    background: transparent;
+    -webkit-appearance: none;
+  }
+
+  input[type='range']:focus {
+    outline: none;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 9px;
+    cursor: pointer;
+    animation: 0.2s;
+    background: transparent;
+    border-radius: 1px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    height: 14px;
+    width: 14px;
+    border-radius: 15px;
+    background: var(--color-accent);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -2px;
+  }
+
+  input[type='range']:focus::-webkit-slider-runnable-track {
+    background: transparent;
+  }
+
+  input[type='range']::-moz-range-track {
+    width: 100%;
+    height: 11px;
+    cursor: pointer;
+    animation: 0.2s;
+    background: transparent;
+    border-radius: 1px;
+  }
+
+  input[type='range']::-moz-range-thumb {
+    border: 1px solid #00001e;
+    height: 26px;
+    width: 26px;
+    border-radius: 15px;
+    background: var(--color-accent);
+    cursor: pointer;
+  }
+
+  input[type='range']::-ms-track {
+    width: 100%;
+    height: 11px;
+    cursor: pointer;
+    animation: 0.2s;
+    background: var(--color-secondary);
+    border-color: transparent;
+    color: transparent;
+  }
+
+  input[type='range']::-ms-fill-lower {
+    background: transparent;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000000;
+  }
+
+  input[type='range']::-ms-fill-upper {
+    background: transparent;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000000;
+  }
+
+  input[type='range']::-ms-thumb {
+    margin-top: 1px;
+    height: 26px;
+    width: 26px;
+    border-radius: 15px;
+    background: var(--color-accent);
+    cursor: pointer;
+  }
+
+  input[type='range']:focus::-ms-fill-lower {
+    background: transparent;
+  }
+
+  input[type='range']:focus::-ms-fill-upper {
+    background: transparent;
+  }
+}

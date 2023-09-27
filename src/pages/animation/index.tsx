@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 
-import { AnimationPageDescription, Filters } from '@/components';
-import { Breadcrumbs } from '@/newui';
+import { Filters } from '@/components';
+import { AnimationDescription } from '@/entities/descriptions/animation';
+import { Breadcrumbs, Title } from '@/newui';
 import { Grid } from '@/UI';
 
 const Index = () => {
@@ -18,7 +19,9 @@ const Index = () => {
         <title>{t('title.animation') || 'Мультфильмы смотреть онлайн'}</title>
       </Head>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <AnimationPageDescription />
+      <Title tag={'h2'}>{t('descriptions.animation-page-title')}</Title>
+
+      <AnimationDescription />
       <Filters />
       <Grid type={'MINI_SERIES'} />
     </>

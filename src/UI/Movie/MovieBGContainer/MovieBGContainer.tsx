@@ -1,27 +1,22 @@
 import { FastAverageColor } from 'fast-average-color';
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 
-import { useAppDispatch } from '@/shared/hooks';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
 
 import styles from './MovieBGContainer.module.scss';
 
 export const MovieBGContainer: FC<{ movie: iFilm }> = ({ movie }) => {
-  const dispatch = useAppDispatch();
   const [bgColor, setBgColor] = useState('');
 
   useEffect(() => {
-    const fac = new FastAverageColor();
-    if (movie?.coverUrl) {
-      fac
-        .getColorAsync(movie.coverUrl, {
-          algorithm: 'simple',
-        })
-        .then((color) => {
-          setBgColor(() => color.hex);
-        });
+    if (!movie?.coverUrl) {
+      return;
     }
-  }, [dispatch, movie]);
+    const fac = new FastAverageColor();
+    fac
+      .getColorAsync(movie.coverUrl, { algorithm: 'simple' })
+      .then((color) => setBgColor(color.hex));
+  }, [movie]);
   if (!movie) return <></>;
   return (
     <div

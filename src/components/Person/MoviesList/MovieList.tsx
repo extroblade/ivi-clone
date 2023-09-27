@@ -1,23 +1,17 @@
 import i18next from 'i18next';
-import React, { FC, useMemo, useState } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { MovieCard } from '@/components';
-import { Text, Title } from '@/newui';
+import { Button, Text, Title } from '@/newui';
 import { getRemainingFilmAmount } from '@/shared/helpers';
+import { StaffFilm } from '@/shared/types/kinopoiskTypes';
 
 import styles from './MovieList.module.scss';
 import { MovieListProps } from './MovieList.props';
 
-const MovieList: FC<MovieListProps> = ({ list }) => {
+export const MovieList: FC<MovieListProps> = ({ list }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const allAmount = useMemo(() => {
-    return getRemainingFilmAmount(list?.length);
-  }, [list?.length]);
-  const remainingAmount = useMemo(() => {
-    return getRemainingFilmAmount(list?.length - 8);
-  }, [list?.length]);
   const { t } = useTranslation();
 
   const changeState = () => {
@@ -28,30 +22,32 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
     <div className={styles.wrap}>
       <div className={styles.title}>
         <Title tag={'h3'}>{t('descriptions.complete-filmography')}</Title>
-        <Text
+        <Button
+          appearance={'transparent'}
           className={styles.amount}
           onClick={changeState}
           title={isOpen ? 'Скрыть' : 'Развернуть'}
         >
-          {list?.length} {i18next.language == 'en' ? 'movies' : allAmount}
-        </Text>
+          {list?.length}{' '}
+          {i18next.language == 'en' ? 'movies' : getRemainingFilmAmount(list?.length)}
+        </Button>
       </div>
       <div className={styles.line}></div>
       <div className={styles.cards}>
         {!isOpen && list?.length > 8 ? (
           <>
-            {list?.slice(0, 8).map((card) => {
-              return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
+            {list?.slice(0, 8).map((card: StaffFilm) => {
+              return <MovieCard key={card.filmId} card={card} />;
             })}
             <Text onClick={changeState} className={styles.link}>
               {t('buttons.more')} {list?.length - 8}
-              {i18next.language == 'en' ? ' movies' : remainingAmount}
+              {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list?.length - 8)}
             </Text>
           </>
         ) : (
           <>
             {list.map((card) => {
-              return <MovieCard key={card.kinopoiskId || card.filmId} card={card} />;
+              return <MovieCard key={card.filmId} card={card} />;
             })}
           </>
         )}
@@ -59,5 +55,3 @@ const MovieList: FC<MovieListProps> = ({ list }) => {
     </div>
   );
 };
-
-export default MovieList;

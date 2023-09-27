@@ -7,38 +7,36 @@ import { BsPersonCircle } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { IoSearchOutline } from 'react-icons/io5';
 
-import { Button, Loader, Modal, Text } from '@/newui';
+import { presets, RedirectProps } from '@/features/search-button/search-modal/model/props';
+import { Button, Loader, Modal, Text, Title } from '@/newui';
 import { useDebounce, usePreventScroll } from '@/shared/hooks';
 import { useFetchAllFilmsQuery, useFetchPersonNameQuery } from '@/shared/services';
 
 import { useSearchModal } from '../../lib/hooks';
 import styles from './search-modal.module.scss';
 
-const presets = ['Премьеры фильмов', 'Новинки подписки', 'Сериалы Amediateka', 'Высокий рейтинг'];
-type RedirectProps = {
-  type: 'watch' | 'person' | 'movies';
-  id?: string | number;
-};
 export const SearchModal: FC = (): JSX.Element => {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [query, setQuery] = useState<string>('');
   const { isOpen, handleState } = useSearchModal();
-  const [debounceQuery, setDebounceQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
 
-  useEffect(() => {
-    makeRequest();
-  }, [query]);
-  const makeRequest = useDebounce(() => {
-    setDebounceQuery(query.trim());
+  const debounceQuery = useDebounce(() => {
+    setDebouncedQuery(query.trim());
   }, 300);
-  const { data: movies, isFetching: isMoviesLoading } = useFetchAllFilmsQuery({
-    keyword: debounceQuery,
-  });
-  const { data: persons, isFetching: isPersonsLoading } = useFetchPersonNameQuery({
-    name: debounceQuery,
-  });
+  useEffect(() => {
+    debounceQuery();
+  }, [query]);
+  const { data: movies, isFetching: isMoviesLoading } = useFetchAllFilmsQuery(
+    { keyword: debouncedQuery },
+    { skip: !isOpen || !query }
+  );
+  const { data: persons, isFetching: isPersonsLoading } = useFetchPersonNameQuery(
+    { name: debouncedQuery },
+    { skip: !isOpen || !query }
+  );
 
   const handleClose = () => {
     setQuery('');
@@ -61,16 +59,14 @@ export const SearchModal: FC = (): JSX.Element => {
             value={query}
             onChange={({ target: { value } }) => setQuery(value)}
           />
-          <label>
-            {i18next.language == 'ru' ? 'Фильмы, персоны, жанры' : 'Movies, persons, genres'}
-          </label>
+          <label>{i18next.language == 'ru' ? 'Фильмы, персоны' : 'Movies, persons'}</label>
           {!!query ? (
             <CgClose className={styles.input__icon} onClick={() => setQuery('')} />
           ) : (
             <IoSearchOutline className={styles.input__icon} />
           )}
         </div>
-        {(isMoviesLoading || isPersonsLoading) && <Loader />}
+        {(isMoviesLoading || isPersonsLoading) && query && <Loader />}
 
         {!query ? (
           <div className={styles.presets}>
@@ -89,14 +85,19 @@ export const SearchModal: FC = (): JSX.Element => {
             {movies?.total
               ? movies.items.slice(0, 15).map((movie) => {
                   const { nameRu, nameEn, nameOriginal, kinopoiskId: id } = movie;
+                  const name =
+                    i18n.language === 'en'
+                      ? nameEn || nameOriginal || nameRu
+                      : nameRu || nameOriginal || nameEn;
                   return (
                     <Button
+                      title={name}
                       onClick={() => handleRedirect({ type: 'watch', id })}
                       appearance={'transparent'}
                       key={id + 'm'}
                     >
                       <BiMoviePlay />
-                      <Text>{nameRu || nameEn || nameOriginal}</Text>
+                      <Text>{name}</Text>
                     </Button>
                   );
                 })
@@ -104,20 +105,34 @@ export const SearchModal: FC = (): JSX.Element => {
             {persons?.total
               ? persons.items.slice(0, 15).map((person) => {
                   const { kinopoiskId: id, nameRu, nameEn, nameOriginal } = person;
+                  const name =
+                    i18n.language === 'en'
+                      ? nameEn || nameOriginal || nameRu
+                      : nameRu || nameOriginal || nameEn;
                   return (
                     <Button
+                      title={name}
                       onClick={() => handleRedirect({ type: 'person', id })}
                       appearance={'transparent'}
                       key={id + 'p'}
                     >
                       <BsPersonCircle />
-                      <Text>{nameRu || nameEn || nameOriginal}</Text>
+                      <Text>{name}</Text>
                     </Button>
                   );
                 })
               : ''}
           </div>
         )}
+        {!!query.trim() &&
+          !isPersonsLoading &&
+          !isMoviesLoading &&
+          !persons?.total &&
+          !movies?.total && (
+            <Title className={styles.not_found} tag={'h4'}>
+              Ничего не найдено по запросу &quot;{debouncedQuery}&quot;
+            </Title>
+          )}
       </div>
     </Modal>
   );

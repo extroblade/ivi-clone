@@ -7,10 +7,12 @@
   top: 0;
   z-index: 900;
   left: 0;
+
   svg {
     width: 20px;
     height: 20px;
   }
+
   button {
     font-weight: 500;
   }
@@ -29,6 +31,7 @@
   display: grid;
   grid-auto-flow: column;
   gap: 24px;
+
   span {
     display: block;
     font-size: 10px;
@@ -38,13 +41,15 @@
 .button {
   justify-content: start;
   gap: 15px;
+
   svg {
     color: #7e798f;
   }
 }
 
-.buttonSubscribe {
+.button_subscribe {
   position: relative;
+
   &:before {
     content: '';
     display: block;
@@ -69,6 +74,7 @@
   color: rgba(var(--color-main), 0.72);
   display: block;
   font-weight: 400;
+
   &:hover {
     color: var(--color-main);
   }
@@ -91,6 +97,7 @@
       width: 65vw;
       justify-content: center;
     }
+
     &:not(:first-child) {
       padding: 0;
     }
@@ -102,6 +109,7 @@
   gap: 24px;
   flex-wrap: wrap;
   justify-content: flex-start;
+
   button {
     padding: 0;
   }
@@ -112,6 +120,7 @@
     display: block;
   }
 }
+
 @media (max-width: 600px) {
   .modal {
     padding: 70px 16px;
@@ -123,7 +132,9 @@
     a {
       flex-basis: 100%;
     }
+
     flex-wrap: wrap;
+
     button {
       &:first-child {
         width: 100%;

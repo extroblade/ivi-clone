@@ -53,7 +53,7 @@ export const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
             <div className={styles.content_block}>
               <div
                 className={styles.content}
-                dangerouslySetInnerHTML={{ __html: now?.text || '' }}
+                dangerouslySetInnerHTML={{ __html: now?.text.replace(/<a>/, '<p>') || '' }}
               />
             </div>
             <Image

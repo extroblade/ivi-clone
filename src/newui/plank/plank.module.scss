@@ -1,0 +1,56 @@
+.plank {
+  display: flex;
+  color: white;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #312b45;
+  border-radius: 4px;
+  height: 56px;
+  padding: 8px 16px;
+  cursor: pointer;
+
+  .info {
+    display: inline-flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .chosen {
+    text-align: start;
+    margin-top: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+    color: var(--color-secondary);
+  }
+
+  .title {
+    display: flex;
+    align-content: flex-start;
+    font-size: 15px;
+    line-height: 20px;
+    height: 20px;
+    text-transform: capitalize;
+  }
+
+  &.active {
+    transition: var(--transition-main);
+    background-color: #7e798f !important;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+
+    svg {
+      stroke-width: 1px;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.32;
+    cursor: default;
+  }
+}

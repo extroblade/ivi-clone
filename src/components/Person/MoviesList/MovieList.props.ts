@@ -1,5 +1,5 @@
-import { iFilm } from '@/shared/types/kinopoiskTypes';
+import { StaffFilm } from '@/shared/types/kinopoiskTypes';
 
-export interface MovieListProps {
-  list: iFilm[];
-}
+export type MovieListProps = {
+  list: StaffFilm[];
+};

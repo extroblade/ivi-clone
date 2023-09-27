@@ -7,9 +7,11 @@
 
 .body {
   overflow: hidden;
+
   * {
     z-index: inherit;
   }
+
   flex: 1 1 auto;
   display: flex;
   justify-content: space-between;
@@ -28,29 +30,34 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   display: flex;
+  @media (max-width: 1160px) {
+    display: none;
+  }
+
   button {
     display: flex;
     justify-content: flex-start;
     overflow: hidden;
     text-overflow: ellipsis;
-    @media (max-width: 600px) {
-      font-size: 10px;
-    }
+
   }
 }
 
 .zindex {
   z-index: 10;
 }
+
 .menu {
   flex: 1 1 auto;
   @media (max-width: 1160px) {
     display: none;
   }
+
   &__list {
     display: flex;
     align-items: center;
   }
+
   &__item a {
     position: relative;
     z-index: 10;
@@ -63,10 +70,12 @@
     font-weight: 500;
     white-space: nowrap;
     transition: var(--transition-main);
+
     &:hover {
       opacity: 1;
     }
   }
+
   &__link {
     margin-left: 15px;
   }

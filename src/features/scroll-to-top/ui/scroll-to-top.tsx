@@ -8,7 +8,7 @@ import { Button } from '@/newui';
 import styles from './scroll-to-top.module.scss';
 
 export const ScrollToTopButton = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
   const isInView = useInView(ref);
   const scrollToTop = useScrollTop();
   return (

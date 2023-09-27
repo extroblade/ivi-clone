@@ -41,7 +41,7 @@ export const CommentAvatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => 
             <FiUser />
           </div>
         )}
-        {typeof user === 'string' && (
+        {(typeof user === 'string' || !user) && (
           <div className={styles.image_text}>{user ? user[0] : <FiUser />}</div>
         )}
       </div>

@@ -5,7 +5,7 @@ import { RootState } from '@/shared/store';
 import { iAwards, iFilm, iVideos } from '@/shared/types/kinopoiskTypes';
 import { IComment } from '@/shared/types/types';
 
-interface ICurrentMovie extends iFilm {
+export interface ICurrentMovie extends iFilm {
   awards?: iAwards;
   duration?: string;
   videos?: iVideos;
@@ -18,7 +18,6 @@ interface iModal {
   showSearch: boolean;
   showWatchPageModal: boolean;
   showFooterModal: boolean;
-  showEditProfile: boolean;
   showUnsub: boolean;
   currentMovie?: ICurrentMovie;
 }
@@ -29,7 +28,6 @@ const initialState: iModal = {
   showSearch: false,
   showWatchPageModal: false,
   showFooterModal: false,
-  showEditProfile: false,
   currentMovie: undefined,
 };
 
@@ -55,9 +53,6 @@ export const modalsSlice = createSlice({
     setShowFooterModal(state, action: PayloadAction<boolean>) {
       state.showFooterModal = action.payload;
     },
-    setShowEditProfile(state, action: PayloadAction<boolean>) {
-      state.showEditProfile = action.payload;
-    },
   },
   //>>>>>>
   // extraReducers(builder) {
@@ -77,7 +72,6 @@ export const {
   setShowRating,
   setShowWatchPageModal,
   setShowFooterModal,
-  setShowEditProfile,
   setCurrentMovie,
 } = modalsSlice.actions;
 export const modalsReducer = modalsSlice.reducer;

@@ -5,34 +5,34 @@ export type ProfessionVariants =
   | 'HRONO_TITR_MALE'
   | 'DIRECTOR'
   | 'WRITER';
-interface iProfession {
-  ruName: string;
-  enName: string;
-}
 
-export const professionTypes: Record<ProfessionVariants, iProfession> = {
+export type languageVariants = 'ru' | 'en';
+
+type ProfessionVariantsType = Record<ProfessionVariants, Record<languageVariants, string>>;
+
+export const professionTypes: ProfessionVariantsType = {
   ACTOR: {
-    ruName: 'Актер',
-    enName: 'Actor',
+    ru: 'Актер',
+    en: 'Actor',
   },
   PRODUCER: {
-    ruName: 'Продюсер',
-    enName: 'Producer',
+    ru: 'Продюсер',
+    en: 'Producer',
   },
   HIMSELF: {
-    ruName: '????',
-    enName: '????',
+    ru: '????',
+    en: '????',
   },
   HRONO_TITR_MALE: {
-    ruName: '????',
-    enName: '????',
+    ru: '????',
+    en: '????',
   },
   DIRECTOR: {
-    ruName: 'Режиссер',
-    enName: 'Director',
+    ru: 'Режиссер',
+    en: 'Director',
   },
   WRITER: {
-    ruName: 'Сценарист',
-    enName: 'Writer',
+    ru: 'Сценарист',
+    en: 'Writer',
   },
 };

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
-import { iPB } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
+import { ProfileButton } from '@/UI/ProfileButton/ProfileButton';
+import { iPB } from '@/UI/ProfileButton/ProfileButtons.props';
 
 export const CertificatesButton: FC<iPB> = ({ type }) => {
   const { t } = useTranslation();

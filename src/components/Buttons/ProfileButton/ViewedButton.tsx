@@ -3,7 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { RxCountdownTimer } from 'react-icons/rx';
 
-import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
+import { ProfileButton } from '@/UI/ProfileButton/ProfileButton';
 
 export const ViewedButton = () => {
   const { t } = useTranslation();

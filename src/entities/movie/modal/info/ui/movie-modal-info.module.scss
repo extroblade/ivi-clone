@@ -1,0 +1,28 @@
+.movie {
+  @media (max-width: 1210px) {
+    display: none;
+  }
+
+  &__img {
+    transition: var(--transition-main);
+    border-radius: 8px;
+    max-width: 128px;
+    max-height: 196px;
+
+    &:hover {
+      transform: scale(1.1, 1.1);
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    margin-top: 20px;
+    max-width: 100px;
+    display: grid;
+    gap: 3px;
+  }
+
+  &__descr {
+    line-height: 1;
+  }
+}

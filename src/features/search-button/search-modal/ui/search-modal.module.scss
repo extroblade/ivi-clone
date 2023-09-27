@@ -1,7 +1,5 @@
 .input {
   width: 100%;
-  min-width: 60vw;
-  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +68,7 @@
 }
 
 .body {
-  max-width: 860px;
+  width: 90vw;
   margin-top: 60px;
 
   & h3 {
@@ -82,7 +80,7 @@
 .presets {
   padding-top: 12px;
   transition-duration: 0.3s;
-  max-width: 30%;
+  width: 80%;
 
   .preset {
     margin-top: 8px;
@@ -115,23 +113,24 @@
   margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 30px;
+  gap: 10px 30px;
   text-align: start;
   justify-items: start;
 
   button {
     text-align: start;
+    width: 100%;
     display: flex;
     justify-content: flex-start;
 
     svg {
       fill: var(--color-accent);
-      margin-right: 15px;
       font-size: 15px;
       margin-bottom: 3px;
     }
 
     p {
+      padding-left: 15px;
       margin-top: 0;
       line-height: inherit;
       max-width: 80%;
@@ -148,4 +147,9 @@
       color: var(--color-accent);
     }
   }
+}
+
+.not_found {
+  color: var(--color-warning);
+  opacity: 50%;
 }

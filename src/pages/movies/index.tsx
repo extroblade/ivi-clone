@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 
-import { Filters, MoviesPageDescription } from '@/components';
-import { Breadcrumbs } from '@/newui';
+import { Filters } from '@/components';
+import { MoviesDescription } from '@/entities/descriptions/movies';
+import { Breadcrumbs, Title } from '@/newui';
 import { Grid } from '@/UI';
 
 const Movies = () => {
@@ -18,7 +19,9 @@ const Movies = () => {
         <title>{t('title.movies')}</title>
       </Head>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <MoviesPageDescription />
+      <Title tag={'h2'}>{t('descriptions.movies-page-title')}</Title>
+
+      <MoviesDescription />
       <Filters />
       <Grid type={'FILM'} />
     </>

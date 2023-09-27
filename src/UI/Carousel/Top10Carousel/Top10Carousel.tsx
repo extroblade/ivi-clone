@@ -1,12 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import Slider, { Settings } from 'react-slick';
 
 import { NextArrow } from '@/components/Buttons/Arrows/NextArrow';
 import { PrevArrow } from '@/components/Buttons/Arrows/PrevArrow';
-import { TOP_100_POPULAR_FILMS } from '@/constants';
 import { Title } from '@/newui';
 import { useFetchTopFilmQuery } from '@/shared/services';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
@@ -16,7 +15,7 @@ import { T10Card } from './Top10CarouselCard';
 
 export const Top10Carousel: FC = () => {
   const { t } = useTranslation();
-  const { data } = useFetchTopFilmQuery({ type: TOP_100_POPULAR_FILMS });
+  const { data } = useFetchTopFilmQuery({ type: 'TOP_100_POPULAR_FILMS' });
   const settings: Settings = {
     dots: false,
     infinite: false,

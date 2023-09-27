@@ -5,10 +5,10 @@ import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
 
 import { SortDropdown } from '@/components';
-import { Button } from '@/newui';
+import { Button, InputRange } from '@/newui';
+import { Plank } from '@/newui/plank/plank';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { resetFilters, selectFilters } from '@/shared/store';
-import { InputRange, Plank } from '@/UI';
 
 import styles from './Filters.module.scss';
 
@@ -87,7 +87,7 @@ export const Filters: FC = (): JSX.Element => {
           {/*  <Plank title={'asd'} type={'choose'} />*/}
           {/*</div>*/}
           <div className={styles.plank_item}>
-            <InputRange minLimit={0} maxLimit={10} range={1} type={'rating'}>
+            <InputRange minLimit={0} maxLimit={10} range={1}>
               {t('sections.rating')}
             </InputRange>
           </div>

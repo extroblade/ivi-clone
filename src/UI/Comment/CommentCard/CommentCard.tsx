@@ -1,6 +1,7 @@
 import React, { FC, useMemo } from 'react';
 
 import { Vote } from '@/entities/vote';
+import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { writeDate } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
@@ -15,7 +16,7 @@ interface iCommentComp {
 export const CommentCard: FC<iCommentComp> = ({ comment }) => {
   const dispatch = useAppDispatch();
   const { currentMovie } = useAppSelector(selectModal);
-
+  const scrollTop = useScrollTop();
   const stringDate = useMemo(() => {
     if (comment?.date) {
       return writeDate(comment.date);
@@ -25,6 +26,7 @@ export const CommentCard: FC<iCommentComp> = ({ comment }) => {
   const openComments = () => {
     dispatch(setCurrentMovie({ ...currentMovie, index: 1 }));
     dispatch(setShowWatchPageModal(true));
+    scrollTop?.();
   };
 
   const { author, title, description, negativeRating, positiveRating } = comment;

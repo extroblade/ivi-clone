@@ -9,8 +9,8 @@ import { Next13ProgressBar } from 'next13-progressbar';
 import { Provider } from 'react-redux';
 
 import { MainLayout } from '@/app/layouts/MainLayout';
-import { Modals } from '@/components';
 import { wrapper } from '@/shared/store';
+import { Modals } from '@/widgets/modals';
 
 const iviSans = localFont({
   src: [

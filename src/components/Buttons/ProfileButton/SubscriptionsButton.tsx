@@ -2,7 +2,8 @@ import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
+import { ProfileButton } from '@/UI/ProfileButton/ProfileButton';
+
 export const SubscriptionsButton = () => {
   const { t } = useTranslation();
   return (

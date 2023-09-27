@@ -18,6 +18,7 @@ export const Trailers: FC<iTrailers> = ({ videos }) => {
   const { t } = useTranslation();
   const scrollTop = useScrollTop();
   const { currentMovie } = useAppSelector(selectModal);
+
   const dispatch = useAppDispatch();
   const openTrailers = () => {
     dispatch(setCurrentMovie({ ...currentMovie, index: 2 }));

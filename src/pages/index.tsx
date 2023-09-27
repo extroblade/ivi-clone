@@ -1,7 +1,9 @@
 import Head from 'next/head';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { MainPageDescription } from '@/components';
+import { MainDescription } from '@/entities/descriptions/main';
+import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
 import { Carousel, PromoCarousel, Top10Carousel } from '@/UI';
 
@@ -26,7 +28,9 @@ const Home = () => {
         <title>{t('title.home')}</title>
       </Head>
       <PromoCarousel />
-      <MainPageDescription />
+      <Title tag={'h4'}>{t('descriptions.main-page-title')}</Title>
+
+      <MainDescription />
       <Top10Carousel />
       <Carousel
         title={t('carousels.foreign-series') || 'Зарубежные сериалы'}

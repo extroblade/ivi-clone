@@ -5,7 +5,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
-import { professionTypes } from '@/constants';
+import { languageVariants, professionTypes } from '@/constants';
 import { Sup, Text, Title } from '@/newui';
 import { scrollTop } from '@/shared/helpers';
 import { useAppSelector } from '@/shared/hooks';
@@ -73,9 +73,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                           </div>
                         ))}
                       <Text size="S">
-                        {professionKey && i18n.language == 'en'
-                          ? professionTypes[professionKey]?.enName
-                          : professionTypes[professionKey]?.ruName}
+                        {professionTypes[professionKey][i18n.language as languageVariants]}
                       </Text>
                     </div>
                   </Link>

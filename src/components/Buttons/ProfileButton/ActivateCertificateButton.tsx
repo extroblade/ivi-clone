@@ -3,8 +3,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GiPresent } from 'react-icons/gi';
 
-import { ProfileButton } from '@/UI/Profile/ProfileButton/ProfileButton';
-import { iPB } from '@/UI/Profile/ProfileButton/ProfileButtons.props';
+import { ProfileButton } from '@/UI/ProfileButton/ProfileButton';
+import { iPB } from '@/UI/ProfileButton/ProfileButtons.props';
 
 export const ActivateCertificateButton: FC<iPB> = ({ type }) => {
   const { t } = useTranslation();

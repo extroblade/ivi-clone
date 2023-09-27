@@ -13,11 +13,11 @@ import { MdOutlineVideoLibrary } from 'react-icons/md';
 import { SlDiamond } from 'react-icons/sl';
 import { TbDeviceTv, TbTractor } from 'react-icons/tb';
 
-import { ModalList } from '@/components';
 import { Button, Text } from '@/newui';
 import { useAppDispatch, useAppSelector, useEscapeKey, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowFooterModal } from '@/shared/store';
 
+import { ModalList } from '../list';
 import styles from './FooterModal.module.scss';
 
 export const FooterModal: FC = (): JSX.Element => {
@@ -25,13 +25,17 @@ export const FooterModal: FC = (): JSX.Element => {
   const { showFooterModal } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   usePreventScroll(showFooterModal);
-  useEscapeKey(() => dispatch(setShowFooterModal(false)));
+  const handleClose = () => {
+    dispatch(setShowFooterModal(false));
+  };
+  useEscapeKey(handleClose);
+  if (!showFooterModal) return <></>;
   return (
     <>
       {showFooterModal && (
         <div className={styles.modal}>
           <div className={cn(styles.menuItem, styles.buttons)}>
-            <Button size={'L'} className={cn(styles.buttonSubscribe, styles.button)}>
+            <Button size={'L'} className={cn(styles.button_subscribe, styles.button)}>
               <SlDiamond />
               {t('buttons.get-subscription')}
             </Button>
