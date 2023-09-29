@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { MovieCard } from '@/components';
+import { MovieCard } from '@/entities/person/movies/card/ui/MovieCard';
 import { Button, Text, Title } from '@/newui';
 import { getRemainingFilmAmount } from '@/shared/helpers';
 import { StaffFilm } from '@/shared/types/kinopoiskTypes';

@@ -43,12 +43,12 @@ const Home = () => {
       <TopTenCarousel />
       <Carousel title={t('carousels.anime') || 'Аниме'} route={'/movies'}>
         {anime?.items.map((card) => (
-          <Card {...settings} card={card} key={card.kinopoiskId}></Card>
+          <Card {...settings} card={card} key={card.kinopoiskId} />
         ))}
       </Carousel>
       <Carousel title={t('carousels.adventures') || 'Приключения'} route={'/movies'}>
         {adventures?.items.map((card) => (
-          <Card {...settings} card={card} key={card.kinopoiskId}></Card>
+          <Card {...settings} card={card} key={card.kinopoiskId} />
         ))}
       </Carousel>
     </>
