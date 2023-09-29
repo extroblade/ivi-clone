@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import { FC, useState } from 'react';
+import { FC, MouseEvent, useState } from 'react';
 
 import { VoteProps } from '@/entities/vote/model/props';
 import { VoteButton } from '@/entities/vote/vote-button/ui/vote-button';
@@ -11,7 +11,8 @@ export const Vote: FC<VoteProps> = ({ likes = 0, dislikes = 0 }) => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
 
-  const dislikeHandler = () => {
+  const dislikeHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     if (!like && !dislike) {
       setDislike(() => true);
       setValue((val) => val - 1);
@@ -24,7 +25,8 @@ export const Vote: FC<VoteProps> = ({ likes = 0, dislikes = 0 }) => {
       setValue((val) => val + 1);
     }
   };
-  const likeHandler = () => {
+  const likeHandler = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     if (!like && !dislike) {
       setLike(() => true);
       setValue((val) => val + 1);

@@ -1,5 +1,6 @@
+import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
+
 export type VoteButtonProps = {
   variant: 'like' | 'dislike';
   isActive: boolean;
-  onClick: () => void;
-};
+} & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;

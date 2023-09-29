@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React, { FC, useEffect, useState } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
@@ -84,7 +85,11 @@ export const ChooseDropdown: FC<iChooseDropdown> = ({ state, type }): JSX.Elemen
                     break;
                 }
                 return (
-                  <li key={item?.id || item} className={act == item ? styles.checked : ''}>
+                  <li
+                    title={itemTitle}
+                    key={item?.id || item}
+                    className={cn(act === item && styles.checked)}
+                  >
                     <label onClick={(e) => set(e, item)}>
                       <input type="checkbox" value={itemTitle} />
                       <div className={styles.input_text}>{itemTitle}</div>

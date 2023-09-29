@@ -6,15 +6,13 @@ import { Card } from '@/entities/card';
 import { Button, Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
-import { FilmType, selectFilters } from '@/shared/store';
+import { selectFilters } from '@/shared/store';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 
-import styles from './Grid.module.scss';
+import { GridProps } from '../model/props';
+import styles from './grid.module.scss';
 
-interface iGrid {
-  type: FilmType;
-}
-
-export const Grid: FC<iGrid> = ({ type }) => {
+export const Grid: FC<GridProps> = ({ type }) => {
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
   const isInView = useInView(buttonRef);
@@ -43,7 +41,7 @@ export const Grid: FC<iGrid> = ({ type }) => {
     }
     setPage((page) => page + 1);
   };
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<iFilm[]>([]);
   useEffect(() => {
     if (!data?.items || isFetching) {
       return;
@@ -63,37 +61,37 @@ export const Grid: FC<iGrid> = ({ type }) => {
   return (
     <>
       <div className={styles.grid}>
-        {data?.total && isFetching && <Loader />}
-        {!isLoading && movies?.length ? (
+        {(data?.total && isFetching && <Loader />) || ''}
+        {(movies?.length && (
           <div className={styles.grid__container}>
             <ul className={styles.grid__list}>
               {movies.map((card, index) => (
-                <li className={styles.grid_item} key={card?.id || index}>
+                <li className={styles.grid_item} key={card?.kinopoiskId || index}>
                   <Card card={card} star book find block />
                 </li>
               ))}
             </ul>
           </div>
-        ) : (
-          ''
-        )}
+        )) ||
+          ''}
       </div>
       <div className={styles.nodata}>
-        {(!data?.total || isFetching) && <Loader />}
-        {data?.total === 0 ? <Title tag={'h2'}>Ничего не найдено</Title> : ''}
+        {isLoading && <Loader />}
+        {data?.total === 0 && <Title tag={'h2'}>Ничего не найдено</Title>}
       </div>
-      <div ref={buttonRef}>
-        {data?.total
-          ? data?.totalPages > page &&
-            (isLoading ? (
-              <div className={`${styles.open} loader`}></div>
-            ) : (
-              <Button appearance={'outline'} className={styles.open} onClick={showMore}>
-                {t('buttons.show-more')}
-              </Button>
-            ))
-          : ''}
-      </div>
+      {data?.total
+        ? data?.totalPages > page && (
+            <Button
+              ref={buttonRef}
+              disabled={isLoading}
+              appearance={'outline'}
+              className={styles.open}
+              onClick={showMore}
+            >
+              {t('buttons.show-more')}
+            </Button>
+          )
+        : ''}
     </>
   );
 };

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-import { Text } from '@/newui';
-import { BarGraph } from '@/newui/bar-graph/bar-graph';
+import { BarGraph, Text } from '@/newui';
 import { countTime } from '@/shared/helpers';
 import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';

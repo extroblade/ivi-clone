@@ -70,6 +70,7 @@ export const English = {
       'write-comment': 'Write a comment',
     },
     carousels: {
+      anime: 'Anime',
       'foreign-series': 'Foreign series',
       adventures: 'Adventures',
     },
@@ -102,6 +103,7 @@ export const English = {
       'ivi-rating-series': 'IVI.Rating series',
     },
     descriptions: {
+      similar: 'Similar movies:',
       with: 'with',
       and: 'and',
 

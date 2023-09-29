@@ -10,7 +10,7 @@ import styles from './plank.module.scss';
 import { PlankProps } from './plank.props';
 
 export const Plank: FC<PlankProps> = ({ type, array_type }): JSX.Element => {
-  const [dropDownOpen, setDropDownOpen] = useState<boolean>(false);
+  const [dropDownOpen, setDropDownOpen] = useState(false);
   const { genre, yearTo, country } = useAppSelector(selectFilters);
   let title;
   switch (array_type) {
@@ -24,14 +24,14 @@ export const Plank: FC<PlankProps> = ({ type, array_type }): JSX.Element => {
       title = +yearTo < 3000 ? yearTo : 'Год';
       break;
   }
-  const change = () => {
+  const handleToggle = () => {
     setDropDownOpen((d) => !d);
   };
-  const close = () => {
+  const handleClose = () => {
     setDropDownOpen(() => false);
   };
   const plankRef = useRef(null);
-  useOutsideClick(close, plankRef);
+  useOutsideClick(handleClose, plankRef);
   return (
     <span ref={plankRef}>
       {type == 'choose' ? (
@@ -39,7 +39,7 @@ export const Plank: FC<PlankProps> = ({ type, array_type }): JSX.Element => {
       ) : (
         <SearchDropdown state={dropDownOpen} />
       )}
-      <button className={cn(styles.plank, dropDownOpen && styles.active)} onClick={change}>
+      <button className={cn(styles.plank, dropDownOpen && styles.active)} onClick={handleToggle}>
         <div className={styles.info}>
           <div className={styles.title}>{title}</div>
         </div>

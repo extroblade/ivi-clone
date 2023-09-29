@@ -1,9 +1,10 @@
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 
 import { PersonsGallery, Trailers } from '@/components';
 import { ExternalSources } from '@/entities/external-sources';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
+import { localizeName } from '@/shared/helpers/localize-name';
 import { useAppDispatch } from '@/shared/hooks';
 import {
   useFetchAllPersonsQuery,
@@ -11,14 +12,8 @@ import {
   useFetchFilmVideoQuery,
 } from '@/shared/services';
 import { setCurrentMovie } from '@/shared/store';
-import {
-  CommentCarousel,
-  MovieBGContainer,
-  MovieInfo,
-  MovieTitle,
-  Player,
-  SimilarMovies,
-} from '@/UI';
+import { CommentCarousel, MovieBGContainer, MovieInfo, MovieTitle, Player } from '@/UI';
+import { SimilarMovies } from '@/widgets/similar-movies/ui/SimilarMovies';
 
 import styles from './WatchPage.module.scss';
 import { WatchPageProps } from './WatchPage.props';
@@ -38,8 +33,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     dispatch(setCurrentMovie({ ...movie, index: 0 }));
   }, [movie.kinopoiskId]);
 
-  const { nameRu, nameEn, nameOriginal, posterUrl, coverUrl } = movie;
-  const title = nameRu || nameEn || nameOriginal || '';
+  const { posterUrl, coverUrl } = movie;
   const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
   return (
     <>
@@ -62,7 +56,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         <ScrollToTopButton />
         <CommentCarousel />
         <Trailers videos={videos} />
-        <WatchOnAllDevices name={title} image={coverUrl || posterUrl} />
+        <WatchOnAllDevices name={localizeName(movie)} image={coverUrl || posterUrl} />
       </section>
     </>
   );

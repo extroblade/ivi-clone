@@ -13,13 +13,13 @@ export const personApi = createApi({
     },
   }),
   endpoints: (build) => ({
-    fetchAllPersons: build.query<iPerson[], { filmId: number }>({
+    fetchAllPersons: build.query<iPerson[], { filmId?: number }>({
       query: ({ filmId }) => ({
         url: '/v1/staff',
         params: { filmId },
       }),
     }),
-    fetchOnePerson: build.query<iPerson[], { id: number }>({
+    fetchOnePerson: build.query<iPerson[], { id?: number }>({
       query: ({ id }) => ({
         url: `/v1/staff/${id}`,
       }),

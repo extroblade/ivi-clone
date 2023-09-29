@@ -3,9 +3,9 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Filters } from '@/components';
-import { SeriesDescription } from '@/entities/descriptions/series';
+import { SeriesDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
-import { Grid } from '@/UI';
+import { Grid } from '@/widgets/grid';
 
 const Series = () => {
   const { t } = useTranslation();

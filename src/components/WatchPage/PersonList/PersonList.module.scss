@@ -1,4 +1,4 @@
-.list {
+.list_container {
   display: grid;
   grid-gap: 4px;
   grid-template-columns: repeat(3, 1fr);
@@ -25,6 +25,12 @@
   @media screen and (min-width: 1160px) {
     grid-template-columns: repeat(5, 1fr);
   }
+}
+
+.list {
+  height: 100px;
+  overflow: hidden;
+  max-width: 60vw;
 }
 
 .person {

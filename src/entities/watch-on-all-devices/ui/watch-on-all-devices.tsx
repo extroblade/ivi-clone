@@ -19,7 +19,7 @@ export const WatchOnAllDevices: FC<WatchOnAllDevicesProps> = ({ name, image }) =
           <Text className={styles.subtitle}>
             Приложение доступно для скачивания на iOS, Android, SmartTV и приставках
           </Text>
-          <Link href={'https://www.ivi.ru/devices'}>
+          <Link className={styles.link} href={'https://www.ivi.ru/devices'}>
             <Button appearance={'red'}>{t('buttons.connect-all-devices')}</Button>
           </Link>
         </div>

@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
 import { FilmOrder, FilmType } from '@/shared/store';
 import {
@@ -32,15 +32,17 @@ export type QueryParams = {
 
 export const movieApi = createApi({
   reducerPath: 'movieApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: process.env.API + 'v2.2/films',
-    prepareHeaders: (headers) => {
-      headers.set('X-API-KEY', process.env.X_API_KEY || '');
-      headers.set('Content-Type', 'application/json');
-      return headers;
-    },
-    mode: 'cors',
-  }),
+  baseQuery: retry(
+    fetchBaseQuery({
+      baseUrl: process.env.API + 'v2.2/films',
+      prepareHeaders: (headers) => {
+        headers.set('X-API-KEY', process.env.X_API_KEY || '');
+        headers.set('Content-Type', 'application/json');
+        return headers;
+      },
+      mode: 'cors',
+    })
+  ),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
     fetchAllFilms: build.query<iFetchedFilms, QueryParams>({

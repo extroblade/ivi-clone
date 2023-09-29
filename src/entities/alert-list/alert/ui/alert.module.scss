@@ -1,20 +1,25 @@
 .alert {
   position: relative;
   margin-bottom: 6px;
-  backdrop-filter: drop-shadow(0 0 black);
+  border-radius: 12px;
+  box-shadow: 0 10px 15px var(--color-background);
+
   &.closing {
     -webkit-animation: fadeout 0.3s linear forwards;
     animation: fadeout 0.3s linear forwards;
   }
+
   .close {
     position: absolute;
     right: 24px;
     top: 8px;
+
     button {
       margin: 0;
       padding: 0;
     }
   }
+
   .alert_wrapper {
     display: flex;
     flex-direction: column;
@@ -23,9 +28,11 @@
     padding: 25px;
     border-radius: 12px;
   }
+
   .alert_textBlock {
     max-width: 90%;
   }
+
   .alert_title {
     font-size: 15px;
     font-style: normal;
@@ -33,6 +40,7 @@
     line-height: 20px;
     color: var(--color-input);
   }
+
   .alert_extra {
     font-size: 13px;
     font-style: normal;
@@ -40,6 +48,7 @@
     line-height: 16px;
     margin-top: 4px;
   }
+
   .alert_extraPrimary {
     font-size: 13px;
     font-style: normal;

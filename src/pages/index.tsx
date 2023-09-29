@@ -2,23 +2,32 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { MainDescription } from '@/entities/descriptions/main';
+import { Card, CardProps } from '@/entities/card';
+import { Carousel } from '@/entities/carousel';
+import { MainDescription } from '@/entities/descriptions';
 import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
-import { Carousel, PromoCarousel, Top10Carousel } from '@/UI';
+import { PromoCarousel } from '@/UI';
+import { TopTenCarousel } from '@/widgets/top-10';
+
+const settings = {
+  hover: true,
+  star: true,
+  book: true,
+  find: true,
+  block: true,
+  info: true,
+} as Omit<CardProps, 'card'>;
 
 const Home = () => {
-  const { data: foreignSeries } = useFetchAllFilmsQuery({
-    order: 'NUM_VOTE',
-    type: 'TV_SERIES',
+  const { data: anime } = useFetchAllFilmsQuery({
+    genres: 24,
     page: 1,
   });
   const { data: adventures } = useFetchAllFilmsQuery({
-    order: 'NUM_VOTE',
     type: 'FILM',
     page: 1,
     genres: '4',
-    countries: '1',
   });
 
   const { t } = useTranslation();
@@ -31,17 +40,17 @@ const Home = () => {
       <Title tag={'h4'}>{t('descriptions.main-page-title')}</Title>
 
       <MainDescription />
-      <Top10Carousel />
-      <Carousel
-        title={t('carousels.foreign-series') || 'Зарубежные сериалы'}
-        movies={foreignSeries?.items}
-        route={'/movies'}
-      />
-      <Carousel
-        title={t('carousels.adventures') || 'Приключения'}
-        movies={adventures?.items}
-        route={'/movies'}
-      />
+      <TopTenCarousel />
+      <Carousel title={t('carousels.anime') || 'Аниме'} route={'/movies'}>
+        {anime?.items.map((card) => (
+          <Card {...settings} card={card} key={card.kinopoiskId}></Card>
+        ))}
+      </Carousel>
+      <Carousel title={t('carousels.adventures') || 'Приключения'} route={'/movies'}>
+        {adventures?.items.map((card) => (
+          <Card {...settings} card={card} key={card.kinopoiskId}></Card>
+        ))}
+      </Carousel>
     </>
   );
 };

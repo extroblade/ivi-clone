@@ -7,6 +7,7 @@
       max-width: 100vw;
     }
   }
+
   &__title {
     margin-top: 8px;
     margin-bottom: 20px;
@@ -16,16 +17,21 @@
       display: none;
     }
   }
+
   &__params {
     margin: 0 0 20px;
     text-align: center;
   }
+
   &__medallions {
     margin-bottom: 20px;
   }
 
   &__rating {
     margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -38,6 +44,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
   .info_item {
     display: inline-block;
     font-size: 15px;
@@ -47,11 +54,13 @@
     line-height: 20px;
     position: relative;
     vertical-align: top;
+
     &:not(:first-child):before {
       content: '';
       display: inline-block;
       width: 8px;
     }
+
     &.item_hasDot:not(:first-child):before {
       display: inline-block;
       background-color: hsla(0, 0%, 100%, 0.72);
@@ -64,10 +73,12 @@
       width: 2px;
     }
   }
+
   a {
     color: hsla(0, 0%, 100%, 0.72);
     transition: var(--transition-main);
     text-transform: capitalize;
+
     &:hover:not(:active) {
       color: #fff;
     }

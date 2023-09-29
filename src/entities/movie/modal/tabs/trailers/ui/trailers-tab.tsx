@@ -11,7 +11,7 @@ import styles from './trailers-tab.module.scss';
 export const TrailersTab = () => {
   const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
   const { data: videos, isLoading } = useFetchFilmVideoQuery(
-    { id: currentMovie?.kinopoiskId || 0 },
+    { id: currentMovie?.kinopoiskId },
     { skip: !showWatchPageModal }
   );
   if (isLoading) return <Loader />;

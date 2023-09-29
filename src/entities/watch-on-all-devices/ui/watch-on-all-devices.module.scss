@@ -3,6 +3,7 @@
   padding-right: 12px;
   width: 100%;
   margin-top: 30px;
+
   .wrapper {
     -moz-column-gap: 24px;
     column-gap: 24px;
@@ -17,6 +18,11 @@
       row-gap: 24px;
     }
   }
+
+  .link {
+    width: fit-content;
+  }
+
   .appeal {
     display: flex;
     flex-direction: column;
@@ -24,6 +30,7 @@
     @media screen and (min-width: 272px) and (max-width: 1160px) {
       order: 1;
     }
+
     .subtitle {
       margin-top: 12px;
       color: #a5a1b2;
@@ -33,6 +40,7 @@
       line-height: 20px;
       margin-bottom: 24px;
     }
+
     a {
       button {
         width: 215px;
@@ -49,6 +57,7 @@
       justify-content: center;
     }
   }
+
   .image_container {
     height: 272px;
     margin: 0 auto;
@@ -60,6 +69,7 @@
       margin-right: -24px;
       width: 268px;
     }
+
     .image_tv {
       height: 272px;
       position: relative;
@@ -70,6 +80,7 @@
         width: 268px;
       }
     }
+
     .image_tablet {
       bottom: 0;
       height: 136px;
@@ -84,6 +95,7 @@
         width: 100px;
       }
     }
+
     .poster_tv {
       border-radius: 2px;
       height: 192px;
@@ -100,6 +112,7 @@
         width: 168px;
       }
     }
+
     .poster_tablet {
       border-radius: 4px;
       bottom: 7px;

@@ -77,15 +77,6 @@ export const Filters: FC = (): JSX.Element => {
           <div className={styles.plank_item}>
             <Plank type={'choose'} array_type={'years'} />
           </div>
-          {/*<div className={styles.plank_item}>*/}
-          {/*  <Plank title={'asd'} type={'find'} />*/}
-          {/*</div>*/}
-          {/*<div className={styles.plank_item}>*/}
-          {/*  <Plank title={'asd'} type={'find'} />*/}
-          {/*</div>*/}
-          {/*<div className={styles.plank_item}>*/}
-          {/*  <Plank title={'asd'} type={'choose'} />*/}
-          {/*</div>*/}
           <div className={styles.plank_item}>
             <InputRange minLimit={0} maxLimit={10} range={1}>
               {t('sections.rating')}
@@ -107,9 +98,3 @@ export const Filters: FC = (): JSX.Element => {
     </>
   );
 };
-
-// <div className={styles.plank_item}>
-//   <InputRange minLimit={0} maxLimit={1_000_000} range={993} type={'comments'}>
-//     {t('sections.rates-amount')}
-//   </InputRange>
-// </div>

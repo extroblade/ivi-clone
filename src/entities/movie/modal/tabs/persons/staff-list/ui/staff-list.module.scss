@@ -10,6 +10,12 @@
   }
 }
 
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
 .card {
   position: relative;
   width: 120px;

@@ -70,6 +70,7 @@ export const Russian = {
       'write-comment': 'Написать комментарий',
     },
     carousels: {
+      anime: 'Аниме',
       'foreign-series': 'Зарубежные сериалы',
       adventures: 'Приключения',
     },
@@ -102,6 +103,7 @@ export const Russian = {
       'ivi-rating-series': 'Иви.Рейтинг сериалы',
     },
     descriptions: {
+      similar: 'Также смотрят:',
       with: 'с',
       and: 'и',
 

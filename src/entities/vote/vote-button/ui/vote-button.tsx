@@ -7,12 +7,12 @@ import { Button } from '@/newui';
 import { VoteButtonProps } from '../model/props';
 import styles from './vote-button.module.scss';
 
-export const VoteButton: FC<VoteButtonProps> = ({ variant, isActive, onClick }): JSX.Element => {
+export const VoteButton: FC<VoteButtonProps> = ({ variant, isActive, ...props }): JSX.Element => {
   return (
     <Button
       appearance={'transparent'}
       className={cn(styles[variant], isActive && styles.active)}
-      onClick={onClick}
+      {...props}
     >
       {isActive ? <AiFillLike /> : <AiOutlineLike />}
     </Button>

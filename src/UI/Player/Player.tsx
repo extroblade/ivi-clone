@@ -47,6 +47,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
               controls={true}
               light={true}
               url={url}
+              playing={true}
             />
           )}
         </div>

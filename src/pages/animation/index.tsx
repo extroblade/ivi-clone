@@ -2,16 +2,16 @@ import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 
 import { Filters } from '@/components';
-import { AnimationDescription } from '@/entities/descriptions/animation';
+import { AnimationDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
-import { Grid } from '@/UI';
+import { Grid } from '@/widgets/grid';
 
-const Index = () => {
+const Animation = () => {
   const { t } = useTranslation();
 
   const breadcrumbs = [
-    { id: 1, name: t('sections.my-ivi'), path: '/' },
-    { id: 2, name: t('sections.animation'), path: '/series' },
+    { name: t('sections.my-ivi'), path: '/' },
+    { name: t('sections.animation'), path: '/series' },
   ];
   return (
     <>
@@ -28,4 +28,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Animation;

@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react';
 import React from 'react';
 
 import { Carousel } from '@/UI';
-import { CarouselProps } from '@/UI/Carousel/Carousel.props';
+import { CarouselProps } from '@/widgets/carousel/model/Carousel.props';
 
 const cards = [
   {
