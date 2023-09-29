@@ -17,7 +17,7 @@ export const AddToFavoritesButton = () => {
     setBooked((booked) => !booked);
   };
   return (
-    <Button appearance={'square'} onClick={(e) => addToFavorite(e)}>
+    <Button appearance={'transparent'} onClick={addToFavorite}>
       {booked ? <BsFillBookmarkFill /> : <BsBookmark />}
     </Button>
   );

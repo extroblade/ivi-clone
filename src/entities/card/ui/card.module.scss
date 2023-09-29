@@ -9,36 +9,40 @@
   transition-property: transform;
   height: 100%;
   width: 100%;
+
   .props {
     opacity: 0;
   }
-  @media screen and (max-width: 600px) {
-    font-size: 0.6em;
-  }
+
   button,
   a button {
     background-color: transparent !important;
     padding: 0;
     max-height: 20px;
     margin: 0;
+
     svg {
       font-size: 1.25rem;
     }
   }
+
   &:hover {
     transition: var(--transition-main);
     transform: scale(1.03) translateY(-1%);
+
     .imageSection {
       transition: var(--transition-main);
       transform: scale(1.03) translateY(-1%);
     }
   }
+
   .imageSection {
     aspect-ratio: 13/20;
     position: relative;
-    background-color: #1f1b2e;
+    background-color: var(--color-input-text);
     border-radius: 8px;
     overflow: hidden;
+
     &.show {
       font-weight: 600;
       display: flex;
@@ -50,80 +54,88 @@
         }
       }
     }
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    @media screen and (min-width: 600px) {
-      &.hover .props {
-        height: 100%;
-        width: 100%;
+
+    &.hover .props {
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      transition: var(--transition-main);
+      z-index: 90;
+      opacity: 0;
+      padding: 10%;
+      align-items: flex-start;
+
+
+      .btns {
+        gap: 10px 0;
+        display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        position: absolute;
-        bottom: 0;
-        text-align: center;
-        transition: var(--transition-main);
-        z-index: 90;
-        opacity: 0;
-        padding: 10%;
-        align-items: flex-start;
-        visibility: hidden;
-        .btns {
+        align-items: center;
+        justify-content: center;
+        width: 15%;
+
+        &__container {
           display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          width: 15%;
-          &__container {
-            display: flex;
-            width: 100%;
-            justify-content: flex-end;
-          }
-          button {
-            margin-top: 5px;
-          }
-        }
-        .info {
-          display: flex;
-          flex-direction: column;
+          width: 100%;
           justify-content: flex-end;
-          position: relative;
-          height: 100%;
-          min-width: 100%;
-          padding: 10px;
-          &__text {
-            text-align: start;
-            font-size: 0.6rem;
+        }
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: relative;
+        height: 100%;
+        min-width: 100%;
+        padding: 10px;
+
+        &__text {
+          text-align: start;
+          font-size: 0.6rem;
+          display: flex;
+        }
+
+        &__row {
+          margin-top: 4px;
+          white-space: pre-wrap;
+          text-overflow: ellipsis;
+        }
+
+        .ratings {
+          font-size: 1.4rem;
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+          transition: 1s all ease-in;
+
+          .graphs {
             display: flex;
-          }
-          &__row {
-            margin-top: 4px;
-            white-space: pre-wrap;
-            text-overflow: ellipsis;
-          }
-          .ratings {
-            font-size: 1.4rem;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            align-items: flex-start;
-            .graphs {
-              display: flex;
-              min-width: 25%;
-              flex-direction: column;
-            }
+            min-width: 25%;
+            flex-direction: column;
           }
         }
       }
     }
   }
+
   .textSection {
     height: 20px;
     width: 100%;
     margin-top: 10px;
+
     p {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -132,6 +144,7 @@
       transition: var(--transition-main);
     }
   }
+
   .singleGraph {
     margin-top: 20px;
     color: #a5a1b2;
@@ -139,12 +152,14 @@
     text-align: start;
     width: 65%;
   }
+
   &:hover {
     .imageSection {
       &.show > p {
         color: white !important;
         transition: var(--transition-main);
       }
+
       .props {
         display: flex;
         background-color: rgba(7, 5, 14, 0.8);
@@ -153,6 +168,7 @@
         transition: var(--transition-main);
       }
     }
+
     .textSection {
       p {
         transition: var(--transition-main);
@@ -160,6 +176,7 @@
       }
     }
   }
+
   &:active {
     transition: var(--transition-main) ease-in-out;
     transform: scale(0.98);
@@ -169,21 +186,28 @@
 .mirrored {
   transform: scale(-1, 1);
 }
+
 .hover.props {
   .btns {
     &__container {
     }
+
     button {
     }
   }
+
   .info {
     &__text {
     }
+
     &__row {
     }
+
     .ratings {
       .graphs {
       }
     }
   }
-} //prevent webstorm commit errors
+}
+
+//prevent webstorm commit errors

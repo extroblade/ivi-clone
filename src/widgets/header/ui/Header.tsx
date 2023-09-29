@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiUser } from 'react-icons/bi';
 import { MdNotificationsNone } from 'react-icons/md';
@@ -19,6 +19,13 @@ import styles from './Header.module.scss';
 export const Header: FC = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
+  useEffect(() => {
+    const uuid = localStorage?.getItem('uuid');
+    if (uuid) {
+      return;
+    }
+    localStorage?.setItem('uuid', (Math.random() * 100).toString(36).slice(3));
+  }, []);
   return (
     <header className="header">
       <div className="container">

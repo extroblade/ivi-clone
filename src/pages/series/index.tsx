@@ -2,9 +2,9 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Filters } from '@/components';
 import { SeriesDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
+import { Filters } from '@/widgets/filter/ui/Filters';
 import { Grid } from '@/widgets/grid';
 
 const Series = () => {

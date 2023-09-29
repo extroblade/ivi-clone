@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 
+import { CardProps } from '@/entities/card';
 import {
   AddToFavoritesButton,
   BlockButton,
@@ -14,7 +15,6 @@ import { CardLoader } from '@/entities/card/ui/card-loader';
 import { BarGraph, Text } from '@/newui';
 import { countTime } from '@/shared/helpers';
 
-import { CardProps } from '../model/Card.props';
 import styles from './card.module.scss';
 
 export const Card: FC<CardProps> = ({

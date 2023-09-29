@@ -1,5 +1,6 @@
+import cn from 'classnames';
 import { useInView } from 'framer-motion';
-import React, { FC, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/entities/card';
@@ -16,8 +17,7 @@ export const Grid: FC<GridProps> = ({ type }) => {
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
   const isInView = useInView(buttonRef);
-  const { genre, yearTo, country, yearFrom, order, ratingTo, ratingFrom } =
-    useAppSelector(selectFilters);
+  const { genre, yearTo, country, order, ratingTo, ratingFrom } = useAppSelector(selectFilters);
   const params: QueryParams = {
     type,
     page,
@@ -31,7 +31,7 @@ export const Grid: FC<GridProps> = ({ type }) => {
   };
   useEffect(() => {
     setPage(() => 1);
-  }, [genre, yearTo, country, yearFrom]);
+  }, [genre, yearTo, ratingFrom, country]);
   const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
 
   const { t } = useTranslation();
@@ -49,7 +49,11 @@ export const Grid: FC<GridProps> = ({ type }) => {
     if (page === 1) {
       setMovies(() => data?.items);
     } else {
-      setMovies(() => [...movies, ...data?.items]);
+      const filteredData = data?.items.filter(
+        //api can send same data from different pages -> keys error
+        (item) => !movies.map((movie) => movie.kinopoiskId).includes(item.kinopoiskId)
+      );
+      setMovies(() => [...movies, ...filteredData]);
     }
   }, [page, data]);
 
@@ -79,19 +83,20 @@ export const Grid: FC<GridProps> = ({ type }) => {
         {isLoading && <Loader />}
         {data?.total === 0 && <Title tag={'h2'}>Ничего не найдено</Title>}
       </div>
-      {data?.total
-        ? data?.totalPages > page && (
-            <Button
-              ref={buttonRef}
-              disabled={isLoading}
-              appearance={'outline'}
-              className={styles.open}
-              onClick={showMore}
-            >
-              {t('buttons.show-more')}
-            </Button>
-          )
-        : ''}
+      <div ref={buttonRef}>
+        {data?.total
+          ? data?.totalPages > page && (
+              <Button
+                disabled={isFetching}
+                appearance={'outline'}
+                className={cn(styles.open, isFetching && 'loader')}
+                onClick={showMore}
+              >
+                {t('buttons.show-more')}
+              </Button>
+            )
+          : ''}
+      </div>
     </>
   );
 };

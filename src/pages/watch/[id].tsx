@@ -1,21 +1,20 @@
 import Head from 'next/head';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { WatchPage } from '@/components';
 import { movieTypes } from '@/constants';
 import { NotFound } from '@/entities/not-found';
 import { Breadcrumbs } from '@/newui';
+import { localizeName } from '@/shared/helpers/localize-name';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
+import { WatchPage } from '@/widgets/movie/ui/WatchPage';
 
 const Movie = ({ movie }: { movie: iFilm }) => {
   const { i18n } = useTranslation();
-  const typeMovie = new Map(Object.entries(movieTypes));
   if (!movie) return <NotFound />;
 
-  const typeRuName = typeMovie.get(movie.type)?.ruName || 'Тип';
-  const typeEnName = typeMovie.get(movie.type)?.enName || 'Type';
-  const typePath = typeMovie.get(movie.type)?.path || '.movies';
+  const typeRuName = movieTypes[movie.type]?.ruName || 'Тип';
+  const typeEnName = movieTypes[movie.type]?.enName || 'Type';
+  const typePath = movieTypes[movie.type]?.path || '/movies';
 
   const genre = movie?.genres[0]?.genre || 'Жанр';
   const breadcrumbs = [
@@ -29,9 +28,7 @@ const Movie = ({ movie }: { movie: iFilm }) => {
     <>
       <Head>
         <title>
-          {i18n.language == 'en'
-            ? `Movie ${movie?.nameEn ? movie.nameEn : ''}`
-            : `Фильм ${movie?.nameRu ? movie.nameRu : ''}`}
+          {i18n.language == 'en' ? `Movie ${localizeName(movie)}` : `Фильм ${localizeName(movie)}`}
         </title>
       </Head>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />

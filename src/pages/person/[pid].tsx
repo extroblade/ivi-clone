@@ -2,23 +2,23 @@ import i18next from 'i18next';
 import Head from 'next/head';
 import React from 'react';
 
-import { PersonInfo } from '@/components';
+import { Person } from '@/entities/person/ui/Person';
 import { Loader } from '@/newui';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 
-const Person = ({ person }: { person: iPerson }) => {
+const PersonPage = ({ person }: { person: iPerson }) => {
   const { nameRu, nameEn } = person || {};
   return (
     <>
       <Head>
         <title>{person ? (i18next.language == 'en' ? nameEn || nameRu : nameRu) : ''}</title>
       </Head>
-      {person ? <PersonInfo person={person} /> : <Loader />}
+      {person ? <Person person={person} /> : <Loader />}
     </>
   );
 };
 
-export default Person;
+export default PersonPage;
 
 export async function getServerSideProps(context: { query: { pid: string } }) {
   try {

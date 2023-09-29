@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { HiChevronLeft } from 'react-icons/hi';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
+import { CommentSection } from '@/features/comment/section/ui/CommentSection';
 import { Button, Title } from '@/newui';
 import { localizeName } from '@/shared/helpers/localize-name';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { useEscapeKey } from '@/shared/hooks/useEscapeKey';
 import { selectModal, setShowWatchPageModal } from '@/shared/store';
-import { CommentSection } from '@/UI';
 
 import { MovieModalInfo } from '../info';
 import { AwardsTab, PersonsTab, TrailersTab } from '../tabs';
@@ -17,7 +17,7 @@ import styles from './movie-modal.module.scss';
 
 export const MovieModal: FC = () => {
   const dispatch = useAppDispatch();
-  const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
+  const { currentMovie, currentTab, showWatchPageModal } = useAppSelector(selectModal);
   const { t } = useTranslation();
   usePreventScroll(showWatchPageModal);
   const handleClose = () => {
@@ -32,7 +32,7 @@ export const MovieModal: FC = () => {
         <span>{t('buttons.to-movie')}</span>
       </Button>
       <div className={styles.wrap}>
-        <Tabs className={styles.tabs} defaultIndex={currentMovie?.index || 0}>
+        <Tabs className={styles.tabs} defaultIndex={currentTab}>
           <Title tag={'h2'}>{localizeName(currentMovie)}</Title>
           <TabList className={styles.tabs__title}>
             <Tab className={styles.tab} selectedClassName={styles.active}>

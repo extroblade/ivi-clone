@@ -2,9 +2,9 @@ import cn from 'classnames';
 import React, { FC, useRef, useState } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
+import { ChooseDropdown, SearchDropdown } from '@/entities/dropdown';
 import { useAppSelector, useOutsideClick } from '@/shared/hooks';
 import { selectFilters } from '@/shared/store';
-import { ChooseDropdown, SearchDropdown } from '@/UI';
 
 import styles from './plank.module.scss';
 import { PlankProps } from './plank.props';

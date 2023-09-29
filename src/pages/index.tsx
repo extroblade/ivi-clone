@@ -7,7 +7,7 @@ import { Carousel } from '@/entities/carousel';
 import { MainDescription } from '@/entities/descriptions';
 import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
-import { PromoCarousel } from '@/UI';
+import { PromoCarousel } from '@/widgets/promo/ui/PromoCarousel';
 import { TopTenCarousel } from '@/widgets/top-10';
 
 const settings = {
