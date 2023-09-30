@@ -1,12 +1,12 @@
 import i18next from 'i18next';
 import React, { FC, useEffect } from 'react';
 
-import { MovieBGContainer } from '@/entities/colored-container/ui/MovieBGContainer';
+import { ColorContainer } from '@/entities/colored-container/ui/color-container';
 import { ExternalSources } from '@/entities/external-sources';
-import { MovieInfo } from '@/entities/movie/info/ui/MovieInfo';
-import { PersonsGallery } from '@/entities/movie/persons/gallery/ui/PersonsGallery';
-import { Trailers } from '@/entities/movie/trailers/ui/Trailers';
-import { Player } from '@/entities/player/ui/Player';
+import { MovieInfo } from '@/entities/movie/info/ui/movie-info';
+import { PersonsGallery } from '@/entities/movie/persons/gallery/ui/persons-gallery';
+import { Trailers } from '@/entities/movie/trailers/ui/trailers';
+import { Player } from '@/entities/player/ui/player';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
@@ -44,7 +44,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
   return (
     <>
-      <MovieBGContainer movie={movie} />
+      <ColorContainer movie={movie} />
       <section className={styles.watch}>
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>

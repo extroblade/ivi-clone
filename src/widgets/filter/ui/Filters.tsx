@@ -29,20 +29,12 @@ const variants = {
 export const Filters: FC = (): JSX.Element => {
   const [openedFilter, setOpenedFilter] = useState(false);
   const [active, setActive] = useState<boolean>(false);
-  const { genre, yearTo, country, ratingFrom } = useAppSelector(selectFilters);
+  const { genre, yearFrom, country, ratingFrom } = useAppSelector(selectFilters);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   useEffect(() => {
-    setActive(
-      () =>
-        !!(
-          (typeof genre === 'object' ? genre?.genre : genre) ||
-          (typeof country === 'object' ? country?.country : country) ||
-          +yearTo < 3000 ||
-          +ratingFrom > 0
-        )
-    );
-  }, [genre, yearTo, country, ratingFrom]);
+    setActive(!!(genre || country || +yearFrom > 1000 || ratingFrom));
+  }, [genre, yearFrom, country, ratingFrom]);
   const reset = () => {
     dispatch(resetFilters());
     setActive(() => false);

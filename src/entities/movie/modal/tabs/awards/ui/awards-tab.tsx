@@ -11,8 +11,8 @@ import styles from './awards-tab.module.scss';
 export const AwardsTab = () => {
   const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
   const { data: awards, isLoading } = useFetchFilmAwardsQuery(
-    { id: currentMovie?.kinopoiskId },
-    { skip: !showWatchPageModal }
+    { id: currentMovie?.kinopoiskId || 0 },
+    { skip: !showWatchPageModal || !currentMovie?.kinopoiskId }
   );
   if (isLoading) return <Loader />;
   if (!awards?.total) return <Title>Награды не указаны</Title>;

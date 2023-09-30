@@ -1,0 +1,34 @@
+.find {
+  background-color: var(--color-card-hover);
+  width: 180%;
+  @media screen and (max-width: 879px) {
+    width: 100%;
+  }
+
+  input {
+    width: 100%;
+    background-color: rgb(42, 33, 63);
+    color: var(--color-input);
+    padding: 10px;
+  }
+}
+
+.choose {
+  width: 40vw;
+  @media screen and (max-width: 879px) {
+    width: 100%;
+  }
+}
+
+.dropdown_out {
+  user-select: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  padding-top: 4px;
+  z-index: 99;
+}
+
+
+

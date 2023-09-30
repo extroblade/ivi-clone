@@ -6,17 +6,12 @@ import {
   MdOutlineSort,
 } from 'react-icons/md';
 
+import { SortProps } from '@/entities/dropdown/sort/model/props';
 import { Button } from '@/newui';
 import { useAppDispatch, useOutsideClick } from '@/shared/hooks';
 import { setOrder } from '@/shared/store';
 
 import styles from './SortDropdown.module.scss';
-
-interface iSort {
-  id: number;
-  value?: 'RATING' | 'NUM_VOTE' | 'YEAR';
-  title: string;
-}
 
 export const SortDropdown: FC = (): JSX.Element => {
   const [sortDrop, setSortDrop] = useState(false);
@@ -31,7 +26,7 @@ export const SortDropdown: FC = (): JSX.Element => {
   };
   useOutsideClick(closeState, ref);
 
-  const sorts: iSort[] = [
+  const sorts: SortProps[] = [
     { id: 0, title: t('sections.by-default') },
     { id: 1, value: 'RATING', title: 'рейтингу' },
     { id: 2, value: 'NUM_VOTE', title: 'оценкам' },
@@ -40,7 +35,7 @@ export const SortDropdown: FC = (): JSX.Element => {
   const [current, setCurrent] = useState(0);
 
   const handler = useCallback(
-    (currentSort: iSort) => {
+    (currentSort: SortProps) => {
       if (current === currentSort.id) {
         setCurrent(() => 0);
       } else {

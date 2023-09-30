@@ -1,9 +1,11 @@
 .submenu {
+
   .submenu__body {
     @media screen and (max-width: 1160px) {
       display: none;
     }
   }
+
   &:hover {
     .submenu__body {
       transition: all 0.05s ease-out;
@@ -13,6 +15,7 @@
       filter: drop-shadow(0 20px 96px #12101b);
     }
   }
+
   &__button {
     width: 23px;
     height: 23px;
@@ -22,18 +25,22 @@
     z-index: 10;
     opacity: 0.5;
     cursor: pointer;
+
     & img {
       padding: 5px;
     }
+
     &:hover {
       opacity: 1;
     }
+
     &:hover ~ .submenu__body {
       opacity: 1;
       visibility: visible;
       pointer-events: all;
     }
   }
+
   &__buttonOutline {
     position: relative;
     z-index: 10;
@@ -45,13 +52,16 @@
     padding: 9px;
     cursor: pointer;
     transition: var(--transition-main);
+
     & img {
       padding: 5px;
     }
+
     &:hover {
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
       opacity: 1;
     }
+
     &:hover ~ .submenu__body {
       opacity: 1;
       visibility: visible;
@@ -69,19 +79,23 @@
     cursor: pointer;
     object-fit: cover;
     transition: var(--transition-main);
+
     & img {
       padding: 0;
     }
+
     &:hover {
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
       opacity: 1;
     }
+
     &:hover ~ .submenu__body {
       opacity: 1;
       visibility: visible;
       pointer-events: all;
     }
   }
+
   &__border {
     flex: 0 0 73px;
     display: block;
@@ -90,6 +104,7 @@
     opacity: 0.3;
     z-index: 10;
   }
+
   &__content {
     z-index: 800;
     width: 100%;
@@ -99,6 +114,7 @@
     align-items: center;
     flex-direction: column;
   }
+
   &__body {
     position: absolute;
     top: 0;
@@ -118,6 +134,7 @@
     border-radius: 10px;
     z-index: 1;
     transition: all 0.3s ease-in;
+
     &:hover {
       opacity: 1;
       touch-action: auto;
@@ -125,11 +142,13 @@
       pointer-events: all;
     }
   }
+
   &__icon {
     opacity: 0.5;
     font-size: 5px;
     margin-bottom: 3px;
   }
+
   & p {
     opacity: 0.5;
   }

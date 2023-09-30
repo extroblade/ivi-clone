@@ -1,26 +1,21 @@
 .carousel {
   -webkit-tap-highlight-color: transparent;
   margin-bottom: 20px;
+}
 
-  .title {
-    display: flex;
-    box-sizing: content-box;
+.title {
+  display: flex;
 
-    &_container {
-      display: flex;
-      align-items: center;
-
-      &:hover {
-        text-decoration: 1px underline;
-      }
-    }
-
-    svg {
-      min-width: 25px;
-    }
+  svg {
+    min-width: 25px;
   }
+}
 
-  .card {
-    padding: 20px 10px 0 10px;
+.title_container {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    text-decoration: 1px underline;
   }
 }

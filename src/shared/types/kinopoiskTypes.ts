@@ -1,4 +1,4 @@
-import { MovieVariants, ProfessionVariants } from '@/constants';
+import { MovieVariants, ProfessionVariants } from 'src/shared/constants';
 
 export interface iStaff {
   staffId: number;

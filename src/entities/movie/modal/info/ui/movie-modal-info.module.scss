@@ -21,8 +21,16 @@
     display: grid;
     gap: 3px;
   }
+  
+}
 
-  &__descr {
-    line-height: 1;
-  }
+.graphs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.graphs__wrap {
+  width: 20px;
 }

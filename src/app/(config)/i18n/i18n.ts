@@ -1,15 +1,14 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { English } from '@/app/(config)/i18n/translations/en';
-import { Russian } from '@/app/(config)/i18n/translations/ru';
+import { english, russian } from './translations';
 
 i18next
   .use(initReactI18next)
   .init({
     resources: {
-      ru: Russian,
-      en: English,
+      ru: russian,
+      en: english,
     },
     lng: 'ru',
     interpolation: {

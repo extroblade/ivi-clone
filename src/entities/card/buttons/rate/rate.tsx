@@ -13,7 +13,7 @@ export const RateButton = () => {
     dispatch(setShowRating(true));
   };
   return (
-    <Button appearance={'square'} onClick={(e) => openRatingModal(e)}>
+    <Button appearance={'square'} onClick={openRatingModal}>
       <AiOutlineStar />
     </Button>
   );

@@ -1,1 +1,1 @@
-export { Explanations } from './ui/Explanations';
+export { Explanations } from './ui/explanations';

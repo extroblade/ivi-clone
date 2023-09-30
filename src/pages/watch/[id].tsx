@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
+import { movieTypes } from 'src/shared/constants';
 
-import { movieTypes } from '@/constants';
 import { NotFound } from '@/entities/not-found';
 import { Breadcrumbs } from '@/newui';
 import { localizeName } from '@/shared/helpers/localize-name';

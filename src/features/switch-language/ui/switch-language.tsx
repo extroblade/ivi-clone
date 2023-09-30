@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { languages } from 'src/shared/constants';
 
-import { languages } from '@/constants';
 import { Button } from '@/newui';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 

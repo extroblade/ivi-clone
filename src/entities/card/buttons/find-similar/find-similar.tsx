@@ -13,7 +13,7 @@ export const FindSimilarButton = () => {
     router.push('/movies');
   };
   return (
-    <Button appearance={'square'} onClick={(e) => findSimilar(e)}>
+    <Button appearance={'square'} onClick={findSimilar}>
       <IoColorWandOutline style={{ transform: 'scale(-1, 1)' }} />
     </Button>
   );

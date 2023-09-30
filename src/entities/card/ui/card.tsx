@@ -14,6 +14,7 @@ import {
 import { CardLoader } from '@/entities/card/ui/card-loader';
 import { BarGraph, Text } from '@/newui';
 import { countTime } from '@/shared/helpers';
+import { localizeName } from '@/shared/helpers/localize-name';
 
 import styles from './card.module.scss';
 
@@ -33,26 +34,15 @@ export const Card: FC<CardProps> = ({
     filmId,
     countries,
     genres,
-    nameRu,
-    nameOriginal,
-    nameEn,
     posterUrlPreview,
     year,
     filmLength,
     ratingKinopoisk,
   } = card;
-  const i18nTitle =
-    i18next.language == 'en' ? nameEn || nameOriginal || nameRu : nameRu || nameOriginal || nameEn;
   return (
     <Link href={`/watch/${id || filmId}`} className={styles.card} draggable="false" {...props}>
       <div className={cn(styles.imageSection, hover && styles.hover)}>
-        <Image
-          src={posterUrlPreview}
-          alt={i18nTitle || 'title'}
-          width={234}
-          height={360}
-          quality={85}
-        />
+        <Image src={posterUrlPreview} alt={'poster'} width={234} height={360} quality={85} />
         <div className={styles.props}>
           <div className={styles.btns__container}>
             <div className={styles.btns}>
@@ -65,12 +55,12 @@ export const Card: FC<CardProps> = ({
           {info && (
             <div className={styles.info}>
               <div className={styles.ratings}>
-                {ratingKinopoisk}
+                {ratingKinopoisk || 5}
                 <div className={styles.graphs}>
-                  <BarGraph width={ratingKinopoisk * 0.7 * 10 - 0.2} />
-                  <BarGraph width={ratingKinopoisk * 0.9 * 10 - 0.2} />
-                  <BarGraph width={ratingKinopoisk * 1.2 * 10 - 0.2} />
-                  <BarGraph width={ratingKinopoisk * 0.8 * 10 - 0.2} />
+                  <BarGraph width={(ratingKinopoisk || 5) * 0.7 * 10 - 0.2} />
+                  <BarGraph width={(ratingKinopoisk || 5) * 0.9 * 10 - 0.2} />
+                  <BarGraph width={(ratingKinopoisk || 5) * 1.2 * 10 - 0.2} />
+                  <BarGraph width={(ratingKinopoisk || 5) * 0.8 * 10 - 0.2} />
                 </div>
               </div>
               <div className={styles.singleGraph}>
@@ -89,8 +79,8 @@ export const Card: FC<CardProps> = ({
           )}
         </div>
       </div>
-      <div className={styles.textSection} title={i18nTitle}>
-        <Text>{i18nTitle}</Text>
+      <div className={styles.textSection} title={localizeName(card)}>
+        <Text>{localizeName(card)}</Text>
       </div>
     </Link>
   );

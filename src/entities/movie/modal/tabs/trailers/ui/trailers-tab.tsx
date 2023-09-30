@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Player } from '@/entities/player/ui/Player';
+import { Player } from '@/entities/player/ui/player';
 import { Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { useFetchFilmVideoQuery } from '@/shared/services';

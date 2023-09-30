@@ -2,14 +2,14 @@ import cn from 'classnames';
 import React, { FC, useRef, useState } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
-import { ChooseDropdown, SearchDropdown } from '@/entities/dropdown';
+import { ChooseDropdown } from '@/entities/dropdown';
 import { useAppSelector, useOutsideClick } from '@/shared/hooks';
 import { selectFilters } from '@/shared/store';
 
 import styles from './plank.module.scss';
 import { PlankProps } from './plank.props';
 
-export const Plank: FC<PlankProps> = ({ type, array_type }): JSX.Element => {
+export const Plank: FC<PlankProps> = ({ array_type }): JSX.Element => {
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const { genre, yearTo, country } = useAppSelector(selectFilters);
   let title;
@@ -34,11 +34,7 @@ export const Plank: FC<PlankProps> = ({ type, array_type }): JSX.Element => {
   useOutsideClick(handleClose, plankRef);
   return (
     <span ref={plankRef}>
-      {type == 'choose' ? (
-        <ChooseDropdown state={dropDownOpen} type={array_type} />
-      ) : (
-        <SearchDropdown state={dropDownOpen} />
-      )}
+      <ChooseDropdown state={dropDownOpen} type={array_type} />
       <button className={cn(styles.plank, dropDownOpen && styles.active)} onClick={handleToggle}>
         <div className={styles.info}>
           <div className={styles.title}>{title}</div>

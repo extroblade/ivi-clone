@@ -5,7 +5,7 @@ import { Button } from '@/newui';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
 export const AddToFavoritesButton = () => {
-  const [booked, setBooked] = useState<boolean>(false);
+  const [booked, setBooked] = useState(false);
   const createAlert = useCreateAlert();
   const addToFavorite = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-export const Russian = {
+export const russian = {
   translation: {
     buttons: {
       activate: 'Активировать',

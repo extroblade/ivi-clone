@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 
 import { BarGraph, Text } from '@/newui';
 import { countTime } from '@/shared/helpers';
@@ -10,18 +9,18 @@ import styles from './movie-modal-info.module.scss';
 
 export const MovieModalInfo = () => {
   const { currentMovie } = useAppSelector(selectModal);
-  const { posterUrl, ratingKinopoisk, year, countries, genres, duration, filmLength } =
-    currentMovie || {};
+  const { posterUrl, ratingKinopoisk, year, countries, genres, filmLength } = currentMovie || {};
   return (
     <div className={styles.movie}>
-      <Image
-        width={128}
-        height={196}
-        onClick={() => close()}
-        className={styles.movie__img}
-        src={posterUrl || ''}
-        alt=""
-      />
+      {posterUrl && (
+        <Image
+          width={128}
+          height={196}
+          className={styles.movie__img}
+          src={posterUrl}
+          alt="poster"
+        />
+      )}
       <div className={styles.movie__info}>
         <div className={styles.graphs}>
           <span>{ratingKinopoisk}</span>
@@ -32,13 +31,12 @@ export const MovieModalInfo = () => {
             <BarGraph width={98} />
           </div>
         </div>
-        <Text size="S" className={styles.movie__descr}>
+        <Text size="M" color={'gray'}>
           {year && `${year}, `}
           {countries?.length ? countries.map((country) => `${country.country}, `) : ''}
           {genres?.length ? genres.map((genre) => `${genre.genre}, `) : ''}
           {filmLength && countTime(filmLength)}
         </Text>
-        <Text size="S">{duration}</Text>
       </div>
     </div>
   );

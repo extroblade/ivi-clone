@@ -1,1 +1,1 @@
-export { FooterModal } from './ui/FooterModal';
+export { FooterModal } from './ui/footer-modal';

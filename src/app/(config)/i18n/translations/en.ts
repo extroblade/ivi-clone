@@ -1,4 +1,4 @@
-export const English = {
+export const english = {
   translation: {
     buttons: {
       activate: 'Activate',

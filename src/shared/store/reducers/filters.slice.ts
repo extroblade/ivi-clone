@@ -10,8 +10,8 @@ export interface iFilters {
   countries?: iCountry[];
   years: number[];
   genres?: iGenre[];
-  country?: iCountry | null;
-  genre?: iGenre | null;
+  country?: iCountry;
+  genre?: iGenre;
   order: FilmOrder;
   type: FilmType;
   ratingFrom: number | string;
@@ -28,8 +28,8 @@ for (let i = 1950; i < 2024; i++) years.push(i);
 const initialState: iFilters = {
   order: 'RATING',
   years: years,
-  country: null,
-  genre: null,
+  country: undefined,
+  genre: undefined,
   type: 'ALL',
   ratingFrom: 0,
   ratingTo: 10,

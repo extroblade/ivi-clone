@@ -12,7 +12,7 @@ export const PersonsTab = () => {
   const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
   const { data: persons, isLoading } = useFetchAllPersonsQuery(
     { filmId: currentMovie?.kinopoiskId || 0 },
-    { skip: !showWatchPageModal }
+    { skip: !showWatchPageModal || !currentMovie?.kinopoiskId }
   );
 
   const { t } = useTranslation();

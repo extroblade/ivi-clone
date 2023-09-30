@@ -8,8 +8,9 @@ import { SessionProvider } from 'next-auth/react';
 import { Next13ProgressBar } from 'next13-progressbar';
 import { Provider } from 'react-redux';
 
-import { MainLayout } from '@/app/layouts/MainLayout';
 import { wrapper } from '@/shared/store';
+import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/header';
 import { Modals } from '@/widgets/modals';
 
 const iviSans = localFont({
@@ -57,9 +58,15 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
           showOnShallow
         />
         <div className={iviSans.className}>
-          <MainLayout>
-            <Component {...pageProps} />
-          </MainLayout>
+          <div className="wrapper">
+            <Header />
+            <main className="main">
+              <div className="container">
+                <Component {...pageProps} />
+              </div>
+            </main>
+            <Footer />
+          </div>
           <Modals />
         </div>
       </SessionProvider>

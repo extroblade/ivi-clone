@@ -1,1 +1,1 @@
-export { ModalList } from './ui/ModalList';
+export { ModalList } from './ui/modal-list';

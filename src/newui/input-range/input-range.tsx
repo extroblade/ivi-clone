@@ -36,7 +36,7 @@ export const InputRange: FC<InputRangeProps> = memo(
             min={minLimit}
             max={maxLimit}
             step={range}
-            value={inputValue}
+            value={+ratingFrom}
             style={{
               background: `linear-gradient(90deg, #1f1b2d ${
                 ((+ratingFrom - minLimit) * 100) / (maxLimit - minLimit)

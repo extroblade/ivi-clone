@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import Head from 'next/head';
 import React from 'react';
 
-import { Person } from '@/entities/person/ui/Person';
+import { Person } from '@/entities/person/ui/person';
 import { Loader } from '@/newui';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 
