@@ -14,7 +14,7 @@ exports[`card card object should not throw error with empty card 1`] = `
           class="imageSection"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -40,6 +40,7 @@ exports[`card card object should not throw error with empty card 1`] = `
               <div
                 class="ratings"
               >
+                5
                 <div
                   class="graphs"
                 >
@@ -48,6 +49,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 34.8%;"
                     />
                   </div>
                   <div
@@ -55,6 +57,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 44.8%;"
                     />
                   </div>
                   <div
@@ -62,6 +65,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 59.8%;"
                     />
                   </div>
                   <div
@@ -69,6 +73,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 39.8%;"
                     />
                   </div>
                 </div>
@@ -102,10 +107,13 @@ exports[`card card object should not throw error with empty card 1`] = `
         </div>
         <div
           class="textSection"
+          title="Not found"
         >
           <p
             class="p M gray"
-          />
+          >
+            Not found
+          </p>
         </div>
       </a>
     </div>
@@ -120,7 +128,7 @@ exports[`card card object should not throw error with empty card 1`] = `
         class="imageSection"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -146,6 +154,7 @@ exports[`card card object should not throw error with empty card 1`] = `
             <div
               class="ratings"
             >
+              5
               <div
                 class="graphs"
               >
@@ -154,6 +163,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 34.8%;"
                   />
                 </div>
                 <div
@@ -161,6 +171,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 44.8%;"
                   />
                 </div>
                 <div
@@ -168,6 +179,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 59.8%;"
                   />
                 </div>
                 <div
@@ -175,6 +187,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 39.8%;"
                   />
                 </div>
               </div>
@@ -208,10 +221,13 @@ exports[`card card object should not throw error with empty card 1`] = `
       </div>
       <div
         class="textSection"
+        title="Not found"
       >
         <p
           class="p M gray"
-        />
+        >
+          Not found
+        </p>
       </div>
     </a>
   </div>,
@@ -277,13 +293,13 @@ exports[`card params should has all available buttons 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/undefined"
+        href="/watch/1"
       >
         <div
           class="imageSection hover"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -303,7 +319,7 @@ exports[`card params should has all available buttons 1`] = `
                 class="btns"
               >
                 <button
-                  class="button square M"
+                  class="button transparent M"
                 >
                   <svg
                     fill="currentColor"
@@ -400,6 +416,7 @@ exports[`card params should has all available buttons 1`] = `
               <div
                 class="ratings"
               >
+                9.5
                 <div
                   class="graphs"
                 >
@@ -408,6 +425,7 @@ exports[`card params should has all available buttons 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 66.3%;"
                     />
                   </div>
                   <div
@@ -415,6 +433,7 @@ exports[`card params should has all available buttons 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 85.3%;"
                     />
                   </div>
                   <div
@@ -422,6 +441,7 @@ exports[`card params should has all available buttons 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 100%;"
                     />
                   </div>
                   <div
@@ -429,6 +449,7 @@ exports[`card params should has all available buttons 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 75.8%;"
                     />
                   </div>
                 </div>
@@ -444,6 +465,7 @@ exports[`card params should has all available buttons 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 94.8%;"
                   />
                 </div>
               </div>
@@ -454,8 +476,8 @@ exports[`card params should has all available buttons 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  undefined, 
-                  undefined
+                  США, 
+                  Фэнтези
                 </div>
               </section>
             </div>
@@ -463,10 +485,13 @@ exports[`card params should has all available buttons 1`] = `
         </div>
         <div
           class="textSection"
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M gray"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -475,13 +500,13 @@ exports[`card params should has all available buttons 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/undefined"
+      href="/watch/1"
     >
       <div
         class="imageSection hover"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -501,7 +526,7 @@ exports[`card params should has all available buttons 1`] = `
               class="btns"
             >
               <button
-                class="button square M"
+                class="button transparent M"
               >
                 <svg
                   fill="currentColor"
@@ -598,6 +623,7 @@ exports[`card params should has all available buttons 1`] = `
             <div
               class="ratings"
             >
+              9.5
               <div
                 class="graphs"
               >
@@ -606,6 +632,7 @@ exports[`card params should has all available buttons 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 66.3%;"
                   />
                 </div>
                 <div
@@ -613,6 +640,7 @@ exports[`card params should has all available buttons 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 85.3%;"
                   />
                 </div>
                 <div
@@ -620,6 +648,7 @@ exports[`card params should has all available buttons 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 100%;"
                   />
                 </div>
                 <div
@@ -627,6 +656,7 @@ exports[`card params should has all available buttons 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 75.8%;"
                   />
                 </div>
               </div>
@@ -642,6 +672,7 @@ exports[`card params should has all available buttons 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 94.8%;"
                 />
               </div>
             </div>
@@ -652,8 +683,8 @@ exports[`card params should has all available buttons 1`] = `
                 class="info__row"
               >
                 2011, 
-                undefined, 
-                undefined
+                США, 
+                Фэнтези
               </div>
             </section>
           </div>
@@ -661,10 +692,13 @@ exports[`card params should has all available buttons 1`] = `
       </div>
       <div
         class="textSection"
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M gray"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -730,13 +764,13 @@ exports[`card params should has only block button 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/undefined"
+        href="/watch/1"
       >
         <div
           class="imageSection hover"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -784,6 +818,7 @@ exports[`card params should has only block button 1`] = `
               <div
                 class="ratings"
               >
+                9.5
                 <div
                   class="graphs"
                 >
@@ -792,6 +827,7 @@ exports[`card params should has only block button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 66.3%;"
                     />
                   </div>
                   <div
@@ -799,6 +835,7 @@ exports[`card params should has only block button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 85.3%;"
                     />
                   </div>
                   <div
@@ -806,6 +843,7 @@ exports[`card params should has only block button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 100%;"
                     />
                   </div>
                   <div
@@ -813,6 +851,7 @@ exports[`card params should has only block button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 75.8%;"
                     />
                   </div>
                 </div>
@@ -828,6 +867,7 @@ exports[`card params should has only block button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 94.8%;"
                   />
                 </div>
               </div>
@@ -838,8 +878,8 @@ exports[`card params should has only block button 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  undefined, 
-                  undefined
+                  США, 
+                  Фэнтези
                 </div>
               </section>
             </div>
@@ -847,10 +887,13 @@ exports[`card params should has only block button 1`] = `
         </div>
         <div
           class="textSection"
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M gray"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -859,13 +902,13 @@ exports[`card params should has only block button 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/undefined"
+      href="/watch/1"
     >
       <div
         class="imageSection hover"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -913,6 +956,7 @@ exports[`card params should has only block button 1`] = `
             <div
               class="ratings"
             >
+              9.5
               <div
                 class="graphs"
               >
@@ -921,6 +965,7 @@ exports[`card params should has only block button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 66.3%;"
                   />
                 </div>
                 <div
@@ -928,6 +973,7 @@ exports[`card params should has only block button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 85.3%;"
                   />
                 </div>
                 <div
@@ -935,6 +981,7 @@ exports[`card params should has only block button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 100%;"
                   />
                 </div>
                 <div
@@ -942,6 +989,7 @@ exports[`card params should has only block button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 75.8%;"
                   />
                 </div>
               </div>
@@ -957,6 +1005,7 @@ exports[`card params should has only block button 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 94.8%;"
                 />
               </div>
             </div>
@@ -967,8 +1016,8 @@ exports[`card params should has only block button 1`] = `
                 class="info__row"
               >
                 2011, 
-                undefined, 
-                undefined
+                США, 
+                Фэнтези
               </div>
             </section>
           </div>
@@ -976,10 +1025,13 @@ exports[`card params should has only block button 1`] = `
       </div>
       <div
         class="textSection"
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M gray"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -1045,13 +1097,13 @@ exports[`card params should has only book button 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/undefined"
+        href="/watch/1"
       >
         <div
           class="imageSection hover"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -1071,7 +1123,7 @@ exports[`card params should has only book button 1`] = `
                 class="btns"
               >
                 <button
-                  class="button square M"
+                  class="button transparent M"
                 >
                   <svg
                     fill="currentColor"
@@ -1095,6 +1147,7 @@ exports[`card params should has only book button 1`] = `
               <div
                 class="ratings"
               >
+                9.5
                 <div
                   class="graphs"
                 >
@@ -1103,6 +1156,7 @@ exports[`card params should has only book button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 66.3%;"
                     />
                   </div>
                   <div
@@ -1110,6 +1164,7 @@ exports[`card params should has only book button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 85.3%;"
                     />
                   </div>
                   <div
@@ -1117,6 +1172,7 @@ exports[`card params should has only book button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 100%;"
                     />
                   </div>
                   <div
@@ -1124,6 +1180,7 @@ exports[`card params should has only book button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 75.8%;"
                     />
                   </div>
                 </div>
@@ -1139,6 +1196,7 @@ exports[`card params should has only book button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 94.8%;"
                   />
                 </div>
               </div>
@@ -1149,8 +1207,8 @@ exports[`card params should has only book button 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  undefined, 
-                  undefined
+                  США, 
+                  Фэнтези
                 </div>
               </section>
             </div>
@@ -1158,10 +1216,13 @@ exports[`card params should has only book button 1`] = `
         </div>
         <div
           class="textSection"
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M gray"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -1170,13 +1231,13 @@ exports[`card params should has only book button 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/undefined"
+      href="/watch/1"
     >
       <div
         class="imageSection hover"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -1196,7 +1257,7 @@ exports[`card params should has only book button 1`] = `
               class="btns"
             >
               <button
-                class="button square M"
+                class="button transparent M"
               >
                 <svg
                   fill="currentColor"
@@ -1220,6 +1281,7 @@ exports[`card params should has only book button 1`] = `
             <div
               class="ratings"
             >
+              9.5
               <div
                 class="graphs"
               >
@@ -1228,6 +1290,7 @@ exports[`card params should has only book button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 66.3%;"
                   />
                 </div>
                 <div
@@ -1235,6 +1298,7 @@ exports[`card params should has only book button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 85.3%;"
                   />
                 </div>
                 <div
@@ -1242,6 +1306,7 @@ exports[`card params should has only book button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 100%;"
                   />
                 </div>
                 <div
@@ -1249,6 +1314,7 @@ exports[`card params should has only book button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 75.8%;"
                   />
                 </div>
               </div>
@@ -1264,6 +1330,7 @@ exports[`card params should has only book button 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 94.8%;"
                 />
               </div>
             </div>
@@ -1274,8 +1341,8 @@ exports[`card params should has only book button 1`] = `
                 class="info__row"
               >
                 2011, 
-                undefined, 
-                undefined
+                США, 
+                Фэнтези
               </div>
             </section>
           </div>
@@ -1283,10 +1350,13 @@ exports[`card params should has only book button 1`] = `
       </div>
       <div
         class="textSection"
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M gray"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -1352,13 +1422,13 @@ exports[`card params should has only find button 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/undefined"
+        href="/watch/1"
       >
         <div
           class="imageSection hover"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -1420,6 +1490,7 @@ exports[`card params should has only find button 1`] = `
               <div
                 class="ratings"
               >
+                9.5
                 <div
                   class="graphs"
                 >
@@ -1428,6 +1499,7 @@ exports[`card params should has only find button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 66.3%;"
                     />
                   </div>
                   <div
@@ -1435,6 +1507,7 @@ exports[`card params should has only find button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 85.3%;"
                     />
                   </div>
                   <div
@@ -1442,6 +1515,7 @@ exports[`card params should has only find button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 100%;"
                     />
                   </div>
                   <div
@@ -1449,6 +1523,7 @@ exports[`card params should has only find button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 75.8%;"
                     />
                   </div>
                 </div>
@@ -1464,6 +1539,7 @@ exports[`card params should has only find button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 94.8%;"
                   />
                 </div>
               </div>
@@ -1474,8 +1550,8 @@ exports[`card params should has only find button 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  undefined, 
-                  undefined
+                  США, 
+                  Фэнтези
                 </div>
               </section>
             </div>
@@ -1483,10 +1559,13 @@ exports[`card params should has only find button 1`] = `
         </div>
         <div
           class="textSection"
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M gray"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -1495,13 +1574,13 @@ exports[`card params should has only find button 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/undefined"
+      href="/watch/1"
     >
       <div
         class="imageSection hover"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -1563,6 +1642,7 @@ exports[`card params should has only find button 1`] = `
             <div
               class="ratings"
             >
+              9.5
               <div
                 class="graphs"
               >
@@ -1571,6 +1651,7 @@ exports[`card params should has only find button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 66.3%;"
                   />
                 </div>
                 <div
@@ -1578,6 +1659,7 @@ exports[`card params should has only find button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 85.3%;"
                   />
                 </div>
                 <div
@@ -1585,6 +1667,7 @@ exports[`card params should has only find button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 100%;"
                   />
                 </div>
                 <div
@@ -1592,6 +1675,7 @@ exports[`card params should has only find button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 75.8%;"
                   />
                 </div>
               </div>
@@ -1607,6 +1691,7 @@ exports[`card params should has only find button 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 94.8%;"
                 />
               </div>
             </div>
@@ -1617,8 +1702,8 @@ exports[`card params should has only find button 1`] = `
                 class="info__row"
               >
                 2011, 
-                undefined, 
-                undefined
+                США, 
+                Фэнтези
               </div>
             </section>
           </div>
@@ -1626,10 +1711,13 @@ exports[`card params should has only find button 1`] = `
       </div>
       <div
         class="textSection"
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M gray"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -1695,13 +1783,13 @@ exports[`card params should has only star button 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/undefined"
+        href="/watch/1"
       >
         <div
           class="imageSection hover"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -1745,6 +1833,7 @@ exports[`card params should has only star button 1`] = `
               <div
                 class="ratings"
               >
+                9.5
                 <div
                   class="graphs"
                 >
@@ -1753,6 +1842,7 @@ exports[`card params should has only star button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 66.3%;"
                     />
                   </div>
                   <div
@@ -1760,6 +1850,7 @@ exports[`card params should has only star button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 85.3%;"
                     />
                   </div>
                   <div
@@ -1767,6 +1858,7 @@ exports[`card params should has only star button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 100%;"
                     />
                   </div>
                   <div
@@ -1774,6 +1866,7 @@ exports[`card params should has only star button 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 75.8%;"
                     />
                   </div>
                 </div>
@@ -1789,6 +1882,7 @@ exports[`card params should has only star button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 94.8%;"
                   />
                 </div>
               </div>
@@ -1799,8 +1893,8 @@ exports[`card params should has only star button 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  undefined, 
-                  undefined
+                  США, 
+                  Фэнтези
                 </div>
               </section>
             </div>
@@ -1808,10 +1902,13 @@ exports[`card params should has only star button 1`] = `
         </div>
         <div
           class="textSection"
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M gray"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -1820,13 +1917,13 @@ exports[`card params should has only star button 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/undefined"
+      href="/watch/1"
     >
       <div
         class="imageSection hover"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -1870,6 +1967,7 @@ exports[`card params should has only star button 1`] = `
             <div
               class="ratings"
             >
+              9.5
               <div
                 class="graphs"
               >
@@ -1878,6 +1976,7 @@ exports[`card params should has only star button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 66.3%;"
                   />
                 </div>
                 <div
@@ -1885,6 +1984,7 @@ exports[`card params should has only star button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 85.3%;"
                   />
                 </div>
                 <div
@@ -1892,6 +1992,7 @@ exports[`card params should has only star button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 100%;"
                   />
                 </div>
                 <div
@@ -1899,6 +2000,7 @@ exports[`card params should has only star button 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 75.8%;"
                   />
                 </div>
               </div>
@@ -1914,6 +2016,7 @@ exports[`card params should has only star button 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 94.8%;"
                 />
               </div>
             </div>
@@ -1924,8 +2027,8 @@ exports[`card params should has only star button 1`] = `
                 class="info__row"
               >
                 2011, 
-                undefined, 
-                undefined
+                США, 
+                Фэнтези
               </div>
             </section>
           </div>
@@ -1933,10 +2036,13 @@ exports[`card params should has only star button 1`] = `
       </div>
       <div
         class="textSection"
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M gray"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,
@@ -2002,13 +2108,13 @@ exports[`card params should not have hover 1`] = `
       <a
         class="card"
         draggable="false"
-        href="/watch/undefined"
+        href="/watch/1"
       >
         <div
           class="imageSection"
         >
           <img
-            alt="title"
+            alt="poster"
             data-nimg="1"
             decoding="async"
             height="360"
@@ -2034,6 +2140,7 @@ exports[`card params should not have hover 1`] = `
               <div
                 class="ratings"
               >
+                9.5
                 <div
                   class="graphs"
                 >
@@ -2042,6 +2149,7 @@ exports[`card params should not have hover 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 66.3%;"
                     />
                   </div>
                   <div
@@ -2049,6 +2157,7 @@ exports[`card params should not have hover 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 85.3%;"
                     />
                   </div>
                   <div
@@ -2056,6 +2165,7 @@ exports[`card params should not have hover 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 100%;"
                     />
                   </div>
                   <div
@@ -2063,6 +2173,7 @@ exports[`card params should not have hover 1`] = `
                   >
                     <div
                       class="bar_value red"
+                      style="width: 75.8%;"
                     />
                   </div>
                 </div>
@@ -2078,6 +2189,7 @@ exports[`card params should not have hover 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 94.8%;"
                   />
                 </div>
               </div>
@@ -2088,8 +2200,8 @@ exports[`card params should not have hover 1`] = `
                   class="info__row"
                 >
                   2011, 
-                  undefined, 
-                  undefined
+                  США, 
+                  Фэнтези
                 </div>
               </section>
             </div>
@@ -2097,10 +2209,13 @@ exports[`card params should not have hover 1`] = `
         </div>
         <div
           class="textSection"
+          title="Гарри Поттер и Дары Смерти: Часть I"
         >
           <p
             class="p M gray"
-          />
+          >
+            Гарри Поттер и Дары Смерти: Часть I
+          </p>
         </div>
       </a>
     </div>
@@ -2109,13 +2224,13 @@ exports[`card params should not have hover 1`] = `
     <a
       class="card"
       draggable="false"
-      href="/watch/undefined"
+      href="/watch/1"
     >
       <div
         class="imageSection"
       >
         <img
-          alt="title"
+          alt="poster"
           data-nimg="1"
           decoding="async"
           height="360"
@@ -2141,6 +2256,7 @@ exports[`card params should not have hover 1`] = `
             <div
               class="ratings"
             >
+              9.5
               <div
                 class="graphs"
               >
@@ -2149,6 +2265,7 @@ exports[`card params should not have hover 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 66.3%;"
                   />
                 </div>
                 <div
@@ -2156,6 +2273,7 @@ exports[`card params should not have hover 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 85.3%;"
                   />
                 </div>
                 <div
@@ -2163,6 +2281,7 @@ exports[`card params should not have hover 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 100%;"
                   />
                 </div>
                 <div
@@ -2170,6 +2289,7 @@ exports[`card params should not have hover 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 75.8%;"
                   />
                 </div>
               </div>
@@ -2185,6 +2305,7 @@ exports[`card params should not have hover 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 94.8%;"
                 />
               </div>
             </div>
@@ -2195,8 +2316,8 @@ exports[`card params should not have hover 1`] = `
                 class="info__row"
               >
                 2011, 
-                undefined, 
-                undefined
+                США, 
+                Фэнтези
               </div>
             </section>
           </div>
@@ -2204,10 +2325,13 @@ exports[`card params should not have hover 1`] = `
       </div>
       <div
         class="textSection"
+        title="Гарри Поттер и Дары Смерти: Часть I"
       >
         <p
           class="p M gray"
-        />
+        >
+          Гарри Поттер и Дары Смерти: Часть I
+        </p>
       </div>
     </a>
   </div>,

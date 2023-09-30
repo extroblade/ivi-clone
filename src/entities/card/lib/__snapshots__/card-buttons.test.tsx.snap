@@ -2,7 +2,7 @@
 
 exports[`card buttons add to favorite after 1`] = `
 <button
-  class="button square M"
+  class="button transparent M"
 >
   <svg
     fill="currentColor"
@@ -22,7 +22,7 @@ exports[`card buttons add to favorite after 1`] = `
 
 exports[`card buttons add to favorite before 1`] = `
 <button
-  class="button square M"
+  class="button transparent M"
 >
   <svg
     fill="currentColor"

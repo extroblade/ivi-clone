@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { User } from '@/components';
+import { User } from '@/widgets/header/user';
 
 const meta: Meta<typeof User> = {
   title: 'Main/User',

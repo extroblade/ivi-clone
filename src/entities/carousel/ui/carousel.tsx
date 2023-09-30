@@ -9,10 +9,10 @@ import Slider from 'react-slick';
 import { Title } from '@/newui';
 
 import { defaultSettings } from '../model/default-settings';
-import { Props } from '../model/props';
+import { CarouselProps } from '../model/props';
 import styles from './carousel.module.scss';
 
-export const Carousel: FC<Props> = ({ title, children, route, settings }): JSX.Element => {
+export const Carousel: FC<CarouselProps> = ({ title, children, route, settings }): JSX.Element => {
   return (
     <div className={styles.carousel}>
       {title && (

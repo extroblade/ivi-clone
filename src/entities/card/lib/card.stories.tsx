@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/react';
 
-import { RatingModal } from '@/components';
 import { Card } from '@/entities/card';
 import { CardProps } from '@/entities/card/model/Card.props';
+import { RatingModal } from '@/features/rating-block';
 import { mockCard } from '@/shared/testdata';
 
 const card = mockCard;

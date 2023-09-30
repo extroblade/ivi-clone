@@ -1,10 +1,11 @@
 import { Meta } from '@storybook/react';
 import React from 'react';
 
-import { Carousel } from '@/UI';
-import { CarouselProps } from '@/widgets/carousel/model/Carousel.props';
+import { Card } from '@/entities/card';
+import { Carousel } from '@/entities/carousel';
+import { CarouselProps } from '@/entities/carousel/model/props';
 
-const cards = [
+const cards: any = [
   {
     id: 1,
     name: 'Гарри Поттер и Дары Смерти: Часть I',
@@ -88,7 +89,11 @@ const cards = [
 ];
 
 const CarouselWM = (args: JSX.IntrinsicAttributes & CarouselProps) => (
-  <Carousel {...args} movies={cards} />
+  <Carousel {...args}>
+    {cards.map((card: any) => (
+      <Card key={card.id} card={card} />
+    ))}
+  </Carousel>
 );
 
 const meta: Meta<typeof Carousel> = {
