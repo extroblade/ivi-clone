@@ -1,35 +1,28 @@
-import React, { FC, useState } from 'react';
+import dayjs from 'dayjs';
+import { FC, memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Vote } from '@/entities/vote/ui/vote';
 import { Avatar } from '@/features/comment/avatar/ui/avatar';
 import { CommentInput } from '@/features/comment/input/ui/CommentInput';
+import { CommentProps } from '@/features/comment/model/props';
 import { Button, Text } from '@/newui';
-import { writeDate } from '@/shared/helpers';
-import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
 
 import styles from './Comment.module.scss';
 
-interface iCommentComp {
-  comment: iReviewsItem;
-  children?: iReviewsItem[];
-}
-
-export const Comment: FC<iCommentComp> = React.memo(({ comment, children }): JSX.Element => {
+export const Comment: FC<CommentProps> = memo(({ comment, children }): JSX.Element => {
   const { t } = useTranslation();
-  const [answer, setAnswer] = useState<boolean>(false);
+  const [showInput, setShowInput] = useState<boolean>(false);
   const { author, date, title, description, negativeRating, positiveRating } = comment;
-  const stringDate = writeDate(date);
-  const switcher = () => {
-    setAnswer((ans) => !ans);
+  const handleToggleInput = () => {
+    setShowInput((ans) => !ans);
   };
-
   return (
     <li className={styles.comment}>
       <header className={styles.user_info}>
         <Avatar user={author} />
         <cite className={styles.item_cite}>{author || 'Guest'}</cite>
-        <time className={styles.item_date}>{stringDate}</time>
+        <time className={styles.item_date}>{dayjs(date).format('DD.MM.YYYY')}</time>
         <Vote likes={positiveRating} dislikes={negativeRating} />
       </header>
       <div className={styles.clause}>
@@ -41,11 +34,11 @@ export const Comment: FC<iCommentComp> = React.memo(({ comment, children }): JSX
         </div>
       </div>
       <div className={styles.interactions}>
-        <Button size={'S'} appearance={'transparent'} onClick={switcher}>
-          {answer ? t('buttons.collapse') : t('buttons.answer')}
+        <Button size={'S'} appearance={'transparent'} onClick={handleToggleInput}>
+          {showInput ? t('buttons.collapse') : t('buttons.answer')}
         </Button>
       </div>
-      {answer && <CommentInput />}
+      {showInput && <CommentInput />}
       {children && (
         <ul>
           {children.map((child) => (

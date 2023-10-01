@@ -6,8 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { languageVariants, professionTypes } from 'src/shared/constants';
 
+import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Sup, Text, Title } from '@/newui';
-import { scrollTop } from '@/shared/helpers';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store/reducers/modals.slice';
 
 import { PersonsGalleryProps } from '../model/PersonsGallery.props';
@@ -16,10 +16,11 @@ import styles from './persons-gallery.module.scss';
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
+  const scrollTop = useScrollTop();
   const open = () => {
     dispatch(setShowWatchPageModal(true));
     dispatch(setCurrentTab(1));
-    scrollTop();
+    scrollTop?.();
   };
   return (
     <>
@@ -43,7 +44,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                   (i18n.language == 'en' ? nameEn || nameOriginal : nameRu || nameOriginal) || '';
                 return (
                   <Link
-                    href={`/person/${staffId}`}
+                    href={`/name/${staffId}`}
                     key={staffId + professionKey}
                     className={styles.link}
                   >

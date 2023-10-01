@@ -1,7 +1,7 @@
+import dayjs from 'dayjs';
 import Image from 'next/image';
 
 import { BarGraph, Text } from '@/newui';
-import { countTime } from '@/shared/helpers';
 import { useAppSelector } from '@/shared/hooks';
 import { selectModal } from '@/shared/store';
 
@@ -35,7 +35,7 @@ export const MovieModalInfo = () => {
           {year && `${year}, `}
           {countries?.length ? countries.map((country) => `${country.country}, `) : ''}
           {genres?.length ? genres.map((genre) => `${genre.genre}, `) : ''}
-          {filmLength && countTime(filmLength)}
+          {filmLength && dayjs.duration(filmLength, 'minutes').format('H часа mm минут')}
         </Text>
       </div>
     </div>

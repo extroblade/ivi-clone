@@ -1,16 +1,16 @@
-import { debounce } from '@/shared/helpers/debounce';
+import { debounce } from './debounce';
 
 jest.useFakeTimers();
 
-describe('remaining amount', () => {
+describe('debounce', () => {
   let func: jest.Mock;
-  let debouncedFunc: () => any;
+  let debouncedFunc: () => void;
 
   beforeEach(() => {
     func = jest.fn();
     debouncedFunc = debounce(func, 1000);
   });
-  it('should be called once', async () => {
+  it('should be called once', () => {
     for (let i = 0; i < 100; i++) {
       debouncedFunc();
     }

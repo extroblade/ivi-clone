@@ -1,5 +1,6 @@
 .card {
   cursor: pointer;
+  display: inline-block;
   padding: 20px 10px 0 10px;
   font-size: 1em;
   max-width: 234px;
@@ -95,9 +96,11 @@
         flex-direction: column;
         justify-content: flex-end;
         position: relative;
+        opacity: 0;
         height: 100%;
         min-width: 100%;
         padding: 10px;
+        transition: var(--time-main) all ease-in;
 
         &__text {
           text-align: start;
@@ -153,6 +156,7 @@
   }
 
   &:hover {
+
     .imageSection {
       &.show > p {
         color: white !important;
@@ -165,6 +169,10 @@
         opacity: 1;
         visibility: visible;
         transition: var(--transition-main);
+
+        .info {
+          opacity: 100;
+        }
       }
     }
 

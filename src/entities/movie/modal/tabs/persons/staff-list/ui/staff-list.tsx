@@ -15,7 +15,7 @@ export const StaffList: FC<StaffListProps> = ({ persons }) => {
       {persons.map((person: iPerson) => {
         const { staffId, posterUrl: url } = person;
         return (
-          <Link href={`/person/${staffId}`} key={staffId} className={styles.link}>
+          <Link href={`/name/${staffId}`} key={staffId} className={styles.link}>
             <div className={styles.card}>
               <div className={styles.img}>
                 <Image

@@ -28,7 +28,7 @@ const variants = {
 };
 export const Filters: FC = (): JSX.Element => {
   const [openedFilter, setOpenedFilter] = useState(false);
-  const [active, setActive] = useState<boolean>(false);
+  const [active, setActive] = useState(false);
   const { genre, yearFrom, country, ratingFrom } = useAppSelector(selectFilters);
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
@@ -61,13 +61,13 @@ export const Filters: FC = (): JSX.Element => {
       >
         <div className={styles.plank_list}>
           <div className={styles.plank_item}>
-            <Plank type={'choose'} array_type={'genre'} />
+            <Plank array_type={'genre'} />
           </div>
           <div className={styles.plank_item}>
-            <Plank type={'choose'} array_type={'country'} />
+            <Plank array_type={'country'} />
           </div>
           <div className={styles.plank_item}>
-            <Plank type={'choose'} array_type={'years'} />
+            <Plank array_type={'years'} />
           </div>
           <div className={styles.plank_item}>
             <InputRange minLimit={0} maxLimit={10} range={1}>

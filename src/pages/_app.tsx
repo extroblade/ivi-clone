@@ -1,6 +1,8 @@
 import '@/app/styles/global.scss';
 import '@/app/(config)/i18n/i18n';
 
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import Head from 'next/head';
@@ -12,6 +14,8 @@ import { wrapper } from '@/shared/store';
 import { Footer } from '@/widgets/footer';
 import { Header } from '@/widgets/header';
 import { Modals } from '@/widgets/modals';
+
+dayjs.extend(duration);
 
 const iviSans = localFont({
   src: [

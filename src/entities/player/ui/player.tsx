@@ -57,7 +57,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
               <IoPlayOutline className={styles.icon} />
               {t('buttons.trailer')}
             </Button>
-            <AddToFavoritesButton />
+            <AddToFavoritesButton appearance={'square'} />
             {currentMovie?.type == 'SERIES' && <TurnNotificationsButton />}
             <Button appearance="square">
               <FiUpload className={styles.icon} />

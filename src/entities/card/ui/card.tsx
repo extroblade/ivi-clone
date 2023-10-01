@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import dayjs from 'dayjs';
 import i18next from 'i18next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +14,6 @@ import {
 } from '@/entities/card/buttons';
 import { CardLoader } from '@/entities/card/ui/card-loader';
 import { BarGraph, Text } from '@/newui';
-import { countTime } from '@/shared/helpers';
 import { localizeName } from '@/shared/helpers/localize-name';
 
 import styles from './card.module.scss';
@@ -28,7 +28,6 @@ export const Card: FC<CardProps> = ({
   info = true,
   ...props
 }): JSX.Element => {
-  if (!card) return <CardLoader />;
   const {
     kinopoiskId: id,
     filmId,
@@ -39,6 +38,7 @@ export const Card: FC<CardProps> = ({
     filmLength,
     ratingKinopoisk,
   } = card;
+  if (!card?.posterUrlPreview) return <CardLoader />;
   return (
     <Link href={`/watch/${id || filmId}`} className={styles.card} draggable="false" {...props}>
       <div className={cn(styles.imageSection, hover && styles.hover)}>
@@ -73,7 +73,11 @@ export const Card: FC<CardProps> = ({
                   {countries?.length && `${countries[0].country}, `}
                   {genres?.length && `${genres[0]?.genre}`}
                 </div>
-                {filmLength && <div className={styles.info__row}>{countTime(filmLength)}</div>}
+                {filmLength && (
+                  <div className={styles.info__row}>
+                    {dayjs.duration(filmLength, 'minutes').format('H часа mm минут')}
+                  </div>
+                )}
               </section>
             </div>
           )}

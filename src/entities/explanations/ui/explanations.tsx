@@ -17,7 +17,7 @@ export const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
   const [now, setNow] = useState<iFactsItems | null>(null);
 
   const nextSlide = () => {
-    if (active < length - 1) {
+    if (active < (items?.length || 0) - 1) {
       setActive((val) => val + 1);
       return;
     } else {
@@ -66,10 +66,9 @@ export const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
         </div>
       </div>
       <div className={styles.point_container}>
-        {items?.length &&
-          items.map((_, index) => (
-            <div className={cn(styles.point, active == index && styles.isActive)} key={index} />
-          ))}
+        {items?.map((_, index) => (
+          <div className={cn(styles.point, active == index && styles.isActive)} key={index} />
+        ))}
       </div>
     </div>
   );

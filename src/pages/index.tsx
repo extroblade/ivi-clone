@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Card, CardProps } from '@/entities/card';
+import { Card, CardProps, ShowAllCard } from '@/entities/card';
 import { Carousel } from '@/entities/carousel';
 import { MainDescription } from '@/entities/descriptions';
 import { Title } from '@/newui';
@@ -42,14 +42,15 @@ const Home = () => {
       <MainDescription />
       <TopTenCarousel />
       <Carousel title={t('carousels.anime') || 'Аниме'} route={'/movies'}>
-        {anime?.items.map((card) => (
-          <Card {...settings} card={card} key={card.kinopoiskId} />
+        {(anime?.items || Array(15).fill(1)).map((card, index) => (
+          <Card {...settings} card={card} key={card?.kinopoiskId || index} />
         ))}
       </Carousel>
       <Carousel title={t('carousels.adventures') || 'Приключения'} route={'/movies'}>
-        {adventures?.items.map((card) => (
-          <Card {...settings} card={card} key={card.kinopoiskId} />
+        {(adventures?.items || Array(15).fill(1)).map((card, index) => (
+          <Card {...settings} card={card} key={card?.kinopoiskId || index} />
         ))}
+        <ShowAllCard />
       </Carousel>
     </>
   );

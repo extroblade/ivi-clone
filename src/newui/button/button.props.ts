@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
 
-type AppearanceVariants =
+export type AppearanceVariants =
   | 'rectangle'
   | 'square'
   | 'circle'

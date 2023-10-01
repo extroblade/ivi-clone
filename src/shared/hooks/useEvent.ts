@@ -8,7 +8,7 @@ export function useEvent<T extends (...args: any[]) => any>(fn: T) {
   }, [fn]);
 
   return useCallback(
-    (...args: any[]) => {
+    (...args: unknown[]) => {
       return ref.current.apply(null, args);
     },
     [ref]

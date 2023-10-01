@@ -1,18 +1,18 @@
-import React, { FC } from 'react';
+import dayjs from 'dayjs';
+import { FC } from 'react';
 
 import { Vote } from '@/entities/vote';
-import { writeDate } from '@/shared/helpers';
 import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
 
 import styles from './CommentCard.module.scss';
 
-interface iCommentComp {
+type CommentCardProps = {
   comment: iReviewsItem;
   onClick?: () => void;
-}
+};
 
-export const CommentCard: FC<iCommentComp> = ({ comment, onClick }) => {
-  const { author, title, description, negativeRating, positiveRating } = comment;
+export const CommentCard: FC<CommentCardProps> = ({ comment, onClick }) => {
+  const { author, date, title, description, negativeRating, positiveRating } = comment;
 
   return (
     <div className={styles.comment_card} onClick={() => onClick?.()}>
@@ -24,7 +24,7 @@ export const CommentCard: FC<iCommentComp> = ({ comment, onClick }) => {
           <div className={styles.ugcTile_author}>{author || 'Guest'}</div>
           <div className={styles.ugcTile_textBlock}>{title}</div>
           <div className={styles.ugcTile_textBlock}>{description}</div>
-          <div className={styles.ugcTile_date}>{writeDate(comment?.date)}</div>
+          <div className={styles.ugcTile_date}>{dayjs(date).format('DD.MM.YYYY')}</div>
         </div>
       </div>
     </div>

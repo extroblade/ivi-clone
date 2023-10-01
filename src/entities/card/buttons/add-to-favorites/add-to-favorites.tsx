@@ -2,9 +2,14 @@ import { MouseEvent, useState } from 'react';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 
 import { Button } from '@/newui';
+import { AppearanceVariants } from '@/newui/button/button.props';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
-export const AddToFavoritesButton = () => {
+export const AddToFavoritesButton = ({
+  appearance = 'transparent',
+}: {
+  appearance?: AppearanceVariants;
+}) => {
   const [booked, setBooked] = useState(false);
   const createAlert = useCreateAlert();
   const addToFavorite = (e: MouseEvent<HTMLButtonElement>) => {
@@ -17,7 +22,7 @@ export const AddToFavoritesButton = () => {
     setBooked((booked) => !booked);
   };
   return (
-    <Button appearance={'transparent'} onClick={addToFavorite}>
+    <Button appearance={appearance} onClick={addToFavorite}>
       {booked ? <BsFillBookmarkFill /> : <BsBookmark />}
     </Button>
   );
