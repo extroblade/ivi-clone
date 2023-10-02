@@ -7,7 +7,7 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   min-width: 20vw;
-  z-index: 100;
+  z-index: 1;
 
   button {
   }
@@ -24,7 +24,7 @@
   background-color: #1f1b2e;
   box-shadow: 0 20px 40px rgba(7, 5, 14, 0.4);
   overflow: hidden;
-  z-index: 15;
+  z-index: 100;
   @media screen and (max-width: 600px) {
     right: 0;
   }

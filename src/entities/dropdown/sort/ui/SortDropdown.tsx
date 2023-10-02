@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import { useRouter } from 'next/router';
 import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -19,39 +20,44 @@ const sorts: SortProps[] = [
   { value: 'YEAR', title: 'годам' },
 ];
 export const SortDropdown: FC = (): JSX.Element => {
+  const router = useRouter();
   const [sortDrop, setSortDrop] = useState(false);
   const { t } = useTranslation();
   const ref = useRef(null);
   const [order, setOrder] = useSearchParamsState<string>({
     name: 'order',
   });
-  const closeState = () => {
+  const handleClose = () => {
     setSortDrop(() => false);
   };
-  const changeState = () => {
+  const handleToggle = () => {
     setSortDrop((val) => !val);
   };
-  useOutsideClick(closeState, ref);
+  useOutsideClick(handleClose, ref);
 
   const [current, setCurrent] = useState(0);
 
   const handleChoose = (currentSort: number) => {
     setCurrent(() => (current === currentSort ? 0 : currentSort));
-    closeState();
+    setOrder(current === currentSort ? sorts[0].value : sorts[currentSort].value);
+    handleClose();
   };
-
   useEffect(() => {
-    setOrder(sorts[current].value);
-  }, [current]);
+    const newCurrent = Math.max(
+      sorts.findIndex((item) => item.value === router.query?.order),
+      0
+    );
+    setCurrent(() => newCurrent);
+  }, [router.query?.order]);
 
   return (
     <div className={styles.drop} ref={ref}>
-      <Button appearance={'transparent'} onClick={changeState}>
+      <Button appearance={'transparent'} onClick={handleToggle}>
         <div className={styles.filters__icon}>
           <div className={styles.icon}>
             <MdOutlineSort />
           </div>
-          <div className={styles.head_title}>{sorts[current].title || 'sort'}</div>
+          <div className={styles.head_title}>{sorts[current]?.title || 'sort'}</div>
           {!sortDrop ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
         </div>
       </Button>

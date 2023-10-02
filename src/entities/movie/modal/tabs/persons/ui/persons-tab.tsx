@@ -26,6 +26,10 @@ export const PersonsTab = () => {
       <StaffList
         persons={persons?.filter((person) => person.professionText == 'Режиссеры') || []}
       />
+      <Title tag="h3">{'Продюсеры'}</Title>
+      <StaffList
+        persons={persons?.filter((person) => person.professionText == 'Продюсеры') || []}
+      />
     </>
   );
 };

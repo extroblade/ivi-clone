@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 
+import { Text } from '@/newui';
 import { localizeName } from '@/shared/helpers/localize-name';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 
@@ -9,7 +10,7 @@ import { StaffListProps } from '../model/props';
 import styles from './staff-list.module.scss';
 
 export const StaffList: FC<StaffListProps> = ({ persons }) => {
-  if (!persons?.length) return <></>;
+  if (!persons?.length) return <Text>Не указаны!</Text>;
   return (
     <div className={styles.cards}>
       {persons.map((person: iPerson) => {

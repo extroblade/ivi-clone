@@ -5,4 +5,5 @@ export type InputRangeProps = {
   maxLimit: number;
   range: number;
   children: ReactNode;
+  name: string;
 };

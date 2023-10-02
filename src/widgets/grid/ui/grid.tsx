@@ -5,6 +5,7 @@ import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/entities/card';
+import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Button, Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
@@ -20,21 +21,23 @@ export const Grid: FC<GridProps> = ({ type }) => {
   const isInView = useInView(buttonRef);
   const { ratingFrom } = useAppSelector(selectFilters);
   const router = useRouter();
+  const scrollTop = useScrollTop();
   const params: QueryParams = {
     type,
     page,
     yearTo: Number(router?.query?.year) || 3000,
     yearFrom: Number(router?.query?.year) || 1000,
+    ratingFrom: Number(router?.query?.ratingFrom) || 0,
     ratingTo: 10,
     order: (router?.query?.order as FilmOrder) || '',
     genres: Number(router?.query?.genre) || '',
     countries: Number(router?.query?.country) || '',
-    ratingFrom: +ratingFrom,
   };
   const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
 
   useEffect(() => {
     setPage(() => 1);
+    scrollTop?.();
   }, [ratingFrom, router.query]);
 
   const { t } = useTranslation();

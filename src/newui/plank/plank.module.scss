@@ -4,11 +4,16 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  background-color: #312b45;
+  background-color: var(--color-card-background);
   border-radius: 4px;
   height: 56px;
   padding: 8px 16px;
   cursor: pointer;
+  transition: var(--time-main) all ease-in;
+
+  &:hover {
+    background-color: var(--color-card-hover);
+  }
 
   .info {
     display: inline-flex;

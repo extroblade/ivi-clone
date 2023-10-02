@@ -1,33 +1,33 @@
+import { useRouter } from 'next/router';
 import { ChangeEvent, FC, memo, useEffect, useState } from 'react';
 
 import { Text } from '@/newui';
-import { useAppDispatch, useAppSelector, useDebounce } from '@/shared/hooks';
-import { selectFilters, setRatingFrom } from '@/shared/store';
+import { useSearchParamsState } from '@/shared/hooks';
 
 import styles from './input-range.module.scss';
 import { InputRangeProps } from './input-range.props';
 
 export const InputRange: FC<InputRangeProps> = memo(
-  ({ minLimit, maxLimit, range, children }): JSX.Element => {
-    const { ratingFrom } = useAppSelector(selectFilters);
-    const [inputValue, setInputValue] = useState<number | string>(ratingFrom);
-    const dispatch = useAppDispatch();
+  ({ minLimit, maxLimit, range, children, name }): JSX.Element => {
+    const router = useRouter();
+    const [param, setParam] = useSearchParamsState<string>({
+      name: name,
+    });
+    const [inputValue, setInputValue] = useState<number | string>(param || minLimit);
+
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
-      setInputValue(() => Math.min(Math.max(e.target.valueAsNumber, minLimit), maxLimit));
+      setParam(Math.min(Math.max(e.target.valueAsNumber, minLimit), maxLimit));
     };
-    const setValue = useDebounce(() => {
-      dispatch(setRatingFrom(+inputValue));
-    }, 300);
 
     useEffect(() => {
-      setValue();
-    }, [inputValue]);
+      setInputValue(() => (router.query?.[name] as string) || '');
+    }, [router.query?.[name]]);
     return (
       <div className={styles.container}>
         <div className={styles.input_range}>
           <div className={styles.output}>
             <Text color={'white'}>{children}</Text>
-            <Text color={'white'}>&gt; {ratingFrom}</Text>
+            <Text color={'white'}>&gt; {+inputValue}</Text>
           </div>
           <input
             className={styles.input}
@@ -36,10 +36,10 @@ export const InputRange: FC<InputRangeProps> = memo(
             min={minLimit}
             max={maxLimit}
             step={range}
-            value={+ratingFrom}
+            value={+inputValue}
             style={{
               background: `linear-gradient(90deg, #1f1b2d ${
-                ((+ratingFrom - minLimit) * 100) / (maxLimit - minLimit)
+                ((+inputValue - minLimit) * 100) / (maxLimit - minLimit)
               }%, #A2002DFF 0%)`,
             }}
           />

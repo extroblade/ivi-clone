@@ -31,32 +31,36 @@ const FilterPlank = ({
   name: string;
   defaultName: string;
 }) => {
-  const [plankOpen, setPlankOpen] = useState(false);
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
   const [param, setParam] = useSearchParamsState<string>({
     name: name,
   });
   const [title, setTitle] = useState(defaultName);
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+  const handleClick = (id: number) => {
+    setParam(id === Number(router.query?.[name]) ? '' : id);
+    //handleClose();
+  };
+  const handleToggle = () => {
+    setIsOpen((v) => !v);
+  };
+
   useEffect(() => {
-    if (!param) {
-      return;
-    }
-    setTitle(() => data.find((item) => item.id == param)?.[name]);
-  }, [param]);
+    setTitle(() => data.find((item) => item.id == router.query?.[name])?.[name] || defaultName);
+  }, [router.query?.[name]]);
   return (
     <div className={styles.plank_item}>
-      <Plank
-        title={title}
-        isActive={plankOpen}
-        onToggle={() => setPlankOpen((v) => !v)}
-        onClose={() => setPlankOpen(false)}
-      >
-        <Dropdown state={plankOpen}>
+      <Plank title={title} isActive={isOpen} onToggle={handleToggle} onClose={handleClose}>
+        <Dropdown state={isOpen}>
           <div className={cn(styles.dropdown, styles.choose)}>
             <div className={styles.list_container}>
               <ul>
                 {data?.map((item) => (
                   <li
-                    onClick={() => setParam(item.id)}
+                    onClick={() => handleClick(item.id)}
                     key={item.id}
                     title={'title'}
                     className={cn(item?.[name] == title && styles.checked)}
@@ -97,27 +101,32 @@ const variants = {
 };
 export const Filters: FC = (): JSX.Element => {
   const { data: filters } = useFetchFilmFiltersQuery();
-  const [openedFilter, setOpenedFilter] = useState(false);
-  const [active, setActive] = useState(false);
-  const { genre, yearFrom, country, ratingFrom } = useAppSelector(selectFilters);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const { ratingFrom } = useAppSelector(selectFilters);
   const { t } = useTranslation();
-  useEffect(() => {
-    setActive(!!(genre || country || +yearFrom > 1000 || ratingFrom));
-  }, [genre, yearFrom, country, ratingFrom]);
   const router = useRouter();
-  const reset = () => {
+
+  useEffect(() => {
+    setIsActive(!!Object.values(router.query).filter((item) => item?.length).length);
+  }, [router.query]);
+
+  const handleToggle = () => {
+    setIsOpen((value) => !value);
+  };
+  const handleReset = () => {
     router.push('').then(() => {
-      setActive(() => false);
+      setIsActive(() => false);
     });
   };
   return (
     <>
       <div className={styles.openers}>
-        <Button appearance={'transparent'} onClick={() => setOpenedFilter(!openedFilter)}>
+        <Button appearance={'transparent'} onClick={handleToggle}>
           <div className={styles.filters__icon}>
             <GoSettings />
             <div className={styles.open_filter}>
-              {openedFilter ? t('buttons.collapse') : t('buttons.filters')}
+              {isOpen ? t('buttons.collapse') : t('buttons.filters')}
             </div>
           </div>
         </Button>
@@ -125,29 +134,29 @@ export const Filters: FC = (): JSX.Element => {
       </div>
 
       <motion.div
-        initial={openedFilter ? 'visible' : 'hidden'}
-        animate={openedFilter ? 'visible' : 'hidden'}
+        initial={isOpen ? 'visible' : 'hidden'}
+        animate={isOpen ? 'visible' : 'hidden'}
         variants={variants}
         className={styles.filters}
       >
         <div className={styles.plank_list}>
-          {filters && (
-            <>
-              <FilterPlank
-                data={filters.genres.filter((item) => item.genre)}
-                defaultName={'Жанр'}
-                name={'genre'}
-              />
-              <FilterPlank
-                data={filters.countries.filter((item) => item.country)}
-                defaultName={'Страна'}
-                name={'country'}
-              />
-            </>
+          {filters?.genres && (
+            <FilterPlank
+              data={filters.genres.filter((item) => item.genre)}
+              defaultName={'Жанр'}
+              name={'genre'}
+            />
+          )}
+          {filters?.countries && (
+            <FilterPlank
+              data={filters.countries.filter((item) => item.country)}
+              defaultName={'Страна'}
+              name={'country'}
+            />
           )}
           <FilterPlank data={years} defaultName={'Год'} name={'year'} />
           <div className={styles.plank_item}>
-            <InputRange minLimit={0} maxLimit={10} range={1}>
+            <InputRange name={'ratingFrom'} minLimit={0} maxLimit={10} range={1}>
               {t('sections.rating')}
             </InputRange>
           </div>
@@ -155,8 +164,8 @@ export const Filters: FC = (): JSX.Element => {
         <Button
           appearance={'transparent'}
           className={styles.reset}
-          onClick={reset}
-          disabled={!active}
+          onClick={handleReset}
+          disabled={!isActive}
         >
           <div>
             <RxCross2 size={'20px'} />
