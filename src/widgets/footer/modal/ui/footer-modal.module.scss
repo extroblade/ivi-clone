@@ -2,10 +2,10 @@
   background: var(--color-background);
   display: none;
   width: 100%;
-  padding: 70px 34px;
+  padding: 0 var(--padding-container);
   position: absolute;
   top: 0;
-  z-index: 900;
+  z-index: 10;
   left: 0;
 
   svg {

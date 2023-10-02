@@ -16,7 +16,6 @@ import { HiOutlineMegaphone, HiPhone } from 'react-icons/hi2';
 import { IoMailOutline, IoTv } from 'react-icons/io5';
 
 import { Button, Text } from '@/newui';
-import { FooterMobile } from '@/widgets/footer/mobile/ui/FooterMobile';
 
 import styles from './footer.module.scss';
 
@@ -207,7 +206,6 @@ export const Footer: FC = (): JSX.Element => {
           </div>
         </div>
       </footer>
-      <FooterMobile />
     </>
   );
 };

@@ -1,5 +1,6 @@
 export type ChooseDropdownProps = {
-  state: boolean;
+  isOpen: boolean;
   data: any[];
-  onClick: () => void;
+  name: string;
+  onClick: (args: any) => void;
 };

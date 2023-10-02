@@ -4,6 +4,7 @@ import { AuthModal } from '@/features/auth-button';
 import { RatingModal } from '@/features/rating-block';
 import { SearchModal } from '@/features/search-button';
 import { UnsubscribeModal } from '@/features/unsubscribe';
+import { FooterMobile } from '@/widgets/footer/mobile/ui/FooterMobile';
 import { FooterModal } from '@/widgets/footer/modal';
 
 export const Modals = () => {
@@ -16,6 +17,7 @@ export const Modals = () => {
       <FooterModal />
       <UnsubscribeModal />
       <AlertList />
+      <FooterMobile />
     </>
   );
 };

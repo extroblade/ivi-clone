@@ -1,18 +1,15 @@
-import cn from 'classnames';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BsCheckLg } from 'react-icons/bs';
 import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
 
-import { Dropdown, SortDropdown } from '@/entities/dropdown';
+import { SortDropdown } from '@/entities/dropdown';
 import { Button, InputRange } from '@/newui';
-import { Plank } from '@/newui/plank/plank';
-import { useSearchParamsState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
+import { FilterPlank } from '@/widgets/filter/plank/ui/plank';
 
 import styles from './Filters.module.scss';
 
@@ -20,69 +17,6 @@ const years: any[] = [];
 for (let i = dayjs().year(); i >= 1950; i--) {
   years.push({ year: i, id: i });
 }
-
-const FilterPlank = ({
-  data,
-  name,
-  defaultName,
-}: {
-  data: any[];
-  name: string;
-  defaultName: string;
-}) => {
-  const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const [param, setParam] = useSearchParamsState<string>({
-    name: name,
-  });
-  const [title, setTitle] = useState(defaultName);
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-  const handleClick = (id: number) => {
-    setParam(id === Number(router.query?.[name]) ? '' : id);
-    //handleClose();
-  };
-  const handleToggle = () => {
-    setIsOpen((v) => !v);
-  };
-
-  useEffect(() => {
-    setTitle(() => data.find((item) => item.id == router.query?.[name])?.[name] || defaultName);
-  }, [router.query?.[name]]);
-  return (
-    <div className={styles.plank_item}>
-      <Plank title={title} isActive={isOpen} onToggle={handleToggle} onClose={handleClose}>
-        <Dropdown state={isOpen}>
-          <div className={cn(styles.dropdown, styles.choose)}>
-            <div className={styles.list_container}>
-              <ul>
-                {data?.map((item) => (
-                  <li
-                    onClick={() => handleClick(item.id)}
-                    key={item.id}
-                    title={'title'}
-                    className={cn(item?.[name] == title && styles.checked)}
-                  >
-                    <label>
-                      <input type="checkbox" value={item[name]} />
-                      <div className={styles.input_text}>{item[name]}</div>
-                      <div className={styles.checkbox}>
-                        <div className={styles.checkbox_selected}>
-                          <BsCheckLg />
-                        </div>
-                      </div>
-                    </label>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Dropdown>
-      </Plank>
-    </div>
-  );
-};
 
 const variants = {
   visible: {
@@ -139,18 +73,22 @@ export const Filters: FC = (): JSX.Element => {
       >
         <div className={styles.plank_list}>
           {filters?.genres && (
-            <FilterPlank
-              data={filters.genres.filter((item) => item.genre)}
-              defaultName={'Жанр'}
-              name={'genre'}
-            />
+            <div className={styles.plank_item}>
+              <FilterPlank
+                data={filters.genres.filter((item) => item.genre)}
+                defaultName={'Жанр'}
+                name={'genre'}
+              />
+            </div>
           )}
           {filters?.countries && (
-            <FilterPlank
-              data={filters.countries.filter((item) => item.country)}
-              defaultName={'Страна'}
-              name={'country'}
-            />
+            <div className={styles.plank_item}>
+              <FilterPlank
+                data={filters.countries.filter((item) => item.country)}
+                defaultName={'Страна'}
+                name={'country'}
+              />
+            </div>
           )}
           <FilterPlank data={years} defaultName={'Год'} name={'year'} />
           <div className={styles.plank_item}>
