@@ -90,7 +90,9 @@ export const Filters: FC = (): JSX.Element => {
               />
             </div>
           )}
-          <FilterPlank data={years} defaultName={'Год'} name={'year'} />
+          <div className={styles.plank_item}>
+            <FilterPlank data={years} defaultName={'Год'} name={'year'} />
+          </div>
           <div className={styles.plank_item}>
             <InputRange name={'ratingFrom'} minLimit={0} maxLimit={10} range={1}>
               {t('sections.rating')}
