@@ -2,7 +2,7 @@ import cn from 'classnames';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsCheckLg } from 'react-icons/bs';
 import { GoSettings } from 'react-icons/go';
@@ -11,9 +11,8 @@ import { RxCross2 } from 'react-icons/rx';
 import { Dropdown, SortDropdown } from '@/entities/dropdown';
 import { Button, InputRange } from '@/newui';
 import { Plank } from '@/newui/plank/plank';
-import { useAppSelector, useSearchParamsState } from '@/shared/hooks';
+import { useSearchParamsState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
-import { selectFilters } from '@/shared/store';
 
 import styles from './Filters.module.scss';
 
@@ -103,7 +102,6 @@ export const Filters: FC = (): JSX.Element => {
   const { data: filters } = useFetchFilmFiltersQuery();
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const { ratingFrom } = useAppSelector(selectFilters);
   const { t } = useTranslation();
   const router = useRouter();
 
