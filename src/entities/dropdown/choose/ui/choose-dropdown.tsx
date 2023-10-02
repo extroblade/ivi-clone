@@ -1,11 +1,8 @@
 import cn from 'classnames';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
 import { Dropdown } from '@/entities/dropdown';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { useFetchFilmFiltersQuery } from '@/shared/services';
-import { selectFilters, setCountry, setGenre, setYearFrom, setYearTo } from '@/shared/store';
 
 import { ChooseDropdownProps } from '../model/props';
 import styles from './styles.module.scss';
@@ -13,91 +10,30 @@ import styles from './styles.module.scss';
 const years: number[] = [];
 for (let i = 1950; i < 2024; i++) years.push(i);
 
-export const ChooseDropdown: FC<ChooseDropdownProps> = ({ state, type }): JSX.Element => {
-  const { data } = useFetchFilmFiltersQuery();
-  const { genre, yearTo, country } = useAppSelector(selectFilters);
-  const dispatch = useAppDispatch();
-  const [current, setCurrent] = useState<any[] | undefined>([]);
-  const [chosen, setChosen] = useState<any>(null);
-  useEffect(() => {
-    switch (type) {
-      case 'genre':
-        setCurrent(() => data?.genres.filter((genre) => genre.genre));
-        break;
-      case 'country':
-        setCurrent(() => data?.countries.filter((country) => country.country));
-        break;
-      case 'years':
-        setCurrent(() => years.sort((a, b) => b - a));
-        break;
-    }
-  }, [data, data?.countries, data?.genres]);
-
-  useEffect(() => {
-    switch (type) {
-      case 'genre':
-        dispatch(setGenre(chosen));
-        break;
-      case 'country':
-        dispatch(setCountry(chosen));
-        break;
-      case 'years':
-        dispatch(setYearFrom(chosen || 1000));
-        dispatch(setYearTo(chosen || 3000));
-        break;
-    }
-  }, [chosen]);
-
-  const set = (e: React.MouseEvent<HTMLLabelElement>, item: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (chosen == item) {
-      setChosen(() => null);
-    } else {
-      setChosen(() => item);
-    }
-  };
+export const ChooseDropdown: FC<ChooseDropdownProps> = ({ state, onClick, data }): JSX.Element => {
   return (
     <Dropdown state={state}>
       <div className={`${styles.dropdown} ${styles.choose}`}>
         <div className={styles.list_container}>
           <ul>
-            {current?.length &&
-              current.map((item: any) => {
-                let itemTitle;
-                let act;
-                switch (type) {
-                  case 'genre':
-                    itemTitle = item?.genre;
-                    act = genre;
-                    break;
-                  case 'country':
-                    itemTitle = item?.country;
-                    act = country;
-                    break;
-                  case 'years':
-                    itemTitle = item;
-                    act = yearTo;
-                    break;
-                }
-                return (
-                  <li
-                    title={itemTitle}
-                    key={item?.id || item}
-                    className={cn(act === item && styles.checked)}
-                  >
-                    <label onClick={(e) => set(e, item)}>
-                      <input type="checkbox" value={itemTitle} />
-                      <div className={styles.input_text}>{itemTitle}</div>
-                      <div className={styles.checkbox}>
-                        <div className={styles.checkbox_selected}>
-                          <BsCheckLg />
-                        </div>
-                      </div>
-                    </label>
-                  </li>
-                );
-              })}
+            {data?.map(({ title, checked }, index) => (
+              <li
+                onClick={onClick}
+                key={index}
+                title={'title'}
+                className={cn(checked && styles.checked)}
+              >
+                <label>
+                  <input type="checkbox" value={title} />
+                  <div className={styles.input_text}>{title}</div>
+                  <div className={styles.checkbox}>
+                    <div className={styles.checkbox_selected}>
+                      <BsCheckLg />
+                    </div>
+                  </div>
+                </label>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

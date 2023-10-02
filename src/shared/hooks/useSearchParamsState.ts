@@ -37,7 +37,7 @@ export function useSearchParamsState<Value>({
   name,
   serialize = defaultSerialize,
   deserialize = defaultDeserialize,
-}: UseSearchParamsStateOptions<Value>): [Value, (arg?: any) => void] {
+}: UseSearchParamsStateOptions<Value>): [string, (arg?: any) => void] {
   const router = useRouter();
   const searchParam = getSearchParam(router.asPath.split('?')[1], name);
   const [value, setValue] = useState<Value>(() => {
@@ -50,8 +50,6 @@ export function useSearchParamsState<Value>({
     }
     const search: string = window?.location?.search;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const actualNewValue: Value = isFunction(newValue) ? newValue(value) : newValue;
 
     setValue(actualNewValue);
@@ -62,8 +60,8 @@ export function useSearchParamsState<Value>({
       serialize ? serialize(actualNewValue) : defaultSerialize(actualNewValue)
     );
 
-    history.pushState(null, '', `?${newSearch}`);
+    router.push(`?${newSearch}`);
   });
 
-  return [value, updateValue];
+  return [value as string, updateValue];
 }

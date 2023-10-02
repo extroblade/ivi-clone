@@ -1,3 +1,10 @@
+import { ReactNode } from 'react';
+
 export type PlankProps = {
-  array_type: 'genre' | 'country' | 'years';
+  children: ReactNode[] | ReactNode;
+  dropdown?: ReactNode;
+  isActive?: boolean;
+  onClose: () => void;
+  onToggle: () => void;
+  title: string;
 };

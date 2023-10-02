@@ -1,4 +1,5 @@
 export type ChooseDropdownProps = {
   state: boolean;
-  type: 'genre' | 'country' | 'years';
+  data: any[];
+  onClick: () => void;
 };

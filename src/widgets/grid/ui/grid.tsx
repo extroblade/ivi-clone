@@ -1,11 +1,12 @@
 import cn from 'classnames';
 import { useInView } from 'framer-motion';
+import { useRouter } from 'next/router';
 import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/entities/card';
 import { Button, Loader, Title } from '@/newui';
-import { useAppSelector } from '@/shared/hooks';
+import { useAppSelector, useSearchParamsState } from '@/shared/hooks';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
 import { selectFilters } from '@/shared/store';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
@@ -17,22 +18,31 @@ export const Grid: FC<GridProps> = ({ type }) => {
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
   const isInView = useInView(buttonRef);
-  const { genre, yearTo, country, order, ratingTo, ratingFrom } = useAppSelector(selectFilters);
+  const { yearTo, order, ratingFrom } = useAppSelector(selectFilters);
+  const [genre] = useSearchParamsState({
+    name: 'genre',
+  });
+  const [year] = useSearchParamsState({
+    name: 'year',
+  });
+  const [country] = useSearchParamsState({
+    name: 'country',
+  });
   const params: QueryParams = {
     type,
     page,
-    yearTo,
-    yearFrom: yearTo,
-    ratingTo: +ratingTo,
-    countries: country?.id,
-    genres: genre?.id,
+    yearTo: year || 3000,
+    yearFrom: year || 1000,
+    ratingTo: 10,
     order,
     ratingFrom: +ratingFrom,
   };
+  const { data, isFetching, isLoading, refetch } = useFetchAllFilmsQuery(params);
+
+  const router = useRouter();
   useEffect(() => {
     setPage(() => 1);
-  }, [genre, yearTo, ratingFrom, country]);
-  const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
+  }, [genre, yearTo, ratingFrom, country, router.asPath]);
 
   const { t } = useTranslation();
   const showMore = () => {
