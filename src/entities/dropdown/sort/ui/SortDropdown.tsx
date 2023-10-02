@@ -1,4 +1,5 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import cn from 'classnames';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   MdOutlineKeyboardArrowDown,
@@ -8,16 +9,22 @@ import {
 
 import { SortProps } from '@/entities/dropdown/sort/model/props';
 import { Button } from '@/newui';
-import { useAppDispatch, useOutsideClick } from '@/shared/hooks';
-import { setOrder } from '@/shared/store';
+import { useOutsideClick, useSearchParamsState } from '@/shared/hooks';
 
 import styles from './SortDropdown.module.scss';
 
+const sorts: SortProps[] = [
+  { value: 'RATING', title: 'рейтингу' },
+  { value: 'NUM_VOTE', title: 'оценкам' },
+  { value: 'YEAR', title: 'годам' },
+];
 export const SortDropdown: FC = (): JSX.Element => {
   const [sortDrop, setSortDrop] = useState(false);
-  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const ref = useRef(null);
+  const [order, setOrder] = useSearchParamsState<string>({
+    name: 'order',
+  });
   const closeState = () => {
     setSortDrop(() => false);
   };
@@ -26,38 +33,15 @@ export const SortDropdown: FC = (): JSX.Element => {
   };
   useOutsideClick(closeState, ref);
 
-  const sorts: SortProps[] = [
-    { id: 0, title: t('sections.by-default') },
-    { id: 1, value: 'RATING', title: 'рейтингу' },
-    { id: 2, value: 'NUM_VOTE', title: 'оценкам' },
-    { id: 3, value: 'YEAR', title: 'годам' },
-  ];
   const [current, setCurrent] = useState(0);
 
-  const handler = useCallback(
-    (currentSort: SortProps) => {
-      if (current === currentSort.id) {
-        setCurrent(() => 0);
-      } else {
-        setCurrent(() => currentSort.id);
-      }
-      if (current === 0) {
-        setTimeout(() => {
-          closeState();
-        }, 50);
-      }
-    },
-    [current]
-  );
+  const handleChoose = (currentSort: number) => {
+    setCurrent(() => (current === currentSort ? 0 : currentSort));
+    closeState();
+  };
 
   useEffect(() => {
-    const newOrder = sorts.find((sort) => sort.id == current)?.value;
-    if (newOrder) {
-      dispatch(setOrder(newOrder));
-    }
-    setTimeout(() => {
-      closeState();
-    }, 150);
+    setOrder(sorts[current].value);
   }, [current]);
 
   return (
@@ -67,22 +51,20 @@ export const SortDropdown: FC = (): JSX.Element => {
           <div className={styles.icon}>
             <MdOutlineSort />
           </div>
-          <div className={styles.head_title}>
-            {sorts.find((sort) => sort.id === current)?.title || 'sort'}
-          </div>
+          <div className={styles.head_title}>{sorts[current].title || 'sort'}</div>
           {!sortDrop ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
         </div>
       </Button>
-      <div className={`${styles.drop_container} ${sortDrop ? styles.opened : ''}`}>
+      <div className={cn(styles.drop_container, sortDrop && styles.opened)}>
         <div className={styles.dropdown__title}>{t('buttons.sort')}</div>
-        {sorts.map((sort) => (
+        {sorts.map((sort, index) => (
           <button
-            className={`${styles.dropdown__item} ${sort.id == current ? styles.active : ''}`}
-            key={sort.id}
-            onClick={() => handler(sort)}
+            className={cn(styles.dropdown__item, index == current && styles.active)}
+            key={index}
+            onClick={() => handleChoose(index)}
           >
-            <div className={sort.id == current ? styles.stripe : ''} />
-            <div className={styles.dropdown__item__itemText} key={sort.id}>
+            <div className={index == current ? styles.stripe : ''} />
+            <div className={styles.dropdown__item__itemText} key={index}>
               {sort.title}
             </div>
           </button>

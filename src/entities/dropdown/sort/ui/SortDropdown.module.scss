@@ -7,7 +7,8 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   min-width: 20vw;
-  z-index: 1;
+  z-index: 100;
+
   button {
   }
 }
@@ -27,6 +28,7 @@
   @media screen and (max-width: 600px) {
     right: 0;
   }
+
   &.opened {
     opacity: 1;
     pointer-events: auto;
@@ -45,6 +47,7 @@
     padding: 0 16px 0 32px;
     cursor: default;
   }
+
   &__item {
     position: relative;
     background-color: transparent;
@@ -56,6 +59,7 @@
     white-space: nowrap;
     cursor: pointer;
     width: 100%;
+
     .stripe {
       position: absolute;
       left: 0;
@@ -64,17 +68,21 @@
       width: 4px;
       background-color: #ea003d;
     }
+
     &.active {
       .dropdown__item__itemText {
         color: white;
       }
     }
+
     &:hover {
       background-color: #312b45;
+
       .dropdown__item__itemText {
         color: white;
       }
     }
+
     &__itemText {
       display: inline-block;
       vertical-align: top;
@@ -90,6 +98,7 @@
       text-overflow: ellipsis;
       text-transform: capitalize;
     }
+
     &.selected {
       color: white;
     }
@@ -101,16 +110,19 @@
   white-space: pre-wrap;
   text-transform: capitalize;
 }
+
 .filters__icon {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+
   .icon {
     transform: scale(-1, 1);
     margin-right: 5px;
   }
+
   svg {
     margin-right: 5px;
     min-width: 15px;

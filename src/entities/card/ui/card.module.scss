@@ -13,6 +13,7 @@
 
   .props {
     opacity: 0;
+    display: flex;
   }
 
   button,
@@ -43,6 +44,7 @@
     background-color: var(--color-input-text);
     border-radius: 8px;
     overflow: hidden;
+    transition: var(--transition-main);
 
     &.show {
       font-weight: 600;
@@ -74,20 +76,20 @@
       z-index: 90;
       opacity: 0;
       padding: 10%;
-      align-items: flex-start;
 
       .btns {
-        gap: 10px 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 15%;
+        max-height: 45%;
 
         &__container {
           display: flex;
           width: 100%;
           justify-content: flex-end;
+          align-items: center;
         }
       }
 
@@ -156,7 +158,6 @@
   }
 
   &:hover {
-
     .imageSection {
       &.show > p {
         color: white !important;
@@ -193,28 +194,3 @@
 .mirrored {
   transform: scale(-1, 1);
 }
-
-.hover.props {
-  .btns {
-    &__container {
-    }
-
-    button {
-    }
-  }
-
-  .info {
-    &__text {
-    }
-
-    &__row {
-    }
-
-    .ratings {
-      .graphs {
-      }
-    }
-  }
-}
-
-//prevent webstorm commit errors

@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/entities/card';
 import { Button, Loader, Title } from '@/newui';
-import { useAppSelector, useSearchParamsState } from '@/shared/hooks';
+import { useAppSelector } from '@/shared/hooks';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
-import { selectFilters } from '@/shared/store';
+import { FilmOrder, selectFilters } from '@/shared/store';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
 
 import { GridProps } from '../model/props';
@@ -18,31 +18,24 @@ export const Grid: FC<GridProps> = ({ type }) => {
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
   const isInView = useInView(buttonRef);
-  const { yearTo, order, ratingFrom } = useAppSelector(selectFilters);
-  const [genre] = useSearchParamsState({
-    name: 'genre',
-  });
-  const [year] = useSearchParamsState({
-    name: 'year',
-  });
-  const [country] = useSearchParamsState({
-    name: 'country',
-  });
+  const { ratingFrom } = useAppSelector(selectFilters);
+  const router = useRouter();
   const params: QueryParams = {
     type,
     page,
-    yearTo: year || 3000,
-    yearFrom: year || 1000,
+    yearTo: Number(router?.query?.year) || 3000,
+    yearFrom: Number(router?.query?.year) || 1000,
     ratingTo: 10,
-    order,
+    order: (router?.query?.order as FilmOrder) || '',
+    genres: Number(router?.query?.genre) || '',
+    countries: Number(router?.query?.country) || '',
     ratingFrom: +ratingFrom,
   };
-  const { data, isFetching, isLoading, refetch } = useFetchAllFilmsQuery(params);
+  const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
 
-  const router = useRouter();
   useEffect(() => {
     setPage(() => 1);
-  }, [genre, yearTo, ratingFrom, country, router.asPath]);
+  }, [ratingFrom, router.query]);
 
   const { t } = useTranslation();
   const showMore = () => {
@@ -76,18 +69,15 @@ export const Grid: FC<GridProps> = ({ type }) => {
     <>
       <div className={styles.grid}>
         {(data?.total && isFetching && <Loader />) || ''}
-        {(movies?.length && (
-          <div className={styles.grid__container}>
-            <ul className={styles.grid__list}>
-              {movies.map((card, index) => (
-                <li className={styles.grid_item} key={card?.kinopoiskId || index}>
-                  <Card card={card} star book find block />
-                </li>
-              ))}
-            </ul>
-          </div>
-        )) ||
-          ''}
+        <div className={styles.grid__container}>
+          <ul className={styles.grid__list}>
+            {(movies || Array(15).fill(1))?.map((card, index) => (
+              <li className={styles.grid_item} key={card?.kinopoiskId || index}>
+                <Card card={card} star book find block />
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div className={styles.nodata}>
         {isLoading && <Loader />}
