@@ -16,7 +16,12 @@ export const ExternalSources: FC<ExternalSourcesProps> = ({ id }) => {
       <Title>Смотреть полностью:</Title>
       <div className={styles.sources}>
         {sources.items.map((item) => (
-          <Link href={item.url} key={item.platform} className={styles.source_item}>
+          <Link
+            href={item.url}
+            target={'_blank'}
+            key={item.platform}
+            className={styles.source_item}
+          >
             <div className={styles.img}>
               <Image fill alt={'logo'} src={item.logoUrl} />
             </div>

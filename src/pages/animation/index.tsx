@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AnimationDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
-import { Filters } from '@/widgets/filter/ui/Filters';
+import { Filters } from '@/widgets/filter/ui/filters';
 import { Grid } from '@/widgets/grid';
 
 const Animation = () => {

@@ -1,22 +1,18 @@
-.openers {
+.top_buttons {
   display: flex;
   flex-direction: row;
   margin-bottom: 12px;
+  gap: 0 10px;
   @media screen and (max-width: 600px) {
     justify-content: space-between;
   }
 
-  .filters__icon {
+  .extend_button {
     display: flex;
-    margin: 0 10px;
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
     position: relative;
-
-    .open_filter {
-      margin-left: 3px;
-    }
 
     &:hover {
       .open_filter {
@@ -24,15 +20,14 @@
         color: var(--color-accent);
       }
     }
-
-
-    svg {
-      margin-right: 5px;
-    }
   }
 }
 
-.active:before {
+.icon {
+  margin-right: 8px;
+}
+
+.active:after {
   content: "";
   display: block;
   position: absolute;
@@ -40,6 +35,7 @@
   background-color: var(--color-accent);
   width: 6px;
   height: 6px;
+  top: 0;
   left: 12%;
   border-radius: 50%;
 }
@@ -52,10 +48,7 @@
   background-color: #1f1b2e;
   border-radius: 6px;
   margin-bottom: 20px;
-  transition: max-height 400ms ease,
-  opacity 200ms ease,
-  margin 100ms ease-out,
-  padding-top 410ms ease;
+  transition: all 200ms ease;
 
   .plank_list {
     display: -webkit-box;

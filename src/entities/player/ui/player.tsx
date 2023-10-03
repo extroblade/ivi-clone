@@ -8,8 +8,8 @@ import { AddToFavoritesButton, TurnNotificationsButton } from '@/entities/card/b
 import { PlayerProps } from '@/entities/player/props/props';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Button } from '@/newui';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
-import { selectModal, setCurrentMovie, setShowWatchPageModal } from '@/shared/store';
+import { useAppDispatch } from '@/shared/hooks';
+import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
 
 import styles from './player.module.scss';
 
@@ -18,7 +18,6 @@ const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: true });
 export const Player: FC<PlayerProps> = ({ url, actions }) => {
   const scrollTop = useScrollTop();
   const { t } = useTranslation();
-  const { currentMovie } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();
   const [hasWindow, setHasWindow] = useState(false);
   useEffect(() => {
@@ -29,7 +28,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
 
   const openTrailers = () => {
     dispatch(setShowWatchPageModal(true));
-    dispatch(setCurrentMovie({ ...currentMovie, index: 2 }));
+    dispatch(setCurrentTab(2));
     scrollTop?.();
   };
 
@@ -58,7 +57,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
               {t('buttons.trailer')}
             </Button>
             <AddToFavoritesButton appearance={'square'} />
-            {currentMovie?.type == 'SERIES' && <TurnNotificationsButton />}
+            <TurnNotificationsButton />
             <Button appearance="square">
               <FiUpload className={styles.icon} />
             </Button>

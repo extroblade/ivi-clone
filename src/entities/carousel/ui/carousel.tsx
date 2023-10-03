@@ -6,13 +6,20 @@ import { FC } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 import Slider from 'react-slick';
 
+import { ShowAllCard } from '@/entities/card';
 import { Title } from '@/newui';
 
 import { defaultSettings } from '../model/default-settings';
 import { CarouselProps } from '../model/props';
 import styles from './carousel.module.scss';
 
-export const Carousel: FC<CarouselProps> = ({ title, children, route, settings }): JSX.Element => {
+export const Carousel: FC<CarouselProps> = ({
+  title,
+  children,
+  showAll,
+  route,
+  settings,
+}): JSX.Element => {
   return (
     <div className={styles.carousel}>
       {title && (
@@ -23,7 +30,10 @@ export const Carousel: FC<CarouselProps> = ({ title, children, route, settings }
           </Link>
         </div>
       )}
-      <Slider {...(settings || defaultSettings)}>{children}</Slider>
+      <Slider {...(settings || defaultSettings)}>
+        {children}
+        {showAll && <ShowAllCard link={route} />}
+      </Slider>
     </div>
   );
 };

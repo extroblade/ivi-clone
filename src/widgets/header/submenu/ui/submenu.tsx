@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 import { IconType } from 'react-icons';
 
-import styles from './Submenu.module.scss';
+import styles from './submenu.module.scss';
 
 export interface SubmenuProps {
   icon?: IconType;

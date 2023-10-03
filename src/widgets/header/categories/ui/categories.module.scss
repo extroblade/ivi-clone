@@ -3,52 +3,65 @@
   padding: 20px;
   display: flex;
   max-height: 50vh;
+
   &__items {
     flex: 1 1 55%;
     display: flex;
   }
+
   &__item {
     margin: 0 5px;
+    overflow: hidden;
   }
+
   &__collections {
     padding: 0 15px;
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     flex: 1 1 45%;
   }
+
   &__title {
     margin-bottom: 10px;
   }
+
   &__genres {
     display: grid;
     grid-template-columns: repeat(2, 190px);
     grid-gap: 5px;
+
     & a {
       margin: 0;
       padding: 4px 0;
       line-height: 100%;
     }
   }
+
   &__countries {
     display: grid;
     grid-template-columns: repeat(1, 190px);
     grid-gap: 5px;
     margin-bottom: 20px;
+
     & a {
       margin: 0;
       padding: 4px 0;
       line-height: 100%;
     }
   }
+
   &__years {
+    max-height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 100px);
     grid-gap: 5px;
+
     & a {
       margin: 0;
       padding: 4px 0;
       line-height: 100%;
     }
   }
+
   &__link {
     font-family: 'Inter', Helvetica, sans-serif;
     font-weight: 400;
@@ -60,6 +73,7 @@
     opacity: 0.5;
     transition: var(--transition-main);
     text-transform: capitalize;
+
     &:hover {
       opacity: 1;
     }
@@ -71,12 +85,14 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+
     & a {
       margin: 0;
       padding: 4px 0;
       line-height: 100%;
     }
   }
+
   &__link {
     position: relative;
     font-family: 'Inter', Helvetica, sans-serif;
@@ -99,8 +115,10 @@
       background-color: white;
       opacity: 0;
     }
+
     &:hover {
       opacity: 1;
+
       &::before {
         opacity: 1;
       }

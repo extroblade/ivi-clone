@@ -13,10 +13,13 @@ export const ColorContainer: FC<ColorContainerProps> = ({ movie }) => {
     }
     const fac = new FastAverageColor();
     fac
-      .getColorAsync(movie.coverUrl, { algorithm: 'simple' })
+      .getColorAsync(movie?.coverUrl, {
+        algorithm: 'simple',
+        crossOrigin: 'a',
+      })
       .then((color) => setBackgroundColor(color.hex));
   }, [movie]);
-  if (!movie) return <></>;
+  if (!movie?.coverUrl) return <></>;
   return (
     <div
       className={styles.bg_container}

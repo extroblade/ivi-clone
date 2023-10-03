@@ -6,4 +6,5 @@ export interface CarouselProps {
   route?: string;
   settings?: Settings;
   children?: ReactNode | ReactNode[];
+  showAll?: boolean;
 }

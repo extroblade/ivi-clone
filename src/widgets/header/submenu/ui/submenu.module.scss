@@ -1,17 +1,19 @@
+.submenu:hover, .submenu__body:hover, .submenu__content {
+  .submenu__body {
+    transition: all 0.05s ease-out;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    filter: drop-shadow(0 20px 96px #12101b);
+  }
+}
+
 .submenu {
+  height: 100%;
+
   .submenu__body {
     @media screen and (max-width: 1160px) {
       display: none;
-    }
-  }
-
-  &:hover {
-    .submenu__body {
-      transition: all 0.05s ease-out;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: all;
-      filter: drop-shadow(0 20px 96px #12101b);
     }
   }
 
@@ -105,13 +107,13 @@
   }
 
   &__content {
-    z-index: 800;
     width: 100%;
     flex: 1 1 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 112 !important;
   }
 
   &__body {

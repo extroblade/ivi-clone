@@ -5,8 +5,10 @@
   justify-content: center;
   flex-direction: column;
   padding: 0 15vw;
+
   .modal_inner {
   }
+
   .title {
     box-sizing: border-box;
     color: #fff;
@@ -16,10 +18,14 @@
     line-height: 44px;
     margin-bottom: 16px;
   }
+
   .content {
     display: flex;
+    justify-content: space-between;
+
     .desc {
-      width: 87.5%;
+      width: 60%;
+
       .info {
         color: #d9d7e0;
         font-size: 15px;
@@ -29,17 +35,20 @@
         margin-bottom: 24px;
       }
     }
+
     .poster {
       box-sizing: border-box;
-      width: 12.5%;
+      width: 14%;
       display: -webkit-box;
       overflow: hidden;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
+
       img {
         border-radius: 8px;
       }
+
       .text {
         color: #fff;
         font-size: 14px;

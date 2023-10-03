@@ -1,45 +1,4 @@
-import { MovieVariants, ProfessionVariants } from 'src/shared/constants';
-
-export interface iStaff {
-  staffId: number;
-  nameRu: string;
-  nameEn: string;
-  description: string;
-  posterUrl: string;
-  professionText: string;
-  professionKey: string; //'DIRECTOR'|'...'|...
-}
-
-export interface iStaffSingle {
-  personId: number;
-  webUrl: string;
-  nameRu: string;
-  nameEn: string;
-  sex: string;
-  posterUrl: string;
-  growth: string;
-  birthday: string;
-  death: string;
-  age: number;
-  birthplace: string;
-  deathplace: string;
-  hasAwards: number;
-  profession: string;
-  facts: string[];
-  spouses: Spouse[];
-  films: StaffFilm[];
-}
-
-export interface Spouse {
-  personId: number;
-  name: string;
-  divorced: boolean;
-  divorcedReason: string;
-  sex: string;
-  children: number;
-  webUrl: string;
-  relation: string;
-}
+export type MovieVariants = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'VIDEO' | 'SERIES';
 
 export interface StaffFilm {
   filmId: number;
@@ -50,6 +9,9 @@ export interface StaffFilm {
   description: string;
   professionKey: ProfessionVariants;
 }
+
+export type FilmTypeVariants = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'ALL';
+export type FilmOrderVariants = 'RATING' | 'NUM_VOTE' | 'YEAR';
 
 export interface iCountry {
   id: string | number;
@@ -152,38 +114,13 @@ export interface iAwardsItem {
   persons: iPerson[];
 }
 
-export interface iStaff {
-  staffId: number;
-  nameRu: string;
-  nameEn: string;
-  description: string;
-  posterUrl: string;
-  professionText: string;
-  professionKey: string; //'DIRECTOR'|
-}
-
-export interface iFetchImage {
-  type:
-    | 'STILL'
-    | 'SHOOTING'
-    | 'POSTER'
-    | 'FAN_ART'
-    | 'PROMO'
-    | 'CONCEPT'
-    | 'WALLPAPER'
-    | 'COVER'
-    | 'SCREENSHOT';
-}
-
-export interface iFetchOrder {
-  type:
-    | 'DATE_ASC'
-    | 'DATE_DESC'
-    | 'USER_POSITIVE_RATING_ASC'
-    | 'USER_POSITIVE_RATING_DESC'
-    | 'USER_NEGATIVE_RATING_ASC'
-    | 'USER_NEGATIVE_RATING_DESC';
-}
+export type OrderVariants =
+  | 'DATE_ASC'
+  | 'DATE_DESC'
+  | 'USER_POSITIVE_RATING_ASC'
+  | 'USER_POSITIVE_RATING_DESC'
+  | 'USER_NEGATIVE_RATING_ASC'
+  | 'USER_NEGATIVE_RATING_DESC';
 
 export interface iFetchedPerson {
   total: number;
@@ -213,6 +150,15 @@ export interface iPerson {
   spouses: any[];
   films: StaffFilm[];
 }
+
+export type ProfessionVariants =
+  | 'ACTOR'
+  | 'PRODUCER'
+  | 'HIMSELF'
+  | 'HRONO_TITR_MALE'
+  | 'DIRECTOR'
+  | 'WRITER'
+  | 'DESIGN';
 
 export interface iVideos {
   total: number;
@@ -254,49 +200,32 @@ export interface iReviews {
   items: iReviewsItem[];
 }
 
-export interface iTop {
-  pagesCount: number;
-  films: any[];
-}
-
-export interface iImagesRequest {
-  image:
-    | 'STILL'
-    | 'SHOOTING'
-    | 'POSTER'
-    | 'FAN_ART'
-    | 'PROMO'
-    | 'CONCEPT'
-    | 'WALLPAPER'
-    | 'SCREENSHOT';
-}
+export type ImageVariants =
+  | 'STILL'
+  | 'SHOOTING'
+  | 'POSTER'
+  | 'FAN_ART'
+  | 'PROMO'
+  | 'CONCEPT'
+  | 'WALLPAPER'
+  | 'SCREENSHOT';
 
 export interface iImages {
   total: number;
   items: iImagesItems[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface iImagesItems {
-  //
+  imageUrl: string;
+  previewUrl: string;
 }
 
-export interface iSimilar {
+export interface iPremieres {
   total: number;
-  items: iSimilarItems[];
+  items: iPremieresItem[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface iSimilarItems {
-  //
-}
-
-export interface iPremires {
-  total: number;
-  items: iPremiresItem[];
-}
-
-export interface iPremiresItem {
+export interface iPremieresItem {
   kinopoiskId: number;
   nameRu: string;
   nameEn: string;
@@ -322,13 +251,6 @@ export interface iSequelsPrequels {
   posterUrl: string;
   posterUrlPreview: string;
   relationType: string;
-}
-
-export interface iKeywordSearch {
-  keyword: string;
-  pagesCount: number;
-  searchFilmsCountResult: number;
-  films: any[];
 }
 
 export interface iRelease {
@@ -385,14 +307,14 @@ export interface iFilm {
   ratingRfCriticsVoteCount: number;
   webUrl: string;
   year: number;
-  filmLength: number; //todo: humanize function
+  filmLength: number;
   slogan: string;
   description: string;
   shortDescription: string;
   editorAnnotation: string;
   isTicketsAvailable: boolean;
   productionStatus: string; // 'POST_PRODUCTION' | '...' |
-  type: MovieVariants; // 'FILM' | '...' |
+  type: MovieVariants;
   ratingMpaa: string; // 'r' | '...' |
   ratingAgeLimits: string; // 'POST_PRODUCTION' | '...' |
   hasImax: boolean;
