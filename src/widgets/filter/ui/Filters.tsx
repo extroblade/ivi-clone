@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import dayjs from 'dayjs';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -57,7 +58,7 @@ export const Filters: FC = (): JSX.Element => {
         <Button appearance={'transparent'} onClick={handleToggle}>
           <div className={styles.filters__icon}>
             <GoSettings />
-            <div className={styles.open_filter}>
+            <div className={cn(styles.open_filter, isActive && styles.active)}>
               {isOpen ? t('buttons.collapse') : t('buttons.filters')}
             </div>
           </div>
@@ -72,24 +73,20 @@ export const Filters: FC = (): JSX.Element => {
         className={styles.filters}
       >
         <div className={styles.plank_list}>
-          {filters?.genres && (
-            <div className={styles.plank_item}>
-              <FilterPlank
-                data={filters.genres.filter((item) => item.genre)}
-                defaultName={'Жанр'}
-                name={'genre'}
-              />
-            </div>
-          )}
-          {filters?.countries && (
-            <div className={styles.plank_item}>
-              <FilterPlank
-                data={filters.countries.filter((item) => item.country)}
-                defaultName={'Страна'}
-                name={'country'}
-              />
-            </div>
-          )}
+          <div className={styles.plank_item}>
+            <FilterPlank
+              data={filters?.genres.filter((item) => item.genre) || []}
+              defaultName={'Жанр'}
+              name={'genre'}
+            />
+          </div>
+          <div className={styles.plank_item}>
+            <FilterPlank
+              data={filters?.countries.filter((item) => item.country) || []}
+              defaultName={'Страна'}
+              name={'country'}
+            />
+          </div>
           <div className={styles.plank_item}>
             <FilterPlank data={years} defaultName={'Год'} name={'year'} />
           </div>

@@ -9,7 +9,9 @@ import { MovieOptions } from '@/entities/movie/options/ui/movie-options';
 import { PersonList } from '@/entities/movie/persons/list/ui/person-list';
 import { RatingBlock } from '@/features/rating-block';
 import { Title } from '@/newui';
+import { movieTypes } from '@/shared/constants';
 import { localizeName } from '@/shared/helpers/localize-name';
+import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
 
 import styles from './movie-info.module.scss';
@@ -23,12 +25,15 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
   const {
     kinopoiskId,
     year,
+    type,
     countries,
     ratingKinopoisk,
     ratingKinopoiskVoteCount,
     genres,
     filmLength,
   } = movie;
+
+  const { data: filters } = useFetchFilmFiltersQuery();
 
   return (
     <div className={styles.watch__info}>
@@ -49,12 +54,22 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
         <ul className={styles.info_list}>
           {countries?.map(({ country, id }) => (
             <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-              <Link href={'/movies'}>{country}</Link>
+              <Link
+                href={`/${movieTypes[type].path}?country=${
+                  filters?.countries.find((item) => item.country == country)?.id
+                }`}
+              >
+                {country}
+              </Link>
             </div>
           ))}
           {genres?.map(({ genre, id }) => (
             <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-              <Link href={'/movies'}>{genre}</Link>
+              <Link
+                href={`/movies?genre=${filters?.genres.find((item) => item.genre == genre)?.id}`}
+              >
+                {genre}
+              </Link>
             </div>
           ))}
         </ul>

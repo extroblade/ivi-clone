@@ -15,6 +15,8 @@ export const AddToFavoritesButton = ({
   const addToFavorite = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     e.nativeEvent.stopImmediatePropagation();
+    e.nativeEvent.stopPropagation();
+    e.stopPropagation();
     if (!booked) {
       createAlert({ extra: 'Добавлено в ваш список избранного!' });
     }

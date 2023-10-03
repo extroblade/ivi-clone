@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMoviePlay } from 'react-icons/bi';
 import { BsPersonCircle } from 'react-icons/bs';
@@ -47,6 +47,13 @@ export const SearchModal: FC = (): JSX.Element => {
       handleClose();
     });
   };
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+    inputRef?.current?.focus();
+  }, [isOpen]);
   usePreventScroll(isOpen);
   return (
     <Modal isOpen={isOpen} closeModal={handleClose}>
@@ -54,6 +61,7 @@ export const SearchModal: FC = (): JSX.Element => {
         <h3>{t('sections.search')}</h3>
         <div className={styles.input}>
           <input
+            ref={inputRef}
             className={!!query ? styles.input__active : ''}
             type="text"
             value={query}
