@@ -27,7 +27,13 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'avatars.mds.yandex.net',
         port: '',
-        pathname: '/get-ott/**',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'avatars.mds.yandex.net',
+        port: '',
+        pathname: '/**',
       },
       {
         protocol: 'https',

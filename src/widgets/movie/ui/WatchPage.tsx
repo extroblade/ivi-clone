@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import React, { FC, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ColorContainer } from '@/entities/colored-container/ui/color-container';
 import { ExternalSources } from '@/entities/external-sources';
@@ -10,11 +11,13 @@ import { Player } from '@/entities/player/ui/player';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
-import { Title } from '@/newui';
+import { Breadcrumbs, Title } from '@/newui';
+import { movieTypes } from '@/shared/constants';
 import { localizeName } from '@/shared/helpers/localize-name';
 import { useAppDispatch } from '@/shared/hooks';
 import {
   useFetchAllPersonsQuery,
+  useFetchFilmFiltersQuery,
   useFetchFilmSimilarQuery,
   useFetchFilmVideoQuery,
 } from '@/shared/services';
@@ -26,6 +29,20 @@ import styles from './WatchPage.module.scss';
 
 export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { posterUrl, coverUrl, kinopoiskId } = movie;
+  const { i18n } = useTranslation();
+  const { data: filters } = useFetchFilmFiltersQuery();
+  const typeRuName = movieTypes[movie.type]?.ruName || 'Тип';
+  const typeEnName = movieTypes[movie.type]?.enName || 'Type';
+  const typePath = movieTypes[movie.type]?.path || 'movies';
+  const breadcrumbs = [
+    { name: i18n?.language == 'en' ? typeEnName : typeRuName, path: typePath },
+    {
+      name: movie?.genres[0].genre || 'Жанр',
+      path: `/${typePath}?genre=${
+        filters?.genres?.find((genre) => genre.genre == movie?.genres[0].genre)?.id
+      }`,
+    },
+  ];
 
   const { data: persons } = useFetchAllPersonsQuery({
     filmId: kinopoiskId,
@@ -44,6 +61,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
   return (
     <>
+      <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
       <ColorContainer movie={movie} />
       <section className={styles.watch}>
         <div className={styles.watch__content}>

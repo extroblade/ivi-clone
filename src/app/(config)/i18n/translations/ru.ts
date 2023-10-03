@@ -1,5 +1,13 @@
 export const russian = {
   translation: {
+    sorts: {
+      rating: 'рейтингу',
+      years: 'годам',
+      votes: 'оценкам',
+      genre: 'жанр',
+      country: 'страна',
+      year: 'год',
+    },
     buttons: {
       activate: 'Активировать',
       'activate-certificate': 'Активировать сертификат',

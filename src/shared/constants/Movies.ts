@@ -1,4 +1,4 @@
-export type MovieVariants = 'FILM' | 'TV_SHOW' | 'TV_SERIES' | 'MINI_SERIES' | 'VIDEO' | 'SERIES';
+import { MovieVariants } from '@/shared/types/kinopoiskTypes';
 
 export interface iFilmValues {
   ruName: string;

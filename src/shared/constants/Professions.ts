@@ -1,19 +1,16 @@
-export type ProfessionVariants =
-  | 'ACTOR'
-  | 'PRODUCER'
-  | 'HIMSELF'
-  | 'HRONO_TITR_MALE'
-  | 'DIRECTOR'
-  | 'WRITER';
+import { LanguageVariants } from '@/shared/constants/languages';
+import { ProfessionVariants } from '@/shared/types/kinopoiskTypes';
 
-export type languageVariants = 'ru' | 'en';
-
-type ProfessionVariantsType = Record<ProfessionVariants, Record<languageVariants, string>>;
+type ProfessionVariantsType = Record<ProfessionVariants, Record<LanguageVariants, string>>;
 
 export const professionTypes: ProfessionVariantsType = {
   ACTOR: {
     ru: 'Актер',
     en: 'Actor',
+  },
+  DESIGN: {
+    ru: 'Художник',
+    en: 'Designer',
   },
   PRODUCER: {
     ru: 'Продюсер',

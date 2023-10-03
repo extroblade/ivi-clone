@@ -27,7 +27,7 @@ export const Trailers: FC<TrailerProps> = ({ videos }) => {
         {videos?.total
           ? videos?.items.map((video) => (
               <div className={styles.text_container} key={video.url}>
-                <Link href={video.url}>
+                <Link target={'_blank'} href={video.url}>
                   <Text size={'L'} color={'gray-light'}>
                     {video.name}
                   </Text>

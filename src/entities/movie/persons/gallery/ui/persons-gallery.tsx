@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { languageVariants, professionTypes } from 'src/shared/constants';
+import { LanguageVariants, professionTypes } from 'src/shared/constants';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Sup, Text, Title } from '@/newui';
@@ -19,14 +19,14 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
   const scrollTop = useScrollTop();
   const open = () => {
     dispatch(setShowWatchPageModal(true));
-    dispatch(setCurrentTab(1));
+    dispatch(setCurrentTab(0));
     scrollTop?.();
   };
   return (
     <>
       {list?.length && (
         <div className={styles.wrap}>
-          <Title onClick={open}>
+          <Title style={{ cursor: 'pointer' }} onClick={open}>
             {t('sections.actors-creators')} <Sup>{list?.length || 0}</Sup>
           </Title>
           <div className={styles.list}>
@@ -63,12 +63,12 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                         .split(' ')
                         .slice(0, 2)
                         .map((word) => (
-                          <div key={staffId + word}>
+                          <div key={staffId + professionKey + word}>
                             {word?.length && <p className={styles.name}>{word}</p>}
                           </div>
                         ))}
                       <Text size="S">
-                        {professionTypes[professionKey][i18n.language as languageVariants]}
+                        {professionTypes[professionKey]?.[i18n.language as LanguageVariants]}
                       </Text>
                     </div>
                   </Link>

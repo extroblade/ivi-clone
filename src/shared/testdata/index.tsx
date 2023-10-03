@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { alertsReducer, filtersReducer, modalsReducer } from '@/shared/store';
+import { alertsReducer, modalsReducer } from '@/shared/store';
 
 export const mockStore = configureStore({
-  reducer: { modalsReducer, filtersReducer, alertsReducer },
+  reducer: { modalsReducer, alertsReducer },
 });
 
 export const mockCard: any = {

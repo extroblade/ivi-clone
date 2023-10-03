@@ -10,6 +10,11 @@
   transition-property: transform;
   height: 100%;
   width: 100%;
+  z-index: 0;
+
+  * {
+    z-index: inherit;
+  }
 
   .props {
     opacity: 0;
@@ -73,7 +78,6 @@
       bottom: 0;
       text-align: center;
       transition: var(--transition-main);
-      z-index: 90;
       opacity: 0;
       padding: 10%;
 

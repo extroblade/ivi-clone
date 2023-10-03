@@ -1,7 +1,8 @@
 :root {
-  --time-main: 0.3s;
+  --time-main: 0.25s;
   --transition-main: all var(--time-main) ease-out;
 
+  --height-footer: 60px;
   --width-min: 320px;
   --width-container: 1220px;
   --padding-container: 20px;

@@ -2394,8 +2394,9 @@ exports[`show all card should render show all card 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
+      <a
         class="card"
+        href="#"
       >
         <div
           class="imageSection show"
@@ -2406,12 +2407,16 @@ exports[`show all card should render show all card 1`] = `
             buttons.show-all
           </p>
         </div>
-      </div>
+        <div
+          class="textSection"
+        />
+      </a>
     </div>
   </body>,
   "container": <div>
-    <div
+    <a
       class="card"
+      href="#"
     >
       <div
         class="imageSection show"
@@ -2422,7 +2427,10 @@ exports[`show all card should render show all card 1`] = `
           buttons.show-all
         </p>
       </div>
-    </div>
+      <div
+        class="textSection"
+      />
+    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

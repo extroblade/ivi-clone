@@ -1,14 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from '@/shared/store';
-// import { HYDRATE } from 'next-redux-wrapper';
 import { iAwards, iFilm, iVideos } from '@/shared/types/kinopoiskTypes';
 
 export interface ICurrentMovie extends iFilm {
   awards?: iAwards;
   duration?: string;
   videos?: iVideos;
-  index?: number;
 }
 
 interface iModal {
@@ -57,15 +55,6 @@ export const modalsSlice = createSlice({
       state.showFooterModal = action.payload;
     },
   },
-  //>>>>>>
-  // extraReducers(builder) {
-  //   builder.addCase(HYDRATE, (state, action) => {
-  //     return {
-  //       ...state,
-  //       ...action.payload.modalsReducer,
-  //     };
-  //   });
-  // },
 });
 
 export const selectModal = (state: RootState) => state.modalsReducer;

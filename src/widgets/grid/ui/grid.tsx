@@ -32,7 +32,7 @@ export const Grid: FC<GridProps> = ({ type }) => {
       genres: Number(router?.query?.genre) || '',
       countries: Number(router?.query?.country) || '',
     }),
-    [router.query]
+    [router.query, page]
   );
   const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
 

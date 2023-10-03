@@ -55,7 +55,7 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
           {countries?.map(({ country, id }) => (
             <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
               <Link
-                href={`/${movieTypes[type].path}?country=${
+                href={`${movieTypes[type].path}?country=${
                   filters?.countries.find((item) => item.country == country)?.id
                 }`}
               >
@@ -66,7 +66,9 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
           {genres?.map(({ genre, id }) => (
             <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
               <Link
-                href={`/movies?genre=${filters?.genres.find((item) => item.genre == genre)?.id}`}
+                href={`${movieTypes[type].path}?genre=${
+                  filters?.genres.find((item) => item.genre == genre)?.id
+                }`}
               >
                 {genre}
               </Link>

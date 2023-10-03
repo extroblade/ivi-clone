@@ -1,5 +1,13 @@
 export const english = {
   translation: {
+    sorts: {
+      rating: 'rating',
+      years: 'years',
+      votes: 'votes',
+      genre: 'genre',
+      country: 'country',
+      year: 'year',
+    },
     buttons: {
       activate: 'Activate',
       'activate-certificate': 'Activate certificate',
