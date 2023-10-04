@@ -50,9 +50,24 @@ export const FooterModal: FC = (): JSX.Element => {
           <Link href={'#'} className={styles.link}>
             {t('sections.whats-new')}
           </Link>
-          <ModalList title={t('sections.movies')} icon={BsCameraReels} isFilms={true} />
-          <ModalList title={t('sections.series')} icon={MdOutlineVideoLibrary} isFilms={true} />
-          <ModalList title={t('sections.animation')} icon={TbTractor} isFilms={true} />
+          <ModalList
+            href={'movies'}
+            title={t('sections.movies')}
+            icon={BsCameraReels}
+            isFilms={true}
+          />
+          <ModalList
+            href={'series'}
+            title={t('sections.series')}
+            icon={MdOutlineVideoLibrary}
+            isFilms={true}
+          />
+          <ModalList
+            href={'animation'}
+            title={t('sections.animation')}
+            icon={TbTractor}
+            isFilms={true}
+          />
           <ModalList title={'TV+'} icon={IoTvOutline}>
             <div className={styles.list}>
               <p>{t('categories.tv-online')}</p>
@@ -185,8 +200,8 @@ export const FooterModal: FC = (): JSX.Element => {
             </Button>
           </div>
           <div>
-            <div> © 2023 ООО «Иви.ру»</div>
-            HBO ® and related service marks are the property of Home Box Office, Inc
+            <Text> © 2023 ООО «Иви.ру»</Text>
+            <Text>HBO ® and related service marks are the property of Home Box Office, Inc</Text>
           </div>
         </div>
       </div>

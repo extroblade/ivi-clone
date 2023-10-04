@@ -7,6 +7,7 @@
   top: 0;
   z-index: 10;
   left: 0;
+  padding-bottom: 60px;
 
   svg {
     width: 20px;
@@ -66,17 +67,18 @@
 
 .link {
   &:hover {
-    color: rgba(var(--color-main), 0.72);
+    opacity: .72;
   }
 }
 
 .listLink {
-  color: rgba(var(--color-main), 0.72);
+  opacity: .72;
+  color: var(--color-main);
   display: block;
   font-weight: 400;
 
   &:hover {
-    color: var(--color-main);
+    opacity: 1;
   }
 }
 

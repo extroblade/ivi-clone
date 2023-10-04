@@ -48,22 +48,21 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
           </div>
         </ul>
         <ul className={styles.info_list}>
-          {!isLoading &&
+          {!isLoading ? (
             countries?.map(({ country, id }) => (
               <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-                {!isLoading ? (
-                  <Link
-                    href={`${movieTypes[type].path}?country=${
-                      filters?.countries.find((item) => item.country == country)?.id
-                    }`}
-                  >
-                    {country}
-                  </Link>
-                ) : (
-                  <div className={'loader'} />
-                )}
+                <Link
+                  href={`${movieTypes[type].path}?country=${
+                    filters?.countries.find((item) => item.country == country)?.id
+                  }`}
+                >
+                  {country}
+                </Link>
               </div>
-            ))}
+            ))
+          ) : (
+            <div style={{ height: 30, width: 50 }} className={'loader'} />
+          )}
           {genres?.map(({ genre, id }) => (
             <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
               {!isLoading ? (

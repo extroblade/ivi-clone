@@ -6,6 +6,7 @@ export type ModalListProps = {
   title: ReactNode | ReactNode[];
   icon?: IconType;
   isFilms?: boolean;
+  href?: string;
 };
 
 export type ListProps = {
