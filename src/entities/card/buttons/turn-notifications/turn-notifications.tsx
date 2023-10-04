@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import { MouseEvent } from 'react';
 import { AiFillBell, AiOutlineBell } from 'react-icons/ai';
 
 import { Button } from '@/newui';
-import { useAppDispatch } from '@/shared/hooks';
+import { useAppDispatch, useBooleanState } from '@/shared/hooks';
 import { setShowUnsub } from '@/shared/store';
 
 export const TurnNotificationsButton = () => {
-  const [turned, setTurned] = useState<boolean>(false);
+  const [isTurnedOn, { handleOpen, handleClose }] = useBooleanState();
   const dispatch = useAppDispatch();
-  const turn = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const turn = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    e.nativeEvent.stopImmediatePropagation();
-    if (turned) {
-      dispatch(setShowUnsub(true));
-      setTurned(() => false);
-    } else {
-      setTurned(() => true);
+    e.stopPropagation();
+    if (!isTurnedOn) {
+      handleOpen();
+      return;
     }
+    dispatch(setShowUnsub(true));
+    handleClose();
   };
   return (
     <Button appearance={'square'} onClick={turn}>
-      {turned ? <AiFillBell /> : <AiOutlineBell />}
+      {isTurnedOn ? <AiFillBell /> : <AiOutlineBell />}
     </Button>
   );
 };

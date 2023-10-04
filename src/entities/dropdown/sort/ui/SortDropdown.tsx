@@ -8,28 +8,25 @@ import {
   MdOutlineSort,
 } from 'react-icons/md';
 
-import { defaultSorts } from '@/entities/dropdown/sort/model/props';
 import { Button } from '@/newui';
-import { useOutsideClick, useSearchParamsState } from '@/shared/hooks';
+import {
+  useBooleanState,
+  useEscapeKey,
+  useOutsideClick,
+  useSearchParamsState,
+} from '@/shared/hooks';
 
+import { defaultSorts } from '../model/props';
 import styles from './SortDropdown.module.scss';
 
 export const SortDropdown: FC = (): JSX.Element => {
   const router = useRouter();
-  const [sortDrop, setSortDrop] = useState(false);
+  const [isActive, { handleClose, handleToggle }] = useBooleanState();
   const { t } = useTranslation();
   const ref = useRef(null);
   const [, setOrder] = useSearchParamsState<string>({
     name: 'order',
   });
-  const handleClose = () => {
-    setSortDrop(() => false);
-  };
-  const handleToggle = () => {
-    setSortDrop((val) => !val);
-  };
-  useOutsideClick(handleClose, ref);
-
   const [current, setCurrent] = useState(0);
 
   const handleChoose = (currentSort: number) => {
@@ -47,18 +44,20 @@ export const SortDropdown: FC = (): JSX.Element => {
     setCurrent(() => newCurrent);
   }, [router.query?.order]);
 
+  useOutsideClick(handleClose, ref);
+  useEscapeKey(handleClose);
   return (
-    <div className={styles.drop} ref={ref}>
+    <div className={styles.drop}>
       <Button appearance={'transparent'} onClick={handleToggle}>
         <div className={styles.interactions}>
           <div className={styles.icon}>
             <MdOutlineSort />
           </div>
           <div className={styles.head_title}>{t(defaultSorts[current]?.title) || 'sort'}</div>
-          {!sortDrop ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
+          {!isActive ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
         </div>
       </Button>
-      <div className={cn(styles.drop_container, sortDrop && styles.opened)}>
+      <div ref={ref} className={cn(styles.drop_container, isActive && styles.opened)}>
         <div className={styles.dropdown__title}>{t('buttons.sort')}</div>
         {defaultSorts.map(({ title }, index) => (
           <button
@@ -76,13 +75,3 @@ export const SortDropdown: FC = (): JSX.Element => {
     </div>
   );
 };
-
-// const sorts = [
-//   { id: 1, title: t('sections.by-amount') },
-//   { id: 2, title: t('sections.by-name-asc') },
-//   { id: 3, title: t('sections.by-name-desc') },
-//   { id: 4, title: t('sections.by-date') },
-//   { id: 5, title: t('sections.by-rating-asc') },
-//   { id: 6, title: t('sections.by-rating-desc') },
-//   { id: 0, title: t('sections.by-default') },
-// ];

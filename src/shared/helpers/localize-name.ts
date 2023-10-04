@@ -1,8 +1,8 @@
 import i18next from 'i18next';
 
 type localizeNameProps = {
-  nameEn: string;
-  nameRu: string;
+  nameEn?: string;
+  nameRu?: string;
   nameOriginal?: string;
 };
 export const localizeName = <T extends localizeNameProps>(object: T): string => {

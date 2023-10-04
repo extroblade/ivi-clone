@@ -1,7 +1,7 @@
 import { iFilm, iSimilarItems } from '@/shared/types/kinopoiskTypes';
 
 export type CardProps = {
-  card: iFilm & iSimilarItems;
+  card: Partial<iFilm> & Partial<iSimilarItems>;
   hover?: boolean;
   star?: boolean;
   book?: boolean;

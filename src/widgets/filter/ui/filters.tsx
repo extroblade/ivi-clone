@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
@@ -9,6 +9,7 @@ import { RxCross2 } from 'react-icons/rx';
 import { SortDropdown } from '@/entities/dropdown';
 import { Button, InputRange } from '@/newui';
 import { defaultYearsRange } from '@/shared/constants/default-years-range';
+import { useBooleanState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { FilterPlank } from '@/widgets/filter/plank/ui/plank';
 
@@ -32,8 +33,9 @@ const variants = {
 };
 export const Filters: FC = (): JSX.Element => {
   const { data: filters } = useFetchFilmFiltersQuery();
-  const [isOpen, setIsOpen] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [isOpen, { handleToggle: handleToggleFilters }] = useBooleanState();
+  const [isActive, { handleClose: handleResetActive, handleState: setIsActive }] =
+    useBooleanState();
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -41,18 +43,15 @@ export const Filters: FC = (): JSX.Element => {
     setIsActive(!!Object.values(router.query).filter((item) => item?.length).length);
   }, [router.query]);
 
-  const handleToggle = () => {
-    setIsOpen((value) => !value);
-  };
   const handleReset = () => {
     router.push('').then(() => {
-      setIsActive(() => false);
+      handleResetActive();
     });
   };
   return (
     <>
       <div className={styles.top_buttons}>
-        <Button appearance={'transparent'} onClick={handleToggle}>
+        <Button appearance={'transparent'} onClick={handleToggleFilters}>
           <div className={styles.extend_button}>
             <div className={cn(styles.icon, isActive && styles.active)}>
               <GoSettings />
@@ -74,14 +73,14 @@ export const Filters: FC = (): JSX.Element => {
         <div className={styles.plank_list}>
           <div className={styles.plank_item}>
             <FilterPlank
-              data={filters?.genres.filter((item) => item.genre) || []}
+              data={filters?.genres.filter(({ genre }) => genre) || []}
               defaultName={'Жанр'}
               name={'genre'}
             />
           </div>
           <div className={styles.plank_item}>
             <FilterPlank
-              data={filters?.countries.filter((item) => item.country) || []}
+              data={filters?.countries.filter(({ country }) => country) || []}
               defaultName={'Страна'}
               name={'country'}
             />

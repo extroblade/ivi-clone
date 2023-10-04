@@ -89,6 +89,7 @@ exports[`card card object should not throw error with empty card 1`] = `
                 >
                   <div
                     class="bar_value red"
+                    style="width: 49.8%;"
                   />
                 </div>
               </div>
@@ -203,6 +204,7 @@ exports[`card card object should not throw error with empty card 1`] = `
               >
                 <div
                   class="bar_value red"
+                  style="width: 49.8%;"
                 />
               </div>
             </div>

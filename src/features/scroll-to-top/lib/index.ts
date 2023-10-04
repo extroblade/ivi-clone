@@ -1,5 +1,7 @@
+import { useBrowser } from '@/shared/hooks/useBrowser';
+
 export const useScrollTop = () => {
-  const isBrowser = typeof window !== 'undefined';
+  const isBrowser = useBrowser();
   if (!isBrowser) {
     return;
   }

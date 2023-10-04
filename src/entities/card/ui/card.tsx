@@ -20,11 +20,12 @@ import styles from './card.module.scss';
 
 export const Card: FC<CardProps> = ({
   card,
+  star,
+  book,
+  find,
+  block,
   hover = true,
-  star = false,
-  book = false,
-  find = false,
-  block = false,
+
   info = true,
   ...props
 }): JSX.Element => {
@@ -37,12 +38,14 @@ export const Card: FC<CardProps> = ({
     year,
     filmLength,
     ratingKinopoisk,
-  } = card;
+  } = card || {};
   if (!card?.posterUrlPreview) return <CardLoader />;
   return (
     <Link href={`/watch/${id || filmId}`} className={styles.card} draggable="false" {...props}>
       <div className={cn(styles.imageSection, hover && styles.hover)}>
-        <Image src={posterUrlPreview} alt={'poster'} width={234} height={360} quality={85} />
+        {posterUrlPreview && (
+          <Image src={posterUrlPreview} alt={'poster'} width={234} height={360} quality={85} />
+        )}
         <div className={styles.props}>
           <div className={styles.btns__container}>
             <div className={styles.btns}>
@@ -65,7 +68,7 @@ export const Card: FC<CardProps> = ({
               </div>
               <div className={styles.singleGraph}>
                 <span>{i18next.language == 'en' ? 'actors' : 'актёры'}</span>
-                <BarGraph width={ratingKinopoisk * 10 - 0.2} />
+                <BarGraph width={(ratingKinopoisk || 5) * 10 - 0.2} />
               </div>
               <section className={styles.info__text}>
                 <div className={styles.info__row}>

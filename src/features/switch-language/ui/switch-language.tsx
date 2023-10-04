@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { languages } from 'src/shared/constants';
 
 import { Button } from '@/newui';
+import { languages, LanguageVariants } from '@/shared/constants';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
 import styles from './switch-language.module.scss';
 
 export const SwitchLanguage = () => {
   const { i18n: i18next, t } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState('ru');
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageVariants>('ru');
 
   const createAlert = useCreateAlert();
   useEffect(() => {
@@ -17,7 +17,7 @@ export const SwitchLanguage = () => {
     i18next.changeLanguage(language).then(() => {
       localStorage.setItem('language', language);
     });
-    setCurrentLanguage(() => language);
+    setCurrentLanguage(() => language as LanguageVariants);
   }, []);
   const changeLanguage = (language: string) => {
     i18next.changeLanguage(language).then(() => {
@@ -28,7 +28,7 @@ export const SwitchLanguage = () => {
       return;
     }
 
-    setCurrentLanguage(() => language);
+    setCurrentLanguage(() => language as LanguageVariants);
     createAlert({
       title: t('title.change-language-title'),
       extra: t('title.change-language-body'),

@@ -1,11 +1,11 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/newui';
 import { ModalProps } from '@/newui/modal/modal.props';
-import { useEscapeKey, useOutsideClick, usePreventScroll } from '@/shared/hooks';
+import { useBooleanState, useEscapeKey, useOutsideClick, usePreventScroll } from '@/shared/hooks';
 
 import styles from './modal.module.scss';
 
@@ -17,20 +17,22 @@ const variants = {
   },
 };
 export const Modal: FC<ModalProps> = ({ isOpen, closeModal, variant = 'fullscreen', children }) => {
-  usePreventScroll(isOpen);
-  const [isClosing, setIsClosing] = useState(false);
+  const { t } = useTranslation();
+
+  const [isClosing, { handleClose: handleClosing, handleOpen }] = useBooleanState();
   const modalRef = useRef(null);
   const handleClose = () => {
-    setIsClosing(() => true);
+    handleOpen();
 
     setTimeout(() => {
-      setIsClosing(() => false);
+      handleClosing();
       closeModal();
     }, 100);
   };
+
+  usePreventScroll(isOpen);
   useEscapeKey(handleClose);
   useOutsideClick(handleClose, modalRef);
-  const { t } = useTranslation();
   if (!isOpen) return <></>;
   return (
     <motion.div

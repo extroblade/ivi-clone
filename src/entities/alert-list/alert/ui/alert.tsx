@@ -8,8 +8,7 @@ import { Button } from '@/newui';
 
 import styles from './alert.module.scss';
 
-export const Alert: FC<{ alert: AlertProps }> = memo(({ alert }) => {
-  const { id, title, extra } = alert;
+export const Alert: FC<{ alert: AlertProps }> = memo(({ alert: { id, title, extra } }) => {
   const { handleClose, isClosing } = useCloseAlert(id);
 
   if (!title && !extra) return <></>;

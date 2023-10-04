@@ -8,8 +8,7 @@ import { Card } from '@/entities/card';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Button, Loader, Title } from '@/newui';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
-import { FilmOrder } from '@/shared/store';
-import { iFilm } from '@/shared/types/kinopoiskTypes';
+import { FilmOrderVariants, iFilm } from '@/shared/types/kinopoiskTypes';
 
 import { GridProps } from '../model/props';
 import styles from './grid.module.scss';
@@ -28,7 +27,7 @@ export const Grid: FC<GridProps> = ({ type }) => {
       yearFrom: Number(router?.query?.year) || 1000,
       ratingFrom: Number(router?.query?.ratingFrom) || 0,
       ratingTo: 10,
-      order: (router?.query?.order as FilmOrder) || '',
+      order: (router?.query?.order as FilmOrderVariants) || '',
       genres: Number(router?.query?.genre) || '',
       countries: Number(router?.query?.country) || '',
     }),
@@ -66,8 +65,9 @@ export const Grid: FC<GridProps> = ({ type }) => {
 
   useEffect(() => {
     if (isInView) {
-      showMore();
+      return;
     }
+    showMore();
   }, [isInView]);
   return (
     <>

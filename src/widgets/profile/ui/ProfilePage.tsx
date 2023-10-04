@@ -34,7 +34,55 @@ type listProps = {
   component: FC<ProfileButtonProps>;
   type?: ProfileButtonVariants;
 };
+const smalls: listProps[] = [
+  PurchasesButton,
+  WatchLaterButton,
+  ViewedButton,
+  PaymentButton,
+  CodeLoginButton,
+  SettingsButton,
+  SupportButton,
+  ChecksButton,
+].map((item) => ({
+  component: item,
+  className: 'smalls',
+}));
 
+const list: listProps[][] = [
+  [
+    {
+      className: 'subscription',
+      component: SubscriptionsButton,
+    },
+    {
+      className: 'certificate',
+      component: CertificatesButton,
+      type: 'rect_text',
+    },
+    {
+      className: 'fund',
+      component: BalanceButton,
+    },
+  ],
+  [
+    {
+      className: 'subscription_present',
+      component: PresentSubscriptionButton,
+      type: 'rect_icon_light',
+    },
+  ],
+  [
+    {
+      className: 'referral_program',
+      component: InviteFriendsButton,
+    },
+    {
+      className: 'notifications',
+      component: NotificationsButton,
+    },
+  ],
+  smalls,
+];
 export const ProfilePage = () => {
   const { data: session } = useSession();
   const [uuid, setUuid] = useState('');
@@ -46,56 +94,7 @@ export const ProfilePage = () => {
 
     setUuid(() => localStorage?.getItem('uuid') || '2131212312');
   }, []);
-  const smalls: listProps[] = [
-    //placing outside of component throws a hydration error
-    PurchasesButton,
-    WatchLaterButton,
-    ViewedButton,
-    PaymentButton,
-    CodeLoginButton,
-    SettingsButton,
-    SupportButton,
-    ChecksButton,
-  ].map((item) => ({
-    component: item,
-    className: 'smalls',
-  }));
 
-  const list: listProps[][] = [
-    [
-      {
-        className: 'subscription',
-        component: SubscriptionsButton,
-      },
-      {
-        className: 'certificate',
-        component: CertificatesButton,
-        type: 'rect_text',
-      },
-      {
-        className: 'fund',
-        component: BalanceButton,
-      },
-    ],
-    [
-      {
-        className: 'subscription_present',
-        component: PresentSubscriptionButton,
-        type: 'rect_icon_light',
-      },
-    ],
-    [
-      {
-        className: 'referral_program',
-        component: InviteFriendsButton,
-      },
-      {
-        className: 'notifications',
-        component: NotificationsButton,
-      },
-    ],
-    smalls,
-  ];
   return (
     <div className={styles.profile__btns}>
       {session?.user ? (

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { languageVariants, professionTypes } from 'src/shared/constants';
+import { LanguageVariants, professionTypes } from 'src/shared/constants';
 
 import { Button, Text } from '@/newui';
 import { localizeName } from '@/shared/helpers/localize-name';
@@ -20,11 +20,9 @@ export const MovieCard: FC<MovieCardProps> = ({ card }) => {
           <div className={styles.info_row}>
             {description && <Text size={'S'}>{description}, </Text>}
 
-            {professionKey && (
-              <Text size={'S'}>
-                {professionTypes[professionKey][i18n.language as languageVariants]},
-              </Text>
-            )}
+            <Text size={'S'}>
+              {professionTypes?.[professionKey][i18n.language as LanguageVariants]},
+            </Text>
 
             {rating && (
               <Text size={'S'}>

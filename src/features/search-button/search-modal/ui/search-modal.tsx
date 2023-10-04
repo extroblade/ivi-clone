@@ -9,7 +9,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 
 import { presets, RedirectProps } from '@/features/search-button/search-modal/model/props';
 import { Button, Loader, Modal, Text, Title } from '@/newui';
-import { useDebounce, usePreventScroll } from '@/shared/hooks';
+import { useDebounce } from '@/shared/hooks';
 import { useFetchAllFilmsQuery, useFetchPersonNameQuery } from '@/shared/services';
 
 import { useSearchModal } from '../../lib/hooks';
@@ -54,7 +54,6 @@ export const SearchModal: FC = (): JSX.Element => {
     }
     inputRef?.current?.focus();
   }, [isOpen]);
-  usePreventScroll(isOpen);
   return (
     <Modal isOpen={isOpen} closeModal={handleClose}>
       <div className={styles.body}>

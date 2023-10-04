@@ -3,25 +3,17 @@ import { FC, useEffect, useState } from 'react';
 
 import { ChooseDropdown } from '@/entities/dropdown';
 import { Plank } from '@/newui';
-import { useSearchParamsState } from '@/shared/hooks';
+import { useBooleanState, useSearchParamsState } from '@/shared/hooks';
 import { FilterPlankProps } from '@/widgets/filter/plank/model/props';
 
 export const FilterPlank: FC<FilterPlankProps> = ({ data, name, defaultName }) => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
-  const [param, setParam] = useSearchParamsState<string>({
-    name: name,
-  });
-  const [title, setTitle] = useState(defaultName);
-  const handleClose = () => {
-    setIsOpen(false);
-  };
+  const [isOpen, { handleClose, handleToggle }] = useBooleanState();
+  const [, setParam] = useSearchParamsState<string>({ name });
+  const [title, setTitle] = useState<string>(defaultName);
   const handleClick = (id: number) => {
     setParam(id === Number(router.query?.[name]) ? '' : id);
-    //handleClose();
-  };
-  const handleToggle = () => {
-    setIsOpen((v) => !v);
+    handleClose();
   };
 
   useEffect(() => {

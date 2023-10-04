@@ -1,9 +1,8 @@
 import cn from 'classnames';
 import { FC } from 'react';
 
-import { TextProps } from '@/newui/text/text.props';
-
 import styles from './text.module.scss';
+import { TextProps } from './text.props';
 
 export const Text: FC<TextProps> = ({
   children,

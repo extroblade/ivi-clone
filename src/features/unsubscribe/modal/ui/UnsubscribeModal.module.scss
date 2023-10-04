@@ -38,12 +38,12 @@
 
     .poster {
       box-sizing: border-box;
-      width: 14%;
-      display: -webkit-box;
+      display: -webkit-flex;
       overflow: hidden;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       text-overflow: ellipsis;
+      flex-direction: column;
 
       img {
         border-radius: 8px;

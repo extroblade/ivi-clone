@@ -1,22 +1,19 @@
 import i18next from 'i18next';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { MovieCard } from '@/entities/person/movies/card/ui/movie-card';
+import { MovieListProps } from '@/entities/person/movies/model/props';
 import { Button, Text, Title } from '@/newui';
 import { getRemainingFilmAmount } from '@/shared/helpers';
+import { useBooleanState } from '@/shared/hooks';
 import { StaffFilm } from '@/shared/types/kinopoiskTypes';
 
-import { MovieListProps } from '../props/props';
 import styles from './movie-list.module.scss';
 
 export const MovieList: FC<MovieListProps> = ({ list }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, { handleToggle }] = useBooleanState();
   const { t } = useTranslation();
-
-  const changeState = () => {
-    setIsOpen((state) => !state);
-  };
 
   return (
     <div className={styles.wrap}>
@@ -25,7 +22,7 @@ export const MovieList: FC<MovieListProps> = ({ list }) => {
         <Button
           appearance={'transparent'}
           className={styles.amount}
-          onClick={changeState}
+          onClick={handleToggle}
           title={isOpen ? 'Скрыть' : 'Развернуть'}
         >
           {list?.length}{' '}
@@ -36,19 +33,19 @@ export const MovieList: FC<MovieListProps> = ({ list }) => {
       <div className={styles.cards}>
         {!isOpen && list?.length > 8 ? (
           <>
-            {list?.slice(0, 8).map((card: StaffFilm) => {
-              return <MovieCard key={card.filmId} card={card} />;
-            })}
-            <Text onClick={changeState} className={styles.link}>
+            {list?.slice(0, 8).map((card: StaffFilm) => (
+              <MovieCard key={card.filmId} card={card} />
+            ))}
+            <Text onClick={handleToggle} className={styles.link}>
               {t('buttons.more')} {list?.length - 8}
               {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list?.length - 8)}
             </Text>
           </>
         ) : (
           <>
-            {list.map((card) => {
-              return <MovieCard key={card.filmId} card={card} />;
-            })}
+            {list.map((card) => (
+              <MovieCard key={card.filmId} card={card} />
+            ))}
           </>
         )}
       </div>

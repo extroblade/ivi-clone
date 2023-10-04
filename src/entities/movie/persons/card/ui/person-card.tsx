@@ -5,15 +5,8 @@ import { PersonCardProps } from '../model/PersonCard.props';
 import styles from './person-card.module.scss';
 
 export const PersonCard: FC<PersonCardProps> = ({ children, link, title }) => {
-  if (!link)
-    return (
-      <div className={styles.person_card} title={title}>
-        <div className={styles.wrapCard}>{children}</div>
-        <div className={styles.card_name}>{title}</div>
-      </div>
-    );
   return (
-    <Link href={link} className={styles.person_card} title={title}>
+    <Link href={link || ''} className={styles.person_card} title={title}>
       <div className={styles.wrapCard}>{children}</div>
       <div className={styles.card_name}>{title}</div>
     </Link>

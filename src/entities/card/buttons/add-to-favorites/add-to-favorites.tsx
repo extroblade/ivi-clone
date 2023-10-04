@@ -1,31 +1,28 @@
-import { MouseEvent, useState } from 'react';
+import { FC, MouseEvent } from 'react';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 
 import { Button } from '@/newui';
 import { AppearanceVariants } from '@/newui/button/button.props';
+import { useBooleanState } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
-export const AddToFavoritesButton = ({
+export const AddToFavoritesButton: FC<{ appearance?: AppearanceVariants }> = ({
   appearance = 'transparent',
-}: {
-  appearance?: AppearanceVariants;
 }) => {
-  const [booked, setBooked] = useState(false);
+  const [isBooked, { handleToggle }] = useBooleanState();
   const createAlert = useCreateAlert();
-  const addToFavorite = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    e.nativeEvent.stopImmediatePropagation();
-    e.nativeEvent.stopPropagation();
     e.stopPropagation();
-    if (!booked) {
+    if (!isBooked) {
       createAlert({ extra: 'Добавлено в ваш список избранного!' });
     }
 
-    setBooked((booked) => !booked);
+    handleToggle();
   };
   return (
-    <Button appearance={appearance} onClick={addToFavorite}>
-      {booked ? <BsFillBookmarkFill /> : <BsBookmark />}
+    <Button appearance={appearance} onClick={handleAdd}>
+      {isBooked ? <BsFillBookmarkFill /> : <BsBookmark />}
     </Button>
   );
 };

@@ -17,8 +17,8 @@ import { HiOutlineMegaphone, HiPhone } from 'react-icons/hi2';
 import { IoMailOutline, IoTv } from 'react-icons/io5';
 
 import { Button, Text } from '@/newui';
-import { defaultFooterLinks } from '@/widgets/footer/model/links';
 
+import { defaultFooterLinks } from '../model/links';
 import styles from './footer.module.scss';
 
 export const Footer: FC = (): JSX.Element => {

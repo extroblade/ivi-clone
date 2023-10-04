@@ -8,20 +8,20 @@ import { useEscapeKey } from '@/shared/hooks';
 
 import styles from './back-button.module.scss';
 
-export const BackButton: FC = (): JSX.Element => {
+export const BackButton: FC<{ children?: string | null }> = ({ children }): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
 
-  const back = () => {
+  const handleRedirectBack = () => {
     router.back();
   };
 
-  useEscapeKey(back);
+  useEscapeKey(handleRedirectBack);
 
   return (
-    <Button appearance={'transparent'} className={styles.back} onClick={back}>
+    <Button appearance={'transparent'} className={styles.back} onClick={handleRedirectBack}>
       <HiChevronLeft className={styles.back__icon} />
-      <span>{t('buttons.back')}</span>
+      <span>{children || t('buttons.back')}</span>
     </Button>
   );
 };

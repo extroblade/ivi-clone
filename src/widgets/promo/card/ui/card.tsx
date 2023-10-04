@@ -3,6 +3,7 @@ import i18next from 'i18next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Text, Title } from '@/newui';
 import { PromoCardProps } from '@/widgets/promo/card/model/props';
@@ -10,7 +11,7 @@ import styles from '@/widgets/promo/ui/PromoCarousel.module.scss';
 
 export const PromoCarouselSlide: FC<PromoCardProps> = ({ slide }): JSX.Element => {
   const [color, setColor] = useState<boolean>(true);
-
+  const { t } = useTranslation();
   useEffect(() => {
     const fac = new FastAverageColor();
 
@@ -53,7 +54,7 @@ export const PromoCarouselSlide: FC<PromoCardProps> = ({ slide }): JSX.Element =
             </Text>
           </div>
           <Button appearance={'red'} title={slide.btn}>
-            {slide.btn}
+            {t(slide.btn)}
           </Button>
         </div>
       </div>

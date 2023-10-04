@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Player } from '@/entities/player/ui/player';
+import { Player } from '@/entities/player';
 import { Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { useFetchFilmVideoQuery } from '@/shared/services';
@@ -18,10 +18,10 @@ export const TrailersTab = () => {
   if (!videos?.total) return <Title>Видео не указаны</Title>;
   return (
     <>
-      {videos?.items.map((video) => (
-        <div key={video.name} className={styles.trailers}>
-          <Title tag={'h3'}>{video.name}</Title>
-          <Player url={video.url} />
+      {videos?.items.map(({ name, url }, index) => (
+        <div key={index} className={styles.trailers}>
+          <Title tag={'h3'}>{name}</Title>
+          {url && <Player url={url} />}
         </div>
       ))}
     </>

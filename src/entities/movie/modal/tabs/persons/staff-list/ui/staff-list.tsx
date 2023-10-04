@@ -1,41 +1,42 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/newui';
+import { LanguageVariants, professionTypes } from '@/shared/constants';
 import { localizeName } from '@/shared/helpers/localize-name';
-import { iPerson } from '@/shared/types/kinopoiskTypes';
 
 import { StaffListProps } from '../model/props';
 import styles from './staff-list.module.scss';
 
 export const StaffList: FC<StaffListProps> = ({ persons }) => {
+  const { i18n } = useTranslation();
   if (!persons?.length) return <Text>Не указаны!</Text>;
   return (
     <div className={styles.cards}>
-      {persons.map((person: iPerson) => {
-        const { staffId, posterUrl: url } = person;
+      {persons.map((person) => {
+        const { staffId, posterUrl, professionKey } = person;
         return (
           <Link href={`/name/${staffId}`} key={staffId} className={styles.link}>
             <div className={styles.card}>
               <div className={styles.img}>
-                <Image
-                  fill
-                  sizes={'(max-width: 768px) 100vw, (max-width: 300px) 25vw, 20vw'}
-                  src={url}
-                  alt=""
-                />
+                {posterUrl && (
+                  <Image
+                    fill
+                    sizes={'(max-width: 768px) 100vw, (max-width: 300px) 25vw, 20vw'}
+                    src={posterUrl}
+                    alt={localizeName(person)}
+                  />
+                )}
               </div>
             </div>
-            <div>
-              {localizeName(person)
-                .split(' ')
-                .map((letter) => (
-                  <p key={staffId + letter} className={styles.name}>
-                    {letter}
-                  </p>
-                ))}
-            </div>
+            <Text size={'S'} color={'gray-light'}>
+              {localizeName(person)}
+            </Text>
+            <Text size={'S'}>
+              {professionTypes?.[professionKey]?.[i18n.language as LanguageVariants]}
+            </Text>
           </Link>
         );
       })}
