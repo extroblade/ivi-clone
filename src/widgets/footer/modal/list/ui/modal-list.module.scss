@@ -6,10 +6,12 @@
   font-weight: 500;
   transition: var(--transition-main);
   cursor: pointer;
+
   svg {
     width: 20px;
     height: 20px;
   }
+
   &:hover {
     color: rgba(var(--color-main), 0.72);
   }
@@ -20,26 +22,38 @@
 }
 
 .list {
+  gap: 5px;
   display: flex;
+
   &__item {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
     margin-top: 12px;
     margin-right: 24px;
     width: 256px;
   }
+
   &__title {
     color: var(--color-main);
     margin-bottom: 12px;
   }
-  &__link {
-    color: rgba(var(--color-main), 0.72);
-    display: block;
-    font-weight: 400;
-    transition: var(--transition-main);
-    margin-bottom: 12px;
-    &:hover {
-      cursor: pointer;
-      color: var(--color-main);
-    }
+
+}
+
+.link {
+  color: var(--color-main);
+  opacity: 72%;
+  display: block;
+  font-weight: 400;
+  transition: var(--transition-main);
+  margin-bottom: 12px;
+  line-height: 0.7rem;
+
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+    color: var(--color-main);
   }
 }
 
@@ -47,6 +61,7 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+
   ul {
     margin: 0;
   }

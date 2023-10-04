@@ -50,17 +50,17 @@ export const Header: FC = () => {
                 </li>
                 <li className={styles.menu__item}>
                   <Submenu title={t('sections.movies')} link="/movies">
-                    <Categories />
+                    <Categories href={'movies'} />
                   </Submenu>
                 </li>
                 <li className={styles.menu__item}>
                   <Submenu title={t('sections.series')} link="/series">
-                    <Categories />
+                    <Categories href={'series'} />
                   </Submenu>
                 </li>
                 <li className={styles.menu__item}>
                   <Submenu title={t('sections.animation')} link="/animation">
-                    <Categories />
+                    <Categories href={'animation'} />
                   </Submenu>
                 </li>
               </ul>

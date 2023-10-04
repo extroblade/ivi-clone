@@ -7,7 +7,7 @@ import { defaultCollections } from '@/widgets/header/categories/model/default-co
 
 import styles from './categories.module.scss';
 
-export const Categories: FC = (): JSX.Element => {
+export const Categories: FC<{ href: string }> = ({ href }): JSX.Element => {
   const { data: filters } = useFetchFilmFiltersQuery();
   return (
     <div className={styles.content}>
@@ -17,7 +17,7 @@ export const Categories: FC = (): JSX.Element => {
           <div className={styles.content__genres}>
             {filters?.genres
               ? filters.genres.slice(0, 10).map(({ genre, id }) => (
-                  <Link className={styles.content__link} key={genre} href={`/movies?genre=${id}`}>
+                  <Link className={styles.content__link} key={genre} href={`/${href}?genre=${id}`}>
                     {genre}
                   </Link>
                 ))
@@ -40,7 +40,7 @@ export const Categories: FC = (): JSX.Element => {
                   <Link
                     className={styles.content__link}
                     key={country}
-                    href={`/movies?country=${id}`}
+                    href={`/${href}?country=${id}`}
                   >
                     {country}
                   </Link>
@@ -62,7 +62,7 @@ export const Categories: FC = (): JSX.Element => {
             {defaultYearsRange
               ?.sort((a, b) => b.year - a.year)
               .map(({ year, id }) => (
-                <Link className={styles.content__link} key={year} href={`/movies?year=${id}`}>
+                <Link className={styles.content__link} key={year} href={`/${href}?year=${id}`}>
                   {year}
                 </Link>
               ))}

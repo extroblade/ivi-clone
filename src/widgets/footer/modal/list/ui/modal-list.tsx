@@ -29,7 +29,13 @@ const variants = {
   },
 };
 
-export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }): JSX.Element => {
+export const ModalList: FC<ModalListProps> = ({
+  children,
+  href,
+  title,
+  icon,
+  isFilms,
+}): JSX.Element => {
   const [isOpen, { handleToggle }] = useBooleanState();
   const IconComponent = icon ? icon : undefined;
   const { t } = useTranslation();
@@ -49,48 +55,38 @@ export const ModalList: FC<ModalListProps> = ({ children, title, icon, isFilms }
       >
         {isFilms && (
           <>
-            <Link href={'#'} className={styles.list__link}>
+            <Link href={'#'} className={styles.link}>
               {i18next.language == 'en' ? `All ${title}` : `Все ${title}`}
             </Link>
             <ul className={styles.list}>
-              <li className={styles.list__item}>
-                <Text className={styles.list__title}>{t('categories.genres')}</Text>
-                {filters?.genres?.slice(0, 10).map(({ genre, id }) => (
-                  <Link className={styles.content__link} key={genre} href={`/movies?genre=${id}`}>
-                    {genre}
-                  </Link>
-                ))}
-              </li>
               <li className={styles.flex}>
-                <ul>
-                  <li className={styles.list__item}>
-                    <Text className={styles.list__title}>{t('categories.countries')}</Text>
-                    {filters?.countries?.slice(0, 10).map(({ country, id }) => (
-                      <Link
-                        className={styles.content__link}
-                        key={country}
-                        href={`/movies?country=${id}`}
-                      >
-                        {country}
-                      </Link>
-                    ))}
-                  </li>
-                  <li className={styles.list__item}>
-                    <Text className={styles.list__title}>{t('categories.years')}</Text>
-                    {defaultYearsRange.map(({ year }) => (
-                      <Link
-                        className={styles.content__link}
-                        key={year}
-                        href={`/movies?year=${year}`}
-                      >
-                        {year}
-                      </Link>
-                    ))}
-                  </li>
-                </ul>
+                <li className={styles.list__item}>
+                  <Text className={styles.list__title}>{t('categories.genres')}</Text>
+                  {filters?.genres?.slice(0, 10).map(({ genre, id }) => (
+                    <Link className={styles.link} key={genre} href={`/${href}?genre=${id}`}>
+                      {genre}
+                    </Link>
+                  ))}
+                </li>
+                <li className={styles.list__item}>
+                  <Text className={styles.list__title}>{t('categories.countries')}</Text>
+                  {filters?.countries?.slice(0, 10).map(({ country, id }) => (
+                    <Link className={styles.link} key={country} href={`/${href}?country=${id}`}>
+                      {country}
+                    </Link>
+                  ))}
+                </li>
+                <li className={styles.list__item}>
+                  <Text className={styles.list__title}>{t('categories.years')}</Text>
+                  {defaultYearsRange.slice(0, 10).map(({ year }) => (
+                    <Link className={styles.link} key={year} href={`/${href}?year=${year}`}>
+                      {year}
+                    </Link>
+                  ))}
+                </li>
                 <div className={styles.list__item}>
                   {collections?.map(({ title, link }) => (
-                    <Link className={styles.list__link} key={title} href={link}>
+                    <Link className={styles.link} key={title} href={link}>
                       {title}
                     </Link>
                   ))}
