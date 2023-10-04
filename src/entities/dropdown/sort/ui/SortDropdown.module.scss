@@ -7,14 +7,13 @@
   text-overflow: ellipsis;
   -webkit-line-clamp: 1;
   z-index: 1;
-  width: fit-content;
+  width: 100%;
 
   button {
   }
 }
 
 .drop_container {
-  min-width: 16vw;
 
   position: absolute;
   top: 36px;

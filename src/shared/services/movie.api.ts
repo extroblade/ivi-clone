@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
-import { FilmOrder, FilmType } from '@/shared/store';
 import {
+  FilmOrderVariants,
+  FilmTypeVariants,
   iAwards,
   iBoxOffice,
   iDistributions,
@@ -20,8 +21,8 @@ import {
 export type QueryParams = {
   countries?: string | number;
   genres?: string | number;
-  order?: FilmOrder;
-  type?: FilmType;
+  order?: FilmOrderVariants;
+  type?: FilmTypeVariants;
   ratingFrom?: number;
   ratingTo?: number;
   yearFrom?: number | string;

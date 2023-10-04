@@ -17,20 +17,12 @@ export const FooterMobile: FC = (): JSX.Element => {
   const { t } = useTranslation();
   const { showSearch, showFooterModal } = useSelector(selectModal);
   const dispatch = useDispatch();
-  const openFooter = () => {
-    if (showFooterModal) {
-      dispatch(setShowFooterModal(false));
-    } else {
-      dispatch(setShowFooterModal(true));
-    }
+  const handleToggle = () => {
+    dispatch(setShowFooterModal(!showFooterModal));
   };
-  const openSearch = () => {
+  const handleOpen = () => {
     dispatch(setShowFooterModal(false));
-    if (showSearch) {
-      dispatch(setShowSearch(false));
-    } else {
-      dispatch(setShowSearch(true));
-    }
+    dispatch(setShowSearch(!showSearch));
   };
   return (
     <footer className={styles.footerMobile}>
@@ -45,7 +37,7 @@ export const FooterMobile: FC = (): JSX.Element => {
           title={t('sections.search')}
           href={showSearch ? '' : '?search'}
           icon={BiSearch}
-          openModal={() => openSearch()}
+          openModal={handleOpen}
         />
         <Link href={'https://www.ivi.ru/tvplus'} className={styles.link}>
           <FooterLink title={'TV+'} href={'https://www.ivi.ru/tvplus'} icon={IoTvOutline} />
@@ -53,7 +45,7 @@ export const FooterMobile: FC = (): JSX.Element => {
         <FooterLink
           title={showFooterModal ? t('footer.close-btn') : t('footer.open-btn')}
           href={showFooterModal ? '' : '?navigation'}
-          openModal={() => openFooter()}
+          openModal={handleToggle}
           icon={showFooterModal ? IoCloseOutline : HiDotsHorizontal}
         />
       </div>

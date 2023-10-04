@@ -8,9 +8,29 @@ export const professionTypes: ProfessionVariantsType = {
     ru: 'Актер',
     en: 'Actor',
   },
+  TRANSLATOR: {
+    ru: 'Переводчик',
+    en: 'Translator',
+  },
+  VOICE_DIRECTOR: {
+    ru: 'Режиссер дубляжа',
+    en: 'Voice director',
+  },
+  COMPOSER: {
+    ru: 'Композитор',
+    en: 'Composer',
+  },
   DESIGN: {
     ru: 'Художник',
     en: 'Designer',
+  },
+  OPERATOR: {
+    ru: 'Оператор',
+    en: 'Operator',
+  },
+  EDITOR: {
+    ru: 'Монтажер',
+    en: 'Editor',
   },
   PRODUCER: {
     ru: 'Продюсер',

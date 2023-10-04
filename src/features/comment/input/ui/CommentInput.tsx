@@ -1,21 +1,22 @@
 import { useSession } from 'next-auth/react';
-import { FC, FormEvent, useState } from 'react';
+import { FC, FormEvent, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Avatar } from '@/features/comment/avatar/ui/avatar';
+import { DEFAULT_LIMIT } from '@/features/comment/input/model/props';
 import { Button } from '@/newui/button/button';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
-import styles from '../../ui/Comment.module.scss';
-
-const LIMIT = 5;
+import styles from './styles.module.scss';
 
 export const CommentInput: FC = (): JSX.Element => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState<string>('');
   const { data: session } = useSession();
   const createAlert = useCreateAlert();
-  const validate = () => query?.length < LIMIT && query?.length;
+  const isValid = useMemo(() => {
+    return query?.length < DEFAULT_LIMIT && query?.length;
+  }, [query?.length]);
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.nativeEvent.preventDefault();
     createAlert({ title: 'Комментарий не отправлен', extra: 'POST запросы не работают' });
@@ -27,7 +28,7 @@ export const CommentInput: FC = (): JSX.Element => {
     <form className={styles.comment_form} onSubmit={handleSubmit}>
       <Avatar user={session?.user} />
       <div className={styles.input_container}>
-        <div className={`${styles.input} ${validate() ? styles.invalid : ''}`}>
+        <div className={`${styles.input} ${isValid ? styles.invalid : ''}`}>
           <input
             className={!!query ? styles.input__active : ''}
             type="text"
@@ -38,14 +39,14 @@ export const CommentInput: FC = (): JSX.Element => {
           <div className={styles.stripe} />
         </div>
         <div className={`${styles.caption} ${styles.danger}`}>
-          {validate()
+          {isValid
             ? i18n.language == 'en'
-              ? `At least ${LIMIT} characters, you entered ${query.length}`
-              : `Минимум ${LIMIT} символов, вы ввели ${query.length}`
+              ? `At least ${DEFAULT_LIMIT} characters, you entered ${query.length}`
+              : `Минимум ${DEFAULT_LIMIT} символов, вы ввели ${query.length}`
             : ''}
         </div>
       </div>
-      <Button appearance={'red'} disabled={!!(validate() || !query?.length)}>
+      <Button appearance={'red'} disabled={!!(isValid || !query?.length)}>
         {t('buttons.send')}
       </Button>
     </form>

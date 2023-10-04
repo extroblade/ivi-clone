@@ -1,8 +1,7 @@
 import cn from 'classnames';
 import { FC } from 'react';
 
-import { RatingPlateProps } from '@/entities/rating-block/rating-plate/model/props';
-
+import { RatingPlateProps } from '../model/props';
 import styles from './rating-plate.module.scss';
 
 export const RatingPlate: FC<RatingPlateProps> = ({ rating }) => {

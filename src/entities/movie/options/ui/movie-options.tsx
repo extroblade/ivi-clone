@@ -1,64 +1,50 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { badges } from '@/entities/movie/options/model/badges';
 import { MovieOptionProps } from '@/entities/movie/options/model/props';
 import { Badge, Button, Text } from '@/newui';
-import { movieTypes } from '@/shared/constants';
-import styles from '@/widgets/movie/ui/WatchPage.module.scss';
+import { LanguageVariants, movieTypes } from '@/shared/constants';
+import { localizeName } from '@/shared/helpers';
+import { arrayToString } from '@/shared/helpers/array-to-string';
+import { useBooleanState } from '@/shared/hooks';
+
+import styles from './styles.module.scss';
 
 export const MovieOptions: FC<MovieOptionProps> = ({ movie }) => {
   const { t, i18n } = useTranslation();
-  const [extended, setExtended] = useState<boolean>(false);
-  const extend = () => {
-    setExtended((val) => !val);
-  };
-  const { nameEn, nameRu, description, shortDescription, languages, subtitles, type } = movie;
-  const getString = (arr: string[]): string => {
-    return arr.reduce((res, next, index) => {
-      if (!index) {
-        return res + next;
-      }
-      return res + ', ' + next;
-    }, '');
-  };
-
+  const [isExtended, { handleToggle }] = useBooleanState();
+  const { description, shortDescription, languages, subtitles, type } = movie;
   return (
     <div className={styles.movie_options}>
       <div className={styles.watch__description}>
         <Text>{shortDescription}</Text>
-        {extended && (
-          <div>
+        {isExtended && (
+          <>
             {description && <Text>{description}</Text>}
             <Text>
-              {i18n.language == 'en'
-                ? movieTypes[type]?.enNameSingle
-                : movieTypes[type]?.ruNameSingle}{' '}
-              {i18n.language == 'en' ? nameEn : nameRu} доступен на сайте. Приятного просмотра!
+              {movieTypes[type]?.[`${i18n.language as LanguageVariants}NameSingle`]}{' '}
+              {localizeName(movie)} доступен на сайте. Приятного просмотра!
             </Text>
-          </div>
+          </>
         )}
       </div>
-      {extended && (
+      {isExtended && (
         <div className={styles.clause_bottom}>
           <div className={styles.watch_options}>
             <div className={styles.watch_options_container}>
               <div className={styles.watch_options__options}>
                 <div className={styles.watch_options__title}>Языки</div>
-                <div className={styles.watch_options__value}>
-                  {languages ? getString(languages) : 'Информация отсутствует'}
-                </div>
+                <div className={styles.watch_options__value}>{arrayToString(languages)}</div>
               </div>
               <div className={styles.watch_options__options}>
                 <div className={styles.watch_options__title}>Субтитры</div>
-                <div className={styles.watch_options__value}>
-                  {subtitles ? getString(subtitles) : 'Информация отсутствует'}
-                </div>
+                <div className={styles.watch_options__value}>{arrayToString(subtitles)}</div>
               </div>
               <div className={styles.watch_options__options}>
                 <div className={styles.watch_options__title_narrow}>Качество</div>
                 <div className={styles.watch_options__title_wide}>
-                  Изображение и звук.{' '}
+                  Изображение и звук.&nbsp;
                   <span>
                     Фактическое качество зависит от устройства и ограничений правообладателя.
                   </span>
@@ -76,8 +62,8 @@ export const MovieOptions: FC<MovieOptionProps> = ({ movie }) => {
         </div>
       )}
       <span className={styles.clause_toggle}>
-        <Button appearance={'gray'} onClick={extend}>
-          {!extended ? t('buttons.open_details') : t('buttons.collapse_details')}
+        <Button appearance={'gray'} onClick={handleToggle}>
+          {!isExtended ? t('buttons.open_details') : t('buttons.collapse_details')}
         </Button>
       </span>
     </div>

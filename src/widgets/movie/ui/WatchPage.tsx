@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ColorContainer } from '@/entities/colored-container/ui/color-container';
@@ -31,15 +31,20 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { posterUrl, coverUrl, kinopoiskId } = movie;
   const { i18n } = useTranslation();
   const { data: filters } = useFetchFilmFiltersQuery();
-  const typeRuName = movieTypes[movie.type]?.ruName || 'Тип';
-  const typeEnName = movieTypes[movie.type]?.enName || 'Type';
-  const typePath = movieTypes[movie.type]?.path || 'movies';
+
+  const { typeRuName, typeEnName, typePath } = useMemo(() => {
+    return {
+      typeRuName: movieTypes[movie.type]?.ruName || 'Тип',
+      typeEnName: movieTypes[movie.type]?.enName || 'Type',
+      typePath: movieTypes[movie.type]?.path || '/movies',
+    };
+  }, [movie.type]);
   const breadcrumbs = [
     { name: i18n?.language == 'en' ? typeEnName : typeRuName, path: typePath },
     {
-      name: movie?.genres[0].genre || 'Жанр',
-      path: `/${typePath}?genre=${
-        filters?.genres?.find((genre) => genre.genre == movie?.genres[0].genre)?.id
+      name: movie?.genres?.[0]?.genre || 'Жанр',
+      path: `${typePath}?genre=${
+        filters?.genres?.find(({ genre }) => genre == movie?.genres?.[0]?.genre)?.id
       }`,
     },
   ];
@@ -58,7 +63,9 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     dispatch(setCurrentMovie(movie));
   }, [kinopoiskId]);
 
-  const trailerYT = videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
+  const trailerYT = useMemo(() => {
+    return videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
+  }, [videos?.items.length]);
   return (
     <>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />

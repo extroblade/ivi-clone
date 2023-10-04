@@ -15,16 +15,19 @@ export const CommentSection: FC = (): JSX.Element => {
     data: comments,
     isLoading,
     error,
-  } = useFetchCommentsQuery({ id: currentMovie?.kinopoiskId || 0 });
+  } = useFetchCommentsQuery(
+    { id: currentMovie?.kinopoiskId || 0 },
+    { skip: !currentMovie?.kinopoiskId }
+  );
   if (isLoading) return <Loader />;
   if (error || !comments?.total) return <></>;
   return (
     <div className={styles.comment_section}>
       <CommentInput />
       <ul>
-        {comments?.total
-          ? comments.items.map((comment) => <Comment comment={comment} key={comment.kinopoiskId} />)
-          : ''}
+        {comments.items.map((comment) => (
+          <Comment comment={comment} key={comment.kinopoiskId} />
+        ))}
       </ul>
     </div>
   );

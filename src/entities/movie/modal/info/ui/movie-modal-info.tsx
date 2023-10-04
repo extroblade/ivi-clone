@@ -31,10 +31,10 @@ export const MovieModalInfo = () => {
             <BarGraph width={98} />
           </div>
         </div>
-        <Text size="M" color={'gray'}>
+        <Text>
           {year && `${year}, `}
-          {countries?.length ? countries.map((country) => `${country.country}, `) : ''}
-          {genres?.length ? genres.map((genre) => `${genre.genre}, `) : ''}
+          {countries?.map((country) => `${country.country}, `)}
+          {genres?.map((genre) => `${genre.genre}, `)}
           {filmLength && dayjs.duration(filmLength, 'minutes').format('H часа mm минут')}
         </Text>
       </div>

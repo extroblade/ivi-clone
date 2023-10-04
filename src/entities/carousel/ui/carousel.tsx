@@ -20,6 +20,10 @@ export const Carousel: FC<CarouselProps> = ({
   route,
   settings,
 }): JSX.Element => {
+  const finalSettings = {
+    ...defaultSettings,
+    ...settings,
+  };
   return (
     <div className={styles.carousel}>
       {title && (
@@ -30,7 +34,7 @@ export const Carousel: FC<CarouselProps> = ({
           </Link>
         </div>
       )}
-      <Slider {...(settings || defaultSettings)}>
+      <Slider {...finalSettings}>
         {children}
         {showAll && <ShowAllCard link={route} />}
       </Slider>

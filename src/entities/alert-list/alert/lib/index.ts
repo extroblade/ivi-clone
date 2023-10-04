@@ -1,19 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 import { TIME_BEFORE_CLOSE, TIME_TO_CLOSE } from '@/entities/alert-list/model';
 import { selectAlerts, setActiveAlerts } from '@/entities/alert-list/model/slice';
-import { useAppDispatch, useAppSelector } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useBooleanState } from '@/shared/hooks';
 
-export const useCloseAlert = (id: string) => {
-  const [isClosing, setIsClosing] = useState(false);
+type ReturnType = {
+  handleClose: () => void;
+  isClosing: boolean;
+};
+export const useCloseAlert = (id: string): ReturnType => {
+  const [isClosing, { handleOpen }] = useBooleanState();
 
   const { activeAlerts } = useAppSelector(selectAlerts);
   const dispatch = useAppDispatch();
 
   const handleClose = () => {
-    setIsClosing(() => true);
+    handleOpen();
+    const newActiveAlerts = activeAlerts.filter((active) => active.id !== id);
     setTimeout(() => {
-      dispatch(setActiveAlerts(activeAlerts.filter((active) => active.id !== id)));
+      dispatch(setActiveAlerts(newActiveAlerts));
     }, TIME_TO_CLOSE);
   };
   useEffect(() => {

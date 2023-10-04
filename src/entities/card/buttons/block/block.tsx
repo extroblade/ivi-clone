@@ -1,26 +1,27 @@
-import { MouseEvent, useState } from 'react';
+import { MouseEvent } from 'react';
 import { MdBlock } from 'react-icons/md';
 
 import { Button } from '@/newui';
+import { useBooleanState } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
 export const BlockButton = () => {
-  const [blocked, setBlocked] = useState<boolean>(false);
+  const [isBlocked, { handleToggle }] = useBooleanState();
   const createAlert = useCreateAlert();
-  const blockMovie = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleBlock = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    e.nativeEvent.stopImmediatePropagation();
-    if (!blocked) {
+    e.stopPropagation();
+    if (!isBlocked) {
       createAlert({
         title: 'Спасибо за отметку',
         extra: 'Теперь мы будем показывать Вам меньше похожих фильмов',
       });
     }
-    setBlocked((blocked) => !blocked);
+    handleToggle();
   };
   return (
-    <Button appearance={'square'} onClick={blockMovie}>
-      {blocked ? <MdBlock fill={'var(--color-danger)'} /> : <MdBlock />}
+    <Button appearance={'square'} onClick={handleBlock}>
+      {isBlocked ? <MdBlock fill={'var(--color-danger)'} /> : <MdBlock />}
     </Button>
   );
 };

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Modal, Text } from '@/newui';
 import { localizeName } from '@/shared/helpers';
-import { useAppDispatch, useAppSelector, useCreateAlert, usePreventScroll } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector, useCreateAlert } from '@/shared/hooks';
 import { selectModal, setShowUnsub } from '@/shared/store';
 
 import styles from './UnsubscribeModal.module.scss';
@@ -20,7 +20,6 @@ export const UnsubscribeModal = () => {
     createAlert({ extra: 'Вы больше не будете получать уведомления о выходе новых серий' });
     handleClose();
   };
-  usePreventScroll(showUnsub);
   if (!currentMovie) return <></>;
   return (
     <Modal isOpen={showUnsub} closeModal={handleClose}>
@@ -40,7 +39,7 @@ export const UnsubscribeModal = () => {
               {currentMovie?.posterUrl && (
                 <Image width={100} height={160} src={currentMovie.posterUrl} alt={'poster'} />
               )}
-              <span className={styles.text}>{localizeName(currentMovie)}</span>
+              <Text>{localizeName(currentMovie)}</Text>
             </article>
           </div>
         </div>

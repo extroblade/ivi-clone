@@ -32,7 +32,9 @@ export const PersonList: FC<PersonListProps> = ({ rating }) => {
             title={localizeName(person)}
           >
             <div className={styles.person}>
-              <Image width={44} height={44} src={person?.posterUrl} alt={localizeName(person)} />
+              {person?.posterUrl && (
+                <Image width={44} height={44} src={person.posterUrl} alt={localizeName(person)} />
+              )}
             </div>
           </PersonCard>
         ))}

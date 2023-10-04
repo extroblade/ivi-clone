@@ -1,4 +1,6 @@
 .back {
+  position: relative;
+  z-index: inherit;
   cursor: pointer;
   background-color: transparent;
   color: white;
@@ -7,18 +9,22 @@
   opacity: 0.7;
   transition: var(--transition-main);
   margin: 15px 0;
+
   &__icon {
     margin-left: -10px;
     width: 35px;
     height: 35px;
   }
+
   & span {
     font-size: 15px;
   }
+
   &:hover {
     opacity: 1;
     margin: 15px 0;
   }
+
   &:hover .back__icon {
     transform: scale(1.1);
   }

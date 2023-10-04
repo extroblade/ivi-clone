@@ -158,7 +158,12 @@ export type ProfessionVariants =
   | 'HRONO_TITR_MALE'
   | 'DIRECTOR'
   | 'WRITER'
-  | 'DESIGN';
+  | 'DESIGN'
+  | 'VOICE_DIRECTOR'
+  | 'TRANSLATOR'
+  | 'COMPOSER'
+  | 'EDITOR'
+  | 'OPERATOR';
 
 export interface iVideos {
   total: number;

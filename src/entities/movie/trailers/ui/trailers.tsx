@@ -20,21 +20,20 @@ export const Trailers: FC<TrailerProps> = ({ videos }) => {
     dispatch(setShowWatchPageModal(true));
     scrollTop?.();
   };
+  if (!videos?.total) return <></>;
   return (
     <div className={styles.videos}>
       <Title onClick={openTrailers}>{t('categories.trailers')}</Title>
       <div className={styles.videos_links}>
-        {videos?.total
-          ? videos?.items.map((video) => (
-              <div className={styles.text_container} key={video.url}>
-                <Link target={'_blank'} href={video.url}>
-                  <Text size={'L'} color={'gray-light'}>
-                    {video.name}
-                  </Text>
-                </Link>
-              </div>
-            ))
-          : ''}
+        {videos?.items.map(({ name, url }, index) => (
+          <div className={styles.text_container} key={index}>
+            <Link target={'_blank'} href={url}>
+              <Text size={'L'} color={'gray-light'}>
+                {name}
+              </Text>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

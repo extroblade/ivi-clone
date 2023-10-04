@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Modal, Text, Title } from '@/newui';
-import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setShowRating } from '@/shared/store';
 
 import { rates } from '../model/props';
@@ -21,7 +21,6 @@ export const RatingModal: FC = (): JSX.Element => {
   const handleRate = (rating: number) => {
     setActive(() => rating);
   };
-  usePreventScroll(showRating);
   return (
     <Modal isOpen={showRating} closeModal={handleClose}>
       <div className={styles.body}>

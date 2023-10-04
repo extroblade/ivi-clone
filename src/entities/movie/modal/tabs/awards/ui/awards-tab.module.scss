@@ -1,11 +1,20 @@
+.awards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .award {
   display: flex;
+  flex-direction: column;
   text-align: center;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: flex-start;
+  width: fit-content;
+  gap: 10px;
 }
 
 .image_container {
-  display: flex;
   width: 100px;
   min-height: 200px;
   position: relative;

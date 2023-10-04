@@ -5,20 +5,16 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Explanations } from '@/entities/explanations';
-import { MovieOptions } from '@/entities/movie/options/ui/movie-options';
+import { MovieOptions } from '@/entities/movie/options';
 import { PersonList } from '@/entities/movie/persons/list/ui/person-list';
 import { RatingBlock } from '@/features/rating-block';
 import { Title } from '@/newui';
 import { movieTypes } from '@/shared/constants';
 import { localizeName } from '@/shared/helpers/localize-name';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
-import { iFilm } from '@/shared/types/kinopoiskTypes';
 
+import { MovieInfoProps } from '../model/props';
 import styles from './movie-info.module.scss';
-
-type MovieInfoProps = {
-  movie: iFilm;
-};
 
 export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
   const { i18n } = useTranslation();
@@ -33,7 +29,7 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
     filmLength,
   } = movie;
 
-  const { data: filters } = useFetchFilmFiltersQuery();
+  const { data: filters, isLoading } = useFetchFilmFiltersQuery();
 
   return (
     <div className={styles.watch__info}>
@@ -46,32 +42,41 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
       </div>
       <div className={styles.watch__params}>
         <ul className={styles.info_list}>
-          {year && <div className={styles.info_item}>{year}</div>}
+          {year && <div className={styles.info_item}>{year},</div>}
           <div className={styles.info_item}>
-            {dayjs.duration(filmLength, 'minutes').format('H часа m минут')}
+            {dayjs.duration(filmLength, 'minutes').format('H:mm:ss')}
           </div>
         </ul>
         <ul className={styles.info_list}>
-          {countries?.map(({ country, id }) => (
-            <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-              <Link
-                href={`${movieTypes[type].path}?country=${
-                  filters?.countries.find((item) => item.country == country)?.id
-                }`}
-              >
-                {country}
-              </Link>
-            </div>
-          ))}
+          {!isLoading &&
+            countries?.map(({ country, id }) => (
+              <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
+                {!isLoading ? (
+                  <Link
+                    href={`${movieTypes[type].path}?country=${
+                      filters?.countries.find((item) => item.country == country)?.id
+                    }`}
+                  >
+                    {country}
+                  </Link>
+                ) : (
+                  <div className={'loader'} />
+                )}
+              </div>
+            ))}
           {genres?.map(({ genre, id }) => (
             <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-              <Link
-                href={`${movieTypes[type].path}?genre=${
-                  filters?.genres.find((item) => item.genre == genre)?.id
-                }`}
-              >
-                {genre}
-              </Link>
+              {!isLoading ? (
+                <Link
+                  href={`${movieTypes[type].path}?genre=${
+                    filters?.genres.find(({ genre: item }) => item == genre)?.id
+                  }`}
+                >
+                  {genre}
+                </Link>
+              ) : (
+                <div className={'loader'} />
+              )}
             </div>
           ))}
         </ul>

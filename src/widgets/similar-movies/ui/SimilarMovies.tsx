@@ -11,7 +11,11 @@ export const SimilarMovies: FC<SimilarProps> = ({ similar }) => {
 
   if (!similar?.total) return <></>;
   return (
-    <Carousel title={t('descriptions.similar') || ''} route={'/'}>
+    <Carousel
+      settings={{ slidesToShow: Math.min(7, similar.items.length) }}
+      title={t('descriptions.similar') || ''}
+      route={'/'}
+    >
       {similar.items.map((card) => (
         <Card key={card.filmId} card={card} book info={false} />
       ))}

@@ -14,6 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0;
+  gap: 10px;
 }
 
 .card {
@@ -23,6 +24,7 @@
   overflow: hidden;
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
+  margin-bottom: 15px;
 
   .img {
     width: 120px;
@@ -48,10 +50,4 @@
   }
 }
 
-.name {
-  font-size: 13px;
-  color: #d9d7e0;
-  transition: var(--transition-main);
-  line-height: 16px;
-  font-weight: 500;
-}
+

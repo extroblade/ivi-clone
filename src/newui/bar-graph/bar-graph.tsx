@@ -1,9 +1,10 @@
 import cn from 'classnames';
+import { FC } from 'react';
 
 import styles from './bar-graph.module.scss';
 import { BarGraphProps } from './bar-graph.props';
 
-export const BarGraph = ({ width, color, ...props }: BarGraphProps) => {
+export const BarGraph: FC<BarGraphProps> = ({ width, color, ...props }) => {
   return (
     <div className={styles.bar} {...props}>
       <div

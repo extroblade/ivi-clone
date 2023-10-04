@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
@@ -14,22 +13,11 @@ export const PersonsTab = () => {
     { filmId: currentMovie?.kinopoiskId || 0 },
     { skip: !showWatchPageModal || !currentMovie?.kinopoiskId }
   );
-
-  const { t } = useTranslation();
   if (isLoading) return <Loader />;
   if (!persons?.length) return <Title>Актеры не указаны</Title>;
   return (
-    <>
-      <Title tag="h3">{t('categories.actors')}</Title>
-      <StaffList persons={persons?.filter((person) => person.professionText == 'Актеры') || []} />
-      <Title tag="h3">{t('categories.directors')}</Title>
-      <StaffList
-        persons={persons?.filter((person) => person.professionText == 'Режиссеры') || []}
-      />
-      <Title tag="h3">{'Продюсеры'}</Title>
-      <StaffList
-        persons={persons?.filter((person) => person.professionText == 'Продюсеры') || []}
-      />
-    </>
+    <StaffList
+      persons={[...persons]?.sort((a, b) => a.professionText.localeCompare(b.professionText)) || []}
+    />
   );
 };

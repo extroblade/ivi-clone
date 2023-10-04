@@ -71,13 +71,9 @@ export const Categories: FC = (): JSX.Element => {
       </div>
       <div className={styles.content__collections}>
         <div className={styles.collections__collection}>
-          {defaultCollections?.map((collection) => (
-            <Link
-              className={styles.collections__link}
-              key={collection.title}
-              href={collection.link}
-            >
-              {collection.title}
+          {defaultCollections?.map(({ link, title }) => (
+            <Link className={styles.collections__link} key={title} href={link}>
+              {title}
             </Link>
           ))}
         </div>

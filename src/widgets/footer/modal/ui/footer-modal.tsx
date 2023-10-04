@@ -50,13 +50,9 @@ export const FooterModal: FC = (): JSX.Element => {
           <Link href={'#'} className={styles.link}>
             {t('sections.whats-new')}
           </Link>
-          <ModalList title={t('sections.movies')} icon={BsCameraReels} isFilms={true}></ModalList>
-          <ModalList
-            title={t('sections.series')}
-            icon={MdOutlineVideoLibrary}
-            isFilms={true}
-          ></ModalList>
-          <ModalList title={t('sections.animation')} icon={TbTractor} isFilms={true}></ModalList>
+          <ModalList title={t('sections.movies')} icon={BsCameraReels} isFilms={true} />
+          <ModalList title={t('sections.series')} icon={MdOutlineVideoLibrary} isFilms={true} />
+          <ModalList title={t('sections.animation')} icon={TbTractor} isFilms={true} />
           <ModalList title={'TV+'} icon={IoTvOutline}>
             <div className={styles.list}>
               <p>{t('categories.tv-online')}</p>
