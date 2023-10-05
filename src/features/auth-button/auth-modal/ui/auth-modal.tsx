@@ -79,7 +79,7 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
   }, [step]);
 
   return (
-    <Modal isOpen={showAuth || isOpen} closeModal={handleClose}>
+    <Modal isOpen={showAuth || isOpen} closeModal={handleClose} cross={false}>
       <form className={styles.chat}>
         <div className={styles.chat__header}>
           {step > 1 ? (
