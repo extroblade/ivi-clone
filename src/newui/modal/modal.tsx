@@ -16,7 +16,13 @@ const variants = {
     margin: 0,
   },
 };
-export const Modal: FC<ModalProps> = ({ isOpen, closeModal, variant = 'fullscreen', children }) => {
+export const Modal: FC<ModalProps> = ({
+  isOpen,
+  cross = true,
+  closeModal,
+  variant = 'fullscreen',
+  children,
+}) => {
   const { t } = useTranslation();
 
   const [isClosing, { handleClose: handleClosing, handleOpen }] = useBooleanState();
@@ -42,12 +48,14 @@ export const Modal: FC<ModalProps> = ({ isOpen, closeModal, variant = 'fullscree
       className={cn(styles.modal, styles[variant])}
       initial={!isClosing ? 'visible' : 'hidden'}
     >
-      <Button
-        appearance={'transparent'}
-        className={styles.cross}
-        onClick={handleClose}
-        title={t('buttons.close-form') || 'Нажмите, чтобы закрыть форму'}
-      />
+      {cross && (
+        <Button
+          appearance={'transparent'}
+          className={styles.cross}
+          onClick={handleClose}
+          title={t('buttons.close-form') || 'Нажмите, чтобы закрыть форму'}
+        />
+      )}
       {children}
     </motion.div>
   );

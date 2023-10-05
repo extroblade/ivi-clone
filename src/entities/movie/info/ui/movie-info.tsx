@@ -9,7 +9,7 @@ import { MovieOptions } from '@/entities/movie/options';
 import { PersonList } from '@/entities/movie/persons/list/ui/person-list';
 import { RatingBlock } from '@/features/rating-block';
 import { Title } from '@/newui';
-import { movieTypes } from '@/shared/constants';
+import { getPathByType } from '@/shared/constants';
 import { localizeName } from '@/shared/helpers/localize-name';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 
@@ -29,7 +29,7 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
     filmLength,
   } = movie;
 
-  const { data: filters, isLoading } = useFetchFilmFiltersQuery();
+  const { data: filters } = useFetchFilmFiltersQuery();
 
   return (
     <div className={styles.watch__info}>
@@ -48,34 +48,26 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
           </div>
         </ul>
         <ul className={styles.info_list}>
-          {!isLoading ? (
-            countries?.map(({ country, id }) => (
-              <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-                <Link
-                  href={`${movieTypes[type].path}?country=${
-                    filters?.countries.find((item) => item.country == country)?.id
-                  }`}
-                >
-                  {country}
-                </Link>
-              </div>
-            ))
-          ) : (
-            <div style={{ height: 30, width: 50 }} className={'loader'} />
-          )}
+          {countries?.map(({ country, id }) => (
+            <div key={country + id} className={cn(styles.info_item, styles.item_hasDot)}>
+              <Link
+                href={`${getPathByType(type)}?country=${
+                  filters?.countries.find((item) => item.country == country)?.id
+                }`}
+              >
+                {country}
+              </Link>
+            </div>
+          ))}
           {genres?.map(({ genre, id }) => (
-            <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
-              {!isLoading ? (
-                <Link
-                  href={`${movieTypes[type].path}?genre=${
-                    filters?.genres.find(({ genre: item }) => item == genre)?.id
-                  }`}
-                >
-                  {genre}
-                </Link>
-              ) : (
-                <div className={'loader'} />
-              )}
+            <div key={genre + id} className={cn(styles.info_item, styles.item_hasDot)}>
+              <Link
+                href={`${getPathByType(type)}?genre=${
+                  filters?.genres.find(({ genre: item }) => item == genre)?.id
+                }`}
+              >
+                {genre}
+              </Link>
             </div>
           ))}
         </ul>
