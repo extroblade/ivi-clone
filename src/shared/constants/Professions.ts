@@ -1,3 +1,5 @@
+import i18next from 'i18next';
+
 import { LanguageVariants } from '@/shared/constants/languages';
 import { ProfessionVariants } from '@/shared/types/kinopoiskTypes';
 
@@ -52,4 +54,8 @@ export const professionTypes: ProfessionVariantsType = {
     ru: 'Сценарист',
     en: 'Writer',
   },
+};
+
+export const getProfessionByType = (type: ProfessionVariants): string => {
+  return professionTypes[type][i18next.language as LanguageVariants];
 };

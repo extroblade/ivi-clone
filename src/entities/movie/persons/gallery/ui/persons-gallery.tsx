@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { LanguageVariants, professionTypes } from 'src/shared/constants';
+import { getProfessionByType } from 'src/shared/constants';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Sup, Text, Title } from '@/newui';
@@ -15,7 +15,7 @@ import { PersonsGalleryProps } from '../model/PersonsGallery.props';
 import styles from './persons-gallery.module.scss';
 
 export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const scrollTop = useScrollTop();
   const open = () => {
@@ -56,9 +56,7 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
                         {word?.length && <p className={styles.name}>{word}</p>}
                       </div>
                     ))}
-                  <Text size="S">
-                    {professionTypes[professionKey]?.[i18n.language as LanguageVariants]}
-                  </Text>
+                  <Text size="S">{getProfessionByType(professionKey)}</Text>
                 </div>
               </Link>
             );

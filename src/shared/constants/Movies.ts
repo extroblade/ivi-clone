@@ -52,3 +52,7 @@ export const movieTypes: Record<MovieVariants, iFilmValues> = {
     path: '/movies',
   },
 };
+
+export const getPathByType = (type: MovieVariants): string => {
+  return movieTypes[type].path;
+};

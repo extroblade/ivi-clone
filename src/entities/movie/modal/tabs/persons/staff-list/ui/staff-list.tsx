@@ -1,17 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Text } from '@/newui';
-import { LanguageVariants, professionTypes } from '@/shared/constants';
+import { getProfessionByType } from '@/shared/constants';
 import { localizeName } from '@/shared/helpers/localize-name';
 
 import { StaffListProps } from '../model/props';
 import styles from './staff-list.module.scss';
 
 export const StaffList: FC<StaffListProps> = ({ persons }) => {
-  const { i18n } = useTranslation();
   if (!persons?.length) return <Text>Не указаны!</Text>;
   return (
     <div className={styles.cards}>
@@ -34,9 +32,7 @@ export const StaffList: FC<StaffListProps> = ({ persons }) => {
             <Text size={'S'} color={'gray-light'}>
               {localizeName(person)}
             </Text>
-            <Text size={'S'}>
-              {professionTypes?.[professionKey]?.[i18n.language as LanguageVariants]}
-            </Text>
+            <Text size={'S'}>{getProfessionByType(professionKey)}</Text>
           </Link>
         );
       })}
