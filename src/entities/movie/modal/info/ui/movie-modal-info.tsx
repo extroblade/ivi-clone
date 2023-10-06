@@ -1,15 +1,17 @@
 import dayjs from 'dayjs';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { BarGraph, Text } from '@/newui';
-import { useAppSelector } from '@/shared/hooks';
-import { selectModal } from '@/shared/store';
+import { useFetchFilmQuery } from '@/shared/services';
 
 import styles from './movie-modal-info.module.scss';
 
 export const MovieModalInfo = () => {
-  const { currentMovie } = useAppSelector(selectModal);
-  const { posterUrl, ratingKinopoisk, year, countries, genres, filmLength } = currentMovie || {};
+  const router = useRouter();
+  const { data: movie } = useFetchFilmQuery(Number(router.query?.id), { skip: !router?.query?.id });
+  const { posterUrl, ratingKinopoisk, year, countries, genres, filmLength } = movie || {};
+  if (!movie) return <></>;
   return (
     <div className={styles.movie}>
       {posterUrl && (
@@ -33,8 +35,8 @@ export const MovieModalInfo = () => {
         </div>
         <Text>
           {year && `${year}, `}
-          {countries?.map((country) => `${country.country}, `)}
-          {genres?.map((genre) => `${genre.genre}, `)}
+          {countries?.map(({ country }) => `${country}, `)}
+          {genres?.map(({ genre }) => `${genre}, `)}
           {filmLength && dayjs.duration(filmLength, 'minutes').format('H часа mm минут')}
         </Text>
       </div>

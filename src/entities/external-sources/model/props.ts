@@ -1,3 +1,3 @@
 export type ExternalSourcesProps = {
-  id: number | string;
+  id?: number;
 };

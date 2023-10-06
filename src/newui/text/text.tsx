@@ -11,7 +11,7 @@ export const Text: FC<TextProps> = ({
   ...props
 }): JSX.Element => {
   return (
-    <p className={cn(styles.p, styles[size], styles[color])} {...props}>
+    <p {...props} className={cn(styles.p, styles[size], styles[color], props.className)}>
       {children}
     </p>
   );

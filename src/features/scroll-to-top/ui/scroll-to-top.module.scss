@@ -1,7 +1,7 @@
 .obs {
-  top: 120vh;
+  top: 200vh;
   position: absolute;
-  height: 50%;
+  height: 100%;
   width: 1px;
 }
 
@@ -24,7 +24,7 @@
     width: 100%;
   }
 
-  .shown {
+  &.shown {
     transform: translateY(0);
     transition: transform 80ms;
     @media screen and (max-width: 1160px) {

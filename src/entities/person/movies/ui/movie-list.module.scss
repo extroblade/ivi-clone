@@ -9,6 +9,7 @@
   display: flex;
   gap: 10px;
   align-items: flex-end;
+
   .amount {
     cursor: pointer;
   }
@@ -23,7 +24,7 @@
 .cards {
   position: relative;
   display: grid;
-  gap: 16px;
+  gap: 2px;
   max-width: 100%;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -33,6 +34,7 @@
 .link {
   transition: var(--transition-main);
   cursor: pointer;
+
   &:hover {
     color: var(--color-main);
   }

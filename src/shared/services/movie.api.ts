@@ -46,6 +46,11 @@ export const movieApi = createApi({
   ),
   tagTypes: ['Movies'],
   endpoints: (build) => ({
+    fetchFilm: build.query<iFilm, number>({
+      query: (id) => ({
+        url: `/${id}`,
+      }),
+    }),
     fetchAllFilms: build.query<iFetchedFilms, QueryParams>({
       query: ({
         countries,
@@ -136,11 +141,6 @@ export const movieApi = createApi({
         url: `${id}/external_sources`,
       }),
     }),
-    fetchOneFilm: build.query<iFilm, { id: number }>({
-      query: ({ id }) => ({
-        url: `${id}`,
-      }),
-    }),
     fetchComments: build.query<iReviews, { id: number }>({
       query: ({ id }) => ({
         url: `${id}/reviews`,
@@ -150,6 +150,7 @@ export const movieApi = createApi({
 });
 
 export const {
+  useFetchFilmQuery,
   useFetchAllFilmsQuery,
   useFetchTopFilmQuery,
   useFetchFilmFiltersQuery,

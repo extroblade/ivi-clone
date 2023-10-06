@@ -32,7 +32,7 @@ export const PromoCarouselSlide: FC<PromoCardProps> = ({ slide }): JSX.Element =
           width={1216}
           height={524}
           quality={100}
-          priority
+          priority={slide?.id === 1}
         />
         <div className={styles.information}>
           <div className={styles.content_container}>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { MoviesDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
-import { Filters } from '@/widgets/filter/ui/filters';
+import { Filters } from '@/widgets/filter';
 import { Grid } from '@/widgets/grid';
 
 const Movies = () => {

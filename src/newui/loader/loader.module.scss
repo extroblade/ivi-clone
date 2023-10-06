@@ -9,9 +9,7 @@ $ball: radial-gradient(farthest-side, #44449f 90%, #0000);
 .circle_loader {
   width: 52px;
   height: 12px;
-  background:
-    $ball left,
-    $ball right;
+  background: $ball left, $ball right;
   background-size: 12px 12px;
   background-repeat: no-repeat;
   display: grid;

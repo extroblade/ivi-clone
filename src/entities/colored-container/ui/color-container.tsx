@@ -13,7 +13,7 @@ export const ColorContainer: FC<ColorContainerProps> = ({ movie }) => {
     }
     const fac = new FastAverageColor();
     fac
-      .getColorAsync(movie?.coverUrl, {
+      .getColorAsync(movie.coverUrl, {
         algorithm: 'simple',
         crossOrigin: 'a',
       })

@@ -28,7 +28,7 @@
 }
 
 .active:after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   box-shadow: 0 2px 8px rgba(var(--color-accent), 0.8);
@@ -45,18 +45,13 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  background-color: #1f1b2e;
+  background-color: var(--color-input-text);
   border-radius: 6px;
   margin-bottom: 20px;
   transition: all 200ms ease;
 
   .plank_list {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-left: -6px;
     margin-right: -6px;
@@ -70,36 +65,11 @@
     width: calc(100% / 4);
 
     @media screen and (max-width: 879px) {
-      width: 50%;
+      width: calc(100% / 2);
     }
     @media screen and (max-width: 599px) {
-      width: 100%;
+      width: calc(100% / 1);
     }
-  }
-
-  .sausage_list {
-    display: flex;
-    align-items: center;
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    flex-wrap: wrap;
-    flex-grow: 1;
-  }
-
-  .sausage {
-    margin: 12px 12px 0 0;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: baseline;
-    -webkit-align-items: baseline;
-    -ms-flex-align: baseline;
-    align-items: baseline;
-    -webkit-flex-wrap: nowrap;
-    -ms-flex-wrap: nowrap;
-    flex-wrap: nowrap;
   }
 
   .reset {
@@ -109,7 +79,7 @@
     align-items: center;
     justify-content: center;
     opacity: 1;
-    cursor: pointer !important;
+    cursor: pointer;
     transition: var(--time-main) all ease-in;
 
     &:hover {

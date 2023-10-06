@@ -98,15 +98,11 @@
   }
 
   .link {
-    box-shadow:
-      0 2px 0 #7e798f,
-      inset 0 0 0 #7e798f;
+    box-shadow: 0 2px 0 #7e798f, inset 0 0 0 #7e798f;
     transition-duration: 0.4s;
 
     &:hover {
-      box-shadow:
-        0 0 0 #7e798f,
-        inset 0 -1.5em 0 #7e798f;
+      box-shadow: 0 0 0 #7e798f, inset 0 -1.5em 0 #7e798f;
     }
   }
 }
@@ -153,6 +149,6 @@
 }
 
 .not_found {
-  color: var(--color-warning);
+  color: var(--color-danger);
   opacity: 50%;
 }

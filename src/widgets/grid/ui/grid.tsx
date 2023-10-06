@@ -14,6 +14,7 @@ import { GridProps } from '../model/props';
 import styles from './grid.module.scss';
 
 export const Grid: FC<GridProps> = ({ type }) => {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
   const isInView = useInView(buttonRef);
@@ -33,14 +34,13 @@ export const Grid: FC<GridProps> = ({ type }) => {
     }),
     [router.query, page]
   );
-  const { data, isFetching, isLoading } = useFetchAllFilmsQuery(params);
+  const { data, isFetching, isLoading, error } = useFetchAllFilmsQuery(params);
 
   useEffect(() => {
     setPage(() => 1);
     scrollTop?.();
   }, [router.query]);
 
-  const { t } = useTranslation();
   const showMore = () => {
     if (!data?.totalPages || page >= data?.totalPages) {
       return;
@@ -57,7 +57,7 @@ export const Grid: FC<GridProps> = ({ type }) => {
     } else {
       const filteredData = data?.items.filter(
         //api can send same data from different pages -> keys error
-        (item) => !movies.map((movie) => movie.kinopoiskId).includes(item.kinopoiskId)
+        (item) => !movies.map(({ kinopoiskId }) => kinopoiskId).includes(item.kinopoiskId)
       );
       setMovies(() => [...movies, ...filteredData]);
     }
@@ -69,10 +69,17 @@ export const Grid: FC<GridProps> = ({ type }) => {
     }
     showMore();
   }, [isInView]);
+  if (error) {
+    return (
+      <Title tag={'h1'} style={{ color: 'var(--color-danger)' }}>
+        Error {error?.status}: {error?.data?.message}
+      </Title>
+    );
+  }
   return (
     <>
       <div className={styles.grid}>
-        {(data?.total && isFetching && <Loader />) || ''}
+        {(data?.total && isFetching && page < 2 && <Loader />) || ''}
         <div className={styles.grid__container}>
           <ul className={styles.grid__list}>
             {(movies || Array(15).fill(1))?.map((card, index) => (

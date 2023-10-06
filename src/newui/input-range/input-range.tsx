@@ -10,17 +10,15 @@ import { InputRangeProps } from './input-range.props';
 export const InputRange: FC<InputRangeProps> = memo(
   ({ minLimit, maxLimit, range, children, name }): JSX.Element => {
     const router = useRouter();
-    const [param, setParam] = useSearchParamsState<string>({
-      name: name,
-    });
-    const [inputValue, setInputValue] = useState<number | string>(param || minLimit);
+    const [param, setParam] = useSearchParamsState<number>({ name });
+    const [inputValue, setInputValue] = useState<number>(param || minLimit);
 
     const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
       setParam(Math.min(Math.max(e.target.valueAsNumber, minLimit), maxLimit));
     };
 
     useEffect(() => {
-      setInputValue(() => (router.query?.[name] as string) || '');
+      setInputValue(() => Number(router.query?.[name]) || minLimit);
     }, [router.query?.[name]]);
     return (
       <div className={styles.container}>
@@ -36,11 +34,11 @@ export const InputRange: FC<InputRangeProps> = memo(
             min={minLimit}
             max={maxLimit}
             step={range}
-            value={+inputValue}
+            value={inputValue}
             style={{
-              background: `linear-gradient(90deg, #1f1b2d ${
+              background: `linear-gradient(90deg, var(--color-input-text) ${
                 ((+inputValue - minLimit) * 100) / (maxLimit - minLimit)
-              }%, #A2002DFF 0%)`,
+              }%, var(--color-accent) 0%)`,
             }}
           />
         </div>

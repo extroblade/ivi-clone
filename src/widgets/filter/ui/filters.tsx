@@ -100,10 +100,8 @@ export const Filters: FC = (): JSX.Element => {
           onClick={handleReset}
           disabled={!isActive}
         >
-          <div>
-            <RxCross2 size={'20px'} />
-          </div>
-          <div>{t('buttons.reset-filters')}</div>
+          <RxCross2 size={'20px'} />
+          {t('buttons.reset-filters')}
         </Button>
       </motion.div>
     </>

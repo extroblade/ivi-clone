@@ -47,7 +47,7 @@ export const Footer: FC = (): JSX.Element => {
               <Text>{t('footer.anytime')}</Text>
             </li>
             <li className={styles.buttonsGroup}>
-              <Link href={'https://www.ivi.ru/profile'}>
+              <Link href={'https://ivi.ru/profile'}>
                 <Button className={styles.button}>{t('footer.chat-us')}</Button>
               </Link>
               <Link href={'https://mailto:alexey.cherepanov.03@gmail.com'}>

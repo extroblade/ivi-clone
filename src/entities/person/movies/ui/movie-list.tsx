@@ -34,7 +34,7 @@ export const MovieList: FC<MovieListProps> = ({ list }) => {
         {!isOpen && list?.length > 8 ? (
           <>
             {list?.slice(0, 8).map((card: StaffFilm) => (
-              <MovieCard key={card.filmId} card={card} />
+              <MovieCard key={card.filmId + card.professionKey} card={card} />
             ))}
             <Text onClick={handleToggle} className={styles.link}>
               {t('buttons.more')} {list?.length - 8}

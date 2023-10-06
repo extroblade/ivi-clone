@@ -18,17 +18,33 @@ export const ChooseDropdown: FC<ChooseDropdownProps> = ({
   data,
 }): JSX.Element => {
   const router = useRouter();
+  if (!data?.length)
+    return (
+      <Dropdown state={isOpen}>
+        <div className={cn(styles.dropdown, styles.choose)}>
+          <div className={styles.list_container}>
+            <ul className={styles.list}>
+              {Array(30)
+                .fill(1)
+                .map((_, index) => (
+                  <div key={index} className={cn(styles.item, 'loader')} />
+                ))}
+            </ul>
+          </div>
+        </div>
+      </Dropdown>
+    );
   return (
     <Dropdown state={isOpen}>
       <div className={cn(styles.dropdown, styles.choose)}>
         <div className={styles.list_container}>
-          <ul>
+          <ul className={styles.list}>
             {data?.map((item) => (
               <li
                 onClick={() => onClick(item.id)}
                 key={item.id}
                 title={'title'}
-                className={cn(item?.id == router.query?.[name] && styles.checked)}
+                className={cn(styles.item, item?.id == router.query?.[name] && styles.checked)}
               >
                 <label>
                   <input type="checkbox" value={item[name]} />

@@ -108,12 +108,12 @@ exports[`card card object should not throw error with empty card 1`] = `
         </div>
         <div
           class="textSection"
-          title="Not found"
+          title="Не указано"
         >
           <p
             class="p M gray"
           >
-            Not found
+            Не указано
           </p>
         </div>
       </a>
@@ -223,12 +223,12 @@ exports[`card card object should not throw error with empty card 1`] = `
       </div>
       <div
         class="textSection"
-        title="Not found"
+        title="Не указано"
       >
         <p
           class="p M gray"
         >
-          Not found
+          Не указано
         </p>
       </div>
     </a>

@@ -25,17 +25,17 @@ export const SearchModal: FC = (): JSX.Element => {
 
   const debounceQuery = useDebounce(() => {
     setDebouncedQuery(query.trim());
-  }, 300);
+  }, 500);
   useEffect(() => {
     debounceQuery();
   }, [query]);
   const { data: movies, isFetching: isMoviesLoading } = useFetchAllFilmsQuery(
     { keyword: debouncedQuery },
-    { skip: !isOpen || !query }
+    { skip: !isOpen || !query.trim() }
   );
   const { data: persons, isFetching: isPersonsLoading } = useFetchPersonNameQuery(
     { name: debouncedQuery },
-    { skip: !isOpen || !query }
+    { skip: !isOpen || !query.trim() }
   );
 
   const handleClose = () => {

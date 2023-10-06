@@ -1,14 +1,11 @@
 import cn from 'classnames';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { getProfessionByType } from 'src/shared/constants';
 
+import { PersonForGallery } from '@/entities/movie/persons/gallery/person/person-for-gallery';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
-import { Sup, Text, Title } from '@/newui';
-import { localizeName } from '@/shared/helpers';
+import { Sup, Title } from '@/newui';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store/reducers/modals.slice';
 
 import { PersonsGalleryProps } from '../model/PersonsGallery.props';
@@ -31,36 +28,9 @@ export const PersonsGallery: FC<PersonsGalleryProps> = ({ list }) => {
       </Title>
       <div className={styles.list}>
         <div className={styles.list__wrap}>
-          {list.slice(0, 9).map((person) => {
-            const { posterUrl, staffId, professionKey } = person || {};
-            return (
-              <Link href={`/name/${staffId}`} key={staffId + professionKey} className={styles.link}>
-                <div className={styles.card}>
-                  <div className={styles.img}>
-                    {posterUrl && (
-                      <Image
-                        src={posterUrl}
-                        fill
-                        sizes={'(max-width: 768px) 100vw, (max-width: 300px) 25vw, 20vw'}
-                        alt=""
-                      />
-                    )}
-                  </div>
-                </div>
-                <div>
-                  {localizeName(person)
-                    .split(' ')
-                    .slice(0, 2)
-                    .map((word) => (
-                      <div key={staffId + professionKey + word}>
-                        {word?.length && <p className={styles.name}>{word}</p>}
-                      </div>
-                    ))}
-                  <Text size="S">{getProfessionByType(professionKey)}</Text>
-                </div>
-              </Link>
-            );
-          })}
+          {list.slice(0, 9).map((person) => (
+            <PersonForGallery key={person.staffId + person.professionKey} person={person} />
+          ))}
         </div>
         {list.length > 10 && (
           <div className={cn(styles.card, styles.card__text)} onClick={open}>

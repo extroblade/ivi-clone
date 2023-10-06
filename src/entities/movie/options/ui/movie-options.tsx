@@ -1,20 +1,22 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { badges } from '@/entities/movie/options/model/badges';
 import { MovieOptionProps } from '@/entities/movie/options/model/props';
-import { Badge, Button, Text } from '@/newui';
-import { LanguageVariants, movieTypes } from '@/shared/constants';
-import { localizeName } from '@/shared/helpers';
+import { Badge, Button, Loader, Text } from '@/newui';
+import { getNameByType } from '@/shared/constants';
+import { useLocalizeName } from '@/shared/helpers';
 import { arrayToString } from '@/shared/helpers/array-to-string';
 import { useBooleanState } from '@/shared/hooks';
 
 import styles from './styles.module.scss';
 
 export const MovieOptions: FC<MovieOptionProps> = ({ movie }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isExtended, { handleToggle }] = useBooleanState();
   const { description, shortDescription, languages, subtitles, type } = movie;
+  const title = useLocalizeName(movie);
+  if (!movie?.kinopoiskId) return <Loader />;
   return (
     <div className={styles.movie_options}>
       <div className={styles.watch__description}>
@@ -23,8 +25,7 @@ export const MovieOptions: FC<MovieOptionProps> = ({ movie }) => {
           <>
             {description && <Text>{description}</Text>}
             <Text>
-              {movieTypes[type]?.[`${i18n.language as LanguageVariants}NameSingle`]}{' '}
-              {localizeName(movie)} доступен на сайте. Приятного просмотра!
+              {getNameByType(type)} {title} доступен на сайте. Приятного просмотра!
             </Text>
           </>
         )}

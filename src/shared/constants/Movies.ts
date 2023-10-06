@@ -1,58 +1,53 @@
+import i18next from 'i18next';
+
+import { LanguageVariants } from '@/shared/constants/languages';
 import { MovieVariants } from '@/shared/types/kinopoiskTypes';
 
-export interface iFilmValues {
-  ruName: string;
-  ruNameSingle: string;
-  enName: string;
-  enNameSingle: string;
+export type MovieParams = {
+  ru: string;
+  en: string;
   path: string;
-}
+};
 
-export const movieTypes: Record<MovieVariants, iFilmValues> = {
+export const movieTypes: Record<MovieVariants, MovieParams> = {
   FILM: {
-    ruName: 'Фильмы',
-    ruNameSingle: 'Фильм',
-    enName: 'Movies',
-    enNameSingle: 'Movie',
+    ru: 'Фильм',
+    en: 'Movie',
     path: '/movies',
   },
   TV_SHOW: {
-    ruName: 'ТВ шоу',
-    ruNameSingle: 'ТВ шоу',
-    enName: 'TV show',
-    enNameSingle: 'TV show',
+    ru: 'ТВ шоу',
+    en: 'TV show',
     path: '/series',
   },
   TV_SERIES: {
-    ruName: 'Сериалы',
-    ruNameSingle: 'Сериал',
-    enName: 'Series',
-    enNameSingle: 'Series',
+    ru: 'Сериал',
+    en: 'Series',
     path: '/series',
   },
   SERIES: {
-    ruName: 'Сериалы',
-    ruNameSingle: 'Сериал',
-    enName: 'Series',
-    enNameSingle: 'Series',
+    ru: 'Сериал',
+
+    en: 'Series',
     path: '/series',
   },
   MINI_SERIES: {
-    ruName: 'Мультфильмы',
-    ruNameSingle: 'Мультфильм',
-    enName: 'Cartoons',
-    enNameSingle: 'Cartoon',
+    ru: 'Мультфильм',
+
+    en: 'Cartoon',
     path: '/animation',
   },
   VIDEO: {
-    ruName: 'Видео',
-    ruNameSingle: 'Видео',
-    enName: 'Video',
-    enNameSingle: 'Video',
+    ru: 'Видео',
+
+    en: 'Video',
     path: '/movies',
   },
 };
+export const getNameByType = (type: MovieVariants): string => {
+  return movieTypes?.[type]?.[i18next.language as LanguageVariants] || 'Тип';
+};
 
 export const getPathByType = (type: MovieVariants): string => {
-  return movieTypes[type].path;
+  return movieTypes?.[type]?.path || '/movies';
 };
