@@ -23,9 +23,11 @@ export const Plank: FC<PlankProps> = ({
         <div className={styles.info}>
           <div className={styles.title}>{title}</div>
         </div>
-        <div className={styles.icon}>
-          {isActive ? <BsChevronCompactUp /> : <BsChevronCompactDown />}
-        </div>
+        {isActive !== undefined && (
+          <div className={styles.icon}>
+            {isActive ? <BsChevronCompactUp /> : <BsChevronCompactDown />}
+          </div>
+        )}
       </button>
     </span>
   );

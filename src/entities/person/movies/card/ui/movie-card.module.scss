@@ -1,8 +1,10 @@
 .card {
   display: flex;
+  border-top: 1px solid var(--color-input-text);
   justify-content: space-between;
   align-items: center;
   height: (10vh);
+
   button {
     font-weight: 500;
   }
@@ -13,10 +15,12 @@
   align-items: center;
   gap: 15px;
   font-weight: 500;
+
   &_row {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
+
     p {
       margin-right: 12px;
       display: -webkit-box;

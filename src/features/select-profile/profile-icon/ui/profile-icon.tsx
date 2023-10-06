@@ -2,7 +2,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { FC } from 'react';
 
-import { ProfileIconProps } from '@/entities/profile-icon/model/props';
+import { ProfileIconProps } from '@/features/select-profile/profile-icon/model/props';
 
 import styles from './profile-icon.module.scss';
 

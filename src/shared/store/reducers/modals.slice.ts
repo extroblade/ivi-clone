@@ -1,32 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from '@/shared/store';
-import { iAwards, iFilm, iVideos } from '@/shared/types/kinopoiskTypes';
 
-export interface ICurrentMovie extends iFilm {
-  awards?: iAwards;
-  duration?: string;
-  videos?: iVideos;
-}
-
-interface iModal {
+type ModalReducerState = {
   currentTab: number;
   showRating: boolean;
   showSearch: boolean;
   showWatchPageModal: boolean;
   showFooterModal: boolean;
   showUnsub: boolean;
-  currentMovie?: ICurrentMovie;
-}
+};
 
-const initialState: iModal = {
-  currentTab: 1,
+const initialState: ModalReducerState = {
+  currentTab: 0,
   showUnsub: false,
   showRating: false,
   showSearch: false,
   showWatchPageModal: false,
   showFooterModal: false,
-  currentMovie: undefined,
 };
 
 export const modalsSlice = createSlice({
@@ -35,9 +26,6 @@ export const modalsSlice = createSlice({
   reducers: {
     setCurrentTab(state, action: PayloadAction<number>) {
       state.currentTab = action.payload;
-    },
-    setCurrentMovie(state, action: PayloadAction<any>) {
-      state.currentMovie = action.payload;
     },
     setShowUnsub(state, action: PayloadAction<boolean>) {
       state.showUnsub = action.payload;
@@ -65,6 +53,5 @@ export const {
   setShowRating,
   setShowWatchPageModal,
   setShowFooterModal,
-  setCurrentMovie,
 } = modalsSlice.actions;
 export const modalsReducer = modalsSlice.reducer;

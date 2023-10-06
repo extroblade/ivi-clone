@@ -1,1 +1,1 @@
-export { FooterLink } from './ui/footer-link';
+export { FooterLink } from './ui/FooterLink';

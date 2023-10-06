@@ -17,6 +17,8 @@ export const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) =
     dispatch(setShowRating(true));
   };
 
+  if (!rating) return <></>;
+
   return (
     <div className={styles.rating_block} onClick={openRating}>
       <div className={styles.rating_container}>

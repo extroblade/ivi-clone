@@ -25,10 +25,14 @@ export const Comment: FC<CommentProps> = memo(({ comment, children }): JSX.Eleme
       </header>
       <div className={styles.clause}>
         <div className={styles.clause_title}>
-          <Text color={'gray'}>{title}</Text>
+          <Text color={'gray'} size={'M'}>
+            {title}
+          </Text>
         </div>
         <div className={styles.clause_text}>
-          <Text color={'gray-light'}>{description}</Text>
+          <Text color={'gray-light'} size={'S'}>
+            {description}
+          </Text>
         </div>
       </div>
       <div className={styles.interactions}>

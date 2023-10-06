@@ -65,8 +65,7 @@
   position: relative;
 
   &::before {
-    content: "";
-
+    content: '';
   }
 
   &:hover {
@@ -80,7 +79,6 @@
       background: linear-gradient(111.3deg, #c447ff 9.6%, var(--color-accent) 93.6%);
     }
   }
-
 }
 
 .askLink {

@@ -1,4 +1,4 @@
-export const arrayToString = (array?: any[], key?: string): string => {
+export const arrayToString = <T>(array?: T[], key?: keyof T): string => {
   return (
     array?.reduce((acc, next, index) => {
       if (!index) {

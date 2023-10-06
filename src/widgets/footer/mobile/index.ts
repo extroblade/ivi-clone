@@ -1,1 +1,1 @@
-export { FooterMobile } from './ui/footer-mobile';
+export { FooterMobile } from './ui/FooterMobile';

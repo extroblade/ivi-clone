@@ -23,8 +23,8 @@ export const Vote: FC<VoteProps> = ({ likes = 0, dislikes = 0 }) => {
   };
   const handleLikeClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    handleUnsetDislike();
     handleLikeToggle();
+    handleUnsetDislike();
   };
 
   return (

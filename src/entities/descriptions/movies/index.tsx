@@ -8,15 +8,15 @@ export const MoviesDescription = () => {
   const { t } = useTranslation();
   return (
     <Description>
-      <Text size={'M'}>
+      <Text>
         {t('descriptions.movies-page-cut-1')}
-        <Link href={'/'}> {t('descriptions.movies-page-cut-2')} </Link>
+        <Link href={'/movies?genre=11'}> {t('descriptions.movies-page-cut-2')} </Link>
         {t('descriptions.movies-page-cut-3')}
       </Text>
-      <Text size={'M'}>{t('descriptions.movies-page-text-1')}</Text>
-      <Text size={'M'}>{t('descriptions.movies-page-text-2')}</Text>
-      <Text size={'M'}>{t('descriptions.movies-page-text-3')}</Text>
-      <Text size={'M'}>{t('descriptions.movies-page-text-4')}</Text>
+      <Text>{t('descriptions.movies-page-text-1')}</Text>
+      <Text>{t('descriptions.movies-page-text-2')}</Text>
+      <Text>{t('descriptions.movies-page-text-3')}</Text>
+      <Text>{t('descriptions.movies-page-text-4')}</Text>
     </Description>
   );
 };

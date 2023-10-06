@@ -1,24 +1,20 @@
-import React, { FC } from 'react';
+import { useRouter } from 'next/router';
+import { FC } from 'react';
 
 import { CommentInput } from '@/features/comment/input/ui/CommentInput';
 import { Loader } from '@/newui';
-import { useAppSelector } from '@/shared/hooks';
 import { useFetchCommentsQuery } from '@/shared/services';
-import { selectModal } from '@/shared/store';
 
 import { Comment } from '../../ui/Comment';
 import styles from './section.module.scss';
 
 export const CommentSection: FC = (): JSX.Element => {
-  const { currentMovie } = useAppSelector(selectModal);
+  const router = useRouter();
   const {
     data: comments,
     isLoading,
     error,
-  } = useFetchCommentsQuery(
-    { id: currentMovie?.kinopoiskId || 0 },
-    { skip: !currentMovie?.kinopoiskId }
-  );
+  } = useFetchCommentsQuery({ id: Number(router.query?.id) || 0 }, { skip: !router.query?.id });
   if (isLoading) return <Loader />;
   if (error || !comments?.total) return <></>;
   return (

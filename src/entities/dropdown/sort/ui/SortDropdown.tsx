@@ -47,7 +47,7 @@ export const SortDropdown: FC = (): JSX.Element => {
   useOutsideClick(handleClose, ref);
   useEscapeKey(handleClose);
   return (
-    <div className={styles.drop}>
+    <div ref={ref} className={styles.drop}>
       <Button appearance={'transparent'} onClick={handleToggle}>
         <div className={styles.interactions}>
           <div className={styles.icon}>
@@ -57,7 +57,7 @@ export const SortDropdown: FC = (): JSX.Element => {
           {!isActive ? <MdOutlineKeyboardArrowDown /> : <MdOutlineKeyboardArrowUp />}
         </div>
       </Button>
-      <div ref={ref} className={cn(styles.drop_container, isActive && styles.opened)}>
+      <div className={cn(styles.drop_container, isActive && styles.opened)}>
         <div className={styles.dropdown__title}>{t('buttons.sort')}</div>
         {defaultSorts.map(({ title }, index) => (
           <button

@@ -1,5 +1,5 @@
-import { FilmType } from '@/shared/store';
+import { FilmTypeVariants } from '@/shared/types/kinopoiskTypes';
 
 export type GridProps = {
-  type: FilmType;
+  type: FilmTypeVariants;
 };

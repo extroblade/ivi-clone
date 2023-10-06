@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { Loader, Text, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
@@ -8,10 +9,11 @@ import { selectModal } from '@/shared/store';
 import styles from './awards-tab.module.scss';
 
 export const AwardsTab = () => {
-  const { currentMovie, showWatchPageModal } = useAppSelector(selectModal);
+  const { showWatchPageModal } = useAppSelector(selectModal);
+  const router = useRouter();
   const { data: awards, isLoading } = useFetchFilmAwardsQuery(
-    { id: currentMovie?.kinopoiskId || 0 },
-    { skip: !showWatchPageModal || !currentMovie?.kinopoiskId }
+    { id: Number(router.query?.id) || 0 },
+    { skip: !showWatchPageModal || !router.query?.id }
   );
   if (isLoading) return <Loader />;
   if (!awards?.total) return <Title>Награды не указаны</Title>;

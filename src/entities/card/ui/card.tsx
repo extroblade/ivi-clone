@@ -14,7 +14,7 @@ import {
 } from '@/entities/card/buttons';
 import { CardLoader } from '@/entities/card/ui/card-loader';
 import { BarGraph, Text } from '@/newui';
-import { localizeName } from '@/shared/helpers/localize-name';
+import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 
 import styles from './card.module.scss';
 
@@ -39,6 +39,7 @@ export const Card: FC<CardProps> = ({
     filmLength,
     ratingKinopoisk,
   } = card || {};
+  const movieName = useLocalizeName(card);
   if (!card?.posterUrlPreview) return <CardLoader />;
   return (
     <Link href={`/watch/${id || filmId}`} className={styles.card} draggable="false" {...props}>
@@ -86,8 +87,8 @@ export const Card: FC<CardProps> = ({
           )}
         </div>
       </div>
-      <div className={styles.textSection} title={localizeName(card)}>
-        <Text>{localizeName(card)}</Text>
+      <div className={styles.textSection} title={movieName}>
+        <Text>{movieName}</Text>
       </div>
     </Link>
   );

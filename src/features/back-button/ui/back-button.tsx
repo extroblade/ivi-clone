@@ -13,7 +13,7 @@ export const BackButton: FC<{ children?: string | null }> = ({ children }): JSX.
   const router = useRouter();
 
   const handleRedirectBack = () => {
-    router.back();
+    router.back ? router.back() : router.push('/');
   };
 
   useEscapeKey(handleRedirectBack);

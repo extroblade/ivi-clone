@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 import { ExternalSourcesProps } from '@/entities/external-sources/model/props';
@@ -9,7 +10,11 @@ import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
 import styles from './external-sources.module.scss';
 
 export const ExternalSources: FC<ExternalSourcesProps> = ({ id }) => {
-  const { data: sources } = useFetchFilmExternalSourcesQuery({ id });
+  const router = useRouter();
+  const { data: sources } = useFetchFilmExternalSourcesQuery(
+    { id: Number(router.query?.id) || id || 0 },
+    { skip: !router.query?.id }
+  );
   if (!sources?.total) return <></>;
   return (
     <div className={styles.sources_container}>

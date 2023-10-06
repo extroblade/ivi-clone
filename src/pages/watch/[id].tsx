@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { useTranslation } from 'react-i18next';
 
+import { useMovieTitle } from '@/entities/movie/lib/useMovieTitle';
 import { NotFound } from '@/entities/not-found';
-import { localizeName } from '@/shared/helpers/localize-name';
+import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { WatchPage } from '@/widgets/movie/ui/WatchPage';
 
@@ -10,15 +10,14 @@ type MovieProps = {
   movie: iFilm;
 };
 const Movie = ({ movie }: MovieProps) => {
-  const { i18n } = useTranslation();
+  const movieName = useLocalizeName(movie);
+  const title = useMovieTitle(movieName);
   if (!movie) return <NotFound />;
 
   return (
     <>
       <Head>
-        <title>
-          {i18n.language == 'en' ? `Movie ${localizeName(movie)}` : `Фильм ${localizeName(movie)}`}
-        </title>
+        <title>{title}</title>
       </Head>
       <WatchPage movie={movie} />
     </>

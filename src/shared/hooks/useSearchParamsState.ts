@@ -37,7 +37,7 @@ export function useSearchParamsState<Value>({
   name,
   serialize = defaultSerialize,
   deserialize = defaultDeserialize,
-}: UseSearchParamsStateOptions<Value>): [string, (arg?: any) => void] {
+}: UseSearchParamsStateOptions<Value>): [Value, (arg?: any) => void] {
   const router = useRouter();
   const searchParam = getSearchParam(router.asPath.split('?')[1], name);
   const [value, setValue] = useState<Value>(() => {
@@ -63,5 +63,5 @@ export function useSearchParamsState<Value>({
     router.push(`?${newSearch}`);
   });
 
-  return [value as string, updateValue];
+  return [value as Value, updateValue];
 }

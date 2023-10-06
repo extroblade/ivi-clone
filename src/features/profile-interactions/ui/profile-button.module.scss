@@ -1,6 +1,6 @@
 .square_icon {
   svg {
-    height: 50%;
+    font-size: 1.5rem;
     color: var(--color-accent);
   }
 
@@ -13,7 +13,7 @@
 
 .rect_icon {
   svg {
-    height: 50%;
+    font-size: 1.5rem;
     color: var(--color-accent);
   }
 
@@ -30,16 +30,15 @@
 
 .rect_icon_light {
   svg {
+    font-size: 1.5rem;
     color: var(--color-accent);
-    height: 30px;
-    width: 10%;
   }
 
   background-color: #312b45;
   background-image: radial-gradient(
-                  circle at 50% 50%,
-                  rgba(126, 121, 143, 0.56),
-                  rgba(49, 43, 69, 0) 100%
+    circle at 50% 50%,
+    rgba(126, 121, 143, 0.56),
+    rgba(49, 43, 69, 0) 100%
   );
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -55,6 +54,7 @@
 
 .rect_icon_purple {
   svg {
+    font-size: 1.5rem;
     color: var(--color-warning);
   }
 

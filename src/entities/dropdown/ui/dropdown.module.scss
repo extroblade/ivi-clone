@@ -7,10 +7,9 @@
   top: 100%;
   padding-top: 4px;
   z-index: 99;
+  overflow: hidden;
 
   * {
     z-index: inherit;
   }
 }
-
-

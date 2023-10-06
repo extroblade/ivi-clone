@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiChevronLeft } from 'react-icons/hi';
@@ -5,9 +6,10 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { tabs } from '@/entities/movie/modal/model/tabs';
 import { Button, Title } from '@/newui';
-import { localizeName } from '@/shared/helpers/localize-name';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { useEscapeKey } from '@/shared/hooks/useEscapeKey';
+import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { useFetchFilmQuery } from '@/shared/services';
 import { selectModal, setShowWatchPageModal } from '@/shared/store';
 
 import { MovieModalInfo } from '../info';
@@ -15,14 +17,17 @@ import styles from './movie-modal.module.scss';
 
 export const MovieModal: FC = () => {
   const dispatch = useAppDispatch();
-  const { currentMovie, currentTab, showWatchPageModal } = useAppSelector(selectModal);
+  const { currentTab, showWatchPageModal } = useAppSelector(selectModal);
+  const router = useRouter();
+  const { data: movie } = useFetchFilmQuery(Number(router.query?.id), { skip: !router?.query?.id });
   const { t } = useTranslation();
   const handleClose = () => {
     dispatch(setShowWatchPageModal(false));
   };
+  const title = useLocalizeName(movie);
   usePreventScroll(showWatchPageModal);
   useEscapeKey(handleClose);
-  if (!currentMovie || !showWatchPageModal) return <></>;
+  if (!showWatchPageModal) return <></>;
   return (
     <div className={styles.modal}>
       <Button appearance="transparent" className={styles.back} onClick={handleClose}>
@@ -31,7 +36,7 @@ export const MovieModal: FC = () => {
       </Button>
       <div className={styles.wrap}>
         <Tabs className={styles.tabs} defaultIndex={currentTab}>
-          <Title tag={'h2'}>{localizeName(currentMovie)}</Title>
+          <Title tag={'h2'}>{title}</Title>
           <TabList className={styles.tabs__title}>
             {tabs.map(({ title }, index) => (
               <Tab key={index} className={styles.tab} selectedClassName={styles.active}>
