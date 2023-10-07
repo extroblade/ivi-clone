@@ -30,7 +30,8 @@
     "react-redux": "^8.0.5",
     "react-slick": "^0.29.0",
     "react-tabs": "^6.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "zustand": "^4.4.3"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.4.1",

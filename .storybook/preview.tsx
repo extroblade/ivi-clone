@@ -1,20 +1,20 @@
-import '@/app/styles/global.scss';
-import './stories.scss';
-import { AppRouterContext } from 'next/dist/shared/lib/app-router-context';
-import { Provider } from 'react-redux';
-import { store } from '@/shared/store';
-import { ClassAttributes, ImgHTMLAttributes, Suspense, useEffect } from 'react';
-import { I18nextProvider } from 'react-i18next';
-import * as nextImage from 'next/image';
+import "@/app/styles/global.scss";
+import "./stories.scss";
+import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
+import { Provider } from "react-redux";
+import { store } from "@/shared/store";
+import { ClassAttributes, ImgHTMLAttributes, Suspense, useEffect } from "react";
+import { I18nextProvider } from "react-i18next";
+import * as nextImage from "next/image";
 
-import i18n from '@/app/(config)/i18n/i18n';
+import i18n from "../src/app/config/i18n/i18n";
 
 export const parameters = {
   i18n,
-  locale: 'ru',
+  locale: "ru",
   locales: {
-    ru: 'Russian',
-    en: 'English',
+    ru: "Russian",
+    en: "English",
   },
   nextRouter: {
     Provider: AppRouterContext.Provider,
@@ -23,7 +23,7 @@ export const parameters = {
 
 const preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -35,26 +35,27 @@ const preview = {
 
 export const globalTypes = {
   locale: {
-    name: 'Locale',
-    description: 'Internationalization locale',
+    name: "Locale",
+    description: "Internationalization locale",
     toolbar: {
-      icon: 'globe',
+      icon: "globe",
       items: [
-        { value: 'ru', right: 'ru', title: 'Русский' },
-        { value: 'en', right: '🇺🇸', title: 'English' },
+        { value: "ru", right: "ru", title: "Русский" },
+        { value: "en", right: "🇺🇸", title: "English" },
       ],
       showName: true,
     },
   },
 };
 
-i18n.on('languageChanged', (locale) => {
+i18n.on("languageChanged", (locale) => {
   document.dir = i18n.dir(locale);
 });
 const i18nextStoryDecorator = (Story: any, context: { globals: { locale: any } }) => {
   const { locale } = context.globals;
   useEffect(() => {
-    i18n.changeLanguage(locale).then(() => {}); //fix ws warn
+    i18n.changeLanguage(locale).then(() => {
+    }); //fix ws warn
   }, [locale]);
 
   return (
@@ -72,12 +73,12 @@ const reduxStoryDecorator = (Story: any) => (
   </Provider>
 );
 
-Object.defineProperty(nextImage, 'default', {
+Object.defineProperty(nextImage, "default", {
   configurable: true,
   value: (
     props: JSX.IntrinsicAttributes &
       ClassAttributes<HTMLImageElement> &
-      ImgHTMLAttributes<HTMLImageElement>
+      ImgHTMLAttributes<HTMLImageElement>,
   ) => {
     return <img {...props} alt={props.alt} />;
   },

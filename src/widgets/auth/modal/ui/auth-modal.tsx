@@ -1,31 +1,32 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { BsPencil } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { TbReload } from 'react-icons/tb';
+import { GoogleAuthButton, VkAuthButton } from 'src/widgets/auth/external';
+import { useAuthModalStore } from 'src/widgets/auth/model';
 
-import { REGEX_EMAIL, REGEX_PASSWORD, STEPS_COUNT } from '@/features/auth-button/auth-modal/model';
-import { AuthModalProps } from '@/features/auth-button/auth-modal/model/props';
-import { GoogleAuthButton, VkAuthButton } from '@/features/auth-button/auth-modal/ui/buttons';
-import { useAuthModal } from '@/features/auth-button/lib';
 import { BarGraph, Button, Modal, Text } from '@/newui';
+import { useBooleanState } from '@/shared/hooks';
+import { REGEX_EMAIL, REGEX_PASSWORD, STEPS_COUNT } from '@/widgets/auth/modal/model';
 
 import styles from './auth-modal.module.scss';
 
-export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element => {
+export const AuthModal = (): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
   const [progress, setProgress] = useState<number>(5);
   const [step, setStep] = useState<number>(1);
   const [login, setLogin] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [showPassword, setShowPassword] = useState(false);
-  const { isOpen: showAuth, handleState } = useAuthModal();
+  const [isPasswordVisible, { handleToggle: handlePasswordVisibility }] = useBooleanState();
+  const { isOpen, handleState } = useAuthModalStore();
+
   const { data: session } = useSession();
   const handleClose = () => {
     handleState(false);
@@ -44,9 +45,6 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
 
   const previousStep = () => {
     setStep((prev) => Math.max(prev - 1, 1));
-  };
-  const toggleShowPassword = () => {
-    setShowPassword((prevState) => !prevState);
   };
 
   const handleAuth = async () => {
@@ -79,7 +77,7 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
   }, [step]);
 
   return (
-    <Modal isOpen={showAuth || isOpen} closeModal={handleClose} cross={false}>
+    <Modal isOpen={isOpen} closeModal={handleClose} cross={false}>
       <form className={styles.chat}>
         <div className={styles.chat__header}>
           {step > 1 ? (
@@ -142,7 +140,7 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
                   </div>
                   <div className={`${styles.input} ${styles.password}`}>
                     <input
-                      type={showPassword ? 'text' : 'password'}
+                      type={isPasswordVisible ? 'text' : 'password'}
                       value={password}
                       required
                       pattern={'\\S+.*'}
@@ -150,19 +148,19 @@ export const AuthModal: FC<AuthModalProps> = ({ isOpen = false }): JSX.Element =
                       className={!!password ? styles.input__active : ''}
                     />
                     <label>{t('buttons.enter-password')}</label>
-                    {!showPassword ? (
+                    {!isPasswordVisible ? (
                       <AiOutlineEye
                         className={`${styles.input__show} ${
                           !!password && styles.input__showActive
                         }`}
-                        onClick={toggleShowPassword}
+                        onClick={handlePasswordVisibility}
                       />
                     ) : (
                       <AiOutlineEyeInvisible
                         className={`${styles.input__show} ${
                           !!password && styles.input__showActive
                         }`}
-                        onClick={toggleShowPassword}
+                        onClick={handlePasswordVisibility}
                       />
                     )}
                   </div>

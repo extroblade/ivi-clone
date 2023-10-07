@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import { FC, memo } from 'react';
 import { RxCross2 } from 'react-icons/rx';
+import { useCloseAlert } from 'src/widgets/alerts/lib';
 
-import { useCloseAlert } from '@/entities/alert-list/alert/lib';
-import { AlertProps } from '@/entities/alert-list/model';
 import { Button } from '@/newui';
+import { AlertProps } from '@/widgets/alerts/model';
 
 import styles from './alert.module.scss';
 

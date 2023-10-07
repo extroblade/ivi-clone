@@ -1,5 +1,5 @@
 import '@/app/styles/global.scss';
-import '@/app/(config)/i18n/i18n';
+import '@/app/config/i18n/i18n';
 
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';

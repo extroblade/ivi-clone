@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { TIME_BEFORE_CLOSE, TIME_TO_CLOSE } from '@/entities/alert-list/model';
-import { selectAlerts, setActiveAlerts } from '@/entities/alert-list/model/slice';
-import { useAppDispatch, useAppSelector, useBooleanState } from '@/shared/hooks';
+import { useBooleanState } from '@/shared/hooks';
+import { TIME_BEFORE_CLOSE, TIME_TO_CLOSE } from '@/widgets/alerts/model';
+import { useAlertsStore } from '@/widgets/alerts/model/store';
 
 type ReturnType = {
   handleClose: () => void;
@@ -11,14 +11,13 @@ type ReturnType = {
 export const useCloseAlert = (id: string): ReturnType => {
   const [isClosing, { handleOpen }] = useBooleanState();
 
-  const { activeAlerts } = useAppSelector(selectAlerts);
-  const dispatch = useAppDispatch();
+  const { alerts, handleAlerts } = useAlertsStore();
 
   const handleClose = () => {
     handleOpen();
-    const newActiveAlerts = activeAlerts.filter((active) => active.id !== id);
+    const newActiveAlerts = alerts.filter((active) => active.id !== id);
     setTimeout(() => {
-      dispatch(setActiveAlerts(newActiveAlerts));
+      handleAlerts(newActiveAlerts);
     }, TIME_TO_CLOSE);
   };
   useEffect(() => {
@@ -26,6 +25,6 @@ export const useCloseAlert = (id: string): ReturnType => {
       handleClose();
     }, TIME_BEFORE_CLOSE);
     return () => clearTimeout(timer);
-  }, [activeAlerts.length]);
+  }, [alerts.length]);
   return { handleClose, isClosing };
 };

@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import { FC, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ColorContainer } from '@/entities/colored-container';
 import { ExternalSources } from '@/entities/external-sources';
@@ -12,7 +13,7 @@ import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
 import { Breadcrumbs, Title } from '@/newui';
-import { getNameByType, getPathByType } from '@/shared/constants';
+import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import {
@@ -26,13 +27,14 @@ import { WatchPageProps } from '../model/WatchPage.props';
 import styles from './WatchPage.module.scss';
 
 export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
+  const { i18n } = useTranslation();
   const { posterUrl, coverUrl, genres, type, kinopoiskId: id } = movie;
   const { typeName, typePath } = useMemo(() => {
     return {
-      typeName: getNameByType(type),
-      typePath: getPathByType(type),
+      typeName: movieTypes?.[type]?.[i18next.language as LanguageVariants] || 'Movie',
+      typePath: movieTypes?.[type]?.path || '/movies',
     };
-  }, [type, i18next.language]);
+  }, [type, i18n.language]);
 
   const { data: persons } = useFetchAllPersonsQuery({
     filmId: id,
