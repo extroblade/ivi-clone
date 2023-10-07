@@ -1,16 +1,23 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { TrailerProps } from '@/entities/movie/trailers/model/props';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Text, Title } from '@/newui';
 import { useAppDispatch } from '@/shared/hooks';
+import { useFetchFilmVideoQuery } from '@/shared/services';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
 
 import styles from './trailers.module.scss';
 
-export const Trailers: FC<TrailerProps> = ({ videos }) => {
+export const Trailers: FC = () => {
+  const router = useRouter();
+  const { data: videos } = useFetchFilmVideoQuery(
+    { id: Number(router.query?.id) },
+    { skip: !router.query?.id }
+  );
+
   const { t } = useTranslation();
   const scrollTop = useScrollTop();
   const dispatch = useAppDispatch();

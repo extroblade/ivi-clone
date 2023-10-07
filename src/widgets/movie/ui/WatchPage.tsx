@@ -16,11 +16,6 @@ import { Breadcrumbs, Title } from '@/newui';
 import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
-import {
-  useFetchAllPersonsQuery,
-  useFetchFilmSimilarQuery,
-  useFetchFilmVideoQuery,
-} from '@/shared/services';
 import { SimilarMovies } from '@/widgets/similar-movies/ui/SimilarMovies';
 
 import { WatchPageProps } from '../model/WatchPage.props';
@@ -28,7 +23,7 @@ import styles from './WatchPage.module.scss';
 
 export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { i18n } = useTranslation();
-  const { posterUrl, coverUrl, genres, type, kinopoiskId: id } = movie;
+  const { posterUrl, coverUrl, genres, type, kinopoiskId } = movie;
   const { typeName, typePath } = useMemo(() => {
     return {
       typeName: movieTypes?.[type]?.[i18next.language as LanguageVariants] || 'Movie',
@@ -36,15 +31,6 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
     };
   }, [type, i18n.language]);
 
-  const { data: persons } = useFetchAllPersonsQuery({
-    filmId: id,
-  });
-  const { data: videos } = useFetchFilmVideoQuery({ id });
-  const { data: similar } = useFetchFilmSimilarQuery({ id });
-
-  const trailerYT = useMemo(() => {
-    return videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
-  }, [videos?.items]);
   const movieName = useLocalizeName(movie);
   const title = useMovieTitle(movieName);
   const { genreId } = useFilterId(genres?.[0]?.genre);
@@ -60,7 +46,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   return (
     <>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
-      <ColorContainer movie={movie} />
+      <ColorContainer />
       <section className={styles.watch}>
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>
@@ -68,18 +54,18 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
               <Title tag="h2">{title}</Title>
             </div>
             <div className={styles.watch__player}>
-              <Player url={trailerYT} actions />
+              <Player actions />
             </div>
             <MovieInfo movie={movie} />
           </div>
         </div>
-        <ExternalSources id={id} />
-        <SimilarMovies similar={similar} />
-        <PersonsGallery list={persons} />
-        {movie?.kinopoiskId && <ScrollToTopButton />}
+        <ExternalSources />
+        <SimilarMovies />
+        <PersonsGallery />
+        {kinopoiskId && <ScrollToTopButton />}
 
         <CommentCarousel />
-        <Trailers videos={videos} />
+        <Trailers />
         <WatchOnAllDevices name={movieName || 'Loading...'} image={coverUrl || posterUrl} />
       </section>
     </>
