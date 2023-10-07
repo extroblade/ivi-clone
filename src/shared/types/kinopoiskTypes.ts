@@ -225,60 +225,9 @@ export interface iImagesItems {
   previewUrl: string;
 }
 
-export interface iPremieres {
-  total: number;
-  items: iPremieresItem[];
-}
-
-export interface iPremieresItem {
-  kinopoiskId: number;
-  nameRu: string;
-  nameEn: string;
-  year: number;
-  posterUrl: string;
-  posterUrlPreview: string;
-  countries: iCountry[];
-  genres: iGenre[];
-  duration: number;
-  premiereRu: string;
-}
-
 export interface iFilters {
   genres: iGenre[];
   countries: iCountry[];
-}
-
-export interface iSequelsPrequels {
-  filmId: number;
-  nameRu: string;
-  nameEn: string;
-  nameOriginal: string;
-  posterUrl: string;
-  posterUrlPreview: string;
-  relationType: string;
-}
-
-export interface iRelease {
-  page: number;
-  total: number;
-  releases: iReleaseItem[];
-}
-
-export interface iReleaseItem {
-  filmId: number;
-  nameRu: string;
-  nameEn: string;
-  year: number;
-  posterUrl: string;
-  posterUrlPreview: string;
-  countries: iCountry[];
-  genres: iGenre[];
-  rating: number;
-  ratingVoteCount: number;
-  expectationsRating: number;
-  expectationsRatingVoteCount: number;
-  duration: number;
-  releaseDate: string;
 }
 
 export interface iFilm {

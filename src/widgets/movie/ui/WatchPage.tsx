@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import { FC, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ColorContainer } from '@/entities/colored-container';
 import { ExternalSources } from '@/entities/external-sources';
@@ -12,37 +13,24 @@ import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
 import { Breadcrumbs, Title } from '@/newui';
-import { getNameByType, getPathByType } from '@/shared/constants';
+import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
-import {
-  useFetchAllPersonsQuery,
-  useFetchFilmSimilarQuery,
-  useFetchFilmVideoQuery,
-} from '@/shared/services';
 import { SimilarMovies } from '@/widgets/similar-movies/ui/SimilarMovies';
 
 import { WatchPageProps } from '../model/WatchPage.props';
 import styles from './WatchPage.module.scss';
 
 export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
-  const { posterUrl, coverUrl, genres, type, kinopoiskId: id } = movie;
+  const { i18n } = useTranslation();
+  const { posterUrl, coverUrl, genres, type, kinopoiskId } = movie;
   const { typeName, typePath } = useMemo(() => {
     return {
-      typeName: getNameByType(type),
-      typePath: getPathByType(type),
+      typeName: movieTypes?.[type]?.[i18next.language as LanguageVariants] || 'Movie',
+      typePath: movieTypes?.[type]?.path || '/movies',
     };
-  }, [type, i18next.language]);
+  }, [type, i18n.language]);
 
-  const { data: persons } = useFetchAllPersonsQuery({
-    filmId: id,
-  });
-  const { data: videos } = useFetchFilmVideoQuery({ id });
-  const { data: similar } = useFetchFilmSimilarQuery({ id });
-
-  const trailerYT = useMemo(() => {
-    return videos?.items.find((video) => video.site == 'YOUTUBE')?.url;
-  }, [videos?.items]);
   const movieName = useLocalizeName(movie);
   const title = useMovieTitle(movieName);
   const { genreId } = useFilterId(genres?.[0]?.genre);
@@ -58,7 +46,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   return (
     <>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
-      <ColorContainer movie={movie} />
+      <ColorContainer />
       <section className={styles.watch}>
         <div className={styles.watch__content}>
           <div className={styles.watch__row}>
@@ -66,18 +54,18 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
               <Title tag="h2">{title}</Title>
             </div>
             <div className={styles.watch__player}>
-              <Player url={trailerYT} actions />
+              <Player actions />
             </div>
             <MovieInfo movie={movie} />
           </div>
         </div>
-        <ExternalSources id={id} />
-        <SimilarMovies similar={similar} />
-        <PersonsGallery list={persons} />
-        {movie?.kinopoiskId && <ScrollToTopButton />}
+        <ExternalSources />
+        <SimilarMovies />
+        <PersonsGallery />
+        {kinopoiskId && <ScrollToTopButton />}
 
         <CommentCarousel />
-        <Trailers videos={videos} />
+        <Trailers />
         <WatchOnAllDevices name={movieName || 'Loading...'} image={coverUrl || posterUrl} />
       </section>
     </>

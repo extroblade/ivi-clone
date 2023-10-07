@@ -3,16 +3,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
-import { ExternalSourcesProps } from '@/entities/external-sources/model/props';
 import { Text, Title } from '@/newui';
 import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
 
 import styles from './external-sources.module.scss';
 
-export const ExternalSources: FC<ExternalSourcesProps> = ({ id }) => {
+export const ExternalSources: FC = () => {
   const router = useRouter();
   const { data: sources } = useFetchFilmExternalSourcesQuery(
-    { id: Number(router.query?.id) || id || 0 },
+    { id: Number(router.query?.id) },
     { skip: !router.query?.id }
   );
   if (!sources?.total) return <></>;
@@ -20,9 +19,11 @@ export const ExternalSources: FC<ExternalSourcesProps> = ({ id }) => {
     <div className={styles.sources_container}>
       <Title>Смотреть полностью:</Title>
       <div className={styles.sources}>
-        {sources.items.map(({ url, logoUrl, platform }, index) => (
-          <Link href={url} target={'_blank'} key={index} className={styles.source_item}>
-            <div className={styles.img}>{logoUrl && <Image fill alt={'logo'} src={logoUrl} />}</div>
+        {sources.items.map(({ url, logoUrl, platform }) => (
+          <Link href={url} target={'_blank'} key={url} className={styles.source_item}>
+            <div className={styles.img}>
+              {logoUrl && <Image fill alt={platform} src={logoUrl} />}
+            </div>
             <div className={styles.text}>
               <Text color={'gray-light'}>{platform}</Text>
             </div>

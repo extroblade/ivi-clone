@@ -2,7 +2,6 @@ import cn from 'classnames';
 import { useSession } from 'next-auth/react';
 import { FC, useEffect, useState } from 'react';
 
-import { AuthButton } from '@/features/auth-button';
 import { LogoutButton } from '@/features/logout-button';
 import {
   BalanceButton,
@@ -26,6 +25,7 @@ import {
 } from '@/features/profile-interactions/model/props';
 import { SelectProfile } from '@/features/select-profile';
 import { Text } from '@/newui';
+import { AuthButton } from '@/widgets/auth';
 
 import styles from './ProfilePage.module.scss';
 

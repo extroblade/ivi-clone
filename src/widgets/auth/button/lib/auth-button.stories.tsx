@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { AuthButton } from '@/features/auth-button';
-import { AuthModal } from '@/features/auth-button/auth-modal';
+import { AuthButton } from '@/widgets/auth';
+import { AuthModal } from '@/widgets/auth/modal';
 
 const AuthWrapper = () => {
   return (
