@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/entities/card';
 import { Carousel } from '@/entities/carousel';
+import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
 import { useFetchFilmSimilarQuery } from '@/shared/services';
 
 export const SimilarMovies: FC = () => {
@@ -16,13 +17,13 @@ export const SimilarMovies: FC = () => {
 
   if (!similar?.total) return <></>;
   return (
-    <Carousel
-      settings={{ slidesToShow: Math.min(7, similar.items.length) }}
-      title={t('descriptions.similar') || ''}
-      route={'/'}
-    >
-      {similar.items.map((card) => (
-        <Card key={card.filmId} card={card} book info={false} />
+    <Carousel title={t('descriptions.similar') || ''} route={`/similar/${router.query?.id}`}>
+      {similar.items.map((card, index) => (
+        <Card
+          key={index}
+          card={card}
+          buttons={<AddToFavoritesButton appearance={'transparent'} />}
+        />
       ))}
     </Carousel>
   );

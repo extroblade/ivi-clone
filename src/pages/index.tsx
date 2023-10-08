@@ -3,21 +3,34 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Card, CardProps } from '@/entities/card';
+import { CardInfo } from '@/entities/card/info';
 import { Carousel } from '@/entities/carousel';
 import { MainDescription } from '@/entities/descriptions';
+import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
+import { BlockButton } from '@/features/block-movie/ui/block';
+import { FindSimilarButton } from '@/features/find-similar-movie/ui/find-similar';
+import { RateButton } from '@/features/rate-button/ui/rate';
 import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
 import { PromoCarousel } from '@/widgets/promo/ui/PromoCarousel';
 import { TopTenCarousel } from '@/widgets/top-10';
 
-const settings = {
-  hover: true,
-  star: true,
-  book: true,
-  find: true,
-  block: true,
-  info: true,
-} as Omit<CardProps, 'card'>;
+const CardWithProps = ({ card }: CardProps) => {
+  return (
+    <Card
+      buttons={
+        <>
+          <AddToFavoritesButton appearance={'transparent'} />
+          <FindSimilarButton appearance={'transparent'} />
+          <RateButton appearance={'transparent'} />
+          <BlockButton appearance={'transparent'} />
+        </>
+      }
+      info={<CardInfo card={card} />}
+      card={card}
+    />
+  );
+};
 
 const Home = () => {
   const { data: anime } = useFetchAllFilmsQuery({
@@ -47,7 +60,7 @@ const Home = () => {
         showAll={!!anime?.total && anime.total > 15}
       >
         {(anime?.items || Array(15).fill(1)).map((card, index) => (
-          <Card {...settings} card={card} key={card?.kinopoiskId || index} />
+          <CardWithProps card={card} key={index} />
         ))}
       </Carousel>
       <Carousel
@@ -56,7 +69,7 @@ const Home = () => {
         showAll={!!adventures?.total && adventures.total > 15}
       >
         {(adventures?.items || Array(15).fill(1)).map((card, index) => (
-          <Card {...settings} card={card} key={card?.kinopoiskId || index} />
+          <CardWithProps card={card} key={index} />
         ))}
       </Carousel>
     </>

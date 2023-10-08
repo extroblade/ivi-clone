@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { FiUpload } from 'react-icons/fi';
 import { IoPlayOutline } from 'react-icons/io5';
 
-import { AddToFavoritesButton, TurnNotificationsButton } from '@/entities/card/buttons';
 import { PlayerProps } from '@/entities/player/props/props';
+import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
+import { TurnNotificationsButton } from '@/features/turn-notifications/ui/turn-notifications';
 import { Button, Text } from '@/newui';
 import { useAppDispatch } from '@/shared/hooks';
 import { useBrowser } from '@/shared/hooks/useBrowser';
@@ -68,7 +69,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
               <IoPlayOutline className={styles.icon} />
               {t('buttons.trailer')}
             </Button>
-            <AddToFavoritesButton appearance={'square'} />
+            <AddToFavoritesButton />
             <TurnNotificationsButton />
             <Button appearance="square">
               <FiUpload className={styles.icon} />

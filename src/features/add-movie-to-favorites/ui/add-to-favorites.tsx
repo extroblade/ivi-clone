@@ -6,9 +6,7 @@ import { AppearanceVariants } from '@/newui/button/button.props';
 import { useBooleanState } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
-export const AddToFavoritesButton: FC<{ appearance?: AppearanceVariants }> = ({
-  appearance = 'transparent',
-}) => {
+export const AddToFavoritesButton: FC<{ appearance?: AppearanceVariants }> = ({ appearance }) => {
   const [isBooked, { handleToggle }] = useBooleanState();
   const createAlert = useCreateAlert();
   const handleAdd = (e: MouseEvent<HTMLButtonElement>) => {

@@ -18,7 +18,7 @@
     cursor: default;
 
     &:hover {
-      background-color: #1f1b2e;
+      background-color: var(--color-input-text);
       border: none;
     }
   }
@@ -55,10 +55,6 @@
   &:hover {
     background-color: transparent;
     border-color: rgba(255, 255, 255, 0.72);
-  }
-
-  @media screen and (max-width: 1160px) {
-    padding: 0.8rem 0.8rem;
   }
 }
 
@@ -111,22 +107,20 @@
 }
 
 .S {
-  height: 2rem;
   padding: 7px 11px;
   font-size: 13px;
 }
 
 .M {
-  height: 3rem;
   padding: 9px 15px;
 }
 
 .L {
-  height: 4rem;
   padding: 5px 15px;
 }
 
 .transparent {
+  height: fit-content;
   padding: 0;
   background-color: transparent;
   border: 0;
