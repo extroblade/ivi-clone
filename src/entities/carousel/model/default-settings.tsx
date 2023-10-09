@@ -8,10 +8,10 @@ export const defaultSettings: Settings = {
   nextArrow: <Next />,
   prevArrow: <Prev />,
   infinite: false,
-  speed: 500,
   slidesToShow: 7,
   draggable: true,
   lazyLoad: 'progressive',
+  speed: 700,
   slidesToScroll: 6,
   responsive: [
     {

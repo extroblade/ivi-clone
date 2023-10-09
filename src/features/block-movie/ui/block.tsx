@@ -6,7 +6,9 @@ import { AppearanceVariants } from '@/newui/button/button.props';
 import { useBooleanState } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
-export const BlockButton: FC<{ appearance?: AppearanceVariants }> = ({ appearance }) => {
+export const BlockButton: FC<{ appearance?: AppearanceVariants }> = ({
+  appearance = 'transparent',
+}) => {
   const [isBlocked, { handleToggle }] = useBooleanState();
   const createAlert = useCreateAlert();
   const handleBlock = (e: MouseEvent<HTMLButtonElement>) => {

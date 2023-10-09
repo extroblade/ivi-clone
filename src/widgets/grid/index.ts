@@ -1,1 +1,1 @@
-export { Grid } from './ui/grid';
+export { MovieGrid } from './ui/movie-grid';

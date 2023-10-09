@@ -47,19 +47,14 @@ export const Footer: FC = (): JSX.Element => {
               <Text>{t('footer.anytime')}</Text>
             </li>
             <li className={styles.buttonsGroup}>
-              <Link href={'https://ivi.ru/profile'}>
-                <Button className={styles.button}>{t('footer.chat-us')}</Button>
-              </Link>
-              <Link href={'https://mailto:alexey.cherepanov.03@gmail.com'}>
-                <Button appearance={'square'}>
-                  <IoMailOutline />
-                </Button>
-              </Link>
-              <Link href={'https://t.me/extroblade'}>
-                <Button appearance={'square'}>
-                  <HiPhone />
-                </Button>
-              </Link>
+              <Button>{t('footer.chat-us')}</Button>
+
+              <Button appearance={'square'}>
+                <IoMailOutline />
+              </Button>
+              <Button appearance={'square'}>
+                <HiPhone />
+              </Button>
             </li>
             <li>
               <Link href={'https://ask.ivi.ru/'} className={styles.askLink}>
@@ -83,7 +78,7 @@ export const Footer: FC = (): JSX.Element => {
           <div className={styles.flex}>
             <div className={styles.flex}>
               <Link href={'#'}>
-                <Button title={'AppStore'}>
+                <Button className={styles.button_height} title={'AppStore'}>
                   <FaApple />
                   <div>
                     <span>{t('footer.download')}</span>
@@ -92,7 +87,7 @@ export const Footer: FC = (): JSX.Element => {
                 </Button>
               </Link>
               <Link href={'#'}>
-                <Button title={'GooglePlay'}>
+                <Button className={styles.button_height} title={'GooglePlay'}>
                   <FaGooglePlay />
                   <div>
                     <span>{t('footer.available')}</span>
@@ -101,7 +96,7 @@ export const Footer: FC = (): JSX.Element => {
                 </Button>
               </Link>
               <Link href={'#'}>
-                <Button title={'TV'}>
+                <Button className={styles.button_height} title={'TV'}>
                   <IoTv />
                   <div>
                     <span>{t('footer.watch-on')}</span>
@@ -110,7 +105,7 @@ export const Footer: FC = (): JSX.Element => {
                 </Button>
               </Link>
               <Link href={'#'}>
-                <Button title={'Все устройства'}>
+                <Button className={styles.button_height} title={'Все устройства'}>
                   <BiDevices />
                   {t('footer.all-devices')}
                 </Button>

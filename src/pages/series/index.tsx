@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { SeriesDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
 import { Filters } from '@/widgets/filter/ui/filters';
-import { Grid } from '@/widgets/grid';
+import { MovieGrid } from '@/widgets/grid';
 
 const Series = () => {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ const Series = () => {
 
       <SeriesDescription />
       <Filters />
-      <Grid type={'TV_SERIES'} />
+      <MovieGrid type={'TV_SERIES'} />
     </>
   );
 };

@@ -5,72 +5,8 @@
   height: 100%;
   width: 100%;
   max-width: 234px;
-
-  .props {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .image_section {
-    aspect-ratio: 13/20;
-    position: relative;
-    background-color: var(--color-input-text);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: var(--transition-main);
-  }
-
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-  }
-
-  .props {
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 0;
-    text-align: start;
-    transition: var(--transition-main);
-    opacity: 0;
-    padding: 10%;
-    white-space: pre-wrap;
-    text-overflow: ellipsis;
-  }
-
-  .buttons {
-    gap: 5px;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-start;
-  }
-
-  .info {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    position: relative;
-    height: 50%;
-    width: 100%;
-    padding: 0 10px;
-  }
-
-  .text_section {
-    height: 20px;
-    width: 100%;
-    margin-top: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    transition: var(--transition-main);
-  }
+  max-height: 360px;
+  aspect-ratio: 13/20;
 
   &:hover {
     transition: var(--transition-main);
@@ -81,7 +17,6 @@
     }
 
     .props {
-      display: flex;
       opacity: 1;
       visibility: visible;
     }
@@ -90,4 +25,70 @@
       color: white;
     }
   }
+}
+
+.props {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.image_section {
+  position: relative;
+  background-color: var(--color-input-text);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-main);
+  height: 100%;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.props {
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  text-align: start;
+  transition: var(--transition-main);
+  opacity: 0;
+  padding: 10%;
+}
+
+.buttons {
+  gap: 5px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  height: 50%;
+  width: 100%;
+  padding: 0 10px;
+  gap: 5px;
+}
+
+.text_section {
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: var(--transition-main);
 }

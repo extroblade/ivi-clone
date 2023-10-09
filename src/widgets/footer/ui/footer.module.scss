@@ -26,6 +26,10 @@
   margin-bottom: 8px;
 }
 
+.button_height {
+  min-height: 40px;
+}
+
 .link {
   margin-top: 8px;
   font-weight: 400;
@@ -48,7 +52,8 @@
   max-width: 200px;
 
   button {
-    padding: 0;
+    min-height: 35px;
+    padding: 10px;
   }
 }
 

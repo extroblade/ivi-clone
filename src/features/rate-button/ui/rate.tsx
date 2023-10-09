@@ -6,7 +6,9 @@ import { Button } from '@/newui';
 import { AppearanceVariants } from '@/newui/button/button.props';
 import { setShowRating } from '@/shared/store';
 
-export const RateButton: FC<{ appearance?: AppearanceVariants }> = ({ appearance }) => {
+export const RateButton: FC<{ appearance?: AppearanceVariants }> = ({
+  appearance = 'transparent',
+}) => {
   const dispatch = useDispatch();
   const handleOpenRatingModal = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

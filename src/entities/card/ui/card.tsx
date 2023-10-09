@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import { CardProps } from '@/entities/card';
-import { CardLoader } from '@/entities/card/ui/card-loader';
 import { Text } from '@/newui';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 
 import styles from './card.module.scss';
+import { CardLoader } from './card-loader';
 
 export const Card: FC<CardProps> = ({ card, buttons, info }): JSX.Element => {
   const { kinopoiskId: id, filmId, posterUrlPreview } = card || {};

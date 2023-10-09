@@ -1,36 +1,13 @@
 import Head from 'next/head';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Card, CardProps } from '@/entities/card';
-import { CardInfo } from '@/entities/card/info';
 import { Carousel } from '@/entities/carousel';
 import { MainDescription } from '@/entities/descriptions';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
-import { BlockButton } from '@/features/block-movie/ui/block';
-import { FindSimilarButton } from '@/features/find-similar-movie/ui/find-similar';
-import { RateButton } from '@/features/rate-button/ui/rate';
 import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
+import { CardWithProps } from '@/widgets/cards';
 import { PromoCarousel } from '@/widgets/promo/ui/PromoCarousel';
 import { TopTenCarousel } from '@/widgets/top-10';
-
-const CardWithProps = ({ card }: CardProps) => {
-  return (
-    <Card
-      buttons={
-        <>
-          <AddToFavoritesButton appearance={'transparent'} />
-          <FindSimilarButton appearance={'transparent'} />
-          <RateButton appearance={'transparent'} />
-          <BlockButton appearance={'transparent'} />
-        </>
-      }
-      info={<CardInfo card={card} />}
-      card={card}
-    />
-  );
-};
 
 const Home = () => {
   const { data: anime } = useFetchAllFilmsQuery({
