@@ -17,9 +17,6 @@ body {
   font-size: 16px;
   background-color: var(--color-background);
   color: var(--color-main);
-  @media screen and (max-width: 1160px) {
-    font-size: 12px;
-  }
 }
 
 .wrapper {
@@ -32,6 +29,7 @@ body {
 
 .locked {
   height: 100vh;
+  width: 100vw;
   position: fixed;
 }
 
@@ -75,4 +73,8 @@ main {
   100% {
     background-position: top left;
   }
+}
+
+.mirror {
+  transform: scale(-1, 1);
 }

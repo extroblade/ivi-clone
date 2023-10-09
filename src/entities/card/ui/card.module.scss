@@ -2,198 +2,93 @@
   cursor: pointer;
   display: inline-block;
   padding: 20px 10px 0 10px;
-  font-size: 1em;
-  max-width: 234px;
-  max-height: 360px;
-  color: #d9d7e0;
-  transform-origin: 50% 50%;
-  transition-property: transform;
   height: 100%;
   width: 100%;
-  z-index: 0;
-
-  * {
-    z-index: inherit;
-  }
-
-  .props {
-    opacity: 0;
-    display: flex;
-  }
-
-  button,
-  a button {
-    background-color: transparent !important;
-    padding: 0;
-    max-height: 20px;
-    margin: 0;
-
-    svg {
-      font-size: 1.25rem;
-    }
-  }
+  max-width: 234px;
+  max-height: 360px;
+  aspect-ratio: 13/20;
 
   &:hover {
     transition: var(--transition-main);
     transform: scale(1.03) translateY(-1%);
 
-    .imageSection {
-      transition: var(--transition-main);
-      transform: scale(1.03) translateY(-1%);
-    }
-  }
-
-  .imageSection {
-    aspect-ratio: 13/20;
-    position: relative;
-    background-color: var(--color-input-text);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: var(--transition-main);
-
-    &.show {
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      @media screen and (max-width: 600px) {
-        p {
-          font-size: 1em;
-        }
-      }
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     &.hover .props {
-      height: 100%;
-      width: 100%;
-      flex-direction: column;
-      justify-content: space-between;
-      position: absolute;
-      bottom: 0;
-      text-align: center;
-      transition: var(--transition-main);
-      opacity: 0;
-      padding: 10%;
-
-      .btns {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 15%;
-
-        &__container {
-          display: flex;
-          width: 100%;
-          justify-content: flex-end;
-          align-items: center;
-        }
-      }
-
-      .info {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        position: relative;
-        opacity: 0;
-        height: 100%;
-        min-width: 100%;
-        padding: 10px;
-        transition: var(--time-main) all ease-in;
-
-        &__text {
-          text-align: start;
-          font-size: 0.6rem;
-          display: flex;
-        }
-
-        &__row {
-          margin-top: 4px;
-          white-space: pre-wrap;
-          text-overflow: ellipsis;
-        }
-
-        .ratings {
-          font-size: 1.4rem;
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: flex-start;
-          transition: 1s all ease-in;
-
-          .graphs {
-            display: flex;
-            min-width: 25%;
-            flex-direction: column;
-          }
-        }
-      }
-    }
-  }
-
-  .textSection {
-    height: 20px;
-    width: 100%;
-    margin-top: 10px;
-
-    p {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-size: 0.8rem;
-      transition: var(--transition-main);
-    }
-  }
-
-  .singleGraph {
-    margin-top: 20px;
-    color: #a5a1b2;
-    font-size: 0.6rem;
-    text-align: start;
-    width: 65%;
-  }
-
-  &:hover {
-    .imageSection {
-      &.show > p {
-        color: white !important;
-        transition: var(--transition-main);
-      }
-
-      .props {
-        display: flex;
-        background-color: rgba(7, 5, 14, 0.8);
-        opacity: 1;
-        visibility: visible;
-        transition: var(--transition-main);
-
-        .info {
-          opacity: 100;
-        }
-      }
+      background-color: rgba(7, 5, 14, 0.8);
     }
 
-    .textSection {
-      p {
-        transition: var(--transition-main);
-        color: white;
-      }
+    .props {
+      opacity: 1;
+      visibility: visible;
     }
-  }
 
-  &:active {
-    transition: var(--transition-main) ease-in-out;
-    transform: scale(0.98);
+    .text_section {
+      color: white;
+    }
   }
 }
 
-.mirrored {
-  transform: scale(-1, 1);
+.props {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.image_section {
+  position: relative;
+  background-color: var(--color-input-text);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-main);
+  height: 100%;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.props {
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  text-align: start;
+  transition: var(--transition-main);
+  opacity: 0;
+  padding: 10%;
+}
+
+.buttons {
+  gap: 5px;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  height: 50%;
+  width: 100%;
+  padding: 0 10px;
+  gap: 5px;
+}
+
+.text_section {
+  height: 20px;
+  width: 100%;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: var(--transition-main);
 }

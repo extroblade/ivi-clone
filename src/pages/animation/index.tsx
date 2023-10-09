@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AnimationDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
 import { Filters } from '@/widgets/filter/ui/filters';
-import { Grid } from '@/widgets/grid';
+import { MovieGrid } from '@/widgets/grid';
 
 const Animation = () => {
   const { t } = useTranslation();
@@ -23,7 +23,7 @@ const Animation = () => {
 
       <AnimationDescription />
       <Filters />
-      <Grid type={'MINI_SERIES'} />
+      <MovieGrid type={'MINI_SERIES'} />
     </>
   );
 };

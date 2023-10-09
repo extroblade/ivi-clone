@@ -16,7 +16,8 @@ export type PromoCarouselProps = {
 export const carouselSettings: Settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
-  speed: 300,
+  lazyLoad: 'progressive',
+  speed: 700,
   draggable: true,
   autoplay: true,
   autoplaySpeed: 10000,

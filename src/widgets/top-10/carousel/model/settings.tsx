@@ -6,7 +6,7 @@ import { Prev } from '@/features/arrow/ui/prev';
 export const settings: Settings = {
   dots: false,
   infinite: false,
-  speed: 500,
+  speed: 1000,
   slidesToShow: 5,
   draggable: true,
   lazyLoad: 'progressive',

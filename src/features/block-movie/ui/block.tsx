@@ -1,11 +1,14 @@
-import { MouseEvent } from 'react';
+import { FC, MouseEvent } from 'react';
 import { MdBlock } from 'react-icons/md';
 
 import { Button } from '@/newui';
+import { AppearanceVariants } from '@/newui/button/button.props';
 import { useBooleanState } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 
-export const BlockButton = () => {
+export const BlockButton: FC<{ appearance?: AppearanceVariants }> = ({
+  appearance = 'transparent',
+}) => {
   const [isBlocked, { handleToggle }] = useBooleanState();
   const createAlert = useCreateAlert();
   const handleBlock = (e: MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +23,7 @@ export const BlockButton = () => {
     handleToggle();
   };
   return (
-    <Button appearance={'square'} onClick={handleBlock}>
+    <Button appearance={appearance} onClick={handleBlock}>
       {isBlocked ? <MdBlock fill={'var(--color-danger)'} /> : <MdBlock />}
     </Button>
   );

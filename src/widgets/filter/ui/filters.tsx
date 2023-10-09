@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
@@ -31,9 +31,9 @@ const variants = {
     display: 'none',
   },
 };
-export const Filters: FC = (): JSX.Element => {
+export const Filters: FC<{ initialState?: boolean }> = ({ initialState }): JSX.Element => {
   const { data: filters } = useFetchFilmFiltersQuery();
-  const [isOpen, { handleToggle: handleToggleFilters }] = useBooleanState();
+  const [isOpen, { handleToggle: handleToggleFilters }] = useBooleanState(initialState);
   const [isActive, { handleClose: handleResetActive, handleState: setIsActive }] =
     useBooleanState();
   const { t } = useTranslation();
@@ -42,6 +42,12 @@ export const Filters: FC = (): JSX.Element => {
   useEffect(() => {
     setIsActive(!!Object.values(router.query).filter((item) => item?.length).length);
   }, [router.query]);
+  const genres = useMemo(() => {
+    return filters?.genres.filter(({ genre }) => genre) || [];
+  }, [filters?.genres]);
+  const countries = useMemo(() => {
+    return filters?.countries.filter(({ country }) => country) || [];
+  }, [filters?.countries]);
 
   const handleReset = () => {
     router.push('').then(() => {
@@ -65,25 +71,16 @@ export const Filters: FC = (): JSX.Element => {
       </div>
 
       <motion.div
-        initial={isOpen ? 'visible' : 'hidden'}
         animate={isOpen ? 'visible' : 'hidden'}
         variants={variants}
         className={styles.filters}
       >
         <div className={styles.plank_list}>
           <div className={styles.plank_item}>
-            <FilterPlank
-              data={filters?.genres.filter(({ genre }) => genre) || []}
-              defaultName={'Жанр'}
-              name={'genre'}
-            />
+            <FilterPlank data={genres} defaultName={'Жанр'} name={'genre'} />
           </div>
           <div className={styles.plank_item}>
-            <FilterPlank
-              data={filters?.countries.filter(({ country }) => country) || []}
-              defaultName={'Страна'}
-              name={'country'}
-            />
+            <FilterPlank data={countries} defaultName={'Страна'} name={'country'} />
           </div>
           <div className={styles.plank_item}>
             <FilterPlank data={defaultYearsRange} defaultName={'Год'} name={'year'} />

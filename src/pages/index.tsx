@@ -1,23 +1,13 @@
 import Head from 'next/head';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Card, CardProps } from '@/entities/card';
 import { Carousel } from '@/entities/carousel';
 import { MainDescription } from '@/entities/descriptions';
 import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
+import { CardWithProps } from '@/widgets/cards';
 import { PromoCarousel } from '@/widgets/promo/ui/PromoCarousel';
 import { TopTenCarousel } from '@/widgets/top-10';
-
-const settings = {
-  hover: true,
-  star: true,
-  book: true,
-  find: true,
-  block: true,
-  info: true,
-} as Omit<CardProps, 'card'>;
 
 const Home = () => {
   const { data: anime } = useFetchAllFilmsQuery({
@@ -47,7 +37,7 @@ const Home = () => {
         showAll={!!anime?.total && anime.total > 15}
       >
         {(anime?.items || Array(15).fill(1)).map((card, index) => (
-          <Card {...settings} card={card} key={card?.kinopoiskId || index} />
+          <CardWithProps card={card} key={index} />
         ))}
       </Carousel>
       <Carousel
@@ -56,7 +46,7 @@ const Home = () => {
         showAll={!!adventures?.total && adventures.total > 15}
       >
         {(adventures?.items || Array(15).fill(1)).map((card, index) => (
-          <Card {...settings} card={card} key={card?.kinopoiskId || index} />
+          <CardWithProps card={card} key={index} />
         ))}
       </Carousel>
     </>

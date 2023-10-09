@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -26,7 +25,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   const { posterUrl, coverUrl, genres, type, kinopoiskId } = movie;
   const { typeName, typePath } = useMemo(() => {
     return {
-      typeName: movieTypes?.[type]?.[i18next.language as LanguageVariants] || 'Movie',
+      typeName: movieTypes?.[type]?.[i18n.language as LanguageVariants] || 'Movie',
       typePath: movieTypes?.[type]?.path || '/movies',
     };
   }, [type, i18n.language]);
@@ -42,7 +41,7 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
         path: `${typePath}?genre=${genreId}`,
       },
     ];
-  }, [movie, i18next.language]);
+  }, [movie, i18n.language]);
   return (
     <>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />

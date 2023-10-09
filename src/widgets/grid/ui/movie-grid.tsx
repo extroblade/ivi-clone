@@ -4,16 +4,17 @@ import { useRouter } from 'next/router';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Card } from '@/entities/card';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Button, Loader, Title } from '@/newui';
+import { Grid } from '@/newui/grid/grid';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
 import { FilmOrderVariants, iFilm } from '@/shared/types/kinopoiskTypes';
+import { CardWithProps } from '@/widgets/cards';
 
 import { GridProps } from '../model/props';
 import styles from './grid.module.scss';
 
-export const Grid: FC<GridProps> = ({ type }) => {
+export const MovieGrid: FC<GridProps> = ({ type }) => {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
@@ -54,17 +55,17 @@ export const Grid: FC<GridProps> = ({ type }) => {
     }
     if (page === 1) {
       setMovies(() => data?.items);
-    } else {
-      const filteredData = data?.items.filter(
-        //api can send same data from different pages -> keys error
-        (item) => !movies.map(({ kinopoiskId }) => kinopoiskId).includes(item.kinopoiskId)
-      );
-      setMovies(() => [...movies, ...filteredData]);
+      return;
     }
+    const filteredData = data?.items.filter(
+      //api can send same data from different pages -> keys error
+      (item) => !movies.map(({ kinopoiskId }) => kinopoiskId).includes(item.kinopoiskId)
+    );
+    setMovies(() => [...movies, ...filteredData]);
   }, [page, data]);
 
   useEffect(() => {
-    if (isInView) {
+    if (!isInView) {
       return;
     }
     showMore();
@@ -72,27 +73,32 @@ export const Grid: FC<GridProps> = ({ type }) => {
   if (error) {
     return (
       <Title tag={'h1'} style={{ color: 'var(--color-danger)' }}>
-        Error {error?.status}: {error?.data?.message}
+        Error{' '}
+        {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          error?.status
+        }
+        :{' '}
+        {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          error?.data?.message
+        }
       </Title>
     );
   }
   return (
     <>
-      <div className={styles.grid}>
-        {(data?.total && isFetching && page < 2 && <Loader />) || ''}
-        <div className={styles.grid__container}>
-          <ul className={styles.grid__list}>
-            {(movies || Array(15).fill(1))?.map((card, index) => (
-              <li className={styles.grid_item} key={card?.kinopoiskId || index}>
-                <Card card={card} star book find block />
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      {(data?.total && isFetching && page < 2 && <Loader />) || ''}
+      <Grid>
+        {(movies || Array(15).fill(1))?.map((card, index) => (
+          <CardWithProps card={card} key={index} />
+        ))}
+      </Grid>
       <div className={styles.nodata}>
         {isLoading && <Loader />}
-        {data?.total === 0 && <Title tag={'h2'}>Ничего не найдено</Title>}
+        {data?.total === 0 && !isLoading && <Title tag={'h2'}>Ничего не найдено</Title>}
       </div>
       <div ref={buttonRef}>
         {data?.total
