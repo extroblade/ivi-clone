@@ -12,7 +12,7 @@ export const Button: FC<ButtonProps> = ({
   ...props
 }): JSX.Element => {
   return (
-    <button className={cn(styles.button, className, styles[appearance], styles[size])} {...props}>
+    <button className={cn(styles.button, styles[appearance], styles[size], className)} {...props}>
       {children}
     </button>
   );

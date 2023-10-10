@@ -5,20 +5,21 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import { Button } from '@/newui';
 
 import { ArrowProps } from '../model/props';
-import styles from './styles.module.scss';
+import styles from './arrows.module.scss';
 
-export const Next: FC<ArrowProps> = ({ onClick, className }): JSX.Element => {
+export const PromoNextArrow: FC<ArrowProps> = ({ onClick, className }) => {
   return (
     <div onClick={onClick} className={styles.arrow_container}>
-      <div className={cn(styles.arrow, styles.next)}>
+      <div className={cn(styles.arrow, styles.next_arrow)}>
         <Button
           size={'L'}
           appearance={'transparent'}
-          disabled={className ? className.split(' ')[2] === 'slick-disabled' : false}
+          disabled={className?.split(' ')[2] === 'slick-disabled'}
         >
           <MdArrowForwardIos size={30} />
         </Button>
       </div>
+      <div className={cn(styles.banner, styles.next_banner)} />
     </div>
   );
 };

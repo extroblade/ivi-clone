@@ -50,7 +50,7 @@ export const User: FC = (): JSX.Element => {
               </Link>
             )}
             <Link href={'https://www.ivi.tv/profile/settings'}>{t('buttons.settings')}</Link>
-            <Link href={'/admin'}>{t('buttons.support')}</Link>
+            <Link href={'https://www.ask.ivi.ru'}>{t('buttons.support')}</Link>
             {session?.user && <LogoutButton variant={'none'} />}
           </div>
         </div>

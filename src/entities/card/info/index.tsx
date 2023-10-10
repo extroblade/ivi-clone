@@ -1,12 +1,11 @@
-import dayjs from 'dayjs';
 import { FC } from 'react';
 
 import { CardProps } from '@/entities/card';
 import { BarGraph, Text, Title } from '@/newui';
 
 export const CardInfo: FC<CardProps> = ({ card }) => {
-  const { countries, genres, year, filmLength, ratingKinopoisk } = card || {};
-  if (!card?.posterUrl) return <div className={'loader'} />;
+  const { countries, genres, year, ratingKinopoisk } = card || {};
+  if (!card) return <div className={'loader'} />;
   return (
     <>
       <Title>{ratingKinopoisk || 5}</Title>
@@ -15,7 +14,6 @@ export const CardInfo: FC<CardProps> = ({ card }) => {
         {year && `${year}, `}
         {countries?.length && `${countries[0].country}, `}
         {genres?.length && `${genres[0]?.genre}`}
-        {filmLength && dayjs.duration(filmLength, 'minutes').format('H часа mm минут')}
       </Text>
     </>
   );

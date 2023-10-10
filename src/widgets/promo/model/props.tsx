@@ -1,7 +1,7 @@
 import { Settings } from 'react-slick';
 
-import { Next } from '@/features/arrow/ui/next';
-import { Prev } from '@/features/arrow/ui/prev';
+import { PromoNextArrow } from '@/widgets/promo/arrow/ui/promo-next-arrow';
+import { PromoPrevArrow } from '@/widgets/promo/arrow/ui/promo-prev-arrow';
 
 export type PromoCarouselProps = {
   id: number;
@@ -16,11 +16,10 @@ export type PromoCarouselProps = {
 export const carouselSettings: Settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
-  lazyLoad: 'progressive',
   speed: 700,
   draggable: true,
   autoplay: true,
-  autoplaySpeed: 10000,
-  nextArrow: <Next variant="promo" />,
-  prevArrow: <Prev variant="promo" />,
+  autoplaySpeed: 5000,
+  nextArrow: <PromoNextArrow />,
+  prevArrow: <PromoPrevArrow />,
 };
