@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export type AppearanceVariants =
   | 'rectangle'
@@ -14,4 +14,4 @@ export type ButtonProps = {
   children?: ReactNode;
   appearance?: AppearanceVariants;
   size?: SizeVariants;
-} & DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement>;

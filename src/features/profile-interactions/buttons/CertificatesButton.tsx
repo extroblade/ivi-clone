@@ -8,7 +8,7 @@ export const CertificatesButton: FC<ProfileButtonProps> = ({ type }) => {
   const { t } = useTranslation();
   return (
     <ProfileButton type={type}>
-      <div>{t('buttons.certificates')}</div>
+      <div style={{ textAlign: 'start' }}>{t('buttons.certificates')}</div>
       <div>{t('buttons.activate')}</div>
     </ProfileButton>
   );

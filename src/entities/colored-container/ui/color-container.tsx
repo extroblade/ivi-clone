@@ -11,16 +11,17 @@ export const ColorContainer: FC = () => {
   const router = useRouter();
   const { data: movie } = useFetchFilmQuery(Number(router.query?.id), { skip: !router.query?.id });
   useEffect(() => {
-    if (!movie?.coverUrl) {
+    if (!movie) {
       return;
     }
     const fac = new FastAverageColor();
     fac
-      .getColorAsync(movie.coverUrl, {
+      .getColorAsync(movie?.coverUrl || movie?.posterUrl || movie?.posterUrlPreview, {
         algorithm: 'simple',
         crossOrigin: 'a',
       })
-      .then((color) => setBackgroundColor(color.hex));
+      .then((color) => setBackgroundColor(color.rgb))
+      .catch((e) => console.error(e));
   }, [movie]);
   if (!movie?.coverUrl) return <></>;
   return (

@@ -1,0 +1,26 @@
+.carousel {
+  width: 300%;
+  transform: translateX(calc(-100% / 3));
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.promo_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0 20px;
+  gap: 10px;
+
+  a {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    a {
+      width: 100%;
+    }
+  }
+}

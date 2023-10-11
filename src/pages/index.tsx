@@ -6,7 +6,7 @@ import { MainDescription } from '@/entities/descriptions';
 import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
 import { CardWithProps } from '@/widgets/cards';
-import { PromoCarousel } from '@/widgets/promo/ui/PromoCarousel';
+import { Promo } from '@/widgets/promo/ui/promo';
 import { TopTenCarousel } from '@/widgets/top-10';
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
       <Head>
         <title>{t('title.home')}</title>
       </Head>
-      <PromoCarousel />
+      <Promo />
       <Title tag={'h4'}>{t('descriptions.main-page-title')}</Title>
 
       <MainDescription />

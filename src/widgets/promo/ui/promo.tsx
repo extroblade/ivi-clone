@@ -8,19 +8,19 @@ import {
   ActivateCertificateButton,
   PromotionButton,
 } from '@/features/profile-interactions/buttons';
-import { PromoCarouselSlide } from '@/widgets/promo/card/ui/card';
+import { PromoCard } from '@/widgets/promo/card';
 import { mockCarousel } from '@/widgets/promo/model/mockSlides';
 import { carouselSettings } from '@/widgets/promo/model/props';
 
-import styles from './PromoCarousel.module.scss';
+import styles from './promo.module.scss';
 
-export const PromoCarousel: FC = () => {
+export const Promo: FC = () => {
   return (
     <>
       <div className={styles.carousel}>
         <Slider {...carouselSettings}>
           {mockCarousel.map((slide) => (
-            <PromoCarouselSlide slide={slide} key={slide.id} />
+            <PromoCard slide={slide} key={slide.id} />
           ))}
         </Slider>
       </div>
