@@ -1,11 +1,10 @@
 
 .img {
   margin-right: 10px;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 .link {
+  user-select: none;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;

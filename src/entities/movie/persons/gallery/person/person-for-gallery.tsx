@@ -27,7 +27,7 @@ export const PersonForGallery: FC<{ person: iPerson }> = ({ person }) => {
       </div>
       <div>
         {personName
-          .split(' ')
+          ?.split(' ')
           .slice(0, 2)
           .map((word: string) => (
             <div key={staffId + professionKey + word}>

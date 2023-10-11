@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 export type ProfileIconProps = {
   image?: ReactNode;
-  name?: string;
+  name?: string | null;
   isActive?: boolean;
+  onClick?: () => void;
 };

@@ -10,7 +10,8 @@ import { Button, Loader, Title } from '@/newui';
 import { useAppDispatch } from '@/shared/hooks';
 import { useFetchCommentsQuery } from '@/shared/services';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
-import styles from '@/widgets/movie/ui/WatchPage.module.scss';
+
+import styles from './styles.module.scss';
 
 export const CommentCarousel: FC = () => {
   const { t } = useTranslation();
@@ -20,7 +21,7 @@ export const CommentCarousel: FC = () => {
     data: comments,
     isLoading,
     error,
-  } = useFetchCommentsQuery({ id: Number(router.query?.id) || 0 }, { skip: !router.query?.id });
+  } = useFetchCommentsQuery({ id: Number(router.query?.id) }, { skip: !router.query?.id });
   const dispatch = useAppDispatch();
 
   const openComments = () => {
@@ -32,21 +33,23 @@ export const CommentCarousel: FC = () => {
   if (error) return <></>;
 
   return (
-    <>
-      <div className={styles.comments_container}>
-        <Title onClick={openComments}>{t('categories.comments')}</Title>
-        <div className={styles.open} onClick={openComments}>
-          <Button appearance={'outline'}>{t('buttons.leave-a-comment')}</Button>
+    <div className={styles.carousel}>
+      <nav className={styles.nav}>
+        <Title className={styles.title} onClick={openComments}>
+          {t('categories.comments')}
+        </Title>
+        <div>
+          <Button onClick={openComments} appearance={'outline'}>
+            {t('buttons.leave-a-comment')}
+          </Button>
         </div>
-      </div>
-      <div className={styles.carousel}>
-        <Slider {...settings}>
-          {!isLoading &&
-            comments?.items.map((comment) => (
-              <CommentCard onClick={openComments} comment={comment} key={comment.kinopoiskId} />
-            ))}
-        </Slider>
-      </div>
-    </>
+      </nav>
+      <Slider {...settings}>
+        {!isLoading &&
+          comments?.items.map((comment) => (
+            <CommentCard onClick={openComments} comment={comment} key={comment.kinopoiskId} />
+          ))}
+      </Slider>
+    </div>
   );
 };

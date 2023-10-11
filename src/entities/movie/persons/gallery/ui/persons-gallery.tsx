@@ -16,9 +16,7 @@ export const PersonsGallery: FC = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const { data: persons } = useFetchAllPersonsQuery(
-    {
-      filmId: Number(router.query?.id),
-    },
+    { filmId: Number(router.query?.id) },
     { skip: !router.query?.id }
   );
   const dispatch = useDispatch();
@@ -30,22 +28,20 @@ export const PersonsGallery: FC = () => {
   };
   if (!persons?.length) return <></>;
   return (
-    <div className={styles.wrap}>
-      <Title style={{ cursor: 'pointer' }} onClick={handleOpen}>
+    <>
+      <Title className={styles.title} onClick={handleOpen}>
         {t('sections.actors-creators')} <Sup>{persons?.length || 0}</Sup>
       </Title>
       <div className={styles.list}>
-        <div className={styles.list__wrap}>
-          {persons.slice(0, 9).map((person) => (
-            <PersonForGallery key={person.staffId + person.professionKey} person={person} />
-          ))}
-        </div>
-        {persons.length > 10 && (
+        {persons.slice(0, 9).map((person) => (
+          <PersonForGallery key={person.staffId + person.professionKey} person={person} />
+        ))}
+        {persons.length > 9 && (
           <div className={cn(styles.card, styles.card__text)} onClick={handleOpen}>
             {t('buttons.more')}
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };

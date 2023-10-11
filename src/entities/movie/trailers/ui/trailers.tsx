@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
@@ -13,7 +13,7 @@ import styles from './trailers.module.scss';
 
 export const Trailers: FC = () => {
   const router = useRouter();
-  const { data: videos } = useFetchFilmVideoQuery(
+  const { data: trailers } = useFetchFilmVideoQuery(
     { id: Number(router.query?.id) },
     { skip: !router.query?.id }
   );
@@ -23,25 +23,22 @@ export const Trailers: FC = () => {
   const dispatch = useAppDispatch();
   const openTrailers = () => {
     dispatch(setCurrentTab(2));
-
     dispatch(setShowWatchPageModal(true));
     scrollTop?.();
   };
-  if (!videos?.total) return <></>;
+  if (!trailers?.total) return <></>;
   return (
-    <div className={styles.videos}>
-      <Title onClick={openTrailers}>{t('categories.trailers')}</Title>
-      <div className={styles.videos_links}>
-        {videos?.items.map(({ name, url }, index) => (
-          <div className={styles.text_container} key={index}>
-            <Link target={'_blank'} href={url}>
-              <Text size={'L'} color={'gray-light'}>
-                {name}
-              </Text>
-            </Link>
-          </div>
+    <>
+      <Title className={styles.title} onClick={openTrailers}>
+        {t('categories.trailers')}
+      </Title>
+      <div className={styles.links}>
+        {trailers?.items.map(({ name, url }, index) => (
+          <Link key={index} target={'_blank'} href={url}>
+            <Text className={styles.name}>{name}</Text>
+          </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 };

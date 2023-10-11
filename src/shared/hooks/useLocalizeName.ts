@@ -6,6 +6,14 @@ export type useLocalizeNameProps = {
   nameRu?: string;
   nameOriginal?: string;
 };
+export const useLocalizeNameFunction = <T extends useLocalizeNameProps>(): ((
+  object?: T
+) => string | undefined) => {
+  return (object) =>
+    i18next.language === 'en'
+      ? object?.nameEn || object?.nameOriginal || object?.nameRu
+      : object?.nameRu || object?.nameOriginal || object?.nameEn;
+};
 export const useLocalizeName = <T extends useLocalizeNameProps>(object?: T): string | undefined => {
   const name = useMemo(() => {
     return i18next.language === 'en'

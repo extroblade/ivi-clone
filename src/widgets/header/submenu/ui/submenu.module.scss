@@ -56,10 +56,6 @@
     cursor: pointer;
     transition: var(--transition-main);
 
-    & img {
-      padding: 5px;
-    }
-
     &:hover {
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
       opacity: 1;
@@ -73,6 +69,9 @@
   }
 
   &__buttonUser {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 10;
     opacity: 0.9;
@@ -82,6 +81,12 @@
     cursor: pointer;
     object-fit: cover;
     transition: var(--transition-main);
+
+    > img {
+      padding: 5px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
 
     & img {
       padding: 0;

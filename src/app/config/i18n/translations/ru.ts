@@ -9,6 +9,7 @@ export const russian = {
       year: 'год',
     },
     buttons: {
+      'continue-watching': 'Продолжить просмотр',
       activate: 'Активировать',
       'activate-certificate': 'Активировать сертификат',
       'add-email': 'Добавить email',

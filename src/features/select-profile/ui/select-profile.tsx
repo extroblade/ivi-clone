@@ -1,56 +1,33 @@
+import cn from 'classnames';
 import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
-
-import { Title } from '@/newui';
+import { AiOutlinePlus } from 'react-icons/ai';
 
 import { ProfileIcon } from '../profile-icon';
 import styles from './select-profile.module.scss';
 
 export const SelectProfile = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const { t } = useTranslation();
   return (
-    <div className={styles.profile}>
-      <Title className={styles.title} tag="h3">
-        {t('sections.select-profile')}
-      </Title>
-      <div className={styles.profile__row}>
-        <div className={styles.profile__user}>
-          <ProfileIcon
-            image={
-              session?.user?.image && (
-                <Image
-                  className={styles.img}
-                  src={session.user.image}
-                  alt="user"
-                  width={48}
-                  height={48}
-                />
-              )
-            }
-            isActive={true}
-            name={session?.user?.name || session?.user?.email || t('sections.profile') || 'Имя'}
-          />
-        </div>
+    <>
+      <div className={cn(styles.row, status === 'loading' && 'loader')}>
         <ProfileIcon
           image={
-            <Image
-              className={styles.img}
-              src={'/images/children.png'}
-              alt="user"
-              width={48}
-              height={48}
-            />
+            session?.user?.image && (
+              <Image src={session.user.image} alt="user" width={50} height={50} />
+            )
           }
-          name={t('sections.children') || ''}
+          isActive={true}
+          name={session?.user?.name || session?.user?.email || t('sections.profile')}
         />
         <ProfileIcon
-          image={<span className={styles.profile__add} />}
-          name={t('buttons.new-one') || ''}
-          isActive={false}
+          image={<Image src={'/images/children.png'} alt="user" width={40} height={40} />}
+          name={t('sections.children')}
         />
+        <ProfileIcon image={<AiOutlinePlus />} name={t('buttons.new-one')} />
       </div>
-    </div>
+    </>
   );
 };

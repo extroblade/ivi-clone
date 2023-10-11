@@ -1,5 +1,6 @@
 .user__content {
 }
+
 .content {
   &__row {
     height: 100%;
@@ -7,6 +8,7 @@
     justify-content: space-between;
     padding: 25px;
   }
+
   &__actions {
     padding-right: 25px;
     flex: 1 1 auto;
@@ -16,6 +18,7 @@
     grid-auto-rows: minmax(100px, auto);
     grid-gap: 25px;
   }
+
   &__auth {
     // flex: 0 0 340px;
     width: 33.33%;
@@ -29,9 +32,11 @@
       flex: 0 0 30%;
     }
   }
+
   &__profile {
     width: 100%;
   }
+
   &__nowrap {
     white-space: nowrap;
     padding: 0 30px;
@@ -46,13 +51,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
+
     & a,
     span {
       cursor: pointer;
       opacity: 0.5;
-      margin-top: 10px;
       text-align: left;
       transition: var(--transition-main);
+
       &:hover {
         opacity: 1;
       }

@@ -1,10 +1,11 @@
 import cn from 'classnames';
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { LogoutButton } from '@/features/logout-button';
 import { SelectProfile } from '@/features/select-profile';
-import { Text } from '@/newui';
+import { Text, Title } from '@/newui';
 import { AuthButton } from '@/widgets/auth';
 import { guestList, userList } from '@/widgets/profile/model/lists';
 
@@ -12,6 +13,7 @@ import styles from './ProfilePage.module.scss';
 
 export const ProfilePage = () => {
   const { data: session } = useSession();
+  const { t } = useTranslation();
   const [uuid, setUuid] = useState('');
   useEffect(() => {
     const id = localStorage?.getItem('uuid');
@@ -27,6 +29,8 @@ export const ProfilePage = () => {
       {session?.user ? (
         <div className={styles.select_profile}>
           <div className={styles.select_container}>
+            <Title tag="h2">{t('sections.select-profile')}</Title>
+
             <SelectProfile />
           </div>
         </div>

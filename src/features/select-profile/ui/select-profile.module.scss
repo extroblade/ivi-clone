@@ -1,79 +1,8 @@
-.profile {
-  &__title {
-    margin-bottom: 24px;
-  }
-
-  &__row {
-    margin-top: 18px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-
-  &__user {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__item {
-    opacity: 0.5;
-    align-items: center;
-    transition: var(--transition-main);
-
-    &:hover {
-      opacity: 1;
-    }
-
-    span {
-      width: 100%;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  &__image {
-    border-radius: 8px;
-    cursor: pointer;
-  }
+.row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 8px;
+  height: fit-content;
 }
 
-.img {
-  width: 40px;
-  height: 40px;
-}
-
-.profile__add {
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background-color: var(--color-card-hover);
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40%;
-    height: 2px;
-    border-radius: 1px;
-    background-color: white;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 2px;
-    height: 40%;
-    border-radius: 1px;
-    background-color: white;
-  }
-}

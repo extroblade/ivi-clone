@@ -10,14 +10,14 @@ import { PersonProps } from '../model/props';
 import styles from './person.module.scss';
 
 export const Person: FC<PersonProps> = ({ person }) => {
-  const { posterUrl, nameRu, nameEn, profession, films } = person;
+  const { posterUrl, profession, films } = person;
   const personName = useLocalizeName(person);
   return (
     <>
       <BackButton />
       <div className={styles.person}>
         <div className={styles.card_image}>
-          <Image width={128} height={203} src={posterUrl} alt={nameRu || nameEn} />
+          <Image width={128} height={203} src={posterUrl} alt={personName || 'person'} />
         </div>
         <Title tag={'h1'}>{personName}</Title>
         <Text>{profession || ''}</Text>

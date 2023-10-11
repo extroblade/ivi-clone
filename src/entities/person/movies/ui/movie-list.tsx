@@ -43,7 +43,7 @@ export const MovieList: FC<MovieListProps> = ({ list }) => {
           </>
         ) : (
           <>
-            {list.map((card) => (
+            {list?.map((card) => (
               <MovieCard key={card.filmId} card={card} />
             ))}
           </>

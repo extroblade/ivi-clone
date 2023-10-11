@@ -10,6 +10,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { presets, RedirectProps } from '@/features/search-button/search-modal/model/props';
 import { Button, Loader, Modal, Text, Title } from '@/newui';
 import { useDebounce } from '@/shared/hooks';
+import { useLocalizeNameFunction } from '@/shared/hooks/useLocalizeName';
 import { useFetchAllFilmsQuery, useFetchPersonNameQuery } from '@/shared/services';
 
 import { useSearchModal } from '../../lib/hooks';
@@ -17,8 +18,8 @@ import styles from './search-modal.module.scss';
 
 export const SearchModal: FC = (): JSX.Element => {
   const router = useRouter();
-  const { t, i18n } = useTranslation();
-
+  const { t } = useTranslation();
+  const localize = useLocalizeNameFunction();
   const [query, setQuery] = useState<string>('');
   const { isOpen, handleState } = useSearchModal();
   const [debouncedQuery, setDebouncedQuery] = useState('');
@@ -38,8 +39,12 @@ export const SearchModal: FC = (): JSX.Element => {
     { skip: !isOpen || !query.trim() }
   );
 
-  const handleClose = () => {
+  const handleClearInput = () => {
     setQuery('');
+  };
+
+  const handleClose = () => {
+    handleClearInput();
     handleState(false);
   };
   const handleRedirect = ({ type, id }: RedirectProps) => {
@@ -68,7 +73,7 @@ export const SearchModal: FC = (): JSX.Element => {
           />
           <label>{i18next.language == 'ru' ? 'Фильмы, персоны' : 'Movies, persons'}</label>
           {!!query ? (
-            <CgClose className={styles.input__icon} onClick={() => setQuery('')} />
+            <CgClose className={styles.input__icon} onClick={handleClearInput} />
           ) : (
             <IoSearchOutline className={styles.input__icon} />
           )}
@@ -89,46 +94,28 @@ export const SearchModal: FC = (): JSX.Element => {
           </div>
         ) : (
           <div className={styles.result}>
-            {movies?.total
-              ? movies.items.slice(0, 15).map((movie) => {
-                  const { nameRu, nameEn, nameOriginal, kinopoiskId: id } = movie;
-                  const name =
-                    i18n.language === 'en'
-                      ? nameEn || nameOriginal || nameRu
-                      : nameRu || nameOriginal || nameEn;
-                  return (
-                    <Button
-                      title={name}
-                      onClick={() => handleRedirect({ type: 'watch', id })}
-                      appearance={'transparent'}
-                      key={id + 'm'}
-                    >
-                      <BiMoviePlay />
-                      <Text>{name}</Text>
-                    </Button>
-                  );
-                })
-              : ''}
-            {persons?.total
-              ? persons.items.slice(0, 15).map((person) => {
-                  const { kinopoiskId: id, nameRu, nameEn, nameOriginal } = person;
-                  const name =
-                    i18n.language === 'en'
-                      ? nameEn || nameOriginal || nameRu
-                      : nameRu || nameOriginal || nameEn;
-                  return (
-                    <Button
-                      title={name}
-                      onClick={() => handleRedirect({ type: 'person', id })}
-                      appearance={'transparent'}
-                      key={id + 'p'}
-                    >
-                      <BsPersonCircle />
-                      <Text>{name}</Text>
-                    </Button>
-                  );
-                })
-              : ''}
+            {movies?.items.slice(0, 15).map((movie) => (
+              <Button
+                title={localize(movie)}
+                onClick={() => handleRedirect({ type: 'watch', id: movie.kinopoiskId })}
+                appearance={'transparent'}
+                key={movie.kinopoiskId}
+              >
+                <BiMoviePlay />
+                <Text>{localize(movie)}</Text>
+              </Button>
+            ))}
+            {persons?.items.slice(0, 15).map((person) => (
+              <Button
+                title={localize(person)}
+                onClick={() => handleRedirect({ type: 'name', id: person.kinopoiskId })}
+                appearance={'transparent'}
+                key={person.kinopoiskId}
+              >
+                <BsPersonCircle />
+                <Text>{localize(person)}</Text>
+              </Button>
+            ))}
           </div>
         )}
         {!!query.trim() &&

@@ -16,7 +16,7 @@ export const ExternalSources: FC = () => {
   );
   if (!sources?.total) return <></>;
   return (
-    <div className={styles.sources_container}>
+    <>
       <Title>Смотреть полностью:</Title>
       <div className={styles.sources}>
         {sources.items.map(({ url, logoUrl, platform }) => (
@@ -30,6 +30,6 @@ export const ExternalSources: FC = () => {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 };
