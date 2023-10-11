@@ -7,7 +7,7 @@ import { Carousel } from '@/entities/carousel';
 import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
 import { useFetchFilmSimilarQuery } from '@/shared/services';
 
-export const SimilarMovies: FC = () => {
+export const SimilarCarousel: FC = () => {
   const router = useRouter();
   const { t } = useTranslation();
   const { data: similar } = useFetchFilmSimilarQuery(
@@ -19,11 +19,7 @@ export const SimilarMovies: FC = () => {
   return (
     <Carousel title={t('descriptions.similar') || ''} route={`/similar/${router.query?.id}`}>
       {similar.items.map((card, index) => (
-        <Card
-          key={index}
-          card={card}
-          buttons={<AddToFavoritesButton appearance={'transparent'} />}
-        />
+        <Card key={index} card={card} buttons={<AddToFavoritesButton />} />
       ))}
     </Carousel>
   );

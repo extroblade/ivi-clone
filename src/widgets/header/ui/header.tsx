@@ -16,6 +16,31 @@ import { User } from '@/widgets/header/user';
 
 import styles from './header.module.scss';
 
+const linkNavItems = [
+  {
+    href: '/',
+    title: 'sections.my-ivi',
+  },
+  {
+    href: 'https://www.ivi.tv/new',
+    title: 'sections.whats-new',
+  },
+];
+const submenuNavItems = [
+  {
+    href: '/movies',
+    title: 'sections.movies',
+  },
+  {
+    href: '/series',
+    title: 'sections.series',
+  },
+  {
+    href: '/animation',
+    title: 'sections.animation',
+  },
+];
+
 export const Header: FC = () => {
   const { t } = useTranslation();
   const { data: session } = useSession();
@@ -38,31 +63,20 @@ export const Header: FC = () => {
             </div>
             <nav className={styles.menu}>
               <ul className={styles.menu__list}>
-                <li className={styles.menu__item}>
-                  <Link href="/" className={styles.menu__link}>
-                    {t('sections.my-ivi')}
-                  </Link>
-                </li>
-                <li className={styles.menu__item}>
-                  <Link href="https://www.ivi.tv/new" className={styles.menu__link}>
-                    {t('sections.whats-new')}
-                  </Link>
-                </li>
-                <li className={styles.menu__item}>
-                  <Submenu title={t('sections.movies')} link="/movies">
-                    <Categories href={'movies'} />
-                  </Submenu>
-                </li>
-                <li className={styles.menu__item}>
-                  <Submenu title={t('sections.series')} link="/series">
-                    <Categories href={'series'} />
-                  </Submenu>
-                </li>
-                <li className={styles.menu__item}>
-                  <Submenu title={t('sections.animation')} link="/animation">
-                    <Categories href={'animation'} />
-                  </Submenu>
-                </li>
+                {linkNavItems.map(({ href, title }, index) => (
+                  <li key={index} className={styles.menu__item}>
+                    <Link href={href} className={styles.menu__link}>
+                      {t(title)}
+                    </Link>
+                  </li>
+                ))}
+                {submenuNavItems.map(({ href, title }, index) => (
+                  <li key={index} className={styles.menu__item}>
+                    <Submenu title={t(title)} link={href}>
+                      <Categories href={href} />
+                    </Submenu>
+                  </li>
+                ))}
               </ul>
             </nav>
             <div className={styles.zindex}>

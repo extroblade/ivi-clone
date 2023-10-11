@@ -1,16 +1,16 @@
 import { Meta } from '@storybook/react';
 
-import { PromoCarousel } from '@/widgets/promo/ui/PromoCarousel';
+import { Promo } from '@/widgets/promo/ui/promo';
 
 const PromoWrapper = () => {
   return (
     <div className={'container'}>
-      <PromoCarousel />
+      <Promo />
     </div>
   );
 };
 
-const meta: Meta<typeof PromoCarousel> = {
+const meta: Meta<typeof Promo> = {
   title: 'Main/Carousel',
   component: PromoWrapper,
 };

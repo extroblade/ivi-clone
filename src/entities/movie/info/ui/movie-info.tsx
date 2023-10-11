@@ -58,13 +58,13 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
           <div className={styles.info_item}>{duration}</div>
         </ul>
         <ul className={styles.info_list}>
-          {countries?.map(({ country, id }) => (
-            <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
+          {countries?.map(({ country }, index) => (
+            <div key={index} className={cn(styles.info_item, styles.item_hasDot)}>
               <Link href={`${getPathByType(type)}?country=${findCountry(country)}`}>{country}</Link>
             </div>
           ))}
-          {genres?.map(({ genre, id }) => (
-            <div key={id} className={cn(styles.info_item, styles.item_hasDot)}>
+          {genres?.map(({ genre }, index) => (
+            <div key={index} className={cn(styles.info_item, styles.item_hasDot)}>
               <Link href={`${getPathByType(type)}?genre=${findGenre(genre)}`}>{genre}</Link>
             </div>
           ))}
