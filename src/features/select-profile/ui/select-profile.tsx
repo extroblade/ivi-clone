@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import { useSession } from 'next-auth/react';
 import { useTranslation } from 'react-i18next';
-import { FiUser } from 'react-icons/fi';
 
 import { Title } from '@/newui';
 
@@ -12,22 +12,44 @@ export const SelectProfile = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.profile}>
-      <div className={styles.profile__title}>
-        <Title tag="h3">{t('sections.select-profile')}</Title>
-      </div>
+      <Title className={styles.title} tag="h3">
+        {t('sections.select-profile')}
+      </Title>
       <div className={styles.profile__row}>
         <div className={styles.profile__user}>
-          {session?.user?.image ? (
-            <ProfileIcon image={session.user.image} isActive={true} />
-          ) : (
-            <div className={`${styles.profile__image} ${styles.no_image}`}>
-              <FiUser />
-            </div>
-          )}
-          <span>{session?.user?.name || session?.user?.email || t('sections.profile')}</span>
+          <ProfileIcon
+            image={
+              session?.user?.image && (
+                <Image
+                  className={styles.img}
+                  src={session.user.image}
+                  alt="user"
+                  width={48}
+                  height={48}
+                />
+              )
+            }
+            isActive={true}
+            name={session?.user?.name || session?.user?.email || t('sections.profile') || 'Имя'}
+          />
         </div>
-        <ProfileIcon image={'/images/children.png'} name={t('sections.children')} />
-        <ProfileIcon name={t('buttons.new-one')} isActive={false} />
+        <ProfileIcon
+          image={
+            <Image
+              className={styles.img}
+              src={'/images/children.png'}
+              alt="user"
+              width={48}
+              height={48}
+            />
+          }
+          name={t('sections.children') || ''}
+        />
+        <ProfileIcon
+          image={<span className={styles.profile__add} />}
+          name={t('buttons.new-one') || ''}
+          isActive={false}
+        />
       </div>
     </div>
   );

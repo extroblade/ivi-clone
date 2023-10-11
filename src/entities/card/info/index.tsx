@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { CardProps } from '@/entities/card';
+import { Props } from '@/entities/card';
 import { BarGraph, Text, Title } from '@/newui';
 
-export const CardInfo: FC<CardProps> = ({ card }) => {
+export const CardInfo: FC<Props> = ({ card }) => {
   const { countries, genres, year, ratingKinopoisk } = card || {};
   if (!card) return <div className={'loader'} />;
   return (

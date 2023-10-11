@@ -1,6 +1,6 @@
 import cn from 'classnames';
-import Image from 'next/image';
 import { FC } from 'react';
+import { FiUser } from 'react-icons/fi';
 
 import { ProfileIconProps } from '@/features/select-profile/profile-icon/model/props';
 
@@ -8,15 +8,17 @@ import styles from './profile-icon.module.scss';
 
 export const ProfileIcon: FC<ProfileIconProps> = ({ image, name, isActive = false }) => {
   return (
-    <div className={cn(styles.profile__user, isActive && styles.active)}>
-      <div className={styles.profile__image}>
+    <div title={name || ''} className={cn(styles.user, isActive && styles.active)}>
+      <div className={styles.img}>
         {image ? (
-          <Image className={styles.profile__image} src={image} alt="user" width={48} height={48} />
+          <>{image}</>
         ) : (
-          <span className={styles.profile__add} />
+          <div className={cn(styles.no_image, styles.img)}>
+            <FiUser />
+          </div>
         )}
       </div>
-      <span>{name}</span>
+      {name && <span className={styles.name}>{name}</span>}
     </div>
   );
 };
