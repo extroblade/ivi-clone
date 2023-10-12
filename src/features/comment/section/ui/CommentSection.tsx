@@ -14,14 +14,14 @@ export const CommentSection: FC = (): JSX.Element => {
     data: comments,
     isLoading,
     error,
-  } = useFetchCommentsQuery({ id: Number(router.query?.id) || 0 }, { skip: !router.query?.id });
+  } = useFetchCommentsQuery({ id: Number(router.query?.id) }, { skip: !router.query?.id });
   if (isLoading) return <Loader />;
-  if (error || !comments?.total) return <></>;
+  if (error) return <></>;
   return (
     <div className={styles.comment_section}>
       <CommentInput />
       <ul>
-        {comments.items.map((comment) => (
+        {comments?.items.map((comment) => (
           <Comment comment={comment} key={comment.kinopoiskId} />
         ))}
       </ul>

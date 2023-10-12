@@ -1,88 +1,50 @@
-.profile {
-  width: 100%;
-  &__title {
-    margin-bottom: 24px;
+
+.user {
+  display: flex;
+  flex-direction: column;
+  opacity: 0.5;
+  transition: var(--transition-main);
+  cursor: pointer;
+  width: 40px;
+
+  &:hover {
+    opacity: 1;
   }
-  &__row {
+}
+
+.active {
+  opacity: 1;
+  width: 50px;
+  margin-right: 2px;
+}
+
+.img {
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+  aspect-ratio: 1;
+  background-color: var(--color-card-background);
+  overflow: hidden;
+
+  svg {
+    width: 80%;
+    height: 80%;
+  }
+
+  img {
     width: 100%;
-    margin-top: 24px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+    height: 100%;
   }
-  &__image {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    object-fit: cover;
-    & img {
-      width: 40px;
-      height: 40px;
-    }
-  }
-  &__user {
-    display: flex;
-    flex-direction: column;
-    width: 40px;
-    opacity: 0.5;
-    margin-right: 12px;
-    transition: var(--transition-main);
-    &:hover {
-      opacity: 1;
-    }
-    & span {
-      margin-top: 4px;
-      font-size: 13px;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: center;
-    }
-    &.active {
-      opacity: 1;
-      width: 50px;
-      & img {
-        width: 50px;
-        height: 50px;
-        overflow: hidden;
-        border-radius: 10px;
-      }
-    }
-  }
-  &__image {
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  &__add {
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background-color: var(--color-card-hover);
-    position: relative;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 40%;
-      height: 2px;
-      border-radius: 1px;
-      background-color: white;
-    }
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 2px;
-      height: 40%;
-      border-radius: 1px;
-      background-color: white;
-    }
-  }
+}
+
+.name {
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 6px;
+  height: 20px;
+  font-size: 10px;
 }

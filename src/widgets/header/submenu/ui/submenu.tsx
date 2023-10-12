@@ -43,34 +43,26 @@ export const Submenu: FC<SubmenuProps> = ({
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className={styles.submenu}>
-        {link &&
-          (link ? (
-            <Link href={link}>
-              <Image
-                src={user}
-                alt="user"
-                width={48}
-                height={48}
-                className={styles.submenu__buttonUser}
-              />
-            </Link>
-          ) : (
-            <Image
-              src={user}
-              alt="user"
-              width={48}
-              height={48}
-              className={!outline ? styles.submenu__button : styles.submenu__buttonOutline}
-            />
-          ))}
-        <div className={styles.submenu__body}>
-          <span className={styles.submenu__border}></span>
-          <div className={styles.submenu__content}>{children}</div>
-        </div>
-      </div>
-    );
   }
+  return (
+    <div className={styles.submenu}>
+      {link ? (
+        <Link href={link} className={styles.submenu__buttonUser}>
+          <Image src={user} alt="user" width={48} height={48} />
+        </Link>
+      ) : (
+        <Image
+          src={user}
+          alt="user"
+          width={48}
+          height={48}
+          className={!outline ? styles.submenu__button : styles.submenu__buttonOutline}
+        />
+      )}
+      <div className={styles.submenu__body}>
+        <span className={styles.submenu__border}></span>
+        <div className={styles.submenu__content}>{children}</div>
+      </div>
+    </div>
+  );
 };

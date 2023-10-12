@@ -20,6 +20,7 @@ const Movies = () => {
   const [breadcrumbs, setBreadcrumbs] = useState(initialBreadcrumbs);
   useEffect(() => {
     if (!router?.query?.genre) {
+      setBreadcrumbs(() => initialBreadcrumbs);
       return;
     }
     const genre = filters?.genres.find(({ id }) => id == router?.query?.genre)?.genre;
@@ -33,7 +34,7 @@ const Movies = () => {
         path: `/movies?genre=${router?.query?.genre}`,
       },
     ]);
-  }, [filters?.genres, router?.query?.genre]);
+  }, [filters?.genres, router?.query]);
   return (
     <>
       <Head>

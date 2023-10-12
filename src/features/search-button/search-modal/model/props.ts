@@ -1,5 +1,5 @@
 export type RedirectProps = {
-  type: 'watch' | 'person' | 'movies';
+  type: 'watch' | 'name' | 'movies';
   id?: string | number;
 };
 

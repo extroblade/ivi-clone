@@ -45,7 +45,10 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
   );
   const duration = useMemo(() => {
     const dur = dayjs.duration(filmLength, 'minutes').format('H:mm:ss');
-    return filmLength ? dur : 'Loading...';
+    if (!filmLength) {
+      return;
+    }
+    return dur;
   }, [filmLength]);
   return (
     <div className={styles.watch__info}>
@@ -55,7 +58,7 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
       <div className={styles.watch__params}>
         <ul className={styles.info_list}>
           {year && <div className={styles.info_item}>{year},</div>}
-          <div className={styles.info_item}>{duration}</div>
+          {duration && <div className={styles.info_item}>{duration}</div>}
         </ul>
         <ul className={styles.info_list}>
           {countries?.map(({ country }, index) => (

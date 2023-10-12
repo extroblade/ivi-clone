@@ -1,13 +1,13 @@
 import { Meta } from '@storybook/react';
 
 import { Card } from '@/entities/card';
-import { CardProps } from '@/entities/card/model/Card.props';
+import { Props } from '@/entities/card/model/props';
 import { RatingModal } from '@/features/rating-block';
 import { mockCard } from '@/shared/testdata';
 
 const card = mockCard;
 
-const CardWM = (args: JSX.IntrinsicAttributes & CardProps): JSX.Element => (
+const CardWM = (args: JSX.IntrinsicAttributes & Props): JSX.Element => (
   <div style={{ display: 'flex', flexDirection: 'column' }}>
     <Card {...args} card={card} />
     <RatingModal />

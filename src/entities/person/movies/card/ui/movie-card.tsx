@@ -21,7 +21,7 @@ export const MovieCard: FC<MovieCardProps> = ({ card }) => {
           <div className={styles.info_row}>
             {description && <Text size={'S'}>{description}, </Text>}
 
-            <Text size={'S'}>{getProfessionByType(professionKey)},</Text>
+            {professionKey && <Text size={'S'}>{getProfessionByType(professionKey)},</Text>}
 
             {rating && (
               <Text size={'S'}>

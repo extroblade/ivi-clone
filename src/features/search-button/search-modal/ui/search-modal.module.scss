@@ -121,6 +121,8 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    height: 30px;
+    overflow: hidden;
 
     svg {
       fill: var(--color-accent);

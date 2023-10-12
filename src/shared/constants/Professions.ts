@@ -57,5 +57,5 @@ export const professionTypes: ProfessionVariantsType = {
 };
 
 export const getProfessionByType = (type: ProfessionVariants): string => {
-  return professionTypes[type][i18next.language as LanguageVariants];
+  return professionTypes?.[type]?.[i18next.language as LanguageVariants];
 };

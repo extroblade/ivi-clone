@@ -1,22 +1,24 @@
 import cn from 'classnames';
 import { useInView } from 'framer-motion';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { Button } from '@/newui';
 
+import { useScrollTop } from '../lib';
 import styles from './scroll-to-top.module.scss';
 
 export const ScrollToTopButton = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
-  const scrollToTop = useScrollTop();
+  const scrollTop = useScrollTop();
+  const { t } = useTranslation();
   return (
     <>
       <div className={styles.obs} ref={ref} />
       <div className={cn(styles.scroll_to_top, isInView && styles.shown)}>
-        <Button onClick={scrollToTop} appearance={'red'}>
-          Продолжить просмотр
+        <Button onClick={scrollTop} appearance={'red'}>
+          {t('buttons.continue-watching')}
         </Button>
       </div>
     </>

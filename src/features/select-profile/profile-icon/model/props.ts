@@ -1,5 +1,8 @@
+import { ReactNode } from 'react';
+
 export type ProfileIconProps = {
-  image?: string;
-  name: string;
+  image?: ReactNode;
+  name?: string | null;
   isActive?: boolean;
+  onClick?: () => void;
 };

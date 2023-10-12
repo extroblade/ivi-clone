@@ -14,7 +14,7 @@ export const RatingPlate: FC<RatingPlateProps> = ({ rating }) => {
         currentRate >= 4 ? (currentRate >= 7 ? styles.good : styles.ok) : styles.bad
       )}
     >
-      <div className={styles.plate_value}>{rating}</div>
+      <div className={styles.plate_value}>{rating || 0}</div>
     </div>
   );
 };

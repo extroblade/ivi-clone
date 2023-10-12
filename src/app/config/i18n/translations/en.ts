@@ -9,6 +9,7 @@ export const english = {
       year: 'year',
     },
     buttons: {
+      'continue-watching': 'Continue watching',
       activate: 'Activate',
       'activate-certificate': 'Activate certificate',
       'add-email': 'Add email',

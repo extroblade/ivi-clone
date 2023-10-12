@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
@@ -28,7 +29,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
 
   const isBrowser = useBrowser();
 
-  if (isLoading || !isBrowser) return <div className={`${styles.placeholder} loader`} />;
+  if (isLoading || !isBrowser) return <div className={cn(styles.not_found, 'loader')} />;
   if (!isLoading && !trailerYT && !url)
     return (
       <div className={styles.container}>
@@ -51,15 +52,15 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
             playing={true}
           />
         </div>
-        {actions && (
-          <div className={styles.actions}>
-            <OpenTrailersButton appearance={'rectangle'} />
-            <AddToFavoritesButton appearance={'rectangle'} />
-            <TurnNotificationsButton appearance={'rectangle'} />
-            <ShareButton appearance={'rectangle'} />
-          </div>
-        )}
       </div>
+      {actions && (
+        <div className={styles.actions}>
+          <OpenTrailersButton appearance={'rectangle'} />
+          <AddToFavoritesButton appearance={'rectangle'} />
+          <TurnNotificationsButton appearance={'rectangle'} />
+          <ShareButton appearance={'rectangle'} />
+        </div>
+      )}
     </div>
   );
 };

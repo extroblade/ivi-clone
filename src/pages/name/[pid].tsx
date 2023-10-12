@@ -1,19 +1,23 @@
-import i18next from 'i18next';
 import Head from 'next/head';
 import React from 'react';
 
+import { NotFound } from '@/entities/not-found';
 import { Person } from '@/entities/person/ui/person';
-import { Loader } from '@/newui';
+import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 
 const PersonPage = ({ person }: { person: iPerson }) => {
-  const { nameRu, nameEn } = person || {};
+  const name = useLocalizeName(person);
+
+  if (!person || !person.nameRu) {
+    return <NotFound />;
+  }
   return (
     <>
       <Head>
-        <title>{person ? (i18next.language == 'en' ? nameEn || nameRu : nameRu) : ''}</title>
+        <title>{name}</title>
       </Head>
-      {person ? <Person person={person} /> : <Loader />}
+      <Person person={person} />
     </>
   );
 };

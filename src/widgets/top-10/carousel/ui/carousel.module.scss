@@ -1,17 +1,24 @@
-.carousel {
-  -webkit-tap-highlight-color: transparent;
 
-  .title {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-end;
-    margin: 10px 0;
+.img {
+  margin-right: 10px;
+}
 
-    img {
-      margin-right: 10px;
-      user-select: none;
-      -webkit-user-drag: none;
-    }
+.link {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 10px;
+  position: relative;
+  width: fit-content;
+
+  &:hover:after {
+    content: '';
+    height: 1px;
+    background-color: rgba(white, .6);
+    bottom: -2px;
+    width: 100%;
+    position: absolute;
   }
 }

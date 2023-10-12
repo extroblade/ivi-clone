@@ -10,7 +10,7 @@ export const settings: Settings = {
   slidesToShow: 4,
   draggable: true,
   lazyLoad: 'progressive',
-  slidesToScroll: 1,
+  slidesToScroll: 2,
   nextArrow: <Next />,
   prevArrow: <Prev />,
   responsive: [

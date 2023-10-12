@@ -3,11 +3,19 @@ html {
   overflow-y: auto;
 }
 
+*::selection {
+  background: color-mix(
+                  in oklab,
+                  var(--color-accent),
+                  transparent 20%
+  );
+  color: white;
+}
+
 html,
 body {
-  overflow-x: hidden;
   min-width: var(--width-min);
-  width: 100vw;
+  //overflow-x: hidden;
   line-height: 1;
   font-size: 16px;
   background-color: var(--color-background);
@@ -18,9 +26,10 @@ body {
   min-height: 100vh;
   height: 100%;
   display: flex;
-  width: 100vw;
   flex-direction: column;
   justify-content: space-between;
+  overflow-x: hidden;
+
 }
 
 .locked {
@@ -36,6 +45,7 @@ main {
   height: 100%;
   @media screen and (max-width: 1160px) {
     margin-bottom: var(--height-footer);
+    padding: 0;
   }
 }
 
