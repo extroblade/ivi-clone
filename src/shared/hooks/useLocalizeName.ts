@@ -19,6 +19,6 @@ export const useLocalizeName = <T extends useLocalizeNameProps>(object?: T): str
     return i18next.language === 'en'
       ? object?.nameEn || object?.nameOriginal || object?.nameRu
       : object?.nameRu || object?.nameOriginal || object?.nameEn;
-  }, [object, object?.nameEn, object?.nameRu, object?.nameOriginal, i18next.language]);
+  }, [object?.nameEn, object?.nameRu, object?.nameOriginal, i18next.language]);
   return name;
 };

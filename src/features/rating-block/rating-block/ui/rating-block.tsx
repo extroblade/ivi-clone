@@ -20,8 +20,8 @@ export const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) =
   if (!rating) return <></>;
 
   return (
-    <div className={styles.rating_block} onClick={openRating}>
-      <div className={styles.rating_container}>
+    <div className={styles.rating_block}>
+      <div className={styles.rating_container} onClick={openRating}>
         <RatingPlate rating={rating} />
         <div className={styles.text_block}>
           <div className={styles.title}>{t('categories.rating')}</div>
