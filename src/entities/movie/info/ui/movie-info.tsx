@@ -33,7 +33,7 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
   const { data: filters } = useFetchFilmFiltersQuery();
   const findGenre = useCallback(
     (name: string) => {
-      return filters?.countries?.find(({ country }) => country === name)?.id;
+      return filters?.genres?.find(({ genre }) => genre === name)?.id;
     },
     [filters]
   );

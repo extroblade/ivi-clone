@@ -1,14 +1,11 @@
 .rating_block {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  box-sizing: border-box;
   width: 100%;
-  margin-bottom: 20px;
 }
 
 .rating_container {
   align-items: center;
+  gap: 12px;
   background-color: hsla(0, 0%, 100%, 0.08);
 
   &:hover {
@@ -21,8 +18,7 @@
   padding: 10px;
 
   button {
-    margin-left: 10px;
-    width: 72px;
+    max-width: 72px;
     border-radius: 6px;
     border-width: 1px;
     height: 24px;
@@ -32,33 +28,23 @@
 }
 
 .text_block {
-  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 
   .title {
-    font-size: 15px;
-    font-style: normal;
-    line-height: 20px;
-    color: #fff;
     font-weight: 500;
   }
 
   .subtitle {
     font-size: 15px;
-    font-style: normal;
-    line-height: 20px;
     color: hsla(0, 0%, 100%, 0.72);
-    font-weight: 400;
-    margin-top: 0;
     text-transform: capitalize;
   }
 
   .extra {
     color: hsla(0, 0%, 100%, 0.72);
     font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
-    margin-top: 4px;
     text-transform: lowercase;
   }
 }
