@@ -24,13 +24,13 @@ export const useBreadcrumbs = () => {
     if (genre) {
       newBreadcrumbs.push({
         name: genre,
-        path: `/movies?genre=${router?.query?.genre}`,
+        path: `${router.pathname}?genre=${router?.query?.genre}`,
       });
     }
     if (country) {
       newBreadcrumbs.push({
         name: country,
-        path: `/movies?country=${router?.query?.country}`,
+        path: `${router.pathname}?country=${router?.query?.country}`,
       });
     }
 
