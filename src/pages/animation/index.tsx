@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AnimationDescription } from '@/entities/descriptions';
 import { Breadcrumbs, Title } from '@/newui';
 import { useBreadcrumbs } from '@/shared/hooks';
-import { Filters } from '@/widgets/filter/ui/filters';
+import { Filters } from '@/widgets/filter';
 import { MovieGrid } from '@/widgets/grid';
 
 const Animation = () => {
