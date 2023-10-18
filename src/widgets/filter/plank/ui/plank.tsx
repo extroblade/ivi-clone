@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { FC, useMemo } from 'react';
 
 import { ChooseDropdown } from '@/entities/dropdown';
-import { Plank } from '@/newui';
 import { useBooleanState, useSearchParamsState } from '@/shared/hooks';
+import { Plank } from '@/shared/ui';
 import { FilterPlankProps } from '@/widgets/filter/plank/model/props';
 
 export const FilterPlank: FC<FilterPlankProps> = ({ data, name, defaultName }) => {

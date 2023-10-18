@@ -2,8 +2,8 @@ import { useRouter } from 'next/navigation';
 import { FC, MouseEvent } from 'react';
 import { IoColorWandOutline } from 'react-icons/io5';
 
-import { Button } from '@/newui';
-import { AppearanceVariants } from '@/newui/button/button.props';
+import { Button } from '@/shared/ui';
+import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
 export const FindSimilarButton: FC<{ appearance?: AppearanceVariants; id?: string | number }> = ({
   appearance = 'transparent',

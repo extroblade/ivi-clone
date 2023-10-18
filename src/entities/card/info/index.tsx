@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { Props } from '@/entities/card';
-import { BarGraph, Text, Title } from '@/newui';
+import { BarGraph, Text, Title } from '@/shared/ui';
 
 export const CardInfo: FC<Props> = ({ card }) => {
   const { countries, genres, year, ratingKinopoisk } = card || {};

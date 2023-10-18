@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useTranslation } from 'react-i18next';
 
 import { MoviesDescription } from '@/entities/descriptions';
-import { Breadcrumbs, Title } from '@/newui';
 import { useBreadcrumbs } from '@/shared/hooks';
+import { Breadcrumbs, Title } from '@/shared/ui';
 import { Filters } from '@/widgets/filter';
 import { MovieGrid } from '@/widgets/grid';
 

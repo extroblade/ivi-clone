@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
-import { Text, Title } from '@/newui';
 import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
+import { Text, Title } from '@/shared/ui';
 
 import styles from './external-sources.module.scss';
 

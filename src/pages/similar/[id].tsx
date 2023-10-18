@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { Card } from '@/entities/card';
 import { NotFound } from '@/entities/not-found';
 import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
-import { Title } from '@/newui';
-import { Grid } from '@/newui/grid/grid';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm, iSimilar } from '@/shared/types/kinopoiskTypes';
+import { Title } from '@/shared/ui';
+import { Grid } from '@/shared/ui/grid/grid';
 
 type MovieProps = {
   movie: iFilm;

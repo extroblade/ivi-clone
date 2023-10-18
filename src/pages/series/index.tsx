@@ -3,8 +3,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { SeriesDescription } from '@/entities/descriptions';
-import { Breadcrumbs, Title } from '@/newui';
 import { useBreadcrumbs } from '@/shared/hooks';
+import { Breadcrumbs, Title } from '@/shared/ui';
 import { Filters } from '@/widgets/filter/ui/filters';
 import { MovieGrid } from '@/widgets/grid';
 

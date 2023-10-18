@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 import { useScrollTop } from '../lib';
 import styles from './scroll-to-top.module.scss';

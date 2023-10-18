@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text } from '@/newui/text/text';
-import { TextProps } from '@/newui/text/text.props';
+import { Text } from '@/shared/ui/text/text';
+import { TextProps } from '@/shared/ui/text/text.props';
 
 const meta: Meta<TextProps> = {
   title: 'Main/Text',

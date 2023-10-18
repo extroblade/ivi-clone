@@ -2,8 +2,8 @@ import { FC, MouseEvent } from 'react';
 import { FiUpload } from 'react-icons/fi';
 
 import styles from '@/entities/player/ui/player.module.scss';
-import { Button } from '@/newui';
-import { AppearanceVariants } from '@/newui/button/button.props';
+import { Button } from '@/shared/ui';
+import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
 export const ShareButton: FC<{ appearance?: AppearanceVariants }> = ({
   appearance = 'transparent',

@@ -2,8 +2,8 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/newui';
 import { useBooleanState } from '@/shared/hooks';
+import { Button } from '@/shared/ui';
 
 import styles from './description.module.scss';
 import { DescriptionProps } from './description.props';

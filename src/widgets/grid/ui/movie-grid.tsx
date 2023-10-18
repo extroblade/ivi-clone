@@ -5,10 +5,10 @@ import { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
-import { Button, Loader, Title } from '@/newui';
-import { Grid } from '@/newui/grid/grid';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
 import { FilmOrderVariants, iFilm } from '@/shared/types/kinopoiskTypes';
+import { Button, Loader, Title } from '@/shared/ui';
+import { Grid } from '@/shared/ui/grid/grid';
 import { CardWithProps } from '@/widgets/cards';
 
 import { GridProps } from '../model/props';

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiOutlineBellAlert } from 'react-icons/hi2';
 
-import { Text } from '@/newui';
+import { Text } from '@/shared/ui';
 
 import styles from './no-notifications.module.scss';
 

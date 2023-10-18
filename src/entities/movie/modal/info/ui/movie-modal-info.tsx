@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BarGraph, Text } from '@/newui';
 import { useFetchFilmQuery } from '@/shared/services';
+import { BarGraph, Text } from '@/shared/ui';
 
 import styles from './movie-modal-info.module.scss';
 

@@ -5,10 +5,10 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
-import { Text } from '@/newui';
 import { defaultYearsRange } from '@/shared/constants/default-years-range';
 import { useBooleanState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
+import { Text } from '@/shared/ui';
 import { collections } from '@/widgets/footer/modal/list/model/collections';
 
 import { ModalListProps } from '../model/props';

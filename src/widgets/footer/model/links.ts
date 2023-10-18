@@ -66,7 +66,7 @@ export const defaultFooterLinks: LinksType = {
     {
       href: 'https://www.ivi.ru/cert',
       title: 'footer.cert',
-      style: 'certLink',
+      style: 'cert_link',
     },
   ],
 };

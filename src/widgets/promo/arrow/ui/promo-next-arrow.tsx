@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 import { ArrowProps } from '../model/props';
 import styles from './arrows.module.scss';

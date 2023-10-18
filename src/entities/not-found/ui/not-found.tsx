@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-import { Text, Title } from '@/newui';
+import { Text, Title } from '@/shared/ui';
 
 import styles from './not-found.module.scss';
 

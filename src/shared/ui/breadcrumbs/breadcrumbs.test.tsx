@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import { Breadcrumbs } from '@/newui';
-import { Breadcrumb } from '@/newui/breadcrumbs/breadcrumbs.props';
+import { Breadcrumbs } from '@/shared/ui';
+import { Breadcrumb } from '@/shared/ui/breadcrumbs/breadcrumbs.props';
 
 const breadcrumbsMockData: Breadcrumb[] = [
   { name: 'breadcrumb1', path: '/' },

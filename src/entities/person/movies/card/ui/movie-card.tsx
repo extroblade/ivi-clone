@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getProfessionByType } from 'src/shared/constants';
 
-import { Button, Text } from '@/newui';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { Button, Text } from '@/shared/ui';
 
 import { MovieCardProps } from '../model/props';
 import styles from './movie-card.module.scss';

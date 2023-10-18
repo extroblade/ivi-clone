@@ -114,14 +114,6 @@ export interface iAwardsItem {
   persons: iPerson[];
 }
 
-export type OrderVariants =
-  | 'DATE_ASC'
-  | 'DATE_DESC'
-  | 'USER_POSITIVE_RATING_ASC'
-  | 'USER_POSITIVE_RATING_DESC'
-  | 'USER_NEGATIVE_RATING_ASC'
-  | 'USER_NEGATIVE_RATING_DESC';
-
 export interface iFetchedPerson {
   total: number;
   items: iPerson[];
@@ -204,16 +196,6 @@ export interface iReviews {
   totalNeutralReviews: number;
   items: iReviewsItem[];
 }
-
-export type ImageVariants =
-  | 'STILL'
-  | 'SHOOTING'
-  | 'POSTER'
-  | 'FAN_ART'
-  | 'PROMO'
-  | 'CONCEPT'
-  | 'WALLPAPER'
-  | 'SCREENSHOT';
 
 export interface iImages {
   total: number;

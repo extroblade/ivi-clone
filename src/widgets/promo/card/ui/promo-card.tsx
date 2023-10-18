@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Text, Title } from '@/newui';
+import { Button, Text, Title } from '@/shared/ui';
 
 import { PromoCardProps } from '../model/props';
 import styles from './promo-card.module.scss';

@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import Slider from 'react-slick';
 
-import { Title } from '@/newui';
 import { useFetchTopFilmQuery } from '@/shared/services';
+import { Title } from '@/shared/ui';
 import { TopTenCard } from '@/widgets/top-10';
 
 import { settings } from '../model/settings';

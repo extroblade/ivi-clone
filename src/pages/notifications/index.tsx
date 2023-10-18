@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { NoNotifications } from '@/entities/no-notifications';
 import { BackButton } from '@/features/back-button';
-import { Title } from '@/newui';
+import { Title } from '@/shared/ui';
 
 const Notifications: FC = () => {
   const { t } = useTranslation();

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Avatar } from '@/features/comment/avatar/ui/avatar';
 import { DEFAULT_LIMIT } from '@/features/comment/input/model/props';
-import { Button } from '@/newui/button/button';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
+import { Button } from '@/shared/ui/button/button';
 
 import styles from './styles.module.scss';
 

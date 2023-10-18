@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { FC, useEffect, useMemo, useState } from 'react';
 
 import { ExplanationsProps } from '@/entities/explanations/model/props';
-import { Loader } from '@/newui';
 import { useFetchFilmFactsQuery } from '@/shared/services';
+import { Loader } from '@/shared/ui';
 
 import styles from './explanations.module.scss';
 

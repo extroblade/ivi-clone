@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import React, { FC, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/newui';
-import { ModalProps } from '@/newui/modal/modal.props';
 import { useBooleanState, useEscapeKey, useOutsideClick, usePreventScroll } from '@/shared/hooks';
+import { Button } from '@/shared/ui';
+import { ModalProps } from '@/shared/ui/modal/modal.props';
 
 import styles from './modal.module.scss';
 

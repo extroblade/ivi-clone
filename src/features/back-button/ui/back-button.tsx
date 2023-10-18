@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiChevronLeft } from 'react-icons/hi';
 
-import { Button } from '@/newui';
 import { useEscapeKey } from '@/shared/hooks';
+import { Button } from '@/shared/ui';
 
 import styles from './back-button.module.scss';
 

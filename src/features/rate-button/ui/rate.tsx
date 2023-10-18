@@ -2,9 +2,9 @@ import { FC, MouseEvent } from 'react';
 import { AiOutlineStar } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 
-import { Button } from '@/newui';
-import { AppearanceVariants } from '@/newui/button/button.props';
 import { setShowRating } from '@/shared/store';
+import { Button } from '@/shared/ui';
+import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
 export const RateButton: FC<{ appearance?: AppearanceVariants }> = ({
   appearance = 'transparent',

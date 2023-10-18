@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Carousel } from '@/entities/carousel';
 import { MainDescription } from '@/entities/descriptions';
-import { Title } from '@/newui';
 import { useFetchAllFilmsQuery } from '@/shared/services';
+import { Title } from '@/shared/ui';
 import { CardWithProps } from '@/widgets/cards';
 import { Promo } from '@/widgets/promo/ui/promo';
 import { TopTenCarousel } from '@/widgets/top-10';

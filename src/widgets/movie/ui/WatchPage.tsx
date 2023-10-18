@@ -11,10 +11,10 @@ import { Player } from '@/entities/player/ui/player';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
-import { Breadcrumbs, Title } from '@/newui';
 import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { Breadcrumbs, Title } from '@/shared/ui';
 import { SimilarCarousel } from '@/widgets/similar-movies/ui/similar-carousel';
 
 import { WatchPageProps } from '../model/WatchPage.props';

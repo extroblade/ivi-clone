@@ -7,12 +7,20 @@ import { ButtonProps } from './button.props';
 export const Button: FC<ButtonProps> = ({
   children,
   appearance = 'rectangle',
-  size = 'M',
+  size,
   className,
   ...props
 }): JSX.Element => {
   return (
-    <button className={cn(styles.button, styles[appearance], styles[size], className)} {...props}>
+    <button
+      className={cn(
+        styles.button,
+        appearance && styles[appearance],
+        size && styles[size],
+        className
+      )}
+      {...props}
+    >
       {children}
     </button>
   );

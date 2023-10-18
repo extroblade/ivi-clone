@@ -9,7 +9,7 @@ import { MdNotificationsNone } from 'react-icons/md';
 import { NoNotifications } from '@/entities/no-notifications';
 import { SearchButton } from '@/features/search-button';
 import { SwitchLanguage } from '@/features/switch-language';
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 import { Categories } from '@/widgets/header/categories';
 import { Submenu } from '@/widgets/header/submenu';
 import { User } from '@/widgets/header/user';

@@ -4,10 +4,10 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
-import { Text, Title } from '@/newui';
 import { useAppDispatch } from '@/shared/hooks';
 import { useFetchFilmVideoQuery } from '@/shared/services';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
+import { Text, Title } from '@/shared/ui';
 
 import styles from './trailers.module.scss';
 

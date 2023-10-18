@@ -6,10 +6,10 @@ import Slider from 'react-slick';
 import { CommentCard } from '@/features/comment/card/ui/CommentCard';
 import { settings } from '@/features/comment/carousel/model/settings';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
-import { Button, Loader, Title } from '@/newui';
 import { useAppDispatch } from '@/shared/hooks';
 import { useFetchCommentsQuery } from '@/shared/services';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
+import { Button, Loader, Title } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 

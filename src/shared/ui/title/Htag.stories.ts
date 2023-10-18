@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Title } from '@/newui/title/title';
-import { TitleProps } from '@/newui/title/title.props';
+import { Title } from '@/shared/ui/title/title';
+import { TitleProps } from '@/shared/ui/title/title.props';
 
 const meta: Meta<TitleProps> = {
   title: 'Main/Htag',

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 describe('Button', () => {
   it('should be circle', () => {

@@ -11,8 +11,8 @@ import { TbReload } from 'react-icons/tb';
 import { GoogleAuthButton, VkAuthButton } from 'src/widgets/auth/external';
 import { useAuthModalStore } from 'src/widgets/auth/model';
 
-import { BarGraph, Button, Modal, Text } from '@/newui';
 import { useBooleanState } from '@/shared/hooks';
+import { BarGraph, Button, Modal, Text } from '@/shared/ui';
 import { REGEX_EMAIL, REGEX_PASSWORD, STEPS_COUNT } from '@/widgets/auth/modal/model';
 
 import styles from './auth-modal.module.scss';

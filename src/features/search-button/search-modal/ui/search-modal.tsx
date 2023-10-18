@@ -8,10 +8,10 @@ import { CgClose } from 'react-icons/cg';
 import { IoSearchOutline } from 'react-icons/io5';
 
 import { presets, RedirectProps } from '@/features/search-button/search-modal/model/props';
-import { Button, Loader, Modal, Text, Title } from '@/newui';
 import { useDebounce } from '@/shared/hooks';
 import { useLocalizeNameFunction } from '@/shared/hooks/useLocalizeName';
 import { useFetchAllFilmsQuery, useFetchPersonNameQuery } from '@/shared/services';
+import { Button, Loader, Modal, Text, Title } from '@/shared/ui';
 
 import { useSearchModal } from '../../lib/hooks';
 import styles from './search-modal.module.scss';

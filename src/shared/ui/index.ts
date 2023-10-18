@@ -1,0 +1,15 @@
+export { Badge } from '@/shared/ui/badge/badge';
+export { BarGraph } from '@/shared/ui/bar-graph/bar-graph';
+export { Breadcrumbs } from '@/shared/ui/breadcrumbs/breadcrumbs';
+export { Button } from '@/shared/ui/button/button';
+export { Description } from '@/shared/ui/description/description';
+export { FeatureTag } from '@/shared/ui/feature-tag/feature-tag';
+export { InputRange } from '@/shared/ui/input-range/input-range';
+export { List } from '@/shared/ui/list/list';
+export { Loader } from '@/shared/ui/loader/loader';
+export { Modal } from '@/shared/ui/modal/modal';
+export { Plank } from '@/shared/ui/plank/plank';
+export { Sausage } from '@/shared/ui/sausage/sausage';
+export { Sup } from '@/shared/ui/sup/sup';
+export { Text } from '@/shared/ui/text/text';
+export { Title } from '@/shared/ui/title/title';

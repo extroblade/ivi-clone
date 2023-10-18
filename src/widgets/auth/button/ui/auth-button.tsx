@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { TiUserOutline } from 'react-icons/ti';
 import { useAuthModalStore } from 'src/widgets/auth/model';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 import styles from './auth-button.module.scss';
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Breadcrumbs } from '@/newui';
+import { Breadcrumbs } from '@/shared/ui';
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Main/Breadcrumbs',

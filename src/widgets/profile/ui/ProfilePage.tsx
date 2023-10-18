@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { LogoutButton } from '@/features/logout-button';
 import { SelectProfile } from '@/features/select-profile';
-import { Text, Title } from '@/newui';
+import { Text, Title } from '@/shared/ui';
 import { AuthButton } from '@/widgets/auth';
 import { guestList, userList } from '@/widgets/profile/model/lists';
 

@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { ChangeEvent, FC, memo, useEffect, useState } from 'react';
 
-import { Text } from '@/newui';
 import { useSearchParamsState } from '@/shared/hooks';
+import { Text } from '@/shared/ui';
 
 import styles from './input-range.module.scss';
 import { InputRangeProps } from './input-range.props';

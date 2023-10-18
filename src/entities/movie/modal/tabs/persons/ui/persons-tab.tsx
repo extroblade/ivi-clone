@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 
-import { Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { useFetchAllPersonsQuery } from '@/shared/services';
 import { selectModal } from '@/shared/store';
+import { Loader, Title } from '@/shared/ui';
 
 import { StaffList } from '../staff-list';
 

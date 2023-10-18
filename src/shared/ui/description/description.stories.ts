@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Description } from '@/newui';
+import { Description } from '@/shared/ui';
 
 const meta: Meta<typeof Description> = {
   title: 'Main/Description',

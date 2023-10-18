@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 import { ProfileButtonProps } from '../model/props';
 import styles from './profile-button.module.scss';
