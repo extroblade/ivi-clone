@@ -17,7 +17,7 @@ export const ScrollToTopButton = () => {
     <>
       <div className={styles.obs} ref={ref} />
       <div className={cn(styles.scroll_to_top, isInView && styles.shown)}>
-        <Button onClick={scrollTop} appearance={'red'}>
+        <Button size={'M'} onClick={scrollTop} appearance={'red'}>
           {t('buttons.continue-watching')}
         </Button>
       </div>

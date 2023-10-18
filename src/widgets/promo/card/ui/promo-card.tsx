@@ -59,7 +59,9 @@ export const PromoCard: FC<PromoCardProps> = ({
               {i18n.language == 'ru' ? description : enDescription}
             </Text>
           </div>
-          <Button appearance={'red'}>{t(btn)}</Button>
+          <Button size={'M'} appearance={'red'}>
+            {t(btn)}
+          </Button>
         </div>
       </div>
     </Link>

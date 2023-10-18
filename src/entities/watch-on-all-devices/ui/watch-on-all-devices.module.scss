@@ -1,139 +1,137 @@
 .content_card {
   padding-left: 12px;
   padding-right: 12px;
+  margin-bottom: 30px;
   width: 100%;
   margin-top: 30px;
   overflow: hidden;
   @media screen and (max-width: 1160px) {
     margin-bottom: 60px;
   }
+}
 
-  .wrapper {
-    -moz-column-gap: 24px;
-    column-gap: 24px;
-    display: grid;
-    grid-template-columns: 536px 1fr;
-    @media screen and (min-width: 272px) and (max-width: 1160px) {
-      background-color: var(--color-input-text);
-      border-radius: 8px;
-      grid-template-columns: none;
-      grid-template-rows: 1fr min-content;
-      padding: 24px;
-      row-gap: 24px;
-    }
+.wrapper {
+  column-gap: 24px;
+  display: grid;
+  grid-template-columns: 536px 1fr;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    background-color: var(--color-input-text);
+    border-radius: 8px;
+    grid-template-columns: none;
+    grid-template-rows: 1fr min-content;
+    padding: 24px;
+    row-gap: 24px;
   }
+}
 
-  .link {
-    width: fit-content;
+.link {
+  width: fit-content;
+}
+
+.appeal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    order: 1;
   }
+}
 
-  .appeal {
+.button {
+  width: 230px;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    width: 100%;
+  }
+}
+
+.subtitle {
+  margin-top: 12px;
+  color: var(--color-secondary);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 24px;
+}
+
+.devices {
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    @media screen and (min-width: 272px) and (max-width: 1160px) {
-      order: 1;
-    }
-
-    .subtitle {
-      margin-top: 12px;
-      color: #a5a1b2;
-      font-size: 15px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 20px;
-      margin-bottom: 24px;
-    }
-
-    a {
-      button {
-        width: 215px;
-        @media screen and (min-width: 272px) and (max-width: 1160px) {
-          width: 100%;
-        }
-      }
-    }
   }
+}
 
-  .devices {
-    @media screen and (min-width: 272px) and (max-width: 1160px) {
-      display: flex;
-      justify-content: center;
-    }
+.image_container {
+  height: 272px;
+  margin: 0 auto;
+  position: relative;
+  width: 536px;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    height: 136px;
+    margin-left: -24px;
+    margin-right: -24px;
+    width: 268px;
   }
+}
 
-  .image_container {
-    height: 272px;
-    margin: 0 auto;
-    position: relative;
-    width: 536px;
-    @media screen and (min-width: 272px) and (max-width: 1160px) {
-      height: 136px;
-      margin-left: -24px;
-      margin-right: -24px;
-      width: 268px;
-    }
+.image_tv {
+  height: 272px;
+  position: relative;
+  width: 536px;
+  z-index: 1;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    height: 136px;
+    width: 268px;
+  }
+}
 
-    .image_tv {
-      height: 272px;
-      position: relative;
-      width: 536px;
-      z-index: 1;
-      @media screen and (min-width: 272px) and (max-width: 1160px) {
-        height: 136px;
-        width: 268px;
-      }
-    }
+.image_tablet {
+  bottom: 0;
+  height: 136px;
+  position: absolute;
+  right: 42px;
+  width: 200px;
+  z-index: 1;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    bottom: 0;
+    height: 67px;
+    right: 22px;
+    width: 100px;
+  }
+}
 
-    .image_tablet {
-      bottom: 0;
-      height: 136px;
-      position: absolute;
-      right: 42px;
-      width: 200px;
-      z-index: 1;
-      @media screen and (min-width: 272px) and (max-width: 1160px) {
-        bottom: 0;
-        height: 67px;
-        right: 22px;
-        width: 100px;
-      }
-    }
+.poster_tv {
+  border-radius: 2px;
+  height: 192px;
+  left: 100px;
+  position: absolute;
+  top: 3px;
+  width: 337px;
+  z-index: unset;
+  object-fit: cover;
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    height: 96px;
+    left: 50px;
+    top: 1px;
+    width: 168px;
+  }
+}
 
-    .poster_tv {
-      border-radius: 2px;
-      height: 192px;
-      left: 100px;
-      position: absolute;
-      top: 3px;
-      width: 337px;
-      z-index: unset;
-      object-fit: cover;
-      @media screen and (min-width: 272px) and (max-width: 1160px) {
-        height: 96px;
-        left: 50px;
-        top: 1px;
-        width: 168px;
-      }
-    }
+.poster_tablet {
+  border-radius: 4px;
+  bottom: 7px;
+  height: 102px;
+  position: absolute;
+  right: 48px;
+  width: 188px;
+  z-index: 1;
+  object-fit: cover;
 
-    .poster_tablet {
-      border-radius: 4px;
-      bottom: 7px;
-      height: 102px;
-      position: absolute;
-      right: 48px;
-      width: 188px;
-      z-index: 1;
-      object-fit: cover;
-
-      @media screen and (min-width: 272px) and (max-width: 1160px) {
-        border-radius: 2px;
-        bottom: 3px;
-        height: 51px;
-        right: 25px;
-        width: 94px;
-      }
-    }
+  @media screen and (min-width: 272px) and (max-width: 1160px) {
+    border-radius: 2px;
+    bottom: 3px;
+    height: 51px;
+    right: 25px;
+    width: 94px;
   }
 }

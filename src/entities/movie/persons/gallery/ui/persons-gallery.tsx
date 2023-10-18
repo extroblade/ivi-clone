@@ -33,9 +33,11 @@ export const PersonsGallery: FC = () => {
         {t('sections.actors-creators')} <Sup>{persons?.length || 0}</Sup>
       </Title>
       <div className={styles.list}>
-        {persons.slice(0, 9).map((person) => (
-          <PersonForGallery key={person.staffId + person.professionKey} person={person} />
-        ))}
+        <div className={styles.persons}>
+          {persons.slice(0, 12).map((person) => (
+            <PersonForGallery key={person.staffId + person.professionKey} person={person} />
+          ))}
+        </div>
         {persons.length > 9 && (
           <div className={cn(styles.card, styles.card__text)} onClick={handleOpen}>
             {t('buttons.more')}

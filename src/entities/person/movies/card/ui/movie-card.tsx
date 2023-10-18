@@ -31,7 +31,7 @@ export const MovieCard: FC<MovieCardProps> = ({ card }) => {
           </div>
         </div>
       </div>
-      <Button>{t('buttons.read-more')}</Button>
+      <Button size={'M'}>{t('buttons.read-more')}</Button>
     </Link>
   );
 };

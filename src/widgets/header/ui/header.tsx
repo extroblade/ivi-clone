@@ -85,7 +85,7 @@ export const Header: FC = () => {
 
             <div className={styles.zindex}>
               <div className={styles.watch_free}>
-                <Button size={'S'} appearance={'red'}>
+                <Button size={'M'} appearance={'red'}>
                   {t('header.watch-free')}
                 </Button>
               </div>
