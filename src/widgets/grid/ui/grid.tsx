@@ -6,15 +6,13 @@ import { useTranslation } from 'react-i18next';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
 import { QueryParams, useFetchAllFilmsQuery } from '@/shared/services';
-import { FilmOrderVariants, iFilm } from '@/shared/types/kinopoiskTypes';
-import { Button, Loader, Title } from '@/shared/ui';
-import { Grid } from '@/shared/ui/grid/grid';
+import { FilmOrderVariants, FilmTypeVariants, iFilm } from '@/shared/types/kinopoiskTypes';
+import { Button, Grid as UIGrid, Loader, Title } from '@/shared/ui';
 import { CardWithProps } from '@/widgets/cards';
 
-import { GridProps } from '../model/props';
 import styles from './grid.module.scss';
 
-export const MovieGrid: FC<GridProps> = ({ type }) => {
+export const Grid: FC<{ type: FilmTypeVariants }> = ({ type }) => {
   const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const buttonRef = useRef(null);
@@ -91,11 +89,11 @@ export const MovieGrid: FC<GridProps> = ({ type }) => {
   return (
     <>
       {(data?.total && isFetching && page < 2 && <Loader />) || ''}
-      <Grid>
+      <UIGrid>
         {(movies || Array(15).fill(1))?.map((card, index) => (
           <CardWithProps card={card} key={index} />
         ))}
-      </Grid>
+      </UIGrid>
       <div className={styles.nodata}>
         {isLoading && <Loader />}
         {data?.total === 0 && !isLoading && <Title tag={'h2'}>Ничего не найдено</Title>}

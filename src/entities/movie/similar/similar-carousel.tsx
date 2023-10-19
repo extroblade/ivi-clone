@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Card } from '@/entities/card';
 import { Carousel } from '@/entities/carousel';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
+import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { useFetchFilmSimilarQuery } from '@/shared/services';
 
 export const SimilarCarousel: FC = () => {

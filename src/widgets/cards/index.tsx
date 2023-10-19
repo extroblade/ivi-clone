@@ -1,5 +1,5 @@
 import { Card, CardProps } from '@/entities/card';
-import { CardInfo } from '@/entities/card/info';
+import { CardInfo } from '@/entities/card/ui/card-info';
 import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { BlockButton } from '@/features/block-movie';
 import { FindSimilarButton } from '@/features/find-similar-movie';

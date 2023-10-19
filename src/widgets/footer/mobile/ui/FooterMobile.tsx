@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiSearch } from 'react-icons/bi';
@@ -9,8 +8,8 @@ import { RiHome6Line } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectModal, setShowFooterModal, setShowSearch } from '@/shared/store';
-import { FooterLink } from '@/widgets/footer/mobile/footer-link/ui/FooterLink';
 
+import { FooterLink } from '../footer-link';
 import styles from './FooterMobile.module.scss';
 
 export const FooterMobile: FC = (): JSX.Element => {
@@ -27,21 +26,16 @@ export const FooterMobile: FC = (): JSX.Element => {
   return (
     <footer className={styles.footerMobile}>
       <div className={styles.menu}>
-        <Link href={'/'} className={styles.link}>
-          <FooterLink title={t('sections.my-ivi')} href={'/'} icon={RiHome6Line} />
-        </Link>
-        <Link href={'/movies'} className={styles.link}>
-          <FooterLink title={t('sections.catalog')} href={'/movies'} icon={HiOutlineFolder} />
-        </Link>
+        <FooterLink title={t('sections.my-ivi')} href={'/'} icon={RiHome6Line} />
+        <FooterLink title={t('sections.catalog')} href={'/movies'} icon={HiOutlineFolder} />
+
         <FooterLink
           title={t('sections.search')}
           href={showSearch ? '' : '?search'}
           icon={BiSearch}
           openModal={handleOpen}
         />
-        <Link href={'https://www.ivi.ru/tvplus'} className={styles.link}>
-          <FooterLink title={'TV+'} href={'https://www.ivi.ru/tvplus'} icon={IoTvOutline} />
-        </Link>
+        <FooterLink title={'TV+'} href={'https://www.ivi.ru/tvplus'} icon={IoTvOutline} />
         <FooterLink
           title={showFooterModal ? t('footer.close-btn') : t('footer.open-btn')}
           href={showFooterModal ? '' : '?navigation'}

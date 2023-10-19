@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiCertification, BiMoviePlay } from 'react-icons/bi';
 import { GoCreditCard } from 'react-icons/go';
@@ -10,9 +10,9 @@ import { TbDeviceTvOld } from 'react-icons/tb';
 
 import { LogoutButton } from '@/features/logout-button';
 import { SelectProfile } from '@/features/select-profile';
-import { AuthButton } from '@/widgets/auth/button/ui/auth-button';
-import { LinkCard } from '@/widgets/header/user/link-card/ui/LinkCard';
+import { AuthButton } from '@/widgets/auth';
 
+import { LinkCard } from '../link-card/ui/LinkCard';
 import styles from './user.module.scss';
 
 export const User: FC = (): JSX.Element => {

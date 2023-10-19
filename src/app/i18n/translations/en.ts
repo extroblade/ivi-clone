@@ -267,7 +267,7 @@ export const english = {
       movies: 'Watch movies online',
       series: 'Watch series online',
       animation: 'Watch animation movies online',
-      profile: 'My profile / ivi.ru',
+      profile: 'My profile',
       'page-404': 'Page not found',
       admin: 'Admin panel',
       'change-language-title': 'Language changed',

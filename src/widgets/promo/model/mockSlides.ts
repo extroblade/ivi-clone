@@ -1,4 +1,4 @@
-import { PromoCarouselProps } from '@/widgets/promo/model/props';
+import { PromoCarouselProps } from '@/widgets/promo/card/model/props';
 
 export const mockCarousel: PromoCarouselProps[] = [
   {

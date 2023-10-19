@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react';
 
-import { Promo } from '@/widgets/promo/ui/promo';
+import { Promo } from '@/widgets/promo';
 
 const PromoWrapper = () => {
   return (
@@ -17,7 +17,7 @@ const meta: Meta<typeof Promo> = {
 
 export default meta;
 
-export const Promo = {
+export const PromoCarousel = {
   component: PromoWrapper,
   parameters: {
     nextjs: {

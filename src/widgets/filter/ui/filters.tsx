@@ -11,8 +11,8 @@ import { defaultYearsRange } from '@/shared/constants/default-years-range';
 import { useBooleanState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { Button, InputRange } from '@/shared/ui';
-import { FilterPlank } from '@/widgets/filter/plank/ui/plank';
 
+import { FilterPlank } from '../plank';
 import styles from './filters.module.scss';
 
 const variants = {

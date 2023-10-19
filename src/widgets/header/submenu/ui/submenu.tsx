@@ -60,7 +60,7 @@ export const Submenu: FC<SubmenuProps> = ({
         />
       )}
       <div className={styles.submenu__body}>
-        <span className={styles.submenu__border}></span>
+        <span className={styles.submenu__border} />
         <div className={styles.submenu__content}>{children}</div>
       </div>
     </div>

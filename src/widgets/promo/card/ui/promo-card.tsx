@@ -6,10 +6,10 @@ import { useTranslation } from 'react-i18next';
 
 import { Button, Text, Title } from '@/shared/ui';
 
-import { PromoCardProps } from '../model/props';
+import { PromoCarouselProps } from '../model/props';
 import styles from './promo-card.module.scss';
 
-export const PromoCard: FC<PromoCardProps> = ({
+export const PromoCard: FC<{ slide: PromoCarouselProps }> = ({
   slide: { card_image, logo, name, description, enDescription, btn },
 }): JSX.Element => {
   const [isColorDark, setIsColorDark] = useState(true);
@@ -37,8 +37,11 @@ export const PromoCard: FC<PromoCardProps> = ({
           height={524}
         />
         <div className={styles.information}>
-          <div className={styles.content_container}>
-            <div className={styles.logo} style={{ color: `${isColorDark ? 'white' : 'black'}` }}>
+          <div
+            className={styles.content_container}
+            style={{ color: `${isColorDark ? 'white' : 'black'}` }}
+          >
+            <div className={styles.logo}>
               {logo ? (
                 <Image
                   className={styles.logo_img}
@@ -52,10 +55,7 @@ export const PromoCard: FC<PromoCardProps> = ({
                 <Title>{name}</Title>
               )}
             </div>
-            <Text
-              className={styles.synopsis}
-              style={{ color: `${isColorDark ? 'white' : 'black'}` }}
-            >
+            <Text className={styles.synopsis}>
               {i18n.language == 'ru' ? description : enDescription}
             </Text>
           </div>

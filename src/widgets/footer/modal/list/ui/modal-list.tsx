@@ -9,8 +9,8 @@ import { defaultYearsRange } from '@/shared/constants/default-years-range';
 import { useBooleanState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { Text } from '@/shared/ui';
-import { collections } from '@/widgets/footer/modal/list/model/collections';
 
+import { collections } from '../model/collections';
 import { ModalListProps } from '../model/props';
 import styles from './modal-list.module.scss';
 
@@ -58,8 +58,8 @@ export const ModalList: FC<ModalListProps> = ({
             <Link href={'#'} className={styles.link}>
               {i18next.language == 'en' ? `All ${title}` : `Все ${title}`}
             </Link>
-            <ul className={styles.list}>
-              <li className={styles.flex}>
+            <div className={styles.list}>
+              <ul className={styles.flex}>
                 <li className={styles.list__item}>
                   <Text className={styles.list__title}>{t('categories.genres')}</Text>
                   {filters?.genres?.slice(0, 10).map(({ genre, id }) => (
@@ -91,8 +91,8 @@ export const ModalList: FC<ModalListProps> = ({
                     </Link>
                   ))}
                 </div>
-              </li>
-            </ul>
+              </ul>
+            </div>
           </>
         )}
         {children}

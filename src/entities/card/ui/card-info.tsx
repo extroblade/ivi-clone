@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { Props } from '@/entities/card';
+import { CardProps } from '@/entities/card';
 import { BarGraph, Text, Title } from '@/shared/ui';
 
-export const CardInfo: FC<Props> = ({ card }) => {
+export const CardInfo: FC<CardProps> = ({ card }) => {
   const { countries, genres, year, ratingKinopoisk } = card || {};
   if (!card) return <div className={'loader'} />;
   return (

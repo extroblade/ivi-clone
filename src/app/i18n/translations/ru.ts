@@ -269,7 +269,7 @@ export const russian = {
       movies: 'Смотреть фильмы онлайн',
       series: 'Смотреть сериалы онлайн',
       animation: 'Смотреть мультфильмы онлайн',
-      profile: 'Мой профиль / ivi.ru',
+      profile: 'Мой профиль',
       'page-404': 'Страница не найдена',
       admin: 'Панель администратора',
       'change-language-title': 'Смена языка',

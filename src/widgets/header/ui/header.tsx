@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiUser } from 'react-icons/bi';
 import { MdNotificationsNone } from 'react-icons/md';
