@@ -5,7 +5,7 @@ import { Text, Title } from '@/shared/ui';
 
 import styles from './not-found.module.scss';
 
-export const NotFound = () => {
+export const NotFoundPage = () => {
   const { t } = useTranslation();
   return (
     <div className={styles.content_container}>

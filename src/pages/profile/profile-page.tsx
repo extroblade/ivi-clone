@@ -7,9 +7,9 @@ import { LogoutButton } from '@/features/logout-button';
 import { SelectProfile } from '@/features/select-profile';
 import { Text, Title } from '@/shared/ui';
 import { AuthButton } from '@/widgets/auth';
-import { guestList, userList } from '@/widgets/profile/model/lists';
 
-import styles from './ProfilePage.module.scss';
+import { guestList, userList } from './lists';
+import styles from './profile-page.module.scss';
 
 export const ProfilePage = () => {
   const { data: session } = useSession();
@@ -21,7 +21,7 @@ export const ProfilePage = () => {
       return;
     }
 
-    setUuid(() => localStorage?.getItem('uuid') || '2131212312');
+    setUuid(() => id);
   }, []);
 
   return (
@@ -42,7 +42,7 @@ export const ProfilePage = () => {
       {(session?.user ? userList : guestList).map((list, outer) => (
         <ul key={outer} className={styles.list}>
           {list.map(({ component, className }, index) => (
-            <li key={index} className={cn(styles.list__item, styles?.[className])}>
+            <li key={index} className={cn(styles.list_item, styles?.[className])}>
               {component}
             </li>
           ))}

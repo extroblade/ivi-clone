@@ -1,0 +1,1 @@
+export { iviSans } from './font';

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -5,7 +6,8 @@ import { ColorContainer } from '@/entities/colored-container';
 import { ExternalSources } from '@/entities/external-sources';
 import { MovieInfo } from '@/entities/movie/info/ui/movie-info';
 import { useMovieTitle } from '@/entities/movie/lib/useMovieTitle';
-import { PersonsGallery } from '@/entities/movie/persons/gallery/ui/persons-gallery';
+import { PersonsGallery } from '@/entities/movie/persons/gallery';
+import { SimilarCarousel } from '@/entities/movie/similar/similar-carousel';
 import { Trailers } from '@/entities/movie/trailers/ui/trailers';
 import { Player } from '@/entities/player/ui/player';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
@@ -14,13 +16,12 @@ import { ScrollToTopButton } from '@/features/scroll-to-top';
 import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Breadcrumbs, Title } from '@/shared/ui';
-import { SimilarCarousel } from '@/widgets/similar-movies/ui/similar-carousel';
 
-import { WatchPageProps } from '../model/WatchPage.props';
-import styles from './WatchPage.module.scss';
+import styles from './movie-page.module.scss';
 
-export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
+export const MoviePage: FC<{ movie: iFilm }> = ({ movie }) => {
   const { i18n } = useTranslation();
   const { posterUrl, coverUrl, posterUrlPreview, genres, type, kinopoiskId } = movie;
   const { typeName, typePath } = useMemo(() => {
@@ -42,6 +43,9 @@ export const WatchPage: FC<WatchPageProps> = ({ movie }) => {
   }, [movie, i18n.language]);
   return (
     <>
+      <Head>
+        <title>{title}</title>
+      </Head>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
       <ColorContainer />
       <div className={styles.row}>
