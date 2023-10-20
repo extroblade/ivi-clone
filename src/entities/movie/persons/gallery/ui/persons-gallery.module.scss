@@ -7,20 +7,21 @@
     text-decoration: 1px solid white underline;
   }
 }
+.persons {
+  display: flex;
+  width: calc(100% - 88px);;
+  overflow: hidden;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0 10px;
+}
 
 .list {
   display: flex;
-  max-height: 163px;
-
-  overflow: hidden;
-  padding: 10px 20px;
-  gap: 20px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  max-height: 160px;
   flex-basis: calc(90% - 88px);
   @media (max-width: 600px) {
     flex-basis: calc(80% - 88px);
-    // flex-basis: 70%;
     gap: 5px;
   }
 }
@@ -28,6 +29,8 @@
 .link {
   display: grid;
   gap: 10px;
+  padding-bottom: 100px;
+
 
   &:hover {
     .name {

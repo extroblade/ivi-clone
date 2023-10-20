@@ -6,8 +6,8 @@ import { Vote } from '@/entities/vote/ui/vote';
 import { Avatar } from '@/features/comment/avatar/ui/avatar';
 import { CommentInput } from '@/features/comment/input/ui/CommentInput';
 import { CommentProps } from '@/features/comment/model/props';
-import { Button, Text } from '@/newui';
 import { useBooleanState } from '@/shared/hooks';
+import { Button, Text } from '@/shared/ui';
 
 import styles from './Comment.module.scss';
 

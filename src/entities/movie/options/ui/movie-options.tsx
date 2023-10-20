@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { badges } from '@/entities/movie/options/model/badges';
 import { MovieOptionProps } from '@/entities/movie/options/model/props';
-import { Badge, Button, Loader, Text } from '@/newui';
 import { getNameByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/helpers';
 import { arrayToString } from '@/shared/helpers/array-to-string';
 import { useBooleanState } from '@/shared/hooks';
+import { Badge, Button, Loader, Text } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 

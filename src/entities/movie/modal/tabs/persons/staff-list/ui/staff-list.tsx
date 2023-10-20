@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { PersonForStaff } from '@/entities/movie/modal/tabs/persons/staff-list/person/person-for-staff';
-import { Text } from '@/newui';
+import { Text } from '@/shared/ui';
 
 import { StaffListProps } from '../model/props';
 import styles from './staff-list.module.scss';

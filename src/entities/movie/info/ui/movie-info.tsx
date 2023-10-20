@@ -8,10 +8,10 @@ import { useMovieTitle } from '@/entities/movie/lib/useMovieTitle';
 import { MovieOptions } from '@/entities/movie/options';
 import { PersonList } from '@/entities/movie/persons';
 import { RatingBlock } from '@/features/rating-block';
-import { Title } from '@/newui';
 import { getPathByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
+import { Title } from '@/shared/ui';
 
 import { MovieInfoProps } from '../model/props';
 import styles from './movie-info.module.scss';

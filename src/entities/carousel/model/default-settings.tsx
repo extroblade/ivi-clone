@@ -1,7 +1,6 @@
 import { Settings } from 'react-slick';
 
-import { Next } from '@/features/arrow/ui/next';
-import { Prev } from '@/features/arrow/ui/prev';
+import { Next, Prev } from '@/features/arrow';
 
 export const defaultSettings: Settings = {
   dots: false,

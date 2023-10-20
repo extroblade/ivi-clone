@@ -1,15 +1,16 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Text, Title } from '@/newui';
+import { Button, Text, Title } from '@/shared/ui';
 
 import { WatchOnAllDevicesProps } from '../model/props';
 import styles from './watch-on-all-devices.module.scss';
 
 export const WatchOnAllDevices: FC<WatchOnAllDevicesProps> = ({ name, image }) => {
   const { t } = useTranslation();
+  const router = useRouter();
   if (!image) return <></>;
   return (
     <div className={styles.content_card}>
@@ -19,9 +20,14 @@ export const WatchOnAllDevices: FC<WatchOnAllDevicesProps> = ({ name, image }) =
           <Text className={styles.subtitle}>
             Приложение доступно для скачивания на iOS, Android, SmartTV и приставках
           </Text>
-          <Link className={styles.link} href={'https://www.ivi.ru/devices'}>
-            <Button appearance={'red'}>{t('buttons.connect-all-devices')}</Button>
-          </Link>
+          <Button
+            className={styles.button}
+            size={'M'}
+            onClick={() => router.push('https://www.ivi.ru/devices')}
+            appearance={'red'}
+          >
+            {t('buttons.connect-all-devices')}
+          </Button>
         </div>
         <div className={styles.devices}>
           <div className={styles.image_container}>

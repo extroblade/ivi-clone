@@ -8,9 +8,9 @@ import { PlayerProps } from '@/entities/player/props/props';
 import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
 import { ShareButton } from '@/features/share-button/ui/share-button';
 import { TurnNotificationsButton } from '@/features/turn-notifications/ui/turn-notifications';
-import { Text } from '@/newui';
 import { useBrowser } from '@/shared/hooks/useBrowser';
 import { useFetchFilmVideoQuery } from '@/shared/services';
+import { Text } from '@/shared/ui';
 
 import styles from './player.module.scss';
 

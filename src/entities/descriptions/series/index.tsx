@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Description, Text } from '@/newui';
+import { Description, Text } from '@/shared/ui';
 
 export const SeriesDescription = () => {
   const { t } = useTranslation();

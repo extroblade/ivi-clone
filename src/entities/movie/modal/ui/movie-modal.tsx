@@ -5,12 +5,12 @@ import { HiChevronLeft } from 'react-icons/hi';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
 import { tabs } from '@/entities/movie/modal/model/tabs';
-import { Button, Title } from '@/newui';
 import { useAppDispatch, useAppSelector, usePreventScroll } from '@/shared/hooks';
 import { useEscapeKey } from '@/shared/hooks/useEscapeKey';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { useFetchFilmQuery } from '@/shared/services';
 import { selectModal, setShowWatchPageModal } from '@/shared/store';
+import { Button, Title } from '@/shared/ui';
 
 import { MovieModalInfo } from '../info';
 import styles from './movie-modal.module.scss';

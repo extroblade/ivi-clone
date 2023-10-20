@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/newui';
 import { languages, LanguageVariants } from '@/shared/constants';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
+import { Button } from '@/shared/ui';
 
 import styles from './switch-language.module.scss';
 

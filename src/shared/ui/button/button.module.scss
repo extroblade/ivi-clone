@@ -1,0 +1,135 @@
+.button {
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: var(--transition-main);
+  padding: 0 12px;
+  background-color: #1f1b2e;
+  border-color: #1f1b2e;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+
+    &:hover {
+      background-color: var(--color-input-text);
+      border: none;
+    }
+  }
+
+  &:hover {
+    background-color: #28233b;
+  }
+}
+
+.rectangle {
+  border-radius: 8px;
+}
+
+.square {
+  width: 40px;
+  border-radius: 8px;
+}
+
+.circle {
+  border-radius: 20px;
+  height: 40px;
+  aspect-ratio: 1;
+}
+
+.outline {
+  background-color: transparent;
+  transition-duration: 0.4s;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  min-height: 40px;
+  border-radius: 12px;
+  padding: 9px 15px;
+
+  &:hover {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.72);
+  }
+}
+
+.red {
+  background-color: #ea003d;
+  border-color: #ea003d;
+  border-radius: 8px;
+
+  & svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: default;
+
+    &:hover {
+      background-color: #ea003d;
+    }
+  }
+
+  &:hover {
+    background-color: #ff0f4d;
+    border-color: #ff0f4d;
+  }
+}
+
+.gray {
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 8px;
+  color: hsla(0, 0%, 100%, 0.48);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+
+  &:hover {
+    color: #fff;
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.button {
+  transition: all 0.05s ease-in;
+}
+
+.S {
+  height: 20px;
+  font-size: 13px;
+}
+
+.M {
+  height: 40px;
+}
+
+.L {
+  height: 60px;
+}
+
+.transparent {
+  height: fit-content;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  border-radius: 8px;
+  color: var(--color-input);
+
+  &:hover {
+    color: var(--color-main);
+    background-color: transparent;
+    border: 0;
+  }
+}

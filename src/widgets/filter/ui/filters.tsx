@@ -7,12 +7,12 @@ import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
 
 import { SortDropdown } from '@/entities/dropdown';
-import { Button, InputRange } from '@/newui';
 import { defaultYearsRange } from '@/shared/constants/default-years-range';
 import { useBooleanState } from '@/shared/hooks';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
-import { FilterPlank } from '@/widgets/filter/plank/ui/plank';
+import { Button, InputRange } from '@/shared/ui';
 
+import { FilterPlank } from '../plank';
 import styles from './filters.module.scss';
 
 const variants = {

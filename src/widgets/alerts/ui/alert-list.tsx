@@ -1,6 +1,6 @@
-import { Alert } from '@/widgets/alerts/alert/ui/alert';
 import { useAlertsStore } from '@/widgets/alerts/model/store';
 
+import { Alert } from '../alert/ui/alert';
 import { DEFAULT_ALERT_AMOUNT } from '../model';
 import styles from './alert-list.module.scss';
 

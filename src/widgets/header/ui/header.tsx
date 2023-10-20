@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import React, { FC, useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiUser } from 'react-icons/bi';
 import { MdNotificationsNone } from 'react-icons/md';
@@ -9,7 +9,7 @@ import { MdNotificationsNone } from 'react-icons/md';
 import { NoNotifications } from '@/entities/no-notifications';
 import { SearchButton } from '@/features/search-button';
 import { SwitchLanguage } from '@/features/switch-language';
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 import { Categories } from '@/widgets/header/categories';
 import { Submenu } from '@/widgets/header/submenu';
 import { User } from '@/widgets/header/user';
@@ -85,7 +85,7 @@ export const Header: FC = () => {
 
             <div className={styles.zindex}>
               <div className={styles.watch_free}>
-                <Button size={'S'} appearance={'red'}>
+                <Button size={'M'} appearance={'red'}>
                   {t('header.watch-free')}
                 </Button>
               </div>

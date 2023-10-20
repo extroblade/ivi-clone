@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC } from 'react';
 import { AiFillLike, AiOutlineLike } from 'react-icons/ai';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 import { VoteButtonProps } from '../model/props';
 import styles from './vote-button.module.scss';

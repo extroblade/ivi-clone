@@ -8,22 +8,22 @@ import { BiUser } from 'react-icons/bi';
 import { BsPencil } from 'react-icons/bs';
 import { CgClose } from 'react-icons/cg';
 import { TbReload } from 'react-icons/tb';
-import { GoogleAuthButton, VkAuthButton } from 'src/widgets/auth/external';
-import { useAuthModalStore } from 'src/widgets/auth/model';
 
-import { BarGraph, Button, Modal, Text } from '@/newui';
 import { useBooleanState } from '@/shared/hooks';
+import { BarGraph, Button, Modal, Text } from '@/shared/ui';
+import { GoogleAuthButton, VkAuthButton } from '@/widgets/auth/external';
 import { REGEX_EMAIL, REGEX_PASSWORD, STEPS_COUNT } from '@/widgets/auth/modal/model';
+import { useAuthModalStore } from '@/widgets/auth/model';
 
 import styles from './auth-modal.module.scss';
 
 export const AuthModal = (): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
-  const [progress, setProgress] = useState<number>(5);
-  const [step, setStep] = useState<number>(1);
-  const [login, setLogin] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [progress, setProgress] = useState(5);
+  const [step, setStep] = useState(1);
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
   const [isPasswordVisible, { handleToggle: handlePasswordVisibility }] = useBooleanState();
   const { isOpen, handleState } = useAuthModalStore();
 

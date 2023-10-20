@@ -2,9 +2,9 @@ import cn from 'classnames';
 import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Modal, Text, Title } from '@/newui';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setShowRating } from '@/shared/store';
+import { Button, Modal, Text, Title } from '@/shared/ui';
 
 import { rates } from '../model/props';
 import styles from './rating-modal.module.scss';

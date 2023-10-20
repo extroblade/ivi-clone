@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import { CardProps } from '@/entities/card';
-import { Text } from '@/newui';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { Text } from '@/shared/ui';
 
 import styles from './card.module.scss';
 import { CardLoader } from './card-loader';

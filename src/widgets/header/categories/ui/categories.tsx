@@ -3,9 +3,9 @@ import { FC } from 'react';
 
 import { defaultYearsRange } from '@/shared/constants/default-years-range';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
-import { defaultCollections } from '@/widgets/header/categories/model/default-collections';
-import { CategoriesProps } from '@/widgets/header/categories/model/props';
 
+import { defaultCollections } from '../model/default-collections';
+import { CategoriesProps } from '../model/props';
 import styles from './categories.module.scss';
 
 export const Categories: FC<CategoriesProps> = ({ href }): JSX.Element => {

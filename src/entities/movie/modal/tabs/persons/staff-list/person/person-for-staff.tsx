@@ -3,10 +3,10 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import styles from '@/entities/movie/modal/tabs/persons/staff-list/ui/staff-list.module.scss';
-import { Text } from '@/newui';
 import { getProfessionByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
+import { Text } from '@/shared/ui';
 
 export const PersonForStaff: FC<{ person: iPerson }> = ({ person }) => {
   const { staffId, posterUrl, professionKey } = person;

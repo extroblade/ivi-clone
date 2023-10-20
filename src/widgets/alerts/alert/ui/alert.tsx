@@ -2,7 +2,7 @@ import cn from 'classnames';
 import { FC, memo } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 import { useCloseAlert } from '@/widgets/alerts/lib';
 
 import { AlertProps } from '../../model';

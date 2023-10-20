@@ -13,9 +13,9 @@ import { MdOutlineVideoLibrary } from 'react-icons/md';
 import { SlDiamond } from 'react-icons/sl';
 import { TbDeviceTv, TbTractor } from 'react-icons/tb';
 
-import { Button, Text } from '@/newui';
 import { useAppDispatch, useAppSelector, useEscapeKey, usePreventScroll } from '@/shared/hooks';
 import { selectModal, setShowFooterModal } from '@/shared/store';
+import { Button, Text } from '@/shared/ui';
 
 import { ModalList } from '../list';
 import styles from './footer-modal.module.scss';

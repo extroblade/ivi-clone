@@ -8,13 +8,13 @@ import {
   MdOutlineSort,
 } from 'react-icons/md';
 
-import { Button } from '@/newui';
 import {
   useBooleanState,
   useEscapeKey,
   useOutsideClick,
   useSearchParamsState,
 } from '@/shared/hooks';
+import { Button } from '@/shared/ui';
 
 import { defaultSorts } from '../model/props';
 import styles from './SortDropdown.module.scss';

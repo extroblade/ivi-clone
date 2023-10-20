@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { Loader, Text, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { useFetchFilmAwardsQuery } from '@/shared/services';
 import { selectModal } from '@/shared/store';
+import { Loader, Text, Title } from '@/shared/ui';
 
 import styles from './awards-tab.module.scss';
 

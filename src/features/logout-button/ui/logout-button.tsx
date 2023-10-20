@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 
 import { LogoutButtonProps } from '@/features/logout-button/model/props';
-import { Button } from '@/newui';
+import { Button } from '@/shared/ui';
 
 import styles from './logout-button.module.scss';
 

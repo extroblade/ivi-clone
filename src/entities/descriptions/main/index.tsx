@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Description, List, Text } from '@/newui';
+import { Description, List, Text } from '@/shared/ui';
 
 export const MainDescription = () => {
   const { t } = useTranslation();

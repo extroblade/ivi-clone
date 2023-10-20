@@ -1,10 +1,10 @@
 import { FC, MouseEvent } from 'react';
 import { BsBookmark, BsFillBookmarkFill } from 'react-icons/bs';
 
-import { Button } from '@/newui';
-import { AppearanceVariants } from '@/newui/button/button.props';
 import { useBooleanState } from '@/shared/hooks';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
+import { Button } from '@/shared/ui';
+import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
 export const AddToFavoritesButton: FC<{ appearance?: AppearanceVariants }> = ({
   appearance = 'transparent',

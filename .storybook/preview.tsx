@@ -1,4 +1,4 @@
-import "@/app/styles/global.scss";
+import "../src/app/global.scss";
 import "./stories.scss";
 import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 import { Provider } from "react-redux";
@@ -7,7 +7,7 @@ import { ClassAttributes, ImgHTMLAttributes, Suspense, useEffect } from "react";
 import { I18nextProvider } from "react-i18next";
 import * as nextImage from "next/image";
 
-import i18n from "../src/app/config/i18n/i18n";
+import i18n from "../src/app/i18n/i18n";
 
 export const parameters = {
   i18n,

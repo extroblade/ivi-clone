@@ -4,10 +4,10 @@ import { IoPlayOutline } from 'react-icons/io5';
 
 import styles from '@/entities/player/ui/player.module.scss';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
-import { Button } from '@/newui';
-import { AppearanceVariants } from '@/newui/button/button.props';
 import { useAppDispatch } from '@/shared/hooks';
 import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
+import { Button } from '@/shared/ui';
+import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
 export const OpenTrailersButton: FC<{ appearance?: AppearanceVariants }> = ({
   appearance = 'transparent',

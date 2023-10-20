@@ -1,10 +1,10 @@
 import { FC, MouseEvent } from 'react';
 import { AiFillBell, AiOutlineBell } from 'react-icons/ai';
 
-import { Button } from '@/newui';
-import { AppearanceVariants } from '@/newui/button/button.props';
 import { useAppDispatch, useBooleanState, useCreateAlert } from '@/shared/hooks';
 import { setShowUnsub } from '@/shared/store';
+import { Button } from '@/shared/ui';
+import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
 export const TurnNotificationsButton: FC<{ appearance?: AppearanceVariants }> = ({
   appearance = 'transparent',

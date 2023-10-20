@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 
 import { Player } from '@/entities/player';
-import { Loader, Title } from '@/newui';
 import { useAppSelector } from '@/shared/hooks';
 import { useFetchFilmVideoQuery } from '@/shared/services';
 import { selectModal } from '@/shared/store';
+import { Loader, Title } from '@/shared/ui';
 
 import styles from './trailers-tab.module.scss';
 

@@ -2,11 +2,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Modal, Text } from '@/newui';
 import { useLocalizeName } from '@/shared/helpers';
 import { useAppDispatch, useAppSelector, useCreateAlert } from '@/shared/hooks';
 import { useFetchFilmQuery } from '@/shared/services';
 import { selectModal, setShowUnsub } from '@/shared/store';
+import { Button, Modal, Text } from '@/shared/ui';
 
 import styles from './UnsubscribeModal.module.scss';
 

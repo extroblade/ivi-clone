@@ -3,10 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { RatingBlockProps } from 'src/features/rating-block/rating-block/model';
 
 import { RatingPlate } from '@/features/rating-block/rating-plate';
-import { Button } from '@/newui';
 import { getRate } from '@/shared/helpers';
 import { useAppDispatch } from '@/shared/hooks';
 import { setShowRating } from '@/shared/store';
+import { Button } from '@/shared/ui';
 
 import styles from './rating-block.module.scss';
 

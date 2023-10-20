@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
-import { Text, Title } from '@/newui';
+import { Carousel } from '@/entities/carousel';
 import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
+import { Text, Title } from '@/shared/ui';
 
 import styles from './external-sources.module.scss';
 
@@ -16,20 +17,22 @@ export const ExternalSources: FC = () => {
   );
   if (!sources?.total) return <></>;
   return (
-    <>
+    <div className={styles.sources}>
       <Title>Смотреть полностью:</Title>
-      <div className={styles.sources}>
+      <Carousel>
         {sources.items.map(({ url, logoUrl, platform }) => (
-          <Link href={url} target={'_blank'} key={url} className={styles.source_item}>
-            <div className={styles.img}>
-              {logoUrl && <Image fill alt={platform} src={logoUrl} />}
-            </div>
-            <div className={styles.text}>
-              <Text color={'gray-light'}>{platform}</Text>
-            </div>
-          </Link>
+          <div key={url} className={styles.carousel_item}>
+            <Link href={url} target={'_blank'} className={styles.source_item}>
+              <div className={styles.img}>
+                {logoUrl && <Image fill alt={platform} src={logoUrl} />}
+              </div>
+              <Text color={'gray-light'} className={styles.text}>
+                {platform}
+              </Text>
+            </Link>
+          </div>
         ))}
-      </div>
-    </>
+      </Carousel>
+    </div>
   );
 };

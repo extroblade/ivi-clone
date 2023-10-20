@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 
 import { MovieCard } from '@/entities/person/movies/card/ui/movie-card';
 import { MovieListProps } from '@/entities/person/movies/model/props';
-import { Button, Text, Title } from '@/newui';
 import { getRemainingFilmAmount } from '@/shared/helpers';
 import { useBooleanState } from '@/shared/hooks';
 import { StaffFilm } from '@/shared/types/kinopoiskTypes';
+import { Button, Text, Title } from '@/shared/ui';
 
 import styles from './movie-list.module.scss';
 

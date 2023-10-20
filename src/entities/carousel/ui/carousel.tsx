@@ -7,7 +7,7 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import Slider from 'react-slick';
 
 import { ShowAllCard } from '@/entities/card';
-import { Title } from '@/newui';
+import { Title } from '@/shared/ui';
 
 import { defaultSettings } from '../model/default-settings';
 import { CarouselProps } from '../model/props';

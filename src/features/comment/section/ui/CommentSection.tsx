@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 import { CommentInput } from '@/features/comment/input/ui/CommentInput';
-import { Loader } from '@/newui';
 import { useFetchCommentsQuery } from '@/shared/services';
+import { Loader } from '@/shared/ui';
 
 import { Comment } from '../../ui/Comment';
 import styles from './section.module.scss';
