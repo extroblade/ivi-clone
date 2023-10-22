@@ -14,10 +14,20 @@ export const FooterLink: FC<FooterLinkProps> = ({
 }): JSX.Element => {
   const IconComponent = icon;
   const router = useRouter();
+  const handleOpen = async () => {
+    if (openModal) {
+      openModal();
+      return;
+    }
+    if (!href) {
+      return;
+    }
+    await router.push(href);
+  };
   return (
     <div
       className={cn(styles.link, router.pathname === href || isOpen ? styles.link__active : '')}
-      onClick={openModal}
+      onClick={handleOpen}
     >
       <IconComponent className={styles.icon} />
       <span className={styles.title}>{title}</span>
