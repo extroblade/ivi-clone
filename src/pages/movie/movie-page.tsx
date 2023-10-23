@@ -9,7 +9,6 @@ import { useMovieTitle } from '@/entities/movie/lib/useMovieTitle';
 import { PersonsGallery } from '@/entities/movie/persons/gallery';
 import { SimilarCarousel } from '@/entities/movie/similar/similar-carousel';
 import { Trailers } from '@/entities/movie/trailers/ui/trailers';
-import { Player } from '@/entities/player/ui/player';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
 import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
@@ -17,9 +16,7 @@ import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { Breadcrumbs, Title } from '@/shared/ui';
-
-import styles from './movie-page.module.scss';
+import { Breadcrumbs } from '@/shared/ui';
 
 export const MoviePage: FC<{ movie: iFilm }> = ({ movie }) => {
   const { i18n } = useTranslation();
@@ -48,13 +45,7 @@ export const MoviePage: FC<{ movie: iFilm }> = ({ movie }) => {
       </Head>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
       <ColorContainer />
-      <div className={styles.row}>
-        <Title className={styles.mobile_title} tag="h2">
-          {title}
-        </Title>
-        <Player actions />
-        <MovieInfo movie={movie} />
-      </div>
+      <MovieInfo movie={movie} />
       <ExternalSources />
       <SimilarCarousel />
       <PersonsGallery />

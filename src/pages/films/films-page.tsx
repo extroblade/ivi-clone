@@ -6,7 +6,7 @@ import { Breadcrumbs, Title } from '@/shared/ui';
 import { Filters } from '@/widgets/filter';
 import { MovieGrid } from '@/widgets/grid';
 
-export const Films = () => {
+export const FilmsPage = () => {
   const { t } = useTranslation();
   const breadcrumbs = useBreadcrumbs();
   return (

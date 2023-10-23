@@ -1,3 +1,41 @@
+
+.mobile_title {
+  @media screen and (min-width: 1160px) {
+    display: none;
+  }
+}
+
+
+.row {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-areas:
+      'a b'
+      'a c';
+  gap: 30px;
+}
+
+.title {
+  cursor: pointer;
+  width: fit-content;
+
+  &:hover {
+    text-decoration: 1px solid white underline;
+  }
+}
+
+
+@media (max-width: 1160px) {
+  .row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        'c'
+        'a'
+        'b';
+  }
+}
+
+
 .watch {
   &__info {
     display: inline-block;
