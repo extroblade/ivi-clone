@@ -1,9 +1,7 @@
-import { FC } from 'react';
-
-import { CardProps } from '@/entities/card';
+import { iFilm, iSimilarItems } from '@/shared/types/kinopoiskTypes';
 import { BarGraph, Text, Title } from '@/shared/ui';
 
-export const CardInfo: FC<CardProps> = ({ card }) => {
+export const CardInfo = ({ card }: { card: Partial<iFilm> & Partial<iSimilarItems> }) => {
   const { countries, genres, year, ratingKinopoisk } = card || {};
   if (!card) return <div className={'loader'} />;
   return (

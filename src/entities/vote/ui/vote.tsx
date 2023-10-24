@@ -1,13 +1,12 @@
 import cn from 'classnames';
-import { FC, MouseEvent, useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 
-import { VoteProps } from '@/entities/vote/model/props';
-import { VoteButton } from '@/entities/vote/vote-button/ui/vote-button';
 import { useBooleanState } from '@/shared/hooks';
 
+import { VoteButton } from '../vote-button/ui/vote-button';
 import styles from './vote.module.scss';
 
-export const Vote: FC<VoteProps> = ({ likes = 0, dislikes = 0 }) => {
+export const Vote = ({ likes = 0, dislikes = 0 }: { likes?: number; dislikes?: number }) => {
   const [value, setValue] = useState(likes - dislikes);
   const [isLiked, { handleClose: handleUnsetLike, handleToggle: handleLikeToggle }] =
     useBooleanState();

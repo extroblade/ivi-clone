@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
@@ -12,7 +11,7 @@ import { Sup, Title } from '@/shared/ui';
 
 import styles from './persons-gallery.module.scss';
 
-export const PersonsGallery: FC = () => {
+export const PersonsGallery = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const { data: persons } = useFetchAllPersonsQuery(

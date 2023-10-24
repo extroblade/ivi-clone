@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoPlayOutline } from 'react-icons/io5';
 
@@ -9,8 +8,10 @@ import { setCurrentTab, setShowWatchPageModal } from '@/shared/store';
 import { Button } from '@/shared/ui';
 import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
-export const OpenTrailersButton: FC<{ appearance?: AppearanceVariants }> = ({
+export const OpenTrailersButton = ({
   appearance = 'transparent',
+}: {
+  appearance?: AppearanceVariants;
 }) => {
   const { t } = useTranslation();
   const scrollTop = useScrollTop();

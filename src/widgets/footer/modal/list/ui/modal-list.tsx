@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import i18next from 'i18next';
 import Link from 'next/link';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
+import { IconType } from 'react-icons';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
 import { defaultYearsRange } from '@/shared/constants/default-years-range';
@@ -11,7 +12,6 @@ import { useFetchFilmFiltersQuery } from '@/shared/services';
 import { Text } from '@/shared/ui';
 
 import { collections } from '../model/collections';
-import { ModalListProps } from '../model/props';
 import styles from './modal-list.module.scss';
 
 const variants = {
@@ -29,13 +29,19 @@ const variants = {
   },
 };
 
-export const ModalList: FC<ModalListProps> = ({
+export const ModalList = ({
   children,
   href,
   title,
   icon,
   isFilms,
-}): JSX.Element => {
+}: {
+  children?: ReactNode | ReactNode[];
+  title: ReactNode | ReactNode[];
+  icon?: IconType;
+  isFilms?: boolean;
+  href?: string;
+}) => {
   const [isOpen, { handleToggle }] = useBooleanState();
   const IconComponent = icon ? icon : undefined;
   const { t } = useTranslation();

@@ -1,11 +1,10 @@
 import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setShowSearch } from '@/shared/store';
 
-type useSearchModalProps = {
+export const useSearchModal = (): {
   isOpen: boolean;
   handleState: (state: boolean) => void;
-};
-export const useSearchModal = (): useSearchModalProps => {
+} => {
   const dispatch = useAppDispatch();
   const { showSearch } = useAppSelector(selectModal);
   const handleState = (state: boolean) => dispatch(setShowSearch(state));

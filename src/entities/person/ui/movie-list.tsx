@@ -1,17 +1,15 @@
 import i18next from 'i18next';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { MovieCard } from '@/entities/person/movies/card/ui/movie-card';
-import { MovieListProps } from '@/entities/person/movies/model/props';
 import { getRemainingFilmAmount } from '@/shared/helpers';
 import { useBooleanState } from '@/shared/hooks';
 import { StaffFilm } from '@/shared/types/kinopoiskTypes';
 import { Button, Text, Title } from '@/shared/ui';
 
+import { MovieCard } from '../card/ui/movie-card';
 import styles from './movie-list.module.scss';
 
-export const MovieList: FC<MovieListProps> = ({ list }) => {
+export const MovieList = ({ list }: { list: StaffFilm[] }) => {
   const [isOpen, { handleToggle }] = useBooleanState();
   const { t } = useTranslation();
 

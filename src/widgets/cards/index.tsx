@@ -1,11 +1,12 @@
-import { Card, CardProps } from '@/entities/card';
+import { Card } from '@/entities/card';
 import { CardInfo } from '@/entities/card/ui/card-info';
 import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { BlockButton } from '@/features/block-movie';
 import { FindSimilarButton } from '@/features/find-similar-movie';
 import { RateButton } from '@/features/rate-button';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 
-export const CardWithProps = ({ card }: CardProps) => {
+export const CardWithProps = ({ card }: { card: Partial<iFilm> }) => {
   return (
     <Card
       buttons={

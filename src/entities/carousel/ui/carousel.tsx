@@ -2,24 +2,29 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import Link from 'next/link';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 import { MdArrowForwardIos } from 'react-icons/md';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 
 import { ShowAllCard } from '@/entities/card';
 import { Title } from '@/shared/ui';
 
 import { defaultSettings } from '../model/default-settings';
-import { CarouselProps } from '../model/props';
 import styles from './carousel.module.scss';
 
-export const Carousel: FC<CarouselProps> = ({
+export const Carousel = ({
   title,
   children,
   showAll,
   route,
   settings,
-}): JSX.Element => {
+}: {
+  title?: string;
+  route?: string;
+  settings?: Settings;
+  children?: ReactNode | ReactNode[];
+  showAll?: boolean;
+}) => {
   const finalSettings = {
     ...defaultSettings,
     ...settings,

@@ -1,5 +1,4 @@
 import { useRouter } from 'next/navigation';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiChevronLeft } from 'react-icons/hi';
 
@@ -8,7 +7,7 @@ import { Button } from '@/shared/ui';
 
 import styles from './back-button.module.scss';
 
-export const BackButton: FC<{ children?: string | null }> = ({ children }): JSX.Element => {
+export const BackButton = ({ children }: { children?: string | null }): JSX.Element => {
   const { t } = useTranslation();
   const router = useRouter();
 

@@ -1,16 +1,21 @@
 import Link from 'next/link';
-import React, { FC } from 'react';
+import { IconType } from 'react-icons';
 
-import { LinkCardProps } from '../model/props';
 import styles from './LinkCard.module.scss';
 
-export const LinkCard: FC<LinkCardProps> = ({
+export const LinkCard = ({
   icon,
   title,
   subtitle,
   link,
   status,
-}): JSX.Element => {
+}: {
+  icon: IconType;
+  title: string;
+  link: string;
+  subtitle?: string;
+  status?: 'red';
+}) => {
   const IconComponent = icon;
   return (
     <Link href={link}>

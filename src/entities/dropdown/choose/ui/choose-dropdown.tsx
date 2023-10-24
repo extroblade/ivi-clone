@@ -1,22 +1,25 @@
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import React, { FC } from 'react';
 import { BsCheckLg } from 'react-icons/bs';
 
 import { Dropdown } from '@/entities/dropdown';
 
-import { ChooseDropdownProps } from '../model/props';
 import styles from './styles.module.scss';
 
 const years: number[] = [];
 for (let i = 1950; i < 2024; i++) years.push(i);
 
-export const ChooseDropdown: FC<ChooseDropdownProps> = ({
+export const ChooseDropdown = ({
   isOpen,
   name,
   onClick,
   data,
-}): JSX.Element => {
+}: {
+  isOpen: boolean;
+  data: any[];
+  name: string;
+  onClick: (args: any) => void;
+}) => {
   const router = useRouter();
   if (!data?.length)
     return (

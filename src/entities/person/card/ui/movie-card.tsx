@@ -1,15 +1,14 @@
 import Link from 'next/link';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getProfessionByType } from 'src/shared/constants';
 
+import { getProfessionByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { StaffFilm } from '@/shared/types/kinopoiskTypes';
 import { Button, Text } from '@/shared/ui';
 
-import { MovieCardProps } from '../model/props';
 import styles from './movie-card.module.scss';
 
-export const MovieCard: FC<MovieCardProps> = ({ card }) => {
+export const MovieCard = ({ card }: { card: StaffFilm }) => {
   const { t } = useTranslation();
   const { filmId, description, rating, professionKey } = card;
   const movieName = useLocalizeName(card);

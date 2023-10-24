@@ -6,9 +6,9 @@ import { useAppDispatch, useAppSelector } from '@/shared/hooks';
 import { selectModal, setShowRating } from '@/shared/store';
 import { Button, Modal, Text, Title } from '@/shared/ui';
 
-import { rates } from '../model/props';
 import styles from './rating-modal.module.scss';
 
+const rates: Readonly<number[]> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 export const RatingModal: FC = (): JSX.Element => {
   const [active, setActive] = useState<number | null>();
   const { t } = useTranslation();

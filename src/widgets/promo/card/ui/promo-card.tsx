@@ -1,17 +1,26 @@
 import { FastAverageColor } from 'fast-average-color';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Text, Title } from '@/shared/ui';
 
-import { PromoCarouselProps } from '../model/props';
 import styles from './promo-card.module.scss';
 
-export const PromoCard: FC<{ slide: PromoCarouselProps }> = ({
+export const PromoCard = ({
   slide: { card_image, logo, name, description, enDescription, btn },
-}): JSX.Element => {
+}: {
+  slide: {
+    id: number;
+    name: string;
+    description: string;
+    enDescription: string;
+    logo: string | null;
+    card_image: string;
+    btn: string;
+  };
+}) => {
   const [isColorDark, setIsColorDark] = useState(true);
   const { t, i18n } = useTranslation();
   useEffect(() => {

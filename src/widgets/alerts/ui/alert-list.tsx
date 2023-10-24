@@ -1,8 +1,8 @@
-import { useAlertsStore } from '@/widgets/alerts/model/store';
-
 import { Alert } from '../alert/ui/alert';
-import { DEFAULT_ALERT_AMOUNT } from '../model';
+import { useAlertsStore } from '../model/store';
 import styles from './alert-list.module.scss';
+
+const DEFAULT_ALERT_AMOUNT = 4;
 
 export const AlertList = () => {
   const alerts = useAlertsStore((state) => state.alerts);

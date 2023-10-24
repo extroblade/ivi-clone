@@ -12,10 +12,14 @@ import { TbReload } from 'react-icons/tb';
 import { useBooleanState } from '@/shared/hooks';
 import { BarGraph, Button, Modal, Text } from '@/shared/ui';
 import { GoogleAuthButton, VkAuthButton } from '@/widgets/auth/external';
-import { REGEX_EMAIL, REGEX_PASSWORD, STEPS_COUNT } from '@/widgets/auth/modal/model';
 import { useAuthModalStore } from '@/widgets/auth/model';
 
 import styles from './auth-modal.module.scss';
+
+const STEPS_COUNT: Readonly<number> = 4;
+
+const REGEX_PASSWORD = /^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{4,16}$/;
+const REGEX_EMAIL = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export const AuthModal = (): JSX.Element => {
   const { t } = useTranslation();

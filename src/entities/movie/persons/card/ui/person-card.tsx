@@ -1,10 +1,17 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
-import { PersonCardProps } from '../model/PersonCard.props';
 import styles from './person-card.module.scss';
 
-export const PersonCard: FC<PersonCardProps> = ({ children, link, title }) => {
+export const PersonCard = ({
+  children,
+  link,
+  title,
+}: {
+  children: ReactNode | ReactNode[];
+  title?: string;
+  link?: string;
+}) => {
   return (
     <Link href={link || ''} className={styles.person_card} title={title}>
       <div className={styles.wrapCard}>{children}</div>

@@ -1,13 +1,10 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
-import React from 'react';
 import { Provider } from 'react-redux';
 
-import {
-  AddToFavoritesButton,
-  BlockButton,
-  FindSimilarButton,
-  RateButton,
-} from '@/entities/card/buttons';
+import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
+import { BlockButton } from '@/features/block-movie';
+import { FindSimilarButton } from '@/features/find-similar-movie';
+import { RateButton } from '@/features/rate-button';
 import { mockStore } from '@/shared/testdata';
 
 describe('card buttons', () => {

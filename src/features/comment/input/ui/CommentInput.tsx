@@ -3,12 +3,12 @@ import { FC, FormEvent, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Avatar } from '@/features/comment/avatar/ui/avatar';
-import { DEFAULT_LIMIT } from '@/features/comment/input/model/props';
 import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
-import { Button } from '@/shared/ui/button/button';
+import { Button } from '@/shared/ui';
 
 import styles from './styles.module.scss';
 
+const DEFAULT_LIMIT = 5;
 export const CommentInput: FC = (): JSX.Element => {
   const { t, i18n } = useTranslation();
   const [query, setQuery] = useState<string>('');

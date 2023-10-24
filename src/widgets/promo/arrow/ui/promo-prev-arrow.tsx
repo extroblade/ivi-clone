@@ -1,13 +1,17 @@
 import cn from 'classnames';
-import { FC } from 'react';
 import { MdArrowBackIosNew } from 'react-icons/md';
 
 import { Button } from '@/shared/ui';
 
-import { ArrowProps } from '../model/props';
 import styles from './arrows.module.scss';
 
-export const PromoPrevArrow: FC<ArrowProps> = ({ onClick, className }) => {
+export const PromoPrevArrow = ({
+  onClick,
+  className,
+}: {
+  onClick?: () => void;
+  className?: string;
+}) => {
   return (
     <div onClick={onClick} className={styles.arrow_container}>
       <div className={cn(styles.arrow, styles.prev_arrow)}>

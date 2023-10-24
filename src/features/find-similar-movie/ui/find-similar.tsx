@@ -1,13 +1,16 @@
 import { useRouter } from 'next/navigation';
-import { FC, MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 import { IoColorWandOutline } from 'react-icons/io5';
 
 import { Button } from '@/shared/ui';
 import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
-export const FindSimilarButton: FC<{ appearance?: AppearanceVariants; id?: string | number }> = ({
+export const FindSimilarButton = ({
   appearance = 'transparent',
   id,
+}: {
+  appearance?: AppearanceVariants;
+  id?: string | number;
 }) => {
   const router = useRouter();
   const findSimilar = (e: MouseEvent<HTMLButtonElement>) => {

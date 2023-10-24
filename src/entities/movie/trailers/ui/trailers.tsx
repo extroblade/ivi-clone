@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useScrollTop } from '@/features/scroll-to-top/lib';
@@ -11,7 +10,7 @@ import { Text, Title } from '@/shared/ui';
 
 import styles from './trailers.module.scss';
 
-export const Trailers: FC = () => {
+export const Trailers = () => {
   const router = useRouter();
   const { data: trailers } = useFetchFilmVideoQuery(
     { id: Number(router.query?.id) },

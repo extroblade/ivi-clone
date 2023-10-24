@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   MdOutlineKeyboardArrowDown,
@@ -16,10 +16,10 @@ import {
 } from '@/shared/hooks';
 import { Button } from '@/shared/ui';
 
-import { defaultSorts } from '../model/props';
+import { defaultSorts } from '../model/default-sorts';
 import styles from './SortDropdown.module.scss';
 
-export const SortDropdown: FC = (): JSX.Element => {
+export const SortDropdown = () => {
   const router = useRouter();
   const [isActive, { handleClose, handleToggle }] = useBooleanState();
   const { t } = useTranslation();

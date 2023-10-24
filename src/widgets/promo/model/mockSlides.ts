@@ -1,6 +1,4 @@
-import { PromoCarouselProps } from '@/widgets/promo/card/model/props';
-
-export const mockCarousel: PromoCarouselProps[] = [
+export const mockCarousel = [
   {
     id: 1,
     name: 'Шпион',
@@ -71,4 +69,4 @@ export const mockCarousel: PromoCarouselProps[] = [
       'https://thumbs.dfs.ivi.ru/storage8/contents/3/6/67f58162d55e13452d1dde96870d88.jpg/1216x524/?q=85',
     btn: 'buttons.watch-sub',
   },
-];
+] as const;

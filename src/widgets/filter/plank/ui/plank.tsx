@@ -1,12 +1,19 @@
 import { useRouter } from 'next/router';
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { ChooseDropdown } from '@/entities/dropdown';
 import { useBooleanState, useSearchParamsState } from '@/shared/hooks';
 import { Plank } from '@/shared/ui';
-import { FilterPlankProps } from '@/widgets/filter/plank/model/props';
 
-export const FilterPlank: FC<FilterPlankProps> = ({ data, name, defaultName }) => {
+export const FilterPlank = ({
+  data,
+  name,
+  defaultName,
+}: {
+  name: string;
+  data: any[];
+  defaultName: string;
+}) => {
   const router = useRouter();
   const [isOpen, { handleClose, handleToggle }] = useBooleanState();
   const [, setParam] = useSearchParamsState<string>({ name });

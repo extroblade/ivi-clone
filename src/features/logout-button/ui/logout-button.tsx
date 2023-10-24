@@ -1,14 +1,12 @@
 import { signOut, useSession } from 'next-auth/react';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RiLogoutBoxRLine } from 'react-icons/ri';
 
-import { LogoutButtonProps } from '@/features/logout-button/model/props';
 import { Button } from '@/shared/ui';
 
 import styles from './logout-button.module.scss';
 
-export const LogoutButton: FC<LogoutButtonProps> = ({ variant = 'left' }) => {
+export const LogoutButton = ({ variant = 'left' }: { variant?: 'left' | 'right' | 'none' }) => {
   const { t } = useTranslation();
   const { data: session } = useSession();
   if (!session) return <></>;

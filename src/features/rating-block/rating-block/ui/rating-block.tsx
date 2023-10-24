@@ -1,6 +1,4 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RatingBlockProps } from 'src/features/rating-block/rating-block/model';
 
 import { RatingPlate } from '@/features/rating-block/rating-plate';
 import { getRate } from '@/shared/helpers';
@@ -10,7 +8,15 @@ import { Button } from '@/shared/ui';
 
 import styles from './rating-block.module.scss';
 
-export const RatingBlock: FC<RatingBlockProps> = ({ rating, criteria, rates }) => {
+export const RatingBlock = ({
+  rating,
+  criteria,
+  rates,
+}: {
+  rating: number;
+  criteria: string;
+  rates: number;
+}) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const openRating = () => {

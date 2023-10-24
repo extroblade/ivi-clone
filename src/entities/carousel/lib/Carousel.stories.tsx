@@ -3,7 +3,6 @@ import React from 'react';
 
 import { Card } from '@/entities/card';
 import { Carousel } from '@/entities/carousel';
-import { CarouselProps } from '@/entities/carousel/model/props';
 
 const cards: any = [
   {
@@ -88,7 +87,7 @@ const cards: any = [
   },
 ];
 
-const CarouselWM = (args: JSX.IntrinsicAttributes & CarouselProps) => (
+const CarouselWM = (args: any) => (
   <Carousel {...args}>
     {cards.map((card: any) => (
       <Card key={card.id} card={card} />

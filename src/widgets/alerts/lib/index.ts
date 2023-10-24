@@ -1,14 +1,17 @@
 import { useEffect } from 'react';
 
 import { useBooleanState } from '@/shared/hooks';
-import { TIME_BEFORE_CLOSE, TIME_TO_CLOSE } from '@/widgets/alerts/model';
 import { useAlertsStore } from '@/widgets/alerts/model/store';
 
-type ReturnType = {
+export const TIME_BEFORE_CLOSE = 2000;
+export const TIME_TO_CLOSE = 300;
+
+export const useCloseAlert = (
+  id: string
+): {
   handleClose: () => void;
   isClosing: boolean;
-};
-export const useCloseAlert = (id: string): ReturnType => {
+} => {
   const [isClosing, { handleOpen }] = useBooleanState();
 
   const { alerts, handleAlerts } = useAlertsStore();

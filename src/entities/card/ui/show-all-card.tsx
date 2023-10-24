@@ -2,8 +2,9 @@ import cn from 'classnames';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
-import styles from '@/entities/card/ui/card.module.scss';
 import { Text } from '@/shared/ui';
+
+import styles from './card.module.scss';
 
 export const ShowAllCard = ({ link }: { link?: string }) => {
   const { t } = useTranslation();

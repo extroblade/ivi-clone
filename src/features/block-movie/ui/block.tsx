@@ -1,4 +1,4 @@
-import { FC, MouseEvent } from 'react';
+import { MouseEvent } from 'react';
 import { MdBlock } from 'react-icons/md';
 
 import { useBooleanState } from '@/shared/hooks';
@@ -6,8 +6,10 @@ import { useCreateAlert } from '@/shared/hooks/useCreateAlert';
 import { Button } from '@/shared/ui';
 import { AppearanceVariants } from '@/shared/ui/button/button.props';
 
-export const BlockButton: FC<{ appearance?: AppearanceVariants }> = ({
+export const BlockButton = ({
   appearance = 'transparent',
+}: {
+  appearance?: AppearanceVariants;
 }) => {
   const [isBlocked, { handleToggle }] = useBooleanState();
   const createAlert = useCreateAlert();

@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { useRef } from 'react';
 
 import { FetchError } from '@/entities/error';
 import { FilmTypeVariants } from '@/shared/types/kinopoiskTypes';
@@ -8,7 +8,7 @@ import { CardWithProps } from '@/widgets/cards';
 import { useMovie } from '../model/use-movie';
 import styles from './grid.module.scss';
 
-export const Grid: FC<{ type: FilmTypeVariants }> = ({ type }) => {
+export const Grid = ({ type }: { type: FilmTypeVariants }) => {
   const buttonRef = useRef(null);
   const { isNothingFound, isLoader, movies, showMoreButton, error } = useMovie(type, buttonRef);
 

@@ -1,10 +1,8 @@
 import cn from 'classnames';
-import { FC } from 'react';
 
-import { RatingPlateProps } from '../model/props';
 import styles from './rating-plate.module.scss';
 
-export const RatingPlate: FC<RatingPlateProps> = ({ rating }) => {
+export const RatingPlate = ({ rating }: { rating: number | string }) => {
   const currentRate = +String(rating).split('')[0];
   return (
     <div

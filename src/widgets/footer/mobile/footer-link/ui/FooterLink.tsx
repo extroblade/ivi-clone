@@ -1,17 +1,24 @@
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
+import { ReactNode } from 'react';
+import { IconType } from 'react-icons';
 
-import { FooterLinkProps } from '../model/FooterLink.props';
 import styles from './FooterLink.module.scss';
 
-export const FooterLink: FC<FooterLinkProps> = ({
+export const FooterLink = ({
   title,
   href,
   icon,
   openModal,
   isOpen,
-}): JSX.Element => {
+}: {
+  title: ReactNode;
+  href?: string;
+  icon: IconType;
+  openModal?: () => void;
+  modal?: boolean;
+  isOpen?: boolean;
+}) => {
   const IconComponent = icon;
   const router = useRouter();
   const handleOpen = async () => {

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import React from 'react';
 
 export const numbers = [
   <Image width={32} height={44} alt={`top1`} src={'/images/top10/number1.svg'} key={1} />,

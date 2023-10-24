@@ -1,23 +1,27 @@
 import cn from 'classnames';
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import { FC, useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 import { Explanations } from '@/entities/explanations';
 import { useMovieTitle } from '@/entities/movie/lib/useMovieTitle';
 import { MovieOptions } from '@/entities/movie/options';
 import { PersonList } from '@/entities/movie/persons';
 import { Player } from '@/entities/player';
+import { OpenTrailersButton } from '@/entities/player/actions';
+import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { RatingBlock } from '@/features/rating-block';
+import { ShareButton } from '@/features/share-button/ui/share-button';
+import { TurnNotificationsButton } from '@/features/turn-notifications';
 import { getPathByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Title } from '@/shared/ui';
 
-import { MovieInfoProps } from '../model/props';
 import styles from './movie-info.module.scss';
 
-export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
+export const MovieInfo = ({ movie }: { movie: iFilm }) => {
   const {
     kinopoiskId,
     year,
@@ -55,7 +59,16 @@ export const MovieInfo: FC<MovieInfoProps> = ({ movie }) => {
       <Title className={styles.mobile_title} tag="h2">
         {title}
       </Title>
-      <Player actions />
+      <Player
+        actions={
+          <>
+            <OpenTrailersButton appearance={'rectangle'} />
+            <AddToFavoritesButton appearance={'rectangle'} />
+            <TurnNotificationsButton appearance={'rectangle'} />
+            <ShareButton appearance={'rectangle'} />
+          </>
+        }
+      />
       <div className={styles.watch__info}>
         <div className={styles.watch__title}>
           <Title tag="h2">{title}</Title>

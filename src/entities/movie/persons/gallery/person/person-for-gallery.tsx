@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
 
-import styles from '@/entities/movie/persons/gallery/ui/persons-gallery.module.scss';
 import { getProfessionByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/helpers';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 import { Text } from '@/shared/ui';
 
-export const PersonForGallery: FC<{ person: iPerson }> = ({ person }) => {
+import styles from './persons-gallery.module.scss';
+
+export const PersonForGallery = ({ person }: { person: iPerson }) => {
   const { posterUrl, staffId, professionKey } = person || {};
   const personName = useLocalizeName(person);
   return (

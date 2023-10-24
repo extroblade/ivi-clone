@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiMoviePlay } from 'react-icons/bi';
 import { BsPersonCircle } from 'react-icons/bs';
@@ -13,10 +13,10 @@ import { useFetchAllFilmsQuery, useFetchPersonNameQuery } from '@/shared/service
 import { Button, Loader, Modal, Text, Title } from '@/shared/ui';
 
 import { useSearchModal } from '../../lib/hooks';
-import { presets, RedirectProps } from '../model/props';
+import { presets } from '../model/presets';
 import styles from './search-modal.module.scss';
 
-export const SearchModal: FC = (): JSX.Element => {
+export const SearchModal = () => {
   const router = useRouter();
   const { t, i18n } = useTranslation();
   const localize = useLocalizeNameFunction();
@@ -51,7 +51,13 @@ export const SearchModal: FC = (): JSX.Element => {
     handleClearInput();
     handleState(false);
   };
-  const handleRedirect = async ({ type, id }: RedirectProps) => {
+  const handleRedirect = async ({
+    type,
+    id,
+  }: {
+    type: 'watch' | 'name' | 'movies';
+    id?: string | number;
+  }) => {
     await router.push(`/${type}/${id}`);
     handleClose();
   };

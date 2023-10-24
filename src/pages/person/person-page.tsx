@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
 
-import { MovieList } from '@/entities/person/movies/ui/movie-list';
-import styles from '@/entities/person/ui/person.module.scss';
+import { MovieList } from '@/entities/person';
 import { BackButton } from '@/features/back-button';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 import { Text, Title } from '@/shared/ui';
+
+import styles from './styles.module.scss';
 
 export const PersonPage = ({ person }: { person: iPerson }) => {
   const { posterUrl, profession, films } = person;

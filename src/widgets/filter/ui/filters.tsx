@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GoSettings } from 'react-icons/go';
 import { RxCross2 } from 'react-icons/rx';
@@ -31,7 +31,7 @@ const variants = {
     display: 'none',
   },
 };
-export const Filters: FC<{ initialState?: boolean }> = ({ initialState }): JSX.Element => {
+export const Filters = ({ initialState }: { initialState?: boolean }) => {
   const { data: filters } = useFetchFilmFiltersQuery();
   const [isOpen, { handleToggle: handleToggleFilters }] = useBooleanState(initialState);
   const [isActive, { handleClose: handleResetActive, handleState: setIsActive }] =

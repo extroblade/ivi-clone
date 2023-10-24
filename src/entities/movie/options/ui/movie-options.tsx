@@ -1,17 +1,16 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { badges } from '@/entities/movie/options/model/badges';
-import { MovieOptionProps } from '@/entities/movie/options/model/props';
 import { getNameByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/helpers';
 import { arrayToString } from '@/shared/helpers/array-to-string';
 import { useBooleanState } from '@/shared/hooks';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 import { Badge, Button, Loader, Text } from '@/shared/ui';
 
+import { badges } from '../model/badges';
 import styles from './styles.module.scss';
 
-export const MovieOptions: FC<MovieOptionProps> = ({ movie }) => {
+export const MovieOptions = ({ movie }: { movie: iFilm }) => {
   const { t } = useTranslation();
   const [isExtended, { handleToggle }] = useBooleanState();
   const { description, shortDescription, languages, subtitles, type } = movie;

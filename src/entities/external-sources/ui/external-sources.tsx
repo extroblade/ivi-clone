@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
 
 import { Carousel } from '@/entities/carousel';
 import { useFetchFilmExternalSourcesQuery } from '@/shared/services';
@@ -9,7 +8,7 @@ import { Text, Title } from '@/shared/ui';
 
 import styles from './external-sources.module.scss';
 
-export const ExternalSources: FC = () => {
+export const ExternalSources = () => {
   const router = useRouter();
   const { data: sources } = useFetchFilmExternalSourcesQuery(
     { id: Number(router.query?.id) },

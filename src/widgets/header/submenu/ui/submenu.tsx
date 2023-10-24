@@ -1,18 +1,25 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import { ReactNode } from 'react';
+import { IconType } from 'react-icons';
 
-import { SubmenuProps } from '../model/props';
 import styles from './submenu.module.scss';
 
-export const Submenu: FC<SubmenuProps> = ({
+export const Submenu = ({
   icon,
   user,
   title,
   link,
   outline,
   children,
-}): JSX.Element => {
+}: {
+  icon?: IconType;
+  user?: string | null;
+  title?: ReactNode;
+  link?: string;
+  outline?: boolean;
+  children: ReactNode;
+}) => {
   const IconComponent = icon || undefined;
   if (!user) {
     return (

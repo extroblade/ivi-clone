@@ -1,7 +1,11 @@
+import { ReactNode } from 'react';
 import { create } from 'zustand';
 
-import { AlertProps } from '@/widgets/alerts/model/index';
-
+type AlertProps = {
+  id: string;
+  title?: ReactNode;
+  extra?: ReactNode;
+};
 type AlertStoreProps = {
   alerts: AlertProps[];
   handleAlerts: (payload: AlertProps[]) => void;
