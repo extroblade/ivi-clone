@@ -1,11 +1,15 @@
 import crypto from 'crypto';
 
-import { AlertProps, DEFAULT_ALERT_AMOUNT } from '@/widgets/alerts/model';
+import { DEFAULT_ALERT_AMOUNT } from '@/shared/constants/alerts';
 import { useAlertsStore } from '@/widgets/alerts/model/store';
 
-type ReturnType = ({ title, extra }: Omit<AlertProps, 'id'>) => void;
-
-export const useCreateAlert = (): ReturnType => {
+export const useCreateAlert = (): (({
+  title,
+  extra,
+}: {
+  title?: string;
+  extra?: string;
+}) => void) => {
   const { alerts, handleAlerts } = useAlertsStore();
   const newAlertId = crypto?.randomUUID ? crypto.randomUUID() : Math.random().toString(36);
 

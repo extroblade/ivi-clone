@@ -6,7 +6,7 @@ import { useLocalizeName } from '@/shared/helpers';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 import { Text } from '@/shared/ui';
 
-import styles from './persons-gallery.module.scss';
+import styles from '../ui/persons-gallery.module.scss';
 
 export const PersonForGallery = ({ person }: { person: iPerson }) => {
   const { posterUrl, staffId, professionKey } = person || {};
