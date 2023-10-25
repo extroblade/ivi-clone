@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HiChevronLeft } from 'react-icons/hi';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
@@ -15,7 +14,7 @@ import { Button, Title } from '@/shared/ui';
 import { MovieModalInfo } from '../info';
 import styles from './movie-modal.module.scss';
 
-export const MovieModal: FC = () => {
+export const MovieModal = () => {
   const dispatch = useAppDispatch();
   const { currentTab, showWatchPageModal } = useAppSelector(selectModal);
   const router = useRouter();

@@ -1,14 +1,13 @@
 import { useRouter } from 'next/router';
-import { FC } from 'react';
 
+import { Comment } from '@/features/comment';
 import { CommentInput } from '@/features/comment/input/ui/CommentInput';
 import { useFetchCommentsQuery } from '@/shared/services';
 import { Loader } from '@/shared/ui';
 
-import { Comment } from '../../ui/Comment';
 import styles from './section.module.scss';
 
-export const CommentSection: FC = (): JSX.Element => {
+export const CommentTab = () => {
   const router = useRouter();
   const {
     data: comments,
