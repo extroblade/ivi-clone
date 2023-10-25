@@ -1,4 +1,4 @@
-import './global.scss';
+import './styles/global.scss';
 import './i18n';
 
 import dayjs from 'dayjs';
@@ -17,12 +17,12 @@ import { Modals } from './modals';
 
 dayjs.extend(duration);
 
-export const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
+export const App = ({ Component, pageProps }: AppProps) => {
   const { store } = wrapper.useWrappedStore(pageProps);
 
   return (
     <Provider store={store}>
-      <SessionProvider session={session}>
+      <SessionProvider session={pageProps.session}>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>

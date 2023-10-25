@@ -1,12 +1,10 @@
 import cn from 'classnames';
-import { FC } from 'react';
 import { IoAddOutline } from 'react-icons/io5';
 import { RxCross2 } from 'react-icons/rx';
 
 import styles from './sausage.module.scss';
-import { SausageProps } from './sausage.props';
 
-export const Sausage: FC<SausageProps> = ({ sausage: { title } }): JSX.Element => {
+export const Sausage = ({ title }: { title: string }) => {
   return (
     <div className={cn(styles.sausage, styles.checked)}>
       <div className={styles.icon_plus}>

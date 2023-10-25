@@ -1,10 +1,19 @@
 import cn from 'classnames';
-import { FC } from 'react';
+import { HTMLProps } from 'react';
 
 import styles from './bar-graph.module.scss';
-import { BarGraphProps } from './bar-graph.props';
 
-export const BarGraph: FC<BarGraphProps> = ({ width, rounded = true, color, ...props }) => {
+export const BarGraph = ({
+  width,
+  rounded = true,
+  color,
+  ...props
+}: {
+  width: number;
+  rounded?: boolean;
+  color?: 'red' | 'gray';
+} & HTMLProps<HTMLDivElement>) => {
+  const fixedWidth = Math.max(Math.min(width, 100), 0);
   return (
     <div className={styles.bar} {...props}>
       <div
@@ -13,7 +22,7 @@ export const BarGraph: FC<BarGraphProps> = ({ width, rounded = true, color, ...p
           rounded && styles.rounded,
           color ? styles[color] : styles.red
         )}
-        style={{ width: `${Math.max(Math.min(width, 100), 0)}%` }}
+        style={{ width: `${fixedWidth}%` }}
       />
     </div>
   );

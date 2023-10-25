@@ -7,12 +7,7 @@ import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm, iSimilar } from '@/shared/types/kinopoiskTypes';
 import { Grid, Title } from '@/shared/ui';
 
-type MovieProps = {
-  movie: iFilm;
-  similar: iSimilar;
-};
-
-export const SimilarPage = ({ movie, similar }: MovieProps) => {
+export const SimilarPage = ({ movie, similar }: { movie: iFilm; similar: iSimilar }) => {
   const movieName = useLocalizeName(movie);
   if (!similar?.total) return <Title>Nothing found!</Title>;
   return (

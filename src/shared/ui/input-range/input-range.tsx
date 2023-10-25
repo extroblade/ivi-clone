@@ -1,14 +1,25 @@
 import { useRouter } from 'next/router';
-import { ChangeEvent, FC, memo, useEffect, useState } from 'react';
+import { ChangeEvent, memo, ReactNode, useEffect, useState } from 'react';
 
 import { useSearchParamsState } from '@/shared/hooks';
 import { Text } from '@/shared/ui';
 
 import styles from './input-range.module.scss';
-import { InputRangeProps } from './input-range.props';
 
-export const InputRange: FC<InputRangeProps> = memo(
-  ({ minLimit, maxLimit, range, children, name }): JSX.Element => {
+export const InputRange = memo(
+  ({
+    minLimit,
+    maxLimit,
+    range,
+    children,
+    name,
+  }: {
+    minLimit: number;
+    maxLimit: number;
+    range: number;
+    children: ReactNode;
+    name: string;
+  }) => {
     const router = useRouter();
     const [param, setParam] = useSearchParamsState<number>({ name });
     const [inputValue, setInputValue] = useState<number>(param || minLimit);
@@ -20,6 +31,8 @@ export const InputRange: FC<InputRangeProps> = memo(
     useEffect(() => {
       setInputValue(() => Number(router.query?.[name]) || minLimit);
     }, [router.query?.[name]]);
+
+    const fixedRange = ((+inputValue - minLimit) * 100) / (maxLimit - minLimit);
     return (
       <div className={styles.container}>
         <div className={styles.input_range}>
@@ -36,9 +49,7 @@ export const InputRange: FC<InputRangeProps> = memo(
             step={range}
             value={inputValue}
             style={{
-              background: `linear-gradient(90deg, var(--color-input-text) ${
-                ((+inputValue - minLimit) * 100) / (maxLimit - minLimit)
-              }%, var(--color-accent) 0%)`,
+              background: `linear-gradient(90deg, var(--color-input-text) ${fixedRange}%, var(--color-accent) 0%)`,
             }}
           />
         </div>

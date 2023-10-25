@@ -1,9 +1,8 @@
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
 import styles from './list.module.scss';
-import { ListProps } from './list.props';
 
-export const List: FC<ListProps> = ({ children }) => {
+export const List = ({ children }: { children?: ReactNode[] }) => {
   return (
     <ol className={styles.list}>
       {children?.map((child, index) => (

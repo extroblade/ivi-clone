@@ -1,9 +1,8 @@
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
 import styles from './badge.module.scss';
-import { BadgeProps } from './badge.props';
 
-export const Badge: FC<BadgeProps> = ({ children }) => {
+export const Badge = ({ children }: { children: ReactNode | ReactNode[] }) => {
   return (
     <div className={styles.badge}>
       <div className={styles.badge_text}>{children}</div>
