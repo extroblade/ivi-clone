@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { LogoutButton } from '@/features/logout-button';
+import { LogoutButton } from '@/features/buttons/logout';
 import { SelectProfile } from '@/features/select-profile';
 import { Text, Title } from '@/shared/ui';
 import { AuthButton } from '@/widgets/auth';

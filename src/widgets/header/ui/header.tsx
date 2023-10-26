@@ -1,18 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import { useSession } from 'next-auth/react';
-import { FC, useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BiUser } from 'react-icons/bi';
-import { MdNotificationsNone } from 'react-icons/md';
 
-import { NoNotifications } from '@/entities/no-notifications';
-import { SearchButton } from '@/features/search-button';
 import { SwitchLanguage } from '@/features/switch-language';
 import { Button } from '@/shared/ui';
 import { Categories } from '@/widgets/header/categories';
 import { Submenu } from '@/widgets/header/submenu';
-import { User } from '@/widgets/header/user';
+import { SearchButton } from '@/widgets/search';
 
 import styles from './header.module.scss';
 
@@ -41,9 +35,8 @@ const submenuNavItems = [
   },
 ];
 
-export const Header: FC = () => {
+export const Header = ({ logo, actions }: { logo: ReactNode; actions: ReactNode }) => {
   const { t } = useTranslation();
-  const { data: session } = useSession();
   useEffect(() => {
     const uuid = localStorage?.getItem('uuid');
     if (uuid) {
@@ -56,11 +49,7 @@ export const Header: FC = () => {
       <div className="container">
         <div className={styles.row}>
           <div className={styles.body}>
-            <div className={styles.logo}>
-              <Link href="/">
-                <Image src={'/images/iviLogo.svg'} alt="logo" width={66} height={48} />
-              </Link>
-            </div>
+            <div className={styles.logo}>{logo}</div>
             <nav className={styles.menu}>
               <ul className={styles.menu__list}>
                 {linkNavItems.map(({ href, title }, index) => (
@@ -94,14 +83,7 @@ export const Header: FC = () => {
               <SearchButton />
             </div>
           </div>
-          <div className={styles.actions}>
-            <Submenu icon={MdNotificationsNone} link={'/notifications'}>
-              <NoNotifications />
-            </Submenu>
-            <Submenu icon={BiUser} user={session?.user?.image} link={'/profile'} outline>
-              <User />
-            </Submenu>
-          </div>
+          <div className={styles.actions}>{actions}</div>
         </div>
       </div>
     </header>

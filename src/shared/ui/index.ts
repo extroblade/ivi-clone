@@ -8,6 +8,7 @@ export { Grid } from './grid/grid';
 export { InputRange } from './input-range/input-range';
 export { List } from './list/list';
 export { Loader } from './loader/loader';
+export { Logo } from './logo/logo';
 export { Modal } from './modal/modal';
 export { Plank } from './plank/plank';
 export { Sausage } from './sausage/sausage';

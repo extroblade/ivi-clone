@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { AddToFavoritesButton } from 'src/features/buttons/add-movie-to-favorites';
 
 import { Card } from '@/entities/card';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm, iSimilar } from '@/shared/types/kinopoiskTypes';
 import { Grid, Title } from '@/shared/ui';

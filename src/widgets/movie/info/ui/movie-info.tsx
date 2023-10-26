@@ -2,14 +2,14 @@ import cn from 'classnames';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useCallback, useMemo } from 'react';
+import { AddToFavoritesButton } from 'src/features/buttons/add-movie-to-favorites';
 
 import { Explanations } from '@/entities/explanations';
 import { Player } from '@/entities/player';
 import { OpenTrailersButton } from '@/entities/player/actions';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
+import { ShareButton } from '@/features/buttons/share/ui/share-button';
+import { TurnNotificationsButton } from '@/features/buttons/turn-notifications';
 import { RatingBlock } from '@/features/rating-block';
-import { ShareButton } from '@/features/share-button/ui/share-button';
-import { TurnNotificationsButton } from '@/features/turn-notifications';
 import { getPathByType } from '@/shared/constants';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { useFetchFilmFiltersQuery } from '@/shared/services';

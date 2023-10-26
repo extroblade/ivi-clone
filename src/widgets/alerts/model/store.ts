@@ -6,11 +6,10 @@ type AlertProps = {
   title?: ReactNode;
   extra?: ReactNode;
 };
-type AlertStoreProps = {
+export const useAlertsStore = create<{
   alerts: AlertProps[];
   handleAlerts: (payload: AlertProps[]) => void;
-};
-export const useAlertsStore = create<AlertStoreProps>((set) => ({
+}>((set) => ({
   alerts: [],
   handleAlerts: (payload: AlertProps[]) => set(() => ({ alerts: payload })),
 }));

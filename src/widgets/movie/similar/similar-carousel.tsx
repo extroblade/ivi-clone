@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
+import { AddToFavoritesButton } from 'src/features/buttons/add-movie-to-favorites';
 
 import { Card } from '@/entities/card';
 import { Carousel } from '@/entities/carousel';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { useFetchFilmSimilarQuery } from '@/shared/services';
 
 export const SimilarCarousel = () => {

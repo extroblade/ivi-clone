@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import { MovieList } from '@/entities/person';
-import { BackButton } from '@/features/back-button';
+import { BackButton } from '@/features/buttons/back';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iPerson } from '@/shared/types/kinopoiskTypes';
 import { Text, Title } from '@/shared/ui';

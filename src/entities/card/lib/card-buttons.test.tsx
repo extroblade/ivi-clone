@@ -1,10 +1,10 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { AddToFavoritesButton } from 'src/features/buttons/add-movie-to-favorites';
 
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
-import { BlockButton } from '@/features/block-movie';
-import { FindSimilarButton } from '@/features/find-similar-movie';
-import { RateButton } from '@/features/rate-button';
+import { BlockButton } from '@/features/buttons/block-movie';
+import { FindSimilarButton } from '@/features/buttons/find-similar-movie';
+import { RateButton } from '@/features/buttons/rate-movie';
 import { mockStore } from '@/shared/testdata';
 
 describe('card buttons', () => {

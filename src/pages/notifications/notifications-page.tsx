@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { NoNotifications } from '@/entities/no-notifications';
-import { BackButton } from '@/features/back-button';
+import { BackButton } from '@/features/buttons/back';
 import { Title } from '@/shared/ui';
 
 export const NotificationsPage = () => {

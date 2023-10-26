@@ -1,10 +1,7 @@
 import { FC } from 'react';
+import { ActivateCertificateButton, PromotionButton } from 'src/features/buttons/profile/buttons';
 
 import { Carousel } from '@/entities/carousel';
-import {
-  ActivateCertificateButton,
-  PromotionButton,
-} from '@/features/profile-interactions/buttons';
 
 import { PromoCard } from '../card';
 import { carouselSettings } from '../model/carousel-settings';
