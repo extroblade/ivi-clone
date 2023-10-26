@@ -12,13 +12,17 @@
   margin-top: 10px;
   position: relative;
   width: fit-content;
-
-  &:hover:after {
+  &:after {
     content: '';
+    transition: all var(--time-main);
     height: 1px;
+    opacity: 0;
     background-color: rgba(white, .6);
     bottom: -2px;
     width: 100%;
     position: absolute;
+  }
+  &:hover:after {
+    opacity: 1;
   }
 }

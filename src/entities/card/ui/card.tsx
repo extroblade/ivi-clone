@@ -28,7 +28,7 @@ export const Card = ({
       className={cn(styles.card, (info || buttons) !== undefined && styles.hover)}
       draggable="false"
     >
-      <div className={styles.image_section}>
+      <div className={cn(styles.image_section, 'loader')}>
         <Image
           className={styles.image}
           src={posterUrlPreview}

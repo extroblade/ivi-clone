@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { FastAverageColor } from 'fast-average-color';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,17 +10,20 @@ import { Button, Text, Title } from '@/shared/ui';
 import styles from './promo-card.module.scss';
 
 export const PromoCard = ({
-  slide: { card_image, logo, name, description, enDescription, btn },
+  card_image,
+  logo,
+  name,
+  description,
+  enDescription,
+  btn,
 }: {
-  slide: {
-    id: number;
-    name: string;
-    description: string;
-    enDescription: string;
-    logo: string | null;
-    card_image: string;
-    btn: string;
-  };
+  id: number;
+  name: string;
+  description: string;
+  enDescription: string;
+  logo: string | null;
+  card_image: string;
+  btn: string;
 }) => {
   const [isColorDark, setIsColorDark] = useState(true);
   const { t, i18n } = useTranslation();
@@ -36,7 +40,7 @@ export const PromoCard = ({
   }, [card_image]);
   return (
     <Link href={'/movies'} className={styles.card}>
-      <div className={styles.img_container}>
+      <div className={cn(styles.img_container, 'loader')}>
         <Image
           src={card_image}
           className={styles.img}

@@ -7,7 +7,6 @@
   max-width: 234px;
   max-height: 360px;
   aspect-ratio: 13/20;
-
   &:hover {
     transition: var(--transition-main);
     transform: scale(1.03) translateY(-1%);
@@ -37,12 +36,13 @@
 
 .image_section {
   position: relative;
-  background-color: var(--color-input-text);
   border-radius: 8px;
   overflow: hidden;
   transition: var(--transition-main);
   height: 100%;
   width: 100%;
+  background-color: var(--color-card-background);
+
 }
 
 .image {

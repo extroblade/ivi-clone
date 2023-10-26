@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { Carousel } from '@/entities/carousel';
+import { ActivateCertificateButton, PromotionButton } from '@/features/buttons/profile/buttons';
 import { useFetchAllFilmsQuery } from '@/shared/services';
 import { Description, List, Text, Title } from '@/shared/ui';
 import { CardWithProps } from '@/widgets/cards';
@@ -13,15 +14,21 @@ export const HomePage = () => {
     page: 1,
   });
   const { data: adventures } = useFetchAllFilmsQuery({
-    type: 'FILM',
     page: 1,
-    genres: '4',
+    genres: 4,
   });
 
   const { t } = useTranslation();
   return (
     <>
-      <Promo />
+      <Promo
+        actions={
+          <>
+            <PromotionButton type={'rect_icon_purple'} />
+            <ActivateCertificateButton type={'rect_icon'} />
+          </>
+        }
+      />
       <Title tag={'h4'}>{t('descriptions.main-page-title')}</Title>
 
       <Description>
