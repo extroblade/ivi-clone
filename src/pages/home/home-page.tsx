@@ -11,10 +11,8 @@ import { TopTenCarousel } from '@/widgets/top-10';
 export const HomePage = () => {
   const { data: anime } = useFetchAllFilmsQuery({
     genres: 24,
-    page: 1,
   });
   const { data: adventures } = useFetchAllFilmsQuery({
-    page: 1,
     genres: 4,
   });
 
