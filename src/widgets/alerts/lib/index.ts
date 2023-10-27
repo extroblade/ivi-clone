@@ -3,8 +3,8 @@ import { useEffect } from 'react';
 import { useBooleanState } from '@/shared/hooks';
 import { useAlertsStore } from '@/widgets/alerts/model/store';
 
-export const TIME_BEFORE_CLOSE = 2000;
-export const TIME_TO_CLOSE = 300;
+const TIME_BEFORE_CLOSE = 2000;
+const TIME_TO_CLOSE = 300;
 
 export const useCloseAlert = (
   id: string

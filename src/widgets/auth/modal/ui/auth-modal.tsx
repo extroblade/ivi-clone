@@ -16,7 +16,7 @@ import { useAuthModalStore } from '@/widgets/auth/model';
 
 import styles from './auth-modal.module.scss';
 
-const STEPS_COUNT: Readonly<number> = 4;
+const STEPS_COUNT = 4;
 
 const REGEX_PASSWORD = /^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{4,16}$/;
 const REGEX_EMAIL = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -53,7 +53,7 @@ export const AuthModal = (): JSX.Element => {
 
   const handleAuth = async () => {
     await signIn('credentials', {
-      login: login,
+      login,
       password,
     });
   };
