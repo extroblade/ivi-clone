@@ -1,14 +1,13 @@
 import cn from 'classnames';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useBooleanState } from '@/shared/hooks';
 import { Button } from '@/shared/ui';
 
 import styles from './description.module.scss';
-import { DescriptionProps } from './description.props';
 
-export const Description: FC<DescriptionProps> = ({ children }): JSX.Element => {
+export const Description = ({ children }: { children: ReactNode[] | ReactNode }) => {
   const [isOpen, { handleToggle }] = useBooleanState();
   const { t } = useTranslation();
 

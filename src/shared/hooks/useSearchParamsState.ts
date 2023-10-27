@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 import { useEvent } from '@/shared/hooks/useEvent';
 
@@ -44,7 +44,7 @@ export function useSearchParamsState<Value>({
     return deserialize ? deserialize(searchParam) : defaultDeserialize(searchParam);
   });
 
-  const updateValue = useEvent((newValue: React.SetStateAction<Value>) => {
+  const updateValue = useEvent((newValue: SetStateAction<Value>) => {
     if (typeof window == undefined) {
       return;
     }

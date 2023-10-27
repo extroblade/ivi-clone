@@ -1,16 +1,15 @@
 import cn from 'classnames';
-import { FC } from 'react';
 
 import styles from './button.module.scss';
 import { ButtonProps } from './button.props';
 
-export const Button: FC<ButtonProps> = ({
+export const Button = ({
   children,
   appearance = 'rectangle',
   size,
   className,
   ...props
-}): JSX.Element => {
+}: ButtonProps) => {
   return (
     <button
       className={cn(

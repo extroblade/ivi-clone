@@ -1,12 +1,10 @@
 import Image from 'next/image';
-import React, { FC } from 'react';
 import { FiUser } from 'react-icons/fi';
 
-import { colors } from '@/features/comment/avatar/model/colors';
-import { CommentAvatarProps } from '@/features/comment/avatar/model/props';
-import styles from '@/features/comment/ui/Comment.module.scss';
+import { colors } from '../model/colors';
+import styles from './avatar.module.scss';
 
-export const Avatar: FC<CommentAvatarProps> = ({ user }): JSX.Element => {
+export const Avatar = ({ user }: { user: any }) => {
   const color = typeof user === 'string' ? user?.split('')[0].charCodeAt(0) % 10 : 0;
   return (
     <div className={styles.user_image}>

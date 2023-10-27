@@ -1,12 +1,12 @@
 import { FastAverageColor } from 'fast-average-color';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useFetchFilmQuery } from '@/shared/services';
 
 import styles from './color-container.module.scss';
 
-export const ColorContainer: FC = () => {
+export const ColorContainer = () => {
   const [backgroundColor, setBackgroundColor] = useState('');
   const router = useRouter();
   const { data: movie } = useFetchFilmQuery(Number(router.query?.id), { skip: !router.query?.id });

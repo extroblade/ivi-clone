@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import { FC } from 'react';
 
 import styles from './breadcrumbs.module.scss';
 import { BreadcrumbsProps } from './breadcrumbs.props';
 
-export const Breadcrumbs: FC<BreadcrumbsProps> = ({ breadcrumbs, variant = 'primary' }) => {
+export const Breadcrumbs = ({ breadcrumbs, variant = 'primary' }: BreadcrumbsProps) => {
   return (
     <div className={styles.container}>
       <ul className={styles.breadcrumbs}>

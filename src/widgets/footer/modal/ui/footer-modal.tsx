@@ -1,6 +1,5 @@
 import cn from 'classnames';
 import Link from 'next/link';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiDevices, BiInfoCircle, BiMessageAlt } from 'react-icons/bi';
 import { BsCameraReels } from 'react-icons/bs';
@@ -20,7 +19,7 @@ import { Button, Text } from '@/shared/ui';
 import { ModalList } from '../list';
 import styles from './footer-modal.module.scss';
 
-export const FooterModal: FC = (): JSX.Element => {
+export const FooterModal = () => {
   const { t } = useTranslation();
   const { showFooterModal } = useAppSelector(selectModal);
   const dispatch = useAppDispatch();

@@ -1,6 +1,0 @@
-export const STEPS_COUNT: Readonly<number> = 4;
-
-export const REGEX_ANY = /^.*$/;
-
-export const REGEX_PASSWORD = /^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{4,16}$/;
-export const REGEX_EMAIL = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

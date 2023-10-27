@@ -1,14 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button, Text, Title } from '@/shared/ui';
 
-import { WatchOnAllDevicesProps } from '../model/props';
 import styles from './watch-on-all-devices.module.scss';
 
-export const WatchOnAllDevices: FC<WatchOnAllDevicesProps> = ({ name, image }) => {
+export const WatchOnAllDevices = ({ name, image }: { name: string; image?: string }) => {
   const { t } = useTranslation();
   const router = useRouter();
   if (!image) return <></>;

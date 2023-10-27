@@ -1,10 +1,7 @@
-import { FC } from 'react';
-
 import { numbers } from '../model/numbers';
-import { TopTenCardProps } from '../model/props';
 import styles from './card.module.scss';
 
-export const TopTenCardLoader: FC<Pick<TopTenCardProps, 'index'>> = ({ index }): JSX.Element => {
+export const TopTenCardLoader = ({ index }: { index: number }): JSX.Element => {
   return (
     <div className={styles.card}>
       <div className={`${styles.card_image} loader`} />

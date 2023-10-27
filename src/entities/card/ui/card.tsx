@@ -1,16 +1,24 @@
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
-import { CardProps } from '@/entities/card';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
+import { iFilm, iSimilarItems } from '@/shared/types/kinopoiskTypes';
 import { Text } from '@/shared/ui';
 
 import styles from './card.module.scss';
 import { CardLoader } from './card-loader';
 
-export const Card: FC<CardProps> = ({ card, buttons, info }): JSX.Element => {
+export const Card = ({
+  card,
+  buttons,
+  info,
+}: {
+  card: Partial<iFilm> & Partial<iSimilarItems>;
+  buttons?: ReactNode;
+  info?: ReactNode;
+}) => {
   const { kinopoiskId: id, filmId, posterUrlPreview } = card || {};
   const movieName = useLocalizeName(card);
   if (!posterUrlPreview) return <CardLoader />;
@@ -20,7 +28,7 @@ export const Card: FC<CardProps> = ({ card, buttons, info }): JSX.Element => {
       className={cn(styles.card, (info || buttons) !== undefined && styles.hover)}
       draggable="false"
     >
-      <div className={styles.image_section}>
+      <div className={cn(styles.image_section, 'loader')}>
         <Image
           className={styles.image}
           src={posterUrlPreview}

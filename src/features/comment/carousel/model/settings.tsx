@@ -1,18 +1,8 @@
 import { Settings } from 'react-slick';
 
-import { Next } from '@/features/arrow/ui/next';
-import { Prev } from '@/features/arrow/ui/prev';
-
 export const settings: Settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
   slidesToShow: 4,
-  draggable: true,
-  lazyLoad: 'progressive',
   slidesToScroll: 2,
-  nextArrow: <Next />,
-  prevArrow: <Prev />,
   responsive: [
     {
       breakpoint: 1160,

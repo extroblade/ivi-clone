@@ -1,27 +1,26 @@
 import Head from 'next/head';
-import { FC, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ColorContainer } from '@/entities/colored-container';
 import { ExternalSources } from '@/entities/external-sources';
-import { MovieInfo } from '@/entities/movie/info/ui/movie-info';
-import { useMovieTitle } from '@/entities/movie/lib/useMovieTitle';
-import { PersonsGallery } from '@/entities/movie/persons/gallery';
-import { SimilarCarousel } from '@/entities/movie/similar/similar-carousel';
-import { Trailers } from '@/entities/movie/trailers/ui/trailers';
-import { Player } from '@/entities/player/ui/player';
 import { WatchOnAllDevices } from '@/entities/watch-on-all-devices';
-import { CommentCarousel } from '@/features/comment/carousel/ui/CommentCarousel';
+import { CommentCarousel } from '@/features/comment';
 import { ScrollToTopButton } from '@/features/scroll-to-top';
 import { LanguageVariants, movieTypes } from '@/shared/constants';
 import { useFilterId } from '@/shared/hooks/useFilterId';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm } from '@/shared/types/kinopoiskTypes';
-import { Breadcrumbs, Title } from '@/shared/ui';
+import { Breadcrumbs } from '@/shared/ui';
+import {
+  MovieInfo,
+  PersonsGallery,
+  SimilarCarousel,
+  Trailers,
+  useMovieTitle,
+} from '@/widgets/movie';
 
-import styles from './movie-page.module.scss';
-
-export const MoviePage: FC<{ movie: iFilm }> = ({ movie }) => {
+export const MoviePage = ({ movie }: { movie: iFilm }) => {
   const { i18n } = useTranslation();
   const { posterUrl, coverUrl, posterUrlPreview, genres, type, kinopoiskId } = movie;
   const { typeName, typePath } = useMemo(() => {
@@ -48,13 +47,7 @@ export const MoviePage: FC<{ movie: iFilm }> = ({ movie }) => {
       </Head>
       <Breadcrumbs variant={'movie'} breadcrumbs={breadcrumbs} />
       <ColorContainer />
-      <div className={styles.row}>
-        <Title className={styles.mobile_title} tag="h2">
-          {title}
-        </Title>
-        <Player actions />
-        <MovieInfo movie={movie} />
-      </div>
+      <MovieInfo movie={movie} />
       <ExternalSources />
       <SimilarCarousel />
       <PersonsGallery />

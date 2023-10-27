@@ -8,7 +8,7 @@ import { HiOutlineBookmark } from 'react-icons/hi2';
 import { IoDiamondOutline, IoTimerOutline } from 'react-icons/io5';
 import { TbDeviceTvOld } from 'react-icons/tb';
 
-import { LogoutButton } from '@/features/logout-button';
+import { LogoutButton } from '@/features/buttons/logout';
 import { SelectProfile } from '@/features/select-profile';
 import { AuthButton } from '@/widgets/auth';
 

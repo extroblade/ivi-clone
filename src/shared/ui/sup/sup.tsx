@@ -1,8 +1,7 @@
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
 import styles from './sup.module.scss';
-import { SupProps } from './sup.props';
 
-export const Sup: FC<SupProps> = ({ children }) => {
+export const Sup = ({ children }: { children: ReactNode }) => {
   return <sup className={styles.sup}>{children}</sup>;
 };

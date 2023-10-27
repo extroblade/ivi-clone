@@ -1,7 +1,7 @@
-import { useAlertsStore } from '@/widgets/alerts/model/store';
+import { DEFAULT_ALERT_AMOUNT } from '@/shared/constants/alerts';
 
 import { Alert } from '../alert/ui/alert';
-import { DEFAULT_ALERT_AMOUNT } from '../model';
+import { useAlertsStore } from '../model/store';
 import styles from './alert-list.module.scss';
 
 export const AlertList = () => {

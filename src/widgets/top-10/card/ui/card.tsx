@@ -1,15 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { FC } from 'react';
 
 import { useLocalizeName } from '@/shared/helpers';
+import { iFilm } from '@/shared/types/kinopoiskTypes';
 
 import { numbers } from '../model/numbers';
-import { TopTenCardProps } from '../model/props';
 import styles from './card.module.scss';
 import { TopTenCardLoader } from './loader';
 
-export const TopTenCard: FC<TopTenCardProps> = ({ card, index }): JSX.Element => {
+export const TopTenCard = ({ card, index }: { card: iFilm; index: number }) => {
   const movieName = useLocalizeName(card);
 
   if (!card?.filmId) return <TopTenCardLoader index={index} />;

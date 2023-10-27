@@ -1,12 +1,17 @@
 import dayjs from 'dayjs';
-import { FC } from 'react';
 
 import { Vote } from '@/entities/vote';
-import { CommentCardProps } from '@/features/comment/card/model/props';
+import { iReviewsItem } from '@/shared/types/kinopoiskTypes';
 
 import styles from './CommentCard.module.scss';
 
-export const CommentCard: FC<CommentCardProps> = ({ comment, onClick }) => {
+export const CommentCard = ({
+  comment,
+  onClick,
+}: {
+  comment: iReviewsItem;
+  onClick?: () => void;
+}) => {
   const { author, date, title, description, negativeRating, positiveRating } = comment;
 
   return (

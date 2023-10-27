@@ -1,13 +1,8 @@
 import cn from 'classnames';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
-import { FC, useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 
-import { OpenTrailersButton } from '@/entities/player/actions';
-import { PlayerProps } from '@/entities/player/props/props';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites/ui/add-to-favorites';
-import { ShareButton } from '@/features/share-button/ui/share-button';
-import { TurnNotificationsButton } from '@/features/turn-notifications/ui/turn-notifications';
 import { useBrowser } from '@/shared/hooks/useBrowser';
 import { useFetchFilmVideoQuery } from '@/shared/services';
 import { Text } from '@/shared/ui';
@@ -16,7 +11,7 @@ import styles from './player.module.scss';
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: true });
 
-export const Player: FC<PlayerProps> = ({ url, actions }) => {
+export const Player = ({ url, actions }: { url?: string; actions?: ReactNode }) => {
   const router = useRouter();
   const { data: videos, isLoading } = useFetchFilmVideoQuery(
     { id: Number(router.query?.id) },
@@ -53,14 +48,7 @@ export const Player: FC<PlayerProps> = ({ url, actions }) => {
           />
         </div>
       </div>
-      {actions && (
-        <div className={styles.actions}>
-          <OpenTrailersButton appearance={'rectangle'} />
-          <AddToFavoritesButton appearance={'rectangle'} />
-          <TurnNotificationsButton appearance={'rectangle'} />
-          <ShareButton appearance={'rectangle'} />
-        </div>
-      )}
+      {actions && <div className={styles.actions}>{actions}</div>}
     </div>
   );
 };

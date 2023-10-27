@@ -1,4 +1,4 @@
-import "../src/app/global.scss";
+import "../src/app/styles/global.scss";
 import "./stories.scss";
 import { AppRouterContext } from "next/dist/shared/lib/app-router-context";
 import { Provider } from "react-redux";

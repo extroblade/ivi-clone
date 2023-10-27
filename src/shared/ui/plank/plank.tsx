@@ -1,19 +1,25 @@
 import cn from 'classnames';
-import React, { FC, useRef } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { BsChevronCompactDown, BsChevronCompactUp } from 'react-icons/bs';
 
 import { useOutsideClick } from '@/shared/hooks';
 
 import styles from './plank.module.scss';
-import { PlankProps } from './plank.props';
 
-export const Plank: FC<PlankProps> = ({
+export const Plank = ({
   children,
   title,
   isActive,
   onClose,
   onToggle,
-}): JSX.Element => {
+}: {
+  children: ReactNode[] | ReactNode;
+  dropdown?: ReactNode;
+  isActive?: boolean;
+  onClose: () => void;
+  onToggle: () => void;
+  title: string;
+}) => {
   const plankRef = useRef(null);
   useOutsideClick(onClose, plankRef);
   return (

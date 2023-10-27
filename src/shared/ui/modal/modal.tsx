@@ -1,11 +1,10 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
-import React, { FC, useRef } from 'react';
+import { ReactNode, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useBooleanState, useEscapeKey, useOutsideClick, usePreventScroll } from '@/shared/hooks';
 import { Button } from '@/shared/ui';
-import { ModalProps } from '@/shared/ui/modal/modal.props';
 
 import styles from './modal.module.scss';
 
@@ -16,12 +15,18 @@ const variants = {
     margin: 0,
   },
 };
-export const Modal: FC<ModalProps> = ({
+export const Modal = ({
   isOpen,
   cross = true,
   closeModal,
   variant = 'fullscreen',
   children,
+}: {
+  variant?: 'fullscreen' | 'primary';
+  children?: ReactNode;
+  isOpen: boolean;
+  closeModal: () => void;
+  cross?: boolean;
 }) => {
   const { t } = useTranslation();
 

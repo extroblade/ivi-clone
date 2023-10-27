@@ -1,13 +1,16 @@
 import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 
-type ReturnType = {
-  handleToggle: () => void;
-  handleOpen: () => void;
-  handleClose: () => void;
-  handleState: Dispatch<SetStateAction<boolean>>;
-};
-
-export const useBooleanState = (initialState?: boolean): [boolean, ReturnType] => {
+export const useBooleanState = (
+  initialState?: boolean
+): [
+  boolean,
+  {
+    handleToggle: () => void;
+    handleOpen: () => void;
+    handleClose: () => void;
+    handleState: Dispatch<SetStateAction<boolean>>;
+  }
+] => {
   const [state, setState] = useState<boolean>(initialState || false);
   const handleToggle = useCallback(() => {
     setState((prev) => !prev);

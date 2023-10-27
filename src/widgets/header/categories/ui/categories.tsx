@@ -1,14 +1,12 @@
 import Link from 'next/link';
-import { FC } from 'react';
 
 import { defaultYearsRange } from '@/shared/constants/default-years-range';
 import { useFetchFilmFiltersQuery } from '@/shared/services';
 
 import { defaultCollections } from '../model/default-collections';
-import { CategoriesProps } from '../model/props';
 import styles from './categories.module.scss';
 
-export const Categories: FC<CategoriesProps> = ({ href }): JSX.Element => {
+export const Categories = ({ href }: { href: string }): JSX.Element => {
   const { data: filters } = useFetchFilmFiltersQuery();
   return (
     <div className={styles.content}>

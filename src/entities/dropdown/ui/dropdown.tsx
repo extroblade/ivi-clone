@@ -1,9 +1,8 @@
-import { FC } from 'react';
+import { ReactNode } from 'react';
 
-import { DropdownProps } from '@/entities/dropdown/model/props';
-import styles from '@/entities/dropdown/ui/dropdown.module.scss';
+import styles from './dropdown.module.scss';
 
-export const Dropdown: FC<DropdownProps> = ({ state, children }): JSX.Element => {
+export const Dropdown = ({ state, children }: { state?: boolean; children: ReactNode }) => {
   if (!state) return <></>;
   return <div className={styles.dropdown_out}>{children}</div>;
 };

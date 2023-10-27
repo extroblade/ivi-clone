@@ -1,4 +1,3 @@
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiSearch } from 'react-icons/bi';
 import { HiDotsHorizontal } from 'react-icons/hi';
@@ -12,7 +11,7 @@ import { selectModal, setShowFooterModal, setShowSearch } from '@/shared/store';
 import { FooterLink } from '../footer-link';
 import styles from './FooterMobile.module.scss';
 
-export const FooterMobile: FC = (): JSX.Element => {
+export const FooterMobile = () => {
   const { t } = useTranslation();
   const { showSearch, showFooterModal } = useSelector(selectModal);
   const dispatch = useDispatch();

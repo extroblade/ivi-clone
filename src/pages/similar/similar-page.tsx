@@ -1,18 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { AddToFavoritesButton } from 'src/features/buttons/add-movie-to-favorites';
 
 import { Card } from '@/entities/card';
-import { AddToFavoritesButton } from '@/features/add-movie-to-favorites';
 import { useLocalizeName } from '@/shared/hooks/useLocalizeName';
 import { iFilm, iSimilar } from '@/shared/types/kinopoiskTypes';
 import { Grid, Title } from '@/shared/ui';
 
-type MovieProps = {
-  movie: iFilm;
-  similar: iSimilar;
-};
-
-export const SimilarPage = ({ movie, similar }: MovieProps) => {
+export const SimilarPage = ({ movie, similar }: { movie: iFilm; similar: iSimilar }) => {
   const movieName = useLocalizeName(movie);
   if (!similar?.total) return <Title>Nothing found!</Title>;
   return (

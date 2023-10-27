@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import Slider from 'react-slick';
 
+import { Carousel } from '@/entities/carousel';
 import { CommentCard } from '@/features/comment/card/ui/CommentCard';
 import { settings } from '@/features/comment/carousel/model/settings';
 import { useScrollTop } from '@/features/scroll-to-top/lib';
@@ -44,12 +44,12 @@ export const CommentCarousel: FC = () => {
           </Button>
         </div>
       </nav>
-      <Slider {...settings}>
+      <Carousel settings={settings}>
         {!isLoading &&
           comments?.items.map((comment) => (
             <CommentCard onClick={openComments} comment={comment} key={comment.kinopoiskId} />
           ))}
-      </Slider>
+      </Carousel>
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BiDevices } from 'react-icons/bi';
 import { CgPhone } from 'react-icons/cg';
@@ -22,7 +21,7 @@ import { Button, Text, Title } from '@/shared/ui';
 import { defaultFooterLinks } from '../model/links';
 import styles from './footer.module.scss';
 
-export const Footer: FC = (): JSX.Element => {
+export const Footer = () => {
   const { t } = useTranslation();
   const router = useRouter();
   return (

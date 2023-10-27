@@ -1,14 +1,14 @@
 import cn from 'classnames';
 import Image from 'next/image';
-import { FC, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
-import { ExplanationsProps } from '@/entities/explanations/model/props';
 import { useFetchFilmFactsQuery } from '@/shared/services';
+import { iFacts } from '@/shared/types/kinopoiskTypes';
 import { Loader } from '@/shared/ui';
 
 import styles from './explanations.module.scss';
 
-export const Explanations: FC<ExplanationsProps> = ({ factsId }) => {
+export const Explanations = ({ factsId }: { facts?: iFacts; factsId: number }) => {
   const { data: facts, isLoading, error } = useFetchFilmFactsQuery({ id: factsId });
 
   const items = useMemo(() => {

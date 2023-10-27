@@ -13,7 +13,7 @@ import {
   SupportButton,
   ViewedButton,
   WatchLaterButton,
-} from '@/features/profile-interactions/buttons';
+} from 'src/features/buttons/profile/buttons';
 
 type listProps = {
   className: string;
