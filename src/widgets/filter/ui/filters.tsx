@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { GoSettings } from 'react-icons/go';
+import { MdSettingsInputComposite as GoSettings } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
 
 import { SortDropdown } from '@/entities/dropdown';

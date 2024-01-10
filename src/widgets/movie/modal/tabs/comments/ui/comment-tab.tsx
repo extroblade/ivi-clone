@@ -20,9 +20,7 @@ export const CommentTab = () => {
     <div className={styles.comment_section}>
       <CommentInput />
       <ul>
-        {comments?.items.map((comment) => (
-          <Comment comment={comment} key={comment.kinopoiskId} />
-        ))}
+        {comments?.items.map((comment) => <Comment comment={comment} key={comment.kinopoiskId} />)}
       </ul>
     </div>
   );

@@ -31,20 +31,18 @@ export const MovieList = ({ list }: { list: StaffFilm[] }) => {
       <div className={styles.cards}>
         {!isOpen && list?.length > 8 ? (
           <>
-            {list?.slice(0, 8).map((card: StaffFilm) => (
-              <MovieCard key={card.filmId + card.professionKey} card={card} />
-            ))}
+            {list
+              ?.slice(0, 8)
+              .map((card: StaffFilm) => (
+                <MovieCard key={card.filmId + card.professionKey} card={card} />
+              ))}
             <Text onClick={handleToggle} className={styles.link}>
               {t('buttons.more')} {list?.length - 8}
               {i18next.language == 'en' ? ' movies' : getRemainingFilmAmount(list?.length - 8)}
             </Text>
           </>
         ) : (
-          <>
-            {list?.map((card) => (
-              <MovieCard key={card.filmId} card={card} />
-            ))}
-          </>
+          <>{list?.map((card) => <MovieCard key={card.filmId} card={card} />)}</>
         )}
       </div>
     </div>

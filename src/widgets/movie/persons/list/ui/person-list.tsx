@@ -23,9 +23,11 @@ export const PersonList = ({ rating }: { rating: string | number }) => {
         <PersonCard title={t('categories.rating') || ''}>
           <RatingPlate rating={rating} />
         </PersonCard>
-        {persons?.slice(0, 6).map((person) => (
-          <PersonForList person={person} key={person.staffId + person.professionKey} />
-        ))}
+        {persons
+          ?.slice(0, 6)
+          .map((person) => (
+            <PersonForList person={person} key={person.staffId + person.professionKey} />
+          ))}
       </div>
     </div>
   );

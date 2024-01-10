@@ -18,11 +18,7 @@ export const Grid = ({ type }: { type: FilmTypeVariants }) => {
   return (
     <>
       {isLoader && <Loader />}
-      <UIGrid>
-        {movies?.map((card, index) => (
-          <CardWithProps card={card} key={index} />
-        ))}
-      </UIGrid>
+      <UIGrid>{movies?.map((card, index) => <CardWithProps card={card} key={index} />)}</UIGrid>
       <div className={styles.nodata}>
         {isNothingFound && <Title tag={'h2'}>Ничего не найдено</Title>}
       </div>

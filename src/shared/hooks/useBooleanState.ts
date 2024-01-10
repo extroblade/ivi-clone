@@ -9,7 +9,7 @@ export const useBooleanState = (
     handleOpen: () => void;
     handleClose: () => void;
     handleState: Dispatch<SetStateAction<boolean>>;
-  }
+  },
 ] => {
   const [state, setState] = useState<boolean>(initialState || false);
   const handleToggle = useCallback(() => {
