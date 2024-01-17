@@ -14,6 +14,8 @@ npm run dev
 
 Next.js, Typescript, Redux Toolkit, RTK Query, SCSS, TypeScript, Jest, Storybook
 
+
+API - https://kinopoiskapiunofficial.tech/
 ---
 
 #### Other commands:
@@ -31,4 +33,6 @@ VK_CLIENT_ID=
 VK_CLIENT_SECRET=
 
 JWT_SECRET=
+
+X_API_KEY=
 ```
